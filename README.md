@@ -6,6 +6,7 @@ This is my Electronics Engineering final project, a 40kW, 600V, 3 phase inverter
 ## Repository Contents
 This repository contains the following files and directories:
 
+* [Control/](https://github.com/dweggg/Inverter/blob/main/Control/): This directory contains the MATLAB & Simulink files used to undestand and develop the FOC.
 * [HW/](https://github.com/dweggg/Inverter/blob/main/HW/): This directory contains all the design documents, such as schematics, PCB layouts, and BOM.
 * [FW/](https://github.com/dweggg/Inverter/blob/main/SW/): This directory contains the firmware code for the inverter, which is written in C and uses a PIC32MK microcontroller.
 * [app/](https://github.com/dweggg/Inverter/blob/main/app/): This directory contains the C++ code for the desktop application, which is developed using the Qt and Boost libraries.
