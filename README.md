@@ -6,10 +6,9 @@ This is my Electronics Engineering final project, a 40kW, 600V, 3 phase inverter
 ## Repository Contents
 This repository contains the following files and directories:
 
-* ´HW/´: This directory contains all the design documents, such as schematics, PCB layouts, and BOM.
-* ´FW/´: This directory contains the firmware code for the inverter, which is written in C and uses a PIC32MK microcontroller.
-* ´app/´: This directory contains the C++ code for the desktop application, which is developed using the Qt and Boost libraries.
-* ´README.md´: This file is the README you are currently reading, which provides an overview of the project and repository contents.
+* [HW/](https://github.com/dweggg/Inverter/blob/main/HW/): This directory contains all the design documents, such as schematics, PCB layouts, and BOM.
+* [FW/](https://github.com/dweggg/Inverter/blob/main/SW/): This directory contains the firmware code for the inverter, which is written in C and uses a PIC32MK microcontroller.
+* [app/](https://github.com/dweggg/Inverter/blob/main/app/): This directory contains the C++ code for the desktop application, which is developed using the Qt and Boost libraries.
 
 ## Getting Started
 
@@ -43,7 +42,7 @@ Add additional notes about how to deploy this on a live system
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/username/projectname/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/dweggg/Inverter/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
