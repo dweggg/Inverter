@@ -3,6 +3,14 @@
 
 This is my Electronics Engineering final project, a 40kW, 600V, 3 phase inverter. The goal is to design and implement a bidirectional power inverter that is fault-tolerant. The inverter will use Field-Oriented Control, and will be capable of operating in both sensored and sensorless modes, as well as having autotuning and testing features. The target power densities for the inverter are 50 kW/liter and 30 kW/kg, and it will be designed with a variety of control and power requirements in mind. A desktop application will be developed in C++ using Qt and Boost libraries, and will enable live plots, serial communication, and data logging for monitoring the inverter states.
 
+## Repository Contents
+This repository contains the following files and directories:
+
+* ´HW/´: This directory contains all the design documents, such as schematics, PCB layouts, and BOM.
+* ´FW/´: This directory contains the firmware code for the inverter, which is written in C and uses a PIC32MK microcontroller.
+* ´app/´: This directory contains the C++ code for the desktop application, which is developed using the Qt and Boost libraries.
+* ´README.md´: This file is the README you are currently reading, which provides an overview of the project and repository contents.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
