@@ -15,20 +15,21 @@ What things you need to install the software and how to install them
 
 A step by step series of examples that tell you how to get a development environment running
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
 ## Deployment
 
 Add additional notes about how to deploy this on a live system
 
 ## Built With
+### Control study
+* [MATLAB 2022b & Simulink](https://www.mathworks.com/products/matlab.html) - Design of the vector control algorithm and general understanding of FOC
 
+### HW
+* [KiCad EDA](https://www.kicad.org/) - Schematics and PCB
+
+### FW
+* [MPLAB X w/ Harmony](https://www.microchip.com/en-us/tools-resources/configure/mplab-harmony) - IDE for PIC32 MCUs
+
+### Desktop App
 * [Qt](https://www.qt.io/) - C++ framework used for the desktop application
 * [Boost](https://www.boost.org/) - C++ libraries used for the desktop application
 
@@ -51,4 +52,3 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * e-Tech Racing
 * UPC EEBE
 * CITCEA
-* Alfonso Conesa
