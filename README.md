@@ -38,8 +38,7 @@ Add additional notes about how to deploy this on a live system
 * [MPLAB X w/ Harmony](https://www.microchip.com/en-us/tools-resources/configure/mplab-harmony) - IDE for PIC32 MCUs
 
 ### Desktop App
-* [Qt](https://www.qt.io/) - C++ framework used for the desktop application
-* [Boost](https://www.boost.org/) - C++ libraries used for the desktop application
+* Visual Studio default desktop app project
 
 ## Contributing
 
