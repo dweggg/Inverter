@@ -1,4 +1,4 @@
-#⚡Inverter⚡
+# ⚡Inverter⚡
 40kW, 600V, 3 phase inverter with FOC 
 
 This is my Electronics Engineering final project, an open source, 40kW, 600V, 3 phase inverter. The goal is to design and implement a bidirectional power inverter that is fault-tolerant. The inverter will use Field-Oriented Control, and will be capable of operating in both sensored and sensorless modes, as well as having autotuning and testing features. The target power densities for the inverter are 50 kW/liter and 30 kW/kg, and it will be designed with a variety of control and power requirements in mind. A desktop application will be developed and will enable live plots, serial communication, and data logging for monitoring the inverter states.
