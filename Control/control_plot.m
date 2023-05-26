@@ -1,29 +1,39 @@
 clc, clear
 
 %% Permanent magnet synchronous machine constant parameters
-lambda = 35e-3;                         % [Wb] PM flux linkage
-Ld =  0.2372e-3;                        % [H] d-axis inductance
-Lq =  0.4459e-3;                        % [H] q-axis inductance
+Ke = 0.1;                               % [V/(rad/s)] Speed constant
+n = 6;                                  % [ad] Number of poles 
+%n = 8; Motor 2017-2023
+lambda = sqrt(2/3) * Ke / (n/2);        % [Wb] PM flux linkage
+%lambda = 0.10642288363; Motor 2017-2023
+Ld =  0.1269e-3;                        % [H] d-axis inductance
+%Ld = 520e-6; Motor 2017-2023
+Lq =  0.2268e-3;                        % [H] q-axis inductance
+%Lq = 1.26e-3; Motor 2017-2023
 epsilon = Lq/Ld;                        % [ad] Saliency ratio
 Rs = 0.0201;                            % [Ohm] Stator phase resistance (phase-to-phase/2)
-n = 6;                                  % [ad] Number of poles 
-J = 0.01;                               % [N·m^2] Rotor moment of inertia
-B = 0.005;                              % [ad] Rotor viscous friction coefficient
+J = 0.001;                              % [N·m^2] Rotor moment of inertia
+B = 0.001;                              % [ad] Rotor viscous friction coefficient
 P_max = 35e3;                           % [W] Maximum output power
 maxRPM = 25000;                         % [rpm] Motor maximum angular speed
-Vb = lambda * maxRPM*(2*pi/60) / (n/2); % [V] Base voltage
-Vbat = 600;                             % [V] Battery DC voltage
-Vs_max = Vbat / (sqrt(3)*Vb);           % [V] Maximum d-q voltage (Maximum Torque per Voltage Flux-Weakening strategy with speed limiter for PMSM drives, 2020)
-Is_max = 0.05 * P_max / Vs_max;         % [A] Maximum d-q current (sqrt(i_d^2+i_q^2))
+%maxRPM = 5000; Motor 2017-2023
+Te_max = 30;                            % [N·m] Maximum motor torque
+%Te_max = 150; Motor 2017-2023
+Vbat = 580;                             % [V] Battery DC voltage
+Vs_max = Vbat / sqrt(3);                % [V] Maximum d-q voltage (Maximum Torque per Voltage Flux-Weakening strategy with speed limiter for PMSM drives, 2020)
+Is_max = 200;                           % [A] Maximum d-q current (sqrt(i_d^2+i_q^2))
+
+
 
 %% Commands
-Te_command = 8;
-speed_command = 7500*2*pi/60;
+Te_command = 10;
+speed_command = 12500*2*pi/60;
+
 %% dq plot
 idiq = figure;
 
-id_lim = [-200, 50];
-iq_lim = [-200, 200];
+id_lim = [-Is_max-50, 50];
+iq_lim = [-Is_max-50, +Is_max+50];
 
 axis([id_lim, iq_lim])             % [A] Current maximum values
 xlabel('i_d [A]') 
@@ -41,16 +51,8 @@ ax.YAxisLocation="origin";
 hold on
 
 tic
-Te_vals = [-50, -26, -20, -5, -1, 1, 5, 20, 26, 50]; % [Nm] Torque values
+Te_vals = linspace(-Te_max, Te_max, 12); % [Nm] Torque values
 
-%id = id_lim(1):1:id_lim(2);
-%iq = iq_lim(1):1:iq_lim(2);
-    
-%tq_color_plot = pcolor(id, iq, abs((3/2)*(n/2)*(lambda.*iq'+(Ld-Lq).*iq'.*id)));
-
-%set(tq_color_plot, 'EdgeColor', 'none');
-%colorbar
-%colormap(parula)
 syms id
 
 for i = 1:length(Te_vals)
@@ -73,7 +75,7 @@ clear alpha
 
 %% MTPA curve
 
-Te_vals = [-50:.5:-.1 .1:.5:50]; % More torque values, excluding 0
+Te_vals = linspace(-Te_max, Te_max, 100); % [Nm] 100 Torque values
 iq_ref_MTPA = zeros(1,length(Te_vals));
 
 % Iq_ref from torque, MTPA. Extracted from
@@ -92,8 +94,6 @@ for i = 1:length(Te_vals)
 end
 toc
 
-clear iq eqn solutions real_sols
-
 % Id_ref from Iq_ref, MTPA. Extracted from
 % https://iris.unipa.it/retrieve/handle/10447/406125/862725/document.pdf,
 % eqn 10
@@ -109,16 +109,16 @@ for i = 1:length(Te_vals)
 end
 
 %% Voltage ellipse
-
-speed_vals = [linspace(0, maxRPM*2*pi/60, 6) speed_command];
+I_ck = lambda/Ld;
+speed_vals = [linspace(0.001, maxRPM*2*pi/60, 6), speed_command]; % 10 voltage ellipses
 
 % Voltage ellipse eqn
 % (id-lambda/Ld)^2/(Vs_max/(Ld*speed))^2+iq^2/(Vs_max/(Lq*speed))^2<=1
 for i = 1:length(speed_vals)
 
-    h_ellipse = -lambda/Ld;
-    a_ellipse = Vs_max./(Ld.*speed_vals(i));
-    b_ellipse = Vs_max./(Lq.*speed_vals(i));
+    h_ellipse = -I_ck;
+    a_ellipse = Vs_max./(Ld.*(n/2)*speed_vals(i));
+    b_ellipse = Vs_max./(Lq.*(n/2)*speed_vals(i));
     
     t=-pi:0.01:pi;
     
@@ -134,8 +134,6 @@ for i = 1:length(speed_vals)
 
     end
 end
-
 %% Plot legend
 
 legend([i_lim_plot(1), tq_plot(1), MTPA_plot(1), voltageEllipse_plot(1)], 'Current limit [A]', 'Torque curves', 'MTPA hyperbola', 'Voltage limit ellipses')
-% TODO: speed limit, FW, MTPV
