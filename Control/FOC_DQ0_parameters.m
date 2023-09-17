@@ -49,4 +49,4 @@ car.Af = 1.1;                                       % [m^2] Frontal area
 car.Cd = 1.5;                                       % [ad] Drag coefficient
 car.RR = 0.017;                                     % [ad] Rolling resistance coefficient
 
-car.motor_number = 2;                               % [ad] Number of motors in the car
+car.motor_number = 4;                               % [ad] Number of motors in the car
