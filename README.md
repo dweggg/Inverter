@@ -1,7 +1,7 @@
 # ⚡Inverter⚡
-Dual 40kW, 600V, 3 phase inverter with FOC 
+80kW (2x40kW), 600V, 3 phase inverter with FOC 
 
-This is my Electronics Engineering final project, an open source, dual 40kW, 600V, 3 phase inverter. The goal is to design and implement a bidirectional power inverter that is somewhat fault-tolerant. The inverter will use Field-Oriented Control, and will be capable of operating in both sensored and sensorless modes, as well as having autotuning and testing features. The target power densities for the inverter are 50 kW/liter and 30 kW/kg, and it will be designed with a variety of control and power requirements in mind. A desktop application will be developed and will enable parameter tuning and data logging for monitoring the inverter states.
+This is my Electronics Engineering final project, a dual 40kW, 600V, 3 phase inverter. The goal is to design and implement a bidirectional power inverter that is somewhat fault-tolerant. The inverter will use Field-Oriented Control, as well as having autotuning and testing features. The target power densities for the inverter are 50 kW/liter and 30 kW/kg, and it will be designed with a variety of control and power requirements in mind. 
 
 ## 📁 Repository Contents
 This repository contains the following files and directories:
@@ -9,7 +9,6 @@ This repository contains the following files and directories:
 * [🕹️ Control/](https://github.com/dweggg/Inverter/blob/main/Control/): This directory contains the MATLAB & Simulink files used to undestand and develop the FOC.
 * [🛠️ HW/](https://github.com/dweggg/Inverter/blob/main/HW/): This directory contains all the design documents, such as schematics, PCB layouts, and BOM.
 * [💾 SW/](https://github.com/dweggg/Inverter/blob/main/SW/): This directory contains the firmware code for the inverter, which is written in C and uses a STM32 microcontroller.
-* [💻 app/](https://github.com/dweggg/Inverter/blob/main/app/): This directory will contain the desktop app for tuning and testing the inverter.
 
 ## 🛠️ Built With
 ### 🕹️ Control study
@@ -21,8 +20,6 @@ This repository contains the following files and directories:
 ### 💾 SW
 * [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) - IDE for STM32 MCUs
 
-### 💻 Desktop App
-* ⚠️ TO DO
 
 ## 🤝 Contributing
 
