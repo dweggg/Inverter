@@ -20,16 +20,17 @@ inv = struct();
 inv.fsw = 8e3;
 inv.Tsw = 1/inv.fsw;
 
-inv.tr_id = 10e-3;                   % Rise time [s]
+inv.tr_id = 1e-3;                   % Rise time [s]
 inv.alpha_id = log(9)/inv.tr_id;
 inv.Kp_id = inv.alpha_id*motor.Ld;
 inv.Ki_id = inv.alpha_id*motor.Rs;
+inv.Kaw_id = 10;
 
-inv.tr_iq = 10e-3;                   % Rise time [s]
+inv.tr_iq = 1e-3;                   % Rise time [s]
 inv.alpha_iq = log(9)/inv.tr_iq;
 inv.Kp_iq = inv.alpha_iq*motor.Lq;
 inv.Ki_iq = inv.alpha_iq*motor.Rs;
-
+inv.Kaw_iq = 10;
 
 %% Battery parameters
 battery = struct();
@@ -43,7 +44,6 @@ battery.R0 = 0.0012;                                 % [V] Battery internal resi
 battery.R1 = 0.0004;                                 % [V] Battery polarization resistance
 battery.C1 = 4074;                                   % [V] Battery polarization capacitance                                    
 
-Vdc = max(battery.OCV);
 %% Car parameters
 car = struct();
 car.GR = 4;                                         % [ad] Gear ratio
