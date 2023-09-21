@@ -1,7 +1,7 @@
 # ⚡Inverter⚡
 80kW (2x40kW), 600V, 3 phase inverter with FOC 
 
-This is my Electronics Engineering final project, a dual 40kW, 600V, 3 phase inverter. The goal is to design and implement a bidirectional power inverter that is somewhat fault-tolerant. The inverter will use Field-Oriented Control, as well as having autotuning and testing features. The target power densities for the inverter are 50 kW/liter and 30 kW/kg, and it will be designed with a variety of control and power requirements in mind. 
+This is my Electronics Engineering bachelor thesis, a dual 40kW, 600V, 3 phase inverter. The goal is to design and implement a bidirectional inverter that is somewhat fault-tolerant. The inverter will use Field-Oriented Control, as well as having autotuning and testing features. The target power densities for the inverter are 50 kW/liter and 30 kW/kg, and it will be designed with a variety of control and power requirements in mind.
 
 ## 📁 Repository Contents
 This repository contains the following files and directories:
@@ -23,7 +23,7 @@ This repository contains the following files and directories:
 
 ## 🤝 Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/dweggg/Inverter/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to me.
+Please read [CONTRIBUTING.md](https://github.com/dweggg/Inverter/blob/master/CONTRIBUTING.md) Not ready for contributions yet.
 
 ## 👤 Author
 
