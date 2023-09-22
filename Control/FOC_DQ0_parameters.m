@@ -33,22 +33,22 @@ inv.FW = struct();
 inv.fsw = 8e3;
 inv.Tsw = 1/inv.fsw;
 
-inv.Ts_PI = 1e-4;
+inv.Ts_PI = 5e-4;
 
 inv.tr_id = 1e-3;                   % Rise time [s]
 inv.alpha_id = log(9)/inv.tr_id;
 inv.Kp_id = inv.alpha_id*motor.Ld;
 inv.Ki_id = inv.alpha_id*motor.Rs;
-inv.Kaw_id = inv.Ki_id;
+inv.Kaw_id = sqrt(inv.Ki_id);
 
 inv.tr_iq = 1e-3;                   % Rise time [s]
 inv.alpha_iq = log(9)/inv.tr_iq;
 inv.Kp_iq = inv.alpha_iq*motor.Lq;
 inv.Ki_iq = inv.alpha_iq*motor.Rs;
-inv.Kaw_iq = inv.Ki_id;
+inv.Kaw_iq = sqrt(inv.Ki_iq);
 
 inv.FW.KFW = 0.8;                % Relationship between the maximum available voltage and the applicable voltage [pu]
-inv.FW.tsV = 500e-3;              % Flux.weakening closed-loop settling time (s)
+inv.FW.tsV = 100e-3;              % Flux.weakening closed-loop settling time (s)
 inv.FW.Is_WP = 100;               % Current magnitude working point (A)
 inv.FW.gamma_WP = 3*pi/4;     % Current angle working point (rad)
 
