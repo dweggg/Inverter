@@ -39,17 +39,17 @@ inv.tr_id = 1e-3;                   % Rise time [s]
 inv.alpha_id = log(9)/inv.tr_id;
 inv.Kp_id = inv.alpha_id*motor.Ld;
 inv.Ki_id = inv.alpha_id*motor.Rs;
-inv.Kaw_id = sqrt(inv.Ki_id);
+inv.Kaw_id = 1/sqrt(inv.Ki_id);
 
 inv.tr_iq = 1e-3;                   % Rise time [s]
 inv.alpha_iq = log(9)/inv.tr_iq;
 inv.Kp_iq = inv.alpha_iq*motor.Lq;
 inv.Ki_iq = inv.alpha_iq*motor.Rs;
-inv.Kaw_iq = sqrt(inv.Ki_iq);
+inv.Kaw_iq = 1/sqrt(inv.Ki_iq);
 
 inv.FW.KFW = 0.8;                % Relationship between the maximum available voltage and the applicable voltage [pu]
-inv.FW.tsV = 100e-3;              % Flux.weakening closed-loop settling time (s)
-inv.FW.Is_WP = 100;               % Current magnitude working point (A)
+inv.FW.tsV = 200e-3;              % Flux.weakening closed-loop settling time (s)
+inv.FW.Is_WP = motor.I_max;               % Current magnitude working point (A)
 inv.FW.gamma_WP = 3*pi/4;     % Current angle working point (rad)
 
 inv.FW.A = -motor.Rs * inv.FW.Is_WP * sin(inv.FW.gamma_WP) * (inv.FW.Is_WP * cos(inv.FW.gamma_WP) * (motor.Ld-motor.Lq) + motor.lambda) / (motor.Lq^2 * inv.FW.Is_WP^2 * sin(inv.FW.gamma_WP)^2 + (motor.Ld * inv.FW.Is_WP * cos(inv.FW.gamma_WP) + motor.lambda)^2);
@@ -78,5 +78,5 @@ car.Rw = 0.228;                                     % [m] Wheel radius
 car.Af = 1.1;                                       % [m^2] Frontal area
 car.Cd = 1.5;                                       % [ad] Drag coefficient
 car.RR = 0.017;                                     % [ad] Rolling resistance coefficient
-
+car.T_Te = 0.1;                                     % [s] Time from Te = 0 to Te = Te_max
 car.motor_number = 2;                               % [ad] Number of motors in the car
