@@ -95,5 +95,5 @@ car.Rw = 0.220;                                     % [m] Wheel radius
 car.Af = 1.1;                                       % [m^2] Frontal area
 car.Cd = 1.5;                                       % [ad] Drag coefficient
 car.RR = 0.017;                                     % [ad] Rolling resistance coefficient
-car.T_Te = 0.5;                                     % [s] Time from Te = 0 to Te = Te_max
+car.T_Te = 0.2;                                     % [s] Time from Te = 0 to Te = Te_max
 car.motor_number = 1;                               % [ad] Number of motors in the car
