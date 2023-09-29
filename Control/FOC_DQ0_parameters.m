@@ -53,13 +53,13 @@ inv.tr_id = 1e-3;                   % Rise time [s]
 inv.alpha_id = log(9)/inv.tr_id;
 inv.Kp_id = inv.alpha_id*motor.Ld;
 inv.Ki_id = inv.alpha_id*motor.Rs;
-inv.Kaw_id = 1/sqrt(inv.Ki_id);
+inv.Kaw_id = 1/inv.Ki_id;
 
 inv.tr_iq = 1e-3;                   % Rise time [s]
 inv.alpha_iq = log(9)/inv.tr_iq;
 inv.Kp_iq = inv.alpha_iq*motor.Lq;
 inv.Ki_iq = inv.alpha_iq*motor.Rs;
-inv.Kaw_iq = 1/sqrt(inv.Ki_iq);
+inv.Kaw_iq = 1/inv.Ki_iq;
 
 inv.FW.KFW = 0.8;                % Relationship between the maximum available voltage and the applicable voltage [pu]
 inv.FW.tsV = 200e-3;              % Flux.weakening closed-loop settling time (s)
