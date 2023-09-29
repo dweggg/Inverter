@@ -23,7 +23,7 @@ motor.lambda = 0.054758;                     % [Wb] PM flux linkage
 motor.Ld =  0.2450e-3;                       % [H] d-axis inductance
 motor.Lq =  0.3674e-3;                       % [H] q-axis inductance
 motor.epsilon = motor.Lq/motor.Ld;           % [ad] Saliency ratio
-motor.Rs = 0.15;                             % [Ohm] Stator phase resistance (phase-to-phase/2)
+motor.Rs = 0.15;                             % [Ohm]     Stator phase resistance (phase-to-phase/2)
 motor.maxRPM = 20000;                        % [rpm] Motor maximum angular speed
 motor.K_FW = 0.80;                           % [%] Field Weakening safety factor
 motor.Te_max = 26;                           % [N·m] Motor maximum angular torque
@@ -88,8 +88,8 @@ inv.FW.Ki_V_Delta = -5*(battery.OCV(end)/sqrt(3))/(inv.FW.A + inv.FW.B - inv.FW.
 
 %% Car parameters
 car = struct();
-% car.GR = 4;                                       % [ad] Gear ratio
-car.GR = 11.2;                                      % [ad] Gear ratio
+% car.GR = 4;                                         % [ad] Gear ratio
+ car.GR = 11.2;                                      % [ad] Gear ratio
 car.Mass = 300;                                     % [kg] Car mass
 car.Rw = 0.220;                                     % [m] Wheel radius
 car.Af = 1.1;                                       % [m^2] Frontal area
