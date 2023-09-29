@@ -18,7 +18,7 @@ Vs_nom = Vbat_nom / sqrt(3);        % Nominal motor Voltage (V)
 
 fsw = 50e3;                         % Inverter maximum switching Frequency (Hz)
 
-K_FW = 0.85;                        % Field Weakening Factor [0.7 .. 0.95]
+K_FW = 0.80;                        % Field Weakening Factor [0.7 .. 0.95]
 
 % Pole number calculation
 f_max = fsw / 40;
