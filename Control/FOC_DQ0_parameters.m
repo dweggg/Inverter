@@ -1,6 +1,7 @@
 clc, clear
 
 %% Permanent magnet synchronous machine constant parameters
+
 %{
 motor = struct();
 motor.n = 8;                                 % [ad] Number of poles 
@@ -15,7 +16,6 @@ motor.K_FW = 0.85;                           % [%] Field Weakening safety factor
 motor.Te_max = 130;                          % [N·m] Motor maximum angular torque
 motor.I_max = 180;                           % [A] Maximum d-q current (sqrt(i_d^2+i_q^2))
 %}
-
 
 motor = struct();
 motor.n = 6;                                 % [ad] Number of poles 
@@ -46,27 +46,27 @@ battery.C1 = 4074;                                     % [V] Battery polarizatio
 inv = struct();
 inv.FW = struct();
 
-inv.fsw = 8e3;
+inv.fsw = 50e3;
 inv.Tsw = 1/inv.fsw;
 
 inv.Ts_PI = 5e-4;
 
-inv.tr_id = inv.Ts_PI*2;                   % Rise time [s]
+inv.tr_id = inv.Ts_PI*2;                               % Rise time [s]
 inv.alpha_id = log(9)/inv.tr_id;
 inv.Kp_id = inv.alpha_id*motor.Ld;
 inv.Ki_id = inv.alpha_id*motor.Rs;
-inv.Kaw_id = 1/inv.Ki_id;
+inv.Kaw_id = 1/inv.Ki_id;                              % Not actually sure of this, but works fine
 
-inv.tr_iq = inv.Ts_PI*2;                   % Rise time [s]
+inv.tr_iq = inv.Ts_PI*2;                               % Rise time [s]
 inv.alpha_iq = log(9)/inv.tr_iq;
 inv.Kp_iq = inv.alpha_iq*motor.Lq;
 inv.Ki_iq = inv.alpha_iq*motor.Rs;
-inv.Kaw_iq = 1/inv.Ki_iq;
+inv.Kaw_iq = 1/inv.Ki_iq;                              % Not actually sure of this, but works fine
 
-inv.FW.KFW = 0.8;                % Relationship between the maximum available voltage and the applicable voltage [pu]
-inv.FW.tsV = 200e-3;              % Flux.weakening closed-loop settling time (s)
-inv.FW.Is_WP = motor.I_max;               % Current magnitude working point (A)
-inv.FW.gamma_WP = 3*pi/4;     % Current angle working point (rad)
+inv.FW.KFW = motor.K_FW;                               % Relationship between the maximum available voltage and the applicable voltage
+inv.FW.tsV = 100e-3;                                   % [s] Flux weakening closed-loop settling time 
+inv.FW.Is_WP = motor.I_max;                            % [A] Current magnitude working point
+inv.FW.gamma_WP = 3*pi/4;                              % [rad] Current angle working point
 
 inv.FW.A = -motor.Rs * inv.FW.Is_WP * sin(inv.FW.gamma_WP) * (inv.FW.Is_WP * cos(inv.FW.gamma_WP) * (motor.Ld-motor.Lq) + motor.lambda) / (motor.Lq^2 * inv.FW.Is_WP^2 * sin(inv.FW.gamma_WP)^2 + (motor.Ld * inv.FW.Is_WP * cos(inv.FW.gamma_WP) + motor.lambda)^2);
 inv.FW.B = motor.Rs^2 * inv.FW.Is_WP^2 * sin(inv.FW.gamma_WP)^2 * (inv.FW.Is_WP * cos(inv.FW.gamma_WP) * (motor.Ld-motor.Lq) + motor.lambda)^2 / ((motor.Lq^2 * inv.FW.Is_WP^2 * sin(inv.FW.gamma_WP)^2 + (motor.Ld * inv.FW.Is_WP * cos(inv.FW.gamma_WP) + motor.lambda)^2))^2;
@@ -89,7 +89,7 @@ inv.FW.Ki_V_Delta = -5*(battery.OCV(end)/sqrt(3))/(inv.FW.A + inv.FW.B - inv.FW.
 %% Car parameters
 car = struct();
 % car.GR = 4;                                         % [ad] Gear ratio
- car.GR = 11.2;                                      % [ad] Gear ratio
+car.GR = 11.2;                                      % [ad] Gear ratio
 car.Mass = 300;                                     % [kg] Car mass
 car.Rw = 0.220;                                     % [m] Wheel radius
 car.Af = 1.1;                                       % [m^2] Frontal area
