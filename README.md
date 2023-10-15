@@ -10,6 +10,8 @@ This repository contains the following files and directories:
 * [🛠️ HW/](https://github.com/dweggg/Inverter/blob/main/HW/): This directory contains all the design documents, such as schematics, PCB layouts, and BOM.
 * [💾 SW/](https://github.com/dweggg/Inverter/blob/main/SW/): This directory contains the firmware code for the inverter, which is written in C and uses a STM32 microcontroller.
 
+- [🧠 Wiki](https://github.com/dweggg/Inverter/wiki): Here we explain everything related to the development of the inverter, from the mathematical basis, hardware design, software implementation and car integration.
+
 ## 🛠️ Built With
 ### 🕹️ Control study
 * [MATLAB 2022b & Simulink](https://www.mathworks.com/products/matlab.html) - Design of the vector control algorithm and general understanding of FOC
