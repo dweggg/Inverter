@@ -24,11 +24,6 @@ This repository contains the following files and directories:
 * [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) - IDE for STM32 MCUs
 
 
-## 🤝 Contributing
-
-Please read [CONTRIBUTING.md](https://github.com/dweggg/Inverter/blob/master/CONTRIBUTING.md) Not ready for contributions yet.
-
-
 ## 👤 Author
 
 * **David Redondo** - *Initial work* - [dweggg](https://github.com/dweggg)
