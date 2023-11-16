@@ -1,0 +1,617 @@
+#include "main.h"
+
+// ============= Control_loop() ============= //
+// This functions aims to:
+//		1) Supervise the alarms
+//		2) Update the electrical angle at high frequency
+//		3) Implement the control strategy
+
+void Control_loop(void) {
+
+
+	// FW Overvoltage warning
+	uint8_t count_VmaxFW;
+    if (v_PU > INV_S3)
+    {
+    	count_VmaxFW++;
+    	if (count_VmaxFW > 10)
+    	{
+    		// Warning / Error FW Overvoltage ON
+    	} else
+    	{
+    		// Warning / Error FW Overvoltage OFF
+    	}
+    }
+    else
+    {
+    	count_VmaxFW = 0;
+    }
+
+	// ============= REGISTER ANY EVENT OF AN ALARM ============= //
+    _Bool FOC_alarm;
+
+    // ============= ENABLE/DISABLE PWM signals ============= //
+	// Disable the PWM signals if there is any high priority alarm
+	if (AlarmHP_acc.all){
+		EnablePWM = 0;
+	}
+	else {}
+
+    // Enable/disable the PWM signals if there is any change
+    if (EnablePWM && !EnablePWM_ant)
+    {
+    	enable_PWMs();
+    }
+    else if (!EnablePWM && EnablePWM_ant)
+    {
+    	disable_PWMs();
+    }
+    else {}
+	EnablePWM_ant = EnablePWM;
+
+	// ============= DETERMINE THE ANGLE MODE  ============= //
+	// Cuando se arranca el motor se hace en modo SixStep, por lo que el ángulo eléctrico es discreto. A partir de cierta frecuencia se cambia a modo continuo.
+	if (newCAP && AngleMode == SixStep)
+	{
+		flag_AngleMode++;
+	}
+	else{}
+
+	// TODEBUG -> Condició per passar de mode Six-Steps a mode Continuous
+	// S'afegeix un número mínim de mostres a freqüència màxima + s'elimina l'index de regressió.
+//	if ((freq_elec_shadow > freq_mode_max || freq_elec_shadow < -freq_mode_max) && flag_AngleMode >= flag_AngleMode_max && index_regression == 1)
+	if ((freq_elec_shadow > freq_mode_max || freq_elec_shadow < -freq_mode_max) && flag_AngleMode >= flag_AngleMode_max)
+	{
+		freq_counter++;
+		if (freq_counter > freq_counter_max)
+		{
+			AngleMode = Continuous;
+			flag_AngleMode = 0;
+		}
+    }
+	else if (freq_elec_shadow < freq_mode_min && freq_elec_shadow > -freq_mode_min)
+	{
+		freq_counter++;
+		if (freq_counter > freq_counter_max)
+		{
+			AngleMode = SixStep;
+		}
+    }
+	else
+	{
+		freq_counter = 0;
+	}
+
+	// ============= UPDATE THE ELECTRICAL FREQUENCY AND ANGLE ONCE EACH ELECTRICAL TURN ============= //
+	// If a new electrical turn is started the electrical frequency is updated from the previous electrical turn.
+	// The electrical frequency is calculated from the current angle and the theoretical angle.
+	if (index_regression == 1 && flag_update_freq == 1)
+	{
+		flag_update_freq = 0;
+
+		// Se calcula el angulo integrado sin el desfase dependiendo de la dirección
+		if (dir)
+		{
+			angle_elec2_noshift = angle_elec2.angle -  PhaseShift_Dir1[1];
+		}
+		else
+		{
+			angle_elec2_noshift = angle_elec2.angle -  PhaseShift_Dir0[1];
+		}
+		HALL_angle_saturation(&angle_elec2_noshift);
+
+		// En función de la direccion y el desfase se calcula el freq factor para corregir la diferencia entre el angulo integrado y el real
+		// a través de una correccion de frecuencia, evitando asi discontinuidades en la representacion del angulo electrico
+		if (dir == 1 && angle_elec2_noshift <= 0.0)
+		{
+			freq_factor = ((Continuous_Angle - angle_elec2_noshift) * 0.5F * 6.0F/5.0F) + 1.0F;				// Si correjimos en 5 sectores
+		}
+		else if (dir == 1 && angle_elec2_noshift > 0.0)
+		{
+			freq_factor = ((Continuous_Angle - (-2.0F + angle_elec2_noshift)) * 0.5F * 6.0F/5.0F) + 1.0F;	// Si correjimos en 5 sectores
+		}
+		else if (dir == -1 && angle_elec2_noshift >= 0.0)
+		{
+			freq_factor = ((angle_elec2_noshift - Continuous_Angle) * 0.5F * 6.0F/5.0F) + 1.0F;				// Si correjimos en 5 sectores
+		}
+		else if (dir == -1 && angle_elec2_noshift < 0.0)
+		{
+			freq_factor = ((2.0F + angle_elec2_noshift) - Continuous_Angle) * 0.5F * 6.0F/5.0F + 1.0F;		// Si correjimos en 5 sectores
+		}
+		else {}
+
+	}
+	else if (index_regression != 1)
+	{
+		flag_update_freq = 1;
+	}
+	else {}
+
+	freq_elec_shadow = freq_factor * freq_elec;
+
+	// ============= CALCULATION OF THE MECHANICAL SPEED ============= //
+	// Calculo de la velocidad mecánica del motor (rpm) en función del modo de funcionamiento.
+	//		1.- En modo Six-Step se calcula directamente a partir de la frecuencia calculada en la interrupcion de la HALL (del CAP).
+	//		2.- En modo Continuous se calcula a partir de la frecuencia corregida con el factor freq_factor (para conseguir una representacion de angulo continuo)
+	if (AngleMode == SixStep)
+	{
+		speed = freq_elec * motor_parameters.rpm_div_fe;
+	}
+	else
+	{
+		speed = freq_elec_shadow * motor_parameters.rpm_div_fe;
+	}
+
+	// ============= RESET SOME VARIABLES IF NOT CAPs EVENTS ============= //
+	// Wait 1 s without pulses (fe < 0,16Hz)
+	if (newCAP)
+	{
+		no_newCAP_counter = 0;
+		newCAP = 0;
+	}
+	else
+	{
+		no_newCAP_counter++;
+		if (no_newCAP_counter > 20000)
+		{
+			freq_elec_shadow 	= 0.0F;
+			no_newCAP_counter   = 0;
+			speed				= 0.0F;
+			freq_elec			= 0.0F;
+			freq_factor			= 1.0F;
+		}
+		else {}
+	}
+
+	// ============= CALCULATION OF THE ELECTRICAL ANGLE ============= //
+	if (AngleMode == Continuous)
+	{
+		// In Continuous Mode, the angle is calculated according to the frequency and the initial angle.
+		// This angle and frequency are calculated previously.
+		angle_elec.freq = freq_elec;			// #####
+		angle_calc(&angle_elec);
+
+		// Ángulo calculado con la frecuencia corregida
+		angle_elec2.freq = freq_elec_shadow;	// #####
+		angle_calc(&angle_elec2);
+
+		// Se hace el overflow el angulo para evitar salirse del rango operativo del CORDIC (-1..1 que corresponde a -180º..180º)
+		HALL_angle_saturation(&angle_elec.angle);
+		HALL_angle_saturation(&angle_elec2.angle);
+	}
+	else if (AngleMode == SixStep)
+	{
+		// In Six-Step mode, the angle is the one calculated in the Hall interruption (TIM 2 Interruption)
+		angle_elec.angle =  Shifted_Average_Angle;
+		HALL_angle_saturation(&angle_elec.angle);
+		angle_elec2.angle = Shifted_Average_Angle;
+		HALL_angle_saturation(&angle_elec2.angle);
+	}
+	else {}
+
+	// ============= DELTA TO STAR CONNECTION CURRENT TRANSFORMATION ============= //
+#if STAR_CONNECTION
+#elif DELTA_CONNECTION_DIRECT_SEQUENCE || DELTA_CONNECTION_INVERSE_SEQUENCE
+	Ia.Valor = INV_S3 * Ia.Valor;
+	Ic.Valor = INV_S3 * Ic.Valor;
+#endif
+
+	// ============= CLARKE TRANSFORMATION ============= //
+	clarke_corrent.a = Ia.Valor;
+	clarke_corrent.b = -Ic.Valor - Ia.Valor;
+	clarke3F_calc(&clarke_corrent);
+
+	// ============= ROTATIONAL TRANSFORMATION ============= //
+	// 1.- En el caso de una RL, el seno y el coseno se calculan a partir de una frecuencia eléctrica determinada (Angle_aux_50Hz).
+	// 2.- En el caso de un motor, el seno y el coseno se calculan a partir del ángulo eléctrico según la posición del rotor.
+	//    	2.1.- En el caso del motor conectado en estrella, el ángulo eléctrico se obtiene directamente de las sondas de efecto Hall.
+	//	  	2.2.- En el caso del motor conectado en triángulo en secuencia directa, el ángulo eléctrico de las Hall se debe restar 30º.
+	//	  	2.3.- En el caso del motor conectado en triángulo en secuencia inversa, el ángulo eléctrico de las Hall se debe sumar 30º.
+#if RL
+	angle_calc(&Angle_aux_50Hz);
+	cordic_sincos(&Angle_aux_50Hz.angle, &COS_angle, &SIN_angle);
+#else
+#if STAR_CONNECTION
+        cordic_sincos(&angle_elec2.angle, &COS_angle, &SIN_angle);
+#elif DELTA_CONNECTION_DIRECT_SEQUENCE
+        angle_elec3.angle = angle_elec2.angle + DELTA_ANGLE_PU;
+        HALL_angle_saturation(&angle_elec3.angle);
+        cordic_sincos(&angle_elec3.angle, &COS_angle, &SIN_angle);
+#elif DELTA_CONNECTION_INVERSE_SEQUENCE
+        angle_elec3.angle = angle_elec2.angle - DELTA_ANGLE_PU;
+        HALL_angle_saturation(&angle_elec3.angle);
+        cordic_sincos(&angle_elec3.angle, &COS_angle, &SIN_angle);
+#endif
+#endif
+	park_corrent.D = clarke_corrent.D;
+	park_corrent.Q = clarke_corrent.Q;
+	park_corrent.cosFi = COS_angle;
+	park_corrent.sinFi = SIN_angle;
+	rot_calc(&park_corrent);
+
+	// ============= CLOSED LOOP CONTROL STRATEGY ============= //
+	//	1.- MTPA trajectory at low speed
+	//	2.- FW at high speed --> 	Zone 1: Constant torque (CT)
+	//								Zone 2: Current and Voltage Limit (CVL)
+	//								Zone 3: Maximum Torque per Voltage (MTPV)
+	// 	3.- Current control loop
+	// 	4.- Flux-weakening control loop
+	//	5.- Speed control loop
+
+	// ============= PI VOLTAGE CONTROLLER - FLUX-WEAKENING CONTROL ============= //
+	v_pid_MAX = INV_S6 * Vbus.Valor;
+	v_pid_FW = v_pid_MAX * FS_FW;
+	v_ref = v_PU * Vbus.Valor * INV_S2;
+    pid_v.pi_out_max 		= PI*0.95F - gamma_MTPA;		// Para evitar dividir por 0 posteriormente cuando se calcula el SINUS del ángulo
+	pid_v.pi_consig 		= v_ref;
+	pid_v.pi_fdb 			= v_pid_FW;
+	pi_init(&pid_v);
+	pi_calc(&pid_v);
+
+	// ============= TORQUE SETPOINT ============= //
+	// Si no se esta en modo Operación, la referencia de par se fija a cero
+	if (SM.step == st_quickstopactive || SM.step == st_faultreactionactive || SM.step == st_fault)
+	{
+		torque_em_ref = 0.0F;
+	}
+	else {}
+
+	// La referencia de par se satura a los límites positivos y negativos establecidos
+	if (torque_em_ref >= torque_em_max_pos)
+	{
+		torque_em_ref_sat = torque_em_max_pos;
+	}
+	else if (torque_em_ref <= torque_em_max_neg)
+	{
+		torque_em_ref_sat = torque_em_max_neg;
+	}
+	else
+	{
+		torque_em_ref_sat = torque_em_ref;
+	}
+
+	// La referencia de par se pasa por una rampa para suavizar la acción de control del sistema
+	torque_ramp.Incr = dtorque_dt_pos * 50.0F / 1000000.0F;
+	torque_ramp.Decr = dtorque_dt_neg * 50.0F / 1000000.0F;
+    torque_ramp.in = torque_em_ref_sat;
+    rampa_dual_calc(&torque_ramp);
+
+    // Cálculo de la consigna de par porcentual a N·m
+    torque_em_ramp = torque_ramp.out * MapaObjetosSDOs_mirror.Torque_nominal / 100000.0F;
+
+	// ============= PI SPEED CONTROLLER ============= //
+	// TODO -> Revisar porque "PARA DEBUGAR se ha modificado la salida maxima del PI de velocidad"
+	if (Operationenable_SM.step == st_testmode && SM.step == st_operationenable)
+	{
+		pid_speed.pi_out_min	= -MAX_I_OUT/1.41F*0.8/motor_parameters.inv_m_pp_lamba;
+		pid_speed.pi_out_max	= MAX_I_OUT/1.41F*0.8/motor_parameters.inv_m_pp_lamba;
+	}
+	else
+	{
+		// Antes de recibir una referencia de par de 0, se va guardando en una variable
+		// auxiliar el torque aplicado para poder frenar desde ese torque cuando se
+		// aplique una rampa de frenada (en el paso de etapas de operationenable a
+		// quickstop active y a fault-stop).
+		if (torque_em_ref != 0)
+		{
+			torque_aux = (float) torque_em;				// Torque de referencia inicial para hacer una parada controlada en quickstopactive o en fault-stop
+		}
+		else {}
+
+		// Se modifican los limites del PI en funcion de si se quiere ir hacia delante o hacia atras
+		if (torque_em_ref < 0 && MapaObjetosPDOs.Marcha_atras == 1 && marchaatras_enable == 1)
+		{
+			pid_speed.pi_out_min	= 0.0F;
+			pid_speed.pi_out_max	= - torque_em_ramp;
+		}
+		else
+		{
+			pid_speed.pi_out_min	= - torque_em_ramp;
+			pid_speed.pi_out_max	= 0.0F;
+		}
+	}
+
+	// TODEBUG -> Speed Setpoint
+//	pid_speed.pi_consig		= speed_ref;
+	pid_speed.pi_consig		= speed_ref_debug;
+	pid_speed.pi_fdb 		= speed;
+	pi_init(&pid_speed);
+	pi_calc(&pid_speed);
+
+	// ============= SATURATION TORQUE REFERENCE WITH SPEED CONTROLLER ============= //
+	//	1.- Si el convertidor SI está en Modo Test, la acción de control del lazo de velocidad es directamente la referencia de par.
+	// 	2.- Si el convertidor NO está en Modo Test, la acción de control del lazo de velocidad actúa como sumador de la consigna de par.
+	if (Operationenable_SM.step == st_testmode && SM.step == st_operationenable)
+	{
+		torque_em = pid_speed.pi_out;
+	}
+	else
+	{
+		torque_em = torque_em_ramp + pid_speed.pi_out;
+	}
+
+	// ============= MTPA, MTPV AND CURRENT TRAJECTORIES CALCULATION ============= //
+#if SPMSM_CONTROL
+	HALL_angle_saturation(&gamma_ref_ant_PU);					// Se satura el ángulo, ya que este solo puede estar entre -2PI y 2PI (o lo que es lo mirmo entre -1 y 1 para las funciones del CORDIC)
+    cordic_sincos(&gamma_ref_ant_PU, &is_Te_COS, &is_Te_SIN);
+
+	// Cálculo de la corriente necesaria en función de la consigna de par (is_Te)
+	is_Te = (motor_parameters.inv_m_pp_lamba * torque_em)/ is_Te_SIN;		//#####
+
+	// Cálculo del valor absoluto de la corriente por par necesaria
+	vabs(is_Te);
+
+    // Cálculo del ángulo de corriente en la zona MTPA. En el caso de motores SPMSM, el ángulo de corriente en la trayectoria MPTA es igual a PI/2
+	gamma_MTPA = PI_05;
+	gamma_MTPA_PU = 0.5F;
+
+	// Cálculo de la corriente necesaria para trabjar en la zona del MTPV
+	is_MTPV = motor_parameters.Isc / is_Te_COS;
+
+	// Cálculo del valor absoluto de la corriente en MTPV necesaria
+	vabs(is_MTPV);
+
+	// Overflow para coma fija. Es necesario en coma flotante? #####
+	if (is_MTPV == -4096.0)
+	{
+		is_MTPV = i_max;
+	}
+	else {}
+
+#elif IPMSM_CONTROL
+	// ============= MTPA, MTPV AND CURRENT TRAJECTORIES CALCULATION (per-unit system) ============= //
+	// Cálculo de la corriente necesaria en función de la consigna de par (is_Te)
+//	torque_pu = torque_ramp.out * motor_parameters.inv_Tb;			//#####
+	torque_pu = torque_em * motor_parameters.inv_Tb;
+
+	// Cálculo del valor absoluto del par consigna
+	vabs(torque_pu);
+
+	// Cálculo de la corriente necesaria en función de la consigna de par (is_Te)
+	if (gamma_ref_ant <= (PI_05*1.01F))
+	{
+		aux6 = torque_pu;		// Corriente en PUs es igual al torque en PUs porque el angulo es 90º
+		vabs(aux6);				//Valor absoluto
+	}
+	else
+	{
+		float gamma_PU_aux = gamma_ref_ant_PU * 2.0F;
+		HALL_angle_saturation(&gamma_PU_aux);
+		cordic_sincos(&gamma_PU_aux, &is_Te_COS, &is_Te_SIN);
+		aux1 = is_Te_SIN;
+		HALL_angle_saturation(&gamma_ref_ant_PU);
+		cordic_sincos(&gamma_ref_ant_PU, &is_Te_COS, &is_Te_SIN);
+		aux2 = is_Te_SIN;
+		aux3 = aux2 *aux2;
+		aux4 = motor_parameters.n1lessxi * aux1 * torque_pu * 2.0F;
+		float aux_sqrt = aux3 + aux4;
+		aux5 = cordic_sqrt(&aux_sqrt);
+		aux6 = (float) ((-aux2 + aux5)/(motor_parameters.n1lessxi*aux1));
+	}
+	is_Te = (float) aux6;
+	is_Te = (float) is_Te * motor_parameters.Isc;
+
+	// Cálculo del valor absoluto de la corriente por par necesaria
+	vabs(is_Te);
+
+    // Cálculo del ángulo de corriente en la zona MTPA. En el caso de motores SPMSM, el ángulo de corriente en la trayectoria MPTA es igual a PI/2 --> solo para torque_ramp > 0
+	if (aux6 == 0) {
+		gamma_MTPA = PI_05;
+		gamma_MTPA_PU = PI_05_PU;
+	}
+	else
+	{
+		aux1 = (float) 1.0F + (motor_parameters.x8_n1lessxi_2 * aux6 * aux6);
+		help1 = aux1;
+		aux2 = (float) -1.0F + cordic_sqrt(&aux1);
+		help2 = aux2;
+		aux3 = motor_parameters.x4_n1lessxi * aux6;
+		help3 = aux3;
+		aux4 = aux2 / aux3;
+		help4 = aux4;
+
+		aux5 = (float) 1.0F - aux4 * aux4;
+		aux6 = cordic_sqrt(&aux5);
+		gamma_MTPA_PU =  cordic_atan2(&aux4,&aux6);
+		gamma_MTPA = gamma_MTPA_PU * PI;
+	}
+
+	// Cálculo de la corriente necesaria para trabjar en la zona del MTPV
+	HALL_angle_saturation(&gamma_ref_ant_PU);
+	cordic_sincos(&gamma_ref_ant_PU, &is_Te_COS, &is_Te_SIN);
+	aux1 = is_Te_COS;
+	aux2 = aux1 * aux1;
+	aux3 = (float) (motor_parameters.x4_n1lessxi_1more_xi2 * aux2) - motor_parameters.x4_n1lessxi_xi2;
+	aux4 = (float) (motor_parameters.n2lessxi_2 * aux2) - aux3;
+	if (aux4 > (0.0))
+	{
+		aux5 = (float) - (motor_parameters.n2lessxi * aux1) - cordic_sqrt(&aux4);
+		aux6 = (float) (motor_parameters.x2_n1lessxi_1more_xi2 * aux2) - motor_parameters.x2_n1lessxi_xi2;
+		aux7 =(aux5 / aux6);
+	}
+	else
+	{
+		aux7 = 10.0;		// It is a value higher than Isc (in per unit)
+	}
+	is_MTPV = aux7 * motor_parameters.Isc;
+
+	// Cálculo del valor absoluto de la corriente en MTPV necesaria
+	vabs(is_MTPV);
+	if (is_MTPV < (0.0))	is_MTPV = i_max;
+
+#endif
+
+	// ============= CALCULATION RMS VALUES OF Idq FROM dq VALUES  ============= //
+	// Id & Iq are divided by sqrt(2) in order to math with the RMS values from ideal sinusoidal waveforms (This is undone at ipark_corrent input)
+	id_rms = park_corrent.d * INV_S2;
+	iq_rms = park_corrent.q * INV_S2;
+
+	// ============= IMAX MULTIPLEXER REGARDING PROFILE ============= //
+	// TODO -> Locate in the Interruption Timer0 (1 kHz)
+	// Se determina el valor de imax en función de:
+	//	1.- El perfil de conducción.
+	//	2.- La marcha atrás.
+	//	3.- La referencia de par.
+	Imax_mux();
+
+	// ============= THERMAL DERRATING ============= //
+	// TODO -> Locate in the Interruption Timer0 (1 kHz)
+	// Se aplica el factor de derating a la corriente máxima que se puede aplicar
+	i_max = i_max * DeratingFactor;
+
+	// ============= CURRENT SATURATION AND REFERENCE ANGLE CALCULATION ============= //
+	// Current reference saturation (is_ref)
+    is_sat = (is_MTPV > i_max)	? i_max		: is_MTPV;
+	// TODEBUG -> Uncomment to desactivate the MTPV zone
+    // is_sat = i_max;
+	is_ref = (is_Te > is_sat)	? is_sat	: is_Te;
+	is_ref = (is_Te < 0.0)		? 0.0 		: is_ref;
+
+	if (is_ref == is_Te && pid_v.pi_out == 0) 			zone_FW = 1.0F;			// Not flux-weakening (MTPA)
+	else if (is_ref == is_Te && pid_v.pi_out != 0)		zone_FW = 2.0F;			// Flux-weakening at constant-torque (CT)
+	else if (is_ref == i_max && pid_v.pi_out != 0)		zone_FW = 3.0F;			// Flux-weakening at maximum voltage and limit current (MVLC)
+	else if (is_ref == is_MTPV && pid_v.pi_out != 0)	zone_FW = 4.0F;			// Flux-weakening at maximum torque per voltage (MTPV)
+	else 												zone_FW = 5.0F;			// Nothing (error)
+
+	// Current's angle calculation (gamma_ref) & Saturation gamma_ref
+	if (torque_em >= 0.0F)
+	{
+		gamma_ref = gamma_MTPA + pid_v.pi_out;
+		if (gamma_ref > PI) 	 	gamma_ref = PI;
+		if (gamma_ref < PI_05) 		gamma_ref = PI_05;
+	}
+	else
+	{
+		gamma_ref = - gamma_MTPA - pid_v.pi_out;
+		if (gamma_ref > -PI_05) 	gamma_ref = -PI_05;
+		if (gamma_ref < -PI) 		gamma_ref = -PI;
+	}
+	gamma_ref_ant = gamma_ref;
+	gamma_ref_PU = gamma_ref/PI;
+	gamma_ref_ant_PU = gamma_ref_PU;
+	HALL_angle_saturation(&gamma_ref_ant_PU);
+	HALL_angle_saturation(&gamma_ref_PU);
+
+	// ============= CURRENT REFERENCES AND FEED-FORWARD VALUES ============= //
+	cordic_sincos(&gamma_ref_PU, &gamma_ref_COS, &gamma_ref_SIN);
+
+	// Calculate iq* and id* according to is_ref & gamma_ref
+	id_ref = is_ref * gamma_ref_COS;
+	iq_ref = is_ref * gamma_ref_SIN;
+
+	// Calcualte the feed-forward PI Current Controllers
+#if RL
+	ed = 0;
+	eq = 0;
+#else
+	ed = iq_rms * PI2 * freq_elec_shadow * motor_parameters.Lq_001 * Div1000;
+	eq = ((id_rms * motor_parameters.Ld_001 * Div1000) + motor_parameters.lambda) * PI2 * freq_elec_shadow;
+
+	// Si les oscil·lacions del corrent s'acoplen directament del PI de corrent desactiva el feed-forward
+//	ed = 0.0F;			// Uncomment to desactiva the d-axis feed-forward of the current PI controllers
+//	eq = 0.0F;			// Uncomment to desactiva the q-axis feed-forward of the current PI controllers
+
+#endif
+
+	// ============= CURRENT PI CONTROLLERS ============= //
+	// TODEBUG -> Uncomment to define the maximum limit of the current PI controllers
+	pid_id.pi_out_max = INV_S6 * Vbus.Valor * Vbusid_Coeff_Debug;
+	pid_id.pi_out_min = -INV_S6 * Vbus.Valor * Vbusid_Coeff_Debug;
+//	pid_id.pi_out_max = INV_S6 * Vbus.Valor;
+//	pid_id.pi_out_min = -INV_S6 * Vbus.Valor;
+
+	pid_id.pi_ffw[0] = -ed;
+	pid_id.pi_consig = id_ref;
+	pid_id.pi_fdb = id_rms;
+	pi_init(&pid_id);
+	pi_calc(&pid_id);
+
+	// TODEBUG -> Uncomment to define the maximum limit of the current PI controllers
+	pid_iq.pi_out_max = INV_S6 * Vbus.Valor * Vbusiq_Coeff_Debug;
+	pid_iq.pi_out_min = -INV_S6 * Vbus.Valor * Vbusiq_Coeff_Debug;
+//	pid_iq.pi_out_max = INV_S6 * Vbus.Valor;
+//	pid_iq.pi_out_min = -INV_S6 * Vbus.Valor;
+
+	pid_iq.pi_ffw[0] = eq;
+	pid_iq.pi_consig = iq_ref;
+	pid_iq.pi_fdb = iq_rms;
+	pi_init(&pid_iq);
+	pi_calc(&pid_iq);
+
+	vd = pid_id.pi_out;
+	vq = pid_iq.pi_out;
+
+	// ============= VOLTAGE SATURATION ============= //
+	// Bus voltage decoupling
+	s2_div_vdc = S2/Vbus.Valor;
+	vd_PU = vd * s2_div_vdc;
+	vq_PU = vq * s2_div_vdc;
+
+	// Saturation vd & vq (keeping the delta angle)
+	cordic_rect2polar(&vd_PU,&vq_PU,&dummy_angle,&v_PU);
+
+	// TODEBUG -> Uncomment to define the maximum limit of the linear modulation region
+	v_PU_max = INV_S3 * VPU_max_Coeff_Debug;
+	if (v_PU > v_PU_max)
+//	if (v_PU > INV_S3)
+	{
+		delta = cordic_atan2(&vd_PU, &vq_PU) ;
+		cordic_sincos(&delta, &delta_COS, &delta_SIN);
+
+		// TODEBUG -> Uncomment to define the dq-axis maximum limit of the linear modulation region
+		vd_PU_sat = delta_COS * v_PU_max;
+		vq_PU_sat = delta_SIN * v_PU_max;
+//		vd_PU_sat = delta_COS * INV_S3;
+//		vq_PU_sat = delta_SIN * INV_S3;
+	}
+	else
+	{
+		vd_PU_sat = vd_PU;
+		vq_PU_sat = vq_PU;
+	}
+
+	// ============= INVERSE ROTATIONAL TRANSFORMATION ============= //
+	cordic_sincos(&angle_elec2.angle, &COS_angle, &SIN_angle);
+	ipark_corrent.d = vd_PU_sat;
+	ipark_corrent.q = vq_PU_sat;
+	ipark_corrent.sinFi = SIN_angle;
+	ipark_corrent.cosFi = COS_angle;
+	irot_calc(&ipark_corrent);
+
+	// ============= SPACE VECTOR MODUALTION ============= //
+	SVPWM.valfa = ipark_corrent.D;
+	SVPWM.vbeta = ipark_corrent.Q;
+	svpwm_calc(&SVPWM);
+
+	// ============= DUTY CYCLES SATURATION ============= //
+	// Converting SVPWM time to Compare levels. It saturates at TBPRD-1.
+	Compare.alfaA = SVPWM.Ta;
+	Compare.alfaB = SVPWM.Tb;
+	Compare.alfaC = SVPWM.Tc;
+	Compare3F_calc(&Compare);
+
+	// Saturate the Compares values. If we load the Compare at TBPRD, it should be saturated at HIGH.
+	Sat_Comp_H(Compare.compA);
+	Sat_Comp_H(Compare.compB);
+	Sat_Comp_H(Compare.compC);
+
+	// Saturate the Compares values. If we load the Compare at 0, it should be saturated at LOW.
+	Sat_Comp_L(Compare.compA);
+	Sat_Comp_L(Compare.compB);
+	Sat_Comp_L(Compare.compC);
+
+	// ============= DUTY CYCLES ASSIGNATION ============= //
+	// Se cargan los compares a los registros de los PWMs cuando estos estan habilitados
+	if (EnablePWM)
+	{
+		htim1.Instance->CCR1 = Compare.compA;
+		htim1.Instance->CCR2 = Compare.compB;
+		htim1.Instance->CCR3 = Compare.compC;
+	}
+	else
+	{
+		htim1.Instance->CCR1 = 0;
+		htim1.Instance->CCR2 = 0;
+		htim1.Instance->CCR3 = 0;
+	}
+}
