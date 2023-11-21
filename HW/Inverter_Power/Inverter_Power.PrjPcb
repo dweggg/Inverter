@@ -564,7 +564,7 @@ PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate
 Name=Documentation Outputs
 Description=
 TargetPrinter=HP6E452C (HP ENVY 5540 series)
-PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
+PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=0
 OutputType1=Composite
 OutputName1=Composite Drawing
 OutputDocumentPath1=
@@ -648,7 +648,9 @@ OutputName14=Schematic Prints
 OutputDocumentPath14=
 OutputVariantName14=
 OutputDefault14=0
-PageOptions14=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+PageOptions14=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=0.98|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
+Configuration14_Name1=OutputConfigurationParameter1
+Configuration14_Item1=Record=SchPrintView|ShowNoERC=True|ShowParamSet=True|ShowProbe=True|ShowBlanket=True|NoERCSymbolsToShow="Thin Cross","Thick Cross","Small Cross",Checkbox,Triangle|ShowNote=True|ShowNoteCollapsed=True|ShowOpenEnds=True|ExpandDesignator=True|ExpandNetLabel=False|ExpandPort=False|ExpandSheetNum=False|ExpandDocNum=False|PrintArea=0|PrintAreaRect.X1=0|PrintAreaRect.Y1=0|PrintAreaRect.X2=0|PrintAreaRect.Y2=0|DocumentPath=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Power\Inverter_Power.SchDoc
 OutputType15=SimView Print
 OutputName15=SimView Prints
 OutputDocumentPath15=
@@ -1471,9 +1473,9 @@ ComponentSymbolReference3=FHA85Y106KS
 ComponentUpdate3=1
 ComponentIsDeviceSheet3=0
 ComponentLibIdentifierKind4=Library Name And Type
-ComponentLibraryIdentifier4=Passives.SchLib
-ComponentDesignItemID4=R60-0805FTN
-ComponentSymbolReference4=R60-0805FTN
+ComponentLibraryIdentifier4=Inverter_Libraries.SchLib
+ComponentDesignItemID4=J_Flat20
+ComponentSymbolReference4=J_Flat20
 ComponentUpdate4=1
 ComponentIsDeviceSheet4=0
 FullReplace=1
@@ -1489,176 +1491,112 @@ RemoveParameters=0
 AddModels=1
 RemoveModels=1
 UpdateCurrentModels=1
-ParameterName0=.Creator
+ParameterName0=Blocking voltage
 ParameterUpdate0=1
-ParameterName1=.PCBcheck
+ParameterName1=Category
 ParameterUpdate1=1
-ParameterName2=.SCHcheck
+ParameterName2=Comment
 ParameterUpdate2=1
-ParameterName3=Blocking voltage
+ParameterName3=Component Kind
 ParameterUpdate3=1
-ParameterName4=Case Code (Imperial)
+ParameterName4=ComponentLink1Description
 ParameterUpdate4=1
-ParameterName5=Case Code (Metric)
+ParameterName5=ComponentLink1URL
 ParameterUpdate5=1
-ParameterName6=Case/Package
+ParameterName6=ComponentLink2Description
 ParameterUpdate6=1
-ParameterName7=Category
+ParameterName7=ComponentLink2URL
 ParameterUpdate7=1
-ParameterName8=Comment
+ParameterName8=Description
 ParameterUpdate8=1
-ParameterName9=Component Kind
+ParameterName9=Height
 ParameterUpdate9=1
-ParameterName10=ComponentLink1Description
+ParameterName10=Isolation voltage
 ParameterUpdate10=1
-ParameterName11=ComponentLink1URL
+ParameterName11=Length
 ParameterUpdate11=1
-ParameterName12=ComponentLink2Description
+ParameterName12=Library Reference
 ParameterUpdate12=1
-ParameterName13=ComponentLink2URL
+ParameterName13=Manufacturer
 ParameterUpdate13=1
-ParameterName14=ComponentLink3Description
+ParameterName14=Manufacturer 1
 ParameterUpdate14=1
-ParameterName15=ComponentLink3URL
+ParameterName15=Manufacturer Part Number
 ParameterUpdate15=1
-ParameterName16=ComponentLink4Description
+ParameterName16=Manufacturer Part Number 1
 ParameterUpdate16=1
-ParameterName17=ComponentLink4URL
+ParameterName17=Match Code
 ParameterUpdate17=1
-ParameterName18=ComponentLink5Description
+ParameterName18=Material
 ParameterUpdate18=1
-ParameterName19=ComponentLink5URL
+ParameterName19=Maximum IDS-ISD
 ParameterUpdate19=1
-ParameterName20=Contact Plating
+ParameterName20=Maximum junction temperature
 ParameterUpdate20=1
-ParameterName21=Depth
+ParameterName21=Maximum VGSS
 ParameterUpdate21=1
-ParameterName22=Description
+ParameterName22=Mount
 ParameterUpdate22=1
-ParameterName23=Features
+ParameterName23=NTC B-value @50 ºC
 ParameterUpdate23=1
-ParameterName24=Height
+ParameterName24=NTC resistance @25 ºC
 ParameterUpdate24=1
-ParameterName25=Isolation voltage
+ParameterName25=Number of Pins
 ParameterUpdate25=1
-ParameterName26=Lead Free
+ParameterName26=Operating Temperature Max
 ParameterUpdate26=1
-ParameterName27=Length
+ParameterName27=Operating Temperature Min
 ParameterUpdate27=1
-ParameterName28=Library Reference
+ParameterName28=Packaging
 ParameterUpdate28=1
-ParameterName29=Manufacturer
+ParameterName29=Pricing 1
 ParameterUpdate29=1
-ParameterName30=Manufacturer 1
+ParameterName30=QG
 ParameterUpdate30=1
-ParameterName31=Manufacturer Part Number
+ParameterName31=Rated Current
 ParameterUpdate31=1
-ParameterName32=Manufacturer Part Number 1
+ParameterName32=Rds(on)
 ParameterUpdate32=1
-ParameterName33=Match Code
+ParameterName33=RGint
 ParameterUpdate33=1
-ParameterName34=Material
+ParameterName34=RoHS
 ParameterUpdate34=1
-ParameterName35=Max Operating Temperature
+ParameterName35=Rth(j-c)
 ParameterUpdate35=1
-ParameterName36=Max Power Dissipation
+ParameterName36=Stock 1
 ParameterUpdate36=1
-ParameterName37=Maximum IDS-ISD
+ParameterName37=Supplier 1
 ParameterUpdate37=1
-ParameterName38=Maximum junction temperature
+ParameterName38=Supplier Part Number 1
 ParameterUpdate38=1
-ParameterName39=Maximum VGSS
+ParameterName39=Surface
 ParameterUpdate39=1
-ParameterName40=Min Operating Temperature
+ParameterName40=Thread Length
 ParameterUpdate40=1
-ParameterName41=Mount
+ParameterName41=Thread Size
 ParameterUpdate41=1
-ParameterName42=NTC B-value @50 ºC
+ParameterName42=Vf_diode
 ParameterUpdate42=1
-ParameterName43=NTC resistance @25 ºC
+ParameterName43=VGS(th)
 ParameterUpdate43=1
-ParameterName44=Number of Pins
+ParameterName44=Width
 ParameterUpdate44=1
-ParameterName45=Number of Terminations
-ParameterUpdate45=1
-ParameterName46=Operating Temperature Max
-ParameterUpdate46=1
-ParameterName47=Operating Temperature Min
-ParameterUpdate47=1
-ParameterName48=Package Quantity
-ParameterUpdate48=1
-ParameterName49=Packaging
-ParameterUpdate49=1
-ParameterName50=Power Rating
-ParameterUpdate50=1
-ParameterName51=Pricing 1
-ParameterUpdate51=1
-ParameterName52=QG
-ParameterUpdate52=1
-ParameterName53=Radiation Hardening
-ParameterUpdate53=1
-ParameterName54=Rated Current
-ParameterUpdate54=1
-ParameterName55=Rds(on)
-ParameterUpdate55=1
-ParameterName56=Resistance
-ParameterUpdate56=1
-ParameterName57=Resistor Type
-ParameterUpdate57=1
-ParameterName58=RGint
-ParameterUpdate58=1
-ParameterName59=RoHS
-ParameterUpdate59=1
-ParameterName60=Rth(j-c)
-ParameterUpdate60=1
-ParameterName61=Stock 1
-ParameterUpdate61=1
-ParameterName62=Supplier 1
-ParameterUpdate62=1
-ParameterName63=Supplier Part Number 1
-ParameterUpdate63=1
-ParameterName64=Surface
-ParameterUpdate64=1
-ParameterName65=Temperature Coefficient
-ParameterUpdate65=1
-ParameterName66=Termination
-ParameterUpdate66=1
-ParameterName67=Thread Length
-ParameterUpdate67=1
-ParameterName68=Thread Size
-ParameterUpdate68=1
-ParameterName69=Tolerance
-ParameterUpdate69=1
-ParameterName70=Value
-ParameterUpdate70=1
-ParameterName71=Vf_diode
-ParameterUpdate71=1
-ParameterName72=VGS(th)
-ParameterUpdate72=1
-ParameterName73=Voltage Rating
-ParameterUpdate73=1
-ParameterName74=Voltage Rating (DC)
-ParameterUpdate74=1
-ParameterName75=Weight
-ParameterUpdate75=1
-ParameterName76=Width
-ParameterUpdate76=1
 ModelTypeGroup0=PCBLIB
 ModelTypeUpdate0=1
 ModelType0=PCBLIB
-ModelName0=7461096_HAL
+ModelName0=690367292076
 ModelUpdate0=1
 ModelType1=PCBLIB
-ModelName1=CKSR 50-NP
+ModelName1=7461096_HAL
 ModelUpdate1=1
 ModelType2=PCBLIB
-ModelName2=DFS05HF12EYR1
+ModelName2=CKSR 50-NP
 ModelUpdate2=1
 ModelType3=PCBLIB
-ModelName3=FHA85Y106KS
+ModelName3=DFS05HF12EYR1
 ModelUpdate3=1
 ModelType4=PCBLIB
-ModelName4=R0805FTK
+ModelName4=FHA85Y106KS
 ModelUpdate4=1
 
 [DatabaseUpdateOptions]
@@ -1668,13 +1606,27 @@ UpdateToLatestRevision=1
 PartTypes=0
 
 [NetInfos]
-Net1=NetName=A|NetColor=$006E6EFF
-Net2=NetName=A_OUT|NetColor=$006E6EFF
-Net3=NetName=B|NetColor=$00FF6E6E
-Net4=NetName=B_OUT|NetColor=$00FF6E6E
-Net5=NetName=C|NetColor=clYellow
-Net6=NetName=DC-|NetColor=$000083FD
-Net7=NetName=DC+|NetColor=$000083FD
+Net1=NetName=+5|NetColor=$00FF6EFF
+Net2=NetName=A|NetColor=$006E6EFF
+Net3=NetName=A_OUT|NetColor=$006E6EFF
+Net4=NetName=B|NetColor=$00FF6E6E
+Net5=NetName=B_OUT|NetColor=$00FF6E6E
+Net6=NetName=C|NetColor=clYellow
+Net7=NetName=C_OUT|NetColor=clYellow
+Net8=NetName=DC-|NetColor=$000083FD
+Net9=NetName=DC+|NetColor=$000083FD
+Net10=NetName=ENABLE|NetColor=$00FFFF6E
+Net11=NetName=GND|NetColor=$00303030
+Net12=NetName=I_A|NetColor=$00FFFF6E
+Net13=NetName=I_B|NetColor=$00FFFF6E
+Net14=NetName=I_C|NetColor=$00FFFF6E
+Net15=NetName=PWM[1..6]|NetColor=$00FFFF6E
+Net16=NetName=PWM1|NetColor=$00FFFF6E
+Net17=NetName=PWM2|NetColor=$00FFFF6E
+Net18=NetName=PWM3|NetColor=$00FFFF6E
+Net19=NetName=PWM4|NetColor=$00FFFF6E
+Net20=NetName=PWM5|NetColor=$00FFFF6E
+Net21=NetName=PWM6|NetColor=$00FFFF6E
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=0|UseName=-1|InclAllRules=0
