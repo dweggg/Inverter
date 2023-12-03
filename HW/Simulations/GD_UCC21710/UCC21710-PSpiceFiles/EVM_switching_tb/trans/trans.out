@@ -1,0 +1,176 @@
+
+**** 12/03/23 21:42:12 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "EVM_switching_tb-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\GD_UCC21710\ucc21710-pspicefiles\evm_switchin
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "trans.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../ucc21710_trans.lib" 
+* From [PSPICE NETLIST] section of C:\cds_spb_home\cdssetup\OrCAD_PSpiceTIPSpice_Install\17.4.0\PSpice.ini file:
+.lib "nom_pspti.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.TRAN  0 500u 0 10n SKIPBP 
+.OPTIONS ADVCONV
+.OPTIONS FILEMODELSEARCH
+.OPTIONS ABSTOL= 1.0n
+.OPTIONS ITL2= 40
+.OPTIONS ITL4= 40
+.OPTIONS VNTOL= 1.0m
+.PROBE64 V(alias(*)) I(alias(*)) 
+.INC "..\EVM_switching_tb.net" 
+
+
+
+**** INCLUDING EVM_switching_tb.net ****
+* source UCC21710
+R_R5         RDY VCC  5k TC=0,0 
+C_C2         N16764291 VDD  10u  TC=0,0 
+V_V2         IN+ 0  
++PULSE 0 5 0 5n 5n 1u 2u
+R_R3         FLTB VCC  5k TC=0,0 
+R_R14         0 APWM  1Meg TC=0,0 
+V_V5         N16766688 0  
++PWL 0 5 45u 5 45.1u 5 48u 5 48.1u 5 
+R_R10         N16768107 N16768051  33.3333 TC=0,0 
+R_R12         N16768401 N16768175  3.3 TC=0,0 
+V_V6         N16768051 0 600
+R_R13         OUTH N16768175  3.3 TC=0,0 
+C_C3         N16768175 0  10n  
+C_C5         VCC 0  1u  
+X_U1         RDY IN+ 0 OUTH N16768401 0 N16766688 AIN N16778695 N16768175 0 VCC
++  VDD N16764291 FLTB 0 UCC21710
+R_R15         0 N16768175  10k TC=0,0 
+X_M1         N16768107 N16768175 0 POWER_NMOS_P PARAMS: BVDSS=1200.0 IDSS=160U
++  VGS_TH=4.8 RDSON=0.005 GFS=44 CISS=14.5P COSS=0.4N CRSS=0.03N RG=1.9 VSD=3.3
++  QG=520N V_QG=10 TRR=45N
+C_C6         APWM 0  1u  
+R_R16         N16778695 APWM  100 TC=0,0 
+V_V11         VDD 0 18
+V_V12         0 N16764291 2
+R_R17         0 N16782941  5k TC=0,0 
+V_V13         VCC 0 5
+R_R20         N16782941 AIN  10k TC=0,0 
+
+**** RESUMING trans.cir ****
+.END
+
+**** 12/03/23 21:42:12 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "EVM_switching_tb-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\GD_UCC21710\ucc21710-pspicefiles\evm_switchin
+
+
+ ****     Diode MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.N_MOSFET.DBT 
+          IS  160.000000E-06 
+           N   11.10986      
+          BV    1.200000E+03 
+          TT   45.000000E-09 
+         CJO  100.000000E-15 
+           M     .35         
+
+
+**** 12/03/23 21:42:12 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "EVM_switching_tb-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\GD_UCC21710\ucc21710-pspicefiles\evm_switchin
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.N_MOSFET   
+               NMOS            
+       LEVEL    1            
+           L  100.000000E-06 
+           W  100.000000E-06 
+         VTO    5.3          
+          KP   88            
+       GAMMA    0            
+         PHI     .6          
+      LAMBDA    0            
+          IS   10.000000E-15 
+          JS    0            
+          PB     .8          
+        PBSW     .8          
+          CJ    0            
+        CJSW    0            
+        CGSO    0            
+        CGDO    0            
+        CGBO    0            
+         TOX  100.000000E-09 
+          XJ    0            
+       UCRIT   10.000000E+03 
+      DIOMOD    1            
+         VFB    0            
+        LETA    0            
+        WETA    0            
+          U0    0            
+        TEMP    0            
+         VDD    5            
+       XPART    0            
+
+
+**** 12/03/23 21:42:12 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "EVM_switching_tb-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\GD_UCC21710\ucc21710-pspicefiles\evm_switchin
+
+
+ ****     Voltage Controlled Switch MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               X_M1.S_GATE_CHG_SW 
+         RON     .01         
+        ROFF  100.000000E+06 
+         VON    5.9          
+        VOFF    4.8          
+
+
+
+          JOB CONCLUDED
+
+**** 12/03/23 21:42:12 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "EVM_switching_tb-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\GD_UCC21710\ucc21710-pspicefiles\evm_switchin
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  License check-out time            =      809.19
+  Total job time (using Solver 1)   =       54.39
+

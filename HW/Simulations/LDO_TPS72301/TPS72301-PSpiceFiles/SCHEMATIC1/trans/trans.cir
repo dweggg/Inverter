@@ -1,0 +1,22 @@
+** Profile: "SCHEMATIC1-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\TPS72301_PSPICE_TRANS\tps72301-pspicefiles\schematic1\trans.sim ] 
+
+** Creating circuit file "trans.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../tps72301.lib" 
+* From [PSPICE NETLIST] section of C:\cds_spb_home\cdssetup\OrCAD_PSpiceTIPSpice_Install\17.4.0\PSpice.ini file:
+.lib "nom_pspti.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.DC LIN V_V1 0 -5 0.2 
+.OPTIONS ADVCONV
+.OPTIONS FILEMODELSEARCH
+.PROBE64 V(alias(*)) I(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+.END

@@ -1,0 +1,65 @@
+
+**** 12/03/23 18:15:14 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\TPS72301_PSPICE_TRANS\tps72301-pspicefiles\schemati
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+** Creating circuit file "trans.cir" 
+** WARNING: THIS AUTOMATICALLY GENERATED FILE MAY BE OVERWRITTEN BY SUBSEQUENT SIMULATIONS
+
+*Libraries: 
+* Profile Libraries :
+* Local Libraries :
+.LIB "../../../tps72301.lib" 
+* From [PSPICE NETLIST] section of C:\cds_spb_home\cdssetup\OrCAD_PSpiceTIPSpice_Install\17.4.0\PSpice.ini file:
+.lib "nom_pspti.lib" 
+.lib "nom.lib" 
+
+*Analysis directives: 
+.DC LIN V_V1 0 -5 0.2 
+.OPTIONS ADVCONV
+.OPTIONS FILEMODELSEARCH
+.PROBE64 V(alias(*)) I(alias(*)) 
+.INC "..\SCHEMATIC1.net" 
+
+
+
+**** INCLUDING SCHEMATIC1.net ****
+* source TPS72301
+C_C1         0 VIN  10u  TC=0,0 
+C_C2         0 VOUT  2.2u  TC=0,0 
+R_R_Load         0 VOUT  20 TC=0,0 
+R_R1         N08163 VOUT  39k TC=0,0 
+R_R2         0 N08163  56k TC=0,0 
+X_U1         0 VIN VIN N08163 VOUT TPS72301
+V_V1         VIN 0 -2.5Vdc
+
+**** RESUMING trans.cir ****
+.END
+
+
+          JOB CONCLUDED
+
+**** 12/03/23 18:15:14 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+
+ ** Profile: "SCHEMATIC1-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\TPS72301_PSPICE_TRANS\tps72301-pspicefiles\schemati
+
+
+ ****     JOB STATISTICS SUMMARY
+
+
+******************************************************************************
+
+
+
+  License check-out time            =        2.89
+  Total job time (using Solver 1)   =         .63
+
