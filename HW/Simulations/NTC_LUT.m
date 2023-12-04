@@ -31,15 +31,15 @@ V_AIN = I_AIN * (R_filt + NTC); % Sensed voltage [V]
 D = -20 * V_AIN + 100; % Duty cycle out [%]
 
 VCC_GD = 5; % GD supply voltage [V]
-V_read = VCC_GD * D/100; % Voltage read by ADC [V]
+V_read = VCC_GD * D/100; % Voltage read by ADC [V] (filtered with ideal RC)
 
 VCC_ADC = 3.3; % MCU/ADC supply voltage [V]
 bits = 12; % ADC bits [b]
 
 bits_read = ceil(V_read * (2^bits) / VCC_ADC); % MCU/ADC read bits [b]
-bits_read(bits_read>2^bits)=2^bits;
-bits_read(bits_read<0)=0;
+bits_read(bits_read>2^bits)=2^bits; % Saturation to 2^bits
+bits_read(bits_read<0)=0; % Saturation to 0
 
-plot(temperatures, bits_read)
+plot(temperatures, V_read)
 
 OUTPUT_LUT = [temperatures; bits_read];
