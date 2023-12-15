@@ -136,30 +136,8 @@ clear alpha
 
 %% MTPA curve
 
-Te_vals = linspace(-Te_max*2, Te_max*2, 100); % [Nm] 100 Torque values;
-iq_ref_MTPA = zeros(1,length(Te_vals));
 
-% Iq_ref from torque, MTPA. Extracted from
-% https://iris.unipa.it/retrieve/handle/10447/406125/862725/document.pdf,
-% eqn 9
-
-% TODO: Hyperbola parametrization
-tic
-syms iq
-for i = 1:length(Te_vals)
-    eqn = iq^4 + iq*Te_vals(i)*lambda/((3/2)*(n/2)*(Ld-Lq)^2) - Te_vals(i)^2/(((3/2)*(n/2)*(Ld-Lq))^2);
-    solutions = vpasolve(eqn, iq);
-    real_sols = real(solutions(imag(solutions) == 0));
-    iq_ref_MTPA(i) = double(real_sols(sign(Te_vals(i))*real_sols>0));
-
-end
-toc
-
-% Id_ref from Iq_ref, MTPA. Extracted from
-% https://iris.unipa.it/retrieve/handle/10447/406125/862725/document.pdf,
-% eqn 10
-
-id_ref_MTPA = -lambda/(2*(Ld-Lq)) - sqrt((lambda/(2*(Ld-Lq)))^2+iq_ref_MTPA.^2);
+iq_ref_MTPA = sqrt((lambda.*id_ref_MTPA+(Ld-Lq).*id_ref_MTPA.^2)/(Ld-Lq));
 
 for i = 1:length(Te_vals)
     if abs(Te_vals(i)) <= Te_command*sign(Te_vals(i))
