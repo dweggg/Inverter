@@ -19,15 +19,15 @@ motor.I_max = 180;                           % [A] Maximum d-q current (sqrt(i_d
 
 motor = struct();
 motor.n = 6;                                 % [ad] Number of poles 
-motor.lambda = 0.054758;                     % [Wb] PM flux linkage
-motor.Ld =  0.2450e-3;                       % [H] d-axis inductance
-motor.Lq =  0.3674e-3;                       % [H] q-axis inductance
+motor.lambda = 0.052615000000000;            % [Wb] PM flux linkage
+motor.Ld =  1.887000000000000e-04;           % [H] d-axis inductance
+motor.Lq =  2.831000000000000e-04;           % [H] q-axis inductance
 motor.epsilon = motor.Lq/motor.Ld;           % [ad] Saliency ratio
 motor.Rs = 0.15;                             % [Ohm]     Stator phase resistance (phase-to-phase/2)
 motor.maxRPM = 20000;                        % [rpm] Motor maximum angular speed
-motor.K_FW = 0.70;                           % [%] Field Weakening safety factor
+motor.K_FW = 0.8;                            % [%] Field Weakening safety factor
 motor.Te_max = 26;                           % [N·m] Motor maximum angular torque
-motor.I_max = 103;                           % [A] Maximum d-q current (sqrt(i_d^2+i_q^2))
+motor.I_max = 106;                           % [A] Maximum d-q current (sqrt(i_d^2+i_q^2))
 %}
 
 %% Battery parameters
@@ -51,17 +51,15 @@ inv.Tsw = 1/inv.fsw;
 
 inv.Ts_PI = 5e-4;
 
-inv.tr_id = inv.Ts_PI*2;                               % Rise time [s]
-inv.alpha_id = log(9)/inv.tr_id;
-inv.Kp_id = inv.alpha_id*motor.Ld;
-inv.Ki_id = inv.alpha_id*motor.Rs;
-inv.Kaw_id = 2/inv.Ki_id;                              % Not actually sure of this, but works fine
+inv.Mp = 0.1;
+inv.ts = inv.Ts_PI*20;
+inv.xi_tf = sqrt(log(inv.Mp)*log(inv.Mp) / (pi^2 + log(inv.Mp)*log(inv.Mp))); 
+inv.wn = 3 / inv.xi_tf / inv.ts; 
 
-inv.tr_iq = inv.Ts_PI*2;                               % Rise time [s]
-inv.alpha_iq = log(9)/inv.tr_iq;
-inv.Kp_iq = inv.alpha_iq*motor.Lq;
-inv.Ki_iq = inv.alpha_iq*motor.Rs;
-inv.Kaw_iq = 2/inv.Ki_iq;                              % Not actually sure of this, but works fine
+inv.Kp_id = 2*inv.xi_tf*inv.wn*motor.Ld-motor.Rs;       
+inv.Ki_id = inv.wn*inv.wn*motor.Ld;                                                                       
+inv.Kp_iq = 2*inv.xi_tf*inv.wn*motor.Lq-motor.Rs;       
+inv.Ki_iq = inv.wn*inv.wn*motor.Lq;                                                                       
 
 inv.FW.KFW = motor.K_FW;                               % Relationship between the maximum available voltage and the applicable voltage
 inv.FW.tsV = 500e-3;                                   % [s] Flux weakening closed-loop settling time 
@@ -78,7 +76,7 @@ inv.FW.we_WP = inv.FW.A + sqrt(inv.FW.B-inv.FW.C);
 inv.FW.A = 2*inv.FW.Is_WP*(motor.Rs*inv.FW.we_WP*inv.FW.tsV*inv.FW.Is_WP*(motor.Ld-motor.Lq)*cos(inv.FW.gamma_WP)^2);
 inv.FW.B = inv.FW.Is_WP*cos(inv.FW.gamma_WP)*(5*(motor.Ld-motor.Lq)*(motor.Rs-inv.FW.tsV*(motor.Ld+motor.Lq)*inv.FW.we_WP^2/5)*inv.FW.Is_WP*sin(inv.FW.gamma_WP) + motor.lambda*inv.FW.we_WP*(motor.Rs*inv.FW.tsV - 5*motor.Lq));
 inv.FW.C = inv.FW.Is_WP*inv.FW.we_WP*(sin(inv.FW.gamma_WP)*motor.Ld*inv.FW.we_WP*inv.FW.tsV*motor.lambda + inv.FW.Is_WP*(motor.Rs*(motor.Ld-motor.Lq)*inv.FW.tsV+5*motor.Ld*motor.Lq));
-
+    
 inv.FW.Ki_V_Delta = -5*(battery.OCV(end)/sqrt(3))/(inv.FW.A + inv.FW.B - inv.FW.C);
 inv.FW.Kp_V_Delta = inv.FW.Ki_V_Delta/10000;
 
@@ -90,7 +88,7 @@ inv.FW.Kp_V_Delta = inv.FW.Ki_V_Delta/10000;
 car = struct();
 % car.GR = 4;                                         % [ad] Gear ratio
 car.GR = 11.2;                                      % [ad] Gear ratio
-car.Mass = 300;                                     % [kg] Car mass
+car.Mass = 150;                                     % [kg] Car mass
 car.Rw = 0.220;                                     % [m] Wheel radius
 car.Af = 1.1;                                       % [m^2] Frontal area
 car.Cd = 1.5;                                       % [ad] Drag coefficient

@@ -1,0 +1,44 @@
+\chapter{Metodología}
+
+La metodología seguida para el desarrollo de este proyecto se ha estructurado en base al modelo en V, que es un enfoque de gestión de proyectos ampliamente utilizado en el campo de la ingeniería. Este modelo se caracteriza por definir un proceso que va desde las etapas tempranas de especificación y conceptualización hasta las fases finales de pruebas y validación. A continuación, se detallan las distintas etapas de la metodología, su duración aproximada y cómo se superponen y relacionan entre sí.
+
+\vspace{20pt}
+
+\begin{enumerate}
+\item \textbf{Definición de requisitos}
+
+La primera etapa del proyecto se centra en la definición de los requisitos del inversor trifásico y su control. Aquí se establecen los objetivos, las especificaciones técnicas y los criterios de rendimiento que guiarán todo el desarrollo. Además, se identifican las necesidades y expectativas del equipo de Formula Student, asegurando que el proyecto cumpla con sus requerimientos específicos. La duración de esta etapa es excepcionalmente larga, pues requiere de mucha familiaridad con el entorno de la Formula Student y conocimiento sobre las necesidades reales del equipo.
+
+\item \textbf{Modelo continuo y simulación del control}
+
+La siguiente etapa es el diseño del modelo en continuo y el desarrollo del control en Simulink. Aquí, se crea un modelo matemático del inversor y del motor PMSM y se implementa el control vectorial (FOC). Este proceso implica una comprensión profunda de la teoría detrás de los motores eléctricos y el diseño del control. Se basará en la representación de la energía macroscópica (EMR) con el fin de ilustrar la aplicación final del motor. La duración estimada para esta fase es de aproximadamente 2 meses.
+
+\item \textbf{Discretización del modelo y simulación de la conmutación}
+
+Al acabar la etapa anterior, se trabaja en la discretización del modelo y la simulación de la conmutación de los interruptores de potencia en PLECS. Aquí se tiene en cuenta la naturaleza discreta de la electrónica de potencia y se simula el comportamiento del inversor en el dominio del tiempo discreto. Además, esta simulación incorpora también el modelo térmico, con lo que se pueden extraer las pérdidas del inversor. Esta fase dura alrededor de 2 semanas, pues gran parte de lo ya modelado se puede reutilizar para el nuevo modelo discreto.
+
+\item \textbf{Diseño del \textit{hardware}}
+
+Con el diseño del control y la simulación de la conmutación como base, se procede al diseño del \textit{hardware}. Esto implica seleccionar componentes, diseñar esquemáticos y PCB y diseñar los tests de validación de \textit{hardware}. La duración estimada para esta etapa es de 3 a 4 meses, y se solapa parcialmente con el diseño del \textit{software}.
+
+\item \textbf{Diseño del \textit{software}}
+
+Simultáneamente con el diseño del \textit{hardware}, se trabaja en el desarrollo del \textit{software}. Esto incluye programar el microcontrolador que controlará el inversor y la implementación del algoritmo de control. Se utilizará una placa de evaluación antes de tener la placa de control propia con tal de acelerar el desarrollo. La duración estimada para esta fase es de aproximadamente 4 meses.
+
+\item \textbf{Validación del \textit{hardware}}
+
+Una vez que el \textit{hardware} se está construyendo, se procede a la validación con los tests diseñados anteriormente. La duración estimada para esta etapa es de aproximadamente 1 a 2 meses y se superpone con el desarrollo del \textit{software}.
+
+\item \textbf{Validación del \textit{software}}
+
+La validación del \textit{software} se realiza una vez que el \textit{hardware} está validado. Aquí, se llevan a cabo pruebas exhaustivas para garantizar que el inversor funcione según lo previsto y que los modelos de simulación se ajusten a la realidad. La duración estimada para esta etapa es de 2 meses.
+
+\item \textbf{Documentación y preparación para la implementación}
+
+La fase final del proyecto se enfoca en la documentación, la creación de manuales de uso y mantenimiento y la preparación para su implementación en los monoplazas del equipo de Formula Student. Además, se construirá una maqueta del empaquetado del inversor, donde se busque una buena integración mecánica con el monoplaza. La duración estimada para esta etapa es de aproximadamente 1 mes. 
+
+\end{enumerate}
+
+Es importante destacar que las etapas de diseño del hardware y del software pueden superponerse y solaparse con otras etapas, lo que permite un desarrollo más ágil y eficiente del proyecto. La superposición de estas etapas es esencial para cumplir con los plazos y garantizar que el proyecto avance de manera constante. El trabajo se ha realizado en el marco de un año académico, de septiembre a junio, aunque la definición de requisitos y los primeros pasos del modelo continuo se realizaron antes del comienzo del trabajo.
+
+

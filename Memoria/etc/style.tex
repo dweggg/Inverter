@@ -1,0 +1,40 @@
+% Chapter and section titles
+\titleformat{\chapter}[block]{\titlerule[0.8pt]\normalfont\huge\bfseries}{\thechapter.}{.5em}{\Huge}[{\titlerule[0.8pt]}]
+\titlespacing*{\chapter}{0pt}{-19pt}{25pt}
+\titleformat{\section}[block]{\normalfont\Large\bfseries}{\thesection.}{.5em}{\Large}
+
+
+
+% Source code
+\lstset{
+  basicstyle=\ttfamily,
+  breaklines=true,
+}
+
+% Margins
+\geometry{
+    a4paper,
+    margin=2.75cm
+}
+
+\newcommand{\chaptercolour}{%
+  \ifcase\value{ToCchapter}
+  \or red% Chapter 1
+  \or blue% Chapter 2
+  \or green% Chapter 3
+  \or yellow% Chapter 4
+  \else brown% other
+  \fi
+}
+
+% Index depth
+\setcounter{tocdepth}{2}
+
+% Paragraph indent
+\setlength{\parindent}{1cm}
+
+\definecolor{US_red}{cmyk}{0, 1, 0.65, 0.34}
+\definecolor{US_yellow}{cmyk}{0, 0.3, 0.94, 0}
+\definecolor{brickred}{rgb}{0.8, 0.25, 0.33}
+
+\mdfdefinestyle{US_style}{backgroundcolor=US_red!20, font=\bfseries, hidealllines=true}

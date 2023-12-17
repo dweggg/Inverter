@@ -1,0 +1,325 @@
+\documentclass[12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{angles, arrows.meta, quotes}
+\usetikzlibrary{calc}
+\usetikzlibrary{external}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{circuitikz}
+\usepackage{titlesec}
+\usepackage{subfig}
+\usepackage[bookmarks,breaklinks,colorlinks=true,allcolors=blue]{hyperref}
+\usepackage{listings}
+\usepackage{inconsolata}
+\usepackage{float}
+\usepackage{eso-pic}
+\usepackage{tkz-fct}  
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{pgfplots}
+\usepackage{siunitx}
+\usepackage[square,numbers]{natbib}
+\AtBeginDocument{
+  \renewcommand{\bibsection}{\chapter{\bibname}}
+}
+\usepackage{comment}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage[official]{eurosym}
+\setlength {\marginparwidth }{2cm}
+\usepackage{todonotes}
+\usepackage{csquotes}
+\usepackage{xspace}
+
+\title{Graficos 3D}
+\author{David Redondo}
+\date{October 2023}
+
+\begin{document}
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{3cm}
+        \centering
+        \hspace*{-1.5cm}
+        \begin{tikzpicture}
+        \begin{axis}[
+            %view={-45}{-35},
+            view={-20}{-15},
+            %view={54.74}{-15},
+            axis lines=none,
+            xmin=-1.5,
+            xmax=1.5,
+            ymin=-1.5,
+            ymax=1.5,
+            zmin=-1.5,
+            zmax=1.5,
+            no markers,
+            axis equal,
+            enlargelimits={upper=0.2},
+            scale=1,
+        ]
+        \addplot3+[no markers, samples=30, domain=-pi:pi, variable=\t]
+            ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
+        \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{3cm}
+        \centering
+            \hspace*{-1.5cm}
+            \begin{tikzpicture}
+            \begin{axis}[
+                view={-45}{-35},
+                %view={-20}{-15},
+                %view={54.74}{-15},
+                axis lines=none,  % Elimina los ejes
+                xmin=-.9,
+                xmax=.9,
+                ymin=-.9,
+                ymax=.9,
+                zmin=-.9,
+                zmax=.9,
+                no markers,
+                axis equal,
+                enlargelimits={upper=0.2},
+                scale=1,
+            ]
+            \addplot3+[no markers, samples=30, domain=-pi:pi, variable=\t]
+                ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
+            \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+            \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+            \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
+            \end{axis}
+            \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{3cm}
+        \centering
+        \hspace*{-1.5cm}
+        \begin{tikzpicture}
+        \begin{axis}[
+            %view={-45}{-35},
+            %view={-20}{-15},
+            view={54.7356102983}{-15},
+            axis lines=none,
+            xmin=-1.5,
+            xmax=1.5,
+            ymin=-1.5,
+            ymax=1.5,
+            zmin=-1.5,
+            zmax=1.5,
+            no markers,
+            axis equal,
+            enlargelimits={upper=0.2},
+            scale=1,
+        ]
+        \addplot3+[no markers, samples=10, domain=-pi:pi, variable=\t]
+            ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
+        \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}   
+    \centering
+    \caption{Sistema trifásico representado en el Espacio Vectorial}
+\end{figure}
+%\end{comment}
+
+\begin{figure}[ht]
+    \centering
+    \begin{subfigure}[b]{3cm}
+        \centering
+        \hspace*{-1.5cm}
+        \begin{tikzpicture}
+        \begin{axis}[
+            %view={-45}{-35},
+            view={-20}{-15},
+            %view={54.74}{-15},
+            axis lines=none,
+            xmin=-1.5,
+            xmax=1.5,
+            ymin=-1.5,
+            ymax=1.5,
+            zmin=-1.5,
+            zmax=1.5,
+            no markers,
+            axis equal,
+            enlargelimits={upper=0.2},
+            scale=1,
+        ]
+        \addplot3+[no markers, samples=30, domain=-pi:pi, variable=\t]
+            ({sin(deg(\t - 2*pi/3))}, {sin(deg(\t ))}, {sin(deg(\t + 2*pi/3))});
+
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
+        
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+
+        \draw [red, -stealth] (axis cs:0, 0, 0) -- (axis cs: 0.5*-0.57735, 0.5*0.8165, 0.5*-0.57735) node[pos=1.5]{$\alpha$};
+        
+
+        \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{3cm}
+        \centering
+            \hspace*{-1.5cm}
+            \begin{tikzpicture}
+            \begin{axis}[
+                view={-45}{-35},
+                %view={-20}{-15},
+                %view={54.74}{-15},
+                axis lines=none,  % Elimina los ejes
+                xmin=-.9,
+                xmax=.9,
+                ymin=-.9,
+                ymax=.9,
+                zmin=-.9,
+                zmax=.9,
+                no markers,
+                axis equal,
+                enlargelimits={upper=0.2},
+                scale=1,
+            ]
+            \addplot3+[no markers, samples=30, domain=-pi:pi, variable=\t]
+            ({sin(deg(\t - 2*pi/3))}, {sin(deg(\t ))}, {sin(deg(\t + 2*pi/3))});
+
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
+            \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
+            
+            \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+            \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+            \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+
+            \draw [red, -stealth] (axis cs:0, 0, 0) -- (axis cs: 0.5*-0.57735, 0.5*0.8165, 0.5*-0.57735) node[pos=1.5]{$\alpha$};
+            
+            
+            \end{axis}
+            \end{tikzpicture}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{3cm}
+        \centering
+        \hspace*{-1.5cm}
+        \begin{tikzpicture}
+        \begin{axis}[
+            %view={-45}{-35},
+            %view={-20}{-15},
+            view={54.7356102983}{-15},
+            axis lines=none,
+            xmin=-1.5,
+            xmax=1.5,
+            ymin=-1.5,
+            ymax=1.5,
+            zmin=-1.5,
+            zmax=1.5,
+            no markers,
+            axis equal,
+            enlargelimits={upper=0.2},
+            scale=1,
+        ]
+        \addplot3+[no markers, samples=80, domain=-pi:pi, variable=\t]
+            ({sin(deg(\t - 2*pi/3))}, {sin(deg(\t ))}, {sin(deg(\t + 2*pi/3))});
+
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
+        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
+
+        
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+        \draw [-stealth] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+
+        %\draw (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$\beta$};
+        \draw [red, -stealth] (axis cs:0, 0, 0) -- (axis cs: 0.5*-0.57735, 0.5*0.8165, 0.5*-0.57735) node[pos=1.5]{$\alpha$};
+        %\draw (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$\gamma$};
+        
+        
+        \end{axis}
+        \end{tikzpicture}
+    \end{subfigure}   
+    \centering
+    \caption{Sistema trifásico representado en el Espacio Vectorial}
+\end{figure}
+%\end{comment}
+
+\end{document}

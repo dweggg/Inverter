@@ -8,21 +8,21 @@ clc, clear
 motor = 'AMK';
 
 switch motor
-    case 'e-Tech 2023'
+    case 'e-Tech 2024'
         Ke = 0.13;                              % [V/(rad/s)] Mechanical speed constant
         n = 6;                                  % [ad] Number of poles 
         lambda_Ke = Ke / sqrt(3);               % [Wb] PM flux linkage
-        lambda = 28.95e-3;                      % [Wb] PM flux linkage
-        Ld =  0.1269e-3;                        % [H] d-axis inductance
-        Lq =  0.2268e-3;                        % [H] q-axis inductance
+        lambda = 0.052615000000000;             % [Wb] PM flux linkage
+        Ld =  1.887000000000000e-04;            % [H] d-axis inductance
+        Lq =  2.831000000000000e-04;            % [H] q-axis inductance
         epsilon = Lq/Ld;                        % [ad] Saliency ratio
         Rs = 0.0201;                            % [Ohm] Stator phase resistance (phase-to-phase/2)
         P_max = 35e3;                           % [W] Maximum output power
         SpeedMax = 20000;                       % [rpm] Motor maximum angular speed
         Te_max = 26;                            % [N·m] Motor maximum angular torque
-        Vbat = 580;                             % [V] Battery DC voltage
+        Vbat = 540;                             % [V] Battery DC voltage
         Vs_max = Vbat / sqrt(3);                % [V] Maximum d-q voltage (Maximum Torque per Voltage Flux-Weakening strategy with speed limiter for PMSM drives, 2020)
-        Is_max = 185;                           % [A] Maximum d-q current (sqrt(i_d^2+i_q^2))
+        Is_max = 105;                           % [A] Maximum d-q current (sqrt(i_d^2+i_q^2))
         Te_command = 26;
         SpeedRef = 20000*2*pi/60;  
     case 'e-Tech 2017'
@@ -151,7 +151,7 @@ end
 %% Voltage ellipse
 I_ck = lambda/Ld;
 h_ellipse = -I_ck;
-speed_vals = [linspace(0.001, SpeedMax*2*pi/60, 6), SpeedRef]; % speed values
+speed_vals = [linspace(SpeedMax*2*pi/60/5, SpeedMax*2*pi/60, 3)]; % speed values
 % Voltage ellipse eqn
 % (id+lambda/Ld)^2/(Vs_max/(Ld*speed))^2+iq^2/(Vs_max/(Lq*speed))^2<=1
 
