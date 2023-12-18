@@ -214,7 +214,7 @@ Esta transformada se utiliza cuando la potencia del sistema debe permanecer inal
             enlargelimits={upper=0.2},
             scale=1,
         ]
-        \addplot3+[no markers, samples=30, domain=-pi:pi, variable=\t]
+        \addplot3+[red, thick, no markers, samples=30, domain=-pi:pi, variable=\t]
             ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
         \draw (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
         \draw (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
@@ -259,7 +259,7 @@ Esta transformada se utiliza cuando la potencia del sistema debe permanecer inal
                 enlargelimits={upper=0.2},
                 scale=1,
             ]
-            \addplot3+[no markers, samples=30, domain=-pi:pi, variable=\t]
+            \addplot3+[red, thick, no markers, samples=30, domain=-pi:pi, variable=\t]
                 ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
             \draw (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
             \draw (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
@@ -300,7 +300,7 @@ Esta transformada se utiliza cuando la potencia del sistema debe permanecer inal
             enlargelimits={upper=0.2},
             scale=1,
         ]
-        \addplot3+[no markers, samples=10, domain=-pi:pi, variable=\t]
+        \addplot3+[red, thick, no markers, samples=10, domain=-pi:pi, variable=\t]
             ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
         \draw (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
         \draw (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
@@ -853,7 +853,7 @@ Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses
 %% HASTA AQUI TRACUCCION POCHA DE LA WIKI
 
 \section{Control del PMSM en el espacio d-q}
-\subsection{Trayectorias de control}
+\subsection{Trayectorias de control} \label{ap:control}
 
 Después de conocer los límites de la máquina, se pueden establecer criterios para decidir cuánto \(i_d\) y \(i_q\) (o \(I_s\) y \(\gamma\)) se deben aplicar al PMSM para que se comporte mecánicamente como se desee. El conjunto de puntos de trabajo que definen un comportamiento se llama trayectoria y existen una multitud de ellas. Por ejemplo, se puede desear que el motor produzca la mayor cantidad de par posible con la mínima corriente. Pero también se podría querer que tenga un cierto factor de potencia o que mantenga el par constante subiendo la velocidad, etc.
 
@@ -1302,7 +1302,7 @@ Tras obtener las consignas de tensión, se modela el inversor VSI con SVPWM con 
 
 \subsubsection{Implementación de las trayectorias de control}
 
-Con lo anteriormente desarrollado solamente se pueden consignar las corrientes $i_d$ e $i_q$ manualmente, pero el objetivo es consignar el par y que el propio control sea capaz de gestionar el debilitamiento de campo. Por ello, se implementan las ecuaciones presentadas en el apartado 2.1 en bloques de código. De entre aquellas ecuaciones cuya salida es la corriente $I_s$, se usa la que computa un valor más pequeño, limitando así el módulo. Además, se calcula el ángulo correspondiente a la trayectoria del MTPA, y se usa un integrador para modificar el ángulo y poder usar las trayectorias consideradas como debilitamiento de campo. Este integrador se encarga de que la consigna de ángulo no haga sobrepasar el límite de tensión establecido por el inversor. 
+Con lo anteriormente desarrollado solamente se pueden consignar las corrientes $i_d$ e $i_q$ manualmente, pero el objetivo es consignar el par y que el propio control sea capaz de gestionar el debilitamiento de campo. Por ello, se implementan las ecuaciones presentadas en el apartado \cite{ap:control} en bloques de código. De entre aquellas ecuaciones cuya salida es la corriente $I_s$, se usa la que computa un valor más pequeño, limitando así el módulo. Además, se calcula el ángulo correspondiente a la trayectoria del MTPA, y se usa un integrador para modificar el ángulo y poder usar las trayectorias consideradas como debilitamiento de campo. Este integrador se encarga de que la consigna de ángulo no haga sobrepasar el límite de tensión establecido por el inversor. 
 
 \begin{figure}[!ht]
     \centering
@@ -1350,7 +1350,7 @@ Para comprobar el funcionamiento y la estabilidad del control, se realiza una si
     %
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/vdvqPI_plot.png}
-        \caption{Voltaje ($V_{dq}$) desde el controlador PI}
+        \caption{Voltajes ($V_{d} - V_{q}$)}
     \end{subfigure}
 
     \caption{Resultados de la simulación.}
@@ -1397,7 +1397,41 @@ Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el i
 
 ********CAPTURAS MODELO PLECS********
 
-********CAPTURAS SIMULACION PLECS********
+\begin{figure}[!ht]
+    \centering
+
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\linewidth]{fig/PLECS_Tem.png}
+        \caption{Torque electromagnético ($T_{em}$) vs Velocidad mecánica ($\omega_{m}$)}
+    \end{subfigure}
+    %
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\linewidth]{fig/PLECS_idiq.png}
+        \caption{Corrientes ($I_{d} - I_{q}$)}
+    \end{subfigure}
+
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\linewidth]{fig/PLECS_id-iq.png}
+        \caption{Corriente ($I_{d}$) vs Corriente ($I_{q}$)}
+    \end{subfigure}
+    %
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\linewidth]{fig/PLECS_gamma.png}
+        \caption{Ángulo de corriente ($\gamma$)}
+    \end{subfigure}
+
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\linewidth]{fig/PLECS_thermal.png}
+        \caption{Temperatura y pérdidas del inversor}
+    \end{subfigure}
+    %
+    \begin{subfigure}{0.4\textwidth}
+        \includegraphics[width=\linewidth]{fig/PLECS_vdvq.png}
+        \caption{Voltajes ($V_{d} - V_{q}$)}
+    \end{subfigure}
+
+    \caption{Resultados de la simulación.}
+\end{figure}
 
 
 
@@ -1412,15 +1446,60 @@ Con tal de adquirir las variables necesarias para el control y interfazar con el
 
 ********DIAGRAMA DE BLOQUES********
 
-El convertidor se divide en 3 PCBs, 
+El convertidor se divide en 3 PCBs, que se listan a continuación:
+
+Inverter_Power
+Inverter_DC
+Inverter_Control
+
+
+Como su nombre indica, \textit{Inverter_Power} alojará todos los componentes de potencia, incluyendo los \textit{gate drivers}, los sensores de corriente, los semiconductores, los buses de continua y los conectores de potencia. Esta PCB se fabrica en duplicado ya que contiene todos los elementos que son necesarios repetir para el control de dos motores.
+
+En \textit{Inverter_DC} se puede encontrar el sensado de tensión continua, el circuito de descarga, y la detección de alta tensión para la \textit{TSAL}.
+
+Por su parte, \textit{Inverter_Control} contiene el microcontrolador de la familia STM32F7 para accionar los \textit{gate drivers}, así como para realizar las lecturas de corriente, tensión y temperatura, las interfaces con los sensores de posición de los motores o los protocolos comunicación.
+
+El montaje de estas placas se realiza de forma compacta y eficiente, de manera que quepa una placa refrigerada entre medias para controlar la temperatura de los semiconductores de ambos inversores. Se encajan de manera que la placa de control se puede conectar a las placas de potencia mediante conectores \textit{board-to-board}, y la PCB del bus de continua se sitúa estratégicamente cerca del conector de la batería. Las conexiones de potencia facilitan la integración con el cableado del monoplaza debido a su posicionamiento.
+
 
 \subsection{Semiconductores}
 
-Análisis comparativo de alternativas
+\subsubsection{Carburo de Silicio}
 
-Justificamos SiC refrigerado por agua
+La elección de utilizar carburo de silicio (SiC) en lugar de otros materiales para los semiconductores se basa en consideraciones específicas del entorno de aplicación. Dado que el prototipo se desarrolla en el contexto de la competición, donde la reducción de peso y volumen es crítica, el coste no es una restricción principal.
 
-detalle del modulo a usar, del calculo de perdidas (PLECS) y de gate drivers / limites de los interruptores
+El SiC ofrece ventajas significativas en términos de eficiencia y rendimiento, permitiendo un diseño más compacto y robusto. Estas características son fundamentales para cumplir con los requisitos del monoplaza, donde la optimización del peso y el espacio es esencial para alcanzar altas densidades de potencia.
+
+\subsubsection{Módulos de Potencia}
+
+En el diseño del inversor de tracción, se han seleccionado módulos \textit{half-bridge} debido a que para el rango de potencias y tensiones del proyecto se ofrecen como la solución más viable. Dos modelos de semiconductores se consideran para su integración en el prototipo: el DFS05HF12EYR1 de Leapers Semiconductor y el CAB016M12FM3 de Wolfspeed. Ambos modelos cumplen rigurosamente con los requisitos de la aplicación, presentando un voltaje de ruptura (\(V_{ds\_breakdown}\)) superior a 1200V y una corriente máxima (\(I_{ds\_max}\)) que excede los 80 ARMS.
+
+La elección de dos modelos distintos se basa en la intención de realizar pruebas comparativas, aprovechando las ventajas individuales de cada uno. El DFS05HF12EYR1 destaca por sus especificaciones detalladas en el datasheet, mientras que el CAB016M12FM3, de la reconocida marca Wolfspeed, aporta la confianza en la fiabilidad asociada a una empresa con amplia experiencia en el campo.
+
+Además, ambos modelos permiten alcanzar una frecuencia de conmutación de 50 kHz, lo que contribuye significativamente a la reducción del tamaño del bus de continua y optimiza la eficiencia del inversor. Se diseñará la placa de potencia de manera que se puedan probar ambos, ya que comparten \textit{footprint} y tan solo es cuestión de cambiar los valores de algunos componentes.
+
+\subsubsection{Refrigeración}
+
+El sistema de refrigeración seleccionado para los semiconductores es una coldplate de agua. Esta elección se fundamenta en la necesidad de mantener una interfaz de temperatura fija para los semiconductores, lo que simplifica el diseño del sistema y asegura un rendimiento constante. La experiencia previa del equipo en sistemas de refrigeración por agua también influyó en esta decisión, proporcionando un marco confiable para la implementación.
+
+A pesar de que los semiconductores de carburo de silicio (SiC) tienen una temperatura máxima de unión (\(T_{j(max)}\)) notablemente alta, se establece como objetivo mantener el delta de temperatura (\(\Delta T\)) por debajo de 30ºC. Este enfoque busca garantizar una operación óptima y una vida útil prolongada de los componentes.
+
+\subsubsection{Cálculo de Pérdidas}
+
+El análisis de pérdidas en los semiconductores se ha llevado a cabo mediante simulaciones detalladas utilizando herramientas especializadas. Estas simulaciones se centran en evaluar las pérdidas de conducción y conmutación de los MOSFETs y diodos por separado, permitiendo una comprensión profunda de su comportamiento en diversas condiciones de operación.
+
+Para los semiconductores de Wolfspeed, las simulaciones fueron validadas mediante herramientas proporcionadas por el fabricante, lo que añade una capa adicional de confiabilidad a los resultados obtenidos. La metodología de simulación asume la entrega continua de la potencia máxima, de manera que el diseño de la coldplate se puede basar en la determinación del porcentaje de la potencia máxima equivalente en un perfil de conducción realista.
+
+Las herramientas utilizadas para la evaluación de pérdidas incluyen PLECS para simulaciones de sistema y LTSPICE para ensayos (\textit{double pulse}).
+
+\subsubsection{Gate Drivers e Interruptores}
+
+La elección de gate drivers es un aspecto crucial en el diseño del inversor de tracción. Se han evaluado dos opciones: el ADUM4146 de Analog Devices y el UCC21710QDWQ1 de Texas Instruments. La selección final recayó en el UCC21710QDWQ1 debido a su capacidad para recibir una lectura analógica y transmitirla de forma aislada, evitando así añadir un componente adicional para realizar las medidas de temperatura de los semiconductores.
+
+Ambos gate drivers fueron sometidos a cálculos detallados y simulaciones para asegurar su compatibilidad y rendimiento óptimo a la frecuencia de conmutación de diseño, independientemente del semiconductor seleccionado.
+
+En cuanto al control de la commutación, se implementa la modulación SVPWM. Esta elección se realiza debido a su seguridad y capacidad para proporcionar un control robusto sobre las tensiones generadas. Se descartan otras estrategias de modulación, ya que la modulación lineal garantiza un rendimiento fiable y evita problemas potenciales como la oscilación del sistema.
+
 
 \subsection{\textit{Gate drivers}}
 

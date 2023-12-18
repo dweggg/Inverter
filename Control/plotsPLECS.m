@@ -15,7 +15,7 @@ styleConfig = struct(...
 currentConfig = styleConfig;
 
 % Load simulation output data
-load('FOC_CAB0016M12FM3.mat');  % Update with your simulation output file name
+load('FOC_CAB0016M12FM3_1.mat');  % Update with your simulation output file name
 
 % Specify output directory
 outputDirectory = 'Plots_memoria_PLECS/';
@@ -48,10 +48,10 @@ hold off
 
 xlabel('$I_d$ [A]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.xlabelFontSize);
 ylabel('$I_q$ [A]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
-title('Currents ($I_d - I_q$) XY Plot', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
+title('$I_d - I_q$', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
 set(gca, 'FontSize', currentConfig.fontConfig.ticksFontSize, 'TickLabelInterpreter', 'latex');
 grid on;
-legend({'$I_d$, ref', '$I_q$, ref', '$I_d$', '$I_q$'}, 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.legendFontSize);
+legend({'$I_d - I_q$, ref', '$I_d - I_q$'}, 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.legendFontSize);
 
 ax = gca;
 ax.XAxis.Exponent = 0;
@@ -72,7 +72,7 @@ hold off
 
 xlabel('Time [s]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.xlabelFontSize);
 ylabel('$I_d - I_q$ [A]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
-title('Currents ($I_d - I_q$) Time Plot', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
+title('$I_d - I_q$', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
 set(gca, 'FontSize', currentConfig.fontConfig.ticksFontSize, 'TickLabelInterpreter', 'latex');
 grid on;
 legend({'$I_d$, ref', '$I_d$', '$I_q$, ref', '$I_q$'}, 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.legendFontSize);
@@ -96,7 +96,7 @@ hold off
 
 xlabel('Time [s]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.xlabelFontSize);
 ylabel('$V_d - V_q$ [V]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
-title('Voltages ($V_d - V_q$) Time Plot', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
+title('$V_d - V_q$', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
 set(gca, 'FontSize', currentConfig.fontConfig.ticksFontSize, 'TickLabelInterpreter', 'latex');
 grid on;
 legend({'$V_d$, ref', '$V_d$, sat', '$V_q$, ref', '$V_q$, sat'}, 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.legendFontSize);
@@ -120,7 +120,7 @@ hold off
 
 xlabel('Time [s]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.xlabelFontSize);
 ylabel('$\gamma$', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
-title('Gammas (Reference and Measured) Time Plot', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
+title('$\gamma$', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
 set(gca, 'FontSize', currentConfig.fontConfig.ticksFontSize, 'TickLabelInterpreter', 'latex');
 grid on;
 legend({'$\gamma$, ref', '$\gamma$, ref, MTPA', '$\Delta\gamma$, ref (FW)','$\gamma$'}, 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.legendFontSize);
@@ -139,7 +139,7 @@ plot(M_wm*60/2/pi, Tem, 'LineWidth', 1, 'Color', 'k');
 
 xlabel('$\omega_m$ [rpm]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.xlabelFontSize);
 ylabel('$T_{em}$ [N$\cdot$m]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
-title('Mechanical Speed ($\omega_m$) vs Electromagnetic Torque ($T_{em}$) XY Plot', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
+title('Mechanical Speed ($\omega_m$) vs Electromagnetic Torque ($T_{em}$)', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
 set(gca, 'FontSize', currentConfig.fontConfig.ticksFontSize, 'TickLabelInterpreter', 'latex');
 grid on;
 ax = gca;
@@ -159,7 +159,7 @@ plot(time, T_inverter, 'LineWidth', 1, 'Color', 'k');
 
 xlabel('Time [s]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.xlabelFontSize);
 ylabel('Inverter Temperature [$^\circ$C]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
-title('Inverter Temperature Time Plot', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
+title('Inverter Temperature', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
 set(gca, 'FontSize', currentConfig.fontConfig.ticksFontSize, 'TickLabelInterpreter', 'latex');
 grid on;
 ax = gca;
@@ -174,7 +174,7 @@ plot(time, P_loss, 'LineWidth', 1, 'Color', 'k');
 
 xlabel('Time [s]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.xlabelFontSize);
 ylabel('Power Loss [W]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
-title('Power Loss Time Plot', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
+title('Inverter Power Loss', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
 set(gca, 'FontSize', currentConfig.fontConfig.ticksFontSize, 'TickLabelInterpreter', 'latex');
 grid on;
 ax = gca;
