@@ -706,41 +706,39 @@ Y el ángulo:
 
 Se puede observar que la corriente máxima puede expresarse más fácilmente como $I_s$, independientemente del ángulo $\gamma$ (no debe confundirse con el $\gamma$ de la transformada de Clarke). Por lo tanto, se puede representar $I_s = I_{s,\text{max}} , \forall \gamma \in [0,2\pi]$
 
-
-
-
 \begin{figure}[!ht]
-  \centering
-    \begin{tikzpicture}
-    \begin{axis}[
-        axis lines=middle,
-        width=6cm,
-        height=8cm,
-        xlabel={$i_d$},
-        x label style={at={(axis description cs:0.05,0.6)},anchor=north},
-        ylabel={$i_q$},
-        %y label style={at={(axis description cs:0.95,0.05}},
-        grid=none,
-        xmin=-1.2,
-        xmax=0.4,
-        ymin=-1.2,
-        ymax=1.2,
-        no markers,
-        x axis line style = {stealth-},
-        xticklabels=\empty,  % Elimina las marcas en el eje x
-        yticklabels=\empty,  % Elimina las marcas en el eje y
-    ]
-    
-    % Límite de corriente Is_max
-    \draw[red, thick] (0,0) circle [radius=0.8];
-    \draw [red, -stealth](0,0) -- (-0.56568542494,0.56568542494) node at (-0.56568542494,0.56568542494) {$I_s = I_{s,\text{max}}$};
-    \draw [|<->|] (40,0) arc (0:135:40) node[midway, sloped, above, label={[label distance=0.07cm]30:$\gamma = \frac{3\pi}{4}$}]{};
-
-    \end{axis}
-    \end{tikzpicture}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			axis lines=middle,
+			width=6cm,
+			height=8cm,
+			xlabel={$i_d$},
+			x label style={at={(axis description cs:0.05,0.6)},anchor=north},
+			ylabel={$i_q$},
+			grid=none,
+			xmin=-1.2,
+			xmax=0.4,
+			ymin=-1.2,
+			ymax=1.2,
+			no markers,
+			x axis line style={stealth-},
+			xticklabels=\empty,
+			yticklabels=\empty,
+			clip=false,          % Disable clipping
+			]
+			
+			% Límite de corriente Is_max
+			\draw[red, thick] (0,0) circle [radius=0.8];
+			\draw [red, -stealth](0,0) -- (-0.56568542494,0.56568542494) node at (-1,0.56568542494) {$I_s = I_{s,\text{max}}$};
+			\draw [white, thick] (axis cs: 0.2, 0) arc (0:180:0.2);
+			\draw [red, thick] (axis cs: 0.2, 0) arc (0:135:0.2);
+			\node[red] at (axis cs: 0.25, 0.28) {$\gamma = \frac{3\pi}{4}$};
+			
+		\end{axis}
+	\end{tikzpicture}
   \caption{Círculo de límite de corriente.}
 \end{figure}
-
 
 
 Resulta ser un círculo, lo cual tiene sentido, ya que es un vector de magnitud constante. Además, el vector de corriente $I_s\angle \gamma = I_{s,\text{max}} \angle{\frac{3\pi}{4}}$ se representa para facilitar su comprensión.
@@ -891,7 +889,7 @@ Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses
 %% HASTA AQUI TRACUCCION POCHA DE LA WIKI
 
 \section{Control del PMSM en el espacio d-q}
-\subsection{Trayectorias de control} \label{ap:control}
+\subsection{Trayectorias de control}
 
 Después de conocer los límites de la máquina, se pueden establecer criterios para decidir cuánto \(i_d\) y \(i_q\) (o \(I_s\) y \(\gamma\)) se deben aplicar al PMSM para que se comporte mecánicamente como se desee. El conjunto de puntos de trabajo que definen un comportamiento se llama trayectoria y existen una multitud de ellas. Por ejemplo, se puede desear que el motor produzca la mayor cantidad de par posible con la mínima corriente. Pero también se podría querer que tenga un cierto factor de potencia o que mantenga el par constante subiendo la velocidad, etc.
 
@@ -1345,9 +1343,9 @@ Tras obtener las consignas de tensión, se modela el inversor VSI con SVPWM con 
 
 \subsubsection{Implementación de las trayectorias de control}
 
-Con lo anteriormente desarrollado solamente se pueden consignar las corrientes $i_d$ e $i_q$ manualmente, pero el objetivo es consignar el par y que el propio control sea capaz de gestionar el debilitamiento de campo. Por ello, se implementan las ecuaciones presentadas en el apartado \cite{ap:control} en bloques de código. 
+Con lo anteriormente desarrollado solamente se pueden consignar las corrientes $i_d$ e $i_q$ manualmente, pero el objetivo es consignar el par y que el propio control sea capaz de gestionar el debilitamiento de campo. Por ello, se implementan las ecuaciones presentadas en el apartado anterior en bloques de código. 
 
-La estrategia es la siguiente: 
+La estrategia es la siguiente: Se implementan las ecuaciones de las trayectorias cuya salida es una corriente (CLC, CTC, MTPV y VLE) y se selecciona la mínima, o en caso de estar en zona de debilitamiento de campo, la óptima, que no necesariamente es la mínima. En paralelo, se calcula el ángulo que correspondería a la trayectoria del MTPA, y se añade un control integral que aumenta el valor del ángulo controlando la tensión para poder entrar en el resto de trayectorias. Se trabaja con módulos de corriente siempre positivos, y ángulos comprendidos entre $\gamma \in [\frac{\pi}{2}, \pi]$. Para obtener par negativo, simplemente se multiplica el ángulo $\gamma$ por el signo de la consigna de par.
 
 De entre aquellas ecuaciones cuya salida es la corriente $I_s$, se usa la que computa un valor más pequeño, limitando así el módulo. Además, se calcula el ángulo correspondiente a la trayectoria del MTPA, y se usa un integrador para modificar el ángulo y poder usar las trayectorias consideradas como debilitamiento de campo. Este integrador se encarga de que la consigna de ángulo no haga sobrepasar el límite de tensión establecido por el inversor. 
 
