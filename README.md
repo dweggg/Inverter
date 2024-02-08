@@ -19,7 +19,7 @@ This repository contains the following files and directories:
 
 ### 🛠️ HW
 * [Altium Designer](https://www.altium.com/es/altium-designer) - Schematics and PCB
-* [SOLIDWORKS 2022]([https://help.solidworks.com/2022/spanish/WhatsNew/c_wn_install.htm?id=7ddf806d182541ffa399d655bb1f99a2#Pg0](https://help.solidworks.com/2022/spanish/Installation/install_guide/c_install_admin_overview.htm)) - Mechanical assembly
+* [SOLIDWORKS 2022](https://help.solidworks.com/2022/spanish/WhatsNew/c_wn_install.htm?id=7ddf806d182541ffa399d655bb1f99a2#Pg0) - Mechanical assembly
 
 ### 💾 SW
 * [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) - IDE for STM32 MCUs
