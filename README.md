@@ -1,7 +1,7 @@
 # ⚡Inverter⚡
 80kW (2x40kW), 600V, 3 phase inverter with FOC 
 
-This is my Electronics Engineering bachelor thesis, a dual 80kW (2x40kW), 600V, 3 phase inverter. The goal is to design and implement a dual bidirectional inverter. The inverter will use field-oriented control, and will implement testing features and a variety of protections, alarms and extras. The target power densities for the inverter are 30 kW/liter and 20 kW/kg, and it will be designed specifically for a Formula Student vechicle.
+This is my Electronics Engineering bachelor thesis, a SiC based, dual 80kW (2x40kW), 600V, 3 phase inverter. The goal is to design and implement a dual bidirectional inverter. The inverter will use field-oriented control, and will implement testing features and a variety of protections, alarms and extras. The target power densities for the inverter are 30 kW/liter and 20 kW/kg, and it will be designed specifically for a Formula Student vechicle. It will be able to control two PMSMs and communicate via can with the vehicle in order to get the torque references from the Main ECU and send all relevant information for the car.
 
 ## 📁 Repository Contents
 This repository contains the following files and directories:
