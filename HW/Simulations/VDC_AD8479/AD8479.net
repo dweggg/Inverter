@@ -1,0 +1,11 @@
+* C:\Users\dwegg\Desktop\Inverter\HW\Simulations\VDC_AD8479\AD8479.asc
+XU1 vref V-in V+in 0 vref vout N001 AD8479
+V1 N001 0 5
+V2 V+in V-in SINE(1.25 1.25 10)
+V3 V+in 0 20
+R1 N001 vref 4.7k
+R2 0 vref .1k
+.tran 1
+.lib ADI.lib
+.backanno
+.end
