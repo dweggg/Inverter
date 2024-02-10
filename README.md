@@ -1,7 +1,7 @@
 # ⚡Inverter⚡
-80kW (2x40kW), 600V, 3 phase inverter with FOC 
+## SiC based, dual 80kW (2x40kW), 600V, 3 phase inverter with FOC
 
-This is my Electronics Engineering bachelor thesis, a dual 40kW, 600V, 3 phase inverter. The goal is to design and implement a dual bidirectional inverter. The inverter will use field-oriented control, as well as having autotuning and testing features. The target power densities for the inverter are 50 kW/liter and 30 kW/kg, and it will be designed with a variety of control and power requirements in mind.
+This is my Electronics Engineering bachelor thesis, a SiC based, dual 80kW (2x40kW), 600V, 3 phase inverter. The goal is to design and implement a dual bidirectional inverter. The inverter will use field-oriented control, and will implement testing features and a variety of protections, alarms and extras. The target power densities for the inverter are 30 kW/liter and 20 kW/kg, and it will be designed specifically for a Formula Student vechicle. It will be able to control two PMSMs and communicate via can with the vehicle in order to get the torque references from the Main ECU and send all relevant information for the car.
 
 ## 📁 Repository Contents
 This repository contains the following files and directories:
@@ -18,7 +18,8 @@ This repository contains the following files and directories:
 * [PLECS](https://www.plexim.com/products/plecs) - Validation of the control algorithm with thermals and switching
 
 ### 🛠️ HW
-* [Altium Designer](www.https://www.altium.com/es/altium-designer/) - Schematics and PCB
+* [Altium Designer](https://www.altium.com/es/altium-designer) - Schematics and PCB
+* [SOLIDWORKS 2022](https://help.solidworks.com/2022/spanish/WhatsNew/c_wn_install.htm?id=7ddf806d182541ffa399d655bb1f99a2#Pg0) - Mechanical assembly
 
 ### 💾 SW
 * [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) - IDE for STM32 MCUs
