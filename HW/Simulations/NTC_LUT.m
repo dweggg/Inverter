@@ -1,13 +1,22 @@
 %% Temperature sensing LUT calculation for DFS05HF12EYR1
-clc, clear, close all
+clc, clear
 %% Initial variables
 temperatures = 0.1:0.1:90.1; % Temperature array, 0.01ºC resolution [ºC]
 
 %% NTC Parameters
+
 % DFS05HF12EYR1 internal NTC
 % Beta is a function of temperature
-beta_values = [3375, 3411, 3433]; % Beta values for different temperatures [K]
+
+%beta_values = [3375, 3411, 3433]; % Beta values for different temperatures [K]
+%beta_temps = [50, 80, 100]; % Temperatures for the different beta values [ºC]
+
+% CAB016M12FM3 internal NTC
+% Beta is a function of temperature
+beta_values = [3380, 3468, 3523]; % Beta values for different temperatures [K]
 beta_temps = [50, 80, 100]; % Temperatures for the different beta values [ºC]
+
+% Both very similar, interchangable
 
 beta_coeffs = polyfit(beta_temps, beta_values, 1); % Fit the beta deviation with linear regression
 
@@ -40,6 +49,22 @@ bits_read = ceil(V_read * (2^bits) / VCC_ADC); % MCU/ADC read bits [b]
 bits_read(bits_read>2^bits)=2^bits; % Saturation to 2^bits
 bits_read(bits_read<0)=0; % Saturation to 0
 
-plot(temperatures, V_read)
+% Create the plot
+figure;
+plot(temperatures, bits_read, 'LineWidth', 4);
+
+% Add labels and title
+xlabel('Temperature (°C)', 'FontSize', 12);
+ylabel('Bits Read', 'FontSize', 12);
+title('Bits Read vs. Temperature', 'FontSize', 14);
+
+% Add grid and adjust limits
+grid on;
+xlim([min(temperatures)-5, max(temperatures)+5]);
+ylim([min(bits_read)-50, max(bits_read)+50]);
+
+% Customize the appearance
+set(gca, 'FontSize', 10); % Adjust font size for axis labels
+set(gca, 'LineWidth', 1.5); % Adjust axis line width
 
 OUTPUT_LUT = [temperatures; bits_read];
