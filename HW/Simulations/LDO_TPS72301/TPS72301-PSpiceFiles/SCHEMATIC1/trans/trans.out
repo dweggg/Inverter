@@ -1,7 +1,7 @@
 
-**** 12/03/23 18:15:14 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+**** 02/16/24 18:08:29 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
 
- ** Profile: "SCHEMATIC1-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\TPS72301_PSPICE_TRANS\tps72301-pspicefiles\schemati
+ ** Profile: "SCHEMATIC1-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\LDO_TPS72301\tps72301-pspicefiles\schematic1\trans.
 
 
  ****     CIRCUIT DESCRIPTION
@@ -24,7 +24,7 @@
 .lib "nom.lib" 
 
 *Analysis directives: 
-.DC LIN V_V1 0 -5 0.2 
+.DC LIN V_V1 0 -10 0.2 
 .OPTIONS ADVCONV
 .OPTIONS FILEMODELSEARCH
 .PROBE64 V(alias(*)) I(alias(*)) 
@@ -35,12 +35,12 @@
 **** INCLUDING SCHEMATIC1.net ****
 * source TPS72301
 C_C1         0 VIN  10u  TC=0,0 
-C_C2         0 VOUT  2.2u  TC=0,0 
-R_R_Load         0 VOUT  20 TC=0,0 
-R_R1         N08163 VOUT  39k TC=0,0 
-R_R2         0 N08163  56k TC=0,0 
+C_C2         0 VOUT  10u  TC=0,0 
+R_R_Load         0 VOUT  39 TC=0,0 
+R_R1         N08163 VOUT  68k TC=0,0 
+R_R2         0 N08163  30k TC=0,0 
 X_U1         0 VIN VIN N08163 VOUT TPS72301
-V_V1         VIN 0 -2.5Vdc
+V_V1         VIN 0 -5Vdc
 
 **** RESUMING trans.cir ****
 .END
@@ -48,9 +48,9 @@ V_V1         VIN 0 -2.5Vdc
 
           JOB CONCLUDED
 
-**** 12/03/23 18:15:14 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
+**** 02/16/24 18:08:29 ******* PSpice 17.4.0 (Nov 2018) ******* ID# 0 ********
 
- ** Profile: "SCHEMATIC1-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\TPS72301_PSPICE_TRANS\tps72301-pspicefiles\schemati
+ ** Profile: "SCHEMATIC1-trans"  [ C:\Users\dwegg\Desktop\Inverter\HW\Simulations\LDO_TPS72301\tps72301-pspicefiles\schematic1\trans.
 
 
  ****     JOB STATISTICS SUMMARY
@@ -60,6 +60,6 @@ V_V1         VIN 0 -2.5Vdc
 
 
 
-  License check-out time            =        2.89
-  Total job time (using Solver 1)   =         .63
+  License check-out time            =       53.11
+  Total job time (using Solver 1)   =         .59
 
