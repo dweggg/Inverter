@@ -14,12 +14,13 @@ This repository contains the following files and directories:
 
 ## 🛠️ Built With
 ### 🕹️ Control study
-* [MATLAB 2022b & Simulink](https://www.mathworks.com/products/matlab.html) - Design of the vector control algorithm and general understanding of FOC
+* [MATLAB 2022b & Simulink](https://www.mathworks.com/products/matlab.html) - Design of the vector control algorithm and general understanding of FOC. Some scripts for calculations, etc. done in MATLAB
 * [PLECS](https://www.plexim.com/products/plecs) - Validation of the control algorithm with thermals and switching
 
 ### 🛠️ HW
 * [Altium Designer](https://www.altium.com/es/altium-designer) - Schematics and PCB
 * [SOLIDWORKS 2022](https://help.solidworks.com/2022/spanish/WhatsNew/c_wn_install.htm?id=7ddf806d182541ffa399d655bb1f99a2#Pg0) - Mechanical assembly
+* [Python](https://www.python.org/) - Array sizing / value finding
 
 ### 💾 SW
 * [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) - IDE for STM32 MCUs
