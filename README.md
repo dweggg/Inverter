@@ -20,7 +20,7 @@ This repository contains the following files and directories:
 ### 🛠️ HW
 * [Altium Designer](https://www.altium.com/es/altium-designer) - Schematics and PCB
 * [SOLIDWORKS 2022](https://help.solidworks.com/2022/spanish/WhatsNew/c_wn_install.htm?id=7ddf806d182541ffa399d655bb1f99a2#Pg0) - Mechanical assembly
-* [Python](https://www.python.org/) - Array sizing / value finding
+* [Python](https://www.python.org/) - Array sizing / value finding with itertools
 * [OrCAD PSPICE](https://www.orcad.com/pspice) - SPICE simulation for TI components
 * [LTSpice](https://www.analog.com/en/resources/design-tools-and-calculators/ltspice-simulator.html) - SPICE simulation for LT/AD components
 
