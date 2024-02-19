@@ -1549,21 +1549,43 @@ El montaje de estas placas se realiza de forma compacta y eficiente, de manera q
 
 \subsection{Semiconductores}
 
-\subsubsection{Elección del Material: Carburo de Silicio (SiC)}
+\subsubsection{Elección de la Tecnología: MOSFETs de Carburo de Silicio (SiC)}
 
-La decisión de emplear carburo de silicio (SiC) como material para los semiconductores se fundamenta en consideraciones específicas de la aplicación y en los requisitos críticos de la competición. En un entorno donde la reducción de peso y volumen es crucial, el SiC emerge como una opción destacada, especialmente dado que el precio no es una restricción principal en este contexto, dado que el atractivo del proyecto ha logrado captar la atención de empresas que han proporcionado muestras para el desarrollo del convertidor.
+La decisión de emplear MOSFETs de carburo de silicio (SiC) como interruptores se fundamenta en consideraciones específicas de la aplicación y en los requisitos de la competición. En un entorno donde la reducción de peso y volumen es crucial, el SiC emerge como una opción destacada frente a alternativas como el IGBT de silicio, el FET de GaN o el MOSFET de silicio. Aunque que el precio no es una restricción principal en este contexto, el atractivo del proyecto ha logrado captar la atención de empresas que han proporcionado muestras de semiconductores para el desarrollo del convertidor.
 
-Las ventajas inherentes del SiC, como su rendimiento superior o su resistencia a temperaturas más altas, permiten un diseño más compacto y robusto del inversor de tracción. Estas características son esenciales para cumplir con los rigurosos requisitos de un monoplaza de competición, donde la optimización del peso y del espacio es fundamental para lograr altas densidades de potencia.
+Las ventajas inherentes del SiC, como su rendimiento superior o su resistencia a temperaturas más altas, permiten un diseño más compacto y robusto del inversor de tracción. Estas características son esenciales para cumplir con los requisitos de un monoplaza de competición, donde lograr altas densidades de potencia es muy beneficioso para la integración del resto de componentes del vehículo y aligeramiento del mismo.
 
 \subsubsection{Módulos de Potencia: Selección y Comparativa}
 
 En el diseño del inversor de tracción, se optó por módulos \textit{half-bridge} debido a su idoneidad para el rango de potencias y tensiones del convertidor. Dos modelos de semiconductores se consideraron para su integración: el DFS05HF12EYR1 de Leapers Semiconductor y el CAB016M12FM3 de Wolfspeed.
 
-Ambos modelos cumplen estrictamente con los requisitos de la aplicación, con un voltaje de ruptura (\(V_{DS,breakdown}\)) superior a 1200V y una corriente máxima (\(I_{DS,max}\)) que excede los 80 ARMS. La elección de dos modelos distintos se basa en la intención de realizar pruebas comparativas para verificar las diferencias entre ambos.
+Ambos modelos cumplen estrictamente con los requisitos de la aplicación, con un voltaje de ruptura (\(V_{DS,breakdown}\)) de 1200V y una corriente máxima (\(I_{DS,max}\)) que excede los 80 ARMS. La elección de dos modelos distintos se basa en la intención de realizar pruebas comparativas para verificar las diferencias entre ambos.
 
-El DFS05HF12EYR1 ofrece especificaciones muy buenas en su datasheet, aunque Leapers Semiconductors no lleva muchos años en la industria y no han logrado crear la confianza que otras empresas han conseguido con su experiencia. Por otro lado, el CAB016M12FM3, de la reconocida marca Wolfspeed, aporta la confiabilidad asociada a una empresa con amplia experiencia en el campo.
+El DFS05HF12EYR1 ofrece especificaciones muy buenas en su datasheet, aunque Leapers Semiconductors no lleva muchos años en la industria y no han logrado crear la confianza que otras empresas han conseguido con su experiencia. Por otro lado, el CAB016M12FM3, de la reconocida marca Wolfspeed (antiguamente CREE), aporta la confiabilidad asociada a una empresa con amplia experiencia en el campo.
 
 Según sus respectivos datasheets, ambos modelos permiten alcanzar sin mucho esfuerzo una frecuencia de conmutación de 50 kHz, lo que contribuye significativamente a la reducción del tamaño del bus de continua y optimiza el empaquetado del inversor. La placa de potencia se diseñará para permitir la prueba de ambos modelos, ya que comparten \textit{footprint}, facilitando la adaptabilidad y la evaluación comparativa.
+
+A continuación se muestra una tabla comparativa con los detalles de cada semiconductor:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Parámetro} & \textbf{DFS05HF12EYR1} & \textbf{CAB016M12FM3} \\ \hline
+\(V_{DS,breakdown}\) [V] & 1200 & 1200 \\ \hline
+\(R_{on}\) [\(m \Omega\)] & 5.5 - 13 & 16.0 - 28.8 \\ \hline
+\(V_{f,D}\) [V] & 3.3 - 4 & 4.9 - 5.5 \\ \hline
+\(T_{rr}\) [ns] & 41.5 - 45 & 20.0 \\ \hline
+\(Q_{rr}\) [\(\mu C\)] & 2.19 - 3.94 & 1.30 \\ \hline
+\(R_{th,jc}\) [K/W] & 0.12 - 0.15 & 0.543 \\ \hline
+\(Q_{G}\) [\(nC\)] & 520 & 236 \\ \hline
+\(C_{in}\) [nF] & 14.5 & 6.6 \\ \hline
+\(R_{G,int}\) [\(\Omega\)] & 1.9 & 2.4 \\ \hline
+\(V_{GS,th}\) [V] & 2.8 - 4.8 & 1.8 - 3.6 \\ \hline
+\(I_{DS,max}\) [A] & 150 & 89 \\ \hline
+\end{tabular}
+\caption{Comparación de parámetros entre DFS05HF12EYR1 y CAB016M12FM3.}
+\end{table}
 
 \subsubsection{Análisis de Pérdidas}
 
@@ -1575,9 +1597,9 @@ Las herramientas utilizadas para la evaluación de pérdidas incluyen PLECS para
 
 \subsubsection{Sistema de Refrigeración}
 
-Como es de esperar, la elección del sistema de refrigeración para los semiconductores se ha dirigido hacia una coldplate de agua. Esta elección se fundamenta en la necesidad de mantener una interfaz de temperatura fija para los semiconductores, lo que simplifica el diseño del sistema. La experiencia previa del equipo en sistemas de refrigeración por agua también influyó en esta decisión, proporcionando un marco confiable para la implementación.
+Como es de esperar, la elección del sistema de refrigeración para los semiconductores se ha dirigido hacia una \textit{coldplate} de agua. Esta elección se fundamenta en la necesidad de mantener una interfaz de temperatura fija para los semiconductores, lo que simplifica el diseño del sistema. La experiencia previa del equipo en sistemas de refrigeración por agua también influyó en esta decisión, proporcionando un marco confiable para la implementación.
 
-A pesar de que los semiconductores de carburo de silicio (SiC) tienen una temperatura máxima de unión (\(T_{j(max)}\)) notablemente alta, se establece como objetivo mantener el delta de temperatura (\(\Delta T\)) por debajo de 30 ºC. Este enfoque busca garantizar una operación óptima y una vida útil prolongada de los componentes, además de mitigar los posibles efectos negativos derivados del calor.
+A pesar de que los semiconductores de carburo de silicio (SiC) tienen una temperatura máxima de unión (\(T_{j(max)}\)) notablemente alta, se establece como objetivo mantener el delta de temperatura (\(\Delta T\)) por debajo de 30 ºC. Este enfoque busca garantizar una operación óptima y una vida útil prolongada de los semiconductores, además de mitigar los posibles efectos negativos derivados del calor.
 
 \subsection{\textit{Gate drivers}}
 
