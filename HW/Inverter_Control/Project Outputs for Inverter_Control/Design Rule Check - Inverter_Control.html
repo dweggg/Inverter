@@ -1,0 +1,931 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD19\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">19/02/2024</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">22:37:47</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc" class="file"><acronym title="C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc">C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">4</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">193</td></tr>
+</table>
+</td>
+</table><a name="IDVOCM1BKVO5VMDHE1CEI1FRFYFNGON4GR0FLH0XPTVEBRKXMDCAEK"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDY5BKBX22IWK1OGRRVWP11NKKULIKC42IGBCKYUMVGZHCF1JK3ZNE">Unplated multi-layer pad(s) detected</a></td>
+<td class="column2">4</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">4</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1IYD0U3KCDDQOVMJUOWQGWUPIOAYJFBHHMRS20CRMEHKUVV5LHEE">Clearance Constraint (Gap=0.2mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0V5PPM0LNZHVDK2SLIBNDMQP1DDIU4ZZAZZ0ZUL1P4OAEY4S0QBN">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLH15VQDFM5QCDKED1DXB0I2KXFYWO1AVXTAWHSBEDVJSN5LB2DTF">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">191</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZPHZ3VKXD0FLLYDFIZSCKUDXHK0W3RG4SVE2WUPUYDW2GJ2UFKRE">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0KSLS0JPBXUOKSXMHB2WLGXKCK3OOWNSG0CLIVDF0HJSYUYCRO4K">Width Constraint (Min=0.2mm) (Max=20mm) (Preferred=0.2mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMNJIKCLNT3KLL3GPCOGXGZ0QKOQQ4TA1VI0GRKJSGBWH1OW1E5C">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID5YBISOTS35CLE05VTFELMGZ15K3IGUBL0NATTWGFOABXPFO0QM1H">Hole Size Constraint (Min=0.1mm) (Max=10mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDO4V2XOM1NBXE1BIRIDABAEQOIKD04CBHOIUGEHCLZCHWJWVRF1O">Hole To Hole Clearance (Gap=0.5mm) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDL0FM23GKS21TSYHFBWGLNGNWDWYJ5L434P44PIRMY43RKZ4DYM">Minimum Solder Mask Sliver (Gap=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0DLLOWYG4JSYCJAJE3GDSPBM0KMVT2M0BUEVDQPH15BSPHFM4AVK">Silk To Solder Mask (Clearance=0mm) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEBU2MMA4TXC3LJUKEGA2XPIT1HAAHPQSTQI4XNMKUBRVZ3VQQKVL">Silk to Silk (Clearance=0mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVXBG53EINXUGJT305W3KM3411GU1EX2WTDB3TQEAZCLGTLEYPDIH">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDW2DTK523WRE3DN0TT4RUAQ4YKFOFRTAUHRMWYUD55BFINIYHYX1P">Height Constraint (Min=0mm) (Max=50mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">193</td>
+</tr>
+</table><br><a name="IDLWGYRCZVMCKLJHI3ORLDHCGB2L41AXCCBQS0I4GR44P4D4SE514O"><h2>Warnings</h2></a><a name="IDY5BKBX22IWK1OGRRVWP11NKKULIKC42IGBCKYUMVGZHCF1JK3ZNE"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Unplated multi-layer pad(s) detected</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2054.463mil|Location2.X=2100.653mil|Location1.Y=469.031mil|Location2.Y=515.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2054.463mil|Location2.X=2100.653mil|Location1.Y=469.031mil|Location2.Y=515.221mil|Absolute=True">Pad MP_L-1(52.77mm,12.5mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=50023.185mil|Location1.Y=0mil|Location2.Y=50023.185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=50023.185mil|Location1.Y=0mil|Location2.Y=50023.185mil|Absolute=True">Net GND</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1836.353mil|Location2.X=1882.543mil|Location1.Y=469.031mil|Location2.Y=515.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1836.353mil|Location2.X=1882.543mil|Location1.Y=469.031mil|Location2.Y=515.221mil|Absolute=True">Pad MP_L-1(47.23mm,12.5mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=50023.185mil|Location1.Y=0mil|Location2.Y=50023.185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=50023.185mil|Location1.Y=0mil|Location2.Y=50023.185mil|Absolute=True">Net GND</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3804.858mil|Location2.X=3851.046mil|Location1.Y=1846.984mil|Location2.Y=1893.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3804.858mil|Location2.X=3851.046mil|Location1.Y=1846.984mil|Location2.Y=1893.172mil|Absolute=True">Pad MP_R-1(97.23mm,47.5mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=50023.185mil|Location1.Y=0mil|Location2.Y=50023.185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=50023.185mil|Location1.Y=0mil|Location2.Y=50023.185mil|Absolute=True">Net GND</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4022.968mil|Location2.X=4069.157mil|Location1.Y=1846.984mil|Location2.Y=1893.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4022.968mil|Location2.X=4069.157mil|Location1.Y=1846.984mil|Location2.Y=1893.172mil|Absolute=True">Pad MP_R-1(102.77mm,47.5mm) on Multi-Layer</acronym></a> on <a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=50023.185mil|Location1.Y=0mil|Location2.Y=50023.185mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=0mil|Location2.X=50023.185mil|Location1.Y=0mil|Location2.Y=50023.185mil|Absolute=True">Net GND</acronym></a></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDLH15VQDFM5QCDKED1DXB0I2KXFYWO1AVXTAWHSBEDVJSN5LB2DTF"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2255.843mil|Location2.X=2307.151mil|Location1.Y=1683.007mil|Location2.Y=1820.928mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2255.843mil|Location2.X=2307.151mil|Location1.Y=1683.007mil|Location2.Y=1820.928mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C102-2(57.85mm,43.5mm) on BOT And Pad C101-1(58.05mm,45.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2307.151mil|Location1.Y=1761.747mil|Location2.Y=1828.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2307.151mil|Location1.Y=1761.747mil|Location2.Y=1828.408mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-B4(57.79mm,45.79mm) on TOP And Pad C101-1(58.05mm,45.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2300.852mil|Location1.Y=1683.007mil|Location2.Y=1742.188mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2300.852mil|Location1.Y=1683.007mil|Location2.Y=1742.188mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-C4(57.79mm,43.5mm) on TOP And Pad C102-2(57.85mm,43.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1840.487mil|Location2.X=2030.38mil|Location1.Y=1777.101mil|Location2.Y=1828.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1840.487mil|Location2.X=2030.38mil|Location1.Y=1777.101mil|Location2.Y=1828.408mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C103-2(47.5mm,45.85mm) on BOT And Pad DCDC101-B1(50.92mm,45.79mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2608.206mil|Location2.X=2765.811mil|Location1.Y=807.024mil|Location2.Y=850.457mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2608.206mil|Location2.X=2765.811mil|Location1.Y=807.024mil|Location2.Y=850.457mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C104-2(67mm,21.05mm) on BOT And Pad C105-2(69.5mm,21.05mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2602.3mil|Location2.X=2667.387mil|Location1.Y=738.125mil|Location2.Y=850.457mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2602.3mil|Location2.X=2667.387mil|Location1.Y=738.125mil|Location2.Y=850.457mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C107-2(66.65mm,19.5mm) on BOT And Pad C104-2(67mm,21.05mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2706.63mil|Location2.X=2883.921mil|Location1.Y=807.024mil|Location2.Y=933.135mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2706.63mil|Location2.X=2883.921mil|Location1.Y=807.024mil|Location2.Y=933.135mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C105-2(69.5mm,21.05mm) on BOT And Pad C220-1(72.5mm,23.15mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2602.3mil|Location2.X=2692.977mil|Location1.Y=738.125mil|Location2.Y=797.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2602.3mil|Location2.X=2692.977mil|Location1.Y=738.125mil|Location2.Y=797.307mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C107-2(66.65mm,19.5mm) on BOT And Pad C106-2(67.85mm,19.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2587.535mil|Location2.X=2648.685mil|Location1.Y=625.922mil|Location2.Y=797.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2587.535mil|Location2.X=2648.685mil|Location1.Y=625.922mil|Location2.Y=797.307mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R202-1(66.5mm,16.575mm) on TOP And Pad C107-2(66.65mm,19.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.212mil|Location2.X=2724.016mil|Location1.Y=665.748mil|Location2.Y=867.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.212mil|Location2.X=2724.016mil|Location1.Y=665.748mil|Location2.Y=867.716mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (58.4mm,19.45mm)(58.5mm,19.35mm) on BOT And Pad C107-2(66.65mm,19.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2214.503mil|Location2.X=2352.427mil|Location1.Y=1448.755mil|Location2.Y=1500.062mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2214.503mil|Location2.X=2352.427mil|Location1.Y=1448.755mil|Location2.Y=1500.062mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C110-2(57mm,37.35mm) on BOT And Pad C108-2(59mm,37.55mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1840.489mil|Location2.X=2000.063mil|Location1.Y=1452.694mil|Location2.Y=1606.363mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1840.489mil|Location2.X=2000.063mil|Location1.Y=1452.694mil|Location2.Y=1606.363mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C109-1(47.5mm,37.45mm) on BOT And Pad U101-1(50.2mm,39.65mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1118.048mil|Location2.X=1899.67mil|Location1.Y=1012.733mil|Location2.Y=1421.324mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1118.048mil|Location2.X=1899.67mil|Location1.Y=1012.733mil|Location2.Y=1421.324mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R404_L-2(29.075mm,26.5mm) on TOP And Pad C109-2(47.5mm,35.55mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2214.503mil|Location2.X=2300.852mil|Location1.Y=1448.755mil|Location2.Y=1557.936mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2214.503mil|Location2.X=2300.852mil|Location1.Y=1448.755mil|Location2.Y=1557.936mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C110-2(57mm,37.35mm) on BOT And Pad DCDC101-E4(57.79mm,38.92mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3260.865mil|Location2.X=3415.343mil|Location1.Y=1354.597mil|Location2.Y=1478.255mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3260.865mil|Location2.X=3415.343mil|Location1.Y=1354.597mil|Location2.Y=1478.255mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad XTAL201-2(84.03mm,36.343mm) on TOP And Pad C201-1(85.828mm,35.328mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3159.459mil|Location2.X=3313.937mil|Location1.Y=1553.241mil|Location2.Y=1676.899mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3159.459mil|Location2.X=3313.937mil|Location1.Y=1553.241mil|Location2.Y=1676.899mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C202-1(81.172mm,41.672mm) on TOP And Pad XTAL201-4(82.97mm,40.657mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2923.166mil|Location2.X=3045.338mil|Location1.Y=1590.487mil|Location2.Y=1796.58mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2923.166mil|Location2.X=3045.338mil|Location1.Y=1590.487mil|Location2.Y=1796.58mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C207-1(75mm,40.95mm) on BOT And Pad J1-6(76.25mm,44.532mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2923.166mil|Location2.X=2982.347mil|Location1.Y=1482.222mil|Location2.Y=1633.92mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2923.166mil|Location2.X=2982.347mil|Location1.Y=1482.222mil|Location2.Y=1633.92mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (75mm,38mm) from TOP to BOT And Pad C207-1(75mm,40.95mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.74mil|Location2.X=2920.816mil|Location1.Y=782.208mil|Location2.Y=933.135mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.74mil|Location2.X=2920.816mil|Location1.Y=782.208mil|Location2.Y=933.135mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C220-1(72.5mm,23.15mm) on BOT And Pad U201-74(73.417mm,20.639mm) on TOP [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2734.646mil|Location2.X=2954.33mil|Location1.Y=1083.072mil|Location2.Y=1011.418mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2734.646mil|Location2.X=2954.33mil|Location1.Y=1083.072mil|Location2.Y=1011.418mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (70mm,30.05mm)(72mm,30.05mm) on BOT And Pad C220-1(72.5mm,23.15mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2663.323mil|Location2.X=2783.528mil|Location1.Y=1183.008mil|Location2.Y=1269.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2663.323mil|Location2.X=2783.528mil|Location1.Y=1183.008mil|Location2.Y=1269.748mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (68mm,30.4mm) from TOP to BOT And Pad C221-2(70.15mm,31.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3457.812mil|Location2.X=3720.535mil|Location1.Y=456.63mil|Location2.Y=698.883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3457.812mil|Location2.X=3720.535mil|Location1.Y=456.63mil|Location2.Y=698.883mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad ST-LINK-3(88.73mm,12.5mm) on Multi-Layer And Pad C222-2(93.95mm,17mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3562.412mil|Location2.X=3720.535mil|Location1.Y=639.702mil|Location2.Y=1021.038mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3562.412mil|Location2.X=3720.535mil|Location1.Y=639.702mil|Location2.Y=1021.038mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U202-1(91.46mm,24.96mm) on TOP And Pad C222-2(93.95mm,17mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3751.907mil|Location2.X=4043.37mil|Location1.Y=1564.898mil|Location2.Y=1624.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3751.907mil|Location2.X=4043.37mil|Location1.Y=1564.898mil|Location2.Y=1624.079mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C302-2(95.85mm,40.5mm) on TOP And Pad C301-2(102.15mm,40.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3999.938mil|Location2.X=4187.071mil|Location1.Y=1564.898mil|Location2.Y=1636.712mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3999.938mil|Location2.X=4187.071mil|Location1.Y=1564.898mil|Location2.Y=1636.712mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C301-2(102.15mm,40.5mm) on TOP And Pad Q301-S(105.925mm,40.846mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3751.907mil|Location2.X=3858.133mil|Location1.Y=1469.426mil|Location2.Y=1624.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3751.907mil|Location2.X=3858.133mil|Location1.Y=1469.426mil|Location2.Y=1624.079mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C302-2(95.85mm,40.5mm) on TOP And Pad U301-8(97.595mm,38.2mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3631.825mil|Location2.X=3691.006mil|Location1.Y=1736.158mil|Location2.Y=1846.521mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3631.825mil|Location2.X=3691.006mil|Location1.Y=1736.158mil|Location2.Y=1846.521mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C303-2(93mm,44.65mm) on TOP And Pad C304-2(93mm,46.35mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.865mil|Location2.X=3691.006mil|Location1.Y=1761.749mil|Location2.Y=1846.521mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3566.865mil|Location2.X=3691.006mil|Location1.Y=1761.749mil|Location2.Y=1846.521mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C305-1(91.15mm,45.5mm) on TOP And Pad C304-2(93mm,46.35mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3631.825mil|Location2.X=3851.046mil|Location1.Y=1803.088mil|Location2.Y=1893.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3631.825mil|Location2.X=3851.046mil|Location1.Y=1803.088mil|Location2.Y=1893.172mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C304-2(93mm,46.35mm) on TOP And Pad MP_R-1(97.23mm,47.5mm) on Multi-Layer [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3289.307mil|Location2.X=3610.298mil|Location1.Y=1761.749mil|Location2.Y=1820.93mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3289.307mil|Location2.X=3610.298mil|Location1.Y=1761.749mil|Location2.Y=1820.93mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad TVS301-3(84.5mm,45.5mm) on TOP And Pad C305-1(91.15mm,45.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3858.204mil|Location2.X=3901.639mil|Location1.Y=1092.457mil|Location2.Y=1230.399mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3858.204mil|Location2.X=3901.639mil|Location1.Y=1092.457mil|Location2.Y=1230.399mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C306-1(98.55mm,30.501mm) on TOP And Pad C307-1(98.55mm,28.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3858.204mil|Location2.X=3908.133mil|Location1.Y=1171.217mil|Location2.Y=1325.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3858.204mil|Location2.X=3908.133mil|Location1.Y=1171.217mil|Location2.Y=1325.85mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C306-1(98.55mm,30.501mm) on TOP And Pad U301-2(98.865mm,32.8mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3933.008mil|Location2.X=3976.441mil|Location1.Y=1092.457mil|Location2.Y=1230.399mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3933.008mil|Location2.X=3976.441mil|Location1.Y=1092.457mil|Location2.Y=1230.399mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad C307-2(100.45mm,28.5mm) on TOP And Pad C306-2(100.45mm,30.501mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3926.511mil|Location2.X=3976.441mil|Location1.Y=1171.217mil|Location2.Y=1325.85mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3926.511mil|Location2.X=3976.441mil|Location1.Y=1171.217mil|Location2.Y=1325.85mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad U301-3(100.135mm,32.8mm) on TOP And Pad C306-2(100.45mm,30.501mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=964.504mil|Location2.X=1165.417mil|Location1.Y=1092.457mil|Location2.Y=1151.639mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=964.504mil|Location2.X=1165.417mil|Location1.Y=1092.457mil|Location2.Y=1151.639mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C402_L-1(25.05mm,28.5mm) on TOP And Pad C404_L-1(29.05mm,28.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4740.093mil|Location2.X=4941.008mil|Location1.Y=1210.568mil|Location2.Y=1269.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4740.093mil|Location2.X=4941.008mil|Location1.Y=1210.568mil|Location2.Y=1269.748mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C404_R-1(120.95mm,31.5mm) on TOP And Pad C402_R-1(124.95mm,31.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4897.575mil|Location2.X=4941.008mil|Location1.Y=797.182mil|Location2.Y=1269.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4897.575mil|Location2.X=4941.008mil|Location1.Y=797.182mil|Location2.Y=1269.748mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C502_R-1(124.95mm,21mm) on TOP And Pad C402_R-1(124.95mm,31.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1112.141mil|Location2.X=1171.322mil|Location1.Y=759.779mil|Location2.Y=1151.639mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1112.141mil|Location2.X=1171.322mil|Location1.Y=759.779mil|Location2.Y=1151.639mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C409_L-1(29mm,19.85mm) on TOP And Pad C404_L-1(29.05mm,28.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1121.984mil|Location2.X=1165.417mil|Location1.Y=1092.457mil|Location2.Y=1565.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1121.984mil|Location2.X=1165.417mil|Location1.Y=1092.457mil|Location2.Y=1565.024mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C404_L-1(29.05mm,28.5mm) on TOP And Pad C501_L-1(29.05mm,39mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.19mil|Location2.X=4793.37mil|Location1.Y=1210.568mil|Location2.Y=1602.425mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.19mil|Location2.X=4793.37mil|Location1.Y=1210.568mil|Location2.Y=1602.425mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C404_R-1(120.95mm,31.5mm) on TOP And Pad C409_R-1(121mm,40.15mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1112.141mil|Location2.X=1171.322mil|Location1.Y=482.221mil|Location2.Y=803.212mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1112.141mil|Location2.X=1171.322mil|Location1.Y=482.221mil|Location2.Y=803.212mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C409_L-1(29mm,19.85mm) on TOP And Pad C406_L-1(29.05mm,13mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.19mil|Location2.X=4793.37mil|Location1.Y=1558.992mil|Location2.Y=1879.985mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.19mil|Location2.X=4793.37mil|Location1.Y=1558.992mil|Location2.Y=1879.985mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C406_R-1(120.95mm,47mm) on TOP And Pad C409_R-1(121mm,40.15mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=364.11mil|Location2.X=423.291mil|Location1.Y=777.495mil|Location2.Y=929.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=364.11mil|Location2.X=423.291mil|Location1.Y=777.495mil|Location2.Y=929.197mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C408_L-1(9.95mm,20.5mm) on BOT And Pad C407_L-1(10mm,23.05mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=364.11mil|Location2.X=574.866mil|Location1.Y=874.937mil|Location2.Y=936.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=364.11mil|Location2.X=574.866mil|Location1.Y=874.937mil|Location2.Y=936.087mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C407_L-1(10mm,23.05mm) on BOT And Pad R408_L-1(13.925mm,23mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.646mil|Location2.X=5541.403mil|Location1.Y=1426.117mil|Location2.Y=1487.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.646mil|Location2.X=5541.403mil|Location1.Y=1426.117mil|Location2.Y=1487.267mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R408_R-1(136.075mm,37mm) on BOT And Pad C407_R-1(140mm,36.9mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5482.221mil|Location2.X=5541.403mil|Location1.Y=1431.04mil|Location2.Y=1585.693mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5482.221mil|Location2.X=5541.403mil|Location1.Y=1431.04mil|Location2.Y=1585.693mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C407_R-1(140mm,36.9mm) on BOT And Pad R412_R-1(140.075mm,39.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=364.11mil|Location2.X=417.386mil|Location1.Y=697.771mil|Location2.Y=836.677mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=364.11mil|Location2.X=417.386mil|Location1.Y=697.771mil|Location2.Y=836.677mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R412_L-1(9.925mm,18.5mm) on BOT And Pad C408_L-1(9.95mm,20.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5488.126mil|Location2.X=5541.402mil|Location1.Y=1524.543mil|Location2.Y=1663.448mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5488.126mil|Location2.X=5541.402mil|Location1.Y=1524.543mil|Location2.Y=1663.448mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C408_R-1(140.05mm,41.5mm) on BOT And Pad R412_R-1(140.075mm,39.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5481.235mil|Location2.X=5542.385mil|Location1.Y=1604.267mil|Location2.Y=1742.19mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5481.235mil|Location2.X=5542.385mil|Location1.Y=1604.267mil|Location2.Y=1742.19mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R416_R-2(140mm,43.575mm) on BOT And Pad C408_R-1(140.05mm,41.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1112.141mil|Location2.X=1250.062mil|Location1.Y=759.779mil|Location2.Y=811.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1112.141mil|Location2.X=1250.062mil|Location1.Y=759.779mil|Location2.Y=811.087mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C409_L-1(29mm,19.85mm) on TOP And Pad C410_L-1(31mm,20.05mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=959.385mil|Location2.X=1171.322mil|Location1.Y=686.945mil|Location2.Y=803.212mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=959.385mil|Location2.X=1171.322mil|Location1.Y=686.945mil|Location2.Y=803.212mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U401_L-12(24.77mm,18.275mm) on TOP And Pad C409_L-1(29mm,19.85mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1112.141mil|Location2.X=1250.062mil|Location1.Y=842.457mil|Location2.Y=893.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1112.141mil|Location2.X=1250.062mil|Location1.Y=842.457mil|Location2.Y=893.764mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad C409_L-2(29mm,22.15mm) on TOP And Pad C410_L-2(31mm,21.95mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=959.385mil|Location2.X=1171.322mil|Location1.Y=850.332mil|Location2.Y=966.599mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=959.385mil|Location2.X=1171.322mil|Location1.Y=850.332mil|Location2.Y=966.599mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad U401_L-3(24.77mm,23.725mm) on TOP And Pad C409_L-2(29mm,22.15mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4655.449mil|Location2.X=4793.37mil|Location1.Y=1551.126mil|Location2.Y=1602.425mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4655.449mil|Location2.X=4793.37mil|Location1.Y=1551.126mil|Location2.Y=1602.425mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C410_R-1(119mm,39.95mm) on TOP And Pad C409_R-1(121mm,40.15mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.19mil|Location2.X=4946.125mil|Location1.Y=1558.992mil|Location2.Y=1675.259mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.19mil|Location2.X=4946.125mil|Location1.Y=1558.992mil|Location2.Y=1675.259mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C409_R-1(121mm,40.15mm) on TOP And Pad U401_R-12(125.23mm,41.725mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4655.449mil|Location2.X=4793.37mil|Location1.Y=1468.441mil|Location2.Y=1519.755mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4655.449mil|Location2.X=4793.37mil|Location1.Y=1468.441mil|Location2.Y=1519.755mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad C410_R-2(119mm,38.05mm) on TOP And Pad C409_R-2(121mm,37.85mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.19mil|Location2.X=4946.125mil|Location1.Y=1395.607mil|Location2.Y=1511.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.19mil|Location2.X=4946.125mil|Location1.Y=1395.607mil|Location2.Y=1511.874mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad C409_R-2(121mm,37.85mm) on TOP And Pad U401_R-3(125.23mm,36.275mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1190.881mil|Location2.X=1506.953mil|Location1.Y=606.236mil|Location2.Y=811.087mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1190.881mil|Location2.X=1506.953mil|Location1.Y=606.236mil|Location2.Y=811.087mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C410_L-1(31mm,20.05mm) on TOP And Pad R609-1(37.5mm,16.075mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1190.881mil|Location2.X=1625.063mil|Location1.Y=482.22mil|Location2.Y=885.89mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1190.881mil|Location2.X=1625.063mil|Location1.Y=482.22mil|Location2.Y=885.89mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad C410_L-2(31mm,21.95mm) on TOP And Pad R603-1(40.5mm,12.925mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4493.048mil|Location2.X=4714.631mil|Location1.Y=1551.126mil|Location2.Y=1635.729mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4493.048mil|Location2.X=4714.631mil|Location1.Y=1551.126mil|Location2.Y=1635.729mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R308-1(114.8mm,40.771mm) on BOT And Pad C410_R-1(119mm,39.95mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4355.252mil|Location2.X=4714.631mil|Location1.Y=1476.322mil|Location2.Y=1635.727mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4355.252mil|Location2.X=4714.631mil|Location1.Y=1476.322mil|Location2.Y=1635.727mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad R306-1(111.3mm,40.771mm) on BOT And Pad C410_R-2(119mm,38.05mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=964.504mil|Location2.X=1165.417mil|Location1.Y=1505.843mil|Location2.Y=1565.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=964.504mil|Location2.X=1165.417mil|Location1.Y=1505.843mil|Location2.Y=1565.024mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C502_L-1(25.05mm,39mm) on TOP And Pad C501_L-1(29.05mm,39mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1118.048mil|Location2.X=1171.324mil|Location1.Y=1505.843mil|Location2.Y=1644.749mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1118.048mil|Location2.X=1171.324mil|Location1.Y=1505.843mil|Location2.Y=1644.749mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C501_L-1(29.05mm,39mm) on TOP And Pad R504_L-2(29.075mm,41mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4740.093mil|Location2.X=4941.008mil|Location1.Y=797.182mil|Location2.Y=856.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4740.093mil|Location2.X=4941.008mil|Location1.Y=797.182mil|Location2.Y=856.362mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C501_R-1(120.95mm,21mm) on TOP And Pad C502_R-1(124.95mm,21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.188mil|Location2.X=4787.464mil|Location1.Y=717.457mil|Location2.Y=856.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.188mil|Location2.X=4787.464mil|Location1.Y=717.457mil|Location2.Y=856.362mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R504_R-2(120.925mm,19mm) on TOP And Pad C501_R-1(120.95mm,21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=960.566mil|Location2.X=1013.842mil|Location1.Y=1505.843mil|Location2.Y=1644.749mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=960.566mil|Location2.X=1013.842mil|Location1.Y=1505.843mil|Location2.Y=1644.749mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C502_L-1(25.05mm,39mm) on TOP And Pad R506_L-2(25.075mm,41mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4891.67mil|Location2.X=4944.946mil|Location1.Y=717.457mil|Location2.Y=856.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4891.67mil|Location2.X=4944.946mil|Location1.Y=717.457mil|Location2.Y=856.362mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R506_R-2(124.925mm,19mm) on TOP And Pad C502_R-1(124.95mm,21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=461.551mil|Location2.X=850.457mil|Location1.Y=1393.638mil|Location2.Y=1565.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=461.551mil|Location2.X=850.457mil|Location1.Y=1393.638mil|Location2.Y=1565.024mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R502_L-1(12.5mm,36.075mm) on TOP And Pad C503_L-1(21.05mm,39mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=803.086mil|Location2.X=856.362mil|Location1.Y=1505.843mil|Location2.Y=1644.749mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=803.086mil|Location2.X=856.362mil|Location1.Y=1505.843mil|Location2.Y=1644.749mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C503_L-1(21.05mm,39mm) on TOP And Pad R508_L-2(21.075mm,41mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.056mil|Location2.X=5443.961mil|Location1.Y=797.182mil|Location2.Y=968.568mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5055.056mil|Location2.X=5443.961mil|Location1.Y=797.182mil|Location2.Y=968.568mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C503_R-1(128.95mm,21mm) on TOP And Pad R502_R-1(137.5mm,23.925mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5049.15mil|Location2.X=5102.426mil|Location1.Y=717.457mil|Location2.Y=856.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5049.15mil|Location2.X=5102.426mil|Location1.Y=717.457mil|Location2.Y=856.362mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R508_R-2(128.925mm,19mm) on TOP And Pad C503_R-1(128.95mm,21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2570.804mil|Location2.X=2675.26mil|Location1.Y=1488.127mil|Location2.Y=1786.481mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2570.804mil|Location2.X=2675.26mil|Location1.Y=1488.127mil|Location2.Y=1786.481mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad D104-K(66mm,38.45mm) on TOP And Pad D101-1(67mm,44.025mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2489.111mil|Location2.X=2675.26mil|Location1.Y=1669.228mil|Location2.Y=1786.481mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2489.111mil|Location2.X=2675.26mil|Location1.Y=1669.228mil|Location2.Y=1786.481mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R103-2(64mm,43.075mm) on TOP And Pad D101-1(67mm,44.025mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2553.862mil|Location2.X=2626.048mil|Location1.Y=1213.042mil|Location2.Y=1539.434mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2553.862mil|Location2.X=2626.048mil|Location1.Y=1213.042mil|Location2.Y=1539.434mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U201-49(65.639mm,31.583mm) on TOP [Unplated] And Pad D104-K(66mm,38.45mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2300.852mil|Location1.Y=1867.258mil|Location2.Y=1918.565mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2300.852mil|Location1.Y=1867.258mil|Location2.Y=1918.565mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-A3(55.5mm,48.08mm) on TOP And Pad DCDC101-A4(57.79mm,48.08mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2300.852mil|Location1.Y=1777.101mil|Location2.Y=1918.565mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2300.852mil|Location1.Y=1777.101mil|Location2.Y=1918.565mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-B4(57.79mm,45.79mm) on TOP And Pad DCDC101-A4(57.79mm,48.08mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1979.072mil|Location2.X=2120.537mil|Location1.Y=1777.101mil|Location2.Y=1828.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1979.072mil|Location2.X=2120.537mil|Location1.Y=1777.101mil|Location2.Y=1828.408mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-B1(50.92mm,45.79mm) on TOP And Pad DCDC101-B2(53.21mm,45.79mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2069.231mil|Location2.X=2210.693mil|Location1.Y=1777.101mil|Location2.Y=1828.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2069.231mil|Location2.X=2210.693mil|Location1.Y=1777.101mil|Location2.Y=1828.408mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-B2(53.21mm,45.79mm) on TOP And Pad DCDC101-B3(55.5mm,45.79mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2300.852mil|Location1.Y=1777.101mil|Location2.Y=1828.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2300.852mil|Location1.Y=1777.101mil|Location2.Y=1828.408mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-B3(55.5mm,45.79mm) on TOP And Pad DCDC101-B4(57.79mm,45.79mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2210.693mil|Location1.Y=1686.945mil|Location2.Y=1828.408mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2210.693mil|Location1.Y=1686.945mil|Location2.Y=1828.408mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-C3(55.5mm,43.5mm) on TOP And Pad DCDC101-B3(55.5mm,45.79mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2069.231mil|Location2.X=2210.693mil|Location1.Y=1686.945mil|Location2.Y=1738.252mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2069.231mil|Location2.X=2210.693mil|Location1.Y=1686.945mil|Location2.Y=1738.252mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-C2(53.21mm,43.5mm) on TOP And Pad DCDC101-C3(55.5mm,43.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2300.852mil|Location1.Y=1596.786mil|Location2.Y=1738.252mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2300.852mil|Location1.Y=1596.786mil|Location2.Y=1738.252mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-D4(57.79mm,41.21mm) on TOP And Pad DCDC101-C4(57.79mm,43.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2069.231mil|Location2.X=2210.693mil|Location1.Y=1596.786mil|Location2.Y=1648.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2069.231mil|Location2.X=2210.693mil|Location1.Y=1596.786mil|Location2.Y=1648.093mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-D2(53.21mm,41.21mm) on TOP And Pad DCDC101-D3(55.5mm,41.21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2300.852mil|Location1.Y=1596.786mil|Location2.Y=1648.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2300.852mil|Location1.Y=1596.786mil|Location2.Y=1648.093mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-D3(55.5mm,41.21mm) on TOP And Pad DCDC101-D4(57.79mm,41.21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2391.01mil|Location1.Y=1596.786mil|Location2.Y=1648.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2391.01mil|Location1.Y=1596.786mil|Location2.Y=1648.093mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-D4(57.79mm,41.21mm) on TOP And Pad DCDC101-D5(60.08mm,41.21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2300.852mil|Location1.Y=1506.629mil|Location2.Y=1648.093mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2249.544mil|Location2.X=2300.852mil|Location1.Y=1506.629mil|Location2.Y=1648.093mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-E4(57.79mm,38.92mm) on TOP And Pad DCDC101-D4(57.79mm,41.21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2339.702mil|Location2.X=2550.261mil|Location1.Y=1596.786mil|Location2.Y=1722.504mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2339.702mil|Location2.X=2550.261mil|Location1.Y=1596.786mil|Location2.Y=1722.504mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-D5(60.08mm,41.21mm) on TOP And Pad R103-2(64mm,43.075mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1979.072mil|Location2.X=2120.537mil|Location1.Y=1506.629mil|Location2.Y=1557.936mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1979.072mil|Location2.X=2120.537mil|Location1.Y=1506.629mil|Location2.Y=1557.936mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-E1(50.92mm,38.92mm) on TOP And Pad DCDC101-E2(53.21mm,38.92mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1952.693mil|Location2.X=2030.38mil|Location1.Y=1506.629mil|Location2.Y=1606.363mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1952.693mil|Location2.X=2030.38mil|Location1.Y=1506.629mil|Location2.Y=1606.363mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U101-1(50.2mm,39.65mm) on BOT And Pad DCDC101-E1(50.92mm,38.92mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2069.231mil|Location2.X=2210.693mil|Location1.Y=1506.629mil|Location2.Y=1557.936mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2069.231mil|Location2.X=2210.693mil|Location1.Y=1506.629mil|Location2.Y=1557.936mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-E2(53.21mm,38.92mm) on TOP And Pad DCDC101-E3(55.5mm,38.92mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2300.852mil|Location1.Y=1506.629mil|Location2.Y=1557.936mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2159.387mil|Location2.X=2300.852mil|Location1.Y=1506.629mil|Location2.Y=1557.936mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DCDC101-E3(55.5mm,38.92mm) on TOP And Pad DCDC101-E4(57.79mm,38.92mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2054.463mil|Location2.X=2287.465mil|Location1.Y=469.031mil|Location2.Y=633.922mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2054.463mil|Location2.X=2287.465mil|Location1.Y=469.031mil|Location2.Y=633.922mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad MP_L-1(52.77mm,12.5mm) on Multi-Layer [Unplated] And Pad DIR-1(57.5mm,15.05mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2163.78mil|Location2.X=2399.212mil|Location1.Y=492.52mil|Location2.Y=865.748mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2163.78mil|Location2.X=2399.212mil|Location1.Y=492.52mil|Location2.Y=865.748mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad DIR-1(57.5mm,15.05mm) on TOP And Track (58.4mm,19.45mm)(58.5mm,19.35mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.212mil|Location2.X=2442.52mil|Location1.Y=748.426mil|Location2.Y=692.52mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.212mil|Location2.X=2442.52mil|Location1.Y=748.426mil|Location2.Y=692.52mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Track (58.4mm,21.55mm)(58.5mm,21.65mm) on BOT And Pad DIR-2(59.5mm,15.05mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=146.099mil|Location2.X=522.701mil|Location1.Y=1386.257mil|Location2.Y=1468.075mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=146.099mil|Location2.X=522.701mil|Location1.Y=1386.257mil|Location2.Y=1468.075mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Feedback_L-1(4.75mm,36.25mm) on Multi-Layer And Pad R502_L-1(12.5mm,36.075mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=119.906mil|Location2.X=227.917mil|Location1.Y=1386.257mil|Location2.Y=1569.858mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=119.906mil|Location2.X=227.917mil|Location1.Y=1386.257mil|Location2.Y=1569.858mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U501_L-4(4.036mm,39.595mm) on TOP And Pad Feedback_L-1(4.75mm,36.25mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=244.525mil|Location2.X=443.961mil|Location1.Y=1386.257mil|Location2.Y=1468.075mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=244.525mil|Location2.X=443.961mil|Location1.Y=1386.257mil|Location2.Y=1468.075mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad Feedback_L-7(7.25mm,36.25mm) on Multi-Layer And Pad R501_L-2(10.5mm,36.075mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5382.811mil|Location2.X=5759.413mil|Location1.Y=894.131mil|Location2.Y=975.949mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5382.811mil|Location2.X=5759.413mil|Location1.Y=894.131mil|Location2.Y=975.949mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R502_R-1(137.5mm,23.925mm) on TOP And Pad Feedback_R-1(145.25mm,23.75mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5677.595mil|Location2.X=5785.606mil|Location1.Y=792.346mil|Location2.Y=975.949mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5677.595mil|Location2.X=5785.606mil|Location1.Y=792.346mil|Location2.Y=975.949mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Feedback_R-1(145.25mm,23.75mm) on Multi-Layer And Pad U501_R-4(145.964mm,20.405mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5461.551mil|Location2.X=5660.987mil|Location1.Y=894.131mil|Location2.Y=975.949mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5461.551mil|Location2.X=5660.987mil|Location1.Y=894.131mil|Location2.Y=975.949mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad R501_R-2(139.5mm,23.925mm) on TOP And Pad Feedback_R-7(142.75mm,23.75mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3283.402mil|Location2.X=4787.464mil|Location1.Y=1242.063mil|Location2.Y=1349.473mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3283.402mil|Location2.X=4787.464mil|Location1.Y=1242.063mil|Location2.Y=1349.473mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad L201-2(84.5mm,32.575mm) on BOT And Pad R404_R-2(120.925mm,33.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3214.503mil|Location2.X=3370.142mil|Location1.Y=1242.063mil|Location2.Y=1411.48mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3214.503mil|Location2.X=3370.142mil|Location1.Y=1242.063mil|Location2.Y=1411.48mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Via (82mm,35.5mm) from TOP to BOT And Pad L201-2(84.5mm,32.575mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3283.402mil|Location2.X=3370.142mil|Location1.Y=1141.724mil|Location2.Y=1322.897mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3283.402mil|Location2.X=3370.142mil|Location1.Y=1141.724mil|Location2.Y=1322.897mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Via (84.275mm,29.351mm) from TOP to BOT And Pad L201-2(84.5mm,32.575mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.353mil|Location2.X=1893.543mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.353mil|Location2.X=1893.543mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_L-1(47.23mm,12.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.353mil|Location2.X=1893.543mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.353mil|Location2.X=1893.543mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_L-1(47.23mm,12.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.353mil|Location2.X=1893.543mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1825.353mil|Location2.X=1893.543mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_L-1(47.23mm,12.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1836.353mil|Location2.X=1900.653mil|Location1.Y=469.031mil|Location2.Y=659.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1836.353mil|Location2.X=1900.653mil|Location1.Y=469.031mil|Location2.Y=659.512mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad MP_L-1(47.23mm,12.5mm) on Multi-Layer [Unplated] And Pad R607-1(47.5mm,16.075mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.464mil|Location2.X=2111.653mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.464mil|Location2.X=2111.653mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_L-1(52.77mm,12.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.464mil|Location2.X=2111.653mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.464mil|Location2.X=2111.653mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_L-1(52.77mm,12.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.464mil|Location2.X=2111.653mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2043.464mil|Location2.X=2111.653mil|Location1.Y=458.031mil|Location2.Y=526.221mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_L-1(52.77mm,12.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4011.968mil|Location2.X=4080.157mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4011.968mil|Location2.X=4080.157mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_R-1(102.77mm,47.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4011.968mil|Location2.X=4080.157mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4011.968mil|Location2.X=4080.157mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_R-1(102.77mm,47.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4011.968mil|Location2.X=4080.157mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4011.968mil|Location2.X=4080.157mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_R-1(102.77mm,47.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4022.968mil|Location2.X=4197.898mil|Location1.Y=1846.984mil|Location2.Y=1911.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4022.968mil|Location2.X=4197.898mil|Location1.Y=1846.984mil|Location2.Y=1911.319mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad MP_R-1(102.77mm,47.5mm) on Multi-Layer [Unplated] And Pad R305-1(105.95mm,47.771mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.858mil|Location2.X=3862.046mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.858mil|Location2.X=3862.046mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_R-1(97.23mm,47.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.858mil|Location2.X=3862.046mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.858mil|Location2.X=3862.046mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_R-1(97.23mm,47.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.858mil|Location2.X=3862.046mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3793.858mil|Location2.X=3862.046mil|Location1.Y=1835.984mil|Location2.Y=1904.172mil|Absolute=True">Un-Routed Net Constraint: Unplated Pad MP_R-1(97.23mm,47.5mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1252.496mil|Location2.X=1325.456mil|Location1.Y=1773.756mil|Location2.Y=1946.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1252.496mil|Location2.X=1325.456mil|Location1.Y=1773.756mil|Location2.Y=1946.716mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad PWR_L-1(32.74mm,45.98mm) on Multi-Layer And Pad PWR_L-2(32.74mm,48.52mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1118.048mil|Location2.X=1325.456mil|Location1.Y=1583.599mil|Location2.Y=1846.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1118.048mil|Location2.X=1325.456mil|Location1.Y=1583.599mil|Location2.Y=1846.716mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R504_L-2(29.075mm,41mm) on TOP And Pad PWR_L-1(32.74mm,45.98mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=152.496mil|Location2.X=225.456mil|Location1.Y=1773.756mil|Location2.Y=1946.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=152.496mil|Location2.X=225.456mil|Location1.Y=1773.756mil|Location2.Y=1946.716mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad PWR_L-23(4.8mm,45.98mm) on Multi-Layer And Pad PWR_L-24(4.8mm,48.52mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=152.496mil|Location2.X=391.906mil|Location1.Y=1647.858mil|Location2.Y=1846.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=152.496mil|Location2.X=391.906mil|Location1.Y=1647.858mil|Location2.Y=1846.716mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad PWR_L-23(4.8mm,45.98mm) on Multi-Layer And Pad U501_L-7(8.964mm,42.135mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=52.496mil|Location2.X=125.456mil|Location1.Y=1773.756mil|Location2.Y=1946.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=52.496mil|Location2.X=125.456mil|Location1.Y=1773.756mil|Location2.Y=1946.716mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad PWR_L-25(2.26mm,45.98mm) on Multi-Layer And Pad PWR_L-26(2.26mm,48.52mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=52.496mil|Location2.X=197.906mil|Location1.Y=1547.858mil|Location2.Y=1846.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=52.496mil|Location2.X=197.906mil|Location1.Y=1547.858mil|Location2.Y=1846.716mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad PWR_L-25(2.26mm,45.98mm) on Multi-Layer And Pad U501_L-4(4.036mm,39.595mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4580.056mil|Location2.X=4653.016mil|Location1.Y=415.488mil|Location2.Y=588.448mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4580.056mil|Location2.X=4653.016mil|Location1.Y=415.488mil|Location2.Y=588.448mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad PWR_R-2(117.26mm,11.48mm) on Multi-Layer And Pad PWR_R-1(117.26mm,14.02mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4580.056mil|Location2.X=4787.464mil|Location1.Y=515.488mil|Location2.Y=778.607mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4580.056mil|Location2.X=4787.464mil|Location1.Y=515.488mil|Location2.Y=778.607mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad PWR_R-1(117.26mm,14.02mm) on Multi-Layer And Pad R504_R-2(120.925mm,19mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5680.056mil|Location2.X=5753.016mil|Location1.Y=415.488mil|Location2.Y=588.448mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5680.056mil|Location2.X=5753.016mil|Location1.Y=415.488mil|Location2.Y=588.448mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad PWR_R-24(145.2mm,11.48mm) on Multi-Layer And Pad PWR_R-23(145.2mm,14.02mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5513.606mil|Location2.X=5753.016mil|Location1.Y=515.488mil|Location2.Y=714.346mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5513.606mil|Location2.X=5753.016mil|Location1.Y=515.488mil|Location2.Y=714.346mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad U501_R-7(141.036mm,17.865mm) on TOP And Pad PWR_R-23(145.2mm,14.02mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5780.056mil|Location2.X=5853.016mil|Location1.Y=415.488mil|Location2.Y=588.448mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5780.056mil|Location2.X=5853.016mil|Location1.Y=415.488mil|Location2.Y=588.448mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad PWR_R-26(147.74mm,11.48mm) on Multi-Layer And Pad PWR_R-25(147.74mm,14.02mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5707.606mil|Location2.X=5853.016mil|Location1.Y=515.488mil|Location2.Y=814.346mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5707.606mil|Location2.X=5853.016mil|Location1.Y=515.488mil|Location2.Y=814.346mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U501_R-4(145.964mm,20.405mm) on TOP And Pad PWR_R-25(147.74mm,14.02mm) on Multi-Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2426.119mil|Location2.X=2534.511mil|Location1.Y=598.362mil|Location2.Y=655.574mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2426.119mil|Location2.X=2534.511mil|Location1.Y=598.362mil|Location2.Y=655.574mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad Q101-G(62.05mm,15.925mm) on BOT And Pad Q101-S(63.95mm,15.925mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1721.393mil|Location2.X=2459.709mil|Location1.Y=482.22mil|Location2.Y=655.574mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1721.393mil|Location2.X=2459.709mil|Location1.Y=482.22mil|Location2.Y=655.574mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad R601-1(44.5mm,12.925mm) on BOT And Pad Q101-G(62.05mm,15.925mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2411.353mil|Location2.X=2459.709mil|Location1.Y=598.362mil|Location2.Y=1584.709mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2411.353mil|Location2.X=2459.709mil|Location1.Y=598.362mil|Location2.Y=1584.709mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Via (61.85mm,39.65mm) from TOP to BOT And Pad Q101-G(62.05mm,15.925mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4144.622mil|Location2.X=4197.898mil|Location1.Y=1579.5mil|Location2.Y=1911.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4144.622mil|Location2.X=4197.898mil|Location1.Y=1579.5mil|Location2.Y=1911.319mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Q301-S(105.925mm,40.846mm) on BOT And Pad R305-1(105.95mm,47.771mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4153.481mil|Location2.X=4546.324mil|Location1.Y=1574.579mil|Location2.Y=1636.712mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4153.481mil|Location2.X=4546.324mil|Location1.Y=1574.579mil|Location2.Y=1636.712mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Q301-S(105.925mm,40.846mm) on BOT And Pad R308-1(114.8mm,40.771mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4493.048mil|Location2.X=4546.324mil|Location1.Y=1574.579mil|Location2.Y=1906.398mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4493.048mil|Location2.X=4546.324mil|Location1.Y=1574.579mil|Location2.Y=1906.398mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R308-1(114.8mm,40.771mm) on BOT And Pad Q302-S(114.825mm,47.696mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1693.835mil|Location2.X=1731.363mil|Location1.Y=677.102mil|Location2.Y=734.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1693.835mil|Location2.X=1731.363mil|Location1.Y=677.102mil|Location2.Y=734.314mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Q602-S(43.45mm,17.925mm) on BOT And Pad Q601-S(43.55mm,17.925mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1540.291mil|Location2.X=1731.363mil|Location1.Y=677.102mil|Location2.Y=734.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1540.291mil|Location2.X=1731.363mil|Location1.Y=677.102mil|Location2.Y=734.314mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Q603-S(39.55mm,17.925mm) on TOP And Pad Q601-S(43.55mm,17.925mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1697.773mil|Location2.X=1900.653mil|Location1.Y=606.236mil|Location2.Y=734.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1697.773mil|Location2.X=1900.653mil|Location1.Y=606.236mil|Location2.Y=734.314mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Q601-S(43.55mm,17.925mm) on TOP And Pad R607-1(47.5mm,16.075mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1524.543mil|Location2.X=1585.693mil|Location1.Y=606.236mil|Location2.Y=734.314mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1524.543mil|Location2.X=1585.693mil|Location1.Y=606.236mil|Location2.Y=734.314mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R608-1(39.5mm,16.075mm) on BOT And Pad Q603-S(39.55mm,17.925mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2489.111mil|Location2.X=2553.213mil|Location1.Y=1246mil|Location2.Y=1548.292mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2489.111mil|Location2.X=2553.213mil|Location1.Y=1246mil|Location2.Y=1548.292mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R101-1(64mm,38.65mm) on TOP And Via (64.5mm,32mm) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4279.466mil|Location2.X=4408.528mil|Location1.Y=1574.577mil|Location2.Y=1911.319mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4279.466mil|Location2.X=4408.528mil|Location1.Y=1574.577mil|Location2.Y=1911.319mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad R303-1(109.375mm,47.771mm) on BOT And Pad R306-1(111.3mm,40.771mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3926.511mil|Location2.X=4408.528mil|Location1.Y=1256.826mil|Location2.Y=1635.727mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3926.511mil|Location2.X=4408.528mil|Location1.Y=1256.826mil|Location2.Y=1635.727mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad U301-3(100.135mm,32.8mm) on TOP And Pad R306-1(111.3mm,40.771mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=960.566mil|Location2.X=1171.324mil|Location1.Y=1012.733mil|Location2.Y=1073.883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=960.566mil|Location2.X=1171.324mil|Location1.Y=1012.733mil|Location2.Y=1073.883mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R402_L-2(25.075mm,26.5mm) on TOP And Pad R404_L-2(29.075mm,26.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=521.59mil|Location2.X=1013.842mil|Location1.Y=1012.733mil|Location2.Y=1191.993mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=521.59mil|Location2.X=1013.842mil|Location1.Y=1012.733mil|Location2.Y=1191.993mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R407_L-2(13.925mm,29.5mm) on BOT And Pad R402_L-2(25.075mm,26.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.188mil|Location2.X=4944.946mil|Location1.Y=1288.323mil|Location2.Y=1349.473mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.188mil|Location2.X=4944.946mil|Location1.Y=1288.323mil|Location2.Y=1349.473mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R404_R-2(120.925mm,33.5mm) on TOP And Pad R402_R-2(124.925mm,33.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4891.67mil|Location2.X=5383.922mil|Location1.Y=1189.917mil|Location2.Y=1349.473mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4891.67mil|Location2.X=5383.922mil|Location1.Y=1189.917mil|Location2.Y=1349.473mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R402_R-2(124.925mm,33.5mm) on TOP And Pad R407_R-2(136.075mm,31mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1118.048mil|Location2.X=1171.324mil|Location1.Y=559.977mil|Location2.Y=1073.883mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1118.048mil|Location2.X=1171.324mil|Location1.Y=559.977mil|Location2.Y=1073.883mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R406_L-2(29.075mm,15mm) on TOP And Pad R404_L-2(29.075mm,26.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.188mil|Location2.X=4787.464mil|Location1.Y=1288.323mil|Location2.Y=1802.229mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4734.188mil|Location2.X=4787.464mil|Location1.Y=1288.323mil|Location2.Y=1802.229mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R404_R-2(120.925mm,33.5mm) on TOP And Pad R406_R-2(120.925mm,45mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=114.11mil|Location2.X=574.866mil|Location1.Y=697.771mil|Location2.Y=1191.993mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=114.11mil|Location2.X=574.866mil|Location1.Y=697.771mil|Location2.Y=1191.993mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R411_L-2(3.575mm,18.5mm) on BOT And Pad R407_L-2(13.925mm,29.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.646mil|Location2.X=5791.402mil|Location1.Y=1189.917mil|Location2.Y=1664.433mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.646mil|Location2.X=5791.402mil|Location1.Y=1189.917mil|Location2.Y=1664.433mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R407_R-2(136.075mm,31mm) on BOT And Pad R411_R-2(146.425mm,41.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=461.551mil|Location2.X=574.866mil|Location1.Y=874.937mil|Location2.Y=1446.914mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=461.551mil|Location2.X=574.866mil|Location1.Y=874.937mil|Location2.Y=1446.914mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R502_L-1(12.5mm,36.075mm) on TOP And Pad R408_L-1(13.925mm,23mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.646mil|Location2.X=5443.961mil|Location1.Y=915.292mil|Location2.Y=1487.267mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5330.646mil|Location2.X=5443.961mil|Location1.Y=915.292mil|Location2.Y=1487.267mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R408_R-1(136.075mm,37mm) on BOT And Pad R502_R-1(137.5mm,23.925mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=107.221mil|Location2.X=168.371mil|Location1.Y=620.016mil|Location2.Y=758.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=107.221mil|Location2.X=168.371mil|Location1.Y=620.016mil|Location2.Y=758.921mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R415_L-1(3.5mm,16.425mm) on BOT And Pad R411_L-2(3.575mm,18.5mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5737.141mil|Location2.X=5798.291mil|Location1.Y=1603.283mil|Location2.Y=1742.19mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5737.141mil|Location2.X=5798.291mil|Location1.Y=1603.283mil|Location2.Y=1742.19mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad R411_R-2(146.425mm,41.5mm) on BOT And Pad R415_R-1(146.5mm,43.575mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=363.127mil|Location2.X=424.277mil|Location1.Y=620.016mil|Location2.Y=758.921mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=363.127mil|Location2.X=424.277mil|Location1.Y=620.016mil|Location2.Y=758.921mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R412_L-1(9.925mm,18.5mm) on BOT And Pad R416_L-2(10mm,16.425mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=382.811mil|Location2.X=991.007mil|Location1.Y=901.513mil|Location2.Y=1446.914mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=382.811mil|Location2.X=991.007mil|Location1.Y=901.513mil|Location2.Y=1446.914mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad R501_L-2(10.5mm,36.075mm) on TOP And Pad U401_L-3(24.77mm,23.725mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=313.906mil|Location2.X=443.961mil|Location1.Y=1393.638mil|Location2.Y=1669.858mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=313.906mil|Location2.X=443.961mil|Location1.Y=1393.638mil|Location2.Y=1669.858mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad U501_L-7(8.964mm,42.135mm) on TOP And Pad R501_L-2(10.5mm,36.075mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4914.503mil|Location2.X=5522.701mil|Location1.Y=915.292mil|Location2.Y=1460.693mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4914.503mil|Location2.X=5522.701mil|Location1.Y=915.292mil|Location2.Y=1460.693mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad U401_R-3(125.23mm,36.275mm) on TOP And Pad R501_R-2(139.5mm,23.925mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5461.551mil|Location2.X=5591.606mil|Location1.Y=692.346mil|Location2.Y=968.568mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5461.551mil|Location2.X=5591.606mil|Location1.Y=692.346mil|Location2.Y=968.568mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad R501_R-2(139.5mm,23.925mm) on TOP And Pad U501_R-7(141.036mm,17.865mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=803.086mil|Location2.X=1013.842mil|Location1.Y=1583.599mil|Location2.Y=1644.749mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=803.086mil|Location2.X=1013.842mil|Location1.Y=1583.599mil|Location2.Y=1644.749mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R508_L-2(21.075mm,41mm) on TOP And Pad R506_L-2(25.075mm,41mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4891.67mil|Location2.X=5102.426mil|Location1.Y=717.457mil|Location2.Y=778.607mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4891.67mil|Location2.X=5102.426mil|Location1.Y=717.457mil|Location2.Y=778.607mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R506_R-2(124.925mm,19mm) on TOP And Pad R508_R-2(128.925mm,19mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1642.663mil|Location2.X=1782.543mil|Location1.Y=482.22mil|Location2.Y=535.498mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1642.663mil|Location2.X=1782.543mil|Location1.Y=482.22mil|Location2.Y=535.498mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad R602-1(42.5mm,12.925mm) on BOT And Pad R601-1(44.5mm,12.925mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1563.913mil|Location2.X=1703.813mil|Location1.Y=482.22mil|Location2.Y=535.498mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1563.913mil|Location2.X=1703.813mil|Location1.Y=482.22mil|Location2.Y=535.498mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Pad R603-1(40.5mm,12.925mm) on BOT And Pad R602-1(42.5mm,12.925mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1445.803mil|Location2.X=1585.693mil|Location1.Y=606.236mil|Location2.Y=659.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1445.803mil|Location2.X=1585.693mil|Location1.Y=606.236mil|Location2.Y=659.512mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R609-1(37.5mm,16.075mm) on TOP And Pad R608-1(39.5mm,16.075mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.812mil|Location2.X=3483.249mil|Location1.Y=456.63mil|Location2.Y=865.139mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3257.812mil|Location2.X=3483.249mil|Location1.Y=456.63mil|Location2.Y=865.139mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad ST-LINK-1(83.65mm,12.5mm) on Multi-Layer And Pad U202-8(87.5mm,21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2860.088mil|Location2.X=2920.816mil|Location1.Y=623.362mil|Location2.Y=842.936mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2860.088mil|Location2.X=2920.816mil|Location1.Y=623.362mil|Location2.Y=842.936mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U201-74(73.417mm,20.639mm) on TOP [Unplated] And Pad TVS1-2(73.5mm,16.31mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2884.781mil|Location2.X=2976.44mil|Location1.Y=527.495mil|Location2.Y=660.89mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2884.781mil|Location2.X=2976.44mil|Location1.Y=527.495mil|Location2.Y=660.89mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad TVS1-2(73.5mm,16.31mm) on TOP And Pad USB-5(75.3mm,14.175mm) on TOP [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3219.107mil|Location2.X=3364.236mil|Location1.Y=1553.241mil|Location2.Y=1807.151mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3219.107mil|Location2.X=3364.236mil|Location1.Y=1553.241mil|Location2.Y=1807.151mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad XTAL201-4(82.97mm,40.657mm) on TOP And Pad TVS301-3(84.5mm,45.5mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3304.842mil|Location2.X=3483.249mil|Location1.Y=788.404mil|Location2.Y=1163.082mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3304.842mil|Location2.X=3483.249mil|Location1.Y=788.404mil|Location2.Y=1163.082mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad U201-100(84.714mm,28.771mm) on TOP [Unplated] And Pad U202-8(87.5mm,21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2938.914mil|Location2.X=3115.02mil|Location1.Y=1449.672mil|Location2.Y=1510.4mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2938.914mil|Location2.X=3115.02mil|Location1.Y=1449.672mil|Location2.Y=1510.4mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (75mm,38mm) from TOP to BOT And Pad U201-19(78.35mm,37.593mm) on TOP [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2874.008mil|Location2.X=3483.249mil|Location1.Y=768.288mil|Location2.Y=865.139mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2874.008mil|Location2.X=3483.249mil|Location1.Y=768.288mil|Location2.Y=865.139mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Pad U201-75(73.771mm,20.286mm) on TOP [Unplated] And Pad U202-8(87.5mm,21mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3527.057mil|Location2.X=3639.148mil|Location1.Y=944.303mil|Location2.Y=1056.391mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3527.057mil|Location2.X=3639.148mil|Location1.Y=944.303mil|Location2.Y=1056.391mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U202-2(90.562mm,25.858mm) on TOP And Pad U202-1(91.46mm,24.96mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3491.7mil|Location2.X=3603.791mil|Location1.Y=979.657mil|Location2.Y=1091.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3491.7mil|Location2.X=3603.791mil|Location1.Y=979.657mil|Location2.Y=1091.747mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U202-3(89.664mm,26.756mm) on TOP And Pad U202-2(90.562mm,25.858mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3456.347mil|Location2.X=3568.436mil|Location1.Y=1015.013mil|Location2.Y=1127.103mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3456.347mil|Location2.X=3568.436mil|Location1.Y=1015.013mil|Location2.Y=1127.103mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U202-4(88.766mm,27.654mm) on TOP And Pad U202-3(89.664mm,26.756mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3335.849mil|Location2.X=3533.081mil|Location1.Y=1050.369mil|Location2.Y=1127.103mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3335.849mil|Location2.X=3533.081mil|Location1.Y=1050.369mil|Location2.Y=1127.103mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (85.082mm,27.696mm) from TOP to BOT And Pad U202-4(88.766mm,27.654mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3335.849mil|Location2.X=3447.894mil|Location1.Y=823.76mil|Location2.Y=1104.236mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3335.849mil|Location2.X=3447.894mil|Location1.Y=823.76mil|Location2.Y=1104.236mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Via (85.082mm,27.696mm) from TOP to BOT And Pad U202-7(86.602mm,21.898mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.511mil|Location2.X=3908.133mil|Location1.Y=1256.826mil|Location2.Y=1538.45mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3826.511mil|Location2.X=3908.133mil|Location1.Y=1256.826mil|Location2.Y=1538.45mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad U301-8(97.595mm,38.2mm) on TOP And Pad U301-2(98.865mm,32.8mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2411.353mil|Location2.X=3958.133mil|Location1.Y=1256.826mil|Location2.Y=1584.709mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2411.353mil|Location2.X=3958.133mil|Location1.Y=1256.826mil|Location2.Y=1584.709mil|Absolute=True">Un-Routed Net Constraint: Net +5 Between Via (61.85mm,39.65mm) from TOP to BOT And Pad U301-3(100.135mm,32.8mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2919.229mil|Location2.X=3002.032mil|Location1.Y=411.354mil|Location2.Y=588.645mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2919.229mil|Location2.X=3002.032mil|Location1.Y=411.354mil|Location2.Y=588.645mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-Shell(75.2mm,11.5mm) on TOP [Unplated] And Pad USB-5(75.3mm,14.175mm) on TOP [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2716.473mil|Location2.X=2907.544mil|Location1.Y=411.354mil|Location2.Y=494.158mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2716.473mil|Location2.X=2907.544mil|Location1.Y=411.354mil|Location2.Y=494.158mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-Shell(70mm,11.5mm) on TOP [Unplated] And Pad USB-Shell(72.8mm,11.5mm) on TOP [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.74mil|Location2.X=3002.032mil|Location1.Y=411.354mil|Location2.Y=494.158mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2824.74mil|Location2.X=3002.032mil|Location1.Y=411.354mil|Location2.Y=494.158mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-Shell(72.8mm,11.5mm) on TOP [Unplated] And Pad USB-Shell(75.2mm,11.5mm) on TOP [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2919.229mil|Location2.X=3110.299mil|Location1.Y=411.354mil|Location2.Y=494.158mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2919.229mil|Location2.X=3110.299mil|Location1.Y=411.354mil|Location2.Y=494.158mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad USB-Shell(75.2mm,11.5mm) on TOP [Unplated] And Pad USB-Shell(78mm,11.5mm) on TOP [Unplated] </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3219.107mil|Location2.X=3355.695mil|Location1.Y=1383.425mil|Location2.Y=1648.071mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3219.107mil|Location2.X=3355.695mil|Location1.Y=1383.425mil|Location2.Y=1648.071mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad XTAL201-4(82.97mm,40.657mm) on TOP And Pad XTAL201-2(84.03mm,36.343mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.932mil|Location2.X=3408.28mil|Location1.Y=1253.37mil|Location2.Y=1530.84mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.932mil|Location2.X=3408.28mil|Location1.Y=1253.37mil|Location2.Y=1530.84mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (81.532mm,34.376mm)(81.532mm,34.411mm) on TOP And Pad XTAL201-2(84.03mm,36.343mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1966.93mil|Location2.X=2639.66mil|Location1.Y=1258.268mil|Location2.Y=1359.842mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1966.93mil|Location2.X=2639.66mil|Location1.Y=1258.268mil|Location2.Y=1359.842mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Track (51.45mm,35.55mm)(52.5mm,34.5mm) on BOT And Track (64.507mm,32mm)(65.278mm,31.229mm) on TOP </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.212mil|Location2.X=2781.104mil|Location1.Y=748.426mil|Location2.Y=1200.394mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2199.212mil|Location2.X=2781.104mil|Location1.Y=748.426mil|Location2.Y=1200.394mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Track (58.4mm,21.55mm)(58.5mm,21.65mm) on BOT And Track (68mm,28.05mm)(68.1mm,27.95mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2734.646mil|Location2.X=3054.724mil|Location1.Y=1083.072mil|Location2.Y=1403.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2734.646mil|Location2.X=3054.724mil|Location1.Y=1083.072mil|Location2.Y=1403.15mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (70mm,30.05mm)(72mm,30.05mm) on BOT And Track (75.05mm,33.1mm)(75.15mm,33mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2439.37mil|Location2.X=2972.048mil|Location1.Y=1159.842mil|Location2.Y=1403.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2439.37mil|Location2.X=2972.048mil|Location1.Y=1159.842mil|Location2.Y=1403.15mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Via (64.5mm,32mm) from TOP to BOT And Track (72.85mm,33mm)(72.95mm,33.1mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2854.724mil|Location2.X=3174.804mil|Location1.Y=1203.15mil|Location2.Y=1397.246mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2854.724mil|Location2.X=3174.804mil|Location1.Y=1203.15mil|Location2.Y=1397.246mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (75.05mm,33.1mm)(75.15mm,33mm) on BOT And Track (78mm,32.85mm)(78.1mm,32.95mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2974.804mil|Location2.X=3174.804mil|Location1.Y=1000.394mil|Location2.Y=1397.246mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2974.804mil|Location2.X=3174.804mil|Location1.Y=1000.394mil|Location2.Y=1397.246mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Track (78mm,27.85mm)(78.1mm,27.95mm) on BOT And Track (78mm,32.85mm)(78.1mm,32.95mm) on BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2900.514mil|Location2.X=3242.189mil|Location1.Y=1383.795mil|Location2.Y=1521.291mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2900.514mil|Location2.X=3242.189mil|Location1.Y=1383.795mil|Location2.Y=1521.291mil|Absolute=True">Un-Routed Net Constraint: Net +3.3 Between Via (74.025mm,38.289mm) from TOP to BOT And Via (82mm,35.5mm) from TOP to BOT </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDO4V2XOM1NBXE1BIRIDABAEQOIKD04CBHOIUGEHCLZCHWJWVRF1O"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole To Hole Clearance (Gap=0.5mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2836.161mil|Location2.X=2857.096mil|Location1.Y=553.031mil|Location2.Y=573.966mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2836.161mil|Location2.X=2857.096mil|Location1.Y=553.031mil|Location2.Y=573.966mil|Absolute=True">Hole To Hole Clearance Constraint: (0.35mm &lt; 0.5mm) Between Pad USB-MH1(71.925mm,13.95mm) on Multi-Layer And Via (72.503mm,14.503mm) from TOP to BOT </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.745mil|Location2.X=3059.68mil|Location1.Y=1623.39mil|Location2.Y=1644.325mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\dwegg\Desktop\Inverter\HW\Inverter_Control\Inverter_Control.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3038.745mil|Location2.X=3059.68mil|Location1.Y=1623.39mil|Location2.Y=1644.325mil|Absolute=True">Hole To Hole Clearance Constraint: (0.49997mm (19.684mil) &lt; 0.5mm (19.685mil)) Between Via (77.1mm,41.5mm) from TOP to BOT And Via (77.8mm,41.5mm) from TOP to BOT </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
