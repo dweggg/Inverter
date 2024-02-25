@@ -6,12 +6,12 @@ En esta sección, se abordará de manera gradual la introducción al control vec
 
 \subsection{Modelo trifásico del PMSM}
 
-Los motores síncronos de imanes permanentes (PMSM) están hechos de hierro, cobre y imanes. Se limita el análisis a máquinas de tres fases, aunque el análisis para sistemas con más de tres fases es similar. El cobre se distribuye en devanados, que tienen una resistencia y una inductancia iguales entre ellas si la máquina está equilibrada. Además, cuando el rotor gira, los imanes permanentes inducen una tensión en los devanados, lo que se conoce como fuerza contra-electromotriz (FCEM).
+Los motores síncronos de imanes permanentes (PMSM) están hechos de hierro, cobre y imanes. Se limita el análisis a máquinas de tres fases, aunque el análisis para sistemas con más de tres fases es similar. El cobre se distribuye en devanados, que tienen una resistencia y una inductancia iguales entre ellas si la máquina está equilibrada. Además, cuando el rotor gira, los imanes permanentes inducen una tensión en los devanados, lo que se conoce como fuerza contraelectromotriz (FCEM).
 
-Se trabajará con motores cuyos devanados estén conectados en configuración estrella, ya que se utiliza con mucha más frecuencia que la configuración delta. Por lo tanto, se puede construir un circuito eléctrico equivalente simple. De todas maneras, es sencillo extender el modelo y el control a motores con conexión estrella.
+Se trabajará con motores cuyos devanados estén conectados en configuración estrella, ya que se utiliza con mucha más frecuencia que la configuración delta. De todas maneras, es sencillo extender el modelo y el control a motores con conexión delta.
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 	\centering
 	\begin{circuitikz}
 		% Draw three phases
@@ -31,7 +31,7 @@ Se trabajará con motores cuyos devanados estén conectados en configuración es
 
 Cuando el PMSM gira, las formas de onda de corriente y voltaje son aproximadamente sinusoidales. Siendo un sistema trifásico y equilibrado, se vería algo como en la siguiente figura.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \hspace*{-1.5cm}
     \begin{tikzpicture}
@@ -60,7 +60,7 @@ Cuando el PMSM gira, las formas de onda de corriente y voltaje son aproximadamen
 Todas las ecuaciones se pueden definir a partir de este modelo, pero se vuelve muy poco práctico para análisis más complejos. Se introduce una forma de representar estas formas de onda en el espacio tridimensional ${\rm I\!R^3}$, en el que se escogen los ejes \((a, b, c)\). Lo que debería esperarse ver es una forma tridimensional en el espacio ${\rm I\!R^3}$. Se comienza en \(t = 0\) y se dibuja un punto en las coordenadas \([v_a(0), v_b(0), v_c(0)]\). Luego, se continúa trazando puntos mientras se avanza a lo largo del eje del tiempo. La forma se puede expresar como curva paramétrica como \([v_a(t), v_b(t), v_c(t)]\). Cuando se representa la forma resultante, puede sorprender, ya que es un círculo perfectamente plano. Cabe destacar que el orden de los ejes depende del contexto, y en este trabajo se toma el sistema de referencia mostrado en las siguientes figuras.
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \begin{subfigure}[b]{3cm}
         \centering
@@ -84,10 +84,13 @@ Todas las ecuaciones se pueden definir a partir de este modelo, pero se vuelve m
         ]
         \addplot3+[red, thick, no markers, samples=30, domain=-pi:pi, variable=\t]
             ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
-        \draw[thick] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
-        \draw[thick] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
-        \draw[thick] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+       	
+       % Ejes abc
+       \draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+       \draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+       \draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+       
+       \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
         \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
         \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
         \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
@@ -125,9 +128,12 @@ Todas las ecuaciones se pueden definir a partir de este modelo, pero se vuelve m
             ]
             \addplot3+[red, thick, no markers, samples=30, domain=-pi:pi, variable=\t]
                 ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
-            \draw[thick] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
-            \draw[thick] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
-            \draw[thick] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+           
+           	% Ejes abc
+           	\draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+           	\draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+           	\draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+           	
             \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
             \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
             \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
@@ -166,10 +172,13 @@ Todas las ecuaciones se pueden definir a partir de este modelo, pero se vuelve m
         ]
         \addplot3+[red, thick, no markers, samples=50, domain=-pi:pi, variable=\t]
             ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
-        \draw[thick] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
-        \draw[thick] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
-        \draw[thick] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+        
+        % Ejes abc
+        \draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+        \draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+        \draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+        
+         \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
         \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
         \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
         \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
@@ -201,139 +210,57 @@ Se pueden encontrar dos transformadas de Clarke: la transformada de Clarke orton
 
 Esta transformada se utiliza cuando la potencia del sistema debe permanecer inalterada después de la transformación. Se aplican dos rotaciones al marco de referencia $abc$ y se crea el marco de referencia $\alpha\beta\gamma$. En este nuevo marco de referencia, la trayectoria del vector espacial está completamente contenida en el plano $\alpha\beta$ cuando el sistema está equilibrado, y el eje $\gamma$ se utiliza para explicar el componente homopolar del sistema (la suma de los tres componentes debe ser igual a 0 si el sistema está equilibrado, de lo contrario, aparece el componente homopolar).
 
+\begin{figure}[H]
+	\centering
+	\hspace*{-1.5cm}
+	\begin{tikzpicture}
+		\begin{axis}[
+			view={-45}{-35},
+			%view={-20}{-15},
+			%view={54.74}{-15},
+			axis lines=none,  % Elimina los ejes
+			xmin=-.9,
+			xmax=.9,
+			ymin=-.9,
+			ymax=.9,
+			zmin=-.9,
+			zmax=.9,
+			no markers,
+			axis equal,
+			enlargelimits={upper=0.2},
+			scale=1,
+			]
+			\addplot3+[red, thick, no markers, samples=30, domain=-pi:pi, variable=\t]
+			({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
+			
+			% Ejes abc
+			\draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+			\draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+			\draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+			
+			% Ejes alpha-beta
+			\draw[blue, line width=0.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0.7, 0) node[pos=1.5]{$\alpha$};
+			\draw[blue, line width=0.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:1, 0.7, 0.3) node[pos=1.5]{$\beta$};
 
-\begin{figure}[!ht]
-    \centering
-    \begin{subfigure}[b]{3cm}
-        \centering
-        \hspace*{-1.5cm}
-        \begin{tikzpicture}
-        \begin{axis}[
-            %view={-45}{-35},
-            view={-20}{-15},
-            %view={54.74}{-15},
-            axis lines=none,
-            xmin=-1.5,
-            xmax=1.5,
-            ymin=-1.5,
-            ymax=1.5,
-            zmin=-1.5,
-            zmax=1.5,
-            no markers,
-            axis equal,
-            enlargelimits={upper=0.2},
-            scale=1,
-        ]
-        \addplot3+[red, thick, no markers, samples=30, domain=-pi:pi, variable=\t]
-            ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
-        \draw (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
-        \draw (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
-        \draw (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
-        \draw (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0.5) node[pos=1.5]{$\beta$};
-        \draw (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$\alpha$};
-        \draw (axis cs:0, 0, 0) -- (axis cs:0.5, 0.5, 0.5) node[pos=1.5]{$\gamma$};
-        
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
-        \end{axis}
-        \end{tikzpicture}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{3cm}
-        \centering
-            \hspace*{-1.5cm}
-            \begin{tikzpicture}
-            \begin{axis}[
-                view={-45}{-35},
-                %view={-20}{-15},
-                %view={54.74}{-15},
-                axis lines=none,  % Elimina los ejes
-                xmin=-.9,
-                xmax=.9,
-                ymin=-.9,
-                ymax=.9,
-                zmin=-.9,
-                zmax=.9,
-                no markers,
-                axis equal,
-                enlargelimits={upper=0.2},
-                scale=1,
-            ]
-            \addplot3+[red, thick, no markers, samples=30, domain=-pi:pi, variable=\t]
-                ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
-            \draw (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
-            \draw (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
-            \draw (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
-            \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
-            \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
-            \end{axis}
-            \end{tikzpicture}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{3cm}
-        \centering
-        \hspace*{-1.5cm}
-        \begin{tikzpicture}
-        \begin{axis}[
-            %view={-45}{-35},
-            %view={-20}{-15},
-            view={54.74}{-15},
-            axis lines=none,
-            xmin=-1.5,
-            xmax=1.5,
-            ymin=-1.5,
-            ymax=1.5,
-            zmin=-1.5,
-            zmax=1.5,
-            no markers,
-            axis equal,
-            enlargelimits={upper=0.2},
-            scale=1,
-        ]
-        \addplot3+[red, thick, no markers, samples=10, domain=-pi:pi, variable=\t]
-            ({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
-        \draw (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
-        \draw (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
-        \draw (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
+		\end{axis}
+	\end{tikzpicture}
+	\centering
+	\caption{Sistema trifásico representado en el Espacio Vectorial con la transformada de Clarke ortonormal superpuesta}
+	\end{figure}
 
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
-        \addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
-        \end{axis}
-        \end{tikzpicture}
-    \end{subfigure}   
-    \centering
-    \caption{Sistema trifásico representado en el Espacio Vectorial}
-\end{figure}
+
 
 
 No se derivará la transformada aquí, aunque es necesario comprender lo que hace y conocer la matriz de transformación.
@@ -450,7 +377,7 @@ Después de aplicar la transformada de Clarke, todavía quedan dos variables sin
 
 Ahora, considerando que el vector espacial gira a una velocidad de \(\omega = 2\pi f\), si se aplica continuamente una rotación alrededor del eje \(\gamma\) con un ángulo \(\theta = \omega  t\), se puede representar el vector espacial como una composición de dos variables continuas (en lugar de sinusoides). Además, si se sincroniza esta rotación con el ángulo del vector espacial (el eje \(d\) apuntando al vector espacial), se obtiene una variable continua (\(d\)) y una segunda variable de valor nulo (\(q\)).
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
   %\includegraphics[width=0.5\textwidth]{ruta_de_la_imagen_en_formato_latex}
   \caption{Transformada de Park.}
@@ -536,7 +463,7 @@ El enfoque general es utilizar la transformada de amplitud constante, lo que lle
 
 El modelo de circuito equivalente se divide en los circuitos del eje $d$ y el eje $q$:
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 	\centering
 	
 	% Side-by-side d-q circuits
@@ -630,7 +557,7 @@ Las ecuaciones del PMSM son muy útiles cuando se diseña el control y la implem
 Las primeras curvas estudiadas son las de par-velocidad y potencia-velocidad. Definen la intención de diseño del PMSM, ilustrando el rendimiento deseado. El objetivo al diseñar el control es tratar de igualar o incluso superar estas curvas.
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \hspace*{-1.5cm}
     \begin{tikzpicture}
@@ -706,7 +633,7 @@ Y el ángulo:
 
 Se puede observar que la corriente máxima puede expresarse más fácilmente como $I_s$, independientemente del ángulo $\gamma$ (no debe confundirse con el $\gamma$ de la transformada de Clarke). Por lo tanto, se puede representar $I_s = I_{s,\text{max}} , \forall \gamma \in [0,2\pi]$
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[
@@ -729,11 +656,11 @@ Se puede observar que la corriente máxima puede expresarse más fácilmente com
 			]
 			
 			% Límite de corriente Is_max
-			\draw[red, thick] (0,0) circle [radius=0.8];
+			\draw [red, thick] (0.4,0.693) arc (60:300:0.8);
 			\draw [red, -stealth](0,0) -- (-0.56568542494,0.56568542494) node at (-1,0.56568542494) {$I_s = I_{s,\text{max}}$};
 			\draw [white, thick] (axis cs: 0.2, 0) arc (0:180:0.2);
 			\draw [red, thick] (axis cs: 0.2, 0) arc (0:135:0.2);
-			\node[red] at (axis cs: 0.25, 0.28) {$\gamma = \frac{3\pi}{4}$};
+			\node [red] at (axis cs: 0.25, 0.28) {$\gamma = \frac{3\pi}{4}$};
 			
 		\end{axis}
 	\end{tikzpicture}
@@ -755,7 +682,7 @@ T_{em} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot I_s^2 \cdot \sin(\gamma)\cos(\gamma
 
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -808,7 +735,7 @@ Tomando la ecuación de voltaje presentada anteriormente, se puede demostrar que
 
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -849,7 +776,7 @@ Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses
 
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -928,7 +855,7 @@ Para la aplicación de esta trayectoria en el control se busca el ángulo como f
 El resultado de graficar esta expresión sobre el plano \((i_d, i_q)\) deja a la vista que el módulo de corriente es mínimo para cada hipérbola de par.
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -982,7 +909,7 @@ I_{s,\text{CTC}} = \frac{\lambda_m}{L_d} \cdot \frac{\sqrt{\sin(\gamma)^2+\frac{
 
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -1069,7 +996,7 @@ I_{s,MTPV} = \frac{\lambda_m}{L_d} ( \frac{-(2 - \frac{L_q}{L_d}) \cos(\gamma)}{
 Cabe destacar que esta trayectoria solamente se puede ejecutar si se cumple la condición de que $I_{sc} \leq I_{s,max}$.
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -1114,7 +1041,7 @@ I_{s,\text{CLC}} = I_{s,\text{max}} , \forall \gamma \in [0,2\pi]
 
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -1168,7 +1095,7 @@ I_{s,\text{VLE}} = \frac{\left(\frac{V_s}{L_q\cdot \omega_e}\right)^2 \left(-\fr
 \end{equation}
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
   \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -1215,17 +1142,17 @@ Además, el inversor es capaz de sintetizar un máximo de $V_s = \frac{V_{DC}}{\
 En esta sección, se aborda la implementación del modelo matemático del PMSM en un entorno de simulación. Además, se detallan los pasos cruciales en el diseño del control, destacando la implementación del lazo de control de corriente, el modelo promediado y conmutado del inversor, o la integración de las trayectorias y la estrategia de debilitamiento de campo. Disponer de un modelo de simulación completo permite ganar mucha comprensión sobre el sistema estudiado, pero por el coste computacional suele ser inviable juntar muchos sistemas en una misma simulación.
 
 \subsubsection{EMR (Representación macroscópica energética)}
-En primer lugar, se tratará de crear un modelo que permita simular la dinámica electromecánica del PMSM, así como el entorno mecánico en el que se encuentra (vehículo eléctrico) e integrar el control vectorial. Para ello se usará un estándar para modelizar sistemas de potencia, la representación macroscópica energética o EMR por sus siglas en inglés. El concepto se basa en agrupar o dividir las diferentes etapas en las que la potencia se transforma, utilizando el principio de acción-reacción\textit{ y el principio causal (la causa del efecto causa-efecto es que el efecto causa-efecto es a su vez causa y efecto)}. 
+En primer lugar, se tratará de crear un modelo que permita simular la dinámica electromecánica del PMSM, así como el entorno mecánico en el que se encuentra (vehículo eléctrico) e integrar el control vectorial. Para ello se usará un estándar para modelizar sistemas de potencia, la representación macroscópica energética o EMR por sus siglas en inglés. El concepto se basa en agrupar o dividir las diferentes etapas en las que la potencia se transforma, utilizando el principio de acción-reacción y el principio causal (la causa del efecto causa-efecto es que el efecto causa-efecto es a su vez causa y efecto). 
 
-En primer lugar se modeliza la planta eléctrica del PMSM. Se utiliza el modelo con el marco de referencia rotativo $d-q$ por su sencillez. Para ello se implementan las diferentes ecuaciones del motor y se implementan en bloques separados siguiendo el estándar de la EMR.
+En primer lugar se modeliza la planta eléctrica del PMSM. Se utiliza el modelo con el marco de referencia rotativo $d-q$ por su sencillez. Para ello se implementan las diferentes ecuaciones del motor en bloques separados siguiendo el estándar de la EMR.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.7\linewidth]{fig/motorEMR1.png}
     \caption{Bloques que representan el PMSM.}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \begin{subfigure}{0.52\linewidth}
         \includegraphics[width=\linewidth]{fig/motorEMR2.png}
@@ -1240,7 +1167,7 @@ En primer lugar se modeliza la planta eléctrica del PMSM. Se utiliza el modelo 
 
 También se modela la planta mecánica del motor, así como la transmisión de la potencia mecánica a las ruedas y al vehículo.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.95\linewidth]{fig/carEMR.png}
     \caption{Planta mecánica.}
@@ -1248,7 +1175,7 @@ También se modela la planta mecánica del motor, así como la transmisión de l
 
 \subsubsection{Lazos de corriente y modelo promediado del inversor}
 
-Como se ha visto hasta ahora, es práctico utilizar la corriente para controlar el motor. Por ello, se implementa un lazo de corriente utilizando controladores PI para el eje $d$ y para el eje $q$ por separado. Como el inversor se utiliza como fuente de tensión, la salida de estos PI es la consigna de tensión. Dado que el motor genera una BEMF (fuerza contra-electromotriz), se añade como \textit{feed-forward} a los controladores. La salida del controlador no se satura directamente, sino que se implementa una saturación posterior la cual se realimenta al controlador para usar una técnica de \textit{anti-windup}. Las constantes de los controladores se ajustan de la siguiente manera:
+Como se ha visto hasta ahora, es práctico utilizar la corriente para controlar el motor. Por ello, se implementa un lazo de corriente utilizando controladores PI para el eje $d$ y para el eje $q$ por separado. Como el inversor se utiliza como fuente de tensión, la salida de estos PI es la consigna de tensión. Dado que el motor genera una fuerza contraelectromotriz, se añade como \textit{feed-forward} a los controladores. La salida del controlador no se satura directamente, sino que se implementa una saturación posterior la cual se realimenta al controlador para usar una técnica de \textit{anti-windup}. Las constantes de los controladores se ajustan de la siguiente manera:
 
 % PI de corriente, respuesta de segundo orden
 \[
@@ -1276,7 +1203,7 @@ Kp_{iq} = 2 \cdot \xi \cdot \omega_n \cdot L_q - r_s
 Ki_{iq} = \omega_n^2 \cdot L_q \quad
 \]
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \begin{subfigure}{0.2\linewidth}
         \centering
         \includegraphics[width=\linewidth]{fig/PIEMR_out.png}
@@ -1311,7 +1238,7 @@ Para las simulaciones se han implementado los siguientes parámetros de motor, y
 
 
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{fig/idiq_plot_PI.png}
     \caption{Simulación de los PIs de corriente, con una consigna de $(i_d, i_q) = (-8, 30) A$}
@@ -1320,14 +1247,14 @@ Para las simulaciones se han implementado los siguientes parámetros de motor, y
 
 Tras obtener las consignas de tensión, se modela el inversor VSI con SVPWM con un modelo promediado, es decir, sin llegar a generar una señal conmutada por PWM. Se usan relaciones básicas para convertir las magnitudes eléctricas del espacio $d-q$ a DC. Además se incorpora la fuente de energía del sistema, la batería, con un simple modelo RC.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.25\linewidth]{fig/VSIEMR_out.png}
     \caption{Bloques que contienen el modelo promediado del VSI con SVPWM.}
 
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \begin{subfigure}{0.45\linewidth}
         \centering
@@ -1347,14 +1274,14 @@ Con lo anteriormente desarrollado solamente se pueden consignar las corrientes $
 
 La estrategia es la siguiente: Se implementan las ecuaciones de las trayectorias cuya salida es una corriente (CLC, CTC, MTPV y VLE) y se selecciona la mínima, o en caso de estar en zona de debilitamiento de campo, la óptima, que no necesariamente es la mínima. En paralelo, se calcula el ángulo que correspondería a la trayectoria del MTPA, y se añade un control integral que aumenta el valor del ángulo controlando la tensión para poder entrar en el resto de trayectorias. Este integrador sería justamente el controlador de debilitamiento de campo y se encarga de que la consigna de ángulo no haga sobrepasar el límite de tensión establecido por el bus DC con un cierto factor de seguridad. Se trabaja con módulos de corriente siempre positivos, y ángulos comprendidos entre $\gamma \in [\frac{\pi}{2}, \pi]$. Para obtener par negativo, simplemente se multiplica el ángulo $\gamma$ por el signo de la consigna de par, atendiendo específicamente al caso de par igual a cero.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{fig/EMR_FULL.png}
     \caption{Modelo EMR completo.}
     
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{fig/EMR_control.png}
     \caption{Detalle del bloque del lazo de control vectorial.}
@@ -1399,14 +1326,14 @@ Se puede observar que en esta simulación se ha limitado el comportamiento de la
 
 Dado que el inversor realmente es una fuente conmutada, se debe modelar utilizando una herramienta que lo permita. Utilizando el modelo EMR generado en Simulink se ha implementado la conmutación, pero el tiempo de simulación es demasiado grande como para que sea una herramienta práctica para el desarrollo.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.25\linewidth]{fig/EMR_VSIsw_out.png}
     \caption{Bloques que contienen el modelo conmutado del VSI con SVPWM.}
     
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
 
     \begin{subfigure}{0.75\linewidth}
@@ -1421,7 +1348,7 @@ Dado que el inversor realmente es una fuente conmutada, se debe modelar utilizan
 
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.85\linewidth]{fig/abc_plot.png}
     \caption{Duty cycles y tensiones alternas.}
@@ -1429,9 +1356,9 @@ Dado que el inversor realmente es una fuente conmutada, se debe modelar utilizan
 \end{figure}
 
 
-Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el inversor con MOSFETs, la planta mecánica simplificada, y a la cual se le discretiza la adquisición y el control, de manera que es una aproximación muy realista de la posterior implementación en un microcontrolador.
+Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el inversor con MOSFETs, la planta mecánica simplificada, y a la cual se le discretiza la adquisición y el control, de manera que es una aproximación muy realista de la posterior implementación en un microcontrolador. Además se incorporan cálculos de pérdidas y eficiencia.
 
-\begin{figure}[!ht]
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_overall}
 \end{figure}
@@ -1439,10 +1366,66 @@ Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el i
 
 Se puede observar que la representación de los bloques en este modelo no sigue el EMR, ya que se elige una implementación más práctica y realista. Destaca la implementación de las funciones de control utilizando la librería PERGAMON, desarrollada por el CITCEA-UPC. Esta librería reproduce completamente el código de las funciones matemáticas implementadas en el control, como los PIs, el SVPWM..., en el software PLECS, lo que facilita la correlación de cualquier modelo con la realidad.
 
+A continuación se presentan los diferentes bloques que forman el modelo.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PLECS_plant}
+	\caption{Planta electromecánica del conjunto fuente-inversor-motor-carga}
+\end{figure}
 
-********CAPTURAS MODELO PLECS********
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PLECS_mosfets}
+	\caption{Detalle del subbloque VSI, donde se realiza la conexión electrotérmica de los módulos de potencia a la fuente DC, al motor y a la \textit{coldplate}}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PLECS_MOSFETs-thermal}
+	\caption{Tanto los MOSFETs como los diodos integrados están modelados térmicamente de mano del fabricante, lo que facilita mucho la estimación de pérdidas y la simulación térmica}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PLECS_acq}
+	\caption{Se modelan los tiempos de adquisición del ADC mediante el uso de \textit{zero order holds}. Se implementa la transformada de las corrientes, tanto de $a,b,c$ al espacio $d-q$ como de coordenadas cartesianas a coordenadas polares}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PLECS_voltage}
+	\caption{Saturación y síntesis de las tensiones $V_d$ y $V_q$ mediante la transformada de Clarke inversa y la modulación SVPWM de la librería PERGAMON. Se modelan también los tiempos muertos de la modulación}
+	\label{fig:plecsvoltage}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PLECS_current-loop}
+	\caption{Los lazos de corriente están implementados con PIs discretos de la librería PERGAMON y afinados analíticamente con el procedimiento mostrado anteriormente}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{fig/PLECS_currentref}
+	\caption{Consigna de corriente con debilitamiento de campo}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PLECS_currentref1}
+	\caption{Detalle del bloque de cálculo de corriente, donde se implementan las trayectorias de control del PMSM como ecuaciones analíticas resueltas}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{fig/PLECS_tqspeed}
+	\caption{Consigna de par y lazo de velocidad como saturación de la consigna de par}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PLECS_losses}
+	\caption{Cálculo de pérdidas, eficiencia y factor de potencia}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.4\linewidth]{fig/PLECS_scopes}
+	\caption{Visualización y registro de las variables de interés para el análisis y el procesamiento de datos.}
+\end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[H]
     \centering
 
     \begin{subfigure}{0.4\textwidth}
@@ -1486,16 +1469,46 @@ Se puede observar que la representación de los bloques en este modelo no sigue 
 
 Para definir los requisitos del inversor de tracción, es crucial considerar las restricciones y exigencias del tren de potencia que impone la normativa de la competición, así como los parámetros eléctricos del vehículo en particular en el cual se va a implementar.
 
-\subsubsection{Potencia máxima y potencia media}
+\subsubsection{Potencia}
 La norma \textit{\textbf{EV2.2.1}} dicta que la potencia en la salida de la batería no debe exceder los 80 kW. Esta restricción es crucial en el diseño del inversor, ya que se prevé que el vehículo sea impulsado por un solo convertidor con esta potencia máxima. Por ende, el inversor debe estar dimensionado para manejar picos de potencia de hasta 80 kW. Dado que se trata de un inversor doble, la asignación de potencia se divide en 40 kW por motor, aunque se podría necesitar más potencia en uno de los motores durante la aceleración en una curva. Esta decisión se toma pensando en el futuro del equipo, cuando implemente 4 motores, lo que dotaría al vehículo de hasta 160 kW de pico. Sin embargo, en ese escenario, solo se podrían utilizar 80 kW repartidos entre las 4 ruedas, con un máximo de 40 kW por rueda.
 
 La prueba donde se espera utilizar esta potencia máxima es la \textit{Acceleration}, donde se podría requerir de los 80 kW durante un máximo de 10 segundos, siendo esta una aproximación muy conservadora.
 
 Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a picos de potencia máxima:
 
-******************Gráfico perfil endurance, cálculo de potencia media**********
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/powerRMS}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/powerRMS-zoom}
+	\end{subfigure}
+	\caption{Potencia instantánea que sale de la batería en un evento de \textit{Endurance} (Tiempo completo y detalle de un fragmento)}
+\end{figure}
 
-Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo. Por lo tanto, se dimensiona el inversor considerando una potencia media de 40 kW, es decir, 20 kW por motor. Esta cifra redonda proporciona un margen de seguridad adecuado para las exigencias de la competición.
+A continuación se muestra el cálculo del valor RMS de la potencia requerida, basado en los datos de potencia:
+
+\begin{verbatim}
+	% Calcular el cuadrado de los valores de potencia
+	power_squared = power_time.Data.^2;
+	
+	% Calcular el promedio de los valores cuadrados
+	mean_power_squared = mean(power_squared);
+	
+	% Tomar la raíz cuadrada del promedio de los valores cuadrados para obtener el valor RMS
+	power_rms = sqrt(mean_power_squared);
+	
+	power_rms =
+	
+	2.9193e+04
+\end{verbatim}
+
+
+Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo. Por lo tanto, se dimensiona el inversor considerando una potencia media de 40 kW, es decir, 20 kW por motor. Esta cifra redonda proporciona un margen de seguridad de unos 10kW respecto a la simulación que permite algo de juego en el reparto de potencia entre ambos motores.
 
 \subsubsection{Normativa}
 La normativa de la Formula Student no impone normativas muy restrictivas, ya que la mayoría están enfocadas a la seguridad. Estas son las normas que afectarán al diseño del inversor:
@@ -1564,10 +1577,46 @@ Además de las restricciones normativas, los requisitos del inversor también de
     \item \textbf{Facilidad de mantenimiento:} Consideraciones para facilitar el mantenimiento y la reparación en caso de fallos durante la competición.
 \end{itemize}
 
-\subsection{Concepto}
-Con el fin de producir las tensiones trifásicas que calcula el control se implementa un ondulador trifásico fuente de voltaje (VSI). Existen varias topologías que permiten hacer un ondulador trifásico, pero la más utilizada es el VSI de 2 niveles, formado por tres ramas de medio puente. Otras topologías de más niveles logran sintetizar tensiones con menos distorsión armónica, pero dado que lo que importa realmente para una controladora de motores eléctricos es la corriente.
+\subsubsection{Boceto del empaquetado}
 
-\begin{figure}[!ht]
+Antes de entrar en el diseño detallado del convertidor, se realizaron algunos bocetos preliminares para visualizar la disposición de los componentes y planificar la distribución espacial. Estos bocetos iniciales sirven como punto de partida para el diseño final del empaquetado del inversor.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/boceto1.jpg}
+	\end{minipage}\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/boceto2.jpg}
+	\end{minipage}
+	\caption{Bocetos preliminares del empaquetado del inversor.}
+\end{figure}
+
+En estos dos primeros conceptos se explora el uso de una sola \textit{coldplate} para refrigerar ambos semiconductores. Adicionalmente se propone refrigerar el DC-link, aunque posteriormente se encuentra que no es necesario. Se ha optado por una configuración que separa claramente los módulos de potencia de la placa de control, facilitando así el mantenimiento y la disipación de calor.
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/boceto3.png}
+	\end{minipage}\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/boceto4.png}
+	\end{minipage}
+	\caption{Evolución de los bocetos del empaquetado del inversor.}
+\end{figure}
+
+En los bocetos posteriores, se ha refinado la disposición de los componentes para mejorar la accesibilidad y la eficiencia de refrigeración. La disposición de los conectores y la distribución de los conductores también se ha ajustado para optimizar la densidad de potencia y la eficiencia del diseño. Estos cambios reflejan un enfoque hacia un empaquetado más eficiente y funcional del inversor. De todas maneras, todavía presentan muchas complicaciones en el ensamblaje y fabricación de algunos elementos como la \textit{coldplate}.
+
+Estos bocetos iniciales proporcionan una idea visual de cómo se podría organizar el empaquetado del inversor. A medida que avanza el diseño, se realizarán ajustes a la vez que se encuentren limitaciones con los componentes específicos seleccionados y se hagan consideraciones eléctricas y térmicas que en este punto no se han tenido.
+
+\subsection{Concepto}
+Con el fin de producir las tensiones trifásicas que calcula el control se implementa un ondulador trifásico fuente de voltaje (VSI). Existen varias topologías que permiten hacer un ondulador trifásico, pero la más utilizada es el VSI de 2 niveles, formado por tres ramas de medio puente. Otras topologías de más niveles logran sintetizar tensiones con menos distorsión armónica, pero dado que lo que importa realmente para una controladora de motores eléctricos es la corriente, que queda menos distorsionada por la propia inductancia de los motores, se opta por la topología VSI.
+
+\begin{figure}[H]
 
     \centering
     \begin{circuitikz}
@@ -1602,30 +1651,32 @@ Con el fin de producir las tensiones trifásicas que calcula el control se imple
 
 \end{figure}
 
-Ya que el convertidor implementa código propio, se decide implementar dos VSI en el mismo convertidor, de modo que se opta por unificar algunos elementos de ambos como la refrigeración con el fin de optimizar el peso y el espacio. Esta decisión evita duplicados de medidas, componentes y software, sin embargo, lleva a ciertas complicaciones de ensamblaje. Además, el microcontrolador deberá ser capaz de ejecutar los dos lazos de control en el mismo tiempo.
+Ya que el convertidor implementa código propio, se decide implementar dos VSI en el mismo convertidor, de modo que se opta por unificar algunos elementos de ambos como la refrigeración con el fin de optimizar el peso y el espacio. Esta decisión evita duplicados de medidas, componentes y software, sin embargo, conlleva otros retos, como por ejemplo, que el microcontrolador deberá ser capaz de ejecutar los dos lazos de control al mismo tiempo.
 
-Con tal de adquirir las variables necesarias para el control y interfazar con el coche y periféricos, son necesarios los ******* que se muestran en este diagrama de bloques.
+Para adquirir las variables necesarias para el control y la interfaz con el vehículo y sus periféricos, se requieren los submódulos que se presentan en este diagrama de bloques.
 
-********DIAGRAMA DE BLOQUES********
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/Inverter_HW}
+	\caption{Diagrama de bloques del sistema completo}
+\end{figure}
 
-El convertidor se divide en 2 PCBs, \textit{Inverter Power} e \textit{Inverter Control}.
-
-Como su nombre indica, \textit{Inverter Power} alojará todos los componentes de potencia, incluyendo los \textit{gate drivers}, los sensores de corriente, los semiconductores, los buses de continua y los conectores de potencia. Esta PCB se fabrica en duplicado ya que contiene todos los elementos que son necesarios repetir para el control de dos motores. Además, en esta placa se puede encontrar el sensado de la tensión de los buses, los circuitos de descarga, y la detección de alta tensión para la \textit{TSAL}. El sensado de tensión sería el único subcircuito repetido, pero esto solamente aporta redundancia y tolerancia al fallo.
+El convertidor se divide en 3 PCBs, \textit{Inverter Power}, que se instala por duplicado (una por motor), e \textit{Inverter Control}. Como su nombre indica, \textit{Inverter Power} alojará todos los componentes de potencia, incluyendo los \textit{gate drivers}, los sensores de corriente, los semiconductores, los DC-links y los conectores de potencia. Además, en esta placa se puede encontrar el sensado de la tensión de los buses, los circuitos de descarga, y la detección de alta tensión para la \textit{TSAL}. El sensado de tensión sería el único subcircuito repetido, pero esto solamente aporta redundancia y tolerancia al fallo.
 
 Por su parte, \textit{Inverter Control} contiene el microcontrolador de la familia STM32F7 para consignar la conmutación a los \textit{gate drivers}, así como para realizar las lecturas de corriente, tensión y temperatura, las interfaces con los sensores de posición de los motores o los protocolos comunicación CAN y USB.
 
-El montaje de estas placas se realiza de forma compacta y eficiente, de manera que quepa una placa refrigerada entre medias de las dos de potencia para controlar la temperatura de los semiconductores de ambos inversores. Se encajan de manera que la placa de control se puede conectar a las placas de potencia mediante conectores placa a placa. Las conexiones de potencia facilitan la integración con el cableado del monoplaza debido a su posicionamiento.
+El montaje de estas placas se realiza de forma compacta y eficiente, de manera que cabe una \textit{coldplate} entre medias de las dos de potencia para refrigerar los semiconductores de ambos inversores. Se encajan de manera que la placa de control se puede conectar a las placas de potencia mediante conectores placa a placa. Las conexiones de potencia facilitan la integración con el cableado del monoplaza debido a su posicionamiento.
 
 
 \subsection{Semiconductores}
 
-\subsubsection{Elección de la Tecnología: MOSFETs de Carburo de Silicio (SiC)}
+\subsubsection{Tecnología de Semiconductores}
 
 La decisión de emplear MOSFETs de carburo de silicio (SiC) como interruptores se fundamenta en consideraciones específicas de la aplicación y en los requisitos de la competición. En un entorno donde la reducción de peso y volumen es crucial, el SiC emerge como una opción destacada frente a alternativas como el IGBT de silicio, el FET de GaN o el MOSFET de silicio. Aunque que el precio no es una restricción principal en este contexto, el atractivo del proyecto ha logrado captar la atención de empresas que han proporcionado muestras de semiconductores para el desarrollo del convertidor.
 
 Las ventajas inherentes del SiC, como su rendimiento superior o su resistencia a temperaturas más altas, permiten un diseño más compacto y robusto del inversor de tracción. Estas características son esenciales para cumplir con los requisitos de un monoplaza de competición, donde lograr altas densidades de potencia es muy beneficioso para la integración del resto de componentes del vehículo y aligeramiento del mismo.
 
-\subsubsection{Módulos de Potencia: Selección y Comparativa}
+\subsubsection{Módulos de Potencia}
 
 En el diseño del inversor de tracción, se optó por módulos \textit{half-bridge} debido a su idoneidad para el rango de potencias y tensiones del convertidor. Dos modelos de semiconductores se consideraron para su integración: el DFS05HF12EYR1 de Leapers Semiconductor y el CAB016M12FM3 de Wolfspeed.
 
@@ -1636,34 +1687,40 @@ El DFS05HF12EYR1 ofrece especificaciones muy buenas en su datasheet, aunque Leap
 Según sus respectivos datasheets, ambos modelos permiten alcanzar sin mucho esfuerzo una frecuencia de conmutación de 50 kHz, lo que contribuye significativamente a la reducción del tamaño del bus de continua y optimiza el empaquetado del inversor. La placa de potencia se diseñará para permitir la prueba de ambos modelos, ya que comparten \textit{footprint}, facilitando la adaptabilidad y la evaluación comparativa.
 
 A continuación se muestra una tabla comparativa con los detalles de cada semiconductor:
-
 \begin{table}[H]
-\centering
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Parámetro} & \textbf{DFS05HF12EYR1} & \textbf{CAB016M12FM3} \\ \hline
-\(V_{DS,breakdown}\) [V] & 1200 & 1200 \\ \hline
-\(R_{on}\) [\(m \Omega\)] & 5.5 - 13 & 16.0 - 28.8 \\ \hline
-\(V_{f,D}\) [V] & 3.3 - 4 & 4.9 - 5.5 \\ \hline
-\(T_{rr}\) [ns] & 41.5 - 45 & 20.0 \\ \hline
-\(Q_{rr}\) [\(\mu C\)] & 2.19 - 3.94 & 1.30 \\ \hline
-\(R_{th,jc}\) [K/W] & 0.12 - 0.15 & 0.543 \\ \hline
-\(Q_{G}\) [\(nC\)] & 520 & 236 \\ \hline
-\(C_{in}\) [nF] & 14.5 & 6.6 \\ \hline
-\(R_{G,int}\) [\(\Omega\)] & 1.9 & 2.4 \\ \hline
-\(V_{GS,th}\) [V] & 2.8 - 4.8 & 1.8 - 3.6 \\ \hline
-\(I_{DS,max}\) [A] & 150 & 89 \\ \hline
-\end{tabular}
-\caption{Comparación de parámetros entre DFS05HF12EYR1 y CAB016M12FM3.}
+	\centering
+	\begin{tabular}{|l|l|l|}
+		\hline
+		\textbf{Parámetro} & \textbf{DFS05HF12EYR1} & \textbf{CAB016M12FM3} \\ \hline
+		\(V_{DS,\text{breakdown}}\) [V] & 1200 & 1200 \\ \hline
+		\(R_{on}\) [\(m \Omega\)] & 5.5 - 13 & 16.0 - 28.8 \\ \hline
+		\(V_{f,D}\) [V] & 3.3 - 4 & 4.9 - 5.5 \\ \hline
+		\(T_{rr}\) [ns] & 41.5 - 45 & 20.0 \\ \hline
+		\(Q_{rr}\) [\(\mu C\)] & 2.19 - 3.94 & 1.30 \\ \hline
+		\(R_{th,jc}\) [K/W] & 0.12 - 0.15 & 0.543 \\ \hline
+		\(Q_{G}\) [\(nC\)] & 520 & 236 \\ \hline
+		\(C_{in}\) [nF] & 14.5 & 6.6 \\ \hline
+		\(R_{G,\text{int}}\) [\(\Omega\)] & 1.9 & 2.4 \\ \hline
+		\(V_{GS,\text{th}}\) [V] & 2.8 - 4.8 & 1.8 - 3.6 \\ \hline
+		\(I_{DS,\text{max}}\) [A] & 150 & 89 \\ \hline
+		& \includegraphics[width=0.2\textwidth]{fig/DFS05.png} & \includegraphics[width=0.2\textwidth]{fig/CAB016.png} \\
+		\hline
+	\end{tabular}
+	\caption{Comparación de parámetros entre DFS05HF12EYR1 y CAB016M12FM3.}
 \end{table}
+
 
 \subsubsection{Análisis de Pérdidas}
 
-El análisis de pérdidas en los semiconductores se ha llevado a cabo mediante simulaciones detalladas utilizando herramientas especializadas. Estas simulaciones se centran en evaluar las pérdidas de conducción y conmutación de los MOSFETs y diodos por separado, permitiendo una comprensión profunda de su comportamiento en diversas condiciones de operación.
+El análisis de pérdidas en los semiconductores se ha llevado a cabo mediante simulaciones detalladas utilizando herramientas especializadas. Estas simulaciones se centran en evaluar las pérdidas de conducción y conmutación de los MOSFETs y diodos, permitiendo una comprensión profunda de su comportamiento en diversas condiciones de operación.
+
+Usando PLECS se ha obtenido un perfil de pérdidas a máxima potencia para el inversor, que se puede observar a continuación.
+
+
 
 Para los semiconductores de Wolfspeed, las simulaciones fueron validadas mediante herramientas proporcionadas por el fabricante, añadiendo una capa adicional de confiabilidad a los resultados obtenidos. La metodología de simulación asume la entrega continua de la potencia máxima, permitiendo el diseño de la coldplate basándose en la determinación del porcentaje de la potencia máxima equivalente en un perfil de conducción realista.
 
-Las herramientas utilizadas para la evaluación de pérdidas incluyen PLECS para simulaciones de sistema y LTSPICE para ensayos \textit{double pulse}.
+Adicionalmente, dado que las pérdidas de conmutación también dependen del circuito de los \textit{gate drivers}, se ha montado una simulación de doble pulso en SPICE.
 
 \subsubsection{Sistema de Refrigeración}
 
@@ -1673,7 +1730,7 @@ A pesar de que los semiconductores de carburo de silicio (SiC) tienen una temper
 
 \subsection{\textit{Gate drivers}}
 
-Calculo y seleccion de los GD
+
 
 \subsection{Bus de condensadores}
 

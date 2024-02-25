@@ -10,6 +10,7 @@
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
 \catcode 95\active
+\providecommand \oddpage@label [2]{}
 \babel@aux{spanish}{}
 \babel@aux{spanish}{}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introducción y prefacio}{8}{chapter.1}\protected@file@percent }
@@ -35,7 +36,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Sistema trifásico representado en el Espacio Vectorial}}{15}{figure.caption.9}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Transformadas}{15}{subsection.5.1.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Transformada de Clarke ortonormal}{16}{subsubsection*.10}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Sistema trifásico representado en el Espacio Vectorial}}{16}{figure.caption.11}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Sistema trifásico representado en el Espacio Vectorial con la transformada de Clarke ortonormal superpuesta}}{16}{figure.caption.11}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Transformada de Clarke de Amplitud Constante}{17}{subsubsection*.12}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Transformada de Park}{17}{subsubsection*.13}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Transformada de Park.}}{17}{figure.caption.14}\protected@file@percent }
@@ -45,68 +46,86 @@
 \@writefile{toc}{\contentsline {subsubsection}{Curva de par-velocidad y potencia-velocidad}{20}{subsubsection*.16}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Curva de par-velocidad del PMSM.}}{20}{figure.caption.17}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{CLC (Círculo de límite de corriente)}{21}{subsubsection*.18}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{TH (Hipérbolas de par)}{21}{subsubsection*.20}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Círculo de límite de corriente.}}{22}{figure.caption.19}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{TH (Hipérbolas de par)}{22}{subsubsection*.20}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Hipérbolas de par.}}{22}{figure.caption.21}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{VLE (Elipses de límite de voltaje)}{22}{subsubsection*.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{VLE (Elipses de límite de voltaje)}{23}{subsubsection*.22}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Elipses de límite de voltaje con $I_{sc} > I_{s,max}$.}}{23}{figure.caption.23}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Elipses de límite de voltaje con $I_{sc} \leq I_{s,max}$.}}{23}{figure.caption.24}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Elipses de límite de voltaje con $I_{sc} \leq I_{s,max}$.}}{24}{figure.caption.24}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {5.2}Control del PMSM en el espacio d-q}{24}{section.5.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Trayectorias de control}{24}{subsection.5.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{MTPA (Máximo Par por Amperio)}{24}{subsubsection*.25}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Trayectoria MTPA.}}{25}{figure.caption.26}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{CTC (Curva de Torque Constante)}{25}{subsubsection*.27}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{MTPV (Máximo Par por Voltio)}{25}{subsubsection*.29}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Trayectoria CTC.}}{26}{figure.caption.28}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{MTPV (Máximo Par por Voltio)}{26}{subsubsection*.29}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Trayectoria MTPV.}}{27}{figure.caption.30}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{CVL (Límites de Corriente y Voltaje)}{27}{subsubsection*.31}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces Trayectoria CLC.}}{27}{figure.caption.32}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces Trayectoria VLE.}}{28}{figure.caption.33}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces Trayectoria CLC.}}{28}{figure.caption.32}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces Trayectoria VLE.}}{29}{figure.caption.33}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Diseño y simulación del control}{29}{subsection.5.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{EMR (Representación macroscópica energética)}{29}{subsubsection*.34}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.17}{\ignorespaces Bloques que representan el PMSM.}}{29}{figure.caption.35}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Lazos de corriente y modelo promediado del inversor}{29}{subsubsection*.38}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.17}{\ignorespaces Bloques que representan el PMSM.}}{30}{figure.caption.35}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.18}{\ignorespaces Detalle de los bloques del PMSM}}{30}{figure.caption.36}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.19}{\ignorespaces Planta mecánica.}}{30}{figure.caption.37}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Lazos de corriente y modelo promediado del inversor}{30}{subsubsection*.38}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.20}{\ignorespaces Bloque de los lazos de corriente.}}{31}{figure.caption.39}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces Simulación de los PIs de corriente, con una consigna de $(i_d, i_q) = (-8, 30) A$}}{31}{figure.caption.40}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.21}{\ignorespaces Simulación de los PIs de corriente, con una consigna de $(i_d, i_q) = (-8, 30) A$}}{32}{figure.caption.40}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.22}{\ignorespaces Bloques que contienen el modelo promediado del VSI con SVPWM.}}{32}{figure.caption.41}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Detalle de los bloques del VSI.}}{32}{figure.caption.42}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Implementación de las trayectorias de control}{32}{subsubsection*.43}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.23}{\ignorespaces Detalle de los bloques del VSI.}}{33}{figure.caption.42}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Implementación de las trayectorias de control}{33}{subsubsection*.43}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces Modelo EMR completo.}}{33}{figure.caption.44}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces Detalle del bloque del lazo de control vectorial.}}{33}{figure.caption.45}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces Resultados de la simulación.}}{34}{figure.caption.46}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Modelo conmutado}{35}{subsubsection*.47}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.27}{\ignorespaces Bloques que contienen el modelo conmutado del VSI con SVPWM.}}{35}{figure.caption.48}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces Detalle de los bloques del VSI conmutado.}}{35}{figure.caption.49}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.29}{\ignorespaces Duty cycles y tensiones alternas.}}{36}{figure.caption.50}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.30}{\ignorespaces Resultados de la simulación.}}{37}{figure.caption.52}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}\textit  {Hardware}}{37}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Requisitos y pre-concepto}{37}{subsection.5.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Potencia máxima y potencia media}{38}{subsubsection*.53}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Normativa}{38}{subsubsection*.54}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Requisitos adicionales}{41}{subsubsection*.55}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Concepto}{42}{subsection.5.3.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.31}{\ignorespaces VSI con MOSFETs.}}{42}{figure.caption.56}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Semiconductores}{43}{subsection.5.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Elección de la Tecnología: MOSFETs de Carburo de Silicio (SiC)}{43}{subsubsection*.57}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Módulos de Potencia: Selección y Comparativa}{43}{subsubsection*.58}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Comparación de parámetros entre DFS05HF12EYR1 y CAB016M12FM3.}}{44}{table.caption.59}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Análisis de Pérdidas}{44}{subsubsection*.60}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Sistema de Refrigeración}{45}{subsubsection*.61}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}\textit  {Gate drivers}}{45}{subsection.5.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Bus de condensadores}{45}{subsection.5.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}Conductores}{45}{subsection.5.3.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.7}PCB de potencia}{45}{subsection.5.3.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.8}PCB de control}{46}{subsection.5.3.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.9}PCB de TS-DC}{46}{subsection.5.3.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}\textit  {Software}}{46}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Concepto}{46}{subsection.5.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Retos}{46}{subsection.5.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Tareas}{46}{subsection.5.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Interfaz de usuario}{47}{subsection.5.4.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Validación}{47}{section.5.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Resultados}{48}{chapter.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces Detalle del bloque del lazo de control vectorial.}}{34}{figure.caption.45}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces Resultados de la simulación.}}{35}{figure.caption.46}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Modelo conmutado}{36}{subsubsection*.47}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.27}{\ignorespaces Bloques que contienen el modelo conmutado del VSI con SVPWM.}}{36}{figure.caption.48}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces Detalle de los bloques del VSI conmutado.}}{36}{figure.caption.49}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.29}{\ignorespaces Duty cycles y tensiones alternas.}}{37}{figure.caption.50}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.30}{\ignorespaces Planta electromecánica del conjunto fuente-inversor-motor-carga}}{38}{figure.caption.52}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.31}{\ignorespaces Detalle del subbloque VSI, donde se realiza la conexión electrotérmica de los módulos de potencia a la fuente DC, al motor y a la \textit  {coldplate}}}{38}{figure.caption.53}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.32}{\ignorespaces Tanto los MOSFETs como los diodos integrados están modelados térmicamente de mano del fabricante, lo que facilita mucho la estimación de pérdidas y la simulación térmica}}{39}{figure.caption.54}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.33}{\ignorespaces Se modelan los tiempos de adquisición del ADC mediante el uso de \textit  {zero order holds}. Se implementa la transformada de las corrientes, tanto de $a,b,c$ al espacio $d-q$ como de coordenadas cartesianas a coordenadas polares}}{39}{figure.caption.55}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.34}{\ignorespaces Saturación y síntesis de las tensiones $V_d$ y $V_q$ mediante la transformada de Clarke inversa y la modulación SVPWM de la librería PERGAMON. Se modelan también los tiempos muertos de la modulación}}{39}{figure.caption.56}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:plecsvoltage}{{5.34}{39}{Saturación y síntesis de las tensiones $V_d$ y $V_q$ mediante la transformada de Clarke inversa y la modulación SVPWM de la librería PERGAMON. Se modelan también los tiempos muertos de la modulación}{figure.caption.56}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.35}{\ignorespaces Los lazos de corriente están implementados con PIs discretos de la librería PERGAMON y afinados analíticamente con el procedimiento mostrado anteriormente}}{40}{figure.caption.57}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.36}{\ignorespaces Consigna de corriente con debilitamiento de campo}}{40}{figure.caption.58}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.37}{\ignorespaces Detalle del bloque de cálculo de corriente, donde se implementan las trayectorias de control del PMSM como ecuaciones analíticas resueltas}}{40}{figure.caption.59}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.38}{\ignorespaces Consigna de par y lazo de velocidad como saturación de la consigna de par}}{40}{figure.caption.60}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.39}{\ignorespaces Cálculo de pérdidas, eficiencia y factor de potencia}}{41}{figure.caption.61}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.40}{\ignorespaces Visualización y registro de las variables de interés para el análisis y el procesamiento de datos.}}{41}{figure.caption.62}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.41}{\ignorespaces Resultados de la simulación.}}{42}{figure.caption.63}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}\textit  {Hardware}}{42}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Requisitos y pre-concepto}{42}{subsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Potencia}{43}{subsubsection*.64}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.42}{\ignorespaces Potencia instantánea que sale de la batería en un evento de \textit  {Endurance} (Tiempo completo y detalle de un fragmento)}}{43}{figure.caption.65}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Normativa}{44}{subsubsection*.66}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Requisitos adicionales}{47}{subsubsection*.67}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Boceto del empaquetado}{47}{subsubsection*.68}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.43}{\ignorespaces Bocetos preliminares del empaquetado del inversor.}}{48}{figure.caption.69}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.44}{\ignorespaces Evolución de los bocetos del empaquetado del inversor.}}{48}{figure.caption.70}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Concepto}{49}{subsection.5.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.45}{\ignorespaces VSI con MOSFETs.}}{49}{figure.caption.71}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.46}{\ignorespaces Diagrama de bloques del sistema completo}}{50}{figure.caption.72}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Semiconductores}{51}{subsection.5.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Tecnología de Semiconductores}{51}{subsubsection*.73}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Módulos de Potencia}{51}{subsubsection*.74}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Comparación de parámetros entre DFS05HF12EYR1 y CAB016M12FM3.}}{52}{table.caption.75}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Análisis de Pérdidas}{52}{subsubsection*.76}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Sistema de Refrigeración}{52}{subsubsection*.77}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}\textit  {Gate drivers}}{53}{subsection.5.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Bus de condensadores}{53}{subsection.5.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}Conductores}{53}{subsection.5.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.7}PCB de potencia}{53}{subsection.5.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.8}PCB de control}{53}{subsection.5.3.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.9}PCB de TS-DC}{54}{subsection.5.3.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}\textit  {Software}}{54}{section.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Concepto}{54}{subsection.5.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Retos}{54}{subsection.5.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Tareas}{54}{subsection.5.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Interfaz de usuario}{54}{subsection.5.4.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Validación}{55}{section.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Resultados}{56}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibstyle{plainnat}
@@ -117,4 +136,4 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {B}Bibliograf\'{\i }a}{2}{appendix.Alph2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\gdef \@abspage@last{52}
+\gdef \@abspage@last{60}

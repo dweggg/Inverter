@@ -15,7 +15,7 @@ styleConfig = struct(...
 currentConfig = styleConfig;
 
 % Load simulation output data
-load('FOC_CAB0016M12FM3_1.mat');  % Update with your simulation output file name
+load('FOC_CAB0016M12FM3.mat');  % Update with your simulation output file name
 
 % Specify output directory
 outputDirectory = 'Plots_memoria_PLECS/';
@@ -59,7 +59,7 @@ ax.YAxis.Exponent = 0;
 ax.XAxis.TickLabelFormat = '%g';
 ax.YAxis.TickLabelFormat = '%g';
 
-saveas(gcf, [outputDirectory, 'IdIq_XY_plot.png']);
+saveas(gcf, [outputDirectory, 'PLECS_id-iq.png']);
 
 % Plot Id-Iq time plot (reference and measured)
 figure;
@@ -83,7 +83,7 @@ ax.YAxis.Exponent = 0;
 ax.XAxis.TickLabelFormat = '%g';
 ax.YAxis.TickLabelFormat = '%g';
 
-saveas(gcf, [outputDirectory, 'IdIq_Time_plot.png']);
+saveas(gcf, [outputDirectory, 'PLECS_idiq.png']);
 
 % Plot Vd-Vq time plot (reference and measured)
 figure;
@@ -107,7 +107,7 @@ ax.YAxis.Exponent = 0;
 ax.XAxis.TickLabelFormat = '%g';
 ax.YAxis.TickLabelFormat = '%g';
 
-saveas(gcf, [outputDirectory, 'VdVq_Time_plot.png']);
+saveas(gcf, [outputDirectory, 'PLECS_vdvq.png']);
 
 % Plot all gammas (reference and measured) time plot
 figure;
@@ -131,7 +131,7 @@ ax.YAxis.Exponent = 0;
 ax.XAxis.TickLabelFormat = '%g';
 ax.YAxis.TickLabelFormat = '%g';
 
-saveas(gcf, [outputDirectory, 'Gamma_Time_plot.png']);
+saveas(gcf, [outputDirectory, 'PLECS_gamma.png']);
 
 % Plot Tem-wm xy plot
 figure;
@@ -148,7 +148,7 @@ ax.YAxis.Exponent = 0;
 ax.XAxis.TickLabelFormat = '%g';
 ax.YAxis.TickLabelFormat = '%g';
 
-saveas(gcf, [outputDirectory, 'Tem_wm_XY_plot.png']);
+saveas(gcf, [outputDirectory, 'PLECS_Tem.png']);
 
 % Create a subplot with 2 rows and 1 column
 figure;
@@ -184,4 +184,4 @@ ax.XAxis.TickLabelFormat = '%g';
 ax.YAxis.TickLabelFormat = '%g';
 
 % Save the combined figure
-saveas(gcf, [outputDirectory, 'temp_losses.png']);
+saveas(gcf, [outputDirectory, 'PLECS_thermal.png']);
