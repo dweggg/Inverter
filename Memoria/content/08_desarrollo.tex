@@ -1345,9 +1345,7 @@ Tras obtener las consignas de tensión, se modela el inversor VSI con SVPWM con 
 
 Con lo anteriormente desarrollado solamente se pueden consignar las corrientes $i_d$ e $i_q$ manualmente, pero el objetivo es consignar el par y que el propio control sea capaz de gestionar el debilitamiento de campo. Por ello, se implementan las ecuaciones presentadas en el apartado anterior en bloques de código. 
 
-La estrategia es la siguiente: Se implementan las ecuaciones de las trayectorias cuya salida es una corriente (CLC, CTC, MTPV y VLE) y se selecciona la mínima, o en caso de estar en zona de debilitamiento de campo, la óptima, que no necesariamente es la mínima. En paralelo, se calcula el ángulo que correspondería a la trayectoria del MTPA, y se añade un control integral que aumenta el valor del ángulo controlando la tensión para poder entrar en el resto de trayectorias. Se trabaja con módulos de corriente siempre positivos, y ángulos comprendidos entre $\gamma \in [\frac{\pi}{2}, \pi]$. Para obtener par negativo, simplemente se multiplica el ángulo $\gamma$ por el signo de la consigna de par.
-
-De entre aquellas ecuaciones cuya salida es la corriente $I_s$, se usa la que computa un valor más pequeño, limitando así el módulo. Además, se calcula el ángulo correspondiente a la trayectoria del MTPA, y se usa un integrador para modificar el ángulo y poder usar las trayectorias consideradas como debilitamiento de campo. Este integrador se encarga de que la consigna de ángulo no haga sobrepasar el límite de tensión establecido por el inversor. 
+La estrategia es la siguiente: Se implementan las ecuaciones de las trayectorias cuya salida es una corriente (CLC, CTC, MTPV y VLE) y se selecciona la mínima, o en caso de estar en zona de debilitamiento de campo, la óptima, que no necesariamente es la mínima. En paralelo, se calcula el ángulo que correspondería a la trayectoria del MTPA, y se añade un control integral que aumenta el valor del ángulo controlando la tensión para poder entrar en el resto de trayectorias. Este integrador sería justamente el controlador de debilitamiento de campo y se encarga de que la consigna de ángulo no haga sobrepasar el límite de tensión establecido por el bus DC con un cierto factor de seguridad. Se trabaja con módulos de corriente siempre positivos, y ángulos comprendidos entre $\gamma \in [\frac{\pi}{2}, \pi]$. Para obtener par negativo, simplemente se multiplica el ángulo $\gamma$ por el signo de la consigna de par, atendiendo específicamente al caso de par igual a cero.
 
 \begin{figure}[!ht]
     \centering
@@ -1362,48 +1360,42 @@ De entre aquellas ecuaciones cuya salida es la corriente $I_s$, se usa la que co
     \caption{Detalle del bloque del lazo de control vectorial.}
     
 \end{figure}
-
+\newpage
 Para comprobar el funcionamiento y la estabilidad del control, se realiza una simulación en la que la consigna de par está extraída de un perfil de conducción real.
 
-\begin{figure}[!ht]
+\begin{figure}[!htb]
     \centering
-
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/Tem_plot.png}
         \caption{Torque electromagnético ($T_{em}$)}
     \end{subfigure}
-    %
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/idiq_plot.png}
         \caption{Corrientes ($I_{d} - I_{q}$)}
     \end{subfigure}
-
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/id-iq_plot.png}
         \caption{Corriente ($I_{d}$) vs Corriente ($I_{q}$)}
     \end{subfigure}
-    %
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/wm_Tem_plot.png}
         \caption{Velocidad mecánica ($\omega_{m}$) vs Torque electromagnético ($T_{em}$)}
     \end{subfigure}
-
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/wm_plot.png}
         \caption{Velocidad mecánica ($\omega_{m}$)}
     \end{subfigure}
-    %
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/vdvqPI_plot.png}
         \caption{Voltajes ($V_{d} - V_{q}$)}
     \end{subfigure}
-
     \caption{Resultados de la simulación.}
+    
 \end{figure}
 
-Se puede observar que en esta simulación se ha limitado el comportamiento de la frenada regenerativa a la trayectoria del MTPA. En la implementación real se han explorado los límites para poder ofrecer una mejor respuesta del motor regenerando a altas velocidades.
+Se puede observar que en esta simulación se ha limitado el comportamiento de la frenada regenerativa a la trayectoria del MTPA. En la implementación real se han explorado los límites para poder ofrecer una mejor respuesta del motor regenerando a altas velocidades, ya que esto supone un reto adicional por la elevada tensión generada por la fuerza contraelectromotriz del motor.
 
-\subsubsection{Modelo conmutado en PLECS}
+\subsubsection{Modelo conmutado}
 
 Dado que el inversor realmente es una fuente conmutada, se debe modelar utilizando una herramienta que lo permita. Utilizando el modelo EMR generado en Simulink se ha implementado la conmutación, pero el tiempo de simulación es demasiado grande como para que sea una herramienta práctica para el desarrollo.
 
@@ -1429,7 +1421,6 @@ Dado que el inversor realmente es una fuente conmutada, se debe modelar utilizan
 
 \end{figure}
 
-
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=0.85\linewidth]{fig/abc_plot.png}
@@ -1439,6 +1430,15 @@ Dado que el inversor realmente es una fuente conmutada, se debe modelar utilizan
 
 
 Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el inversor con MOSFETs, la planta mecánica simplificada, y a la cual se le discretiza la adquisición y el control, de manera que es una aproximación muy realista de la posterior implementación en un microcontrolador.
+
+\begin{figure}[!ht]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PLECS_overall}
+\end{figure}
+
+
+Se puede observar que la representación de los bloques en este modelo no sigue el EMR, ya que se elige una implementación más práctica y realista. Destaca la implementación de las funciones de control utilizando la librería PERGAMON, desarrollada por el CITCEA-UPC. Esta librería reproduce completamente el código de las funciones matemáticas implementadas en el control, como los PIs, el SVPWM..., en el software PLECS, lo que facilita la correlación de cualquier modelo con la realidad.
+
 
 ********CAPTURAS MODELO PLECS********
 
@@ -1484,7 +1484,85 @@ Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el i
 
 \subsection{Requisitos y pre-concepto}
 
-Para definir los requisitos del inversor, se deben considerar las restricciones del tren de potencia que impone la normativa, así como
+Para definir los requisitos del inversor de tracción, es crucial considerar las restricciones y exigencias del tren de potencia que impone la normativa de la competición, así como los parámetros eléctricos del vehículo en particular en el cual se va a implementar.
+
+\subsubsection{Potencia máxima y potencia media}
+La norma \textit{\textbf{EV2.2.1}} dicta que la potencia en la salida de la batería no debe exceder los 80 kW. Esta restricción es crucial en el diseño del inversor, ya que se prevé que el vehículo sea impulsado por un solo convertidor con esta potencia máxima. Por ende, el inversor debe estar dimensionado para manejar picos de potencia de hasta 80 kW. Dado que se trata de un inversor doble, la asignación de potencia se divide en 40 kW por motor, aunque se podría necesitar más potencia en uno de los motores durante la aceleración en una curva. Esta decisión se toma pensando en el futuro del equipo, cuando implemente 4 motores, lo que dotaría al vehículo de hasta 160 kW de pico. Sin embargo, en ese escenario, solo se podrían utilizar 80 kW repartidos entre las 4 ruedas, con un máximo de 40 kW por rueda.
+
+La prueba donde se espera utilizar esta potencia máxima es la \textit{Acceleration}, donde se podría requerir de los 80 kW durante un máximo de 10 segundos, siendo esta una aproximación muy conservadora.
+
+Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a picos de potencia máxima:
+
+******************Gráfico perfil endurance, cálculo de potencia media**********
+
+Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo. Por lo tanto, se dimensiona el inversor considerando una potencia media de 40 kW, es decir, 20 kW por motor. Esta cifra redonda proporciona un margen de seguridad adecuado para las exigencias de la competición.
+
+\subsubsection{Normativa}
+La normativa de la Formula Student no impone normativas muy restrictivas, ya que la mayoría están enfocadas a la seguridad. Estas son las normas que afectarán al diseño del inversor:
+
+\begin{itemize}
+
+    \item \textit{\textbf{EV2.2.2} Regenerating energy is allowed and unrestricted.} La posibilidad de regenerar energía implica que el inversor debe ser capaz de consignar par en el sentido opuesto a la velocidad de los motores para frenar, lo que tendrá un impacto fundamental en el diseño del control. La topología de VSI es bidireccional en sí misma.
+    \item \textit{\textbf{EV2.2.3} Wheels must not be spun in reverse.} Podría impactar la lógica de control del inversor para evitar la marcha atrás. Se pueden implementar algoritmos de dependencia de dirección para que ambos motores traccionen el vehículo en la misma dirección.
+    \item \textit{\textbf{EV3.1.1} TS enclosures, see EV1.1.2, must consist of either
+    \begin{itemize}
+            \item a grounded solid layer made of at least 0.5 mm thick electrically conductive material, aluminium or better, having a resistance below 300 m$\Omega$, measured with a current of 1 A, to LVS ground and able to continuously carry at least 10\% of the TS accumulator main fuse current rating or 
+            \item be fully made out of electrically insulating materials having an isolation resistance of at least 2 M$\Omega$, measured with a voltage of 500 V. The enclosure must be rigid and must prevent possible mechanical penetrations. Protruding electrically conductive parts, such as fasteners or connectors, must follow EV3.1.2
+    \end{itemize} } Tendrá efectos en el diseño del empaquetado del convertidor y en la selección de materiales para garantizar la seguridad eléctrica y mecánica del sistema.
+
+    \item \textit{\textbf{EV3.2.5} All overcurrent protection devices that are part of the TS must not rely on programmable logic. The overcurrent protection function of motor controllers/inverters for the motor outputs may rely on programmable logic.} Los dispositivos de protección contra sobrecorriente en el sistema de tracción para el motor pueden depender de lógica programable, lo que permite utilizar el sensado de corriente para garantizar esta protección.
+    \item \textit{\textbf{EV4.1.1} The maximum permitted voltage that may occur between any two electrical connections is 600 VDC and for motor controller/inverters internal low power control signals 630 VDC.} Impone el requisito de que la tensión de funcionamiento sea la más alta permitida por la normativa para permitir máxima flexibilidad con el diseño de la batería, por ejemplo.
+    \item \textit{\textbf{EV4.1.2} All components in the TS must be rated for the maximum TS voltage. The TS area of a PCB, see EV4.3.6, is considered as one component. Every input connected to the TS must be rated to the maximum TS voltage.} Tendrá efectos en la selección de los componentes del circuito de potencia del inversor.
+    \item \textit{\textbf{EV4.1.3}  All components must be rated for the maximum possible temperature that may occur during usage.} Impactará en la selección de componentes que puedan manejar las temperaturas esperadas.
+    \item \textit{\textbf{EV4.2.1} TS enclosures, see EV1.1.2, must be labeled with (a) reasonably sized sticker(s) according to “ISO 7010-W012” (triangle with a black lightning bolt on a yellow background). The sticker must also contain the text “High Voltage” if the voltage is more than 60 VDC or 50 VACRMS.} Impacta en los requisitos de señalización y seguridad del empaquetado.
+    \item \textit{\textbf{EV4.3.1} The entire TS and LVS must be galvanically isolated, see EV1.2.1 and IN4.1.1.} Afecta el diseño de la separación y el aislamiento entre ambos sistemas.
+    \item \textit{\textbf{EV4.3.4} Where both TS and LVS are present within an enclosure, they must be separated by barriers made of moisture-resistant insulating materials or maintain the following spacing through the air, or over a surface:} Impacta en el diseño del empaquetado del inversor.  Se usarán aislantes como el Nomex en caso de que no se pueda garantizar el espaciado por aire.
+
+    **************************TABLA SPACINGS*********************************
+
+    \item \textit{\textbf{EV4.3.6} If TS and LVS are on the same PCB, they must be on separate well-defined areas of the board, meeting the spacing requirements in table 5, each area clearly marked with “TS” or “LV”. The outline of the area required for spacing must  be marked. “Conformal coating” refers to a coating insulator, solder resist is not a coating.} Tendrá efectos en el diseño de la PCB de potencia.
+    
+    **************************TABLA SPACINGS*********************************
+
+    \item \textit{\textbf{EV4.5.3} The temperature rating for TS wiring, connections, and insulation must be appropriate for the expected surrounding temperatures but at least 85 ◦C.} Influirá en la selección de cables y materiales aislantes.
+    \item \textit{\textbf{EV4.5.4} TS components and containers must be protected from moisture in the form of rain or puddles, see IN9.} Impactará en el diseño de la caja.
+    \item \textit{\textbf{EV4.5.6} All TS wiring must be completed to professional standards with appropriately sized conductors and terminals and with adequate strain relief and protection from loosening due to vibration etc.} Tendrá efectos en el diseño de las conexiones y terminales.
+    \item \textit{\textbf{EV4.5.10} Every TS connector outside of a housing must include a pilot contact/interlock line which is part of the SDC. Housings only used to avoid interlocks are prohibited.} Impactará en el diseño de los conectores y sistemas de interconexión.
+    \item \textit{\textbf{EV4.5.11} All TS connections must be designed so that they use intentional current paths through conductors such as copper or aluminium and must not rely on steel bolts to be the primary conductor.} Tendrá efectos en el diseño de las conexiones y la selección de materiales adecuados.
+    \item \textit{\textbf{EV4.5.12} All TS connections must not include compressible material such as plastic in the stack-up or as a fastener. FR-4 is allowed.} Impactará en el diseño de las conexiones y la selección de materiales adecuados.
+    \item \textit{\textbf{EV4.5.13} TS connectors outside of TS enclosures must be designed in a way, that the TS cannot be activated, see EV4.11, if connected in any way other than the design intent configuration.} Tendrá efectos en el diseño de los conectores y la seguridad.
+    \item \textit{\textbf{EV4.5.14} All electrical connections, including bolts, nuts, and other fasteners, in the high current path of the TS must be secured from unintentional loosening. Fasteners must use positive locking mechanisms, see T10.2, that are suitable  for high temperatures, see EV4.5.3.} Impactará en el diseño de los sistemas de fijación y bloqueo, especialmente en las conexiones de potencia.
+    \item \textit{\textbf{EV4.5.16} Soldered connections in the high current path are only allowed if all of the following are true: 
+    \begin{itemize}
+            \item connections on PCBs
+            \item the connected devices are not cells or wires
+            \item the devices are additionally mechanically secured against loosening
+    \end{itemize} } Tendrá efectos en el diseño de las conexiones y el uso de soldaduras. El uso de sistemas alternativos de conexión en placa como el \textit{press-fit}, facilita el cumplimiento de esta norma.
+    \item \textit{\textbf{EV4.9.1} If a discharge circuit is required to meet EV6.1.5, it must be designed to handle the maximum TS voltage permanently. After three subsequent discharges within 15 s in total, the discharge time specified in EV6.1.5 may be exceeded.  Full discharging functionality must be given after a reasonable time with a deactivated discharge circuit.} Impactará en el diseño y la implementación de este circuito.
+    \item \textit{\textbf{EV4.9.2} The discharge circuit must be wired in a way that it is always active whenever the SDC is open. Furthermore, the discharge circuit must be fail-safe such that it still discharges the intermediate circuit capacitors if the HVD has  been opened or the TS accumulator is disconnected.} Tendrá efectos en la implementación del circuito de descarga.
+    \item \textit{\textbf{EV2.2.1} EV4.10.2 The TSAL itself must have a red light, flashing continuously with a frequency between 2 Hz and 5 Hz and a duty cycle of 50\%, active if and only if the LVS is active and the voltage across any DC-link capacitor exceeds 
+    \begin{itemize}
+            \item 60 VDC or 50 VACRMS
+            \item Half the nominal TS voltage
+    \end{itemize} 
+    whichever is lower} Impactará en la implementación de esta detección.
+    \item \textit{\textbf{EV4.10.4} The mentioned voltage detection must be performed inside the respective TS enclosure.} Obliga a situar la detección de alta tensión en el propio \textit{DC-link}.
+
+\end{itemize}
+
+Estas restricciones no solo definen los límites de diseño del inversor, sino que también influyen en la selección de componentes y la estrategia de control.
+
+
+\subsubsection{Requisitos adicionales}
+Además de las restricciones normativas, los requisitos del inversor también deben tener en cuenta las demandas específicas del sistema de tracción. Entre estos requisitos se encuentran:
+
+\begin{itemize}
+    \item \textbf{Densidad de Potencia:} El inversor debe ser capaz de proporcionar una alta densidad de potencia para facilitar la integración en el vehículo.
+    \item \textbf{Eficiencia:} Se busca una eficiencia óptima para maximizar la autonomía del monoplaza y llevar el máximo de energía de la batería a los neumáticos.
+    \item \textbf{Fiabilidad:} Dado el entorno de competición, el inversor debe ser altamente confiable y capaz de operar en las condiciones de una competición, como temperaturas ambientales y humedades altas.
+    \item \textbf{Flexibilidad:} El diseño del inversor debe ser lo suficientemente flexible para adaptarse a posibles cambios en el sistema de tracción y comunicación con el vehículo.
+    \item \textbf{Facilidad de mantenimiento:} Consideraciones para facilitar el mantenimiento y la reparación en caso de fallos durante la competición.
+\end{itemize}
 
 \subsection{Concepto}
 Con el fin de producir las tensiones trifásicas que calcula el control se implementa un ondulador trifásico fuente de voltaje (VSI). Existen varias topologías que permiten hacer un ondulador trifásico, pero la más utilizada es el VSI de 2 niveles, formado por tres ramas de medio puente. Otras topologías de más niveles logran sintetizar tensiones con menos distorsión armónica, pero dado que lo que importa realmente para una controladora de motores eléctricos es la corriente.
@@ -1530,21 +1608,13 @@ Con tal de adquirir las variables necesarias para el control y interfazar con el
 
 ********DIAGRAMA DE BLOQUES********
 
-El convertidor se divide en 3 PCBs, que se listan a continuación:
+El convertidor se divide en 2 PCBs, \textit{Inverter Power} e \textit{Inverter Control}.
 
-\begin{itemize}
-	\item Inverter Power
-	\item Inverter DC
-	\item Inverter Control
-\end{itemize}
+Como su nombre indica, \textit{Inverter Power} alojará todos los componentes de potencia, incluyendo los \textit{gate drivers}, los sensores de corriente, los semiconductores, los buses de continua y los conectores de potencia. Esta PCB se fabrica en duplicado ya que contiene todos los elementos que son necesarios repetir para el control de dos motores. Además, en esta placa se puede encontrar el sensado de la tensión de los buses, los circuitos de descarga, y la detección de alta tensión para la \textit{TSAL}. El sensado de tensión sería el único subcircuito repetido, pero esto solamente aporta redundancia y tolerancia al fallo.
 
-Como su nombre indica, \textit{Inverter Power} alojará todos los componentes de potencia, incluyendo los \textit{gate drivers}, los sensores de corriente, los semiconductores, los buses de continua y los conectores de potencia. Esta PCB se fabrica en duplicado ya que contiene todos los elementos que son necesarios repetir para el control de dos motores.
+Por su parte, \textit{Inverter Control} contiene el microcontrolador de la familia STM32F7 para consignar la conmutación a los \textit{gate drivers}, así como para realizar las lecturas de corriente, tensión y temperatura, las interfaces con los sensores de posición de los motores o los protocolos comunicación CAN y USB.
 
-En \textit{Inverter DC} se puede encontrar el sensado de la tensión de los buses, el circuito de descarga, y la detección de alta tensión para la \textit{TSAL}.
-
-Por su parte, \textit{Inverter Control} contiene el microcontrolador de la familia STM32F7 para accionar los \textit{gate drivers}, así como para realizar las lecturas de corriente, tensión y temperatura, las interfaces con los sensores de posición de los motores o los protocolos comunicación.
-
-El montaje de estas placas se realiza de forma compacta y eficiente, de manera que quepa una placa refrigerada entre medias para controlar la temperatura de los semiconductores de ambos inversores. Se encajan de manera que la placa de control se puede conectar a las placas de potencia mediante conectores \textit{board-to-board}, y la PCB del bus de continua se sitúa estratégicamente cerca del conector de la batería. Las conexiones de potencia facilitan la integración con el cableado del monoplaza debido a su posicionamiento.
+El montaje de estas placas se realiza de forma compacta y eficiente, de manera que quepa una placa refrigerada entre medias de las dos de potencia para controlar la temperatura de los semiconductores de ambos inversores. Se encajan de manera que la placa de control se puede conectar a las placas de potencia mediante conectores placa a placa. Las conexiones de potencia facilitan la integración con el cableado del monoplaza debido a su posicionamiento.
 
 
 \subsection{Semiconductores}
