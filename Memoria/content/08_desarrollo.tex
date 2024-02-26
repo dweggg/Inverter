@@ -24,7 +24,7 @@ Se trabajará con motores cuyos devanados estén conectados en configuración es
 		% Draw neutral point
 		\draw (6,-2) node[circ]{} -- ++(0.5,0) node[circ]{} node[right]{$N$};
 	\end{circuitikz}
-	\caption{Circuito eléctrico equivalente de un PMSM trifásico en configuración estrella}
+	\caption{Circuito eléctrico equivalente de un PMSM trifásico en configuración estrella.}
 \end{figure}
 
 \subsection{Representación en el espacio vectorial}
@@ -54,7 +54,7 @@ Cuando el PMSM gira, las formas de onda de corriente y voltaje son aproximadamen
     \addplot[green, thick, domain=0:2*360] {sin(x - 240)};
     \end{axis}
     \end{tikzpicture}
-    \caption{Sistema trifásico representado en el tiempo}
+    \caption{Sistema trifásico representado en el tiempo.}
 \end{figure}
 
 Todas las ecuaciones se pueden definir a partir de este modelo, pero se vuelve muy poco práctico para análisis más complejos. Se introduce una forma de representar estas formas de onda en el espacio tridimensional ${\rm I\!R^3}$, en el que se escogen los ejes \((a, b, c)\). Lo que debería esperarse ver es una forma tridimensional en el espacio ${\rm I\!R^3}$. Se comienza en \(t = 0\) y se dibuja un punto en las coordenadas \([v_a(0), v_b(0), v_c(0)]\). Luego, se continúa trazando puntos mientras se avanza a lo largo del eje del tiempo. La forma se puede expresar como curva paramétrica como \([v_a(t), v_b(t), v_c(t)]\). Cuando se representa la forma resultante, puede sorprender, ya que es un círculo perfectamente plano. Cabe destacar que el orden de los ejes depende del contexto, y en este trabajo se toma el sistema de referencia mostrado en las siguientes figuras.
@@ -194,7 +194,7 @@ Todas las ecuaciones se pueden definir a partir de este modelo, pero se vuelve m
         \end{tikzpicture}
     \end{subfigure}   
     \centering
-    \caption{Sistema trifásico representado en el Espacio Vectorial}
+    \caption{Sistema trifásico representado en el Espacio Vectorial.}
 \end{figure}
 
 
@@ -257,7 +257,7 @@ Esta transformada se utiliza cuando la potencia del sistema debe permanecer inal
 		\end{axis}
 	\end{tikzpicture}
 	\centering
-	\caption{Sistema trifásico representado en el Espacio Vectorial con la transformada de Clarke ortonormal superpuesta}
+	\caption{Sistema trifásico representado en el Espacio Vectorial con la transformada de Clarke ortonormal superpuesta.}
 	\end{figure}
 
 
@@ -522,9 +522,14 @@ Donde:
 \end{itemize}
 
 
-Hay PMSM cuyos imanes están montados dentro del rotor (IPM) y otros cuyos imanes están en la superficie del rotor (SPM). Esta diferenciación juega un papel importante en el desarrollo del modelo y el control, porque en los SPM se cumple \(L_d = L_q\), a menudo escrito solo como \(L\). Además, si se trata de un IPM, la orientación de los imanes puede cambiar las trayectorias del control, de manera que si son imanes tangenciales se da \(L_d > L_q\) y si son imanes radiales \(L_d < L_q\). Se desarrollarán las ecuaciones para motores IPM, pero se ha de tener en cuenta que se pueden realizar muchas simplificaciones si el motor es un SPM. Una situación que se dará es que algunas ecuaciones tienen alguna forma de \(L_d - L_q\) como denominador, lo cual es bastante problemático si se está tratando de implementar la ecuación directamente. Por ese motivo, es mejor diferenciar las el tipo de motor antes de implementar las ecuaciones. Una solución válida es tener en cuenta la anisotropía magnética que suelen presentar la mayoría de SPMs, con lo que \(L_d < L_q\) y se pueden aplicar las ecuaciones del IPM.
+Hay PMSM cuyos imanes están montados dentro del rotor (IPM) y otros cuyos imanes están en la superficie del rotor (SPM). Esta diferenciación juega un papel importante en el desarrollo del modelo y el control, porque en los SPM se cumple \(L_d = L_q\), a menudo escrito solo como \(L\). Además, si se trata de un IPM, la orientación de los imanes puede cambiar las trayectorias del control, de manera que si son imanes tangenciales se da \(L_d > L_q\) y si son imanes radiales \(L_d < L_q\). Se desarrollarán las ecuaciones para motores IPM con imanes radiales, pero se ha de tener en cuenta que se pueden realizar muchas simplificaciones si el motor es un SPM. Una situación que se dará es que algunas ecuaciones tienen alguna forma de \(L_d - L_q\) como denominador, lo cual es bastante problemático si se está tratando de implementar la ecuación directamente. Por ese motivo, es mejor diferenciar el tipo de motor antes de implementar las ecuaciones. Una solución válida es tener en cuenta la anisotropía magnética que suelen presentar la mayoría de SPMs, con lo que \(L_d < L_q\) y se pueden aplicar las ecuaciones del IPM a costa de potencia de cálculo, de ejecutarse el control en tiempo real.
 
-************FIGURA TIPOS DE MOTORES*******************
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/motor-types}
+	\caption{Tipos de PMSMs según la disposición de los imanes. a) SPM, b) IPM radial, c) IPM tangencial.}
+\end{figure}
+
 
 La potencia eléctrica se define como:
 
@@ -1241,7 +1246,7 @@ Para las simulaciones se han implementado los siguientes parámetros de motor, y
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\linewidth]{fig/idiq_plot_PI.png}
-    \caption{Simulación de los PIs de corriente, con una consigna de $(i_d, i_q) = (-8, 30) A$}
+    \caption{Simulación de los PIs de corriente, con una consigna de $(i_d, i_q) = (-8, 30) A$.}
 \end{figure}
 
 
@@ -1294,27 +1299,27 @@ Para comprobar el funcionamiento y la estabilidad del control, se realiza una si
     \centering
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/Tem_plot.png}
-        \caption{Torque electromagnético ($T_{em}$)}
+        \caption{Torque electromagnético ($T_{em}$).}
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/idiq_plot.png}
-        \caption{Corrientes ($I_{d} - I_{q}$)}
+        \caption{Corrientes ($I_{d} - I_{q}$).}
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/id-iq_plot.png}
-        \caption{Corriente ($I_{d}$) vs Corriente ($I_{q}$)}
+        \caption{Corriente ($I_{d}$) vs Corriente ($I_{q}$).}
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/wm_Tem_plot.png}
-        \caption{Velocidad mecánica ($\omega_{m}$) vs Torque electromagnético ($T_{em}$)}
+        \caption{Velocidad mecánica ($\omega_{m}$) vs Torque electromagnético ($T_{em}$).}
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/wm_plot.png}
-        \caption{Velocidad mecánica ($\omega_{m}$)}
+        \caption{Velocidad mecánica ($\omega_{m}$).}
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/vdvqPI_plot.png}
-        \caption{Voltajes ($V_{d} - V_{q}$)}
+        \caption{Voltajes ($V_{d} - V_{q}$).}
     \end{subfigure}
     \caption{Resultados de la simulación.}
     
@@ -1361,6 +1366,7 @@ Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el i
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_overall}
+	\caption{Modelo de simulación en PLECS.}
 \end{figure}
 
 
@@ -1370,54 +1376,54 @@ A continuación se presentan los diferentes bloques que forman el modelo.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_plant}
-	\caption{Planta electromecánica del conjunto fuente-inversor-motor-carga}
+	\caption{Planta electromecánica del conjunto fuente-inversor-motor-carga.}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_mosfets}
-	\caption{Detalle del subbloque VSI, donde se realiza la conexión electrotérmica de los módulos de potencia a la fuente DC, al motor y a la \textit{coldplate}}
+	\caption{Detalle del subbloque VSI, donde se realiza la conexión electrotérmica de los módulos de potencia a la fuente DC, al motor y a la \textit{coldplate}.}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_MOSFETs-thermal}
-	\caption{Tanto los MOSFETs como los diodos integrados están modelados térmicamente de mano del fabricante, lo que facilita mucho la estimación de pérdidas y la simulación térmica}
+	\caption{Tanto los MOSFETs como los diodos integrados están modelados térmicamente de mano del fabricante, lo que facilita mucho la estimación de pérdidas y la simulación térmica.}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_acq}
-	\caption{Se modelan los tiempos de adquisición del ADC mediante el uso de \textit{zero order holds}. Se implementa la transformada de las corrientes, tanto de $a,b,c$ al espacio $d-q$ como de coordenadas cartesianas a coordenadas polares}
+	\caption{Se modelan los tiempos de adquisición del ADC mediante el uso de \textit{zero order holds}. Se implementa la transformada de las corrientes, tanto de $a,b,c$ al espacio $d-q$ como de coordenadas cartesianas a coordenadas polares.}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_voltage}
-	\caption{Saturación y síntesis de las tensiones $V_d$ y $V_q$ mediante la transformada de Clarke inversa y la modulación SVPWM de la librería PERGAMON. Se modelan también los tiempos muertos de la modulación}
+	\caption{Saturación y síntesis de las tensiones $V_d$ y $V_q$ mediante la transformada de Clarke inversa y la modulación SVPWM de la librería PERGAMON. Se modelan también los tiempos muertos de la modulación.}
 	\label{fig:plecsvoltage}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_current-loop}
-	\caption{Los lazos de corriente están implementados con PIs discretos de la librería PERGAMON y afinados analíticamente con el procedimiento mostrado anteriormente}
+	\caption{Los lazos de corriente están implementados con PIs discretos de la librería PERGAMON y afinados analíticamente con el procedimiento mostrado anteriormente.}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{fig/PLECS_currentref}
-	\caption{Consigna de corriente con debilitamiento de campo}
+	\caption{Consigna de corriente con debilitamiento de campo.}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_currentref1}
-	\caption{Detalle del bloque de cálculo de corriente, donde se implementan las trayectorias de control del PMSM como ecuaciones analíticas resueltas}
+	\caption{Detalle del bloque de cálculo de corriente, donde se implementan las trayectorias de control del PMSM como ecuaciones analíticas resueltas.}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{fig/PLECS_tqspeed}
-	\caption{Consigna de par y lazo de velocidad como saturación de la consigna de par}
+	\caption{Consigna de par y lazo de velocidad como saturación de la consigna de par.}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_losses}
-	\caption{Cálculo de pérdidas, eficiencia y factor de potencia}
+	\caption{Cálculo de pérdidas, eficiencia y factor de potencia.}
 \end{figure}
 \begin{figure}[H]
 	\centering
@@ -1430,32 +1436,32 @@ A continuación se presentan los diferentes bloques que forman el modelo.
 
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/PLECS_Tem.png}
-        \caption{Torque electromagnético ($T_{em}$) vs Velocidad mecánica ($\omega_{m}$)}
+        \caption{Torque electromagnético ($T_{em}$) vs Velocidad mecánica ($\omega_{m}$).}
     \end{subfigure}
     %
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/PLECS_idiq.png}
-        \caption{Corrientes ($I_{d} - I_{q}$)}
+        \caption{Corrientes ($I_{d} - I_{q}$).}
     \end{subfigure}
 
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/PLECS_id-iq.png}
-        \caption{Corriente ($I_{d}$) vs Corriente ($I_{q}$)}
+        \caption{Corriente ($I_{d}$) vs Corriente ($I_{q}$).}
     \end{subfigure}
     %
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/PLECS_gamma.png}
-        \caption{Ángulo de corriente ($\gamma$)}
+        \caption{Ángulo de corriente ($\gamma$).}
     \end{subfigure}
 
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/PLECS_thermal.png}
-        \caption{Temperatura y pérdidas del inversor}
+        \caption{Temperatura y pérdidas del inversor.}
     \end{subfigure}
     %
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/PLECS_vdvq.png}
-        \caption{Voltajes ($V_{d} - V_{q}$)}
+        \caption{Voltajes ($V_{d} - V_{q}$).}
     \end{subfigure}
 
     \caption{Resultados de la simulación.}
@@ -1470,11 +1476,14 @@ A continuación se presentan los diferentes bloques que forman el modelo.
 Para definir los requisitos del inversor de tracción, es crucial considerar las restricciones y exigencias del tren de potencia que impone la normativa de la competición, así como los parámetros eléctricos del vehículo en particular en el cual se va a implementar.
 
 \subsubsection{Potencia}
-La norma \textit{\textbf{EV2.2.1}} dicta que la potencia en la salida de la batería no debe exceder los 80 kW. Esta restricción es crucial en el diseño del inversor, ya que se prevé que el vehículo sea impulsado por un solo convertidor con esta potencia máxima. Por ende, el inversor debe estar dimensionado para manejar picos de potencia de hasta 80 kW. Dado que se trata de un inversor doble, la asignación de potencia se divide en 40 kW por motor, aunque se podría necesitar más potencia en uno de los motores durante la aceleración en una curva. Esta decisión se toma pensando en el futuro del equipo, cuando implemente 4 motores, lo que dotaría al vehículo de hasta 160 kW de pico. Sin embargo, en ese escenario, solo se podrían utilizar 80 kW repartidos entre las 4 ruedas, con un máximo de 40 kW por rueda.
+La norma \textit{\textbf{EV2.2.1}} dicta que la potencia en la salida de la batería no debe exceder los 80 kW. Esta restricción es crucial en el diseño del inversor, ya que se prevé que el vehículo sea impulsado por un solo convertidor con esta potencia máxima. Por ende, el inversor debe estar dimensionado para manejar máximos de potencia de hasta 80 kW. Dado que se trata de un inversor doble, la asignación de potencia se divide en 40 kW por motor, aunque se podría necesitar más potencia en uno de los motores durante la aceleración en una curva. Esta decisión se toma pensando en el futuro del equipo, cuando implemente 4 motores, lo que dotaría al vehículo de hasta 160 kW de máximo. Sin embargo, en ese escenario, solo se podrían utilizar 80 kW repartidos entre las 4 ruedas, con un máximo de 40 kW por rueda.
 
-La prueba donde se espera utilizar esta potencia máxima es la \textit{Acceleration}, donde se podría requerir de los 80 kW durante un máximo de 10 segundos, siendo esta una aproximación muy conservadora.
+La prueba donde se espera utilizar esta potencia máxima es la \textit{Acceleration}, donde se podría requerir de los 80 kW durante un máximo de 10 segundos, siendo esta una aproximación muy conservadora. Por lo tanto, la potencia máxima queda como:
 
-Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a picos de potencia máxima:
+\(P_{out, max} = 80 kW (2 \times 40 kW)\)
+
+
+Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a máximos de 80 kW:
 
 \begin{figure}[H]
 	\centering
@@ -1487,7 +1496,7 @@ Por otro lado, el requisito de potencia media es distinto. Sería un error dimen
 		\centering
 		\includegraphics[width=\textwidth]{fig/powerRMS-zoom}
 	\end{subfigure}
-	\caption{Potencia instantánea que sale de la batería en un evento de \textit{Endurance} (Tiempo completo y detalle de un fragmento)}
+	\caption{Potencia instantánea que sale de la batería en un evento de \textit{Endurance} (Tiempo completo y detalle de un fragmento).}
 \end{figure}
 
 A continuación se muestra el cálculo del valor RMS de la potencia requerida, basado en los datos de potencia:
@@ -1504,11 +1513,48 @@ A continuación se muestra el cálculo del valor RMS de la potencia requerida, b
 	
 	power_rms =
 	
-	2.9193e+04
+	2.3193e+04
 \end{verbatim}
 
 
-Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo. Por lo tanto, se dimensiona el inversor considerando una potencia media de 40 kW, es decir, 20 kW por motor. Esta cifra redonda proporciona un margen de seguridad de unos 10kW respecto a la simulación que permite algo de juego en el reparto de potencia entre ambos motores.
+Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo, en concreto un \(\frac{23.2 kW}{80 kW} = 29\%\). Por lo tanto, se dimensiona el inversor considerando una potencia media de 35 kW, es decir, 17.5 kW por motor. Esta cifra proporciona un margen de seguridad de 11.8 kW respecto a la simulación, lo que permite algo de juego en el reparto de potencia entre ambos motores. De esta manera, la potencia constante queda como:
+
+\(P_{out, const} = 35 kW (2 \times 17.5 kW)\)
+
+Cabe destacar que se está calculando la potencia aparente del convertidor, ya que la potencia activa y la reactiva se reparten en función del factor de potencia, que no es constante y depende de la planta mecánica y la situación del motor. La potencia activa es la que usa el motor para acelerar o frenar, y la reactiva la consume o suministra el DC-link. Otra nota es que la simulación es poco realista puesto que utiliza picos de potencia máxima, cuando en realidad, en la prueba de la \textit{Endurance} se suele limitar el valor de estos picos con tal de extender la autonomía.
+
+Además, existe la norma \textit{\textbf{EV4.1.1} The maximum permitted voltage that may occur between any two electrical connections is 600 VDC and for motor controller/inverters internal low power control signals 630 VDC.}, que impone el límite de 600 V para la tensión de bus máxima. Es de interés que el inversor esté dimensionado a esta tensión de funcionamiento, 600 VDC, para permitir máxima flexibilidad con el diseño de la batería, por ejemplo. Al usar la tensión más alta posible, se obtiene un beneficio en la reducción de la corriente, que implica menos pérdidas en los conductores y permite reducir la sección de cables, pletinas, conectores y otros conductores.
+
+Ya que la estrategia de modulación es SVPWM y la tensión máxima es de 600 V, la tensión alterna fase-neutro de un motor se expresa como:
+
+\(V_{ph-n, pico, 600 VDC} = \frac{V_{DC}}{\sqrt{3}} = \frac{600 V}{\sqrt{3}} = 346 V\)
+
+\(V_{ph-n, RMS, 600 VDC} = \frac{V_{ph-n, pico}}{\sqrt{2}} = \frac{346 V}{\sqrt{2}} = 245 V\)
+
+Sin embargo, la batería no estará constantemente a 600 VDC, por lo que para poder entregar la potencia de 40 kW pico por inversor en un rango de tensiones adecuado se debería calcular la corriente con una tensión menor. Se escoge 450 VDC como tensión mínima a partir de la cual se puede entregar la potencia máxima de 40 kW por inversor. Entonces, la corriente de fase de un motor queda:
+
+\(V_{ph-n, pico, 450 VDC} = \frac{V_{DC}}{\sqrt{3}} = \frac{450 V}{\sqrt{3}} = 261 V\)
+
+\(V_{ph-n, RMS, 450 VDC} = \frac{V_{ph-n, pico}}{\sqrt{2}} = \frac{261 V}{\sqrt{2}} = 184 V\)
+
+
+\(I_{ph, RMS, max} = \frac{P_{out, max}}{3\cdot V_{ph-n, RMS, 450 VDC}} = \frac{40 kW}{3\cdot184 V} = 72 A\)
+
+\(I_{ph, pico, max} = I_{ph, RMS, max}\cdot\sqrt{2} = 72 \cdot\sqrt{2} = 102 A\)
+
+De la misma manera que con la potencia, se puede obtener el valor de corriente constante a una tensión menor, ya que el resultado será más restrictivo:
+
+\(I_{ph, RMS, const} = \frac{P_{out, const}}{3\cdot V_{ph-n, RMS, 450 VDC}} = \frac{17.5 kW}{3\cdot184 V} = 32 A\)
+
+\(I_{ph, pico, const} = I_{ph, RMS, const}\cdot\sqrt{2} = 32 \cdot\sqrt{2} = 45 A\)
+
+
+Iterando el cálculo de potencia, se puede ver que si se dimensiona a estas corrientes, las potencias máxima y constante calculadas a 600 VDC de uno solo de los dos inversores son considerablemente mayores:
+
+\(P_{out, max} = 3\cdot V_{ph-n, RMS, 600 VDC}\cdot I_{ph, RMS, max} = 3\cdot245 V\cdot 72 A = 53 kW\)
+
+\(P_{out, const} = 3\cdot V_{ph-n, RMS, 600 VDC}\cdot I_{ph, RMS, const} = 3\cdot245 V\cdot 32 A = 23.5 kW\)
+
 
 \subsubsection{Normativa}
 La normativa de la Formula Student no impone normativas muy restrictivas, ya que la mayoría están enfocadas a la seguridad. Estas son las normas que afectarán al diseño del inversor:
@@ -1516,15 +1562,14 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
 \begin{itemize}
 
     \item \textit{\textbf{EV2.2.2} Regenerating energy is allowed and unrestricted.} La posibilidad de regenerar energía implica que el inversor debe ser capaz de consignar par en el sentido opuesto a la velocidad de los motores para frenar, lo que tendrá un impacto fundamental en el diseño del control. La topología de VSI es bidireccional en sí misma.
-    \item \textit{\textbf{EV2.2.3} Wheels must not be spun in reverse.} Podría impactar la lógica de control del inversor para evitar la marcha atrás. Se pueden implementar algoritmos de dependencia de dirección para que ambos motores traccionen el vehículo en la misma dirección.
+    \item \textit{\textbf{EV2.2.3} Wheels must not be spun in reverse.} Podría impactar la lógica de control del inversor y en la adquisición de los sensores de posición para evitar la marcha atrás. Se pueden implementar algoritmos de dependencia de dirección para que ambos motores traccionen el vehículo en la misma dirección.
     \item \textit{\textbf{EV3.1.1} TS enclosures, see EV1.1.2, must consist of either
     \begin{itemize}
             \item a grounded solid layer made of at least 0.5 mm thick electrically conductive material, aluminium or better, having a resistance below 300 m$\Omega$, measured with a current of 1 A, to LVS ground and able to continuously carry at least 10\% of the TS accumulator main fuse current rating or 
             \item be fully made out of electrically insulating materials having an isolation resistance of at least 2 M$\Omega$, measured with a voltage of 500 V. The enclosure must be rigid and must prevent possible mechanical penetrations. Protruding electrically conductive parts, such as fasteners or connectors, must follow EV3.1.2
-    \end{itemize} } Tendrá efectos en el diseño del empaquetado del convertidor y en la selección de materiales para garantizar la seguridad eléctrica y mecánica del sistema.
+    \end{itemize} } Tendrá efectos en el diseño del empaquetado del convertidor y en la selección de materiales para garantizar la seguridad eléctrica y mecánica del convertidor.
 
     \item \textit{\textbf{EV3.2.5} All overcurrent protection devices that are part of the TS must not rely on programmable logic. The overcurrent protection function of motor controllers/inverters for the motor outputs may rely on programmable logic.} Los dispositivos de protección contra sobrecorriente en el sistema de tracción para el motor pueden depender de lógica programable, lo que permite utilizar el sensado de corriente para garantizar esta protección.
-    \item \textit{\textbf{EV4.1.1} The maximum permitted voltage that may occur between any two electrical connections is 600 VDC and for motor controller/inverters internal low power control signals 630 VDC.} Impone el requisito de que la tensión de funcionamiento sea la más alta permitida por la normativa para permitir máxima flexibilidad con el diseño de la batería, por ejemplo.
     \item \textit{\textbf{EV4.1.2} All components in the TS must be rated for the maximum TS voltage. The TS area of a PCB, see EV4.3.6, is considered as one component. Every input connected to the TS must be rated to the maximum TS voltage.} Tendrá efectos en la selección de los componentes del circuito de potencia del inversor.
     \item \textit{\textbf{EV4.1.3}  All components must be rated for the maximum possible temperature that may occur during usage.} Impactará en la selección de componentes que puedan manejar las temperaturas esperadas.
     \item \textit{\textbf{EV4.2.1} TS enclosures, see EV1.1.2, must be labeled with (a) reasonably sized sticker(s) according to “ISO 7010-W012” (triangle with a black lightning bolt on a yellow background). The sticker must also contain the text “High Voltage” if the voltage is more than 60 VDC or 50 VACRMS.} Impacta en los requisitos de señalización y seguridad del empaquetado.
@@ -1565,16 +1610,30 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
 
 Estas restricciones no solo definen los límites de diseño del inversor, sino que también influyen en la selección de componentes y la estrategia de control.
 
+\subsubsection{Resumen de Requisitos de \textit{Hardware}}
 
-\subsubsection{Requisitos adicionales}
+Con toda la información que se ha recopilado se pueden listar los requisitos más importantes del convertidor:
+\begin{itemize}
+	\item \textbf{Topología del convertidor:} VSI doble.
+	\item \textbf{Potencia pico:} 80 kW ($2\times40$ kW).
+	\item \textbf{Potencia constante:} 35 kW ($2\times17.5$ kW).
+	\item \textbf{Tensión DC máxima:} 600 V.
+	\item \textbf{Tensión fase-neutro sintetizada máxima:} 245 VRMS (SVPWM).
+	\item \textbf{Corriente de fase máxima:} 80 A,RMS.
+	\item \textbf{Aislamiento galvánico entre TS y LVS}.
+	\item \textbf{Detección de tensión}.
+	
+\end{itemize}
+
+\subsubsection{Requisitos Adicionales}
 Además de las restricciones normativas, los requisitos del inversor también deben tener en cuenta las demandas específicas del sistema de tracción. Entre estos requisitos se encuentran:
 
 \begin{itemize}
-    \item \textbf{Densidad de Potencia:} El inversor debe ser capaz de proporcionar una alta densidad de potencia para facilitar la integración en el vehículo.
-    \item \textbf{Eficiencia:} Se busca una eficiencia óptima para maximizar la autonomía del monoplaza y llevar el máximo de energía de la batería a los neumáticos.
-    \item \textbf{Fiabilidad:} Dado el entorno de competición, el inversor debe ser altamente confiable y capaz de operar en las condiciones de una competición, como temperaturas ambientales y humedades altas.
-    \item \textbf{Flexibilidad:} El diseño del inversor debe ser lo suficientemente flexible para adaptarse a posibles cambios en el sistema de tracción y comunicación con el vehículo.
-    \item \textbf{Facilidad de mantenimiento:} Consideraciones para facilitar el mantenimiento y la reparación en caso de fallos durante la competición.
+	\item \textbf{Densidad de Potencia:} El inversor debe ser capaz de proporcionar una alta densidad de potencia para facilitar la integración en el vehículo.
+	\item \textbf{Eficiencia:} Se busca una eficiencia óptima para maximizar la autonomía del monoplaza y llevar el máximo de energía de la batería a los neumáticos.
+	\item \textbf{Fiabilidad:} Dado el entorno de competición, el inversor debe ser altamente confiable y capaz de operar en las condiciones de una competición, como temperaturas ambientales y humedades altas.
+	\item \textbf{Flexibilidad:} El diseño del inversor debe ser lo suficientemente flexible para adaptarse a posibles cambios en el sistema de tracción y comunicación con el vehículo.
+	\item \textbf{Facilidad de mantenimiento:} Consideraciones para facilitar el mantenimiento y la reparación en caso de fallos durante la competición.
 \end{itemize}
 
 \subsubsection{Boceto del empaquetado}
@@ -1658,7 +1717,7 @@ Para adquirir las variables necesarias para el control y la interfaz con el veh�
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/Inverter_HW}
-	\caption{Diagrama de bloques del sistema completo}
+	\caption{Diagrama de bloques del sistema completo.}
 \end{figure}
 
 El convertidor se divide en 3 PCBs, \textit{Inverter Power}, que se instala por duplicado (una por motor), e \textit{Inverter Control}. Como su nombre indica, \textit{Inverter Power} alojará todos los componentes de potencia, incluyendo los \textit{gate drivers}, los sensores de corriente, los semiconductores, los DC-links y los conectores de potencia. Además, en esta placa se puede encontrar el sensado de la tensión de los buses, los circuitos de descarga, y la detección de alta tensión para la \textit{TSAL}. El sensado de tensión sería el único subcircuito repetido, pero esto solamente aporta redundancia y tolerancia al fallo.
@@ -1843,13 +1902,6 @@ justificacion de conectores / interfaces
 
 justificacion numero de capas, etc.
 
-\subsection{PCB de TS-DC}
-
-explicacion del concepto y de la(s) PCB
-
-justificacion de conectores / interfaces
-
-justificacion numero de capas, etc.
 
 \section{\textit{Software}}
 
