@@ -24,10 +24,34 @@
 \AtBeginDocument{
   \renewcommand{\bibsection}{\chapter{\bibname}}
 }
+
 \usepackage{underscore}
 \usepackage{adjustbox}
 \usepackage{comment}
 \usepackage{geometry}
+
+\usepackage{extramarks}
+\usepackage{fancyhdr}
+
+% Establecer el estilo de página "fancy"
+\pagestyle{fancy}
+
+% Limpiar todos los campos de encabezado y pie de página
+\fancyhf{}
+
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection.\ #1}}
+\fancyhead[R]{\leftmark}
+\fancyhead[L]{\rightmark}
+
+% Configurar el pie de página para mostrar el número de página en el centro
+\fancyfoot[C]{\textbf{\thepage}}
+
+% Eliminar las líneas horizontales en la cabecera y el pie de página
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
 \usepackage{amsmath}
 \usepackage{parskip}
 \usepackage[official]{eurosym}

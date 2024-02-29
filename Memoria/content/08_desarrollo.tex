@@ -1596,14 +1596,14 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
             \item the connected devices are not cells or wires
             \item the devices are additionally mechanically secured against loosening
     \end{itemize} } Tendrá efectos en el diseño de las conexiones y el uso de soldaduras. El uso de sistemas alternativos de conexión en placa como el \textit{press-fit}, facilita el cumplimiento de esta norma.
-    \item \textit{\textbf{EV4.9.1} If a discharge circuit is required to meet EV6.1.5, it must be designed to handle the maximum TS voltage permanently. After three subsequent discharges within 15 s in total, the discharge time specified in EV6.1.5 may be exceeded.  Full discharging functionality must be given after a reasonable time with a deactivated discharge circuit.} Impactará en el diseño y la implementación de este circuito.
+    \item \textit{\textbf{EV4.9.1} If a discharge circuit is required to meet EV6.1.5, it must be designed to handle the maximum TS voltage permanently. After three subsequent discharges within 15 s in total, the discharge time specified in EV6.1.5 may be exceeded.  Full discharging functionality must be given after a reasonable time with a deactivated discharge circuit.} Se deberá integrar un circuito de descarga en el inversor que cumpla con estos requisitos.
     \item \textit{\textbf{EV4.9.2} The discharge circuit must be wired in a way that it is always active whenever the SDC is open. Furthermore, the discharge circuit must be fail-safe such that it still discharges the intermediate circuit capacitors if the HVD has  been opened or the TS accumulator is disconnected.} Tendrá efectos en la implementación del circuito de descarga.
     \item \textit{\textbf{EV2.2.1} EV4.10.2 The TSAL itself must have a red light, flashing continuously with a frequency between 2 Hz and 5 Hz and a duty cycle of 50\%, active if and only if the LVS is active and the voltage across any DC-link capacitor exceeds 
     \begin{itemize}
             \item 60 VDC or 50 VACRMS
             \item Half the nominal TS voltage
     \end{itemize} 
-    whichever is lower} Impactará en la implementación de esta detección.
+    whichever is lower} Se deberá implementar esta detección.
     \item \textit{\textbf{EV4.10.4} The mentioned voltage detection must be performed inside the respective TS enclosure.} Obliga a situar la detección de alta tensión en el propio \textit{DC-link}.
 
 \end{itemize}
@@ -1622,6 +1622,8 @@ Con toda la información que se ha recopilado se pueden listar los requisitos m�
 	\item \textbf{Corriente de fase máxima:} 80 A,RMS.
 	\item \textbf{Aislamiento galvánico entre TS y LVS}.
 	\item \textbf{Detección de tensión}.
+	\item \textbf{Circuito de descarga integrado}.
+	
 	
 \end{itemize}
 
