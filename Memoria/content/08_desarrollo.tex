@@ -1674,8 +1674,8 @@ En los bocetos posteriores, se ha refinado la disposición de los componentes pa
 
 Estos bocetos iniciales proporcionan una idea visual de cómo se podría organizar el empaquetado del inversor. A medida que avanza el diseño, se realizarán ajustes a la vez que se encuentren limitaciones con los componentes específicos seleccionados y se hagan consideraciones eléctricas y térmicas que en este punto no se han tenido.
 
-\subsection{Concepto}
-Con el fin de producir las tensiones trifásicas que calcula el control se implementa un ondulador trifásico fuente de voltaje (VSI). Existen varias topologías que permiten hacer un ondulador trifásico, pero la más utilizada es el VSI de 2 niveles, formado por tres ramas de medio puente. Otras topologías de más niveles logran sintetizar tensiones con menos distorsión armónica, pero dado que lo que importa realmente para una controladora de motores eléctricos es la corriente, que queda menos distorsionada por la propia inductancia de los motores, se opta por la topología VSI.
+\subsection{Topología y concepto}
+Con el fin de producir las tensiones trifásicas que calcula el control para los dos motores se implementa un ondulador trifásico fuente de voltaje doble (\textit{dual VSI}). Poniendo el foco en uno solo de los convertidores, existen varias topologías que permiten hacer un ondulador trifásico, pero la más utilizada es el VSI de 2 niveles, formado por tres ramas de medio puente. Otras topologías de más niveles logran sintetizar las tensiones con menos distorsión armónica, pero dado que el motor eléctrico es una carga inductiva, y que el control está basado en consignas de corriente, la distorsión armónica del convertidor tiene un impacto muy poco significativo en el rendimiento global. De esta manera, se justifica la implementación del VSI dual.
 
 \begin{figure}[H]
 
@@ -1821,23 +1821,22 @@ P_{\text{conm}} \approx (E_{\text{on}} + E_{\text{off}}) f_{\text{sw}} \frac{\sq
 
 Para el caso de Leapers, se dispone de esta información:
 \begin{align*}
-	V_{DD} &= 600 \, \text{V} \\
-	I_{D} &= 150 \, \text{A} \\
+	V_{test} &= 600 \, \text{V} \\
+	I_{test} &= 150 \, \text{A} \\
 	V_{GS} &= +18/0 \, \text{V} \\
 	R_{G} &= 3.3 \, \Omega \\
-	\text{Inductive load} \\
-	\text{Switching operation} \\
-	E_{on} &= 3.54 \, \text{mJ}, \quad E_{off} = 1.76 \, \text{mJ}
+	\text{Inductive load},& \text{Switching operation} \\
+	E_{on} = 3.54 \, \text{mJ},& \quad E_{off} = 1.76 \, \text{mJ}
 \end{align*}
 
 Y para el caso de Wolfspeed se dispone de esta otra:
 \begin{align*}
-	V_{DD} &= 600 \, \text{V} \\
-	I_{D} &= 80 \, \text{A} \\
+	V_{test} &= 600 \, \text{V} \\
+	I_{test} &= 80 \, \text{A} \\
 	V_{GS} &= -4 \, \text{V}/15 \, \text{V} \\
-	R_{G(\text{OFF})} &= 4.0 \, \Omega, \quad R_{G(\text{ON})} = 4.0 \, \Omega \\
+	R_{G(\text{OFF})} = 4.0 \, \Omega,& \quad R_{G(\text{ON})} = 4.0 \, \Omega \\
 	L &= 13.6 \, \mu \text{H} \\
-	E_{on} &= 1.17 \, \text{mJ}, \quad E_{off} = 0.54 \, \text{mJ}
+	E_{on} = 1.17 \, \text{mJ},& \quad E_{off} = 0.54 \, \text{mJ}
 \end{align*}
 
 Calculando con los parámetros del inversor:
