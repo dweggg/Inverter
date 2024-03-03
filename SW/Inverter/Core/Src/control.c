@@ -1,5 +1,6 @@
 /*
- * control.c
+ * @file control.c
+ * @brief Control functions for motor control
  *
  *  Created on: Mar 2, 2024
  *      Author: David Redondo
@@ -7,12 +8,8 @@
  *  @brief Control functions for motor control
  */
 
-/**
- * @file control.c
- * @brief Control functions for motor control
- */
-
 #include "control.h"
+#include "main.h"
 
 /**
  * @brief Implements the voltage control loop.
@@ -22,11 +19,22 @@
  * @param vsRef Synthesized voltage magnitude sqrt(vdRefSat^2+vqRefSat^2)
  * @param gammaRefMTPA Reference current angle MTPA trajectory
  * @param vsLim Voltage limit (VDC/sqrt3)
- * @param KFW Field weakening safety factor
  * @param[out] gammaRefFW Output reference current angle for field weakening operation from PI
  */
-void voltageLoop(float vsRef, float gammaRefMTPA, float vsLim, float KFW, float *gammaRefFW) {
-    // Implementation here
+
+void voltageLoop(float vsRef, float gammaRefMTPA, float vsLim, float *gammaRefFW) {
+    static pi_struct voltageLoop = PI_DEFAULTS;
+
+    voltageLoop.Ts = Ts;
+    voltageLoop.pi_out_max = PI - gammaRefMTPA;
+    voltageLoop.pi_consig = vsRef;
+    voltageLoop.pi_fdb = vsLim * KFW;
+    voltageLoop.pi_ffw[0] = 0.0F;  // Feed-forward is not used
+
+    pi_init(&voltageLoop);
+    pi_calc(&voltageLoop);
+
+    *gammaRefFW = voltageLoop.pi_out;  // Set the output value
 }
 
 /**

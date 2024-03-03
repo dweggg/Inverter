@@ -2,38 +2,42 @@
  * control.h
  *
  *  Created on: Mar 2, 2024
- *      Author: dweggg
+ *      Author: David Redondo
  *
- *  @brief Header file for control functions
+ *  @brief Control functions for motor control
  */
 
 #ifndef CONTROL_H_
 #define CONTROL_H_
 
 /**
+ * @file control.h
+ * @brief Control functions for motor control
+ */
+
+/**
  * @brief Implements the voltage control loop.
  *
- * This function calculates the reference gamma for field weakening based on given parameters.
+ * This function calculates the reference current angle for field weakening operation by implementing a PI controller.
  *
- * @param vsRef Reference stator voltage magnitude
- * @param gammaRefMTPA Reference gamma for Maximum Torque per Ampere control
- * @param vsLim Voltage limit
- * @param KFW Field weakening gain
- * @param[out] gammaRefFW Output reference gamma for field weakening
+ * @param vsRef Synthesized voltage magnitude sqrt(vdRefSat^2+vqRefSat^2)
+ * @param gammaRefMTPA Reference current angle MTPA trajectory
+ * @param vsLim Voltage limit (VDC/sqrt3)
+ * @param[out] gammaRefFW Output reference current angle for field weakening operation from PI
  */
-void voltageLoop(float vsRef, float gammaRefMTPA, float vsLim, float KFW, float *gammaRefFW);
+void voltageLoop(float vsRef, float gammaRefMTPA, float vsLim, float *gammaRefFW);
 
 /**
  * @brief Implements the current reference calculation.
  *
  * Calculates the d-q current references based on the given parameters.
  *
- * @param TemRefSat Temperature reference for saturation
- * @param vsRef Reference stator voltage magnitude
+ * @param TemRefSat Torque reference (after ramp and saturation)
+ * @param vsRef Synthesized voltage magnitude sqrt(vdRefSat^2+vqRefSat^2)
  * @param we Electrical speed
- * @param gammaRefFW Reference gamma for field weakening
- * @param[out] isRef Reference stator current magnitude
- * @param[out] gammaRefMTPA Reference gamma for Maximum Torque per Ampere control
+ * @param gammaRefFW Reference current angle for field weakening operation from PI
+ * @param[out] isRef Reference current magnitude
+ * @param[out] gammaRefMTPA Reference current angle MTPA trajectory
  * @param[out] idRef Reference d-axis current
  * @param[out] iqRef Reference q-axis current
  */
@@ -47,12 +51,12 @@ void currentRef(float TemRefSat, float vsRef, float we, float gammaRefFW,
  *
  * @param idRef Reference d-axis current
  * @param id Measured d-axis current
- * @param iq Measured q-axis current
+ * @param iq Measured q-axis current (for BEMF feed-forward calculation)
  * @param we Electrical speed
- * @param vsLim Voltage limit
- * @param vdRefSat Saturated reference d-axis voltage
+ * @param vsLim Voltage limit (VDC/sqrt3)
+ * @param vdRefSat Limited reference d-axis voltage for anti-windup
  * @param[out] vdRef Reference d-axis voltage
- * @param[out] Ed Electrical torque reference
+ * @param[out] Ed d-axis BEMF
  */
 void idLoop(float idRef, float id, float iq, float we, float vsLim, float vdRefSat,
             float *vdRef, float *Ed);
@@ -64,12 +68,12 @@ void idLoop(float idRef, float id, float iq, float we, float vsLim, float vdRefS
  *
  * @param iqRef Reference q-axis current
  * @param iq Measured q-axis current
- * @param id Measured d-axis current
+ * @param id Measured d-axis current (for BEMF feed-forward calculation)
  * @param we Electrical speed
- * @param vsLim Voltage limit
- * @param vqRefSat Saturated reference q-axis voltage
+ * @param vsLim Voltage limit (VDC/sqrt3)
+ * @param vqRefSat Limited reference q-axis voltage for anti-windup
  * @param[out] vqRef Reference q-axis voltage
- * @param[out] Eq Electrical torque reference
+ * @param[out] Eq q-axis BEMF
  */
 void iqLoop(float iqRef, float iq, float id, float we, float vsLim, float vqRefSat,
             float *vqRef, float *Eq);
@@ -79,11 +83,11 @@ void iqLoop(float iqRef, float iq, float id, float we, float vsLim, float vqRefS
  *
  * Ensures that the output voltages are within the specified limits.
  *
- * @param vsLim Voltage limit
+ * @param vsLim Voltage limit (VDC/sqrt3)
  * @param vdRef Reference d-axis voltage
  * @param vqRef Reference q-axis voltage
- * @param[out] vdRefSat Saturated reference d-axis voltage
- * @param[out] vqRefSat Saturated reference q-axis voltage
+ * @param[out] vdRefSat Limited reference d-axis voltage
+ * @param[out] vqRefSat Limited reference q-axis voltage
  */
 void voltageSat(float vsLim, float vdRef, float vqRef, float *vdRefSat, float *vqRefSat);
 
@@ -92,12 +96,13 @@ void voltageSat(float vsLim, float vdRef, float vqRef, float *vdRefSat, float *v
  *
  * Calculates the duty cycles Da, Db, Dc for space vector modulation.
  *
- * @param vdRefSat Saturated reference d-axis voltage
- * @param vqRefSat Saturated reference q-axis voltage
+ * @param vdRefSat Limited reference d-axis voltage
+ * @param vqRefSat Limited reference q-axis voltage
+ * @param vsLim Voltage limit (VDC/sqrt3)
  * @param[out] Da Duty cycle for phase A
  * @param[out] Db Duty cycle for phase B
  * @param[out] Dc Duty cycle for phase C
  */
-void dq2SVM(float vdRefSat, float vqRefSat, float *Da, float *Db, float *Dc);
+void dq2SVM(float vdRefSat, float vqRefSat, float vsLim, float *Da, float *Db, float *Dc);
 
 #endif /* CONTROL_H_ */
