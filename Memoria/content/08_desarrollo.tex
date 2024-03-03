@@ -1804,7 +1804,7 @@ Para sacarle el máximo partido, se ha obtenido un perfil de pérdidas a máxima
 	\caption{Descomposición de las pérdidas de los semiconductores de una simulación en PLECS.}
 \end{figure}
 
-Se puede ver como las pérdidas de conducción son más significativas que las de conmutación, y varían significativamente. Las zonas de par constante (de 1,05 s a 1,4 s por ejemplo), muestran unas pérdidas casi constantes con la corriente, pero crecen debido a la temperatura (en un MOSFET, a más temperatura más $R_{DS, on}$ y más pérdidas). Se anota para una comparación posterior que las pérdidas de conmutación de los MOSFETs están entre 150 y 200 W. Al entrar en la zona de límite de tensión (de 1,4 s a 1,45 s), se observa un pico que se corresponde con la zona de potencia constante, que en esta simulación es la potencia máxima. Para obtener un valor constante de pérdidas con el que diseñar la refrigeración, se parte de este valor de pico (450 W aproximadamente) y se trata de la misma manera que la relación de potencia media respecto a la potencia pico calculada en la sección de requisitos.
+Se puede ver como las pérdidas de conducción son más significativas que las de conmutación, y varían significativamente. Las zonas de par constante (de 1,05 s a 1,4 s por ejemplo), muestran unas pérdidas casi constantes con la corriente, pero crecen debido a la temperatura. Se anota para una comparación posterior que las pérdidas de conmutación de los MOSFETs están entre 150 y 200 W. Al entrar en la zona de límite de tensión (de 1,4 s a 1,45 s), se observa un pico que se corresponde con la zona de potencia constante, que en esta simulación es la potencia máxima. Para obtener un valor constante de pérdidas con el que diseñar la refrigeración, se parte de este valor de pico (450 W aproximadamente) y se trata de la misma manera que la relación de potencia media respecto a la potencia pico calculada en la sección de requisitos.
 
 \[
 \frac{P_{RMS}}{P_{pico}} = \frac{40 kW}{80 kW} = 0.5
@@ -1814,71 +1814,8 @@ Con este razonamiento, se da un valor de pérdidas de conducción promedio del i
 
 
 \textbf{Pérdidas de conmutación}
+AAAAAAAAAAAAAAAAAAAAA
 
-Las pérdidas de conmutación, sin embargo, tienen un cálculo analítico bastante más sencillo que las de conducción, puesto que las fichas técnicas de los semiconductores tienen algo más de información al respecto. Se suele disponer de la energía de conmutación para el encendido y el apagado del transistor en unas condiciones de test determinadas y de la energía de recuperación inversa del diodo. También se suelen adjuntar unas gráficas que correlacionan estas energías con diferentes valores de test, que suelen tener relaciones lineales con los parámetros eléctricos. De estas asunciones, se puede extraer la siguiente expresión:
-
-\[
-P_{\text{conm, MOSFET,D}} \approx (E_{\text{on}} + E_{\text{off}} + E_{\text{rr}}) f_{\text{sw}} \frac{\sqrt{2} I_{\text{RMS}}}{\pi I_{\text{test}}} \frac{V_{\text{DC}}}{V_{\text{test}}}
-\]
-
-Para el caso de Leapers, se dispone de esta información:
-\begin{align*}
-	V_{test} &= 600 \, \text{V} \\
-	I_{test} &= 150 \, \text{A} \\
-	V_{GS} &= +18/0 \, \text{V} \\
-	R_{G} &= 3.3 \, \Omega \\
-	\text{Inductive load},& \text{Switching operation} \\
-	E_{on} = 3.54 \, \text{mJ}, E_{off} = 1.76 \,& \text{mJ}, E_{rr} = 0.64 \, \text{mJ}
-\end{align*}
-
-Y para el caso de Wolfspeed se dispone de esta otra:
-\begin{align*}
-	V_{test} &= 600 \, \text{V} \\
-	I_{test} &= 80 \, \text{A} \\
-	V_{GS} &= -4 \, \text{V}/15 \, \text{V} \\
-	R_{G(\text{OFF})} = 4.0 \, \Omega,& \quad R_{G(\text{ON})} = 4.0 \, \Omega \\
-	L &= 13.6 \, \mu \text{H} \\
-	E_{on} = 1.17 \, \text{mJ}, E_{off} = 0.54 \,& \text{mJ}, E_{rr} = 0.08 \, \text{mJ}
-\end{align*}
-
-Calculando con los parámetros del inversor:
-
-% Frecuencia de switching y tension de DC
-\[
-f_{\text{sw}} = 50 \, \text{kHz}, \quad V_{\text{DC}} = 600 \, \text{V}, \quad I_{\text{RMS}} = 80 \, \text{A}
-\]
-
-Sustituyendo los valores:
-\[
-P_{\text{conm, MOSFET, Leapers}} \approx (3.54 \, \text{mJ} + 1.76 \, \text{mJ} + 0.64 \, \text{mJ}) \cdot 50 \cdot 10^3 \, \text{Hz} \cdot \frac{\sqrt{2} \cdot 80 \, \text{A}}{\pi \cdot 150 \, \text{A}} \cdot \frac{600 \, \text{V}}{600 \, \text{V}} \approx XXXXXXXXXXXXXXXX \, \text{W}
-\]
-
-\[
-P_{\text{conm, MOSFET, Wolfspeed}} \approx (1.17 \, \text{mJ} + 0.54 \, \text{mJ} 0.08 \, \text{mJ}) \cdot 50 \cdot 10^3 \, \text{Hz} \cdot \frac{\sqrt{2} \cdot 80 \, \text{A}}{\pi \cdot 80 \, \text{A}} \cdot \frac{600 \, \text{V}}{600 \, \text{V}} \approx XXXXXXXXXXXX \, \text{W}
-\]
-
-Cabe destacar que estos valores son para un solo MOSFET. Para un VSI, se debe multiplicar este valor por 6, ya que este es el número de MOSFETs en la topología.
-
-\[
-P_{\text{conm, VSI, Leapers}} = 6\cdot XXXXXXXXXXXXXX\text{W} = XXXXXXXXXXX \text{W}
-\]
-
-\[
-P_{\text{conm, VSI, Wolfspeed} = 6\cdot XXXXXXXXXXXXXXXX\text{W} = XXXXXXXXXXX\text{W}
-\]
-
-Se observa cierta similitud en el valor calculado de Wolfspeed con la simulación realizada previamente, lo cual es un indicio de que el cálculo manual es conservador. Aunque en la simulación se tiene en cuenta una resistencia de puerta de 3,3 $\Omega$, los efectos de los parásitos de conexiones y \textit{layout} no están considerados. Por ello, se toma como más acertado el valor de 231 W.  
-
-Dado que se implementan dos VSIs, las pérdidas se duplican:
-
-\[
-P_{\text{conm, dual VSI, Leapers}} = 2\cdot XXXXXXXXXXX\text{W} = XXXXXXXXXXX \text{W}
-\]
-
-\[
-P_{\text{conm, dual VSI, Wolfspeed} = 2\cdot XXXXXXXXXXX\text{W} = XXXXXXXXXXX\text{W}
-\]
-************SIMU DOBLE PULSO*********************
 
 \subsubsection{Sistema de Refrigeración}
 
