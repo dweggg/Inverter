@@ -2,6 +2,7 @@
   <img src="https://i.ibb.co/mR0yFfw/logo-daurat-10-anys.png" width="200" alt="e-Tech Racing Logo">
 </div>
 
+[![haha cool button](button)]
 
 # ⚡ Inverter ⚡
 ## SiC based, dual 80kW (2x40kW), 600V, 3 phase traction inverter with FOC
