@@ -1,3 +1,9 @@
+<div align="center" style="background-color:#1a1a1a;padding:20px;">
+  <img src="https://427e1e95d0.clvaw-cdnwnd.com/f66e10d1a57d0aef5359af23e2cbb85e/200005606-cdca3cdca5/450/Logo%20e-tech%20racing_transparent%20%281%29.webp?ph=427e1e95d0" width="200" alt="e-Tech Racing Logo">
+</div>
+
+<div align="center" style="background-color:#1a1a1a;padding:20px;">
+
 # ⚡Inverter⚡
 ## SiC based, dual 80kW (2x40kW), 600V, 3 phase traction inverter with FOC
 
@@ -27,16 +33,18 @@ This repository contains the following files and directories:
 ### 💾 SW
 * [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) - IDE for STM32 MCUs
 
-
 ## 👤 Author
 
 * **David Redondo** - *Initial work* - [dweggg](https://github.com/dweggg)
 
 See also the list of [contributors](https://github.com/dweggg/Inverter/contributors) who participated in this project.
 
-
 ## 👏 Acknowledgments
 
 * e-Tech Racing
 * UPC EEBE
 * CITCEA
+
+</div>
+
+---
