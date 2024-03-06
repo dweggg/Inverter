@@ -2,8 +2,6 @@
   <img src="https://i.ibb.co/mR0yFfw/logo-daurat-10-anys.png" width="200" alt="e-Tech Racing Logo">
 </div>
 
-[![haha cool button](https://img.shields.io/badge/📧%20button)]
-
 # ⚡ Inverter ⚡
 ## SiC based, dual 80kW (2x40kW), 600V, 3 phase traction inverter with FOC
 
@@ -39,7 +37,6 @@ This repository contains the following files and directories:
 
 See also the list of [contributors](https://github.com/dweggg/Inverter/contributors) who participated in this project.
 
-
 ## 👏 Acknowledgments
 
 * e-Tech Racing
@@ -47,3 +44,12 @@ See also the list of [contributors](https://github.com/dweggg/Inverter/contribut
 * CITCEA
 
 <div align="center" style="background-color:#1a1a1a;padding:20px;">
+
+[![Status](https://img.shields.io/badge/Status-Active-green)](https://github.com/dweggg/Inverter)
+[![Version](https://img.shields.io/badge/Version-1.0.0-blue)](https://github.com/dweggg/Inverter/releases)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](https://github.com/dweggg/Inverter/blob/main/LICENSE)
+
+[![e-Tech Racing's GitHub](https://img.shields.io/badge/e--Tech%20Racing's%20GitHub-eTechRacing-green?style=for-the-badge&logo=github)](https://github.com/eTechRacing)
+[![Visit Our Website](https://img.shields.io/badge/Visit%20Our%20Website-e--techracing.es-blue?style=for-the-badge)](https://www.e-techracing.es)
+
+</div>
