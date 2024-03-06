@@ -549,7 +549,7 @@ T_{em} = \frac{3}{2}\frac{n}{2}\cdot((L_d - L_q) i_q i_d + \lambda_m i_q)
 También se puede establecer un límite de voltaje, porque el PMSM generalmente se controla con un inversor de fuente de voltaje (VSI) modulado por SVPWM y la tensión de salida está limitada a \(\frac{V_{DC}}{\sqrt{3}}\). En esta ecuación, no se considera la caída de tensión por la resistencia del estator \(R_s\), ya que haría que las ecuaciones fueran muy densas y el efecto de esta caída de voltaje es despreciable a altas velocidades.
 
 \begin{equation}
-\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{\omega_e}\right)^2 \geq \left(\frac{\lambda_m}{L_d}+i_d\right)^2+(L_q+i_q)^2
+\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{\omega_e}\right)^2 \geq \left(\lambda_m+L_d\cdot i_d\right)^2+(L_q\cdot i_q)^2
 \end{equation}
 
 \subsection{Curvas características del PMSM}
@@ -733,7 +733,7 @@ El gráfico se limita a los cuadrantes 2 y 3 por un motivo ilustrado con estas h
 Tomando la ecuación de voltaje presentada anteriormente, se puede demostrar que es una elipse. Del mismo modo que con las hipérbolas de par, se pueden establecer una velocidad y una tensión, y deslizar valores de \((i_d, i_q)\) para generar la curva.
 
 \begin{equation}
-1 \geq \frac{\left(\frac{\lambda_m}{L_d}+i_d\right)^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{\omega_e}\right)^2}+\frac{(L_q+i_q)^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{\omega_e}\right)^2}
+1 \geq \frac{\left(\frac{\lambda_m}{L_d}+i_d\right)^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{L_d\omega_e}\right)^2}+\frac{i_q^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{L_q\omega_e}\right)^2}
 \end{equation}
 
 
@@ -1079,7 +1079,7 @@ I_{s,\text{CLC}} = I_{s,\text{max}} , \forall \gamma \in [0,2\pi]
 El límite de tensión del motor en realidad se puede entender como la velocidad máxima a la que se puede llegar con una determinada tensión. Por ello, se usa la expresión de las elipses de tensión (VLE):
 
 \begin{equation}
-1 \geq \frac{\left(\frac{\lambda_m}{L_d}+I_s \cdot \cos(\gamma)\right)^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{\omega_e}\right)^2}+\frac{(L_q+I_s \cdot \sin(\gamma))^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{\omega_e}\right)^2}
+1 \geq \frac{\left(\frac{\lambda_m}{L_d}+I_s \cdot \cos(\gamma)\right)^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{L_d\cdot\omega_e}\right)^2}+\frac{(I_s \cdot \sin(\gamma))^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{L_q\cdot\omega_e}\right)^2}
 \end{equation}
 
 Igual que para el resto de trayectorias, se debe obtener una expresión de la elipse en función de $I_s$ y $\gamma$. Ya que no es trivial despejar estas variables de la expresión anterior, se manipula usando la ecuación polar de la elipse desplazada del origen:
