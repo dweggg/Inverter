@@ -270,45 +270,45 @@ Lo que hace la transformada es colocar dos de los ejes del sistema de referencia
 A continuación se presenta la forma matricial de la transformada:
 
 \begin{equation}
-\begin{bmatrix}
-    \alpha \\
-    \beta \\
-    \gamma
-\end{bmatrix}
-=
-\sqrt{\frac{2}{3}}
-\begin{bmatrix}
-    1 & -\frac{1}{2} & -\frac{1}{2} \\
-    0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \\
-    \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
-\end{bmatrix}
-\begin{bmatrix}
-    a \\
-    b \\
-    c
-\end{bmatrix}
+    \begin{bmatrix}
+        \alpha \\
+        \beta \\
+        \gamma
+    \end{bmatrix}
+    =
+    \sqrt{\frac{2}{3}}
+    \begin{bmatrix}
+        1 & -\frac{1}{2} & -\frac{1}{2} \\
+        0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \\
+        \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        a \\
+        b \\
+        c
+    \end{bmatrix}
 \end{equation}
 
 La forma matricial de la transformada inversa es:
 
 \begin{equation}
-\begin{bmatrix}
-    a \\
-    b \\
-    c
-\end{bmatrix}
-=
-\sqrt{\frac{2}{3}}
-\begin{bmatrix}
-    1 & 0 & \frac{1}{\sqrt{2}} \\
-    -\frac{1}{2} & \frac{\sqrt{3}}{2} & \frac{1}{\sqrt{2}} \\
-    -\frac{1}{2} & -\frac{\sqrt{3}}{2} & \frac{1}{\sqrt{2}}
-\end{bmatrix}
-\begin{bmatrix}
-    \alpha \\
-    \beta \\
-    \gamma
-\end{bmatrix}
+    \begin{bmatrix}
+        a \\
+        b \\
+        c
+    \end{bmatrix}
+    =
+    \sqrt{\frac{2}{3}}
+    \begin{bmatrix}
+        1 & 0 & \frac{1}{\sqrt{2}} \\
+        -\frac{1}{2} & \frac{\sqrt{3}}{2} & \frac{1}{\sqrt{2}} \\
+        -\frac{1}{2} & -\frac{\sqrt{3}}{2} & \frac{1}{\sqrt{2}}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \alpha \\
+        \beta \\
+        \gamma
+    \end{bmatrix}
 \end{equation}
 
 Esta transformada tiene la particularidad de mantener constante la potencia del sistema, de modo que se cumple la siguiente condición:
@@ -324,44 +324,44 @@ Mantener constante la potencia a lo largo de las transformadas puede ser útil e
 La transformada no es ortonormal, ya que ajusta las magnitudes para que el módulo de las variables sea el adecuado, pero la rotación se mantiene igual.
 
 \begin{equation}
-\begin{bmatrix}
-    \alpha' \\
-    \beta' \\
-    \gamma'
-\end{bmatrix}
-=
-\frac{2}{3}
-\begin{bmatrix}
-    1 & -\frac{1}{2} & -\frac{1}{2} \\
-    0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \\
-    \frac{1}{2} & \frac{1}{2} & \frac{1}{2}
-\end{bmatrix}
-\begin{bmatrix}
-    a \\
-    b \\
-    c
-\end{bmatrix}
+    \begin{bmatrix}
+        \alpha' \\
+        \beta' \\
+        \gamma'
+    \end{bmatrix}
+    =
+    \frac{2}{3}
+    \begin{bmatrix}
+        1 & -\frac{1}{2} & -\frac{1}{2} \\
+        0 & \frac{\sqrt{3}}{2} & -\frac{\sqrt{3}}{2} \\
+        \frac{1}{2} & \frac{1}{2} & \frac{1}{2}
+    \end{bmatrix}
+    \begin{bmatrix}
+        a \\
+        b \\
+        c
+    \end{bmatrix}
 \end{equation}
 
 La transformada inversa es la siguiente:
 
 \begin{equation}
-\begin{bmatrix}
-    a \\
-    b \\
-    c
-\end{bmatrix}
-=
-\begin{bmatrix}
-    1 & 0 & 1 \\
-    -\frac{1}{2} & \frac{\sqrt{3}}{2} & 1 \\
-    -\frac{1}{2} & -\frac{\sqrt{3}}{2} & 1
-\end{bmatrix}
-\begin{bmatrix}
-    \alpha' \\
-    \beta' \\
-    \gamma'
-\end{bmatrix}
+    \begin{bmatrix}
+        a \\
+        b \\
+        c
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        1 & 0 & 1 \\
+        -\frac{1}{2} & \frac{\sqrt{3}}{2} & 1 \\
+        -\frac{1}{2} & -\frac{\sqrt{3}}{2} & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \alpha' \\
+        \beta' \\
+        \gamma'
+    \end{bmatrix}
 \end{equation}
 
 Se puede derivar que:
@@ -386,26 +386,25 @@ Ahora, considerando que el vector espacial gira a una velocidad de \(\omega = 2\
 Se puede ver que la transformada es simplemente una rotación a lo largo de uno de los ejes de la base:
 
 \begin{equation}
-\begin{bmatrix}
-    d \\
-    q \\
-    0
-\end{bmatrix}
-=
-\begin{bmatrix}
-    \cos(\theta) & \sin(\theta) & 0 \\
-    -\sin(\theta) & \cos(\theta) & 0 \\
-    0 & 0 & 1
-\end{bmatrix}
-\begin{bmatrix}
-    \alpha \\
-    \beta \\
-    \gamma
-\end{bmatrix}
+    \begin{bmatrix}
+        d \\
+        q \\
+        0
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \cos(\theta) & \sin(\theta) & 0 \\
+        -\sin(\theta) & \cos(\theta) & 0 \\
+        0 & 0 & 1
+    \end{bmatrix}
+    \begin{bmatrix}
+        \alpha \\
+        \beta \\
+        \gamma
+    \end{bmatrix}
 \end{equation}
 
-%% DESDE AQUI TRACUCCION POCHA DE LA WIKI --> REVISAR TODAS LAS EQs!!!!!!!!!!!
-\subsection{Modelo \textit{dq0} del PMSM}
+\subsection{Modelo del PMSM con marco de referencia rotatorio}
 
 En esta sección, se convertirá el modelo trifásico inicial del PMSM en un modelo continuo en el marco de referencia $d - q$. Antes, se omitieron las ecuaciones del modelo trifásico, pero utilizando estas y aplicando las transformadas de Clarke y Park, se obtienen las ecuaciones que se derivarán en esta sección.
 
@@ -1563,11 +1562,11 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
 
     \item \textit{\textbf{EV2.2.2} Regenerating energy is allowed and unrestricted.} La posibilidad de regenerar energía implica que el inversor debe ser capaz de consignar par en el sentido opuesto a la velocidad de los motores para frenar, lo que tendrá un impacto fundamental en el diseño del control. La topología de VSI es bidireccional en sí misma.
     \item \textit{\textbf{EV2.2.3} Wheels must not be spun in reverse.} Podría impactar la lógica de control del inversor y en la adquisición de los sensores de posición para evitar la marcha atrás. Se pueden implementar algoritmos de dependencia de dirección para que ambos motores traccionen el vehículo en la misma dirección.
-    \item \textit{\textbf{EV3.1.1} TS enclosures, see EV1.1.2, must consist of either
+    \item \begin{em} \textbf{EV3.1.1} TS enclosures, see EV1.1.2, must consist of either
     \begin{itemize}
             \item a grounded solid layer made of at least 0.5 mm thick electrically conductive material, aluminium or better, having a resistance below 300 m$\Omega$, measured with a current of 1 A, to LVS ground and able to continuously carry at least 10\% of the TS accumulator main fuse current rating or 
             \item be fully made out of electrically insulating materials having an isolation resistance of at least 2 M$\Omega$, measured with a voltage of 500 V. The enclosure must be rigid and must prevent possible mechanical penetrations. Protruding electrically conductive parts, such as fasteners or connectors, must follow EV3.1.2
-    \end{itemize} } Tendrá efectos en el diseño del empaquetado del convertidor y en la selección de materiales para garantizar la seguridad eléctrica y mecánica del convertidor.
+    \end{itemize} \end{em}  Tendrá efectos en el diseño del empaquetado del convertidor y en la selección de materiales para garantizar la seguridad eléctrica y mecánica del convertidor.
 
     \item \textit{\textbf{EV3.2.5} All overcurrent protection devices that are part of the TS must not rely on programmable logic. The overcurrent protection function of motor controllers/inverters for the motor outputs may rely on programmable logic.} Los dispositivos de protección contra sobrecorriente en el sistema de tracción para el motor pueden depender de lógica programable, lo que permite utilizar el sensado de corriente para garantizar esta protección.
     \item \textit{\textbf{EV4.1.2} All components in the TS must be rated for the maximum TS voltage. The TS area of a PCB, see EV4.3.6, is considered as one component. Every input connected to the TS must be rated to the maximum TS voltage.} Tendrá efectos en la selección de los componentes del circuito de potencia del inversor.
@@ -1590,20 +1589,20 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
     \item \textit{\textbf{EV4.5.12} All TS connections must not include compressible material such as plastic in the stack-up or as a fastener. FR-4 is allowed.} Impactará en el diseño de las conexiones y la selección de materiales adecuados.
     \item \textit{\textbf{EV4.5.13} TS connectors outside of TS enclosures must be designed in a way, that the TS cannot be activated, see EV4.11, if connected in any way other than the design intent configuration.} Tendrá efectos en el diseño de los conectores y la seguridad.
     \item \textit{\textbf{EV4.5.14} All electrical connections, including bolts, nuts, and other fasteners, in the high current path of the TS must be secured from unintentional loosening. Fasteners must use positive locking mechanisms, see T10.2, that are suitable  for high temperatures, see EV4.5.3.} Impactará en el diseño de los sistemas de fijación y bloqueo, especialmente en las conexiones de potencia.
-    \item \textit{\textbf{EV4.5.16} Soldered connections in the high current path are only allowed if all of the following are true: 
+    \item \begin{em} \textbf{EV4.5.16} Soldered connections in the high current path are only allowed if all of the following are true: 
     \begin{itemize}
             \item connections on PCBs
             \item the connected devices are not cells or wires
             \item the devices are additionally mechanically secured against loosening
-    \end{itemize} } Tendrá efectos en el diseño de las conexiones y el uso de soldaduras. El uso de sistemas alternativos de conexión en placa como el \textit{press-fit}, facilita el cumplimiento de esta norma.
+    \end{itemize} \end{em} Tendrá efectos en el diseño de las conexiones y el uso de soldaduras. El uso de sistemas alternativos de conexión en placa como el \textit{press-fit}, facilita el cumplimiento de esta norma.
     \item \textit{\textbf{EV4.9.1} If a discharge circuit is required to meet EV6.1.5, it must be designed to handle the maximum TS voltage permanently. After three subsequent discharges within 15 s in total, the discharge time specified in EV6.1.5 may be exceeded.  Full discharging functionality must be given after a reasonable time with a deactivated discharge circuit.} Se deberá integrar un circuito de descarga en el inversor que cumpla con estos requisitos.
     \item \textit{\textbf{EV4.9.2} The discharge circuit must be wired in a way that it is always active whenever the SDC is open. Furthermore, the discharge circuit must be fail-safe such that it still discharges the intermediate circuit capacitors if the HVD has  been opened or the TS accumulator is disconnected.} Tendrá efectos en la implementación del circuito de descarga.
-    \item \textit{\textbf{EV2.2.1} EV4.10.2 The TSAL itself must have a red light, flashing continuously with a frequency between 2 Hz and 5 Hz and a duty cycle of 50\%, active if and only if the LVS is active and the voltage across any DC-link capacitor exceeds 
+    \item \begin{em} \textbf{EV2.2.1} EV4.10.2 The TSAL itself must have a red light, flashing continuously with a frequency between 2 Hz and 5 Hz and a duty cycle of 50\%, active if and only if the LVS is active and the voltage across any DC-link capacitor exceeds 
     \begin{itemize}
             \item 60 VDC or 50 VACRMS
             \item Half the nominal TS voltage
     \end{itemize} 
-    whichever is lower} Se deberá implementar esta detección.
+    whichever is lower \end{em} Se deberá implementar esta detección.
     \item \textit{\textbf{EV4.10.4} The mentioned voltage detection must be performed inside the respective TS enclosure.} Obliga a situar la detección de alta tensión en el propio \textit{DC-link}.
 
 \end{itemize}
@@ -1823,7 +1822,7 @@ Como es de esperar, la elección del sistema de refrigeración para los semicond
 
 A pesar de que los semiconductores de carburo de silicio (SiC) tienen una temperatura máxima de unión (\(T_{j(max)}\)) notablemente alta, se establece como objetivo mantener el delta de temperatura (\(\Delta T\)) por debajo de 30 ºC. Este enfoque busca garantizar una operación óptima y una vida útil prolongada de los semiconductores, además de mitigar los posibles efectos negativos derivados del calor.
 
-\subsection{\textit{Gate drivers}}
+\subsection{Gate drivers}
 
 
 
