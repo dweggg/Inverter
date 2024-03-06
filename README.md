@@ -1,5 +1,5 @@
 <div align="center" style="background-color:#1a1a1a;padding:20px;">
-  <img src="https://i.ibb.co/mR0yFfw/logo-daurat-10-anys.png" width="200" alt="e-Tech Racing Logo">
+  <img src="https://i.ibb.co/mR0yFfw/logo-daurat-10-anys.png" width="400" alt="e-Tech Racing Logo">
 </div>
 
 # ⚡ Inverter ⚡
