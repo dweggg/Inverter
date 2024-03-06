@@ -1,0 +1,22 @@
+name: Trigger Script on File Push
+
+on:
+  push:
+    paths:
+      - '..\Memoria\main.pdf'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Choose your Python version
+
+    - name: Run Python script
+      run: python wiki_update.py  # Replace with your script's filename
