@@ -1,16 +1,31 @@
-# ⚡Inverter⚡
+<div align="center" style="background-color:#1a1a1a;padding:20px;">
+  <img src="https://i.ibb.co/mR0yFfw/logo-daurat-10-anys.png" width="400" alt="e-Tech Racing Logo">
+</div>
+
+<div align="center" style="background-color:#1a1a1a;padding:20px;">
+
+[![Status](https://img.shields.io/badge/Status-Active-green)](https://github.com/dweggg/Inverter)
+[![Version](https://img.shields.io/badge/Version-v0.1.pre-red)](https://github.com/dweggg/Inverter/releases)
+[![License](https://img.shields.io/badge/License-CERNOHL-yellow)](https://github.com/dweggg/Inverter/blob/main/LICENSE)
+
+[![e-Tech Racing's GitHub](https://img.shields.io/badge/e--Tech%20Racing's%20GitHub-eTechRacing-green?style=for-the-badge&logo=github)](https://github.com/eTechRacing)
+[![Visit Our Website](https://img.shields.io/badge/Visit%20Our%20Website-e--techracing.es-blue?style=for-the-badge)](https://www.e-techracing.es)
+
+</div>
+
+# ⚡ Inverter ⚡
 ## SiC based, dual 80kW (2x40kW), 600V, 3 phase traction inverter with FOC
 
-This is my Electronics Engineering bachelor thesis, a SiC based, dual 80kW (2x40kW), 600V, 3 phase inverter. The goal is to design and implement a dual bidirectional inverter. The inverter will use field-oriented control, and will implement testing features and a variety of protections, alarms and extras. The target power densities for the inverter are 30 kW/liter and 20 kW/kg, and it will be designed specifically for a Formula Student vechicle. It will be able to control two PMSMs and communicate via CAN with the vehicle in order to get the torque references from the Main ECU and send all relevant information for the car.
+This is my Electronics Engineering bachelor thesis, a SiC based, dual 80kW (2x40kW), 600V, 3 phase inverter. The goal is to design and implement a dual bidirectional inverter. The inverter will use field-oriented control, and will implement testing features and a variety of protections, alarms and extras. The target power densities for the inverter are 30 kW/liter and 20 kW/kg, and it will be designed specifically for a Formula Student vehicle. It will be able to control two PMSMs and communicate via CAN with the vehicle in order to get the torque references from the Main ECU and send all relevant information for the car.
 
 ## 📁 Repository Contents
 This repository contains the following files and directories:
 
-* [🕹️ Control/](https://github.com/dweggg/Inverter/blob/main/Control/): This directory contains the MATLAB / Simulink & PLECS files used to undestand and develop the FOC.
+* [🕹️ Control/](https://github.com/dweggg/Inverter/blob/main/Control/): This directory contains the MATLAB / Simulink & PLECS files used to understand and develop the FOC.
 * [🛠️ HW/](https://github.com/dweggg/Inverter/blob/main/HW/): This directory contains all the design documents, such as schematics, PCB layouts, and BOM.
-* [💾 SW/](https://github.com/dweggg/Inverter/blob/main/SW/): This directory contains the firmware code for the inverter, which is written in C and uses a STM32 microcontroller.
+* [💾 SW/](https://github.com/dweggg/Inverter/blob/main/SW/): This directory contains the firmware code for the inverter, which is written in C and uses an STM32 microcontroller.
 
-- [🧠 Wiki](https://github.com/dweggg/Inverter/wiki): Here we explain everything related to the development of the inverter, from the mathematical basis, hardware design, software implementation and car integration.
+- [🧠 Wiki](https://github.com/dweggg/Inverter/wiki): Here we explain everything related to the development of the inverter, from the mathematical basis, hardware design, software implementation, and car integration.
 
 ## 🛠️ Built With
 ### 🕹️ Control study
@@ -27,13 +42,11 @@ This repository contains the following files and directories:
 ### 💾 SW
 * [STM32CubeIDE](https://www.st.com/en/development-tools/stm32cubeide.html) - IDE for STM32 MCUs
 
-
 ## 👤 Author
 
 * **David Redondo** - *Initial work* - [dweggg](https://github.com/dweggg)
 
 See also the list of [contributors](https://github.com/dweggg/Inverter/contributors) who participated in this project.
-
 
 ## 👏 Acknowledgments
 
