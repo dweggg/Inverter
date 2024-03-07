@@ -1479,7 +1479,7 @@ La norma \textit{\textbf{EV2.2.1}} dicta que la potencia en la salida de la bate
 
 La prueba donde se espera utilizar esta potencia máxima es la \textit{Acceleration}, donde se podría requerir de los 80 kW durante un máximo de 10 segundos, siendo esta una aproximación muy conservadora. Por lo tanto, la potencia máxima queda como:
 
-\(P_{out, max} = 80 kW (2 \times 40 kW)\)
+\(P_{out, max, tot} = 80 \text{kW} (2 \times 40 \text{kW}) \text{(10s máx.)}\)
 
 
 Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a máximos de 80 kW:
@@ -1516,9 +1516,9 @@ A continuación se muestra el cálculo del valor RMS de la potencia requerida, b
 \end{verbatim}
 
 
-Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo, en concreto un \(\frac{23.2 kW}{80 kW} = 29\%\). Por lo tanto, se dimensiona el inversor considerando una potencia media de 35 kW, es decir, 17.5 kW por motor. Esta cifra proporciona un margen de seguridad de 11.8 kW respecto a la simulación, lo que permite algo de juego en el reparto de potencia entre ambos motores. De esta manera, la potencia constante queda como:
+Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo, en concreto un \(\frac{23.2 \text{kW}}{80 \text{kW}} = 29\%\). Por lo tanto, se dimensiona el inversor considerando una potencia media de 35 kW, es decir, 17.5 kW por motor. Esta cifra proporciona un margen de seguridad de 11.8 kW respecto a la simulación, lo que permite algo de juego en el reparto de potencia entre ambos motores. De esta manera, la potencia constante queda como:
 
-\(P_{out, const} = 35 kW (2 \times 17.5 kW)\)
+\(P_{out, const, tot} = 35 \text{kW} (2 \times 17.5 \text{kW})\)
 
 Cabe destacar que se está calculando la potencia aparente del convertidor, ya que la potencia activa y la reactiva se reparten en función del factor de potencia, que no es constante y depende de la planta mecánica y la situación del motor. La potencia activa es la que usa el motor para acelerar o frenar, y la reactiva la consume o suministra el DC-link. Otra nota es que la simulación es poco realista puesto que utiliza picos de potencia máxima, cuando en realidad, en la prueba de la \textit{Endurance} se suele limitar el valor de estos picos con tal de extender la autonomía.
 
@@ -1526,34 +1526,37 @@ Además, existe la norma \textit{\textbf{EV4.1.1} The maximum permitted voltage 
 
 Ya que la estrategia de modulación es SVPWM y la tensión máxima es de 600 V, la tensión alterna fase-neutro de un motor se expresa como:
 
-\(V_{ph-n, pico, 600 VDC} = \frac{V_{DC}}{\sqrt{3}} = \frac{600 V}{\sqrt{3}} = 346 V\)
+\(V_{ph-n, pico, 600 VDC} = \frac{V_{DC}}{\sqrt{3}} = \frac{600 \text{V}}{\sqrt{3}} = 346 \text{V}\)
 
-\(V_{ph-n, RMS, 600 VDC} = \frac{V_{ph-n, pico}}{\sqrt{2}} = \frac{346 V}{\sqrt{2}} = 245 V\)
+\(V_{ph-n, RMS, 600 VDC} = \frac{V_{ph-n, pico}}{\sqrt{2}} = \frac{346 \text{V}}{\sqrt{2}} = 245 \text{V}\)
 
 Sin embargo, la batería no estará constantemente a 600 VDC, por lo que para poder entregar la potencia de 40 kW pico por inversor en un rango de tensiones adecuado se debería calcular la corriente con una tensión menor. Se escoge 450 VDC como tensión mínima a partir de la cual se puede entregar la potencia máxima de 40 kW por inversor. Entonces, la corriente de fase de un motor queda:
 
-\(V_{ph-n, pico, 450 VDC} = \frac{V_{DC}}{\sqrt{3}} = \frac{450 V}{\sqrt{3}} = 261 V\)
+\(V_{ph-n, pico, 450 VDC} = \frac{V_{DC}}{\sqrt{3}} = \frac{450 \text{V}}{\sqrt{3}} = 261 \text{V}\)
 
-\(V_{ph-n, RMS, 450 VDC} = \frac{V_{ph-n, pico}}{\sqrt{2}} = \frac{261 V}{\sqrt{2}} = 184 V\)
+\(V_{ph-n, RMS, 450 VDC} = \frac{V_{ph-n, pico}}{\sqrt{2}} = \frac{261 \text{V}}{\sqrt{2}} = 184 \text{V}\)
 
 
-\(I_{ph, RMS, max} = \frac{P_{out, max}}{3\cdot V_{ph-n, RMS, 450 VDC}} = \frac{40 kW}{3\cdot184 V} = 72 A\)
+\(I_{ph, RMS, max} = \frac{P_{out, max}}{3\cdot V_{ph-n, RMS, 450 VDC}} = \frac{40 \text{kW}}{3\cdot184 \text{V}} = 72 \text{A}\)
 
-\(I_{ph, pico, max} = I_{ph, RMS, max}\cdot\sqrt{2} = 72 \cdot\sqrt{2} = 102 A\)
+\(I_{ph, pico, max} = I_{ph, RMS, max}\cdot\sqrt{2} = 72\text{A} \cdot\sqrt{2} = 102 \text{A}\)
 
 De la misma manera que con la potencia, se puede obtener el valor de corriente constante a una tensión menor, ya que el resultado será más restrictivo:
 
-\(I_{ph, RMS, const} = \frac{P_{out, const}}{3\cdot V_{ph-n, RMS, 450 VDC}} = \frac{17.5 kW}{3\cdot184 V} = 32 A\)
+\(I_{ph, RMS, const} = \frac{P_{out, const}}{3\cdot V_{ph-n, RMS, 450 VDC}} = \frac{17.5 \text{kW}}{3\cdot184 \text{V}} = 32 \text{A}\)
 
-\(I_{ph, pico, const} = I_{ph, RMS, const}\cdot\sqrt{2} = 32 \cdot\sqrt{2} = 45 A\)
+\(I_{ph, pico, const} = I_{ph, RMS, const}\cdot\sqrt{2} = 32 \text{A}\cdot\sqrt{2} = 45 \text{A}\)
 
 
-Iterando el cálculo de potencia, se puede ver que si se dimensiona a estas corrientes, las potencias máxima y constante calculadas a 600 VDC de uno solo de los dos inversores son considerablemente mayores:
+Iterando el cálculo de potencia, se puede ver que si se dimensiona a estas corrientes, las potencias máxima y constante calculadas a 600 VDC son considerablemente mayores:
 
-\(P_{out, max} = 3\cdot V_{ph-n, RMS, 600 VDC}\cdot I_{ph, RMS, max} = 3\cdot245 V\cdot 72 A = 53 kW\)
+\(P_{out, max} = 3\cdot V_{ph-n, RMS, 600 VDC}\cdot I_{ph, RMS, max} = 3\cdot245 \text{V}\cdot 72 \text{A} = 53 \text{kW}\)
 
-\(P_{out, const} = 3\cdot V_{ph-n, RMS, 600 VDC}\cdot I_{ph, RMS, const} = 3\cdot245 V\cdot 32 A = 23.5 kW\)
+\(P_{out, const} = 3\cdot V_{ph-n, RMS, 600 VDC}\cdot I_{ph, RMS, const} = 3\cdot245 \text{V}\cdot 32 \text{A} = 23.5 \text{kW}\)
 
+\(P_{out, max, tot} = 2\cdot P_{out, max} = 2\cdot53 \text{kW} = 106 \text{kW}\)
+
+\(P_{out, const, tot} = 2\cdot P_{out, const} = 2\cdot23.5 \text{kW} = 47 \text{kW}\)
 
 \subsubsection{Normativa}
 La normativa de la Formula Student no impone normativas muy restrictivas, ya que la mayoría están enfocadas a la seguridad. Estas son las normas que afectarán al diseño del inversor:
