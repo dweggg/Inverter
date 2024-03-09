@@ -1,7 +1,7 @@
 %% Temperature sensing LUT calculation for DFS05HF12EYR1
 clc, clear
 %% Initial variables
-temperatures = 0.1:0.1:90.1; % Temperature array, 0.01ºC resolution [ºC]
+temperatures = 0:10:120; % Temperature array, 0.01ºC resolution [ºC]
 
 %% NTC Parameters
 
@@ -20,7 +20,7 @@ beta_temps = [50, 80, 100]; % Temperatures for the different beta values [ºC]
 
 beta_coeffs = polyfit(beta_temps, beta_values, 1); % Fit the beta deviation with linear regression
 
-beta_temp = polyval(beta_coeffs,log(temperatures)); % Beta is evaluated for all temperatures [K]
+beta_temp = polyval(beta_coeffs,log(temperatures+1e-9)); % Beta is evaluated for all temperatures, avoiding 0ºC [K]
 
 T_0 = 25; % T at which NTC = R0 [ºC]
 
