@@ -31,7 +31,8 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-extern volatile uint32_t Results_ADC3_buffer[3];
+#include "constants.h"
+#include "measurements.h"
 
 /* USER CODE END Includes */
 
@@ -42,6 +43,7 @@ extern volatile uint32_t Results_ADC3_buffer[3];
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
+extern volatile uint32_t Results_ADC3_buffer[3];
 
 /* USER CODE END EC */
 

@@ -65,7 +65,7 @@ const osMessageQueueAttr_t qMeasurements_attributes = {
 
 /* USER CODE END FunctionPrototypes */
 
-void startMeasurements(void *argument);
+void initMeasurements(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -101,7 +101,7 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* creation of Measurements */
-  MeasurementsHandle = osThreadNew(startMeasurements, NULL, &Measurements_attributes);
+  MeasurementsHandle = osThreadNew(initMeasurements, NULL, &Measurements_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -113,22 +113,35 @@ void MX_FREERTOS_Init(void) {
 
 }
 
-/* USER CODE BEGIN Header_startMeasurements */
+/* USER CODE BEGIN Header_initMeasurements */
 /**
   * @brief  Function implementing the Measurements thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_startMeasurements */
-void startMeasurements(void *argument)
+/* USER CODE END Header_initMeasurements */
+void initMeasurements(void *argument)
 {
-  /* USER CODE BEGIN startMeasurements */
+  /* USER CODE BEGIN initMeasurements */
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+
+	// Wait for notification from TIM1 ISR
+	ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+
+	// Read ADC3 and use getLinear and getTemperature results
+	float current = getLinear(Results_ADC3_buffer[0], currentSlope, currentOffset);
+	float voltage = getLinear(Results_ADC3_buffer[2], voltageSlope, voltageOffset);
+	float temp = getTemperature(Results_ADC3_buffer[1], lut_size, lut_bits, lut_temp);
+
+	// Send to qMeasurements
+	osMessageQueuePut(qMeasurementsHandle, &current, 0, 0);
+	osMessageQueuePut(qMeasurementsHandle, &voltage, 0, 0);
+	osMessageQueuePut(qMeasurementsHandle, &temp, 0, 0);
+
   }
-  /* USER CODE END startMeasurements */
+  /* USER CODE END initMeasurements */
 }
 
 /* Private application code --------------------------------------------------*/
