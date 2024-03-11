@@ -1,5 +1,5 @@
 %% Temperature sensing LUT calculation for DFS05HF12EYR1
-clc, clear
+clc, clear, close all
 %% Initial variables
 
 VCC_ADC = 3.3; % MCU/ADC supply voltage [V]
@@ -45,13 +45,7 @@ T_0 = 25; % T at which NTC = R0 [ºC]
 
 R_0 = 5e3; % NTC resistance value at T_0 [Ω]
 
-syms T
-temp_fun = R_0*exp(-(T*beta_coeffs(1)+beta_coeffs(2))*(1/(T_0+273.15)-1/(T)))-NTC;
-temperatures = zeros(1, length(temp_fun));
-for i = 1:length(temp_fun)
-    sol = vpa(solve(temp_fun(i),T))-273.15;
-    temperatures(i) = sol(2);
-end
+temperatures = -273.15-(-beta_coeffs(1)*(T_0+273.15)+(T_0+273.15)*log(NTC/R_0)+beta_coeffs(2)-sqrt(((T_0+273.15)*beta_coeffs(1)).^2+((T_0+273.15)*log(NTC/R_0)).^2+2*(T_0+273.15)*beta_coeffs(1)*beta_coeffs(2)+2*beta_coeffs(2)*(T_0+273.15)*log(NTC/R_0)-2*beta_coeffs(1)*(T_0+273.15).^2*log(NTC/R_0)+beta_coeffs(2).^2))/(2*beta_coeffs(1));
 
 %% Create the plot
 figure;
@@ -72,3 +66,32 @@ set(gca, 'FontSize', 10); % Adjust font size for axis labels
 set(gca, 'LineWidth', 1.5); % Adjust axis line width
 
 OUTPUT_LUT = [temperatures; bits_read];
+
+
+% Format OUTPUT_LUT in a string suitable for C
+output_str = sprintf('// Output Lookup Table (Temperatures vs. NTC Resistances)\n');
+
+% Create the NTC_LUT_bits and NTC_LUT_temps arrays
+NTC_LUT_bits = OUTPUT_LUT(2, :); % NTC Resistances
+NTC_LUT_temps = OUTPUT_LUT(1, :); % Temperatures
+
+% Number of elements in the LUT
+lut_size = numel(NTC_LUT_bits);
+
+% Convert to integer for NTC_LUT_bits
+NTC_LUT_bits_int = round(NTC_LUT_bits);
+
+% Print the formatted string
+output_str = [output_str, 'const int NTC_LUT_bits[] = {'];
+output_str = [output_str, sprintf('%d, ', NTC_LUT_bits_int(1:end-1))];
+output_str = [output_str, sprintf('%d};\n', NTC_LUT_bits_int(end))];
+
+output_str = [output_str, 'const float NTC_LUT_temps[] = {'];
+output_str = [output_str, sprintf('%.2f, ', NTC_LUT_temps(1:end-1))];
+output_str = [output_str, sprintf('%.2f};\n', NTC_LUT_temps(end))];
+
+output_str = [output_str, sprintf('const int lut_size = sizeof(NTC_LUT_bits) / sizeof(NTC_LUT_bits[0]);\n')];
+
+% Print the formatted string
+disp("C-style array for copypasting:");
+disp(output_str);
