@@ -16,14 +16,15 @@
 #define DEAD_TIME 240 // 500ns*480MHz
 #define FSW 48000 // 480MHz/10kHz
 
-extern const int lut_bits[];
-extern const int lut_temp[];
-extern const int lut_size;
+extern const float tempLUT[];
 
 extern const int currentSlope;
 extern const int currentOffset;
 
 extern const int voltageSlope;
 extern const int voltageOffset;
+
+extern int measurementsAlive;
+extern int controlAlive;
 
 #endif /* CONSTANTS_H_ */

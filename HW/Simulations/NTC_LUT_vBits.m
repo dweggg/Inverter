@@ -69,7 +69,7 @@ OUTPUT_LUT = [temperatures; bits_read];
 
 
 % Format OUTPUT_LUT in a string suitable for C
-output_str = sprintf('// Output Lookup Table (Temperatures vs. NTC Resistances)\n');
+output_str = sprintf('\n// Output Lookup Table (Temperatures vs. NTC Resistances)\n');
 
 % Create the NTC_LUT_bits and NTC_LUT_temps arrays
 NTC_LUT_bits = OUTPUT_LUT(2, :); % NTC Resistances
@@ -82,15 +82,15 @@ lut_size = numel(NTC_LUT_bits);
 NTC_LUT_bits_int = round(NTC_LUT_bits);
 
 % Print the formatted string
-output_str = [output_str, 'const int NTC_LUT_bits[] = {'];
+output_str = [output_str, '// const int NTC_LUT_bits[] = {'];
 output_str = [output_str, sprintf('%d, ', NTC_LUT_bits_int(1:end-1))];
 output_str = [output_str, sprintf('%d};\n', NTC_LUT_bits_int(end))];
 
-output_str = [output_str, 'const float NTC_LUT_temps[] = {'];
+output_str = [output_str, sprintf('// NTC_LUT_bits is just an array 0, 1, 2... 4094, 4095 so no need to store that, just here for clarification\n')];
+
+output_str = [output_str, 'const float tempLUT[] = {'];
 output_str = [output_str, sprintf('%.2f, ', NTC_LUT_temps(1:end-1))];
 output_str = [output_str, sprintf('%.2f};\n', NTC_LUT_temps(end))];
-
-output_str = [output_str, sprintf('const int lut_size = sizeof(NTC_LUT_bits) / sizeof(NTC_LUT_bits[0]);\n')];
 
 % Print the formatted string
 disp("C-style array for copypasting:");

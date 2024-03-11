@@ -45,6 +45,11 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
+struct Measurement {
+  float current;
+  float voltage;
+  float temp;
+};
 
 /* USER CODE END Variables */
 /* Definitions for Measurements */
@@ -54,10 +59,22 @@ const osThreadAttr_t Measurements_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for Control */
+osThreadId_t ControlHandle;
+const osThreadAttr_t Control_attributes = {
+  .name = "Control",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityNormal,
+};
 /* Definitions for qMeasurements */
 osMessageQueueId_t qMeasurementsHandle;
 const osMessageQueueAttr_t qMeasurements_attributes = {
   .name = "qMeasurements"
+};
+/* Definitions for qControl */
+osMessageQueueId_t qControlHandle;
+const osMessageQueueAttr_t qControl_attributes = {
+  .name = "qControl"
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -66,8 +83,26 @@ const osMessageQueueAttr_t qMeasurements_attributes = {
 /* USER CODE END FunctionPrototypes */
 
 void initMeasurements(void *argument);
+void initControl(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
+
+/* Hook prototypes */
+void configureTimerForRunTimeStats(void);
+unsigned long getRunTimeCounterValue(void);
+
+/* USER CODE BEGIN 1 */
+/* Functions needed when configGENERATE_RUN_TIME_STATS is on */
+__weak void configureTimerForRunTimeStats(void)
+{
+
+}
+
+__weak unsigned long getRunTimeCounterValue(void)
+{
+return 0;
+}
+/* USER CODE END 1 */
 
 /**
   * @brief  FreeRTOS initialization
@@ -95,6 +130,9 @@ void MX_FREERTOS_Init(void) {
   /* creation of qMeasurements */
   qMeasurementsHandle = osMessageQueueNew (16, sizeof(float), &qMeasurements_attributes);
 
+  /* creation of qControl */
+  qControlHandle = osMessageQueueNew (16, sizeof(float), &qControl_attributes);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -103,12 +141,16 @@ void MX_FREERTOS_Init(void) {
   /* creation of Measurements */
   MeasurementsHandle = osThreadNew(initMeasurements, NULL, &Measurements_attributes);
 
+  /* creation of Control */
+  ControlHandle = osThreadNew(initControl, NULL, &Control_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
+
   /* USER CODE END RTOS_EVENTS */
 
 }
@@ -122,27 +164,68 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_initMeasurements */
 void initMeasurements(void *argument)
 {
-  /* USER CODE BEGIN initMeasurements */
-  /* Infinite loop */
   for(;;)
   {
+    // Read ADC3 and use getLinear and getTemperature results
+    float current = getLinear(Results_ADC3_buffer[0], currentSlope, currentOffset);
+    float voltage = getLinear(Results_ADC3_buffer[2], voltageSlope, voltageOffset);
+    float temp = tempLUT[Results_ADC3_buffer[1]]; // LUT array indexing
 
-	// Wait for notification from TIM1 ISR
-	ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+    // Create a struct to hold measurements
+    struct Measurement {
+      float current;
+      float voltage;
+      float temp;
+    } measurements;
 
-	// Read ADC3 and use getLinear and getTemperature results
-	float current = getLinear(Results_ADC3_buffer[0], currentSlope, currentOffset);
-	float voltage = getLinear(Results_ADC3_buffer[2], voltageSlope, voltageOffset);
-	float temp = getTemperature(Results_ADC3_buffer[1], lut_size, lut_bits, lut_temp);
+    measurements.current = current;
+    measurements.voltage = voltage;
+    measurements.temp = temp;
 
-	// Send to qMeasurements
-	osMessageQueuePut(qMeasurementsHandle, &current, 0, 0);
-	osMessageQueuePut(qMeasurementsHandle, &voltage, 0, 0);
-	osMessageQueuePut(qMeasurementsHandle, &temp, 0, 0);
+    // Send measurements to qMeasurements
+    osMessageQueuePut(qMeasurementsHandle, &measurements, 0, 0);
+
+    measurementsAlive++;
+
+    // Notify that measurements are done
+    xTaskNotifyGive(ControlHandle);
+
+    osDelay(100);
 
   }
-  /* USER CODE END initMeasurements */
 }
+
+/* USER CODE BEGIN Header_initControl */
+/**
+* @brief Function implementing the Control thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_initControl */
+void initControl(void *argument)
+{
+  for(;;)
+  {
+	// Wait for the notification from measurements
+	ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+
+    // Receive from qMeasurements
+    struct Measurement measurements;
+
+    osMessageQueueGet(qMeasurementsHandle, &measurements, 0, 0);
+
+	// Calculate duty based on received current and setpoint
+	float currentSetpoint = 4.0F; // Example setpoint
+	float duty = (currentSetpoint - measurements.current) / measurements.voltage;
+
+	// Send duty to qControl
+	osMessageQueuePut(qControlHandle, &duty, 0, 0);
+
+
+    osDelay(100);
+  }
+}
+
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
