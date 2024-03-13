@@ -25,7 +25,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "tim.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -151,6 +151,7 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
 
+
   /* USER CODE END RTOS_EVENTS */
 
 }
@@ -166,10 +167,15 @@ void initMeasurements(void *argument)
 {
   for(;;)
   {
+	/* USER CODE BEGIN Measurements task */
+
+	// Wait for notification from Control task
+	ulTaskNotifyTake(pdTRUE, 1);
+
     // Read ADC3 and use getLinear and getTemperature results
-    float current = getLinear(Results_ADC3_buffer[0], currentSlope, currentOffset);
-    float voltage = getLinear(Results_ADC3_buffer[2], voltageSlope, voltageOffset);
-    float temp = tempLUT[Results_ADC3_buffer[1]]; // LUT array indexing
+    float current = getLinear(ADC3_raw[0], currentSlope, currentOffset);
+    float voltage = getLinear(ADC3_raw[2], voltageSlope, voltageOffset);
+    float temp = tempLUT[ADC3_raw[1]]; // LUT array indexing
 
     // Create a struct to hold measurements
     struct Measurement {
@@ -187,11 +193,13 @@ void initMeasurements(void *argument)
 
     measurementsAlive++;
 
-    // Notify that measurements are done
-    xTaskNotifyGive(ControlHandle);
+    // Resume Control task
+    vTaskResume(ControlHandle);
 
-    osDelay(100);
+    // Suspend Measurements task
+    vTaskSuspend(NULL);
 
+	/* USER CODE END Measurements task */
   }
 }
 
@@ -206,23 +214,41 @@ void initControl(void *argument)
 {
   for(;;)
   {
-	// Wait for the notification from measurements
-	ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
+	/* USER CODE BEGIN Control task */
+
+	// Wait for notification from Measurements task
+	ulTaskNotifyTake(pdTRUE, 1);
 
     // Receive from qMeasurements
     struct Measurement measurements;
-
     osMessageQueueGet(qMeasurementsHandle, &measurements, 0, 0);
 
-	// Calculate duty based on received current and setpoint
-	float currentSetpoint = 4.0F; // Example setpoint
-	float duty = (currentSetpoint - measurements.current) / measurements.voltage;
+    // Calculate duty based on received current and setpoint
+    currentSetpoint = (currentSetpoint < 0.0f) ? 0.0f : (currentSetpoint > 4.0f) ? 4.0f : currentSetpoint;
+    float duty = (currentSetpoint - measurements.current) / measurements.voltage;
+    duty = 0.5;
 
-	// Send duty to qControl
-	osMessageQueuePut(qControlHandle, &duty, 0, 0);
+    if (enable) {
+    	enablePWM(htim1, duty);
 
+    } else {
+    	disablePWM(htim1);
 
-    osDelay(100);
+    }
+
+    // Send duty to qControl
+    osMessageQueuePut(qControlHandle, &duty, 0, 0);
+
+    controlAlive++;
+
+    // Resume Control task
+    vTaskResume(MeasurementsHandle);
+
+    // Suspend Measurements task
+    vTaskSuspend(NULL);
+
+	/* USER CODE END Control task */
+
   }
 }
 

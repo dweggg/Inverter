@@ -28,4 +28,15 @@
 
 float getLinear(uint32_t bits, const float slope, const float offset);
 
+/**
+ * @brief Enable PWM with specified duty cycle.
+ * @param duty The duty cycle to set (0.0 to 1.0).
+ */
+void enablePWM(TIM_HandleTypeDef htimX, float duty);
+
+/**
+ * @brief Disable PWM.
+ */
+void disablePWM(TIM_HandleTypeDef htimX);
+
 #endif /* MEASUREMENTS_H_ */

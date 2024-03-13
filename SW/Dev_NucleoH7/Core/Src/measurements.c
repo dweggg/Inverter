@@ -29,3 +29,39 @@ float getLinear(uint32_t bits, float slope, float offset) {
 }
 
 
+void enablePWM(TIM_HandleTypeDef htimX, float duty){
+
+	//Reset the counter
+	htimX.Instance->CNT=0;
+
+	//Enable outputs and select the polarity of each output
+	htimX.Instance->CCER = 0xDDD;
+
+	//Enable Main Output
+	htimX.Instance->BDTR |=(1<<15);
+
+	//Enable Counter
+	htimX.Instance->CR1 |=1;
+
+	htimX.Instance->CCR1 = duty;
+	htimX.Instance->CCR2 = 1-duty;
+
+}
+
+void disablePWM(TIM_HandleTypeDef htimX){
+
+	//Disable outputs and select the polarity of each output
+
+	htimX.Instance->CNT=0;
+
+	//	htim1.Instance->CCER = 0x888;
+	htimX.Instance->CCER = 0xCCC;
+	//	htim1.Instance->CCER |= 0x555;
+
+	//Disable Main Output
+	htimX.Instance->BDTR &= 0xFFFF7FFF;
+	//	htim1.Instance->BDTR &=(0<<15);
+
+	//Disable Counter (No se si es necesario)
+	htimX.Instance->CR1 |=1;
+}

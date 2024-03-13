@@ -43,7 +43,9 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-extern volatile uint32_t Results_ADC3_buffer[3];
+extern volatile uint32_t ADC3_raw[3];
+extern volatile float currentSetpoint;
+extern volatile uint8_t enable;
 
 /* USER CODE END EC */
 

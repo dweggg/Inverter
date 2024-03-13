@@ -56,6 +56,7 @@ void DMA1_Stream0_IRQHandler(void);
 void TIM1_BRK_IRQHandler(void);
 void TIM1_UP_IRQHandler(void);
 void TIM6_DAC_IRQHandler(void);
+void ADC3_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
