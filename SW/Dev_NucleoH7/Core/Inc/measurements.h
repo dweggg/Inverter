@@ -26,7 +26,7 @@
  * @return The physical measurement.
  */
 
-float getLinear(uint32_t bits, const float slope, const float offset);
+float getLinear(uint32_t bits, float slope, float offset);
 
 /**
  * @brief Enable PWM with specified duty cycle.

@@ -47,10 +47,13 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile uint32_t ADC3_raw[3]={0};
+volatile uint32_t ADC3_raw[4]={0};
 volatile float currentSetpoint = 0.0F;
 volatile uint8_t enable = 0;
 volatile float duty = 0.5F;
+volatile float current = 0.0F;
+volatile float voltage= 0.0F;
+volatile float temp = 0.0F;
 
 /* USER CODE END PV */
 
@@ -101,7 +104,7 @@ int main(void)
     HAL_TIM_Base_Start(&htim1);
 
 	HAL_ADCEx_Calibration_Start(&hadc3, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
-//	HAL_ADC_Start_DMA(&hadc3, (uint32_t *) Results_ADC3_buffer,3);
+	HAL_ADC_Start_DMA(&hadc3, (uint32_t *) ADC3_raw,3);
 
   /* USER CODE END 2 */
 

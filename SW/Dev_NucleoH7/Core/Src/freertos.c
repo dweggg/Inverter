@@ -71,7 +71,7 @@ osThreadId_t SafetyHandle;
 const osThreadAttr_t Safety_attributes = {
   .name = "Safety",
   .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityHigh,
+  .priority = (osPriority_t) osPriorityNormal,
 };
 /* Definitions for qMeasurements */
 osMessageQueueId_t qMeasurementsHandle;
@@ -176,44 +176,26 @@ void MX_FREERTOS_Init(void) {
 /* USER CODE END Header_initMeasurements */
 void initMeasurements(void *argument)
 {
+  /* USER CODE BEGIN initMeasurements */
+  /* Infinite loop */
   for(;;)
   {
-	/* USER CODE BEGIN Measurements task */
-
 	// Wait for notification from Control task
 	ulTaskNotifyTake(pdTRUE, 1);
 
-    // Read ADC3 and use getLinear and getTemperature results
-    float current = getLinear(ADC3_raw[0], currentSlope, currentOffset);
-    float voltage = getLinear(ADC3_raw[2], voltageSlope, voltageOffset);
-    float temp = tempLUT[ADC3_raw[1]]; // LUT array indexing
 
-    // Create a struct to hold measurements
-    struct Measurement {
-      float current;
-      float voltage;
-      float temp;
-    } measurements;
 
-    measurements.current = current;
-    measurements.voltage = voltage;
-    measurements.temp = temp;
+	measurementsAlive++;
+	HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
 
-    // Send measurements to qMeasurements
-    osMessageQueuePut(qMeasurementsHandle, &measurements, 0, 0);
+	// Resume Control task
+	vTaskResume(ControlHandle);
 
-    measurementsAlive++;
-    HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
-
-    // Resume Control task
-    vTaskResume(ControlHandle);
-
-    // Suspend Measurements task
-    vTaskSuspend(NULL);
-
-	/* USER CODE END Measurements task */
+	// Suspend Measurements task
+	vTaskSuspend(NULL);
   }
+  /* USER CODE END initMeasurements */
 }
 
 /* USER CODE BEGIN Header_initControl */
@@ -225,64 +207,70 @@ void initMeasurements(void *argument)
 /* USER CODE END Header_initControl */
 void initControl(void *argument)
 {
+  /* USER CODE BEGIN initControl */
+  /* Infinite loop */
   for(;;)
   {
-	/* USER CODE BEGIN Control task */
-
 	// Wait for notification from Measurements task
 	ulTaskNotifyTake(pdTRUE, 1);
 
-    // Receive from qMeasurements
-    struct Measurement measurements;
-    osMessageQueueGet(qMeasurementsHandle, &measurements, 0, 0);
 
-    // Calculate duty based on received current and setpoint
-    currentSetpoint = (currentSetpoint < 0.0f) ? 0.0f : (currentSetpoint > 4.0f) ? 4.0f : currentSetpoint;
-    //float duty = (currentSetpoint - measurements.current) / measurements.voltage;
-    //duty = 0.5;
-    duty = (duty < 0.0f) ? 0.0f : (duty > 0.99f) ? 0.99f : duty;
+	// Calculate duty based on received current and setpoint
+	currentSetpoint = (currentSetpoint < 0.0f) ? 0.0f : (currentSetpoint > 4.0f) ? 4.0f : currentSetpoint;
 
-    if (enable) {
-    	enablePWM(htim1, duty);
+	//duty = (currentSetpoint - current) / voltage;
 
-        // Send duty to qControl
-        //osMessageQueuePut(qControlHandle, &duty, 0, 0);
+	duty = (duty < 0.0f) ? 0.0f : (duty > 0.99f) ? 0.99f : duty;
 
-        controlAlive++;
-        HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
-        HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_RESET);
+	if (enable) {
+		enablePWM(htim1, duty);
+		HAL_GPIO_WritePin(enable_HW_GPIO_Port, enable_HW_Pin, GPIO_PIN_SET);
+		// Send duty to qControl
+		//osMessageQueuePut(qControlHandle, &duty, 0, 0);
 
-        // Resume Measurements task
-        vTaskResume(MeasurementsHandle);
+		controlAlive++;
+		HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_RESET);
 
-        // Suspend Control task
-        vTaskSuspend(NULL);
+		// Resume Measurements task
+		vTaskResume(MeasurementsHandle);
 
-    } else {
-    	disablePWM(htim1);
-    	controlAlive = 0;
-    	measurementsAlive = 0;
+		// Suspend Control task
+		vTaskSuspend(NULL);
 
-    }
+	} else {
+		disablePWM(htim1);
+		controlAlive = 0;
+		measurementsAlive = 0;
 
-	/* USER CODE END Control task */
-
+	}
   }
+  /* USER CODE END initControl */
 }
+
 /* USER CODE BEGIN Header_initSafety */
 /**
-  * @brief  Function implementing the Safety thread.
-  * @param  argument: Not used
-  * @retval None
-  */
+* @brief Function implementing the Safety thread.
+* @param argument: Not used
+* @retval None
+*/
 /* USER CODE END Header_initSafety */
 void initSafety(void *argument)
 {
+  /* USER CODE BEGIN initSafety */
+  /* Infinite loop */
   for(;;)
   {
-	  enable = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
-	  osDelay(1);
+	enable = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
+	// Read ADC3 and use getLinear and getTemperature results
+	current = getLinear(ADC3_raw[1], currentSlope, currentOffset);
+	voltage = getLinear(ADC3_raw[2]-2066, voltageSlope, voltageOffset);
+	temp = tempLUT[ADC3_raw[0]]; // LUT array indexing
+
+    osDelay(1);
+    safetyAlive++;
   }
+  /* USER CODE END initSafety */
 }
 
 /* Private application code --------------------------------------------------*/

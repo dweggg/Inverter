@@ -43,10 +43,13 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-extern volatile uint32_t ADC3_raw[3];
+extern volatile uint32_t ADC3_raw[4];
 extern volatile float currentSetpoint;
 extern volatile uint8_t enable;
 extern volatile float duty;
+extern volatile float current;
+extern volatile float voltage;
+extern volatile float temp;
 
 /* USER CODE END EC */
 
@@ -67,6 +70,8 @@ void Error_Handler(void);
 #define B1_GPIO_Port GPIOC
 #define LD1_Pin GPIO_PIN_0
 #define LD1_GPIO_Port GPIOB
+#define enable_HW_Pin GPIO_PIN_7
+#define enable_HW_GPIO_Port GPIOE
 #define LD3_Pin GPIO_PIN_14
 #define LD3_GPIO_Port GPIOB
 #define STLINK_RX_Pin GPIO_PIN_8
