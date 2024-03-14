@@ -48,8 +48,9 @@
 
 /* USER CODE BEGIN PV */
 volatile uint32_t ADC3_raw[3]={0};
-volatile float currentSetpoint = 0;
+volatile float currentSetpoint = 0.0F;
 volatile uint8_t enable = 0;
+volatile float duty = 0.5F;
 
 /* USER CODE END PV */
 

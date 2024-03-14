@@ -46,6 +46,7 @@ extern "C" {
 extern volatile uint32_t ADC3_raw[3];
 extern volatile float currentSetpoint;
 extern volatile uint8_t enable;
+extern volatile float duty;
 
 /* USER CODE END EC */
 

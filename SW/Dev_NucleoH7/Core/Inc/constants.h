@@ -13,8 +13,8 @@
  * @brief Declaration of constants.
  */
 
-#define DEAD_TIME 240 // 500ns*480MHz
-#define FSW 48000 // 480MHz/10kHz
+#define DEAD_TIME 0.0000005 // 500ns
+#define FSW 10000 // 10kHz
 
 extern const float tempLUT[];
 

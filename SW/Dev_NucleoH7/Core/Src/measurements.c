@@ -34,8 +34,10 @@ void enablePWM(TIM_HandleTypeDef htimX, float duty){
 	//Reset the counter
 	htimX.Instance->CNT=0;
 
-	//Enable outputs and select the polarity of each output
-	htimX.Instance->CCER = 0xDDD;
+	htimX.Instance->CCMR1 = 0x6868; // Set Channel 1 and Channel 2 Output Compare mode to PWM Mode
+
+	//	htim1.Instance->CCER = 0x888;
+	htimX.Instance->CCER = 0x10555;
 
 	//Enable Main Output
 	htimX.Instance->BDTR |=(1<<15);
@@ -43,8 +45,8 @@ void enablePWM(TIM_HandleTypeDef htimX, float duty){
 	//Enable Counter
 	htimX.Instance->CR1 |=1;
 
-	htimX.Instance->CCR1 = duty;
-	htimX.Instance->CCR2 = 1-duty;
+	htimX.Instance->CCR1 = (duty)*htimX.Instance->ARR;
+	htimX.Instance->CCR2 = (1-duty)*htimX.Instance->ARR;
 
 }
 

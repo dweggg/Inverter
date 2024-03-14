@@ -66,6 +66,13 @@ const osThreadAttr_t Control_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for Safety */
+osThreadId_t SafetyHandle;
+const osThreadAttr_t Safety_attributes = {
+  .name = "Safety",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityHigh,
+};
 /* Definitions for qMeasurements */
 osMessageQueueId_t qMeasurementsHandle;
 const osMessageQueueAttr_t qMeasurements_attributes = {
@@ -84,6 +91,7 @@ const osMessageQueueAttr_t qControl_attributes = {
 
 void initMeasurements(void *argument);
 void initControl(void *argument);
+void initSafety(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -144,6 +152,9 @@ void MX_FREERTOS_Init(void) {
   /* creation of Control */
   ControlHandle = osThreadNew(initControl, NULL, &Control_attributes);
 
+  /* creation of Safety */
+  SafetyHandle = osThreadNew(initSafety, NULL, &Safety_attributes);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -192,6 +203,8 @@ void initMeasurements(void *argument)
     osMessageQueuePut(qMeasurementsHandle, &measurements, 0, 0);
 
     measurementsAlive++;
+    HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_RESET);
 
     // Resume Control task
     vTaskResume(ControlHandle);
@@ -225,33 +238,52 @@ void initControl(void *argument)
 
     // Calculate duty based on received current and setpoint
     currentSetpoint = (currentSetpoint < 0.0f) ? 0.0f : (currentSetpoint > 4.0f) ? 4.0f : currentSetpoint;
-    float duty = (currentSetpoint - measurements.current) / measurements.voltage;
-    duty = 0.5;
+    //float duty = (currentSetpoint - measurements.current) / measurements.voltage;
+    //duty = 0.5;
+    duty = (duty < 0.0f) ? 0.0f : (duty > 0.99f) ? 0.99f : duty;
 
     if (enable) {
     	enablePWM(htim1, duty);
 
+        // Send duty to qControl
+        //osMessageQueuePut(qControlHandle, &duty, 0, 0);
+
+        controlAlive++;
+        HAL_GPIO_WritePin(GPIOB, LD3_Pin, GPIO_PIN_SET);
+        HAL_GPIO_WritePin(GPIOB, LD1_Pin, GPIO_PIN_RESET);
+
+        // Resume Measurements task
+        vTaskResume(MeasurementsHandle);
+
+        // Suspend Control task
+        vTaskSuspend(NULL);
+
     } else {
     	disablePWM(htim1);
+    	controlAlive = 0;
+    	measurementsAlive = 0;
 
     }
-
-    // Send duty to qControl
-    osMessageQueuePut(qControlHandle, &duty, 0, 0);
-
-    controlAlive++;
-
-    // Resume Control task
-    vTaskResume(MeasurementsHandle);
-
-    // Suspend Measurements task
-    vTaskSuspend(NULL);
 
 	/* USER CODE END Control task */
 
   }
 }
-
+/* USER CODE BEGIN Header_initSafety */
+/**
+  * @brief  Function implementing the Safety thread.
+  * @param  argument: Not used
+  * @retval None
+  */
+/* USER CODE END Header_initSafety */
+void initSafety(void *argument)
+{
+  for(;;)
+  {
+	  enable = HAL_GPIO_ReadPin(B1_GPIO_Port, B1_Pin);
+	  osDelay(1);
+  }
+}
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
