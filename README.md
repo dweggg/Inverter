@@ -48,8 +48,20 @@ This repository contains the following files and directories:
 
 See also the list of [contributors](https://github.com/dweggg/Inverter/contributors) who participated in this project.
 
+## 📄 License
+
+This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+### 📝 License Summary
+
+- **Attribution (BY)**: You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+  
+- **Non-Commercial (NC)**: You may not use the material for commercial purposes. I will go after you if you do, this is an educational project.
+  
+- **ShareAlike (SA)**: If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
+
 ## 👏 Acknowledgments
 
 * e-Tech Racing
 * UPC EEBE
-* CITCEA
+* CITCEA - UPC
