@@ -52,8 +52,6 @@ See also the list of [contributors](https://github.com/dweggg/Inverter/contribut
 
 This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
-### 📝 License Summary
-
 - **Attribution (BY)**: You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
   
 - **Non-Commercial (NC)**: You may not use the material for commercial purposes. I will go after you if you do, this is an educational project.
