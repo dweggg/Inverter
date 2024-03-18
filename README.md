@@ -6,7 +6,7 @@
 
 [![Status](https://img.shields.io/badge/Status-Active-green)](https://github.com/dweggg/Inverter)
 [![Version](https://img.shields.io/badge/Version-v0.1.pre-red)](https://github.com/dweggg/Inverter/releases)
-[![License](https://img.shields.io/badge/License-CERNOHL-yellow)](https://github.com/dweggg/Inverter/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/License-CC--BY--NC--SA--4.0-yellow)](https://github.com/dweggg/Inverter/blob/main/LICENSE.md)
 
 [![e-Tech Racing's GitHub](https://img.shields.io/badge/e--Tech%20Racing's%20GitHub-eTechRacing-green?style=for-the-badge&logo=github)](https://github.com/eTechRacing)
 [![Visit Our Website](https://img.shields.io/badge/Visit%20Our%20Website-e--techracing.es-blue?style=for-the-badge)](https://www.e-techracing.es)
