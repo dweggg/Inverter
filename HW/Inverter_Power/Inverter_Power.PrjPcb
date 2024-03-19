@@ -44,7 +44,7 @@ CrossRefPorts=3
 CrossRefCrossSheets=1
 CrossRefSheetEntries=0
 CrossRefFollowFromMainSettings=1
-CurrentVariant=Leapers
+CurrentVariant=Wolfspeed
 
 [Preferences]
 PrefsVaultGUID=
@@ -5516,8 +5516,8 @@ UpdateToLatestRevision=1
 PartTypes=0
 ComponentLibIdentifierKind0=Library Name And Type
 ComponentLibraryIdentifier0=Inverter_Libraries.SchLib
-ComponentDesignItemID0=MGJ2D051802BSC
-ComponentSymbolReference0=MGJ2D051802BSC
+ComponentDesignItemID0=TPS72301
+ComponentSymbolReference0=TPS72301
 ComponentUpdate0=1
 ComponentIsDeviceSheet0=0
 FullReplace=1
@@ -5539,28 +5539,48 @@ ParameterName1=Comment
 ParameterUpdate1=1
 ParameterName2=Component Kind
 ParameterUpdate2=1
-ParameterName3=Description
+ParameterName3=ComponentLink1Description
 ParameterUpdate3=1
-ParameterName4=Library Reference
+ParameterName4=ComponentLink1URL
 ParameterUpdate4=1
-ParameterName5=Manufacturer 1
+ParameterName5=ComponentLink2Description
 ParameterUpdate5=1
-ParameterName6=Manufacturer Part Number 1
+ParameterName6=ComponentLink2URL
 ParameterUpdate6=1
-ParameterName7=Pricing 1
+ParameterName7=ComponentLink3Description
 ParameterUpdate7=1
-ParameterName8=RoHS
+ParameterName8=ComponentLink3URL
 ParameterUpdate8=1
-ParameterName9=Stock 1
+ParameterName9=ComponentLink4Description
 ParameterUpdate9=1
-ParameterName10=Supplier 1
+ParameterName10=ComponentLink4URL
 ParameterUpdate10=1
-ParameterName11=Supplier Part Number 1
+ParameterName11=ComponentLink5Description
 ParameterUpdate11=1
+ParameterName12=ComponentLink5URL
+ParameterUpdate12=1
+ParameterName13=Description
+ParameterUpdate13=1
+ParameterName14=Library Reference
+ParameterUpdate14=1
+ParameterName15=Manufacturer 1
+ParameterUpdate15=1
+ParameterName16=Manufacturer Part Number 1
+ParameterUpdate16=1
+ParameterName17=Pricing 1
+ParameterUpdate17=1
+ParameterName18=RoHS
+ParameterUpdate18=1
+ParameterName19=Stock 1
+ParameterUpdate19=1
+ParameterName20=Supplier 1
+ParameterUpdate20=1
+ParameterName21=Supplier Part Number 1
+ParameterUpdate21=1
 ModelTypeGroup0=PCBLIB
 ModelTypeUpdate0=1
 ModelType0=PCBLIB
-ModelName0=MGJ2D051802BSC
+ModelName0=DBV0005A
 ModelUpdate0=1
 
 [DatabaseUpdateOptions]
@@ -5572,43 +5592,44 @@ PartTypes=0
 [NetInfos]
 Net1=NetName=+24|NetColor=$00FF6EFF
 Net2=NetName=+5|NetColor=$00FF6EFF
-Net3=NetName=A|NetColor=$006E6EFF
-Net4=NetName=A_IN|NetColor=$006E6EFF
-Net5=NetName=A_OUT|NetColor=$006E6EFF
-Net6=NetName=B|NetColor=$00FF6E6E
-Net7=NetName=B_IN|NetColor=$00FF6E6E
-Net8=NetName=B_OUT|NetColor=$00FF6E6E
-Net9=NetName=C|NetColor=clYellow
-Net10=NetName=C_IN|NetColor=clYellow
-Net11=NetName=C_OUT|NetColor=clYellow
-Net12=NetName=DC-|NetColor=$000083FD
-Net13=NetName=DC+|NetColor=$000083FD
-Net14=NetName=ENABLE|NetColor=$00FFFF6E
-Net15=NetName=GND|NetColor=$00303030
-Net16=NetName=I_A|NetColor=$00FFFF6E
-Net17=NetName=I_B|NetColor=$00FFFF6E
-Net18=NetName=I_C|NetColor=$00FFFF6E
-Net19=NetName=LV+in|NetColor=$00FF6EFF
-Net20=NetName=NetMP-_1|NetColor=$000083FD
-Net21=NetName=PWM[1..6]|NetColor=$00FFFF6E
-Net22=NetName=PWM1|NetColor=$00FFFF6E
-Net23=NetName=PWM2|NetColor=$00FFFF6E
-Net24=NetName=PWM3|NetColor=$00FFFF6E
-Net25=NetName=PWM4|NetColor=$00FFFF6E
-Net26=NetName=PWM5|NetColor=$00FFFF6E
-Net27=NetName=PWM6|NetColor=$00FFFF6E
-Net28=NetName=SC_END|NetColor=$006E6EFF
-Net29=NetName=T_A|NetColor=$00FFFF6E
-Net30=NetName=T_B|NetColor=$00FFFF6E
-Net31=NetName=T_C|NetColor=$00FFFF6E
-Net32=NetName=T_inv|NetColor=$00FFFF6E
-Net33=NetName=TRIP|NetColor=$00FFFF6E
-Net34=NetName=TS-|NetColor=$000083FD
-Net35=NetName=TS+|NetColor=$000083FD
-Net36=NetName=TS+_|NetColor=$000083FD
-Net37=NetName=TSAL_ON|NetColor=$00FFFF6E
-Net38=NetName=VDC_sns-|NetColor=$00FFFF6E
-Net39=NetName=VDC_sns+|NetColor=$00FFFF6E
+Net3=NetName=+5_pre|NetColor=$00FF6EFF
+Net4=NetName=A|NetColor=$006E6EFF
+Net5=NetName=A_IN|NetColor=$006E6EFF
+Net6=NetName=A_OUT|NetColor=$006E6EFF
+Net7=NetName=B|NetColor=$00FF6E6E
+Net8=NetName=B_IN|NetColor=$00FF6E6E
+Net9=NetName=B_OUT|NetColor=$00FF6E6E
+Net10=NetName=C|NetColor=clYellow
+Net11=NetName=C_IN|NetColor=clYellow
+Net12=NetName=C_OUT|NetColor=clYellow
+Net13=NetName=DC-|NetColor=$000083FD
+Net14=NetName=DC+|NetColor=$000083FD
+Net15=NetName=ENABLE|NetColor=$00FFFF6E
+Net16=NetName=GND|NetColor=$00303030
+Net17=NetName=I_A|NetColor=$00FFFF6E
+Net18=NetName=I_B|NetColor=$00FFFF6E
+Net19=NetName=I_C|NetColor=$00FFFF6E
+Net20=NetName=LV+in|NetColor=$00FF6EFF
+Net21=NetName=NetMP-_1|NetColor=$000083FD
+Net22=NetName=PWM[1..6]|NetColor=$00FFFF6E
+Net23=NetName=PWM1|NetColor=$00FFFF6E
+Net24=NetName=PWM2|NetColor=$00FFFF6E
+Net25=NetName=PWM3|NetColor=$00FFFF6E
+Net26=NetName=PWM4|NetColor=$00FFFF6E
+Net27=NetName=PWM5|NetColor=$00FFFF6E
+Net28=NetName=PWM6|NetColor=$00FFFF6E
+Net29=NetName=SC_END|NetColor=$006E6EFF
+Net30=NetName=T_A|NetColor=$00FFFF6E
+Net31=NetName=T_B|NetColor=$00FFFF6E
+Net32=NetName=T_C|NetColor=$00FFFF6E
+Net33=NetName=T_inv|NetColor=$00FFFF6E
+Net34=NetName=TRIP|NetColor=$00FFFF6E
+Net35=NetName=TS-|NetColor=$000083FD
+Net36=NetName=TS+|NetColor=$000083FD
+Net37=NetName=TS+_|NetColor=$000083FD
+Net38=NetName=TSAL_ON|NetColor=$00FFFF6E
+Net39=NetName=VDC_sns-|NetColor=$00FFFF6E
+Net40=NetName=VDC_sns+|NetColor=$00FFFF6E
 
 [Comparison Options]
 ComparisonOptions0=Kind=Net|MinPercent=75|MinMatch=3|ShowMatch=0|UseName=-1|InclAllRules=0
