@@ -1,16 +1,22 @@
 <div align="center" style="background-color:#1a1a1a;padding:20px;">
+  <img src="https://i.ibb.co/mR0yFfw/logo-daurat-10-anys.png" width="400" alt="e-Tech Racing Logo">
+</div>
+
+<div align="center" style="background-color:#1a1a1a;padding:20px;">
 
 [![Status](https://img.shields.io/badge/Status-Active-green)](https://github.com/dweggg/Inverter)
 [![Version](https://img.shields.io/badge/Version-v0.1.pre-red)](https://github.com/dweggg/Inverter/releases)
 [![License](https://img.shields.io/badge/License-CC--BY--NC--SA--4.0-yellow)](https://github.com/dweggg/Inverter/blob/main/LICENSE.md)
 
+[![e-Tech Racing's GitHub](https://img.shields.io/badge/e--Tech%20Racing's%20GitHub-eTechRacing-green?style=for-the-badge&logo=github)](https://github.com/eTechRacing)
+[![Visit Our Website](https://img.shields.io/badge/Visit%20Our%20Website-e--techracing.es-blue?style=for-the-badge)](https://www.e-techracing.es)
 
 </div>
 
 # ⚡ Inverter ⚡
 ## SiC based, dual 80kW (2x40kW), 600V, 3 phase traction inverter with FOC
 
-This is my Electronics Engineering bachelor thesis, a SiC based, dual 80kW (2x40kW), 600V, 3 phase inverter. The goal is to design and implement a dual bidirectional inverter. The inverter will use field-oriented control, and will implement testing features and a variety of protections, alarms and extras. The target power densities for the inverter are 30 kW/liter and 20 kW/kg, and it will be able to control two PMSMs and communicate via CAN in order to get the torque references and send all relevant information.
+This is my Electronics Engineering bachelor thesis, a SiC based, dual 80kW (2x40kW), 600V, 3 phase inverter. The goal is to design and implement a dual bidirectional inverter. The inverter will use field-oriented control, and will implement testing features and a variety of protections, alarms and extras. The target power densities for the inverter are 30 kW/liter and 20 kW/kg, and it will be designed specifically for a Formula Student vehicle. It will be able to control two PMSMs and communicate via CAN with the vehicle in order to get the torque references from the Main ECU and send all relevant information for the car.
 
 ## 📁 Repository Contents
 This repository contains the following files and directories:
@@ -54,5 +60,6 @@ This project is licensed under the [Creative Commons Attribution-NonCommercial-S
 
 ## 👏 Acknowledgments
 
+* e-Tech Racing
 * UPC EEBE
 * CITCEA - UPC
