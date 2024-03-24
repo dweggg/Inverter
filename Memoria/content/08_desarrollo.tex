@@ -1775,14 +1775,14 @@ A continuación se muestra una tabla comparativa con los detalles de cada semico
 
 \subsubsection{Análisis de Pérdidas}
 
-Para obtener una primera cota de las pérdidas de los semiconductores, se puede hacer un estudio analítico de la conmutación y conducción del MOSFET y del diodo. 
+Para obtener cota de las pérdidas de los semiconductores, se puede hacer un estudio de la conmutación y conducción del MOSFET y del diodo. 
 
 \textbf{Pérdidas de conducción}
 
 Las pérdidas de conducción tienen su origen en la resistencia entre drenador y fuente cuando el MOSFET está en estado de conducción. Según la ley de Ohm y la definición de potencia:
 
 \[
-P_{\text{cond},MOSFET} = I_{DS}^2\cdot R_{DS}
+P_{\text{cond},MOSFET} = I_{DS}^2\cdot R_{DS, on}
 \]
 
 Sin embargo, esta expresión se corresponde las pérdidas instantáneas y no es útil a la hora de dimensionar el convertidor. Para ello son necesarias las pérdidas promediadas, pero tienen una expresión analítica muy compleja, ya que dependen de la estrategia de modulación, el índice de modulación instantáneo, el factor de potencia instantáneo, etc. Para el inversor se utiliza SVPWM, pero el cálculo de pérdidas tiene demasiados parámetros instantáneos. Muchas referencias asemejan las pérdidas en SVPWM a las de una modulación PWM sinusoidal (SPWM), con lo que las pérdidas se simplifican y no dependen del desfase entre tensión y corriente $\phi$:
@@ -1821,9 +1821,49 @@ XXXXXXXXXXXXXXXXXXXXXXXX
 
 \subsubsection{Sistema de Refrigeración}
 
-Como es de esperar, la elección del sistema de refrigeración para los semiconductores se ha dirigido hacia una \textit{coldplate} de agua. Esta elección se fundamenta en la necesidad de mantener una interfaz de temperatura fija para los semiconductores, lo que simplifica el diseño del sistema. La experiencia previa del equipo en sistemas de refrigeración por agua también influyó en esta decisión, proporcionando un marco confiable para la implementación.
+A continuación se presenta una comparación entre las opciones comunes para refrigerar el inversor:
 
-A pesar de que los semiconductores de carburo de silicio (SiC) tienen una temperatura máxima de unión (\(T_{j(max)}\)) notablemente alta, se establece como objetivo mantener el delta de temperatura (\(\Delta T\)) por debajo de 30 ºC. Este enfoque busca garantizar una operación óptima y una vida útil prolongada de los semiconductores, además de mitigar los posibles efectos negativos derivados del calor.
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{2.5cm}|p{5cm}|p{5cm}|}
+		\hline
+		\textbf{Opción de Refrigeración} & \textbf{Ventajas} & \textbf{Desventajas} \\ \hline
+		Convección Natural & Económica, Sin partes móviles & Limitada disipación de calor, Depende del ambiente \\ \hline
+		Disipador de Calor & Económico, Fácil de instalar, No requiere energía adicional & Limitado en aplicaciones de alta potencia, Depende del ambiente \\ \hline
+		Ventilador & Buena disipación de calor, Control de temperatura & Limitado en aplicaciones de alta potencia, Ruido \\ \hline
+		\textit{Coldplate} de Agua & Excelente capacidad de disipación, Buen control de temperatura & Coste, Mantenimiento, Posible riesgo de fugas, Instalación complicada \\ \hline
+		\textit{Coldplate} de Aceite & Buena capacidad de disipación, No corrosivo, Alto rango de temperaturas &  Coste, Mantenimiento, Posible riesgo de fugas, Instalación complicada \\ \hline
+	\end{tabular}
+	\caption{Comparación de Opciones de Refrigeración}
+\end{table}
+
+
+
+Para el sistema de refrigeración de los semiconductores se ha optado por un sistema de refrigeración líquida consistente en una \textit{coldplate}, una bomba y un radiador. Esta elección se basa en varios factores clave que se detallan a continuación:
+
+\begin{itemize}
+	\item \textbf{Mantenimiento de Temperatura:} A diferencia de una refrigeración por aire, una \textit{coldplate} permite mantener una interfaz de temperatura fija para los semiconductores. Esto es crucial para garantizar un funcionamiento estable y confiable de los componentes, especialmente en aplicaciones de alta potencia como la que se está diseñando.
+	
+	\item \textbf{Experiencia Previa:} El equipo tiene experiencia previa en sistemas de refrigeración líquida, lo que facilita la implementación y mantenimiento de este tipo de sistemas.
+	
+	\item \textbf{Eficiencia Compacta:} La refrigeración líquida, especialmente con agua, permite un diseño más compacto en comparación con otras opciones. Un disipador haría mucho más voluminoso el convertidor, mientras que la refrigeración líquida permite una distribución más libre de los componentes por el monoplaza. Por ejemplo, se puede situar el radiador en una zona donde tenga mucho contacto con el aire exterior, y conectarlo mediante mangueras a la bomba y a la \textit{coldplate}.
+	
+	
+\end{itemize}
+
+Aunque el carburo de silicio tiene una temperatura máxima de la unión (\(T_{j(max)}\)) notablemente alta, se ha establecido un objetivo de mantener el delta de temperatura (\(\Delta T\)) por debajo de 30 ºC, manteniendo la interfaz térmica del semiconductor a 80ºC como máximo. Este enfoque busca garantizar una operación óptima y una vida útil prolongada de los semiconductores, además de mitigar los posibles efectos negativos derivados del calor.
+
+Se ha elegido agua como el fluido de refrigeración por varias razones:
+
+\begin{itemize}
+	\item \textbf{Norma T7.2.2:} Según la norma T7.2.2, los sistemas de refrigeración solo pueden utilizar agua, aire u aceite como refrigerante. Con lo cual, no es posible utilizar líquidos refrigerantes específicos.
+	
+	\item \textbf{Propiedades Térmicas:} El agua tiene una alta capacidad calorífica y conductividad térmica, lo que la hace eficaz para disipar el calor generado por los semiconductores. El aceite tiene peor conductividad térmica, y su amplio rango de temperaturas no es útil para la aplicación.
+	
+	\item \textbf{Seguridad:} El agua es un fluido seguro y no inflamable, lo que reduce los riesgos de seguridad en caso de fugas o accidentes. Además, es un fluido fácilmente disponible y de bajo costo en comparación con otros refrigerantes. Si se usa agua destilada, el riesgo de corrosión es más bajo, y los sistemas electrónicos no serán tan susceptibles a posibles fugas.
+	
+\end{itemize}
+
 
 \subsection{Gate drivers}
 
@@ -1846,6 +1886,8 @@ Cables
 Conectores
 
 Análisis de parasitos (Lcable), etc.
+
+\subsection{Sensor de posición}
 
 \subsection{PCB de potencia}
 
