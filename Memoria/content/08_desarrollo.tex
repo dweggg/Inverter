@@ -1324,7 +1324,7 @@ Para comprobar el funcionamiento y la estabilidad del control, se realiza una si
     
 \end{figure}
 
-Se puede observar que en esta simulación se ha limitado el comportamiento de la frenada regenerativa a la trayectoria del MTPA. En la implementación real se han explorado los límites para poder ofrecer una mejor respuesta del motor regenerando a altas velocidades, ya que esto supone un reto adicional por la elevada tensión generada por la fuerza contraelectromotriz del motor.
+Se puede observar que en esta simulación se ha limitado el comportamiento de la frenada regenerativa a la trayectoria del MTPA. Además, se pueden observar ciertos problemas en la implementación del lazo de tensión. Más adelante se realiza una simulación más enfocada en el control que en la aplicación, y en ella se revisan estas situaciones.
 
 \subsubsection{Modelo conmutado}
 
@@ -1360,7 +1360,7 @@ Dado que el inversor realmente es una fuente conmutada, se debe modelar utilizan
 \end{figure}
 
 
-Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el inversor con MOSFETs, la planta mecánica simplificada, y a la cual se le discretiza la adquisición y el control, de manera que es una aproximación muy realista de la posterior implementación en un microcontrolador. Además se incorporan cálculos de pérdidas y eficiencia.
+Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el inversor con MOSFETs, la planta mecánica simplificada, y a la cual se le discretiza la adquisición y el control, de manera que es una aproximación muy realista de la posterior implementación en un microcontrolador. Además se incorporan cálculos térmicos de pérdidas y eficiencia.
 
 \begin{figure}[H]
 	\centering
@@ -1369,7 +1369,7 @@ Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el i
 \end{figure}
 
 
-Se puede observar que la representación de los bloques en este modelo no sigue el EMR, ya que se elige una implementación más práctica y realista. Destaca la implementación de las funciones de control utilizando la librería PERGAMON, desarrollada por el CITCEA-UPC. Esta librería reproduce completamente el código de las funciones matemáticas implementadas en el control, como los PIs, el SVPWM..., en el software PLECS, lo que facilita la correlación de cualquier modelo con la realidad.
+Se puede observar que la representación de los bloques en este modelo no sigue el EMR, ya que se elige una implementación más práctica y realista. Destaca la implementación de las funciones de control utilizando la librería PERGAMON, desarrollada por el CITCEA-UPC. Esta librería reproduce completamente el código de las funciones matemáticas implementadas en el control, como los PIs, el SVPWM..., en el software PLECS, lo que facilita la correlación de cualquier modelo con la implementación final en un sistema discreto.
 
 A continuación se presentan los diferentes bloques que forman el modelo.
 \begin{figure}[H]
@@ -1779,13 +1779,17 @@ Para obtener cota de las pérdidas de los semiconductores, se puede hacer un est
 
 \textbf{Pérdidas de conducción}
 
-Las pérdidas de conducción tienen su origen en la resistencia entre drenador y fuente cuando el MOSFET está en estado de conducción. Según la ley de Ohm y la definición de potencia:
+Las pérdidas de conducción tienen su origen en la resistencia entre drenador y fuente cuando el MOSFET está en estado de conducción, o en la caída de tensión del diodo cuando es el diodo quien está conduciendo. Según la ley de Ohm y la definición de potencia:
 
 \[
-P_{\text{cond},MOSFET} = I_{DS}^2\cdot R_{DS, on}
+P_{\text{cond,MOSFET}}= I_{DS}^2\cdot R_{DS, on}
 \]
 
-Sin embargo, esta expresión se corresponde las pérdidas instantáneas y no es útil a la hora de dimensionar el convertidor. Para ello son necesarias las pérdidas promediadas, pero tienen una expresión analítica muy compleja, ya que dependen de la estrategia de modulación, el índice de modulación instantáneo, el factor de potencia instantáneo, etc. Para el inversor se utiliza SVPWM, pero el cálculo de pérdidas tiene demasiados parámetros instantáneos. Muchas referencias asemejan las pérdidas en SVPWM a las de una modulación PWM sinusoidal (SPWM), con lo que las pérdidas se simplifican y no dependen del desfase entre tensión y corriente $\phi$:
+\[
+P_{\text{cond},D} = I_{SD}\cdot V_f
+\]
+
+Sin embargo, estas expresiones se corresponden con las pérdidas instantáneas y no son útiles a la hora de dimensionar el convertidor. Para ello son necesarias las pérdidas promediadas, pero tienen una expresión analítica muy compleja, ya que dependen de la estrategia de modulación, el índice de modulación instantáneo, el factor de potencia instantáneo, etc. Para el inversor se utiliza SVPWM, pero el cálculo de pérdidas tiene demasiados parámetros instantáneos. Muchas referencias asemejan las pérdidas en SVPWM a las de una modulación PWM sinusoidal (SPWM), con lo que las pérdidas se simplifican y no dependen del desfase entre tensión y corriente $\phi$:
 
 \[
 P_{\text{cond,MOSFET}} \approx I_{\text{RMS}} V_{Q0} \left(\frac{1}{\pi\sqrt{2}} + \frac{m PF}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_Q \left(\frac{1}{4} + \frac{2m}{3\pi PF}\right)
@@ -1819,7 +1823,7 @@ Con este razonamiento, se da un valor de pérdidas de conducción promedio del i
 XXXXXXXXXXXXXXXXXXXXXXXX
 
 
-\subsubsection{Sistema de Refrigeración}
+\subsection{Sistema de Refrigeración}
 
 A continuación se presenta una comparación entre las opciones comunes para refrigerar el inversor:
 
