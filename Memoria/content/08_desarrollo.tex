@@ -1847,7 +1847,6 @@ A continuación se muestra una tabla comparativa con los detalles de cada semico
 	\caption{Comparación de parámetros entre DFS05HF12EYR1 y CAB016M12FM3.}
 \end{table}
 
-
 \subsubsection{Análisis de Pérdidas}
 
 Los dispositivos semiconductores experimentan pérdidas de energía que influyen significativamente en su eficiencia y desempeño, y se transforman en calor, limitando así la potencia de salida. Estas pérdidas pueden clasificarse en dos categorías fundamentales: las pérdidas de conducción y las pérdidas de conmutación. Las \textbf{pérdidas de conducción} surgen cuando el dispositivo se encuentra en estado activo, conduciendo corriente a través de él. Esto genera una caída de voltaje y una disipación de potencia asociada a la resistencia interna del dispositivo. Por otro lado, las \textbf{pérdidas de conmutación} se manifiestan durante los ciclos de activación y desactivación del dispositivo, cuando la energía almacenada en la capacitancia del mismo se disipa durante la transición entre los estados de conducción y corte.
@@ -1883,7 +1882,7 @@ P_{\text{cond},D} \approx I_{\text{RMS}} V_{D0} \left(\frac{1}{\pi\sqrt{2}} - \f
 
 Como se puede apreciar, aunque son más compactas que otras en la bibliografía, estas expresiones son difíciles de abordar, puesto que casi todos los parámetros son instantáneos. Por ello, se ha usado PLECS para estimar las pérdidas de conducción debido a que facilita la simulación detallada de los semiconductores y permite obtener las pérdidas de forma diseccionada por cada dispositivo y tipo de pérdida. PLECS utiliza modelos detallados de los dispositivos, considerando sus características de conmutación y conducción reales.
 
-Con los parámetros de estos modelos, PLECS calcula las pérdidas de conmutación y conducción de manera precisa. Sin embargo, como no tiene en cuenta el circuito completo de los \textit{gate drivers}, no se pueden tomar directamente las pérdidas de conmutación. Por ello, se toman como válidas solamente las pérdidas de conducción en PLECS. Se usa un modelo de MOSFET de Wolfspeed proporcionado directamente por el fabricante. Este modelo cuenta con una parametrización de las pérdidas y los efectos térmicos mucho más detallada que la que se puede obtener a partir de la hoja de datos. El fabricante utiliza tablas de búsqueda en función de la tensión, corriente y temperatura, e incorpora una relación matemática con las resistencias de puerta. Lamentablemente, Leapers no ofrece esta parametrización con sus semiconductores, por lo que el análisis en PLECS se realiza únicamente con el modelo de Wolfspeed, siendo este el más restrictivo en cuanto a las pérdidas de conducción.
+Con los parámetros de estos modelos, PLECS calcula las pérdidas de conmutación y conducción de manera precisa. Sin embargo, como no tiene en cuenta el circuito completo de los \textit{gate drivers}, no se pueden tomar directamente las pérdidas de conmutación. Se usa un modelo de MOSFET y diodo de Wolfspeed proporcionado directamente por el fabricante. Este modelo cuenta con una parametrización de las pérdidas y los efectos térmicos mucho más detallada que la que se puede obtener a partir de la hoja de datos. El fabricante utiliza tablas de búsqueda en función de la tensión, corriente y temperatura, e incorpora una relación matemática con las resistencias de puerta. Lamentablemente, Leapers no ofrece esta parametrización con sus semiconductores, por lo que el análisis en PLECS se realiza únicamente con el modelo de Wolfspeed, siendo este el más restrictivo en cuanto a las pérdidas de conducción.
 
 Para sacarle el máximo partido, se ha obtenido un perfil de pérdidas a máxima potencia para el inversor en diferentes zonas de control del PMSM, que se puede observar a continuación.
 
@@ -1891,6 +1890,7 @@ Para sacarle el máximo partido, se ha obtenido un perfil de pérdidas a máxima
 	\centering
 	\includegraphics[width=0.9\linewidth]{fig/PLECS-invLosses}
 	\caption{Descomposición de las pérdidas de los semiconductores de una simulación en PLECS.}
+	\label{losses-sim}
 \end{figure}
 
 Se puede ver como las pérdidas de conducción son más significativas que las de conmutación, y varían significativamente. Las zonas de par constante (de 1,05 s a 1,4 s por ejemplo), muestran unas pérdidas casi constantes con la corriente, pero crecen debido a la temperatura. Se anota para una comparación posterior que las pérdidas de conmutación de los MOSFETs están entre 150 y 200 W. Al entrar en la zona de límite de tensión (de 1,4 s a 1,45 s), se observa un pico que se corresponde con la zona de potencia constante, que en esta simulación es la potencia máxima. Para obtener un valor constante de pérdidas con el que diseñar la refrigeración, se parte de este valor de pico (450 W aproximadamente) y se trata de la misma manera que la relación de potencia media respecto a la potencia pico calculada en la sección de requisitos.
@@ -1899,7 +1899,13 @@ Se puede ver como las pérdidas de conducción son más significativas que las d
 \frac{P_{RMS}}{P_{pico}} = \frac{35 kW}{80 kW} = 0.4375 \approx 0.5
 \]
 
-Con este razonamiento, se da un valor de pérdidas de conducción promedio del inversor de $450 \text{W} \cdot 0.5 = 225$ W. Como hay dos inversores anclados a la misma \textit{coldplate}, las pérdidas de conducción que debe disipar es de $225 \text{W} \cdot 2 = 450$ W. Sin embargo, se da un cierto factor de seguridad y se redondea el número a $700$ W para el diseño de la \textit{coldplate}.
+Con este razonamiento, se da un valor de pérdidas de conducción promedio del inversor de $450 \text{W} \cdot 0.5 = 225$ W. Como hay dos inversores anclados a la misma \textit{coldplate}, las pérdidas de conducción que debe disipar es de $225 \text{W} \cdot 2 = 450$ W. Es importante recordar que estas pérdidas son para el semiconductor de Wolfspeed. Dado que las pérdidas de conducción son proporcionales a $R_{DS, on}$, se pueden aproximar las pérdidas de conducción del semiconductor de Leapers de la siguiente manera:
+\[
+P_{\text{cond,Wolfspeed}} = 450 \text{W}
+\]
+\[
+P_{\text{cond,Leapers}} \approx P_{\text{cond,Wolfspeed}} \cdot \frac{R_{DS, on, Leapers}}{R_{DS, on, Wolfspeed}} = 450 \text{W} \cdot \frac{5.5 m\Omega}{16 m\Omega} \approx 155 \text{W}
+\]
 
 
 \textbf{Pérdidas de conmutación}
@@ -1950,15 +1956,55 @@ P_{\text{conm}} \approx (1.13 \text{mJ} + 0.54 \text{mJ}) \times 50 \text{kHz} \
 P_{\text{conm, Wolfspeed}} \approx 37.59 \text{W}
 \]
 
-Dado que estas pérdidas son para un solo MOSFET, se deben multiplicar por 6 para obtener las pérdidas de conmutación totales, dado que hay 6 dispositivos de potencia en la topología VSI.
+Dado que estas pérdidas son para un solo MOSFET, se deben multiplicar por 12 para obtener las pérdidas de conmutación totales, dado que hay 6 dispositivos de potencia en la topología VSI y hay dos VSIs en el convertidor.
 
 \[
-P_{\text{conm, Leapers, tot}} = 6\cdot P_{\text{conm, Leapers}} \approx 369.5 \, \text{W}
+P_{\text{conm, Leapers, tot}} = 12\cdot P_{\text{conm, Leapers}} \approx 739 \, \text{W}
 \]
 
 \[
-P_{\text{conm, Wolfspeed, tot}} = 6\cdot P_{\text{conm, Wolfspeed}} \approx 225.5 \, \text{W}
+P_{\text{conm, Wolfspeed, tot}} = 12\cdot P_{\text{conm, Wolfspeed}} \approx 451 \, \text{W}
 \]
+
+Con tal de verificar estas pérdidas, se puede revisar la simulación realizada anteriormente, mostrada en la figura \ref{losses-sim}. En ella, se pueden apreciar unos 150 W de pérdidas de conducción para el semiconductor de Wolfspeed, lo cual se alinea con el cálculo analítico realizado, siendo este último un tanto más conservador (hay que tener en cuenta que la simulación usa solamente un VSI). Dado que no se han tenido en cuenta los efectos de $R_{G, on}$, $R_{G, off}$ ni ningún tipo de caracterización del \textit{gate driver}, se debe saber que el valor real puede ser más alto o más bajo, y dependiente de muchos factores que harían complejo su análisis.
+
+
+\textbf{Resumen de pérdidas}
+
+El siguiente gráfico presenta una comparación detallada de las pérdidas de conducción y conmutación para los semiconductores de Leapers y Wolfspeed.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			ybar stacked,
+			width=0.65\textwidth,
+			yticklabel style={/pgf/number format/.cd,fixed,fixed zerofill,precision=0,/tikz/.cd},
+			ylabel={Pérdidas (W)},
+			symbolic x coords={Leapers, Wolfspeed},
+			xtick=data,
+			bar width=8pt, % Ancho de las barras
+			enlarge x limits=0.25, % Espacio adicional a ambos lados de las barras
+			nodes near coords,
+			nodes near coords align={vertical},
+			every node near coord/.append style={font=\scriptsize, xshift=-15pt, yshift=0pt},
+			legend style={
+				at={(0.5, 0.9)},
+				anchor=north,
+			},
+			]
+			\addplot coordinates {(Leapers, 155) (Wolfspeed, 450)};
+			\addplot coordinates {(Leapers, 739) (Wolfspeed, 451)};
+			\legend{Conducción, Conmutación}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Comparación de pérdidas de conducción y conmutación}
+	\label{fig:loss_comparison}
+\end{figure}
+
+Se observa que en el caso de Leapers, las pérdidas de conducción exhiben una significativa disminución en comparación con las de Wolfspeed, mientras que las pérdidas de conmutación muestran un incremento dramático para Leapers en relación con Wolfspeed. Este fenómeno sugiere que, en líneas generales, los dispositivos desarrollados por Leapers podrían ofrecer un camino de corriente más favorable en el semiconductor, y los dispositivos de Wolfspeed son capaces de conmutar más rápido debido a que su carga $Q_G$ es mucho menor, reduciendo así $E_{on}$ y $E_{off}$.
+
+La suma total de las pérdidas de ambos inversores, independientemente del semiconductor, se sitúa entorno a los 900 W, valor con el cual se puede diseñar el sistema de refrigeración.
 
 \subsection{Sistema de Refrigeración}
 
