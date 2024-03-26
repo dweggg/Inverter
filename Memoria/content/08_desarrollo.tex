@@ -465,30 +465,33 @@ El modelo de circuito equivalente se divide en los circuitos del eje $d$ y el ej
 
 \begin{figure}[H]
 	\centering
-	
-	% Side-by-side d-q circuits
-	\begin{circuitikz}[american voltages]
-		% d-axis circuit
-		\draw (0,0) to [L, l=$L_d$, o-] ++(2,0) to [R, l=$R_s$] ++(2,0) to [V, v^=$\omega_e\cdot L_q\cdot i_q$, invert] ++(2,0) -- ++(0,-2){};
-		% Parallel line
-		\draw (0,-2) node[circ, fill=none]{} -- ++(6,0);
-		% Current label
-		\draw (4,-2) to [open, i_=$i_d$] (2,-2);
-		% Voltage labels
-		\draw (0,0) to [open, v^=$v_d$] (0,-2);
-	\end{circuitikz}
-
-	\begin{circuitikz}[american voltages]
-		% q-axis circuit
-		\draw (0,0) to [L, l=$L_q$, o-] ++(2,0) to [R, l=$R_s$] ++(2,0) to [V, v^=$\omega_e\cdot L_d\cdot i_d$] ++(2,0) to [V, v^=$\omega_e \lambda_m$] ++(0,-2){};
-		% Parallel line
-		\draw (0,-2) node[circ, fill=none]{} -- ++(6,0);
-		% Current label
-		\draw (4,-2) to [open, i_=$i_q$] (2,-2);
-		% Voltage labels
-		\draw (0,0) to [open, v^=$v_q$] (0,-2);
-	\end{circuitikz}
-	
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\begin{circuitikz}[american voltages]
+			% d-axis circuit
+			\draw (0,0) to [L, l=$L_d$, o-] ++(2,0) to [R, l=$R_s$] ++(2,0) to [V, v^=$\omega_e\cdot L_q\cdot i_q$, invert] ++(2,0) -- ++(0,-2){};
+			% Parallel line
+			\draw (0,-2) node[circ, fill=none]{} -- ++(6,0);
+			% Current label
+			\draw (4,-2) to [open, i_=$i_d$] (2,-2);
+			% Voltage labels
+			\draw (0,0) to [open, v^=$v_d$] (0,-2);
+		\end{circuitikz}
+	\end{minipage}
+	\hspace{0.05\textwidth}
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\begin{circuitikz}[american voltages]
+			% q-axis circuit
+			\draw (0,0) to [L, l=$L_q$, o-] ++(2,0) to [R, l=$R_s$] ++(2,0) to [V, v^=$\omega_e\cdot L_d\cdot i_d$] ++(2,0) to [V, v^=$\omega_e \lambda_m$] ++(0,-2){};
+			% Parallel line
+			\draw (0,-2) node[circ, fill=none]{} -- ++(6,0);
+			% Current label
+			\draw (4,-2) to [open, i_=$i_q$] (2,-2);
+			% Voltage labels
+			\draw (0,0) to [open, v^=$v_q$] (0,-2);
+		\end{circuitikz}
+	\end{minipage}
 	\caption{Circuitos eléctricos equivalentes del modelo $d-q$ de un PMSM.}
 \end{figure}
 
