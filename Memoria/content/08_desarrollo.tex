@@ -2109,15 +2109,34 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 
 
 \begin{itemize}
-	\item \textbf{Mínima Corriente del Gate Driver (\(I_{GD(min)}\)):} Se estima en función de la frecuencia de conmutación y la carga de la compuerta de los MOSFETs.
 	
-	\item \textbf{Potencia Mínima (\(P_{min}\)):} Se calcula la potencia mínima necesaria para asegurar una conmutación adecuada.
+	\item \textbf{Tensión \textit{gate-source}}: Uno de los valores más importantes a determinar es el nivel de tensión de puerta para encender y apagar el MOSFET. En una aplicación \textit{hard-switched} como la del convertidor en diseño, es beneficioso usar una tensión de encendido tan alta como sea posible.
 	
-	\item \textbf{Valores de Resistencias del Gate (\(R_{G_{ON/FF}}\)):} Se discute la elección de resistencias óptimas para reducir pérdidas de conmutación y controlar el dV/dt.
+	Dada la naturaleza rápida del carburo de silicio, se prevé una dV/dt considerable, la cual puede causar varios problemas. Uno de ellos sería la activación accidental de un MOSFET, la cual causaría la condición de \textit{shoot-through}. Una estrategia para mitigar parcialmente este problema es el uso de un \textit{gate driver} con \textit{Miller Clamp}. Además, se suele apagar el dispositivo utilizando una tensión negativa, que amortigua posibles interferencias en la puerta del dispositivo afectado. El valor de tensión negativo al cual se encuentre la puerta aumenta la tensión que debe inducirse en ese nodo para llegar a la tensión umbral $V_{G,treshold}$ del MOSFET. Dado que el valor óptimo no es trivial, conviene implementar alguna manera de modificarlo, por ejemplo, mediante el uso de un regulador lineal.
+	
+	Los dispositivos seleccionados tienen un rango de tensiones $V_{GS}$ un tanto distintos, siendo el de Leapers de +21 V a -2 V, y el de Wolfspeed de +15 V a -4 V.
+	
+	\item \textbf{Potencia de alimentación del \textit{gate driver}:} Se estima en función de la frecuencia de conmutación y la carga de la compuerta de los MOSFETs, además de la tensión $V_{GS}$.
+	
+	\[
+	I_{supply, min} = f_{conm}\cdot Q_G = 50 kHz \cdot 520 nC = 26 mA
+	\]
+	\[
+	P_{supply, min} = \Delta V_{GS}\cdot I_{supply, min} = 20 V \cdot26 mA = 0.52 W
+	\]
+	
+	Con esta estimación de potencia mínima requerida, es esencial seleccionar una fuente adecuada para los \textit{gate drivers}. En este contexto, se considera la serie MGJ2 de Murata, que ofrece características como:
+	\begin{itemize}
+		\item Tensión de entrada de 5 V, 12 V, 15 V o 24 V, lo que permite adaptarse a diferentes fuentes de alimentación disponibles. En esta aplicación, la entrada de 5 V simplifica mucho la arquitectura de \textit{hardware}.
+		\item Rango de tensiones de salida como +15V/-3V, +15V/-5V, +15V/-8.7V, +15V/-15V, +17V/-9V, +18V/-2.5V, +18V/-5V, +20V/-3.5V y +20V/-5V, que permite intercambiar fuentes para probar distintos niveles de tensión.
+		\item Aislamiento reforzado hasta 5.2 kVDC, garantizando la seguridad y el cumplimiento de la normativa.
+		\item Caracterización de CMTI mayor a 200 V/ns, lo que garantiza una respuesta rápida y efectiva ante transitorios de alta velocidad.
+	\end{itemize}
+	
+	\item \textbf{Valores de Resistencias de Puerta (\(R_{G_{ON/OFF}}\)):} Reducir el valor de las resistencias de puerta conlleva la disminución de las pérdidas de conmutación, ya que los MOSFETs cambiarán más rápido y, por lo tanto, pasarán menos tiempo en la etapa de conmutación. Esta rapidez en el cambio implica un mayor dV/dt, lo que puede ser responsable del aumento de la interferencia electromagnética (EMI). El valor de estas resistencias se estimará mejor con pruebas empíricas, pero se puede partir de un valor de referencia de la hoja de datos, que en este caso es de 3.3 $\Omega$.
 	
 \end{itemize}
 
-Estos cálculos y consideraciones aseguran un diseño óptimo y eficiente del sistema de control de los MOSFETs.
 
 \subsubsection{Fuente de alimentación para el \textit{gate driver}}
 blablabla
