@@ -1648,7 +1648,7 @@ Con toda la información que se ha recopilado se pueden listar los requisitos m�
 	\item \textbf{Potencia pico:} 80 kW ($2\times40$ kW).
 	\item \textbf{Potencia constante:} 35 kW ($2\times17.5$ kW).
 	\item \textbf{Tensión DC máxima:} 600 V.
-	\item \textbf{Tensión fase-neutro sintetizada máxima:} 245 VRMS (SVPWM).
+	\item \textbf{Tensión fase-neutro sintetizada máxima:} 245 V,RMS (SVPWM).
 	\item \textbf{Corriente de fase máxima:} 80 A,RMS.
 	\item \textbf{Aislamiento galvánico entre TS y LVS}.
 	\item \textbf{Detección de tensión}.
@@ -1849,7 +1849,7 @@ Para sacarle el máximo partido, se ha obtenido un perfil de pérdidas a máxima
 Se puede ver como las pérdidas de conducción son más significativas que las de conmutación, y varían significativamente. Las zonas de par constante (de 1,05 s a 1,4 s por ejemplo), muestran unas pérdidas casi constantes con la corriente, pero crecen debido a la temperatura. Se anota para una comparación posterior que las pérdidas de conmutación de los MOSFETs están entre 150 y 200 W. Al entrar en la zona de límite de tensión (de 1,4 s a 1,45 s), se observa un pico que se corresponde con la zona de potencia constante, que en esta simulación es la potencia máxima. Para obtener un valor constante de pérdidas con el que diseñar la refrigeración, se parte de este valor de pico (450 W aproximadamente) y se trata de la misma manera que la relación de potencia media respecto a la potencia pico calculada en la sección de requisitos.
 
 \[
-\frac{P_{RMS}}{P_{pico}} = \frac{40 kW}{80 kW} = 0.5
+\frac{P_{RMS}}{P_{pico}} = \frac{35 kW}{80 kW} = 0.4375 \approx 0.5
 \]
 
 Con este razonamiento, se da un valor de pérdidas de conducción promedio del inversor de $450 \text{W} \cdot 0.5 = 225$ W. Como hay dos inversores anclados a la misma \textit{coldplate}, las pérdidas de conducción que debe disipar es de $225 \text{W} \cdot 2 = 450$ W. Sin embargo, se da un cierto factor de seguridad y se redondea el número a $700$ W para el diseño de la \textit{coldplate}.
@@ -1877,6 +1877,41 @@ Y si la corriente es una sinusoide semi-rectificada con un valor de pico de \(\s
 P_{conm} \approx (E_{on} + E_{off}) f_{conm} \frac{\sqrt{2} I_{rms}}{\pi I_{test}} \frac{V_{dc}}{V_{test}}
 \]
 
+Sustituyendo por los valores del convertidor en diseño:
+
+\begin{itemize}
+	\item Generales: \(f_{\text{conm}} = 50 \, \text{kHz}\), \(I_{\text{rms}} = 80 \, \text{A}\), \(V_{\text{dc}} = 600 \, \text{V}\)
+	\item Leapers: \(E_{\text{on}} = 3.54 \, \text{mJ}\), \(E_{\text{off}} = 1.59 \, \text{mJ}\), \(V_{\text{test}} = 600 \, \text{V}\), \(I_{\text{test}} = 150 \, \text{A}\)
+	\item Wolfspeed: \(E_{\text{on}} = 1.13 \, \text{mJ}\), \(E_{\text{off}} = 0.54 \, \text{mJ}\), \(V_{\text{test}} = 600 \, \text{V}\), \(I_{\text{test}} = 80 \, \text{A}\)
+\end{itemize}
+
+Para los dispositivos Leapers, sustituyendo en la fórmula:
+
+\[
+P_{\text{conm}} \approx (3.54 \, \text{mJ} + 1.59 \, \text{mJ}) \times 50 \, \text{kHz} \times \frac{80 \, \text{A}}{150 \, \text{A}} \times \frac{600 \, \text{V}}{600 \, \text{V}}
+\]
+\[
+P_{\text{conm, Leapers}} \approx 61.58 \, \text{W}
+\]
+
+Para los dispositivos Wolfspeed:
+
+\[
+P_{\text{conm}} \approx (1.13 \, \text{mJ} + 0.54 \, \text{mJ}) \times 50 \, \text{kHz} \times \frac{80 \, \text{A}}{80 \, \text{A}} \times \frac{600 \, \text{V}}{600 \, \text{V}}
+\]
+\[
+P_{\text{conm, Wolfspeed}} \approx 37.59 \, \text{W}
+\]
+
+Dado que estas pérdidas son para un solo MOSFET, se deben multiplicar por 6 para obtener las pérdidas de conmutación totales, dado que hay 6 dispositivos de potencia en la topología VSI.
+
+\[
+P_{\text{conm, Leapers, tot}} \approx 6\cdot P_{\text{conm, Leapers}} = 369.5 \, \text{W}
+\]
+
+\[
+P_{\text{conm, Wolfspeed, tot}} \approx 6\cdot P_{\text{conm, Wolfspeed}} = 225.5 \, \text{W}
+\]
 
 \subsection{Sistema de Refrigeración}
 
