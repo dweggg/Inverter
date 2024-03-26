@@ -1579,13 +1579,40 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
     \item \textit{\textbf{EV4.3.1} The entire TS and LVS must be galvanically isolated, see EV1.2.1 and IN4.1.1.} Afecta el diseño de la separación y el aislamiento entre ambos sistemas.
     \item \textit{\textbf{EV4.3.4} Where both TS and LVS are present within an enclosure, they must be separated by barriers made of moisture-resistant insulating materials or maintain the following spacing through the air, or over a surface:} Impacta en el diseño del empaquetado del inversor.  Se usarán aislantes como el Nomex en caso de que no se pueda garantizar el espaciado por aire.
 
-    **************************TABLA SPACINGS*********************************
+	\begin{table}[H]
+		\centering
+		\caption{Voltage Spacing Requirements}
+		\begin{tabular}{|l|l|}
+			\hline
+			Voltage         & Spacing     \\ \hline
+			\(U < 100 \, \text{VDC}\)  & 10 mm       \\ \hline
+			\(100 \, \text{VDC} < U < 200 \, \text{VDC}\) & 20 mm       \\ \hline
+			\(U > 200 \, \text{VDC}\)  & 30 mm       \\ \hline
+		\end{tabular}
+	\end{table}
 
     \item \textit{\textbf{EV4.3.6} If TS and LVS are on the same PCB, they must be on separate well-defined areas of the board, meeting the spacing requirements in table 5, each area clearly marked with “TS” or “LV”. The outline of the area required for spacing must  be marked. “Conformal coating” refers to a coating insulator, solder resist is not a coating.} Tendrá efectos en el diseño de la PCB de potencia.
     
-    **************************TABLA SPACINGS*********************************
+	\begin{table}[H]
+		\centering
+		\caption{Voltage Spacing Requirements}
+		\begin{tabular}{|l|l|l|l|}
+			\hline
+			Voltage & Over Surface & Through Air (Cut in board) & Conformal Coating \\
+			\hline
+			0 to 50 & 1.6 mm & 1.6 mm & 1.0 mm \\
+			\hline
+			50 to 150 & 6.4 mm & 3.2 mm & 2.0 mm \\
+			\hline
+			150 to 300 & 9.5 mm & 6.4 mm & 3.0 mm \\
+			\hline
+			300 to 600 & 12.7 mm & 9.5 mm & 4.0 mm \\
+			\hline
+		\end{tabular}
+	\end{table}
 
-    \item \textit{\textbf{EV4.5.3} The temperature rating for TS wiring, connections, and insulation must be appropriate for the expected surrounding temperatures but at least 85 ◦C.} Influirá en la selección de cables y materiales aislantes.
+
+    \item \textit{\textbf{EV4.5.3} The temperature rating for TS wiring, connections, and insulation must be appropriate for the expected surrounding temperatures but at least 85 ºC.} Influirá en la selección de cables y materiales aislantes.
     \item \textit{\textbf{EV4.5.4} TS components and containers must be protected from moisture in the form of rain or puddles, see IN9.} Impactará en el diseño de la caja.
     \item \textit{\textbf{EV4.5.6} All TS wiring must be completed to professional standards with appropriately sized conductors and terminals and with adequate strain relief and protection from loosening due to vibration etc.} Tendrá efectos en el diseño de las conexiones y terminales.
     \item \textit{\textbf{EV4.5.10} Every TS connector outside of a housing must include a pilot contact/interlock line which is part of the SDC. Housings only used to avoid interlocks are prohibited.} Impactará en el diseño de los conectores y sistemas de interconexión.
@@ -1802,6 +1829,7 @@ Sin embargo, estas expresiones se corresponden con las pérdidas instantáneas y
 \[
 P_{\text{cond,MOSFET}} \approx I_{\text{RMS}} V_{Q0} \left(\frac{1}{\pi\sqrt{2}} + \frac{m PF}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_Q \left(\frac{1}{4} + \frac{2m}{3\pi PF}\right)
 \]
+
 \[
 P_{\text{cond},D} \approx I_{\text{RMS}} V_{D0} \left(\frac{1}{\pi\sqrt{2}} - \frac{m PF}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_D \left(\frac{1}{4} - \frac{2m}{3\pi PF}\right)
 \]
