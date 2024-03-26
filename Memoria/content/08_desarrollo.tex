@@ -495,21 +495,21 @@ El modelo de circuito equivalente se divide en los circuitos del eje $d$ y el ej
 Se puede observar que:
 
 \begin{equation}
-v_d = v_{r_s} - \omega_e \cdot L_q \cdot i_q + v_{L_d}
+v_d = v_{R_s} - \omega_e \cdot L_q \cdot i_q + v_{L_d}
 \end{equation}
 
 \begin{equation}
-v_d = r_s\cdot i_d - \omega_e \cdot L_q \cdot i_q + L_d\cdot\frac{d i_d}{d t}
+v_d = R_s\cdot i_d - \omega_e \cdot L_q \cdot i_q + L_d\cdot\frac{d i_d}{d t}
 \end{equation}
 
 Y:
 
 \begin{equation}
-v_q = v_{r_s} - \omega_e \cdot L_d \cdot i_d + \omega_e \cdot \lambda_m + v_{L_q}
+v_q = v_{R_s} - \omega_e \cdot L_d \cdot i_d + \omega_e \cdot \lambda_m + v_{L_q}
 \end{equation}
 
 \begin{equation}
-v_q = r_s\cdot i_q - \omega_e \cdot L_d \cdot i_q + \omega_e \cdot \lambda_m + L_q\cdot\frac{d i_q}{d t}
+v_q = R_s\cdot i_q - \omega_e \cdot L_d \cdot i_q + \omega_e \cdot \lambda_m + L_q\cdot\frac{d i_q}{d t}
 \end{equation}
 
 Donde:
@@ -1239,13 +1239,13 @@ Donde $T_s$ es la inversa de la frecuencia de control.
 \omega_n = \frac{3}{\xi \cdot t_s}
 \]
 \[
-Kp_{id} = 2 \cdot \xi \cdot \omega_n \cdot L_d - r_s
+Kp_{id} = 2 \cdot \xi \cdot \omega_n \cdot L_d - R_s
 \]
 \[
 Ki_{id} = \omega_n^2 \cdot L_d
 \]
 \[
-Kp_{iq} = 2 \cdot \xi \cdot \omega_n \cdot L_q - r_s
+Kp_{iq} = 2 \cdot \xi \cdot \omega_n \cdot L_q - R_s
 \]
 \[
 Ki_{iq} = \omega_n^2 \cdot L_q \quad
