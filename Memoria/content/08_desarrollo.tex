@@ -2067,7 +2067,7 @@ Al seleccionar un \textit{gate driver}, varios factores deben tenerse en cuenta 
 \begin{itemize}
 	\item Topología: A pesar de que hay soluciones que incluyen 6 \textit{drivers} en un solo encapsulado, las más comunes son los circuitos integrados diseñados para controlar un solo dispositivo o dos en configuración de medio puente. Sin embargo, encontrar esta última opción para el rango de tensiones de 600 V con características óptimas es difícil. Por lo tanto, la topología más adecuada suele ser la de un solo \textit{driver} por encapsulado.
 	\item Tensión de aislamiento: Dado que las señales de puerta vienen del sistema de baja tensión, deben aislarse antes de llegar al \textit{gate}, con lo que será necesario buscar un componente aislado a una tensión adecuada de al menos tres veces superior a la tensión máxima del inversor, 600 V. 
-	\item Corriente de salida: Es crucial elegir un \textit{gate driver} que pueda suministrar la corriente necesaria para cargar y descargar rápidamente las capacidades de compuerta de los MOSFETs. La corriente necesaria depende de la resistencia de puerta, pero se puede determinar una primera cota de $\frac{V_{GS,typ}}{R_{G,int}} = \frac{20 V}{2.4 \Omega} = 8.3 A$
+	\item Corriente de salida: Es crucial elegir un \textit{gate driver} que pueda suministrar la corriente necesaria para cargar y descargar rápidamente las capacidades de compuerta de los MOSFETs. La corriente necesaria depende de la resistencia de puerta, pero se puede determinar una primera cota de $\frac{V_{GS,typ}}{R_{G,int}} = \frac{20 \text{V}}{2.4 \Omega} = 8.3 \text{A}$
 	\item Protecciones integradas: Funciones como la lectura de señales analógicas, la posibilidad de paralelizar salidas o la inclusión de protecciones son muy beneficiosas para la integración del convertidor.
 \end{itemize}
 
@@ -2119,10 +2119,10 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 	\item \textbf{Potencia de alimentación del \textit{gate driver}:} Se estima en función de la frecuencia de conmutación y la carga de la compuerta de los MOSFETs, además de la tensión $V_{GS}$.
 	
 	\[
-	I_{supply, min} = f_{conm}\cdot Q_G = 50 kHz \cdot 520 nC = 26 mA
+	I_{supply, min} = f_{conm}\cdot Q_G = 50 \text{kHz} \cdot 520 \text{nC} = 26 \text{mA}
 	\]
 	\[
-	P_{supply, min} = \Delta V_{GS}\cdot I_{supply, min} = 20 V \cdot26 mA = 0.52 W
+	P_{supply, min} = \Delta V_{GS}\cdot I_{supply, min} = 20 \text{V} \cdot26 \text{mA} = 0.52 \text{W}
 	\]
 	
 	Con esta estimación de potencia mínima requerida, es esencial seleccionar una fuente adecuada para los \textit{gate drivers}. En este contexto, se considera la serie MGJ2 de Murata, que ofrece características como:
@@ -2137,9 +2137,6 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 	
 \end{itemize}
 
-
-\subsubsection{Fuente de alimentación para el \textit{gate driver}}
-blablabla
 
 \subsection{Bus de condensadores}
 
