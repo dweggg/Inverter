@@ -1,10 +1,10 @@
 \chapter{Desarrollo}
 
-\section{Estudio del modelo matemático del PMSM}
+\section{Modelo matemático del PMSM}
 
 En esta sección, se abordará de manera gradual la introducción al control vectorial de máquinas eléctricas. Esta sección se asemeja más a un conjunto de pasos para comprender completamente el control utilizado en los inversores. Es importante tener en cuenta que existen muchas simplificaciones matemáticas, suposiciones no justificadas y pasos omitidos ya que la extensión de la sección sería extremadamente larga en caso de razonar desde cero todos los resultados.
 
-\subsection{Modelo trifásico del PMSM}
+\subsection{Marco de referencia estático}
 
 Los motores síncronos de imanes permanentes (PMSM) están hechos de hierro, cobre y imanes. Se limita el análisis a máquinas de tres fases, aunque el análisis para sistemas con más de tres fases es similar. El cobre se distribuye en devanados, que tienen una resistencia y una inductancia iguales entre ellas si la máquina está equilibrada. Además, cuando el rotor gira, los imanes permanentes inducen una tensión en los devanados, lo que se conoce como fuerza contraelectromotriz (FCEM).
 
@@ -404,7 +404,7 @@ Se puede ver que la transformada es simplemente una rotación a lo largo de uno 
     \end{bmatrix}
 \end{equation}
 
-\subsection{Modelo del PMSM con marco de referencia rotatorio}
+\subsection{Marco de referencia rotatorio}
 
 En esta sección, se convertirá el modelo trifásico inicial del PMSM en un modelo continuo en el marco de referencia $d - q$. Antes, se omitieron las ecuaciones del modelo trifásico, pero utilizando estas y aplicando las transformadas de Clarke y Park, se obtienen las ecuaciones que se derivarán en esta sección.
 
@@ -462,6 +462,7 @@ El enfoque general es utilizar la transformada de amplitud constante, lo que lle
 
 El modelo de circuito equivalente se divide en los circuitos del eje $d$ y el eje $q$:
 
+
 \begin{figure}[H]
 	\centering
 	
@@ -476,7 +477,7 @@ El modelo de circuito equivalente se divide en los circuitos del eje $d$ y el ej
 		% Voltage labels
 		\draw (0,0) to [open, v^=$v_d$] (0,-2);
 	\end{circuitikz}
-	\hspace{1cm} % Adjust the horizontal space between circuits
+
 	\begin{circuitikz}[american voltages]
 		% q-axis circuit
 		\draw (0,0) to [L, l=$L_q$, o-] ++(2,0) to [R, l=$R_s$] ++(2,0) to [V, v^=$\omega_e\cdot L_d\cdot i_d$] ++(2,0) to [V, v^=$\omega_e \lambda_m$] ++(0,-2){};
@@ -619,6 +620,49 @@ T_{em} =
 \]
 
 Además \(P_m\) aumentará linealmente con \(\omega_m\) hasta \(\omega_{m,nom}\), ya que \(P_m = T_{em} \cdot \omega_m\). Desde \(\omega_{m,nom}\) hasta \(\omega_{m,max}\), \(P_m\) es una recta de valor \(P_{m,max}\)
+
+\begin{figure}[H]
+	\centering
+	\hspace*{-1.5cm}
+	\begin{tikzpicture}
+		\begin{axis}[
+			axis lines=middle,
+			width=10cm,
+			height=8cm,
+			x label style={at={(axis description cs:-0.1,0.5)},anchor=north},
+			y label style={at={(axis description cs:0.5,-0.1)},rotate=90,anchor=south},
+			xlabel={$\omega_m$},
+			ylabel={$P_{em}$},
+			ytick={-26, 26},
+			xtick={-2000,-1000,1000,2000},
+			yticklabels={$-P_{m,max}$, $P_{m,max}$},
+			xticklabels={$-\omega_{m,max}$, $-\omega_{m,nom}$, $\omega_{m,nom}$,$\omega_{m,max}$},
+			grid=none,  
+			ymin=-40,
+			ymax=40,
+			samples=15,
+			domain=-2500:2500,
+			nodes near coords align={south east},
+			y tick label style={yshift={sign(\tick)*10}},
+			ylabel style={rotate=-90},
+			%no marks
+			% axis line style={draw=none},  % Elimina el recuadro exterior
+			]
+			\addplot[blue, thick, domain=-1000:1000] {x*26/1000};
+			\addplot[blue, thick, domain=-1000:1000] {-x*26/1000};
+			\addplot[blue, thick, domain=1000:2500] {26};
+			\addplot[blue, thick, domain=-2500:-1000] {-26};
+			\addplot[white, line width=1mm, domain=2000:2500] {26};
+			\addplot[white, line width=1mm, domain=-2500:-2000] {-26};
+			\addplot[blue, thick, domain=1000:2500] {-26};
+			\addplot[blue, thick, domain=-2500:-1000] {26};
+			\addplot[white, line width=1mm, domain=2000:2500] {-26};
+			\addplot[white, line width=1mm, domain=-2500:-2000] {26};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Curva de potencia-velocidad del PMSM.}
+\end{figure}
+
 
 \subsubsection{CLC (Círculo de límite de corriente)}
 
@@ -1729,7 +1773,7 @@ Con el fin de producir las tensiones trifásicas que calcula el control para los
         \draw (M4.S) -- (M5.S) -- (M6.S);
 
         % Battery
-        \draw (M1.D)  |-  ++(-4,0) to[battery, l=$V_{\text{DC}}$] ++(0,-3.5)  |-  (M4.S);
+        \draw (M1.D)  |-  ++(-4,0) to[battery, l=$V_{DC}$] ++(0,-3.5)  |-  (M4.S);
         \draw (M1.D)  |-  ++(-1.5,0) to[capacitor] ++(0,-3.5)  |-  (M4.S);
 
         % Phase cables
@@ -1860,7 +1904,7 @@ Con este razonamiento, se da un valor de pérdidas de conducción promedio del i
 El cálculo de las pérdidas de conmutación es más fácil de determinar de forma analítica, aunque depende del circuito de \textit{gate driver} y de sus parásitos. Si no se tienen en cuenta estos dos factores, se pueden calcular utilizando los valores de \(E_{on}\) y \(E_{off}\), que representan la energía necesaria para encender o apagar el dispositivo respectivamente. Cuando las hojas de datos de los semiconductores proporcionan los valores \(E_{on}\) y \(E_{off}\), las pérdidas de conmutación pueden calcularse de forma directa. Estas pérdidas están influenciadas por la tensión de conmutación, la corriente de conmutación, la temperatura de la unión y la resistencia de puerta. La fórmula comúnmente utilizada para calcular las pérdidas es:
 
 \[
-E_{conm}(t) = (E_{on} + E_{off}) \left( \frac{I_{Q,env}(t)}{I_{test}} \right)^{K_i} \left( \frac{V_{dc}}{V_{test}} \right)^{K_v}
+E_{conm}(t) = (E_{on} + E_{off}) \left( \frac{I_{Q,env}(t)}{I_{test}} \right)^{K_i} \left( \frac{V_{DC}}{V_{test}} \right)^{K_v}
 \]
 
 Donde \(I_{Q,env}(t)\) es la corriente de conmutación en cada instante de tiempo, \(I_{test}\) y \(V_{test}\) son los valores de prueba, y \(K_i\) y \(K_v\) son coeficientes de ajuste que normalmente son igual a 1. Esta fórmula permite calcular la potencia media de las pérdidas de conmutación.
@@ -1868,19 +1912,19 @@ Donde \(I_{Q,env}(t)\) es la corriente de conmutación en cada instante de tiemp
 Si la corriente es continua, la fórmula simplificada es:
 
 \[
-P_{conm} \approx (E_{on} + E_{off}) f_{conm} \frac{I_{out}}{I_{test}} \frac{V_{dc}}{V_{test}}
+P_{conm} \approx (E_{on} + E_{off}) f_{conm} \frac{I_{out}}{I_{test}} \frac{V_{DC}}{V_{test}}
 \]
 
 Y si la corriente es una sinusoide semi-rectificada con un valor de pico de \(\sqrt{2} I_{rms}\) (como en el caso del SVPWM), la fórmula es:
 
 \[
-P_{conm} \approx (E_{on} + E_{off}) f_{conm} \frac{\sqrt{2} I_{rms}}{\pi I_{test}} \frac{V_{dc}}{V_{test}}
+P_{conm} \approx (E_{on} + E_{off}) f_{conm} \frac{\sqrt{2} I_{rms}}{\pi I_{test}} \frac{V_{DC}}{V_{test}}
 \]
 
 Sustituyendo por los valores del convertidor en diseño:
 
 \begin{itemize}
-	\item Generales: \(f_{\text{conm}} = 50 \, \text{kHz}\), \(I_{\text{rms}} = 80 \, \text{A}\), \(V_{\text{dc}} = 600 \, \text{V}\)
+	\item Generales: \(f_{\text{conm}} = 50 \, \text{kHz}\), \(I_{\text{rms}} = 80 \, \text{A}\), \(V_{DC} = 600 \, \text{V}\)
 	\item Leapers: \(E_{\text{on}} = 3.54 \, \text{mJ}\), \(E_{\text{off}} = 1.59 \, \text{mJ}\), \(V_{\text{test}} = 600 \, \text{V}\), \(I_{\text{test}} = 150 \, \text{A}\)
 	\item Wolfspeed: \(E_{\text{on}} = 1.13 \, \text{mJ}\), \(E_{\text{off}} = 0.54 \, \text{mJ}\), \(V_{\text{test}} = 600 \, \text{V}\), \(I_{\text{test}} = 80 \, \text{A}\)
 \end{itemize}
@@ -1888,29 +1932,29 @@ Sustituyendo por los valores del convertidor en diseño:
 Para los dispositivos Leapers, sustituyendo en la fórmula:
 
 \[
-P_{\text{conm}} \approx (3.54 \, \text{mJ} + 1.59 \, \text{mJ}) \times 50 \, \text{kHz} \times \frac{80 \, \text{A}}{150 \, \text{A}} \times \frac{600 \, \text{V}}{600 \, \text{V}}
+P_{\text{conm}} \approx (3.54 \text{mJ} + 1.59 \text{mJ}) \times 50 \text{kHz} \times \frac{80 \text{A}}{150 \text{A}} \times \frac{600 \text{V}}{600 \text{V}}
 \]
 \[
-P_{\text{conm, Leapers}} \approx 61.58 \, \text{W}
+P_{\text{conm, Leapers}} \approx 61.58 \text{W}
 \]
 
 Para los dispositivos Wolfspeed:
 
 \[
-P_{\text{conm}} \approx (1.13 \, \text{mJ} + 0.54 \, \text{mJ}) \times 50 \, \text{kHz} \times \frac{80 \, \text{A}}{80 \, \text{A}} \times \frac{600 \, \text{V}}{600 \, \text{V}}
+P_{\text{conm}} \approx (1.13 \text{mJ} + 0.54 \text{mJ}) \times 50 \text{kHz} \times \frac{80  \text{A}}{80 \text{A}} \times \frac{600 \text{V}}{600 \text{V}}
 \]
 \[
-P_{\text{conm, Wolfspeed}} \approx 37.59 \, \text{W}
+P_{\text{conm, Wolfspeed}} \approx 37.59 \text{W}
 \]
 
 Dado que estas pérdidas son para un solo MOSFET, se deben multiplicar por 6 para obtener las pérdidas de conmutación totales, dado que hay 6 dispositivos de potencia en la topología VSI.
 
 \[
-P_{\text{conm, Leapers, tot}} \approx 6\cdot P_{\text{conm, Leapers}} = 369.5 \, \text{W}
+P_{\text{conm, Leapers, tot}} = 6\cdot P_{\text{conm, Leapers}} \approx 369.5 \, \text{W}
 \]
 
 \[
-P_{\text{conm, Wolfspeed, tot}} \approx 6\cdot P_{\text{conm, Wolfspeed}} = 225.5 \, \text{W}
+P_{\text{conm, Wolfspeed, tot}} = 6\cdot P_{\text{conm, Wolfspeed}} \approx 225.5 \, \text{W}
 \]
 
 \subsection{Sistema de Refrigeración}
