@@ -2052,9 +2052,75 @@ Se ha elegido agua como el fluido de refrigeración por varias razones:
 \end{itemize}
 
 
-\subsection{Gate drivers}
+\subsection{\textit{Gate drivers}}
+
+Los gate drivers son componentes críticos en un convertidor de potencia, puesto que son los encargados de conectar las señales débiles de un microcontrolador con los semiconductores. Además, suelen llevar funcionalidades adicionales como la detección de cortocircuitos en el semiconductor, la lectura de señales analógicas de forma aislada, o mecanismos de protección avanzados.
+
+\subsubsection{Funcionamiento Genérico}
+
+Los \textit{gate drivers} desempeñan un papel esencial en la conmutación eficiente de los MOSFETs, proporcionando los niveles de tensión y corriente adecuados para activar y desactivar rápidamente los transistores. 
+
+\subsubsection{Criterios de Selección}
+
+Al seleccionar un \textit{gate driver}, varios factores deben tenerse en cuenta para garantizar un rendimiento óptimo del sistema:
+
+\begin{itemize}
+	\item Topología: A pesar de que hay soluciones que incluyen 6 \textit{drivers} en un solo encapsulado, las más comunes son los circuitos integrados diseñados para controlar un solo dispositivo o dos en configuración de medio puente. Sin embargo, encontrar esta última opción para el rango de tensiones de 600 V con características óptimas es difícil. Por lo tanto, la topología más adecuada suele ser la de un solo \textit{driver} por encapsulado.
+	\item Tensión de aislamiento: Dado que las señales de puerta vienen del sistema de baja tensión, deben aislarse antes de llegar al \textit{gate}, con lo que será necesario buscar un componente aislado a una tensión adecuada de al menos tres veces superior a la tensión máxima del inversor, 600 V. 
+	\item Corriente de salida: Es crucial elegir un \textit{gate driver} que pueda suministrar la corriente necesaria para cargar y descargar rápidamente las capacidades de compuerta de los MOSFETs. La corriente necesaria depende de la resistencia de puerta, pero se puede determinar una primera cota de $\frac{V_{GS,typ}}{R_{G,int}} = \frac{20 V}{2.4 \Omega} = 8.3 A$
+	\item Protecciones integradas: Funciones como la lectura de señales analógicas, la posibilidad de paralelizar salidas o la inclusión de protecciones son muy beneficiosas para la integración del convertidor.
+\end{itemize}
+
+\subsubsection{Comparativa de Alternativas}
+
+A continuación se presenta una comparativa entre varios modelos de \textit{gate drivers}, considerando sus características principales:
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
+		\hline
+		\textbf{Características} & \textbf{ADUM4146} & \textbf{UCC21710} & \textbf{GD3160} \\
+		\hline
+		Voltaje de Operación & -15 V hasta 30 V & –17.5 V hasta 36 V & -12 V hasta 25V \\
+		\hline
+		Corriente de Salida & 4.61 A (cortocircuito fuente) & 10 A & 15 A \\
+		\hline
+		Protecciones & Desaturación, UVLO & Sobrecorriente, Desaturación, \textit{Miller Clamp} & Desaturación, Sobrecorriente, Apagado suave \\
+		\hline
+		Tiempo de Retardo & 75 ns & 90 ns & - \\
+		\hline
+		Aislamiento & 5 kV & 5.7 kV & 8 kV \\
+		\hline
+		Extras & - & Sensor analógico aislado & Sensor analógico aislado \\
+		\hline
+		CMTI & 100 V/ns & 150 V/ns & 100 V/ns \\
+		\hline
+	\end{tabular}
+	\caption{Comparación de \textit{gate drivers}}
+\end{table}
+
+Considerando los criterios de selección, se observa que el UCC21710 se presenta como una opción intermedia adecuada. En primer lugar, la corriente de salida que ofrece es de hasta 10 A, lo que lo hace adecuado para cargar y descargar rápidamente las capacidades de compuerta de los MOSFETs, cumpliendo así con uno de los requisitos fundamentales. Además, integra protecciones contra sobrecorriente y desaturación, así como la funcionalidad de \textit{Miller Clamp}. Además, la inclusión de un sensor analógico aislado proporciona la capacidad de monitorear la temperatura de los semiconductores con sus sensores integrados sin ningún componente adicional.
+
+Aunque las protecciones de sobrecorriente y desaturación son elementos fundamentales para garantizar la seguridad y el correcto funcionamiento de un inversor, en este caso se ha optado por no implementarlas debido a las complicaciones que pueden surgir en el diseño del \textit{layout}. Estas protecciones requieren la inclusión de componentes adicionales con \textit{footprints} grandes y un enrutamiento más complejo de las señales, lo cual puede resultar en problemas de interferencia y aumento de la complejidad del circuito.
+
+Es importante destacar que este inversor se encuentra en una fase inicial de prototipado y desarrollo, donde se prioriza la funcionalidad básica y la viabilidad del diseño. En futuras revisiones y etapas de desarrollo, se considerará la inclusión de estas protecciones, ya que son cruciales para proteger tanto el inversor como los dispositivos conectados. La decisión actual de omitir estas protecciones se basa en la necesidad de simplificar el diseño y garantizar una implementación más eficiente y manejable en esta fase del proyecto.
+
+\subsubsection{Cálculos del \textit{Gate Driver} Seleccionado}
 
 
+\begin{itemize}
+	\item \textbf{Mínima Corriente del Gate Driver (\(I_{GD(min)}\)):} Se estima en función de la frecuencia de conmutación y la carga de la compuerta de los MOSFETs.
+	
+	\item \textbf{Potencia Mínima (\(P_{min}\)):} Se calcula la potencia mínima necesaria para asegurar una conmutación adecuada.
+	
+	\item \textbf{Valores de Resistencias del Gate (\(R_{G_{ON/FF}}\)):} Se discute la elección de resistencias óptimas para reducir pérdidas de conmutación y controlar el dV/dt.
+	
+\end{itemize}
+
+Estos cálculos y consideraciones aseguran un diseño óptimo y eficiente del sistema de control de los MOSFETs.
+
+\subsubsection{Fuente de alimentación para el \textit{gate driver}}
+blablabla
 
 \subsection{Bus de condensadores}
 
