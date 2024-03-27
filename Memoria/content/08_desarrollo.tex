@@ -1192,7 +1192,7 @@ Además, el inversor es capaz de sintetizar un máximo de $V_s = \frac{V_{DC}}{\
 En esta sección, se aborda la implementación del modelo matemático del PMSM en un entorno de simulación. Además, se detallan los pasos cruciales en el diseño del control, destacando la implementación del lazo de control de corriente, el modelo promediado y conmutado del inversor, o la integración de las trayectorias y la estrategia de debilitamiento de campo. Disponer de un modelo de simulación completo permite ganar mucha comprensión sobre el sistema estudiado, pero por el coste computacional suele ser inviable juntar muchos sistemas en una misma simulación.
 
 \subsubsection{EMR (Representación macroscópica energética)}
-En primer lugar, se tratará de crear un modelo que permita simular la dinámica electromecánica del PMSM, así como el entorno mecánico en el que se encuentra (vehículo eléctrico) e integrar el control vectorial. Para ello se usará un estándar para modelizar sistemas de potencia, la representación macroscópica energética o EMR por sus siglas en inglés. El concepto se basa en agrupar o dividir las diferentes etapas en las que la potencia se transforma, utilizando el principio de acción-reacción y el principio causal (la causa del efecto causa-efecto es que el efecto causa-efecto es a su vez causa y efecto). 
+En primer lugar, se tratará de crear un modelo que permita simular la dinámica electromecánica del PMSM, así como el entorno mecánico en el que se encuentra (vehículo eléctrico) e integrar el control vectorial. Para ello se usará un estándar para modelizar sistemas de potencia, la representación macroscópica energética o EMR por sus siglas en inglés. El concepto se basa en agrupar o dividir las diferentes etapas en las que la potencia se transforma, utilizando el principio de acción-reacción y el principio causal (el efecto causa-efecto causa efecto porque la causa del efecto causa-efecto es a su vez causa y efecto). 
 
 En primer lugar se modeliza la planta eléctrica del PMSM. Se utiliza el modelo con el marco de referencia rotativo $d-q$ por su sencillez. Para ello se implementan las diferentes ecuaciones del motor en bloques separados siguiendo el estándar de la EMR.
 
@@ -1631,7 +1631,7 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
     \item \textit{\textbf{EV4.1.3}  All components must be rated for the maximum possible temperature that may occur during usage.} Impactará en la selección de componentes que puedan manejar las temperaturas esperadas.
     \item \textit{\textbf{EV4.2.1} TS enclosures, see EV1.1.2, must be labeled with (a) reasonably sized sticker(s) according to “ISO 7010-W012” (triangle with a black lightning bolt on a yellow background). The sticker must also contain the text “High Voltage” if the voltage is more than 60 VDC or 50 VACRMS.} Impacta en los requisitos de señalización y seguridad del empaquetado.
     \item \textit{\textbf{EV4.3.1} The entire TS and LVS must be galvanically isolated, see EV1.2.1 and IN4.1.1.} Afecta el diseño de la separación y el aislamiento entre ambos sistemas.
-    \item \textit{\textbf{EV4.3.4} Where both TS and LVS are present within an enclosure, they must be separated by barriers made of moisture-resistant insulating materials or maintain the following spacing through the air, or over a surface:} Impacta en el diseño del empaquetado del inversor.  Se usarán aislantes como el Nomex en caso de que no se pueda garantizar el espaciado por aire.
+    \item \textit{\textbf{EV4.3.4} Where both TS and LVS are present within an enclosure, they must be separated by barriers made of moisture-resistant insulating materials or maintain the following spacing through the air, or over a surface:}
 
 	\begin{table}[H]
 		\centering
@@ -1643,9 +1643,8 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
 			\(100 \, \text{VDC} < U < 200 \, \text{VDC}\) & 20 mm       \\ \hline
 			\(U > 200 \, \text{VDC}\)  & 30 mm       \\ \hline
 		\end{tabular}
-	\end{table}
-
-    \item \textit{\textbf{EV4.3.6} If TS and LVS are on the same PCB, they must be on separate well-defined areas of the board, meeting the spacing requirements in table 5, each area clearly marked with “TS” or “LV”. The outline of the area required for spacing must  be marked. “Conformal coating” refers to a coating insulator, solder resist is not a coating.} Tendrá efectos en el diseño de la PCB de potencia.
+	\end{table} Impacta en el diseño del empaquetado del inversor.  Se usarán aislantes como el Nomex en caso de que no se pueda garantizar el espaciado por aire.
+    \item \textit{\textbf{EV4.3.6} If TS and LVS are on the same PCB, they must be on separate well-defined areas of the board, meeting the spacing requirements in table 5, each area clearly marked with “TS” or “LV”. The outline of the area required for spacing must  be marked. “Conformal coating” refers to a coating insulator, solder resist is not a coating.}
     
 	\begin{table}[H]
 		\centering
@@ -1663,8 +1662,7 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
 			300 to 600 & 12.7 mm & 9.5 mm & 4.0 mm \\
 			\hline
 		\end{tabular}
-	\end{table}
-
+	\end{table} Tendrá efectos en el diseño de la PCB de potencia.
 
     \item \textit{\textbf{EV4.5.3} The temperature rating for TS wiring, connections, and insulation must be appropriate for the expected surrounding temperatures but at least 85 ºC.} Influirá en la selección de cables y materiales aislantes.
     \item \textit{\textbf{EV4.5.4} TS components and containers must be protected from moisture in the form of rain or puddles, see IN9.} Impactará en el diseño de la caja.
@@ -1912,7 +1910,7 @@ P_{\text{cond,Wolfspeed}} = 450 \text{W}
 \]
 
 \[
-P_{\text{cond,Leapers}} \approx P_{\text{cond,Wolfspeed}} \cdot \frac{R_{DS, on, Leapers}}{R_{DS, on, Wolfspeed}} = 450 \text{W} \cdot \frac{5.5 m\Omega}{16 m\Omega} \approx 155 \text{W}
+P_{\text{cond,Leapers}} \approx P_{\text{cond,Wolfspeed}} \cdot \frac{R_{DS, on, Leapers}}{R_{DS, on, Wolfspeed}} = 450 \text{W} \cdot \frac{5.5 \text{m}\Omega}{16 \text{m}\Omega} \approx 155 \text{W}
 \]
 
 
@@ -1969,11 +1967,11 @@ P_{\text{conm, Wolfspeed}} \approx 37.59 \text{W}
 Dado que estas pérdidas son para un solo MOSFET, se deben multiplicar por 12 para obtener las pérdidas de conmutación totales, dado que hay 6 dispositivos de potencia en la topología VSI y hay dos VSIs en el convertidor.
 
 \[
-P_{\text{conm, Leapers, tot}} = 12\cdot P_{\text{conm, Leapers}} \approx 739 \, \text{W}
+P_{\text{conm, Leapers, tot}} = 12\cdot P_{\text{conm, Leapers}} \approx 739 \text{W}
 \]
 
 \[
-P_{\text{conm, Wolfspeed, tot}} = 12\cdot P_{\text{conm, Wolfspeed}} \approx 451 \, \text{W}
+P_{\text{conm, Wolfspeed, tot}} = 12\cdot P_{\text{conm, Wolfspeed}} \approx 451 \text{W}
 \]
 
 Con tal de verificar estas pérdidas, se puede revisar la simulación realizada anteriormente, mostrada en la figura \ref{losses-sim}. En ella, se pueden apreciar unos 150 W de pérdidas de conducción para el semiconductor de Wolfspeed, lo cual se alinea con el cálculo analítico realizado, siendo este último un tanto más conservador (hay que tener en cuenta que la simulación usa solamente un VSI). Dado que no se han tenido en cuenta los efectos de $R_{G, on}$, $R_{G, off}$ ni ningún tipo de caracterización del \textit{gate driver}, se debe saber que el valor real puede ser más alto o más bajo, y dependiente de muchos factores que harían complejo su análisis.
