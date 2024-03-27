@@ -1230,7 +1230,7 @@ Como se ha visto hasta ahora, es práctico utilizar la corriente para controlar 
 
 % PI de corriente, respuesta de segundo orden
 \[
-M_p = 15\% , t_s = T_s \cdot 20
+M_p = 15 \% \text{,} t_s = T_s \cdot 20
 \]
 
 Donde $T_s$ es la inversa de la frecuencia de control.
@@ -1238,18 +1238,23 @@ Donde $T_s$ es la inversa de la frecuencia de control.
 \[
 \xi = \sqrt{\frac{\log(M_p)^2}{\pi^2 + \log(M_p)^2}}
 \]
+
 \[
 \omega_n = \frac{3}{\xi \cdot t_s}
 \]
+
 \[
 Kp_{id} = 2 \cdot \xi \cdot \omega_n \cdot L_d - R_s
 \]
+
 \[
 Ki_{id} = \omega_n^2 \cdot L_d
 \]
+
 \[
 Kp_{iq} = 2 \cdot \xi \cdot \omega_n \cdot L_q - R_s
 \]
+
 \[
 Ki_{iq} = \omega_n^2 \cdot L_q \quad
 \]
