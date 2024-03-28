@@ -1916,7 +1916,7 @@ Se puede ver como las pérdidas de conducción son más significativas que las d
 \frac{P_{RMS}}{P_{pico}} = \frac{35 kW}{80 kW} = 0.4375 \approx 0.5
 \]
 
-Con este razonamiento, se da un valor de pérdidas de conducción promedio del inversor de $450 \text{W} \cdot 0.5 = 225$ W. Como hay dos inversores anclados a la misma \textit{coldplate}, las pérdidas de conducción que debe disipar es de $225 \text{W} \cdot 2 = 450$ W. Es importante recordar que estas pérdidas son para el semiconductor de Wolfspeed. Dado que las pérdidas de conducción son proporcionales a $R_{DS, on}$, se pueden aproximar las pérdidas de conducción del semiconductor de Leapers de la siguiente manera:
+Con este razonamiento, se da un valor de pérdidas de conducción promedio del inversor de $450 \text{W} \cdot 0.5 = 225 \text{W}$. Como hay dos inversores anclados a la misma \textit{coldplate}, las pérdidas de conducción que debe disipar es de $225 \text{W} \cdot 2 = 450 \text{W}$. Es importante recordar que estas pérdidas son para el semiconductor de Wolfspeed. Dado que las pérdidas de conducción son proporcionales a $R_{DS, on}$, se pueden aproximar las pérdidas de conducción del semiconductor de Leapers de la siguiente manera:
 \[
 P_{\text{cond,Wolfspeed}} = 450 \text{W}
 \]
@@ -1934,7 +1934,23 @@ El cálculo de las pérdidas de conmutación es más fácil de determinar de for
 E_{conm}(t) = (E_{on} + E_{off}) \left( \frac{I_{Q,env}(t)}{I_{test}} \right)^{K_i} \left( \frac{V_{DC}}{V_{test}} \right)^{K_v}
 \]
 
-Donde \(I_{Q,env}(t)\) es la corriente de conmutación en cada instante de tiempo, \(I_{test}\) y \(V_{test}\) son los valores de prueba, y \(K_i\) y \(K_v\) son coeficientes de ajuste que normalmente son igual a 1. Esta fórmula permite calcular la potencia media de las pérdidas de conmutación.
+Donde \(I_{Q,env}(t)\) es la corriente de conmutación en cada instante de tiempo, \(I_{test}\) y \(V_{test}\) son los valores de prueba, y \(K_i\) y \(K_v\) son coeficientes de ajuste que normalmente son igual a 1. La justificación se puede encontrar en los gráficos proporcionados en las hojas de datos de ambos semiconductores, donde la relación de las energías de encendido y apagado con la corriente son aproximadamente lineales.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.4\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{fig/eoneoffleapers}
+		\caption{Leapers}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.55\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{fig/eoneoffwolfspeed}
+		\caption{Wolfspeed}
+	\end{subfigure}
+	\caption{Energías de encendido y apagado en función de la corriente para Leapers y Wolfspeed.}
+\end{figure}
 
 Si la corriente es continua, la fórmula simplificada es:
 
@@ -2125,6 +2141,13 @@ Aunque las protecciones de sobrecorriente y desaturación son elementos fundamen
 
 Es importante destacar que este inversor se encuentra en una fase inicial de prototipado y desarrollo, donde se prioriza la funcionalidad básica y la viabilidad del diseño. En futuras revisiones y etapas de desarrollo, se considerará la inclusión de estas protecciones, ya que son cruciales para proteger tanto el inversor como los dispositivos conectados. La decisión actual de omitir estas protecciones se basa en la necesidad de simplificar el diseño y garantizar una implementación más eficiente y manejable en esta fase del proyecto.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/UCC21710-block}
+	\caption{Diagrama de bloques funcional del \textit{gate driver} seleccionado.}
+\end{figure}
+
+
 \subsubsection{Cálculos del Gate Driver Seleccionado}
 
 
@@ -2241,6 +2264,13 @@ Se ha optado por un diseño con 10 condensadores del modelo FHA85Y106KS de la se
 	
 	
 \end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/FHA85Y106KS}
+	\caption{Apariencia del condensador seleccionado.}
+\end{figure}
+
 
 Se evalúa el comportamiento térmico utilizando la hoja de datos:
 \begin{figure}[H]
