@@ -1762,6 +1762,7 @@ En estos dos primeros conceptos se explora el uso de una sola \textit{coldplate}
 		\includegraphics[width=\textwidth]{fig/boceto4.png}
 	\end{minipage}
 	\caption{Evolución de los bocetos del empaquetado del inversor.}
+	\label{sketches}
 \end{figure}
 
 En los bocetos posteriores, se ha refinado la disposición de los componentes para mejorar la accesibilidad y la eficiencia de refrigeración. La disposición de los conectores y la distribución de los conductores también se ha ajustado para optimizar la densidad de potencia y la eficiencia del diseño. Estos cambios reflejan un enfoque hacia un empaquetado más eficiente y funcional del inversor. De todas maneras, todavía presentan muchas complicaciones en el ensamblaje y fabricación de algunos elementos como la \textit{coldplate}.
@@ -2299,10 +2300,25 @@ Análisis de parasitos (Lcable), etc.
 
 Esta PCB es una placa de 4 capas que integra componentes de potencia y circuitos de adquisición para el control de un solo motor eléctrico. Se requieren de dos de estas PCBs para montar el convertidor al completo.
 
-\subsubsection{Concepto y Restricciones}
+\subsubsection{Concepto y Layout}
 
-La PCB de potencia es el sustrato físico sobre el cual se montan y conectan los componentes de potencia. En ella están situados los semiconductores, el bus de condensadores, las medidas de tensión, corriente y temperatura, los \textit{gate drivers}, y algunos circuitos de seguridad.
+La PCB de potencia es el sustrato físico sobre el cual se montan y conectan los componentes de potencia. En ella están situados los semiconductores, el bus de condensadores, las medidas de tensión, corriente y temperatura, los \textit{gate drivers}, y algunos circuitos de seguridad. A continuación se expone brevemente la distribución de conceptos, que parte de la base desarrollada con los bocetos iniciales mostrados en la figura \ref{sketches}.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/layout}
+	\caption{\textit{Layout} de la PCB de potencia, con las zonas más importantes marcadas.}
+\end{figure}
+
+En el \textit{layout} se distinguen varias zonas. 
+\begin{itemize}
+	\item \textbf{Zona 1:} Conector a la PCB de control y protección de la alimentación de baja tensión.
+	\item \textbf{Zona 2:} Conectores de las fases del motor y montajes mecánicos.
+	\item \textbf{Zonas 3, 4 y 5:} Semiconductores, sensores de corriente, \textit{gate drivers} y \textit{snubbers} para cada fase.
+	\item \textbf{Zona 6:} Bus de condensadores, conectores de alta tensión DC, circuito de descarga y sensado de tensión.
+\end{itemize}
+
+\subsubsection{Restricciones y enrutado}
 Dado que esta PCB implementa partes del circuito del sistema de tracción y partes del sistema de baja tensión, se debe crear una separación física de 4 mm ya que estará acabada con un revestimiento conformal acrílico (\textit{conformal coating}).
 
 Los espaciados entre conductores de la parte de alta tensión son de 3 mm, ya que la tensión que deben aislar es de 600 V. Este valor se obtiene de la norma genérica IPC-2221B, que especifica una separación de $2.5+(V-500)\cdot0.005 \text{mm} = 3 \text{mm}$.
@@ -2315,39 +2331,135 @@ El dimensionamiento de las pistas para la corriente que debe pasar es algo compl
 	\caption{Apilado de la PCB de potencia}
 \end{figure}
 
-Para dimensionar el ancho de estas pistas se ha considerado la corriente RMS de fase, ya que es la corriente máxima en toda la PCB. Después, se ha usado este ancho para todas las conexiones de potencia, aunque la corriente que vean sea menor. El cálculo se ha realizado cogiendo de nuevo la norma IPC-2221, que especifica unas relaciones de capacidad de corriente respecto a incremento de temperatura y grosor de capa. Ya que el cálculo es algo tedioso, se opta por el uso de una calculadora específica para este propósito:
+Para dimensionar el ancho de estas pistas se ha considerado la corriente RMS de fase, ya que es la corriente máxima en toda la PCB. Después, se ha usado este ancho para todas las conexiones de potencia, aunque la corriente que vean sea menor. El cálculo se ha realizado usando la norma IPC-2152, que especifica unas relaciones de capacidad de corriente respecto a incremento de temperatura y grosor de capa. Ya que el cálculo es algo tedioso, se opta por el uso de una calculadora específica para este propósito:
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/width}
+	\caption{Cálculo del ancho de pista necesario.}
+\end{figure}
 
+El resultado es de 10 mm, lo cual es exagerado, pero sin embargo, solamente se está teniendo en cuenta una capa. Por ello, se decide enrutar las conexiones de potencia por un mínimo de 2 capas con un ancho mínimo de 5 mm. A continuación se detalla el enrutado de la conexión DC positiva de uno de los 3 módulos de medio puente:
 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{fig/ts+bot}
+		\caption{Vista del enrutado de baja corriente (azul), la conexión positiva del bus de continua (naranja) y de la fase A (rosado).}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.42\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{fig/layout2}
+		\caption{Detalle de una sección más estrecha.}
+	\end{subfigure}
+	\caption{Ejemplo de enrutado de la conexión DC positiva del medio puente de la fase A.}
+\end{figure}
 
-\subsubsection{Detalle de las Partes}
+Como se puede apreciar, el espaciado que hay que dejar por aislamiento compite por espacio con el ancho de las conexiones. En la mayoría de casos se ha podido respetar el ancho mínimo de 5 mm, sin embargo, en algunas situaciones esto no es posible. Por ejemplo, lo ilustrado en la subfigura b muestra una estrechez de 1.5 mm, pero como esa conexión está repetida en dos capas, el ancho total es de 3 mm. Además, la conexión positiva en el semiconductor se realiza a través de dos grupos de pines, y como antes de realizar esa estrechez ya se ha conectado un grupo de pines, se puede asumir que la corriente que circula por ese trozo de cobre es la mitad que la corriente continua entera que va a recibir ese módulo, que a su vez, es aproximadamente un tercio de la corriente continua total ($\frac{1}{3}\frac{17.5 \text{kW}}{450 \text{V}} = 13 \text{A}$), pasado por la calculadora, tan solo son necesarios 2.8 mm de cobre para esa corriente, lejos de los 10 mm que se han intentado mantener.
 
-La PCB de potencia incluye varios elementos esenciales:
+Esto es tan solo un ejemplo del análisis que se ha realizado con cualquier mínima sospecha de falta de cobre en todo el enrutado de potencia. Un camino de corriente muy estrecho podría presentar sobrecalentamiento y en casos extremos, levantamiento de la pista o plano.
+
+\subsubsection{Bloques Funcionales}
+
+La PCB de potencia se divide en varios bloques funcionales, que se juntan en un esquemático jerárquico, que además incluye la conexión entre estos bloques, algunas notas indicativas y componentes que no pertenecen a ningún bloque en específico:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{fig/schPower1}
+	\caption{Esquemático jerárquico de la PCB de Potencia}
+\end{figure}
+
+En el esquemático se pueden distinguir el conector a la PCB de control, la protección de alimentación de baja tensión y unas notas indicativas, así como una leyenda de colores. Se anotan también los cambios y la fecha en la que se envía a producción. Los bloques que se pueden ver incluyen:
 
 \begin{itemize}
-	\item \textbf{Drivers de Puerta (Gate Drivers):} Identificados como G1, G2, G3, G4, G5, G6, estos circuitos controlan los MOSFETs de alta y baja potencia, permitiendo la conmutación eficiente y precisa.
 	
-	\item \textbf{Sensores de Temperatura y Corriente:} Los sensores T\_A, T\_B, T\_C y CSA, CSB, CSC, respectivamente, monitorean las temperaturas y corrientes en las etapas críticas del inversor para evitar sobrecalentamientos y condiciones de sobrecorriente.
+	\item \textbf{Etapa de Potencia:} En este bloque aparecen los semiconductores, el bus de condensadores y una descarga pasiva.
 	
-	\item \textbf{Circuitos de Protección:} Se incluye un sistema de protección de sobretensión +5V pre mediante un estilo de protección "crowbar", que actúa en caso de que el voltaje supere los 5.1V.
-	
-	\item \textbf{Bloques de Alimentación (Power Blocks):} LDO\_HS\_A, LDO\_LS\_A, LDO\_HS\_B, LDO\_LS\_B, LDO\_HS\_C, LDO\_LS\_C son circuitos de regulación de voltaje que alimentan los componentes del inversor con los voltajes necesarios.
-	
-	\item \textbf{Circuitos de Compensación y Control:} Estos circuitos ajustan los voltajes de referencia y controlan la operación del inversor para mantener un funcionamiento estable y eficiente.
+	\item \textbf{Sensado de corriente:} Se incluyen los sensores de corriente y su interfaz analógica con la PCB de control.
+			
+	\item \textbf{\textit{Gate Drivers}:} En este bloque se recogen las señales necesarias para la conmutación, así como la configuración de los \textit{gate drivers} en su conjunto. Este bloque contiene 3 subcircuitos correspondientes con cada fase. En ellos se encuentran los \textit{gate drivers} en sí, junto a su alimentación aislada, los \textit{snubbers} y la medida de temperatura.
+		
+	\item \textbf{DC:} Por último, hay un bloque dedicado al bus de continua, que incluye el circuito de descarga, la medida de tensión y la detección de 60 V requerida por la normativa.
 \end{itemize}
 
-\subsubsection{Justificación de Diseño}
+\subsubsection{Circuitos Importantes}
+
+\textbf{VSI}
+Ya que los módulos son estructuras \textit{half-bridge}, se deben conectar entre sí para formar la topología VSI.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/VSI-shc}
+	\caption{Conexión de los módulos configurando un VSI.}
+\end{figure}
+
+\textbf{Protección de alimentación}
+Aunque en principio es regulada, la entrada de 5 V necesita de un mínimo de protecciones sencillas para evitar retrasos ocasionados por fallos mientras se realizan pruebas. En este caso se ha usado un fusible como protección contra sobrecorriente, un diodo \textit{zener} a modo de protección contra sobretensión (hará saltar el fusible cuando la tensión de entrada supere la tensión umbral), y un diodo \textit{schottky} como protección frente a tensión inversa, ya que tiene poca caída de tensión, actúa bastante rápido y es barato.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/5V-sch}
+	\caption{Circuito de protección de alimentación.}
+\end{figure}
+
+\textbf{Alimentación del \textit{gate driver}}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{fig/GD-supp-sch}
+	\caption{Alimentación bipolar aislada del \textit{gate driver}.}
+\end{figure}
+
+En función del modelo de DCDC específico escogido de la serie MGJ2 de Murata, se tendrá una tensión positiva y negativa diferente. La tensión positiva no es muy problemática puesto que se pueden seleccionar DCDCs con salidas de +18 V o de +15 V, valores que encajan con los recomendados por los fabricantes de los semiconductores.
+
+Sin embargo, ese no es el caso para las tensiones negativas, ya que el valor debería poder ajustarse para ser más versátil en el desarrollo. Por ello, se implementan reguladores lineales para ajustar $V_{EE,HS}$ y $V_{EE,LS}$ durante las pruebas para afinar el voltaje negativo necesario.
+
+$V_{EE}$ se calcula como:
+
+\[ V_{EE,LS} = -1.186 \cdot \left(1 + \frac{R1}{R2}\right) \]
+
+Donde \( R1 + R2 \approx 100 \text{k}\Omega \) según la hoja de datos del LDO. Para las configuraciones específicas de Leapers y Wolfspeed, los valores de las resistencias son los siguientes:
 
 \begin{itemize}
-	\item \textbf{Número de Capas:} La PCB de potencia se ha diseñado con múltiples capas para facilitar la distribución de energía y señales de control de manera eficiente. El uso de capas internas permite un enrutamiento óptimo de pistas de alta corriente y reduce las interferencias electromagnéticas.
-	
-	\item \textbf{Dimensiones:} Las dimensiones de la PCB se han seleccionado para adaptarse al espacio disponible en el vehículo eléctrico, manteniendo una eficiencia térmica adecuada y permitiendo una disposición ordenada de los componentes para facilitar el ensamblaje y mantenimiento.
-	
-	\item \textbf{Otras Consideraciones:} Se han tomado medidas para asegurar que la PCB cumpla con las especificaciones de aislamiento y tolerancia a altas temperaturas requeridas para un entorno de operación de vehículo eléctrico. Además, se ha considerado el uso de materiales adecuados que garanticen la durabilidad y confiabilidad a largo plazo.
+	\item Leapers: \( R1 = 36 \text{k}\Omega \), \( R2 = 56 \text{k}\Omega \)
+	\item Wolfspeed: \( R1 = 68 \text{k}\Omega \), \( R2 = 30 \text{k}\Omega \)
 \end{itemize}
 
-En resumen, la PCB de potencia del inversor de potencia para vehículos eléctricos de alto rendimiento es una parte crucial del sistema, proporcionando la plataforma física para la conversión eficiente de energía eléctrica y el control preciso de los componentes de potencia. Su diseño multicapa, combinado con componentes y circuitos especializados, garantiza un funcionamiento seguro y confiable en el exigente entorno de un vehículo eléctrico de alto rendimiento.
+Este proceso permite ajustar de forma precisa los voltajes negativos necesarios para el correcto funcionamiento del circuito de conmutación.
 
+
+\textbf{\textit{Gate driver}}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{fig/GD-sch}
+	\caption{\textit{Gate driver} con medida de temperatura y \textit{snubbers}.}
+\end{figure}
+
+\textbf{Descarga}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{fig/discharge-sch}
+	\caption{Circuito de descarga.}
+\end{figure}
+
+
+\textbf{Medida de corriente}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{fig/Imeas-sch}
+	\caption{Sensor de corriente de fase.}
+\end{figure}
+
+\textbf{Medida de tensión}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{fig/Vmeas-sch}
+	\caption{Circuito de medida y detección de tensión DC.}
+\end{figure}
+
+\subsubsection{Resultado Final}
+wiii
 
 \subsection{PCB de control}
 
