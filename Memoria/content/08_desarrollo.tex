@@ -2293,13 +2293,59 @@ Análisis de parasitos (Lcable), etc.
 
 \subsection{Sensor de posición}
 
+\subsection{Microcontrolador}
+
 \subsection{PCB de potencia}
 
-explicacion del concepto y de la(s) PCB
+Esta PCB es una placa de 4 capas que integra componentes de potencia y circuitos de adquisición para el control de un solo motor eléctrico. Se requieren de dos de estas PCBs para montar el convertidor al completo.
 
-justificacion de conectores / interfaces
+\subsubsection{Concepto y Restricciones}
 
-justificacion numero de capas, etc.
+La PCB de potencia es el sustrato físico sobre el cual se montan y conectan los componentes de potencia. En ella están situados los semiconductores, el bus de condensadores, las medidas de tensión, corriente y temperatura, los \textit{gate drivers}, y algunos circuitos de seguridad.
+
+Dado que esta PCB implementa partes del circuito del sistema de tracción y partes del sistema de baja tensión, se debe crear una separación física de 4 mm ya que estará acabada con un revestimiento conformal acrílico (\textit{conformal coating}).
+
+Los espaciados entre conductores de la parte de alta tensión son de 3 mm, ya que la tensión que deben aislar es de 600 V. Este valor se obtiene de la norma genérica IPC-2221B, que especifica una separación de $2.5+(V-500)\cdot0.005 \text{mm} = 3 \text{mm}$.
+
+El dimensionamiento de las pistas para la corriente que debe pasar es algo complicado, y de hecho condiciona el apilado de la PCB. Por ello, se selecciona un apilado de 4 capas de 70 micras (2 onzas por pulgada cuadrada).
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/stackup_power}
+	\caption{Apilado de la PCB de potencia}
+\end{figure}
+
+Para dimensionar el ancho de estas pistas se ha considerado la corriente RMS de fase, ya que es la corriente máxima en toda la PCB. Después, se ha usado este ancho para todas las conexiones de potencia, aunque la corriente que vean sea menor. El cálculo se ha realizado cogiendo de nuevo la norma IPC-2221, que especifica unas relaciones de capacidad de corriente respecto a incremento de temperatura y grosor de capa.
+
+
+\subsubsection{Detalle de las Partes}
+
+La PCB de potencia incluye varios elementos esenciales:
+
+\begin{itemize}
+	\item \textbf{Drivers de Puerta (Gate Drivers):} Identificados como G1, G2, G3, G4, G5, G6, estos circuitos controlan los MOSFETs de alta y baja potencia, permitiendo la conmutación eficiente y precisa.
+	
+	\item \textbf{Sensores de Temperatura y Corriente:} Los sensores T\_A, T\_B, T\_C y CSA, CSB, CSC, respectivamente, monitorean las temperaturas y corrientes en las etapas críticas del inversor para evitar sobrecalentamientos y condiciones de sobrecorriente.
+	
+	\item \textbf{Circuitos de Protección:} Se incluye un sistema de protección de sobretensión +5V pre mediante un estilo de protección "crowbar", que actúa en caso de que el voltaje supere los 5.1V.
+	
+	\item \textbf{Bloques de Alimentación (Power Blocks):} LDO\_HS\_A, LDO\_LS\_A, LDO\_HS\_B, LDO\_LS\_B, LDO\_HS\_C, LDO\_LS\_C son circuitos de regulación de voltaje que alimentan los componentes del inversor con los voltajes necesarios.
+	
+	\item \textbf{Circuitos de Compensación y Control:} Estos circuitos ajustan los voltajes de referencia y controlan la operación del inversor para mantener un funcionamiento estable y eficiente.
+\end{itemize}
+
+\subsubsection{Justificación de Diseño}
+
+\begin{itemize}
+	\item \textbf{Número de Capas:} La PCB de potencia se ha diseñado con múltiples capas para facilitar la distribución de energía y señales de control de manera eficiente. El uso de capas internas permite un enrutamiento óptimo de pistas de alta corriente y reduce las interferencias electromagnéticas.
+	
+	\item \textbf{Dimensiones:} Las dimensiones de la PCB se han seleccionado para adaptarse al espacio disponible en el vehículo eléctrico, manteniendo una eficiencia térmica adecuada y permitiendo una disposición ordenada de los componentes para facilitar el ensamblaje y mantenimiento.
+	
+	\item \textbf{Otras Consideraciones:} Se han tomado medidas para asegurar que la PCB cumpla con las especificaciones de aislamiento y tolerancia a altas temperaturas requeridas para un entorno de operación de vehículo eléctrico. Además, se ha considerado el uso de materiales adecuados que garanticen la durabilidad y confiabilidad a largo plazo.
+\end{itemize}
+
+En resumen, la PCB de potencia del inversor de potencia para vehículos eléctricos de alto rendimiento es una parte crucial del sistema, proporcionando la plataforma física para la conversión eficiente de energía eléctrica y el control preciso de los componentes de potencia. Su diseño multicapa, combinado con componentes y circuitos especializados, garantiza un funcionamiento seguro y confiable en el exigente entorno de un vehículo eléctrico de alto rendimiento.
+
 
 \subsection{PCB de control}
 
