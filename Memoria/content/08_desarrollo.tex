@@ -2073,10 +2073,10 @@ Los \textit{gate drivers} desempeñan un papel esencial en la conmutación efici
 Al seleccionar un \textit{gate driver}, varios factores deben tenerse en cuenta para garantizar un rendimiento óptimo del sistema:
 
 \begin{itemize}
-	\item Topología: A pesar de que hay soluciones que incluyen 6 \textit{drivers} en un solo encapsulado, las más comunes son los circuitos integrados diseñados para controlar un solo dispositivo o dos en configuración de medio puente. Sin embargo, encontrar esta última opción para el rango de tensiones de 600 V con características óptimas es difícil. Por lo tanto, la topología más adecuada suele ser la de un solo \textit{driver} por encapsulado.
-	\item Tensión de aislamiento: Dado que las señales de puerta vienen del sistema de baja tensión, deben aislarse antes de llegar al \textit{gate}, con lo que será necesario buscar un componente aislado a una tensión adecuada de al menos tres veces superior a la tensión máxima del inversor, 600 V. 
-	\item Corriente de salida: Es crucial elegir un \textit{gate driver} que pueda suministrar la corriente necesaria para cargar y descargar rápidamente las capacidades de compuerta de los MOSFETs. La corriente necesaria depende de la resistencia de puerta, pero se puede determinar una primera cota de $\frac{V_{GS,typ}}{R_{G,int}} = \frac{20 \text{V}}{2.4 \Omega} = 8.3 \text{A}$
-	\item Protecciones integradas: Funciones como la lectura de señales analógicas, la posibilidad de paralelizar salidas o la inclusión de protecciones son muy beneficiosas para la integración del convertidor.
+	\item \textbf{Topología}: A pesar de que hay soluciones que incluyen 6 \textit{drivers} en un solo encapsulado, las más comunes son los circuitos integrados diseñados para controlar un solo dispositivo o dos en configuración de medio puente. Sin embargo, encontrar esta última opción para el rango de tensiones de 600 V con características óptimas es difícil. Por lo tanto, la topología más adecuada suele ser la de un solo \textit{driver} por encapsulado.
+	\item \textbf{Tensión de aislamiento}: Dado que las señales de puerta vienen del sistema de baja tensión, deben aislarse antes de llegar al \textit{gate}, con lo que será necesario buscar un componente aislado a una tensión adecuada de al menos tres veces superior a la tensión máxima del inversor, 600 V. 
+	\item \textbf{Corriente de salida}: Es crucial elegir un \textit{gate driver} que pueda suministrar la corriente necesaria para cargar y descargar rápidamente las capacidades de compuerta de los MOSFETs. La corriente necesaria depende de la resistencia de puerta, pero se puede determinar una primera cota de $\frac{V_{GS,typ}}{R_{G,int}} = \frac{20 \text{V}}{2.4 \Omega} = 8.3 \text{A}$
+	\item \textbf{Protecciones integradas}: Funciones como la lectura de señales analógicas, la posibilidad de paralelizar salidas o la inclusión de protecciones son muy beneficiosas para la integración del convertidor.
 \end{itemize}
 
 \subsubsection{Comparativa de Alternativas}
@@ -2136,7 +2136,7 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 	Con esta estimación de potencia mínima requerida, es esencial seleccionar una fuente adecuada para los \textit{gate drivers}. En este contexto, se considera la serie MGJ2 de Murata, que ofrece características como:
 	\begin{itemize}
 		\item Tensión de entrada de 5 V, 12 V, 15 V o 24 V, lo que permite adaptarse a diferentes fuentes de alimentación disponibles. En esta aplicación, la entrada de 5 V simplifica mucho la arquitectura de \textit{hardware}.
-		\item Rango de tensiones de salida como +15V/-3V, +15V/-5V, +15V/-8.7V, +15V/-15V, +17V/-9V, +18V/-2.5V, +18V/-5V, +20V/-3.5V y +20V/-5V, que permite intercambiar fuentes para probar distintos niveles de tensión.
+		\item Rango de tensiones de salida muy variados, que permite intercambiar fuentes para probar distintos niveles de tensión.
 		\item Aislamiento reforzado hasta 5.2 kVDC, garantizando la seguridad y el cumplimiento de la normativa.
 		\item Caracterización de CMTI mayor a 200 V/ns, lo que garantiza una respuesta rápida y efectiva ante transitorios de alta velocidad.
 	\end{itemize}
@@ -2146,13 +2146,97 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 \end{itemize}
 
 
-\subsection{Bus de condensadores}
+\subsection{Bus de Condensadores}
 
-Justificacion de su existencia
+La tarea del bus de condensadores es equilibrar la potencia instantánea fluctuante en los nodos positivo y negativo de la batería, resultante de los semiconductores que conmutan esta tensión continua en la carga. Estos condensadores, a menudo referidos como bus o enlace de continua, mitigan el rizado creado por la conmutación de alta frecuencia, lo que garantiza un suministro de tensión más estable para el sistema eléctrico en su conjunto.
 
-cálculo de Irms y Vrip
+\subsubsection{Función del Bus de Condensadores}
 
-Selección
+En un inversor de fuente de voltaje (VSI), el bus de condensadores tiene dos funciones principales:
+
+\begin{itemize}
+	\item \textbf{Minimizar el rizado de tensión:} El rizado de tensión en el bus de continua está causado por la conmutación de los dispositivos semiconductores. El bus de condensadores ayuda a reducir este rizado de tensión, lo que es crucial para evitar fluctuaciones en la tensión máxima que se puede consignar al motor.
+	
+	El rizado de tensión se calcula como:
+	
+	\[
+	V_{\text{ripple}} = \frac{I_{\text{C,RMS}}}{C \cdot f_{\text{conm}}}
+	\]
+	
+	Donde:\\
+	- \( V_{\text{ripple}} \) es el rizado de tensión producido,\\
+	- \( I_{\text{C,RMS}} \) es la corriente alterna del bus de condensadores,\\
+	- \( C \) es la capacitancia del bus de condensadores, y\\
+	- \( f_{\text{conm}} \) es la frecuencia de conmutación.\\
+	
+	\item \textbf{Proporcionar la potencia reactiva:} Además de la reducción del rizado de tensión, los condensadores en el bus también proporcionan potencia reactiva necesaria para compensar la carga inductiva del motor, sobre todo en la región de debilitamiento de campo.
+	
+\end{itemize}
+
+\subsubsection{Dimensionamiento del Bus de Condensadores}
+
+Para dimensionar adecuadamente el bus de condensadores en un inversor de fuente de voltaje, se deben considerar las siguientes condiciones:
+
+\begin{itemize}
+	\item \( V_C > 1.1 \cdot V_{\text{max}} \)
+	
+	Donde:\\
+	- \( V_C \) es el voltaje del bus de condensadores,\\
+	- \( V_{\text{max}} \) es la tensión máxima DC.\\
+	
+	\item \( I_{C,\text{RMS}} \approx 0.65 \cdot I_{\text{phase,RMS}} \)
+	
+	Donde:\\
+	- \( I_{C,\text{RMS}} \) es la corriente efectiva del bus de condensadores,\\
+	- \( I_{\text{phase,RMS}} \) es la corriente efectiva de fase,\\
+	- El factor 0.65 se utiliza para estimar la corriente RMS máxima del bus de condensadores en el peor caso, que con una modulación SVPWM se da cuando el índice de modulación es de aproximadamente 60\%.\\
+	
+	\item \( C > \frac{I_{C,\text{RMS}}}{V_{\text{ripple}} \cdot f_{\text{conm}}} \)
+	
+	Donde:\\
+	- \( C \) es la capacitancia del bus de condensadores,\\
+	- \( V_{\text{ripple}} \) es el rizado de tensión permitido,\\
+	- \( f_{\text{conm}} \) es la frecuencia de conmutación.\\
+\end{itemize}
+
+Es fácil ver como reducir la frecuencia de conmutación disminuirá proporcionalmente la corriente nominal para el mismo rizado de tensión o aumentará proporcionalmente el rizado de tensión para la misma corriente de salida.
+
+Ahora, aplicando estas consideraciones a los valores del diseño:
+
+\begin{itemize}
+	\item \( V_C > 1.1 \cdot V_{\text{max}} = 1.1 \cdot 600 \, \text{V} = 660 \, \text{V} \rightarrow 850 \, \text{V} \) \\
+		Escoger condensadores con un límite de tensión más grande es más seguro para transitorios y el régimen de trabajo en debilitamiento de campo.
+	\item \( I_{C,\text{RMS}} \approx 0.65 \cdot I_{\text{phase,RMS}} = 0.65 \cdot 80 \, \text{A,RMS} = 52 \, \text{A,RMS}\) \\
+		Se debe asegurar que el condensador puede soportar esta corriente, idealmente sin refrigeración. En caso de usar múltiples condensadores para formar el bus, la corriente se reparte de forma proporcional entre cada uno de ellos.
+	\item \( C > \frac{I_{C,\text{RMS}}}{V_{\text{ripple}} \cdot f_{\text{conm}}} = \frac{52 \, \text{A,RMS}}{15 \, \text{V} \cdot 50 \, \text{kHz}} \approx 79 \, \mu\text{F} \rightarrow 100 \, \mu\text{F} \)\\
+		Conviene sobredimensionar la capacitancia tanto como sea posible atendiendo a límites mecánicos y de ensamblaje. El valor de $V_{\text{ripple}}$ se suele estimar entre un 5\% y un 10\% de la tensión mínima de funcionamiento, que en este caso es de entorno a los 350 V ($\frac{15 V}{350 V} = 4.3\%$).
+\end{itemize}
+
+\subsubsection{Selección de Condensadores}
+
+Se ha optado por un diseño con 10 condensadores del modelo FHA85Y106KS de la serie FH de Murata. A continuación se detallan las razones para esta elección:
+
+\begin{itemize}
+	\item \textbf{Material:} La serie FH de Murata tiene condensadores de película, cuya resistencia interna es muy inferior a la de un condensador electrolítico, lo cual es crucial para minimizar las pérdidas en el condensador.
+	
+	\item \textbf{Densidad de capacitancia:} Esta serie de condensadores presenta una alta densidad de capacitancia de entorno a $0.6\frac{\mu F}{cm^3}$. Esto va a permitir compactificar el diseño bastante.
+	
+	\item \textbf{Tensión máxima:} Con 850 V, estos condensadores están dentro del rango necesario para operar de manera segura, incluso en debilitamiento de campo.
+	
+	\item \textbf{Temperatura de Operación:} Tienen un rango de temperatura de operación amplio, que va desde -40°C hasta +125°C. Dado que se prefiere evitar su refrigeración, el hecho de que aguanten altas temperaturas permite tener más confiabilidad en la corriente que pueden soportar y el calentamiento que esta va a provocar.
+	
+	\item \textbf{Frecuencia de Operación:} Los condensadores FHA85Y106KS están diseñados para operar en frecuencias de hasta 200 kHz, cuatro veces superior a la frecuencia de conmutación escogida.
+	
+	
+	Para un rizado de 15V a 50 kHz y una corriente de rizado de 52 A RMS, el cálculo sería:
+	
+	\[
+	C > \frac{I_{C,\text{RMS}}}{V_{\text{ripple}} \cdot f_{\text{sw}}} = \frac{52 \, \text{A,RMS}}{15 \, \text{V} \cdot 50 \, \text{kHz}} \approx 79 \, \mu\text{F} \rightarrow 10 \times 10 \, \mu\text{F}
+	\]
+	
+	Donde \(I_{C,\text{RMS}}\) es la corriente efectiva del bus de condensadores, \(V_{\text{ripple}}\) es el rizado de tensión permitido y \(f_{\text{sw}}\) es la frecuencia de conmutación del VSI.
+	
+\end{itemize}
 
 \subsection{Conductores}
 
