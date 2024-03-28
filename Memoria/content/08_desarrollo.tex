@@ -671,7 +671,7 @@ Además \(P_m\) aumentará linealmente con \(\omega_m\) hasta \(\omega_{m,nom}\)
 
 Es obvio que la corriente eléctrica suministrada al PMSM debe estar limitada. Por lo general, el fabricante del motor establecerá la corriente alterna máxima, lo cual se traduce en un límite para \(i_d\) y \(i_q\).
 
-A continuación, se presenta un gráfico muy útil para conocer los límites del motor. Se establecen los ejes como $i_d$ e $i_q$. Por ejemplo, si un motor está funcionando con $i_d = -1 \, \text{A}$ e $i_q = 5 \, \text{A}$, se dibuja un punto en $(-1,5)$. Como se puede apreciar, este es un sistema de coordenadas cartesianas. También puede convertirse en un sistema de coordenadas polares, que utiliza una magnitud y un ángulo. La magnitud del vector será entonces:
+A continuación, se presenta un gráfico muy útil para conocer los límites del motor. Se establecen los ejes como $i_d$ e $i_q$. Por ejemplo, si un motor está funcionando con $i_d = -1 \text{A}$ e $i_q = 5 \text{A}$, se dibuja un punto en $(-1,5)$. Como se puede apreciar, este es un sistema de coordenadas cartesianas. También puede convertirse en un sistema de coordenadas polares, que utiliza una magnitud y un ángulo. La magnitud del vector será entonces:
 \begin{equation}
 I_{s} = \sqrt{i_d^2+i_q^2} [\text{A}]
 \end{equation}
@@ -821,7 +821,7 @@ Tomando la ecuación de voltaje presentada anteriormente, se puede demostrar que
 \end{figure}
 
 
-Al representar estas elipses, normalmente se anotan los valores de velocidad en rpm mecánicas, ya que es mucho más fácil hacerse una idea de los límites del motor junto al resto de curvas (\(\omega_m \, [\text{rpm}] = \frac{1}{pp} \omega_e \left[\frac{\text{rad}}{s}\right] \cdot \frac{60}{2\pi}\)).
+Al representar estas elipses, normalmente se anotan los valores de velocidad en rpm mecánicas, ya que es mucho más fácil hacerse una idea de los límites del motor junto al resto de curvas (\(\omega_m [\text{rpm}] = \frac{1}{pp} \omega_e \left[\frac{\text{rad}}{s}\right] \cdot \frac{60}{2\pi}\)).
 
 Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses está ubicado exactamente en \((i_d, i_q)=(-I_{sc}, 0) = \left(-\frac{\lambda_m}{L_d},0\right)\). En el gráfico anterior, el foco está fuera del círculo de límite de corriente, pero no siempre es el caso. Si \(I_{sc} \leq I_{s,max}\), teóricamente el motor puede alcanzar una velocidad infinita, ya que las elipses colapsan en un solo punto. 
 
@@ -1651,9 +1651,9 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
 		\begin{tabular}{|l|l|}
 			\hline
 			Voltage         & Spacing     \\ \hline
-			\(U < 100 \, \text{VDC}\)  & 10 mm       \\ \hline
-			\(100 \, \text{VDC} < U < 200 \, \text{VDC}\) & 20 mm       \\ \hline
-			\(U > 200 \, \text{VDC}\)  & 30 mm       \\ \hline
+			\(U < 100 \text{VDC}\)  & 10 mm       \\ \hline
+			\(100 \text{VDC} < U < 200 \text{VDC}\) & 20 mm       \\ \hline
+			\(U > 200 \text{VDC}\)  & 30 mm       \\ \hline
 		\end{tabular}
 	\end{table} Impacta en el diseño del empaquetado del inversor.  Se usarán aislantes como el Nomex en caso de que no se pueda garantizar el espaciado por aire.
     \item \textit{\textbf{EV4.3.6} If TS and LVS are on the same PCB, they must be on separate well-defined areas of the board, meeting the spacing requirements in table 5, each area clearly marked with “TS” or “LV”. The outline of the area required for spacing must  be marked. “Conformal coating” refers to a coating insulator, solder resist is not a coating.}
@@ -1951,9 +1951,9 @@ P_{conm} \approx (E_{on} + E_{off}) f_{conm} \frac{\sqrt{2} I_{rms}}{\pi I_{test
 Sustituyendo por los valores del convertidor en diseño:
 
 \begin{itemize}
-	\item Generales: \(f_{\text{conm}} = 50 \, \text{kHz}\), \(I_{\text{rms}} = 80 \, \text{A}\), \(V_{DC} = 600 \, \text{V}\)
-	\item Leapers: \(E_{\text{on}} = 3.54 \, \text{mJ}\), \(E_{\text{off}} = 1.59 \, \text{mJ}\), \(V_{\text{test}} = 600 \, \text{V}\), \(I_{\text{test}} = 150 \, \text{A}\)
-	\item Wolfspeed: \(E_{\text{on}} = 1.13 \, \text{mJ}\), \(E_{\text{off}} = 0.54 \, \text{mJ}\), \(V_{\text{test}} = 600 \, \text{V}\), \(I_{\text{test}} = 80 \, \text{A}\)
+	\item Generales: \(f_{\text{conm}} = 50 \text{kHz}\), \(I_{\text{rms}} = 80 \text{A}\), \(V_{DC} = 600 \text{V}\)
+	\item Leapers: \(E_{\text{on}} = 3.54 \text{mJ}\), \(E_{\text{off}} = 1.59 \text{mJ}\), \(V_{\text{test}} = 600 \text{V}\), \(I_{\text{test}} = 150 \text{A}\)
+	\item Wolfspeed: \(E_{\text{on}} = 1.13 \text{mJ}\), \(E_{\text{off}} = 0.54 \text{mJ}\), \(V_{\text{test}} = 600 \text{V}\), \(I_{\text{test}} = 80 \text{A}\)
 \end{itemize}
 
 Para los dispositivos Leapers, sustituyendo en la fórmula:
@@ -2216,11 +2216,11 @@ Es fácil ver como reducir la frecuencia de conmutación disminuirá proporciona
 Ahora, aplicando estas consideraciones a los valores del diseño:
 
 \begin{itemize}
-	\item \( V_C > 1.1 \cdot V_{\text{max}} = 1.1 \cdot 600 \, \text{V} = 660 \, \text{V} \rightarrow 850 \, \text{V} \) \\
+	\item \( V_C > 1.1 \cdot V_{\text{max}} = 1.1 \cdot 600 \text{V} = 660 \text{V} \rightarrow 850 \text{V} \) \\
 		Escoger condensadores con un límite de tensión más grande es más seguro para transitorios y el régimen de trabajo en debilitamiento de campo.
-	\item \( I_{C,\text{RMS}} \approx 0.65 \cdot I_{\text{phase,RMS}} = 0.65 \cdot 80 \, \text{A,RMS} = 52 \, \text{A,RMS}\) \\
+	\item \( I_{C,\text{RMS}} \approx 0.65 \cdot I_{\text{phase,RMS}} = 0.65 \cdot 80 \text{A,RMS} = 52 \text{A,RMS}\) \\
 		Se debe asegurar que el condensador puede soportar esta corriente, idealmente sin refrigeración. En caso de usar múltiples condensadores para formar el bus, la corriente se reparte de forma proporcional entre cada uno de ellos.
-	\item \( C > \frac{I_{C,\text{RMS}}}{V_{\text{ripple}} \cdot f_{\text{conm}}} = \frac{52 \, \text{A,RMS}}{15 \, \text{V} \cdot 50 \, \text{kHz}} \approx 79 \, \mu\text{F} \rightarrow 100 \, \mu\text{F} \)\\
+	\item \( C > \frac{I_{C,\text{RMS}}}{V_{\text{ripple}} \cdot f_{\text{conm}}} = \frac{52 \text{A,RMS}}{15 \text{V} \cdot 50 \text{kHz}} \approx 79 \mu\text{F} \rightarrow 100 \mu\text{F} \)\\
 		Conviene sobredimensionar la capacitancia tanto como sea posible atendiendo a límites mecánicos y de ensamblaje. El valor de $V_{\text{ripple}}$ se suele estimar entre un 5\% y un 10\% de la tensión mínima de funcionamiento, que en este caso es de entorno a los 350 V ($\frac{15 V}{350 V} = 4.3\%$).
 \end{itemize}
 
@@ -2233,22 +2233,23 @@ Se ha optado por un diseño con 10 condensadores del modelo FHA85Y106KS de la se
 	
 	\item \textbf{Densidad de capacitancia:} Esta serie de condensadores presenta una alta densidad de capacitancia de entorno a $0.6\frac{\mu F}{cm^3}$. Esto va a permitir compactificar el diseño bastante.
 	
-	\item \textbf{Tensión máxima:} Con 850 V, estos condensadores están dentro del rango necesario para operar de manera segura, incluso en debilitamiento de campo.
+	\item \textbf{Tensión máxima:} Con una gama de 500 V y otra 850 V, estos últimos están dentro del rango necesario para operar de manera segura, incluso en debilitamiento de campo.
 	
 	\item \textbf{Temperatura de Operación:} Tienen un rango de temperatura de operación amplio, que va desde -40°C hasta +125°C. Dado que se prefiere evitar su refrigeración, el hecho de que aguanten altas temperaturas permite tener más confiabilidad en la corriente que pueden soportar y el calentamiento que esta va a provocar.
 	
 	\item \textbf{Frecuencia de Operación:} Los condensadores FHA85Y106KS están diseñados para operar en frecuencias de hasta 200 kHz, cuatro veces superior a la frecuencia de conmutación escogida.
 	
 	
-	Para un rizado de 15V a 50 kHz y una corriente de rizado de 52 A RMS, el cálculo sería:
-	
-	\[
-	C > \frac{I_{C,\text{RMS}}}{V_{\text{ripple}} \cdot f_{\text{sw}}} = \frac{52 \, \text{A,RMS}}{15 \, \text{V} \cdot 50 \, \text{kHz}} \approx 79 \, \mu\text{F} \rightarrow 10 \times 10 \, \mu\text{F}
-	\]
-	
-	Donde \(I_{C,\text{RMS}}\) es la corriente efectiva del bus de condensadores, \(V_{\text{ripple}}\) es el rizado de tensión permitido y \(f_{\text{sw}}\) es la frecuencia de conmutación del VSI.
-	
 \end{itemize}
+
+Se evalúa el comportamiento térmico utilizando la hoja de datos:
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/dc-link-temp}
+	\caption{Calentamiento propio del condensador en función de la corriente.}
+\end{figure}
+
+Dado que hay 10 condensadores, la corriente máxima de cada uno es de $\frac{52 \text{A,RMS}}{10} = 5.2 \text{A}$. Por tanto, el incremento de temperatura es de 10 ºC como máximo.
 
 \subsection{Conductores}
 
