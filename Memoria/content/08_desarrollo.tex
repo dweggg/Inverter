@@ -1613,6 +1613,18 @@ Iterando el cálculo de potencia, se puede ver que si se dimensiona a estas corr
 
 \(P_{out, const, tot} = 2\cdot P_{out, const} = 2\cdot23.5 \text{kW} = 47 \text{kW}\)
 
+
+\subsubsection{Velocidad}
+Puesto que se va a controlar un motor con posibilidad de operación en debilitamiento de campo, es necesario conocer la frecuencia eléctrica máxima que se va a tener que poder sintetizar. Este requisito va a dimensionar la velocidad de los lazos de control, y en última instancia, la frecuencia de conmutación. El motor en estudio tiene 3 pares de polos y una velocidad angular mecánica máxima de 20000 RPM. Por lo tanto, la frecuencia eléctrica máxima que se debe sintetizar se calcula de la siguiente manera:
+
+\(f_{e,max} = \frac{pp\cdot \omega_{m, max, RPM}}{120} = \frac{3\cdot 20000 \text{RPM}}{60} = 1000 \text{kHz}\)
+
+Dejando un poco de margen para la compatibilidad con motores de más polos, se escoge una frecuencia máxima de 1200 Hz. Para sintetizar esta frecuencia eléctrica con poca distorsión armónica, se debe escoger una frecuencia de conmutación al menos 30 veces superior, para tener como mínimo 30 pulsos por periodo a estas frecuencias.
+
+\(f_{conm} = 30\cdot f_{e,max} = 30\cdot1200 \text{Hz} = 36 \text{kHz} \rightarrow 50 \text{kHz}\)
+
+Se debe considerar también que con una frecuencia de conmutación mayor, las pérdidas de conmutación serán más grandes, pero el tamaño del bus de condensadores será más pequeño. Además, el lazo de control debe ir a 50 kHz, con lo que el microcontrolador que lo implemente debe ser capaz de ejecutar todos los cálculos en menos de $\frac{1}{50 \text{kHz}} = 20 \mu\text{s}$.
+
 \subsubsection{Normativa}
 La normativa de la Formula Student no impone normativas muy restrictivas, ya que la mayoría están enfocadas a la seguridad. Estas son las normas que afectarán al diseño del inversor:
 
