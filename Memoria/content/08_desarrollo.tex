@@ -1749,7 +1749,7 @@ Puesto que se va a controlar un motor con posibilidad de operación en debilitam
 
 Dejando un poco de margen para la compatibilidad con motores de más polos, se escoge una frecuencia máxima de 1200 Hz. Para sintetizar esta frecuencia eléctrica con poca distorsión armónica, se debe escoger una frecuencia de conmutación al menos 30 veces superior, para tener como mínimo 30 pulsos por periodo a estas frecuencias.
 
-\(f_{conm} = 30\cdot f_{e,max} = 30\cdot1200 \text{Hz} = 36 \text{kHz} \rightarrow 50 \text{kHz}\)
+\(f_{conm} > 30\cdot f_{e,max} = 30\cdot1200 \text{Hz} = 36 \text{kHz} \rightarrow f_{conm} = 50 \text{kHz}\)
 
 Se debe considerar también que con una frecuencia de conmutación mayor, las pérdidas de conmutación serán más grandes, pero el tamaño del bus de condensadores será más pequeño. Además, el lazo de control debe ir a 50 kHz, con lo que el microcontrolador que lo implemente debe ser capaz de ejecutar todos los cálculos en menos de $\frac{1}{50 \text{kHz}} = 20 \mu\text{s}$.
 
@@ -2248,7 +2248,7 @@ A continuación se presenta una comparativa entre varios modelos de \textit{gate
 		\hline
 		Voltaje de Operación & -15 V hasta 30 V & –17.5 V hasta 36 V & -12 V hasta 25V \\
 		\hline
-		Corriente de Salida & 4.61 A (cortocircuito fuente) & 10 A & 15 A \\
+		Corriente de Salida & 4.61 A & 10 A & 15 A \\
 		\hline
 		Protecciones & Desaturación, UVLO & Sobrecorriente, Desaturación, \textit{Miller Clamp} & Desaturación, Sobrecorriente, Apagado suave \\
 		\hline
@@ -2410,15 +2410,27 @@ Se evalúa el comportamiento térmico utilizando la hoja de datos:
 
 Dado que hay 10 condensadores, la corriente máxima de cada uno es de $\frac{52 \text{A,RMS}}{10} = 5.2 \text{A}$. Por tanto, el incremento de temperatura es de 10 ºC como máximo.
 
-\subsection{Conductores}
+\subsection{Conectores de Potencia}
 
-Pletinas
+Para asegurar una conexión segura y eficiente del bus de continua con la batería y de los semiconductores con las fases de los motores, se requiere una cuidadosa selección de conectores. Dada la alta corriente que deben soportar, las conexiones soldadas sin soportes adicionales no son adecuadas según la normativa. Por ello, se opta por la tecnología de conectores \textit{press-fit}.
 
-Cables
+Un modelo que destaca en esta aplicación es el 7461063 de Würth Elektronik, diseñado para conexiones de hasta 160 A. Está fabricado en latón con una superficie estañada, y su montaje \textit{press-fit} asegura una conexión mecánica y eléctrica sólida.
 
-Conectores
+La tecnología \textit{press-fit} utilizada en estos conectores REDCUBE de Würth Elektronik proporciona una serie de ventajas significativas. Al presionar los pines en la PCB, se genera una soldadura fría homogénea entre el pin y el orificio metalizado, asegurando una resistencia de contacto inferior a 200 $\mu$Ohm.
 
-Análisis de parasitos (Lcable), etc.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.35\linewidth]{fig/pressfit}
+	\caption{Conector REDCUBE PRESS-FIT - Modelo 7461063.}
+\end{figure}
+
+Estos conectores permiten una flexibilidad de integración muy grande, puesto que la conexión a ellos se realiza mediante una unión roscada, un tornillo, lo cual permite conectar cables con terminales de anilla, pletinas y otros elementos conductores. Gracias a esto es muy sencillo implementar mecanismos de bloqueo positivo para evitar la desconexión por vibraciones.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/pressfit-980v}
+	\caption{Ejemplo de conexión con bloqueo positivo utilizando una tuerca DIN 980V.}
+\end{figure}
 
 \subsection{Sensor de posición}
 
@@ -2563,6 +2575,28 @@ Este proceso permite ajustar de forma precisa los voltajes negativos necesarios 
 	\caption{\textit{Gate driver} con medida de temperatura y \textit{snubbers}.}
 \end{figure}
 
+Uno de los componentes más importantes de todo el diseño tiene una de las implementaciones más sencillas, ya que la hoja de datos del UCC21710 proporciona mucha información útil para la aplicación final.
+
+El \textit{gate driver} UCC21710 se implementa con varias características que lo hacen adecuado para su uso en aplicaciones de potencia. Las señales TRIP y OK están configuradas en drenaje abierto, lo que permite que se paralelicen con los otros \textit{gate drivers} para facilitar su integración. La entrada IN- no se utiliza y está conectada a tierra. El pin ENABLE se controla desde el MCU, y cuando se fuerza un estado bajo durante más de 1 $\mu$s, se resetea la señal TRIP.
+
+Para la medición de temperatura, se utilizan los \textit{drivers} de los MOSFETS del \textit{low-side}. Estos proporcionan una corriente de salida de 200 $\mu$A en su salida, a través de la cual se puede interpretar la medida. Esta señal se convierte a PWM y luego a analógica mediante un filtro RC para ser recibida directamente por el ADC del MCU. 
+
+El circuito de medición de temperatura utiliza el sensor NTC del semiconductor para obtener una lectura de tensión, la cual se convierte en una lectura de bits mediante un ADC. La relación entre la resistencia del NTC y la temperatura se modela utilizando la fórmula de Steinhart-Hart, que toma en cuenta el valor de Beta del NTC, la resistencia a una temperatura de referencia, y la temperatura ambiente. La fórmula utilizada es:
+
+\[
+NTC = R_0 \cdot e^{\left[-\beta \cdot \left(\frac{1}{T_0} - \frac{1}{\text{T}}\right)\right]}
+\]
+
+El voltaje leído por el ADC se calcula con la siguiente fórmula:
+\[
+V_{\text{read}} = V_{\text{CC\_GD}} \cdot \left(\frac{-20 \cdot I_{\text{AIN}} \cdot (R_{\text{filt}} + NTC)}{100}\right) = 5 \text{V} \cdot \left(\frac{-20 \cdot 200 \mu\text{A} \cdot (10 \text{k}\Omega + NTC)}{100}\right)
+\]
+
+El circuito también incluye protección de \textit{Miller clamp} para evitar activaciones accidentales de los MOSFETs. Aunque los \textit{gate drivers} tienen un \textit{pull-down} activo, se ha implementado un \textit{pull-down} externo con $R_{GS,HS}$ y $R_{GS,LS}$. Sin embargo, la detección de sobrecorriente no está implementada en este diseño por los motivos mencionados en un apartado anterior.
+
+Adicionalmente, se incluyen unos \textit{snubbers} consistentes en un RC entre drenador y fuente, un condensador entre puerta y drenador y un condensador entre puerta y fuente. En caso de encontrar problemas excesivos con la conmutación, pueden ayudar a amortiguar transitorios.
+
+
 \textbf{Descarga}
 \begin{figure}[H]
 	\centering
@@ -2570,6 +2604,21 @@ Este proceso permite ajustar de forma precisa los voltajes negativos necesarios 
 	\caption{Circuito de descarga.}
 \end{figure}
 
+Una de las partes más importantes en cuanto a la seguridad eléctrica es la implementación del circuito de descarga. Este circuito se utiliza para descargar la energía almacenada en el bus de condensadores cuando el convertidor no está operativo. Los requisitos de la normativa son que el circuito debe ser capaz de descargar el bus de la tensión máxima hasta 60 V en menos de 5 segundos. Adicionalmente, el circuito debe ser capaz de aguantar de forma constante la tensión máxima.
+
+Con tal de cumplir estos requisitos se ha optado por un circuito basado en un NMOS, cuya puerta se conecta al terminal positivo del bus a través de una resistencia de valor elevado y se limita la tensión con un diodo \textit{zener}. La puerta del MOSFET está controlada por un optoacoplador de forma aislada desde el circuito de baja tensión. Mientras el bus tenga una tensión superior a 10 V y el optoacoplador esté desactivado, el MOSFET quedará cerrado, conectando el banco de resistencias a los condensadores, descargándolos.
+
+La selección de la resistencia se ha basado en minimizar el tamaño de la misma. La solución más óptima se ha encontrado en utilizar un banco de 24 resistencias SMD de 470k$\Omega$, en encapsulado 2512, que es capaz de disipar 1 W. Se conectan en paralelo para llegar al valor necesario para cumplir con el requisito de tiempo de descarga. Para el cálculo del tiempo de descarga se utiliza la siguiente expresión:
+
+\[
+t_{\text{dis}} = R_{\text{dis}} \cdot C \cdot \ln\left(\frac{V_{\text{inicial}}}{V_{\text{final}}}\right) = \left(\frac{470 \text{k}\Omega}{24}\right) \cdot (100 \mu\text{F}) \cdot \ln\left(\frac{600 \text{V}}{60 \text{V}}\right) = 4.509 \text{s}
+\]
+
+La potencia disipada en cada resistencia de descarga se calcula como:
+
+\[
+P(R_{\text{dis}}, \text{max}) = \frac{V_{\text{max}}^2}{R_{\text{dis}}} = \frac{600\text{ V}^2}{470 \text{k}\Omega} = 0.766 \text{W} < 1 \text{W}
+\]
 
 \textbf{Medida de corriente}
 
@@ -2578,6 +2627,8 @@ Este proceso permite ajustar de forma precisa los voltajes negativos necesarios 
 	\includegraphics[width=0.8\linewidth]{fig/Imeas-sch}
 	\caption{Sensor de corriente de fase.}
 \end{figure}
+
+
 
 \textbf{Medida de tensión}
 \begin{figure}[H]
@@ -2604,18 +2655,6 @@ justificacion numero de capas, etc.
 
 Diagrama de bloques de software, justificado (ojo, detallar el dual)
 
-Abstraccion ECU, estandarizacion, RTOS
-
-Shield con seleccion de microcontrolador
-
-
-\subsection{Retos}
-
-velocidad MCU
-
-sincronizacion de ambos inversores
-
-mensajes con el coche
 
 \subsection{Tareas}
 
