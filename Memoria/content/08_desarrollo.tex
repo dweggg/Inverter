@@ -1662,7 +1662,7 @@ La norma \textit{\textbf{EV2.2.1}} dicta que la potencia en la salida de la bate
 
 La prueba donde se espera utilizar esta potencia máxima es la \textit{Acceleration}, donde se podría requerir de los 80 kW durante un máximo de 10 segundos, siendo esta una aproximación muy conservadora. Por lo tanto, la potencia máxima queda como:
 
-\(P_{out, max, tot} = 80 \text{kW} (2 \times 40 \text{kW}) \text{(10s máx.)}\)
+\(P_{out, max, tot} = 80 \text{kW} (2 \cdot 40 \text{kW}) \text{(10s máx.)}\)
 
 
 Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a máximos de 80 kW:
@@ -1701,7 +1701,7 @@ A continuación se muestra el cálculo del valor RMS de la potencia requerida, b
 
 Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo, en concreto un \(\frac{23.2 \text{kW}}{80 \text{kW}} = 29\%\). Por lo tanto, se dimensiona el inversor considerando una potencia media de 35 kW, es decir, 17.5 kW por motor. Esta cifra proporciona un margen de seguridad de 11.8 kW respecto a la simulación, lo que permite algo de juego en el reparto de potencia entre ambos motores. De esta manera, la potencia constante queda como:
 
-\(P_{out, const, tot} = 35 \text{kW} (2 \times 17.5 \text{kW})\)
+\(P_{out, const, tot} = 35 \text{kW} (2 \cdot 17.5 \text{kW})\)
 
 Cabe destacar que se está calculando la potencia aparente del convertidor, ya que la potencia activa y la reactiva se reparten en función del factor de potencia, que no es constante y depende de la planta mecánica y la situación del motor. La potencia activa es la que usa el motor para acelerar o frenar, y la reactiva la consume o suministra el DC-link. Otra nota es que la simulación es poco realista puesto que utiliza picos de potencia máxima, cuando en realidad, en la prueba de la \textit{Endurance} se suele limitar el valor de estos picos con tal de extender la autonomía.
 
@@ -1837,8 +1837,8 @@ Estas restricciones no solo definen los límites de diseño del inversor, sino q
 Con toda la información que se ha recopilado se pueden listar los requisitos más importantes del convertidor:
 \begin{itemize}
 	\item \textbf{Topología del convertidor:} VSI doble.
-	\item \textbf{Potencia pico:} 80 kW ($2\times40$ kW).
-	\item \textbf{Potencia constante:} 35 kW ($2\times17.5$ kW).
+	\item \textbf{Potencia pico:} 80 kW ($2\cdot40$ kW).
+	\item \textbf{Potencia constante:} 35 kW ($2\cdot17.5$ kW).
 	\item \textbf{Tensión DC máxima:} 600 V.
 	\item \textbf{Tensión fase-neutro sintetizada máxima:} 245 V,RMS (SVPWM).
 	\item \textbf{Corriente de fase máxima:} 80 A,RMS.
@@ -2104,21 +2104,13 @@ Sustituyendo por los valores del convertidor en diseño:
 Para los dispositivos Leapers, sustituyendo en la fórmula:
 
 \[
-P_{\text{conm}} \approx (3.54 \text{mJ} + 1.59 \text{mJ}) \times 50 \text{kHz} \times \frac{80 \text{A}}{150 \text{A}} \times \frac{600 \text{V}}{600 \text{V}}
-\]
-
-\[
-P_{\text{conm, Leapers}} \approx 61.58 \text{W}
+P_{\text{conm}} \approx (3.54 \text{mJ} + 1.59 \text{mJ}) \cdot 50 \text{kHz} \cdot \frac{80 \text{A}}{150 \text{A}} \cdot \frac{600 \text{V}}{600 \text{V}} \approx 61.58 \text{W}
 \]
 
 Para los dispositivos Wolfspeed:
 
 \[
-P_{\text{conm}} \approx (1.13 \text{mJ} + 0.54 \text{mJ}) \times 50 \text{kHz} \times \frac{80  \text{A}}{80 \text{A}} \times \frac{600 \text{V}}{600 \text{V}}
-\]
-
-\[
-P_{\text{conm, Wolfspeed}} \approx 37.59 \text{W}
+P_{\text{conm}} \approx (1.13 \text{mJ} + 0.54 \text{mJ}) \cdot 50 \text{kHz} \cdot \frac{80  \text{A}}{80 \text{A}} \cdot \frac{600 \text{V}}{600 \text{V}} \approx 37.59 \text{W}
 \]
 
 Dado que estas pérdidas son para un solo MOSFET, se deben multiplicar por 12 para obtener las pérdidas de conmutación totales, dado que hay 6 dispositivos de potencia en la topología VSI y hay dos VSIs en el convertidor.
@@ -2589,7 +2581,7 @@ NTC = R_0 \cdot e^{\left[-\beta \cdot \left(\frac{1}{T_0} - \frac{1}{\text{T}}\r
 
 El voltaje leído por el ADC se calcula con la siguiente fórmula:
 \[
-V_{\text{read}} = V_{\text{CC\_GD}} \cdot \left(\frac{-20 \cdot I_{\text{AIN}} \cdot (R_{\text{filt}} + NTC)}{100}\right) = 5 \text{V} \cdot \left(\frac{-20 \cdot 200 \mu\text{A} \cdot (10 \text{k}\Omega + NTC)}{100}\right)
+V_{\text{read}} = V_{\text{CC,GD}} \cdot \left(\frac{-20 \cdot I_{\text{AIN}} \cdot (R_{\text{filt}} + NTC)}{100}\right) = 5 \text{V} \cdot \left(\frac{-20 \cdot 200 \mu\text{A} \cdot (10 \text{k}\Omega + NTC)}{100}\right)
 \]
 
 El circuito también incluye protección de \textit{Miller clamp} para evitar activaciones accidentales de los MOSFETs. Aunque los \textit{gate drivers} tienen un \textit{pull-down} activo, se ha implementado un \textit{pull-down} externo con $R_{GS,HS}$ y $R_{GS,LS}$. Sin embargo, la detección de sobrecorriente no está implementada en este diseño por los motivos mencionados en un apartado anterior.
