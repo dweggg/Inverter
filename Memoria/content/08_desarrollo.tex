@@ -260,6 +260,33 @@ Esta transformada se utiliza cuando la potencia del sistema debe permanecer inal
 	\caption{Sistema trifásico representado en el Espacio Vectorial con la transformada de Clarke ortonormal superpuesta.}
 	\end{figure}
 
+Representar esta transformada en un eje temporal refleja de forma más intuitiva el resultado:
+\begin{figure}[H]
+	\centering
+	\hspace*{-1.5cm}
+	\begin{tikzpicture}
+		\begin{axis}[
+			width=10cm,
+			height=6cm,
+			xlabel={Tiempo (s)},
+			ylabel={Voltaje (V)},
+			legend entries={$v_{\alpha}$, $v_{\beta}$, $v_{\gamma}$},
+			grid=major,  
+			legend pos=south east,
+			samples=50,
+			domain=0:2*360,
+			axis line style={draw=none},  % Elimina el recuadro exterior
+			xticklabels=\empty,  % Elimina las marcas en el eje x
+			yticklabels=\empty,  % Elimina las marcas en el eje y
+			]
+		
+			\addplot[magenta, thick, domain=0:2*360] {1.2*sin(x)};
+			\addplot[cyan, thick, domain=0:2*360] {1.2*sin(x - 90)};
+			\addplot[orange, thick, domain=0:2*360] {0};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Transformada de Clarke ortonormal representada en el tiempo.}
+\end{figure}
 
 
 
@@ -321,7 +348,83 @@ p(t) = p_{abc} = p_{\alpha\beta\gamma, \text{ortonormal}} = v_a \cdot i_a + v_b 
 
 Mantener constante la potencia a lo largo de las transformadas puede ser útil en algunos contextos, pero lo que se suele implementar es una variante de la transformada de Clarke que mantiene constante la amplitud de la magnitud.
 
-La transformada no es ortonormal, ya que ajusta las magnitudes para que el módulo de las variables sea el adecuado, pero la rotación se mantiene igual.
+La transformada no es ortonormal, ya que ajusta las magnitudes para que el módulo de las variables sea el adecuado, pero la rotación se mantiene igual. A continuación se muestran la representación en el Espacio Vectorial y en un eje temporal:
+\begin{figure}[H]
+	\centering
+	\hspace*{-1.5cm}
+	\begin{tikzpicture}
+		\begin{axis}[
+			view={-45}{-35},
+			%view={-20}{-15},
+			%view={54.74}{-15},
+			axis lines=none,  % Elimina los ejes
+			xmin=-.9,
+			xmax=.9,
+			ymin=-.9,
+			ymax=.9,
+			zmin=-.9,
+			zmax=.9,
+			no markers,
+			axis equal,
+			enlargelimits={upper=0.2},
+			scale=1,
+			]
+			\addplot3+[red, thick, no markers, samples=30, domain=-pi:pi, variable=\t]
+			({sin(deg(\t))}, {sin(deg(\t + 2*pi/3))}, {sin(deg(\t - 2*pi/3))});
+			
+			% Ejes abc
+			\draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0.5, 0, 0) node[pos=1.5]{$b$};
+			\draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$a$};
+			\draw[red, line width=1.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0, 0.5) node[pos=1.5]{$c$};
+			
+			% Ejes alpha-beta
+			\draw[blue, line width=0.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0, 0.5, 0) node[pos=1.5]{$\alpha'$};
+			\draw[blue, line width=0.5pt, -{Latex[length=1.5mm,width=1mm]}] (axis cs:0, 0, 0) -- (axis cs:0.8, 0.6, 0.25) node[pos=1.5]{$\beta'$};
+			
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, 1.1, -1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (1.1, 1.1, -1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, -1.1, -1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (-1.1, -1.1, -1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, 1.1) (-1.1, 1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, 1.1) (1.1, 1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, 1.1) (1.1, -1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, 1.1) (-1.1, -1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, -1.1, -1.1) (-1.1, -1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(-1.1, 1.1, -1.1) (-1.1, 1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, 1.1, -1.1) (1.1, 1.1, 1.1)};
+			\addplot3[draw=gray, no markers] coordinates {(1.1, -1.1, -1.1) (1.1, -1.1, 1.1)};
+		\end{axis}
+	\end{tikzpicture}
+	\centering
+	\caption{Sistema trifásico representado en el Espacio Vectorial con la transformada de Clarke de amplitud constante superpuesta.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\hspace*{-1.5cm}
+	\begin{tikzpicture}
+		\begin{axis}[
+			width=10cm,
+			height=6cm,
+			xlabel={Tiempo (s)},
+			ylabel={Voltaje (V)},
+			legend entries={$v_{\alpha'}$, $v_{\beta'}$, $v_{\gamma'}$},
+			grid=major,  
+			legend pos=south east,
+			samples=50,
+			domain=0:2*360,
+			axis line style={draw=none},  % Elimina el recuadro exterior
+			xticklabels=\empty,  % Elimina las marcas en el eje x
+			yticklabels=\empty,  % Elimina las marcas en el eje y
+			]
+			
+			\addplot[magenta, thick, domain=0:2*360] {sin(x)};
+			\addplot[cyan, thick, domain=0:2*360] {sin(x - 90)};
+			\addplot[orange, thick, domain=0:2*360] {0};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Transformada de Clarke de amplitud constante representada en el tiempo.}
+\end{figure}
 
 \begin{equation}
     \begin{bmatrix}
@@ -375,12 +478,37 @@ p_{abc} = \frac{3}{2} \cdot (v_{\alpha'} \cdot i_{\alpha'} + v_{\beta'} \cdot i_
 
 Después de aplicar la transformada de Clarke, todavía quedan dos variables sinusoidales (\(\alpha\beta\) si se considera \(\gamma = 0\)), lo que dificulta el análisis para que el control sea sencillo. Por lo tanto, se aplica otra transformada para convertir estas cantidades sinusoidales en constantes.
 
-Ahora, considerando que el vector espacial gira a una velocidad de \(\omega = 2\pi f\), si se aplica continuamente una rotación alrededor del eje \(\gamma\) con un ángulo \(\theta = \omega  t\), se puede representar el vector espacial como una composición de dos variables continuas (en lugar de sinusoides). Además, si se sincroniza esta rotación con el ángulo del vector espacial (el eje \(d\) apuntando al vector espacial), se obtiene una variable continua (\(d\)) y una segunda variable de valor nulo (\(q\)).
+Ahora, considerando que el vector espacial gira a una velocidad de \(\omega = 2\pi f\), si se aplica continuamente una rotación alrededor del eje \(\gamma\) con un ángulo \(\theta = \omega  t\), se puede representar el vector espacial como una composición de dos variables continuas (en lugar de sinusoides). Además, si se sincroniza esta rotación con el ángulo del vector espacial (el eje \(d\) apuntando al vector espacial), se obtiene una variable continua (\(q\)) y una segunda variable de valor nulo (\(d\)).
 
 \begin{figure}[H]
-  \centering
-  %\includegraphics[width=0.5\textwidth]{ruta_de_la_imagen_en_formato_latex}
-  \caption{Transformada de Park.}
+  	\centering
+  \hspace*{-1.5cm}
+  \begin{tikzpicture}
+  	\begin{axis}[
+  		width=10cm,
+  		height=6cm,
+  		xlabel={Tiempo (s)},
+  		ylabel={Voltaje (V)},
+  		legend entries={$v_{\alpha'}$, $v_{\beta'}$, $v_d$, $v_q$},
+  		grid=major,  
+  		legend pos=south east,
+  		samples=50,
+  		domain=0:2*360,
+  		axis line style={draw=none},  % Elimina el recuadro exterior
+  		xticklabels=\empty,  % Elimina las marcas en el eje x
+  		yticklabels=\empty,  % Elimina las marcas en el eje y
+  		]
+  		
+  		\addplot[magenta, thick, domain=0:2*360] {sin(x)};
+  		\addplot[cyan, thick, domain=0:2*360] {sin(x - 90)};
+  		
+  		\addplot[lime, ultra thick, domain=0:2*360] {0};
+  		\addplot[teal, ultra thick, domain=0:2*360] {1};
+  		
+  		
+  	\end{axis}
+  \end{tikzpicture}
+  \caption{Transformada de Park representada en el tiempo junto a la transformada de Clarke de amplitud constante.}
 \end{figure}
 
 Se puede ver que la transformada es simplemente una rotación a lo largo de uno de los ejes de la base:
