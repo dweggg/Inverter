@@ -133,20 +133,33 @@ ax.YAxis.TickLabelFormat = '%g';
 
 saveas(gcf, [outputDirectory, 'PLECS_gamma.png']);
 
-% Plot Tem-wm xy plot
-figure;
-plot(M_wm*60/2/pi, Tem, 'LineWidth', 1, 'Color', 'k');
+% Assuming you have time, M_wm, TemRefsat, and Tem vectors
+fig = figure;
+yyaxis left;  % Left y-axis for torque
+plot(time, TemRefsat, 'LineWidth', 1, 'Color', 'r');  % Plotting torque reference
+hold on;
+plot(time, Tem, 'LineWidth', 1, 'Color', 'k');  % Plotting actual torque
+ylabel('$T_{em, ref}$ [N$\cdot$m], $T_{em}$ [N$\cdot$m]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
 
-xlabel('$\omega_m$ [rpm]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.xlabelFontSize);
-ylabel('$T_{em}$ [N$\cdot$m]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
-title('Mechanical Speed ($\omega_m$) vs Electromagnetic Torque ($T_{em}$)', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
+yyaxis right;  % Right y-axis for speed
+plot(time, M_wm*60/2/pi, 'LineWidth', 1, 'Color', 'k');  % Plotting speed
+ylabel('$\omega_m$ [rpm]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.ylabelFontSize);
+
+xlabel('Time [s]', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.xlabelFontSize);
+title('$\omega_m$ - $T_{em}$', 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.titleFontSize);
 set(gca, 'FontSize', currentConfig.fontConfig.ticksFontSize, 'TickLabelInterpreter', 'latex');
 grid on;
+legend({'$T_{em}$, ref [N$\cdot$m]', '$T_{em}$ [N$\cdot$m]', '$\omega_m$ [rpm]'}, 'Interpreter', 'latex', 'FontSize', currentConfig.fontConfig.legendFontSize, 'Location', 'best');
 ax = gca;
 ax.XAxis.Exponent = 0;
-ax.YAxis.Exponent = 0;
+ax.YAxis(1).Exponent = 0;  % Exponent for left y-axis
+ax.YAxis(2).Exponent = 0;  % Exponent for right y-axis
 ax.XAxis.TickLabelFormat = '%g';
-ax.YAxis.TickLabelFormat = '%g';
+ax.YAxis(1).TickLabelFormat = '%g';
+ax.YAxis(2).TickLabelFormat = '%g';
+
+ax.YAxis(1).Color = [1 0 0];
+ax.YAxis(2).Color = [0 0 0];
 
 saveas(gcf, [outputDirectory, 'PLECS_Tem.png']);
 

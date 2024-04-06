@@ -611,7 +611,7 @@ El modelo de circuito equivalente se divide en los circuitos del eje $d$ y el ej
 		\centering
 		\begin{circuitikz}[american voltages]
 			% q-axis circuit
-			\draw (0,0) to [L, l=$L_q$, o-] ++(2,0) to [R, l=$R_s$] ++(2,0) to [V, v^=$\omega_e\cdot L_d\cdot i_d$] ++(2,0) to [V, v^=$\omega_e \lambda_m$] ++(0,-2){};
+			\draw (0,0) to [L, l=$L_q$, o-] ++(2,0) to [R, l=$R_s$] ++(2,0) to [V, v^=$\omega_e\cdot L_d\cdot i_d$] ++(2,0) to [V, v^=$\omega_e\cdot\lambda_m$] ++(0,-2){};
 			% Parallel line
 			\draw (0,-2) node[circ, fill=none]{} -- ++(6,0);
 			% Current label
@@ -642,6 +642,18 @@ v_q = v_{R_s} - \omega_e \cdot L_d \cdot i_d + \omega_e \cdot \lambda_m + v_{L_q
 \begin{equation}
 v_q = R_s\cdot i_q - \omega_e \cdot L_d \cdot i_q + \omega_e \cdot \lambda_m + L_q\cdot\frac{d i_q}{d t}
 \end{equation}
+
+En estado estacionario, es decir, sin cambios muy bruscos de la corriente, el término diferencial puede ser eliminado:
+
+\begin{equation}
+	v_d = R_s\cdot i_d - \omega_e \cdot L_q \cdot i_q
+	\label{eq_vd}
+\end{equation}
+\begin{equation}
+	v_q = R_s\cdot i_q - \omega_e \cdot L_d \cdot i_q + \omega_e \cdot \lambda_m
+	\label{eq_vq}
+\end{equation}
+
 
 Donde:
 \begin{itemize}
@@ -676,12 +688,27 @@ T_{em} = \frac{3}{2\cdot \omega_m}\cdot(v_d i_d + v_q i_q) = \frac{3}{2\cdot \om
 
 \begin{equation}
 T_{em} = \frac{3}{2}\frac{n}{2}\cdot((L_d - L_q) i_q i_d + \lambda_m i_q)
+\label{eq_tq_dq}
 \end{equation}
 
-También se puede establecer un límite de voltaje, porque el PMSM generalmente se controla con un inversor de fuente de voltaje (VSI) modulado por SVPWM y la tensión de salida está limitada a \(\frac{V_{DC}}{\sqrt{3}}\). En esta ecuación, no se considera la caída de tensión por la resistencia del estator \(R_s\), ya que haría que las ecuaciones fueran muy densas y el efecto de esta caída de voltaje es despreciable a altas velocidades.
+También se puede establecer un límite de voltaje, porque el PMSM generalmente se controla con un inversor de fuente de voltaje (VSI) modulado por SVPWM y la tensión de salida $V_s$ está limitada a \(\frac{V_{DC}}{\sqrt{3}}\). En esta ecuación, no se considera la caída de tensión por la resistencia del estator \(R_s\), ya que haría que las ecuaciones fueran muy densas y el efecto de esta caída de voltaje es despreciable a altas velocidades.
 
 \begin{equation}
-\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{\omega_e}\right)^2 \geq \left(\lambda_m+L_d\cdot i_d\right)^2+(L_q\cdot i_q)^2
+V_s = \sqrt{v_d^2 + v_q^2} \leq \frac{V_{DC}}{\sqrt{3}}
+\end{equation}
+\begin{equation}
+	\sqrt{\left(R_s\cdot i_d - \omega_e \cdot L_q \cdot i_q\right)^2 + \left(R_s\cdot i_q - \omega_e \cdot L_d \cdot i_q + \omega_e \cdot \lambda_m\right)^2} \leq \frac{V_{DC}}{\sqrt{3}}
+\end{equation}
+
+Despreciando los términos con \(R_s\):
+\begin{equation}
+	\sqrt{\left(- \omega_e \cdot L_q \cdot i_q\right)^2 + \left(- \omega_e \cdot L_d \cdot i_q + \omega_e \cdot \lambda_m\right)^2} \leq \frac{V_{DC}}{\sqrt{3}}
+\end{equation}
+ 
+Reordenando:
+\begin{equation}
+	\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{\omega_e}\right)^2 \geq \left(\lambda_m+L_d\cdot i_d\right)^2+(L_q\cdot i_q)^2
+	\label{eq_vle_dq}
 \end{equation}
 
 \subsection{Curvas características del PMSM}
@@ -841,10 +868,14 @@ Se puede observar que la corriente máxima puede expresarse más fácilmente com
 			\draw [red, thick] (axis cs: 0.2, 0) arc (0:135:0.2);
 			\node [red] at (axis cs: 0.25, 0.28) {$\gamma = \frac{3\pi}{4}$};
 			
+			% Added point (-0.1, 0.5)
+			\filldraw[blue] (-0.1, 0.5) circle (2pt) node[anchor=west] {$(-1, 5)$};
+			
 		\end{axis}
 	\end{tikzpicture}
-  \caption{Círculo de límite de corriente.}
+	\caption{Círculo de límite de corriente con punto añadido.}
 \end{figure}
+
 
 
 Resulta ser un círculo, lo cual tiene sentido, ya que es un vector de magnitud constante. Además, el vector de corriente $I_s\angle \gamma = I_{s,\text{max}} \angle{\frac{3\pi}{4}}$ se representa para facilitar su comprensión.
@@ -852,10 +883,11 @@ Resulta ser un círculo, lo cual tiene sentido, ya que es un vector de magnitud 
 
 \subsubsection{TH (Hipérbolas de par)}
 
-Si se estudia la ecuación del par, es evidente que \(T_{em}\) es una función de \((i_d, i_q)\). El resto de parámetros son constantes, por lo que se puede establecer un valor fijo de par y deslizar alrededor de \((i_d, i_q)\) para generar una curva. La forma de la curva resultante es una hipérbola.
+Si se estudia la ecuación del par \ref{eq_tq_dq}, es evidente que \(T_{em}\) es una función de \((i_d, i_q)\). El resto de parámetros son constantes, por lo que se puede establecer un valor fijo de par y deslizar alrededor de \((i_d, i_q)\) para generar una curva. La forma de la curva resultante es una hipérbola, y a continuación se presenta en su forma polar:
 
 \begin{equation}
 T_{em} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot I_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot I_s\cdot \sin(\gamma))
+\label{eq_tq_pol}
 \end{equation}
 
 
@@ -905,7 +937,7 @@ El gráfico se limita a los cuadrantes 2 y 3 por un motivo ilustrado con estas h
 
 \subsubsection{VLE (Elipses de límite de voltaje)}
 
-Tomando la ecuación de voltaje presentada anteriormente, se puede demostrar que es una elipse. Del mismo modo que con las hipérbolas de par, se pueden establecer una velocidad y una tensión, y deslizar valores de \((i_d, i_q)\) para generar la curva.
+Tomando la ecuación de voltaje \ref{eq_vle_dq}, se puede demostrar que es una elipse. Del mismo modo que con las hipérbolas de par, se pueden establecer una velocidad y una tensión, y deslizar valores de \((i_d, i_q)\) para generar la curva.
 
 \begin{equation}
 1 \geq \frac{\left(\frac{\lambda_m}{L_d}+i_d\right)^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{L_d\omega_e}\right)^2}+\frac{i_q^2}{\left(\frac{\frac{V_{DC}}{\sqrt{3}}}{L_q\omega_e}\right)^2}
@@ -1010,11 +1042,11 @@ La trayectoria de control más utilizada es el MTPA, o Máximo Par por Amperio. 
 \end{equation}
 
 
-La expresión analítica se desarrolla como:
+La expresión analítica se desarrolla partiendo de la ecuación de par en forma polar \ref{eq_tq_pol}:
 
-\begin{equation}
+\begin{equation*}
 	T_{em} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot I_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot I_s\cdot \sin(\gamma))
-\end{equation}
+\end{equation*}
 
 
 \begin{equation}
@@ -1077,10 +1109,10 @@ El resultado de graficar esta expresión sobre el plano \((i_d, i_q)\) deja a la
 
 \subsubsection{CTC (Curva de Torque Constante)}
 
-Como se puede observar, las hipérbolas de torque definen una trayectoria la cual permite mantener un par constante. Recordando las elipses de tensión, para un mismo valor de $V_s$ las elipses se contraen hacia el foco a medida que la velocidad aumenta. Esto significa que siguiendo la curva de torque constante de derecha a izquierda se puede mantener el par aumentando la velocidad. Usando la expresión del torque se puede obtener directamente:
-\begin{equation}
+Como se puede observar, las hipérbolas de torque definen una trayectoria la cual permite mantener un par constante. Recordando las elipses de tensión, para un mismo valor de $V_s$ las elipses se contraen hacia el foco a medida que la velocidad aumenta. Esto significa que siguiendo la curva de torque constante de derecha a izquierda se puede mantener el par aumentando la velocidad. Usando la expresión \ref{eq_tq_pol} se puede obtener directamente:
+\begin{equation*}
 	T_{em} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot I_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot I_s\cdot \sin(\gamma))
-\end{equation}
+\end{equation*}
 
 \begin{equation}
 I_{s,\text{CTC}} = \frac{\lambda_m}{L_d} \cdot \frac{\sqrt{\sin(\gamma)^2+\frac{2\cdot\frac{L_d-L_q}{L_d}\cdot\sin(2\gamma)\cdot T_{em}\cdot2 L_d}{3\cdot pp \cdot \lambda_m^2}}-\sin(\gamma)}{\sin(2\gamma)\cdot(\frac{L_d-L_q}{L_d})}
@@ -1133,13 +1165,13 @@ Existe una trayectoria que permite maximizar el par entregado por el motor en ra
 \frac{\partial T_{em}}{\partial \delta} = 0
 \end{equation}
 
-Donde $\delta$ es el ángulo del vector de tensión $V_s$. La expresión analítica se desarrolla como:
+Donde $\delta$ es el ángulo del vector de tensión $V_s$, de la misma manera que $\gamma$ es el ángulo del vector de corriente $I_s$. La expresión analítica se desarrolla a partir de la expresión de par en coordenadas cartesianas (\ref{eq_tq_dq}):
 
-\begin{equation}
+\begin{equation*}
 T_{em} = \frac{3}{2}pp\cdot((L_d - L_q) i_q i_d + \lambda_m i_q)
-\end{equation}
+\end{equation*}
 
-Se neglige la caída de tensión resistiva del estator. 
+Se aíslan $i_d$ e $i_q$ de \ref{eq_vd} y \ref{eq_vq}, negligiendo la caída de tensión resistiva del estator: 
 \begin{equation}
 i_d = \frac{v_q}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d}; i_q = -\frac{v_d}{\omega_e \cdot L_q}
 \end{equation}
@@ -1309,7 +1341,7 @@ Sustituyendo por los términos conocidos y simplificando:
 
 
 
-Además, el inversor es capaz de sintetizar un máximo de $V_s = \frac{V_{DC}}{\sqrt{3}}$ utilizando SVPWM, por lo tanto, se debe saturar la consigna de tensión a ese valor. Adicionalmente, por seguridad, se multiplica por un factor de seguridad $K_{FW}$ menor a 1.
+Además, el inversor es capaz de sintetizar un máximo de $V_s = \frac{V_{DC}}{\sqrt{3}}$ utilizando SVPWM, por lo tanto, se debe saturar la consigna de tensión a ese valor. Adicionalmente, por seguridad, se multiplica por un factor de seguridad $K_{FW} \in (0,1)$.
 
 \begin{equation}
 	V_{s,\text{max}} \leq \frac{V_{DC}}{\sqrt{3}}\cdot K_{FW}
@@ -1365,29 +1397,29 @@ M_p = 15 \%
 \]
 Donde $M_p$ es el sobre-impulso deseado en la respuesta a una entrada de escalón, $t_s$ es el tiempo de establecimiento deseado, y $T_s$ es la inversa de la frecuencia de control.
 
-\[
-\xi = \sqrt{\frac{\log(M_p)^2}{\pi^2 + \log(M_p)^2}}
-\]
+\begin{equation}
+	\xi = \sqrt{\frac{\log(M_p)^2}{\pi^2 + \log(M_p)^2}}
+\end{equation}
 
-\[
+\begin{equation}
 \omega_n = \frac{3}{\xi \cdot t_s}
-\]
+\end{equation}
 
-\[
+\begin{equation}
 Kp_{id} = 2 \cdot \xi \cdot \omega_n \cdot L_d - R_s
-\]
+\end{equation}
 
-\[
+\begin{equation}
 Ki_{id} = \omega_n^2 \cdot L_d
-\]
+\end{equation}
 
-\[
+\begin{equation}
 Kp_{iq} = 2 \cdot \xi \cdot \omega_n \cdot L_q - R_s
-\]
+\end{equation}
 
-\[
+\begin{equation}
 Ki_{iq} = \omega_n^2 \cdot L_q \quad
-\]
+\end{equation}
 
 \begin{figure}[H]
     \begin{subfigure}{0.2\linewidth}
@@ -1412,8 +1444,8 @@ Para las simulaciones se han implementado los siguientes parámetros de motor, y
  \hline
  pp & 3 & ad & Número de pares de polos \\
  $\lambda_m$ & 52.615 & mWb & Flujo magnético de los imanes permanentes \\
- $L_d$ & 1.887 & mH & Inductancia en el eje d \\
- $L_q$ & 2.831 & mH & Inductancia en el eje q \\
+ $L_d$ & 188.7 & $\mu$H & Inductancia en el eje d \\
+ $L_q$ & 283.1 & $\mu$H & Inductancia en el eje q \\
  $R_s$ & 150 & m$\Omega$ & Resistencia de fase del estator \\
  $\omega_{\text{m,max}}$ & 20000 & rpm & Velocidad angular máxima del motor \\
  $T_{\text{em,max}}$ & 26 & N·m & Par máximo del motor \\
@@ -1618,7 +1650,7 @@ A continuación se presentan los diferentes bloques que forman el modelo.
 
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/PLECS_Tem.png}
-        \caption{Torque electromagnético ($T_{em}$) vs Velocidad mecánica ($\omega_{m}$).}
+        \caption{Torque electromagnético ($T_{em}$) y Velocidad mecánica ($\omega_{m}$).}
     \end{subfigure}
     %
     \begin{subfigure}{0.4\textwidth}
@@ -1648,6 +1680,10 @@ A continuación se presentan los diferentes bloques que forman el modelo.
 
     \caption{Resultados de la simulación.}
 \end{figure}
+
+Como se puede observar, se ha optado por consignar un escalón de par del 90\% del par máximo hasta llegar a la velocidad máxima, donde el mismo control es capaz de limitarla. Posteriormente, se consigna un escalón de par igual pero de signo opuesto, para generar una situación extrema y verificar la robustez del control. De esta manera, se evalúa el comportamiento del control vectorial en las circunstancias más adversas, así como el rendimiento teórico del inversor a potencia máxima.
+
+Destaca la claridad con la que esta simulación permite apreciar las trayectorias de control en la figura (c), que muestra la consigna y el valor medido de $i_d$ e $i_q$.
 
 
 
@@ -1745,13 +1781,19 @@ Iterando el cálculo de potencia, se puede ver que si se dimensiona a estas corr
 \subsubsection{Velocidad}
 Puesto que se va a controlar un motor con posibilidad de operación en debilitamiento de campo, es necesario conocer la frecuencia eléctrica máxima que se va a tener que poder sintetizar. Este requisito va a dimensionar la velocidad de los lazos de control, y en última instancia, la frecuencia de conmutación. El motor en estudio tiene 3 pares de polos y una velocidad angular mecánica máxima de 20000 RPM. Por lo tanto, la frecuencia eléctrica máxima que se debe sintetizar se calcula de la siguiente manera:
 
-\(f_{e,max} = \frac{pp\cdot \omega_{m, max, RPM}}{120} = \frac{3\cdot 20000 \text{RPM}}{60} = 1000 \text{Hz}\)
+\(f_{e,max} = \frac{pp\cdot \omega_{m, max, RPM}}{60} = \frac{3\cdot 20000 \text{RPM}}{60} = 1000 \text{Hz}\)
 
 Dejando un poco de margen para la compatibilidad con motores de más polos, se escoge una frecuencia máxima de 1200 Hz. Para sintetizar esta frecuencia eléctrica con poca distorsión armónica, se debe escoger una frecuencia de conmutación al menos 30 veces superior, para tener como mínimo 30 pulsos por periodo a estas frecuencias.
 
-\(f_{conm} > 30\cdot f_{e,max} = 30\cdot1200 \text{Hz} = 36 \text{kHz} \rightarrow f_{conm} = 50 \text{kHz}\)
+\(f_{\text{conm}} > 30\cdot f_{e,max} = 30\cdot1200 \text{Hz} = 36 \text{kHz} \rightarrow f_{\text{conm}} = 50 \text{kHz}\)
 
 Se debe considerar también que con una frecuencia de conmutación mayor, las pérdidas de conmutación serán más grandes, pero el tamaño del bus de condensadores será más pequeño. Además, el lazo de control debe ir a 50 kHz, con lo que el microcontrolador que lo implemente debe ser capaz de ejecutar todos los cálculos en menos de $\frac{1}{50 \text{kHz}} = 20 \mu\text{s}$.
+
+Es importante que el control sea mucho más rápido que la planta eléctrica, cuya constante de tiempo es de:
+
+\(\text{min}(\frac{L_d}{R_s},\frac{L_q}{R_s}) = \text{min}(\frac{188.7 \mu H}{0.15 \Omega},\frac{283.1 \mu H}{0.15 \Omega}) = \text{min}(1.258 \text{ms}, 1.887 \text{ms}) = 1.258 \text{ms}\)
+
+\(1.258 \text{ms} >> 20 \mu\text{s}\)
 
 \subsubsection{Normativa}
 La normativa de la Formula Student no impone normativas muy restrictivas, ya que la mayoría están enfocadas a la seguridad. Estas son las normas que afectarán al diseño del inversor:
@@ -1999,7 +2041,9 @@ Los dispositivos semiconductores experimentan pérdidas de energía que influyen
 
 En el análisis de la eficiencia de los semiconductores, es imperativo considerar las pérdidas totales, las cuales se definen como la suma de las pérdidas de conducción y las de conmutación:
 
-\[ P_{\text{tot}} = P_{\text{cond}} + P_{\text{conm}} \]
+\begin{equation}
+	P_{\text{tot}} = P_{\text{cond}} + P_{\text{conm}}
+\end{equation}
 
 A continuación, se examinarán detalladamente las pérdidas de conducción, seguidas por un análisis exhaustivo de las pérdidas de conmutación en los módulos seleccionados.
 
@@ -2008,23 +2052,23 @@ A continuación, se examinarán detalladamente las pérdidas de conducción, seg
 
 Las pérdidas de conducción tienen su origen en la resistencia entre drenador y fuente cuando el MOSFET está en estado de conducción, o en la caída de tensión del diodo cuando es el diodo quien está conduciendo. Según la ley de Ohm y la definición de potencia:
 
-\[
+\begin{equation}
 P_{\text{cond,MOSFET}}= I_{DS}^2\cdot R_{DS, on}
-\]
+\end{equation}
 
-\[
+\begin{equation}
 P_{\text{cond},D} = I_{SD}\cdot V_f
-\]
+\end{equation}
 
 Sin embargo, estas expresiones se corresponden con las pérdidas instantáneas y no son útiles a la hora de dimensionar el convertidor. Para ello son necesarias las pérdidas promediadas, pero tienen una expresión analítica muy compleja, ya que dependen de la estrategia de modulación, el índice de modulación instantáneo, el factor de potencia instantáneo, etc. Para el inversor se utiliza SVPWM, pero el cálculo de pérdidas tiene demasiados parámetros instantáneos. Muchas referencias asemejan las pérdidas en SVPWM a las de una modulación PWM sinusoidal (SPWM), con lo que las pérdidas se simplifican y no dependen del desfase entre tensión y corriente $\phi$:
 
-\[
+\begin{equation}
 P_{\text{cond,MOSFET}} \approx I_{\text{RMS}} V_{Q0} \left(\frac{1}{\pi\sqrt{2}} + \frac{m PF}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_Q \left(\frac{1}{4} + \frac{2m}{3\pi PF}\right)
-\]
+\end{equation}
 
-\[
+\begin{equation}
 P_{\text{cond},D} \approx I_{\text{RMS}} V_{D0} \left(\frac{1}{\pi\sqrt{2}} - \frac{m PF}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_D \left(\frac{1}{4} - \frac{2m}{3\pi PF}\right)
-\]
+\end{equation}
 
 Como se puede apreciar, aunque son más compactas que otras en la bibliografía, estas expresiones son difíciles de abordar, puesto que casi todos los parámetros son instantáneos. Por ello, se ha usado PLECS para estimar las pérdidas de conducción debido a que facilita la simulación detallada de los semiconductores y permite obtener las pérdidas de forma diseccionada por cada dispositivo y tipo de pérdida. PLECS utiliza modelos detallados de los dispositivos, considerando sus características de conmutación y conducción reales.
 
@@ -2059,9 +2103,9 @@ P_{\text{cond,Leapers}} \approx P_{\text{cond,Wolfspeed}} \cdot \frac{R_{DS, on,
 
 El cálculo de las pérdidas de conmutación es más fácil de determinar de forma analítica, aunque depende del circuito de \textit{gate driver} y de sus parásitos. Si no se tienen en cuenta estos dos factores, se pueden calcular utilizando los valores de \(E_{on}\) y \(E_{off}\), que representan la energía necesaria para encender o apagar el dispositivo respectivamente. Cuando las hojas de datos de los semiconductores proporcionan los valores \(E_{on}\) y \(E_{off}\), las pérdidas de conmutación pueden calcularse de forma directa. Estas pérdidas están influenciadas por la tensión de conmutación, la corriente de conmutación, la temperatura de la unión y la resistencia de puerta. La fórmula comúnmente utilizada para calcular las pérdidas es:
 
-\[
+\begin{equation}
 E_{conm}(t) = (E_{on} + E_{off}) \left( \frac{I_{Q,env}(t)}{I_{test}} \right)^{K_i} \left( \frac{V_{DC}}{V_{test}} \right)^{K_v}
-\]
+\end{equation}
 
 Donde \(I_{Q,env}(t)\) es la corriente de conmutación en cada instante de tiempo, \(I_{test}\) y \(V_{test}\) son los valores de prueba, y \(K_i\) y \(K_v\) son coeficientes de ajuste que normalmente son igual a 1. La justificación se puede encontrar en los gráficos proporcionados en las hojas de datos de ambos semiconductores, donde la relación de las energías de encendido y apagado con la corriente son aproximadamente lineales.
 
@@ -2083,15 +2127,15 @@ Donde \(I_{Q,env}(t)\) es la corriente de conmutación en cada instante de tiemp
 
 Si la corriente es continua, la fórmula simplificada es:
 
-\[
-P_{conm} \approx (E_{on} + E_{off}) f_{conm} \frac{I_{out}}{I_{test}} \frac{V_{DC}}{V_{test}}
-\]
+\begin{equation}
+P_{conm} \approx (E_{on} + E_{off}) f_{\text{conm}} \frac{I_{out}}{I_{test}} \frac{V_{DC}}{V_{test}}
+\end{equation}
 
 Y si la corriente es una sinusoide semi-rectificada con un valor de pico de \(\sqrt{2} I_{rms}\) (como en el caso del SVPWM), la fórmula es:
 
-\[
-P_{conm} \approx (E_{on} + E_{off}) f_{conm} \frac{\sqrt{2} I_{rms}}{\pi I_{test}} \frac{V_{DC}}{V_{test}}
-\]
+\begin{equation}
+P_{conm} \approx (E_{on} + E_{off}) f_{\text{conm}} \frac{\sqrt{2} I_{rms}}{\pi I_{test}} \frac{V_{DC}}{V_{test}}
+\end{equation}
 
 Sustituyendo por los valores del convertidor en diseño:
 
@@ -2104,13 +2148,13 @@ Sustituyendo por los valores del convertidor en diseño:
 Para los dispositivos Leapers, sustituyendo en la fórmula:
 
 \[
-P_{\text{conm}} \approx (3.54 \text{mJ} + 1.59 \text{mJ}) \cdot 50 \text{kHz} \cdot \frac{80 \text{A}}{150 \text{A}} \cdot \frac{600 \text{V}}{600 \text{V}} \approx 61.58 \text{W}
+P_{\text{conm, Leapers}} \approx (3.54 \text{mJ} + 1.59 \text{mJ}) \cdot 50 \text{kHz} \cdot \frac{80 \text{A}}{150 \text{A}} \cdot \frac{600 \text{V}}{600 \text{V}} \approx 61.58 \text{W}
 \]
 
 Para los dispositivos Wolfspeed:
 
 \[
-P_{\text{conm}} \approx (1.13 \text{mJ} + 0.54 \text{mJ}) \cdot 50 \text{kHz} \cdot \frac{80  \text{A}}{80 \text{A}} \cdot \frac{600 \text{V}}{600 \text{V}} \approx 37.59 \text{W}
+P_{\text{conm, Wolfspeed}} \approx (1.13 \text{mJ} + 0.54 \text{mJ}) \cdot 50 \text{kHz} \cdot \frac{80  \text{A}}{80 \text{A}} \cdot \frac{600 \text{V}}{600 \text{V}} \approx 37.59 \text{W}
 \]
 
 Dado que estas pérdidas son para un solo MOSFET, se deben multiplicar por 12 para obtener las pérdidas de conmutación totales, dado que hay 6 dispositivos de potencia en la topología VSI y hay dos VSIs en el convertidor.
@@ -2282,9 +2326,28 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 	
 	\item \textbf{Potencia de alimentación del \textit{gate driver}:} Se estima en función de la frecuencia de conmutación y la carga de la compuerta de los MOSFETs, además de la tensión $V_{GS}$.
 	
+	\begin{equation}
+	I_{supply, min} = f_{\text{conm}} \cdot Q_G
+	\end{equation}
+	
+	Donde:\\
+	- \( I_{supply, min} \) es al corriente mínima que debe poder suministrar la fuente de alimentación del \textit{gate driver},\\
+	- \( f_{\text{conm}} \) es la frecuencia de conmutación, y\\
+	- \( Q_G \) es la carga en la puerta.\\
+	
+	
 	\[
-	I_{supply, min} = f_{conm}\cdot Q_G = 50 \text{kHz} \cdot 520 \text{nC} = 26 \text{mA}
+	I_{supply, min} = f_{\text{conm}}\cdot Q_G = 50 \text{kHz} \cdot 520 \text{nC} = 26 \text{mA}
 	\]
+	
+	\begin{equation}
+		P_{supply, min} = \Delta V_{GS}\cdot I_{supply, min} 	
+	\end{equation}
+	
+	Donde:\\
+	- \( P_{supply, min} \) es la potencia mínima que debe poder suministrar la fuente de alimentación del \textit{gate driver} y\\
+	- \( \Delta V_{GS} \) es la diferencia entre la tensión de puerta de encendido y apagado.\\
+	
 	\[
 	P_{supply, min} = \Delta V_{GS}\cdot I_{supply, min} = 20 \text{V} \cdot26 \text{mA} = 0.52 \text{W}
 	\]
@@ -2315,9 +2378,9 @@ En un inversor de fuente de voltaje (VSI), el bus de condensadores tiene dos fun
 	
 	El rizado de tensión se calcula como:
 	
-	\[
+	\begin{equation}
 	V_{\text{ripple}} = \frac{I_{\text{C,RMS}}}{C \cdot f_{\text{conm}}}
-	\]
+	\end{equation}
 	
 	Donde:\\
 	- \( V_{\text{ripple}} \) es el rizado de tensión producido,\\
@@ -2573,7 +2636,7 @@ El \textit{gate driver} UCC21710 se implementa con varias características que l
 
 Para la medición de temperatura, se utilizan los \textit{drivers} de los MOSFETS del \textit{low-side}. Estos proporcionan una corriente de salida de 200 $\mu$A en su salida, a través de la cual se puede interpretar la medida. Esta señal se convierte a PWM y luego a analógica mediante un filtro RC para ser recibida directamente por el ADC del MCU. 
 
-El circuito de medición de temperatura utiliza el sensor NTC del semiconductor para obtener una lectura de tensión, la cual se convierte en una lectura de bits mediante un ADC. La relación entre la resistencia del NTC y la temperatura se modela utilizando la fórmula de Steinhart-Hart, que toma en cuenta el valor de Beta del NTC, la resistencia a una temperatura de referencia, y la temperatura ambiente. La fórmula utilizada es:
+El circuito de medición de temperatura utiliza el sensor NTC del semiconductor para obtener una lectura de tensión, la cual se convierte en una lectura de bits mediante el ADC del MCU. La relación entre la resistencia del NTC y la temperatura se modela utilizando la fórmula de Steinhart-Hart, que toma en cuenta el valor de Beta del NTC, la resistencia a una temperatura de referencia, y la temperatura ambiente. La fórmula utilizada es:
 
 \[
 NTC = R_0 \cdot e^{\left[-\beta \cdot \left(\frac{1}{T_0} - \frac{1}{\text{T}}\right)\right]}
@@ -2610,12 +2673,19 @@ Una de las partes más importantes en cuanto a la seguridad eléctrica es la imp
 Con tal de cumplir estos requisitos se ha optado por un circuito basado en un NMOS, cuya puerta se conecta al terminal positivo del bus a través de una resistencia de valor elevado y se limita la tensión con un diodo \textit{zener}. La puerta del MOSFET está controlada por un optoacoplador de forma aislada desde el circuito de baja tensión. Mientras el bus tenga una tensión superior a 10 V y el optoacoplador esté desactivado, el MOSFET quedará cerrado, conectando el banco de resistencias a los condensadores, descargándolos.
 
 La selección de la resistencia se ha basado en minimizar el tamaño de la misma. La solución más óptima se ha encontrado en utilizar un banco de 24 resistencias SMD de 470k$\Omega$, en encapsulado 2512, que es capaz de disipar 1 W. Se conectan en paralelo para llegar al valor necesario para cumplir con el requisito de tiempo de descarga. Para el cálculo del tiempo de descarga se utiliza la siguiente expresión:
+\begin{equation}
+	t_{\text{dis}} = R_{\text{dis}} \cdot C \cdot \ln\left(\frac{V_{\text{inicial}}}{V_{\text{final}}}\right)
+\end{equation}
 
 \[
 t_{\text{dis}} = R_{\text{dis}} \cdot C \cdot \ln\left(\frac{V_{\text{inicial}}}{V_{\text{final}}}\right) = \left(\frac{470 \text{k}\Omega}{24}\right) \cdot (100 \mu\text{F}) \cdot \ln\left(\frac{600 \text{V}}{60 \text{V}}\right) = 4.509 \text{s}
 \]
 
 La potencia disipada en cada resistencia de descarga se calcula como:
+
+\begin{equation}
+	P(R_{\text{dis}}, \text{max}) = \frac{V_{\text{max}}^2}{R_{\text{dis}}} 
+\end{equation}
 
 \[
 P(R_{\text{dis}}, \text{max}) = \frac{V_{\text{max}}^2}{R_{\text{dis}}} = \frac{600\text{ V}^2}{470 \text{k}\Omega} = 0.766 \text{W} < 1 \text{W}
@@ -2652,7 +2722,7 @@ Dado que el sensor tiene un rango de medida de $\pm$150 A y está alimentado a 5
 
 El monitoreo de la tensión es una tarea crítica en el sistema, ya que no solo es esencial para el control del motor, sino también para la detección y alerta de niveles altos de tensión. Para ambos propósitos, se emplea un divisor de tensión utilizando una serie de resistencias. A continuación se presentan los cálculos del divisor de tensión:
 
-\[ V_{DC,div} = \left( \frac{TS^+ - TS^-}{4.7 \text{ k}\Omega} \right) \cdot \left( \frac{4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} \right) \]
+\[ V_{DC,div} = \left(TS^+ - TS^-\right) \cdot \left( \frac{4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} \right) \]
 
 Sustituyendo los valores de 600 V y 60 V para TS+ y TS-, respectivamente:
 \[ V_{DC,div} = \frac{600 \text{ V} \cdot 4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} = 6.833 \text{ V} \]
@@ -2660,7 +2730,7 @@ Sustituyendo los valores de 600 V y 60 V para TS+ y TS-, respectivamente:
 
 El valor de potencia disipada en las resistencias de 68k$\Omega$ se calcula como:
 \[ P_{R68k} = I_{R68k}^2 \cdot R68k = \left( \frac{V_{DC,div}}{R68k} \right)^2 \cdot R68k = 144 \text{ mW} \]
-Se elige un paquete 1206 para las resistencias de 68k$\Omega$.
+Se elige un paquete 1206 para las resistencias de 68k$\Omega$, que es capaz de disipar por lo menos 250 mW.
 
 El amplificador aislado ISO224 se utiliza para medir la tensión en el bus de continua. Según la hoja de datos, la salida se calcula como un tercio del voltaje de entrada del divisor de tensión:
 \[ (V_{DC,sns+} - V_{DC,sns-}) = \frac{1}{3} \cdot V_{DC,div} = \frac{1}{3} \cdot \left( (TS^+ - TS^-) \cdot \frac{4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} \right) \]
