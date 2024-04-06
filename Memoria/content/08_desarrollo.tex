@@ -1910,11 +1910,11 @@ Antes de entrar en el diseño detallado del convertidor, se realizaron algunos b
 	\centering
 	\begin{minipage}{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{fig/boceto1.jpg}
+		\includegraphics[width=\textwidth]{fig/boceto1}
 	\end{minipage}\hfill
 	\begin{minipage}{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{fig/boceto2.jpg}
+		\includegraphics[width=\textwidth]{fig/boceto2}
 	\end{minipage}
 	\caption{Bocetos preliminares del empaquetado del inversor.}
 \end{figure}
@@ -1925,11 +1925,11 @@ En estos dos primeros conceptos se explora el uso de una sola \textit{coldplate}
 	\centering
 	\begin{minipage}{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{fig/boceto3.png}
+		\includegraphics[width=\textwidth]{fig/boceto3}
 	\end{minipage}\hfill
 	\begin{minipage}{0.45\textwidth}
 		\centering
-		\includegraphics[width=\textwidth]{fig/boceto4.png}
+		\includegraphics[width=\textwidth]{fig/boceto4}
 	\end{minipage}
 	\caption{Evolución de los bocetos del empaquetado del inversor.}
 	\label{sketches}
@@ -2497,7 +2497,22 @@ Esta PCB es una placa de 4 capas que integra componentes de potencia y circuitos
 
 \subsubsection{Concepto y Layout}
 
-La PCB de potencia es el sustrato físico sobre el cual se montan y conectan los componentes de potencia. En ella están situados los semiconductores, el bus de condensadores, las medidas de tensión, corriente y temperatura, los \textit{gate drivers}, y algunos circuitos de seguridad. A continuación se expone brevemente la distribución de conceptos, que parte de la base desarrollada con los bocetos iniciales mostrados en la figura \ref{sketches}.
+La PCB de potencia es el sustrato físico sobre el cual se montan y conectan los componentes de potencia. En ella están situados los semiconductores, el bus de condensadores, las medidas de tensión, corriente y temperatura, los \textit{gate drivers}, y algunos circuitos de seguridad. A continuación se muestran unos bocetos iniciales que se usaron para tantear el emplazamiento de los componentes y conexiones de potencia:
+
+\begin{figure}[H]
+	\centering
+	\begin{minipage}{0.35\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/boceto5}
+	\end{minipage}\hfill
+	\begin{minipage}{0.55\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/boceto6}
+	\end{minipage}
+	\caption{Bocetos del \textit{layout} del inversor.}
+	\label{sketches_layout}
+\end{figure}
+
 
 \begin{figure}[H]
 	\centering
@@ -2820,7 +2835,3 @@ PlotJuggler
 Debugger
 
 Actualizacion de parametros por CAN
-
-\section{Validación}
-xd
-
