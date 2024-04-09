@@ -47,78 +47,12 @@
 /* USER CODE BEGIN Variables */
 
 /* USER CODE END Variables */
-/* Definitions for Measurements_L */
-osThreadId_t Measurements_LHandle;
-const osThreadAttr_t Measurements_L_attributes = {
-  .name = "Measurements_L",
+/* Definitions for main */
+osThreadId_t mainHandle;
+const osThreadAttr_t main_attributes = {
+  .name = "main",
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for Measurements_R */
-osThreadId_t Measurements_RHandle;
-const osThreadAttr_t Measurements_R_attributes = {
-  .name = "Measurements_R",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for Control_L */
-osThreadId_t Control_LHandle;
-const osThreadAttr_t Control_L_attributes = {
-  .name = "Control_L",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for Control_R */
-osThreadId_t Control_RHandle;
-const osThreadAttr_t Control_R_attributes = {
-  .name = "Control_R",
-  .stack_size = 128 * 4,
-  .priority = (osPriority_t) osPriorityNormal,
-};
-/* Definitions for qMeasurements_L */
-osMessageQueueId_t qMeasurements_LHandle;
-const osMessageQueueAttr_t qMeasurements_L_attributes = {
-  .name = "qMeasurements_L"
-};
-/* Definitions for qMeasurements_R */
-osMessageQueueId_t qMeasurements_RHandle;
-const osMessageQueueAttr_t qMeasurements_R_attributes = {
-  .name = "qMeasurements_R"
-};
-/* Definitions for qControl_L */
-osMessageQueueId_t qControl_LHandle;
-const osMessageQueueAttr_t qControl_L_attributes = {
-  .name = "qControl_L"
-};
-/* Definitions for qControl_R */
-osMessageQueueId_t qControl_RHandle;
-const osMessageQueueAttr_t qControl_R_attributes = {
-  .name = "qControl_R"
-};
-/* Definitions for qTorqueRef_L */
-osMessageQueueId_t qTorqueRef_LHandle;
-const osMessageQueueAttr_t qTorqueRef_L_attributes = {
-  .name = "qTorqueRef_L"
-};
-/* Definitions for qTorqueRef_R */
-osMessageQueueId_t qTorqueRef_RHandle;
-const osMessageQueueAttr_t qTorqueRef_R_attributes = {
-  .name = "qTorqueRef_R"
-};
-/* Definitions for qStatus_L */
-osMessageQueueId_t qStatus_LHandle;
-const osMessageQueueAttr_t qStatus_L_attributes = {
-  .name = "qStatus_L"
-};
-/* Definitions for qStatus_R */
-osMessageQueueId_t qStatus_RHandle;
-const osMessageQueueAttr_t qStatus_R_attributes = {
-  .name = "qStatus_R"
-};
-/* Definitions for qTemperatures */
-osMessageQueueId_t qTemperaturesHandle;
-const osMessageQueueAttr_t qTemperatures_attributes = {
-  .name = "qTemperatures"
 };
 
 /* Private function prototypes -----------------------------------------------*/
@@ -126,8 +60,7 @@ const osMessageQueueAttr_t qTemperatures_attributes = {
 
 /* USER CODE END FunctionPrototypes */
 
-void startMeasurements(void *argument);
-void startControl(void *argument);
+void initmain(void *argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -153,50 +86,13 @@ void MX_FREERTOS_Init(void) {
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
-  /* Create the queue(s) */
-  /* creation of qMeasurements_L */
-  qMeasurements_LHandle = osMessageQueueNew (16, sizeof(float), &qMeasurements_L_attributes);
-
-  /* creation of qMeasurements_R */
-  qMeasurements_RHandle = osMessageQueueNew (16, sizeof(float), &qMeasurements_R_attributes);
-
-  /* creation of qControl_L */
-  qControl_LHandle = osMessageQueueNew (16, sizeof(float), &qControl_L_attributes);
-
-  /* creation of qControl_R */
-  qControl_RHandle = osMessageQueueNew (16, sizeof(float), &qControl_R_attributes);
-
-  /* creation of qTorqueRef_L */
-  qTorqueRef_LHandle = osMessageQueueNew (16, sizeof(float), &qTorqueRef_L_attributes);
-
-  /* creation of qTorqueRef_R */
-  qTorqueRef_RHandle = osMessageQueueNew (16, sizeof(float), &qTorqueRef_R_attributes);
-
-  /* creation of qStatus_L */
-  qStatus_LHandle = osMessageQueueNew (16, sizeof(float), &qStatus_L_attributes);
-
-  /* creation of qStatus_R */
-  qStatus_RHandle = osMessageQueueNew (16, sizeof(float), &qStatus_R_attributes);
-
-  /* creation of qTemperatures */
-  qTemperaturesHandle = osMessageQueueNew (16, sizeof(float), &qTemperatures_attributes);
-
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* creation of Measurements_L */
-  Measurements_LHandle = osThreadNew(startMeasurements, NULL, &Measurements_L_attributes);
-
-  /* creation of Measurements_R */
-  Measurements_RHandle = osThreadNew(startMeasurements, NULL, &Measurements_R_attributes);
-
-  /* creation of Control_L */
-  Control_LHandle = osThreadNew(startControl, NULL, &Control_L_attributes);
-
-  /* creation of Control_R */
-  Control_RHandle = osThreadNew(startControl, NULL, &Control_R_attributes);
+  /* creation of main */
+  mainHandle = osThreadNew(initmain, NULL, &main_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -208,40 +104,22 @@ void MX_FREERTOS_Init(void) {
 
 }
 
-/* USER CODE BEGIN Header_startMeasurements */
+/* USER CODE BEGIN Header_initmain */
 /**
-  * @brief  Function implementing the Measurements_L thread.
+  * @brief  Function implementing the main thread.
   * @param  argument: Not used
   * @retval None
   */
-/* USER CODE END Header_startMeasurements */
-void startMeasurements(void *argument)
+/* USER CODE END Header_initmain */
+void initmain(void *argument)
 {
-  /* USER CODE BEGIN startMeasurements */
+  /* USER CODE BEGIN initmain */
   /* Infinite loop */
   for(;;)
   {
     osDelay(1);
   }
-  /* USER CODE END startMeasurements */
-}
-
-/* USER CODE BEGIN Header_startControl */
-/**
-* @brief Function implementing the Control_L thread.
-* @param argument: Not used
-* @retval None
-*/
-/* USER CODE END Header_startControl */
-void startControl(void *argument)
-{
-  /* USER CODE BEGIN startControl */
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
-  }
-  /* USER CODE END startControl */
+  /* USER CODE END initmain */
 }
 
 /* Private application code --------------------------------------------------*/

@@ -22,10 +22,9 @@
  * @param[out] gammaRefFW Output reference current angle for field weakening operation from PI
  */
 
-void voltageLoop(float vsRef, float gammaRefMTPA, float vsLim, float *gammaRefFW) {
-    static pi_struct voltageLoop = PI_DEFAULTS;
+void voltageLoop(float vsRef, float gammaRefMTPA, float vsLim, pi_struct voltageLoop, float *gammaRefFW) {
 
-    voltageLoop.Ts = Ts;
+	voltageLoop.Ts = Ts;
     voltageLoop.pi_out_max = PI - gammaRefMTPA;
     voltageLoop.pi_consig = vsRef;
     voltageLoop.pi_fdb = vsLim * KFW;
