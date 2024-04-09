@@ -2340,6 +2340,8 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 	I_{supply, min} = f_{\text{conm}}\cdot Q_G = 50 \text{kHz} \cdot 520 \text{nC} = 26 \text{mA}
 	\]
 	
+	Con esta corriente se puede calcular la potencia necesaria de la fuente:
+	
 	\begin{equation}
 		P_{supply, min} = \Delta V_{GS}\cdot I_{supply, min} 	
 	\end{equation}
@@ -2423,12 +2425,12 @@ Es fácil ver como reducir la frecuencia de conmutación disminuirá proporciona
 Ahora, aplicando estas consideraciones a los valores del diseño:
 
 \begin{itemize}
-	\item \( V_C > 1.1 \cdot V_{\text{max}} = 1.1 \cdot 600 \text{V} = 660 \text{V} \rightarrow 850 \text{V} \) \\
+	\item \( V_C > 1.1 \cdot V_{\text{max}} = 1.1 \cdot 600 \text{ V} = 660 \text{ V} \rightarrow 850 \text{ V} \) \\
 		Escoger condensadores con un límite de tensión más grande es más seguro para transitorios y el régimen de trabajo en debilitamiento de campo.
-	\item \( I_{C,\text{RMS}} \approx 0.65 \cdot I_{\text{phase,RMS}} = 0.65 \cdot 80 \text{A,RMS} = 52 \text{A,RMS}\) \\
+	\item \( I_{C,\text{RMS}} \approx 0.65 \cdot I_{\text{phase,RMS}} = 0.65 \cdot 80 \text{ A,RMS} = 52 \text{ A,RMS}\) \\
 		Se debe asegurar que el condensador puede soportar esta corriente, idealmente sin refrigeración. En caso de usar múltiples condensadores para formar el bus, la corriente se reparte de forma proporcional entre cada uno de ellos.
 	\item \( C > \frac{I_{C,\text{RMS}}}{V_{\text{ripple}} \cdot f_{\text{conm}}} = \frac{52 \text{A,RMS}}{15 \text{V} \cdot 50 \text{kHz}} \approx 79 \mu\text{F} \rightarrow 100 \mu\text{F} \)\\
-		Conviene sobredimensionar la capacitancia tanto como sea posible atendiendo a límites mecánicos y de ensamblaje. El valor de $V_{\text{ripple}}$ se suele estimar entre un 5\% y un 10\% de la tensión mínima de funcionamiento, que en este caso es de entorno a los 350 V ($\frac{15 V}{350 V} = 4.3\%$).
+		Conviene sobredimensionar la capacitancia tanto como sea posible atendiendo a límites mecánicos y de ensamblaje. El valor de $V_{\text{ripple}}$ se suele estimar entre un 5\% y un 10\% de la tensión mínima de funcionamiento, que en este caso es de entorno a los 350 V ($\frac{15 \text{V}}{350 \text{V}} = 4.3\%$).
 \end{itemize}
 
 \subsubsection{Selección de Condensadores}
@@ -2463,7 +2465,7 @@ Se evalúa el comportamiento térmico utilizando la hoja de datos:
 	\caption{Calentamiento propio del condensador en función de la corriente.}
 \end{figure}
 
-Dado que hay 10 condensadores, la corriente máxima de cada uno es de $\frac{52 \text{A,RMS}}{10} = 5.2 \text{A}$. Por tanto, el incremento de temperatura es de 10 ºC como máximo.
+Dado que hay 10 condensadores, la corriente máxima de cada uno es de $\frac{52 \text{ A,RMS}}{10} = 5.2 \text{A,RMS}$. Por tanto, el incremento de temperatura es de 10 ºC como máximo.
 
 \subsection{Conectores de Potencia}
 
@@ -2487,7 +2489,29 @@ Estos conectores permiten una flexibilidad de integración muy grande, puesto qu
 	\caption{Ejemplo de conexión con bloqueo positivo utilizando una tuerca DIN 980V.}
 \end{figure}
 
-\subsection{Sensor de posición}
+
+
+\subsection{Elección del Sensor de Posición}
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{2.5cm}|p{5cm}|p{5cm}|}
+		\hline
+		\textbf{Sensor de Posición} & \textbf{Ventajas} & \textbf{Desventajas} \\ \hline
+		Encoder Incremental (A, B, Z) & Buena precisión angular, Bajo costo, Tamaño compacto & Requiere referencia inicial, Vulnerable a errores por pérdida de pulsos \\ \hline
+		Resolver & Alta precisión y resolución, Robusto ante condiciones extremas & Costoso, Voluminoso, Requiere electrónica adicional \\ \hline
+		Encoder Seno-Coseno & Alta precisión, Sin error de referencia & Costoso, Requiere electrónica adicional, AAAAAAAAAAAAA a interferencias \\ \hline
+		Sensores de Posición por Efecto Hall & Sin contacto mecánico, Robusto, Buena resolución & Menor precisión que otros sensores, Sensible a campos magnéticos externos \\ \hline
+	\end{tabular}
+	\caption{Comparación de Sensores de Posición}
+\end{table}
+
+Para el sistema en cuestión, se ha optado por utilizar un Encoder Incremental con canal de índice (A, B, Z) debido a las siguientes consideraciones:
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
 
 \subsection{Microcontrolador}
 
@@ -2553,13 +2577,13 @@ El resultado es de 10 mm, lo cual es exagerado, pero sin embargo, solamente se e
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}{0.45\linewidth}
+	\begin{subfigure}{0.4\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{fig/ts+bot}
 		\caption{Vista del enrutado de baja corriente (azul), la conexión positiva del bus de continua (naranja) y de la fase A (rosado).}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.42\linewidth}
+	\begin{subfigure}{0.4\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{fig/layout2}
 		\caption{Detalle de una sección más estrecha.}
@@ -2674,6 +2698,7 @@ Cabe destacar que el enrutado de este subcircuito es especialmente crítico por 
 	\caption{Enrutado en la capa superior de un \textit{half-bridge}.}
 \end{figure}
 
+Otro camino susceptible a ser causa de \textit{overshoot} es el que forman los AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 
 \textbf{Descarga}
