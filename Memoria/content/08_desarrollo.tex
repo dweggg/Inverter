@@ -2726,8 +2726,8 @@ Cabe destacar que el enrutado de este subcircuito es especialmente crítico por 
 	\caption{Enrutado en la capa superior de un \textit{half-bridge}.}
 \end{figure}
 
-Otro camino susceptible a ser causa de \textit{overshoot} es el que forman los AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-
+\textbf{Otro camino susceptible a ser causa de \textit{overshoot} es el que forman los AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+}
 
 \textbf{Descarga}
 \begin{figure}[H]
@@ -2906,11 +2906,187 @@ En el esquemático se pueden apreciar el conector al vehículo, las monturas de 
 	
 \end{itemize}
 
-\subsubsection{Circuitos Importantes}
+\subsubsection{Configuración de \textit{Hardware} del MCU}
+
+Con tal de asignar de forma adecuada la función de cada pin, se ha hecho uso de una herramienta proporcionada por STMicroelectronics llamada CubeMX. Este programa permite generar un código base con todos los periféricos del microcontrolador configurados según se escoja. Tiene una interfaz muy intuitiva que hace muy sencilla la implementación de \textit{hardware}, permitiendo un desarrollo muy ágil.
+
+De esta manera, se han decidido las conexiones de la placa de control con base en las siguientes consideraciones:
+
+\begin{itemize}
+	\item \textbf{Funcionalidad del Pin:} Cada pin del microcontrolador se ha configurado para cumplir una función específica de acuerdo al mapeado que tenga cada periférico, ya que normalmente un canal específico de un periférico específico solamente se puede conectar a uno o dos pines.
+	
+	\item \textbf{Compatibilidad con Periféricos:} Se ha tenido en cuenta la compatibilidad entre los periféricos del microcontrolador y los dispositivos externos conectados a la placa de control.
+	
+	\item \textbf{Optimización del Enrutado:} Se han escogido algunos pines a medida que se ha ido enrutando la placa, por facilitar algunas conexiones.
+	
+\end{itemize}
+
+Finalmente, se logra que el esquemático y el programa CubeMX muestren la misma distribución de pines:
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cubeMX}
+	\caption{Pantalla principal de CubeMX con todos los pines usados configurados con los periféricos adecuados.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/schMCU}
+	\caption{Símbolo esquemático del MCU con todas las conexiones realizadas.}
+\end{figure}
+
+\subsubsection{Circuitos importantes}
+
+\textbf{Alimentación}
+
+Ya que se propone alimentar la placa directamente desde el sistema de baja tensión del vehículo, se debe implementar un tratamiento de esta alimentación. Se incluye protección contra descargas electrostáticas, polaridad inversa y sobrecorriente. Se implementa un DC-DC de Recom de 15 W para generar el bus principal de 5 V, sin embargo, dado a problemas de disponibilidad y ensamblaje no se ha podido probar. Además, se incluye alimentación del conector USB, y ambos buses de 5 V se pasan por un filtro Pi con frecuencia de corte $f_c = \frac{1}{2 \pi \sqrt{C \cdot L}} = \frac{1}{2 \pi \sqrt{10\mu\text{F} \cdot 47\mu\text{H}}} = 7.34 \text{kHz}$ para evitar acoples de ruido en la alimentación. También se puede observar un regulador lineal fijo de 3.3 V para proporcionar una tensión estable al MCU, y un pequeño LED indicativo de que la alimentación está activa.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/schSUPPcontrol}
+	\caption{Esquemático de los circuitos de alimentación de la placa de control.}
+\end{figure}
+
+\textbf{MCU}
+
+Aunque ya se ha visto la implementación del MCU en sí, su esquemático contiene otras partes como una memoria externa, el conector USB, notas sobre qué periféricos están mapeados a qué pines y el conector de programación y depuración.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/schMCUcontrol}
+	\caption{Esquemático de los circuitos relacionados con el MCU.}
+\end{figure}
+ 
+\textbf{CAN}
+
+Para implementar comunicación CAN es necesario incorporar un \textit{transceiver} que pueda comunicar el MCU con un bus de CAN real. Se escoge el MCP2551 por su coste, simplicidad y robustez. Se añade también un filtro de línea consistente en un \textit{choke} para las interferencias en modo común, y algunos condensadores. Se incluye también un final de línea por si fuera necesario, y protección contra ESD. Adicionalmente, se han implementado un par de luces LED para indicar el correcto funcionamiento del envío y recepción de datos.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/schCANcontrol}
+	\caption{Esquemático referente a la comunicación CAN.}
+\end{figure}
+
+\textbf{Retroalimentación}
+
+Este bloque se implementa por duplicado, un bloque por cada motor que se controla. Contiene los componentes necesarios para leer su posición y temperatura.
+
+Ya que se requiere de leer la posición con un \textit{encoder} incremental, se equipan los componentes necesarios para ello. En primer lugar, se sabe que el modelo de \textit{encoder} en concreto tiene tres canales diferenciales, con lo que se usa el LM339, un comparador cuádruple con salida HiZ/GND para obtener la lectura desde una interrupción externa en el MCU. Cabe destacar que esta configuración de \textit{hardware} hace compatible este inversor con sensores de efecto \textit{Hall} para la lectura de posición, aunque no se desarrollará el código que los interprete.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/schENCODERcontrol}
+	\caption{Esquemático del \textit{front end} del \textit{encoder} incremental.}
+\end{figure}
+
+A fecha de la redacción de este trabajo todavía no se conoce el sensor de temperatura que montarán los motores, de modo que se implementa un circuito modificable para la lectura de cualquier tipo de sensor de temperatura resistivo. Aprovechando el comparador restante del LM339 se añade también una alarma configurable por \textit{hardware} para cualquier tipo de sensor.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/schTEMPcontrol}
+	\caption{Esquemático de la lectura de temperatura del motor y alarma arbitraria.}
+\end{figure}
+
+Por último, se añade un conector para el sensor que incluye también una alimentación de 5 V, el sensor de temperatura y el sensor arbitrario junto con unas notas sobre la implementación.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/schFDBcontrol}
+	\caption{Esquemático del conector del sensor de posición y notas.}
+\end{figure}
+
+\textbf{\textit{Front end} de la placa de potencia}
+
+Este bloque se implementa por duplicado, un bloque por cada placa de potencia que tiene el inversor.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/schPOWERAFEcontrol}
+	\caption{Esquemático del \textit{front end} de la placa de potencia.}
+\end{figure}
+
+
+En primer lugar, \textit{ENABLE} es una salida directa del MCU, y se ha comprobado que el UCC21710 es capaz de detectarla a 3.3V, igual que los PWMs. De manera similar, \textit{TRIP} se lee a 5V y utiliza un GPIO tolerante a 5V en el MCU.
+
+Para que el ADC del MCU reciba correctamente todas las señales analógicas, se deben tratar adecuadamente. Hay tres grupos de señales analógicas en cada placa de potencia: las corrientes de fase, la tensión DC y la temperatura de los semiconductores.
+
+\textit{Corrientes de Fase}
+
+Como se ha visto en el apartado de la placa de potencia, se utilizan sensores referenciados a 5 V, y por tanto, sus señales podrían exceder el rango de 3.3 V del ADC. Por ello se implementa un simple divisor de tensión. La combinación de resistencias se puede ajustar para aumentar el rango de medición a costa de una menor resolución. 
+
+El \textit{offset} de la corriente en bits se calcula como:
+\[ \text{\textit{offset}}_i = \left(\frac{10 \text{ k}\Omega}{3.3\text{ k}\Omega+10\text{ k}\Omega}\right) \cdot 2.5 \text{ V} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 2333 \text{ bits} \]
+
+La ganancia de la medida de corriente en amperios por bit se calcula como:
+\[ \text{\textit{gain}}_i = \frac{\left(\frac{10\text{ k}\Omega}{3.3\text{ k}\Omega+10\text{ k}\Omega}\right)}{12.5 \text{ mV/A} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)} = 0.0484609962 \text{ A/bit} \]
+
+La corriente máxima que se puede medir es:
+\[ \pm 0.0484609962 \text{ A/bit} \cdot \frac{2^{12} \text{ bits}}{2} = \pm 99 \text{ A} \]
+
+\textit{Tensión de Bus}
+
+Dado que el amplificador aislado utilizado saca una señal diferencial, se debe convertir a \textit{single-ended} usando un amplificador diferencial integrado. 
+
+Puesto que el modelo escogido presentaría una pequeña zona muerta, se debe añadir un \textit{offset} de muy pocos milivoltios. 
+
+No existen referencias de tensión de tan poco nivel, así que se usa un divisor resistivo de valores bajos, a sabiendas de que esta decisión causa error en la medida. 
+
+El \textit{offset} de la medida de tensión se calcula como:
+\[ \text{\textit{offset}}_V = V_{ref} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 129 \text{ bits} \]
+
+La ganancia de la medida de tensión en voltios por bit se calcula como:
+\[ \text{\textit{gain}}_V = \frac{1}{\left(\frac{1}{3} \cdot 0.011388 \text{ V/V} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)\right)} = 0.212240269 \text{ V/bit} \]
+
+La tensión máxima que se puede medir es:
+\[ 0.212240269 \text{ V/bit} \cdot 2^{12} \text{ bits} = 869.34 \text{ V} \]
+
+\textit{Temperaturas de los Semiconductores}
+
+Sería poco práctico leer las tres temperaturas de cada inversor ya que ocuparían muchos pines del MCU. Por ello, se añaden unas pequeñas resistencias, dos de las cuales no se montan, lo cual permite escoger una de las tres medidas de temperatura. Las temperaturas de los inversores deben calcularse con una \textit{lookup table} para ahorrar tiempo de computación. Como se ha visto, la señal que sale del UC21710 es una señal pulsada que puede leerse directamente como una entrada PWM o pasar a través de un filtro RC en la placa de potencia para convertirla en una señal analógica. Esta placa pretende leerla con el ADC.
+
+La lectura en sí misma está en la parte de alta tensión de la placa de potencia y se conecta al pin AIN de UC21710. Basándose en el voltaje leído, se calcula el ciclo de trabajo (D) de la salida analógica aislada de UC21710 utilizando la siguiente relación: 
+\[ D = -20 \cdot V_{AIN} + 100 \]
+
+Si se filtra, el voltaje en leído por el ADC del MCU se calcula como:
+\[ V_{Tinv} = VCC_{GD} \cdot \frac{D}{100} = 5V \cdot \left(-20 \cdot V_{AIN} + 100\right)/100 \]
+
+
+\textbf{Extras}
+
+En este bloque aparecen tres LEDs informativos controlados por el MCU, un interruptor para cambiar la dirección de giro de los motores, y una lectura de la cadena de seguridad.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/schEXTRAScontrol}
+	\caption{Esquemático de extras.}
+\end{figure}
 
 
 \subsubsection{Resultado Final}
+Después de diseñar todos los circuitos, emplazado todos los componentes y enrutado todos los nodos, se completa el diseño de la placa de control.
 
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{fig/invControl1}
+		\caption{Vista superior.}
+	\end{subfigure}
+	\hspace{0.05\linewidth} % Espacio horizontal entre subfiguras
+	\begin{subfigure}{0.45\linewidth}
+		\centering
+		\includegraphics[width=\linewidth]{fig/invControl2}
+		\caption{Vista inferior.}
+	\end{subfigure}
+	\caption{Vistas 3D de la PCB de control.}
+	
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/invControl3}
+	\caption{Ensamblaje de la placa de control con las dos placas de potencia.}
+\end{figure}
 
 
 \section{\textit{Software}}
