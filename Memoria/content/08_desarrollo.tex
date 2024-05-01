@@ -2505,7 +2505,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 		Encoder Seno-Coseno & Alta precisión, Sin error de referencia & Costoso, Requiere electrónica adicional, AAAAAAAAAAAAA a interferencias \\ \hline
 		Sensores de Posición por Efecto Hall & Sin contacto mecánico, Robusto, Buena resolución & Menor precisión que otros sensores, Sensible a campos magnéticos externos \\ \hline
 	\end{tabular}
-	\caption{Comparación de Sensores de Posición}
+	\caption{Comparación de Sensores de Posición.}
 \end{table}
 
 Para el sistema en cuestión, se ha optado por utilizar un Encoder Incremental con canal de índice (A, B, Z) debido a las siguientes consideraciones:
@@ -2514,6 +2514,32 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 
 \subsection{Microcontrolador}
+
+La unidad de procesamiento del convertidor es una de las piezas clave, pues será la encargada de gestionar lecturas analógicas, alarmas, comunicaciones, y por supuesto, ejecutar el control. Por ello su selección debe ser meticulosamente estudiada. En primer lugar se seleccionan unos requisitos:
+
+\begin{itemize}
+	\item \textbf{Velocidad de reloj mayor a 200 MHz}: En base a la experiencia del autor con otros inversores, el cálculo de todos los PIs, filtros, transformadas y trayectorias de control puede tomar hasta 2000 ciclos de reloj. Por lo tanto, dado que hay que ejecutar dos lazos de control para los dos motores, $\frac{2000 \cdot 2}{200 \text{MHz}} = 20 \mu\text{s} \leftrightarrow 50 \text{kHz}$, 200 MHz es la mínima velocidad para poder conmutar a 50 kHz.
+	\item \textbf{Unidad de punto flotante}: Para evitar trabajar en coma fija, lo cual puede causar muchos problemas de integración y añade una capa de complejidad innecesaria, se pone como requisito que el MCU soporte el uso de \textit{float} de forma nativa.
+	\item \textbf{\textit{Timers} avanzados}: Son necesarios dos \textit{timers} con características como la salida PWM bipolar con varios canales, configuración sencilla del tiempo muerto, etc.
+	\item \textbf{Lecturas analógicas}: Se necesitan al menos un par de ADCs de 12 bits suficientemente rápidos con múltiples canales cada uno, con tal de poder capturar las corrientes de fase y las tensiones de bus adecuadamente.
+	\item \textbf{Interfaces de comunicación}: Dado que se requerirá la interacción con otros dispositivos, es esencial contar con varias interfaces de comunicación. Obviamente CAN para la comunicación con el vehículo, pero también SPI/I2C para utilizar memorias externas, o UART/USB como manera de conectar el inversor de forma sencilla a un ordenador.
+	\item \textbf{Capacidades de depuración avanzadas}: Se requerirá de herramientas de depuración que permitan detener el código en puntos específicos, monitorizar en tiempo real el estado de las variables, etc.
+	\item \textbf{Memoria \textit{flash}}: El binario no debería pesar mucho más de 100 kB, sin embargo, si en el futuro se programa un \textit{bootloader} por USB u otras implementaciones, la memoria \textit{flash} debería ser el último de los problemas.
+	
+\end{itemize}
+
+Teniendo en cuenta estos requisitos, se ha evaluado una variedad de familias y marcas de MCUs y DSPs, y se ha llegado a la conclusión de que el MCU STM32F777VI de la familia F7 de STMicroelectronics cumple con todos los criterios establecidos. Sus características incluyen:
+
+\begin{itemize}
+	\item Procesador ARM Cortex-M7 con FPU, funcionando a una velocidad de hasta 216 MHz.
+	\item Amplio conjunto de interfaces de comunicación, incluyendo I2C, USART, SPI, CAN, USB y Ethernet.
+	\item 3 ADCs (24 canales máximo) de 12 bits y hasta 2.4 MSPS.
+	\item 18 \textit{timers}, incluyendo \textit{timers} de 16 y 32 bits, dos \textit{timers} con PWM avanzado y entradas de encoder cuadratura.
+	\item Soporte para depuración mediante interfaces SWD y JTAG, incluyendo el modo de \textit{Trace Asynchronous Serial Wire}, que incorpora un pin de comunicación serie independiente de las capacidades de \textit{debug} de SWD.
+	\item Hasta 2 MB de memoria \textit{flash}, SRAM de 512 Kbytes y 16 Kbytes de RAM TCM para datos críticos en tiempo real.
+\end{itemize}
+
+El STM32F777VI cumple con todos los requisitos establecidos y proporciona capacidades adicionales que pueden ser beneficiosas para el desarrollo y la operación del convertidor. Además, es el mismo microcontrolador que se usa en el resto de ECUs del monoplaza, conviertiéndose en la elección más cómoda para el desarrollo futuro.
 
 \subsection{PCB de potencia}
 
@@ -2553,16 +2579,18 @@ En el \textit{layout} se distinguen varias zonas.
 \end{itemize}
 
 \subsubsection{Restricciones y enrutado}
-Dado que esta PCB implementa partes del circuito del sistema de tracción y partes del sistema de baja tensión, se debe crear una separación física de 4 mm ya que estará acabada con un revestimiento conformal acrílico (\textit{conformal coating}).
+Para dotar al convertidor de una alta densidad de potencia se decidió un formato de 150 mm por 200 mm, dejando espacio más que suficiente para distribuir todos los componentes de forma más o menos holgada.
 
-Los espaciados entre conductores de la parte de alta tensión son de 3 mm, ya que la tensión que deben aislar es de 600 V. Este valor se obtiene de la norma genérica IPC-2221B, que especifica una separación de $2.5+(V-500)\cdot0.005 \text{mm} = 3 \text{mm}$.
+Dado que esta PCB implementa partes del circuito del sistema de tracción y partes del sistema de baja tensión, se debe crear una separación física de 4 mm ya que estará acabada con un revestimiento conformal acrílico (\textit{conformal coating}), acorde con la norma EV 4.3.6.
+
+Los espaciados entre conductores de la parte de alta tensión son de 3 mm, ya que la tensión que deben aislar es de 600 V. Este valor se obtiene de la norma genérica IPC-2221B, que especifica una separación de $2.5+(V-500)\cdot0.005 \text{mm} = 3 \text{mm}$. De todas maneras, se usará un revestimiento conformal acrílico para asegurar una mejor característica dieléctrica y prevenir la aparición de arcos eléctricos.
 
 El dimensionamiento de las pistas para la corriente que debe pasar es algo complicado, y de hecho condiciona el apilado de la PCB. Por ello, se selecciona un apilado de 4 capas de 70 micras (2 onzas por pulgada cuadrada).
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/stackup_power}
-	\caption{Apilado de la PCB de potencia}
+	\caption{Apilado de la PCB de potencia.}
 \end{figure}
 
 Para dimensionar el ancho de estas pistas se ha considerado la corriente RMS de fase, ya que es la corriente máxima en toda la PCB. Después, se ha usado este ancho para todas las conexiones de potencia, aunque la corriente que vean sea menor. El cálculo se ha realizado usando la norma IPC-2152, que especifica unas relaciones de capacidad de corriente respecto a incremento de temperatura y grosor de capa. Ya que el cálculo es algo tedioso, se opta por el uso de una calculadora específica para este propósito:
@@ -2602,7 +2630,7 @@ La PCB de potencia se divide en varios bloques funcionales, que se juntan en un 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.8\linewidth]{fig/schPower1}
-	\caption{Esquemático jerárquico de la PCB de Potencia}
+	\caption{Esquemático jerárquico de la PCB de potencia.}
 \end{figure}
 
 En el esquemático se pueden distinguir el conector a la PCB de control, la protección de alimentación de baja tensión y unas notas indicativas, así como una leyenda de colores. Se anotan también los cambios y la fecha en la que se envía a producción. Los bloques que se pueden ver incluyen:
@@ -2821,11 +2849,68 @@ Tras haber creado todos los subcircuitos, haber emplazado cada componente y enru
 
 \subsection{PCB de control}
 
-explicacion del concepto y de la(s) PCB
+\subsubsection{Concepto y Layout}
 
-justificacion de conectores / interfaces
+En esta placa se alojará el microcontrolador con todos los componentes necesarios para interactuar con las placas de potencia y el exterior. Dado que el esfuerzo de integración es mucho menor, las restricciones mecánicas y la facilidad de montaje son las que rigen el concepto. Por ello no se han tenido muchos miramientos para la disposición de los componentes, y simplemente se ha puesto atención en utilizar muchas simetrías para hacer que los circuitos repetidos para los dos motores/inversores sean exactamente iguales.
 
-justificacion numero de capas, etc.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\linewidth]{fig/controlLayout}
+	\caption{\textit{Layout} de la PCB de control.}
+\end{figure}
+
+Como se puede observar, el microcontrolador es la pieza central y está orientado a 45º para que los pines se puedan enrutar de forma óptima hacia los extremos de la placa. Ambos lados de la placa son simétricos a excepción de los componentes que no están duplicados por el control dual.
+
+\subsubsection{Restricciones y enrutado}
+
+Se ha mencionado ya que esta placa no tiene muchas restricciones más allá de las mecánicas, lo cual ha permitido crearla en un formato de 150 mm por 40 mm, encajando perfectamente en ángulo recto con las placas de potencia en el espacio que dejan entre medias. 
+
+El apilado escogido es un estándar de 4 capas, con 35 micras de espesor en las externas (1 onza por pulgada cuadrada), y 17 micras en las internas (0.5 onzas por pulgada cuadrada). Esto asegura una producción barata, y la posibilidad de crear planos de referencia y alimentación en las capas internas.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/stackup_control}
+	\caption{Apilado de la PCB de control.}
+\end{figure}
+
+Dado que no hay grandes magnitudes eléctricas, el enrutado se ha centrado en minimizar el área de los caminos de corriente entre cada señal y la masa de la placa. Utilizando polígonos conectados a la masa en múltiples capas (tanto la de la propia señal como las que queden por encima o por debajo) se minimiza muchísimo este área.
+
+También se ha procurado mantener todas las señales rápidas lo más separadas posibles para evitar el \textit{cross-talk} entre ellas, causado por el acople capacitivo que presentan dos conductores paralelos. En ocasiones no se ha podido evitar y tan solo queda confiar en el resto de buenas prácticas de enrutado.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cross-talk-example}
+	\caption{Ejemplo de grupo de señales que podrían presentar \textit{cross-talk}.}
+\end{figure}
+
+
+\subsubsection{Bloques Funcionales}
+
+La PCB de control se divide en varios bloques funcionales, que igual que la PCB de potencia, se juntan en un esquemático jerárquico. 
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/schControl1}
+	\caption{Esquemático jerárquico de la PCB de control.}
+\end{figure}
+
+En el esquemático se pueden apreciar el conector al vehículo, las monturas de la placa, unas notas indicativas con los cambios y una leyenda de colores. Los bloques son los siguientes:
+
+\begin{itemize}
+	\item \textbf{Alimentación}: Dado que esta placa no tiene conexión al sistema de alta tensión, se alimenta exclusivamente del sistema de baja tensión del monoplaza, cuya tensión es de entre 20 V y 30 V. Por ello se implementan distintas protecciones, un convertidor para obtener un bus de 5 V y un regulador lineal para obtener 3.3 V estables para el MCU.
+	\item \textbf{MCU}: Es el bloque central, que implementa el STM32F777VI, un puerto USB, una memoria externa EEPROM y el conector de programación y depuración.
+	\item \textbf{CAN}: Incluye un transceptor CAN para habilitar la comunicación con el vehículo.
+	\item \textbf{Retroalimentación}: En estos bloques se integra la conexión del \textit{encoder} incremental y el \textit{front-end} analógico de la lectura de temperatura del motor.
+	\item \textbf{\textit{Front-end} analógico de la placa de potencia}: Se tratan las distintas señales que provienen de las placas de potencia, adaptándolas a los rangos de tensión que admiten los ADCs del MCU.
+	\item \textbf{Extras}: Tan solo se colocan unos LEDs y un par de entradas digitales para el MCU.
+	
+\end{itemize}
+
+\subsubsection{Circuitos Importantes}
+
+
+\subsubsection{Resultado Final}
+
 
 
 \section{\textit{Software}}
