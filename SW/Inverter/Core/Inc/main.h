@@ -135,14 +135,15 @@ void Error_Handler(void);
 #define A_R_GPIO_Port GPIOA
 #define DIR_Pin GPIO_PIN_3
 #define DIR_GPIO_Port GPIOD
-#define LED_B_Pin GPIO_PIN_4
-#define LED_B_GPIO_Port GPIOD
-#define LED_G_Pin GPIO_PIN_5
-#define LED_G_GPIO_Port GPIOD
-#define LED_R_Pin GPIO_PIN_6
-#define LED_R_GPIO_Port GPIOD
+#define LED_LEFT_Pin GPIO_PIN_4
+#define LED_LEFT_GPIO_Port GPIOD
+#define LED_RIGHT_Pin GPIO_PIN_5
+#define LED_RIGHT_GPIO_Port GPIOD
+#define LED_ERR_Pin GPIO_PIN_6
+#define LED_ERR_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
+extern volatile uint32_t ADC2_raw[8];
 
 /* USER CODE END Private defines */
 

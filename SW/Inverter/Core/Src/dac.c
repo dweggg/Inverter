@@ -84,7 +84,7 @@ void HAL_DAC_MspInit(DAC_HandleTypeDef* dacHandle)
     HAL_GPIO_Init(DAC_GPIO_Port, &GPIO_InitStruct);
 
     /* DAC interrupt Init */
-    HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 5, 0);
+    HAL_NVIC_SetPriority(TIM6_DAC_IRQn, 0, 0);
     HAL_NVIC_EnableIRQ(TIM6_DAC_IRQn);
   /* USER CODE BEGIN DAC_MspInit 1 */
 
