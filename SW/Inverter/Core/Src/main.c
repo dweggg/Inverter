@@ -52,7 +52,7 @@
 /* USER CODE BEGIN PV */
 
 extern ADC_HandleTypeDef hadc2;
-volatile uint32_t ADC2_raw[8]={0};
+volatile uint32_t ADC2_raw[4]={0};
 
 /* USER CODE END PV */
 
@@ -113,7 +113,8 @@ int main(void)
   HAL_TIM_Base_Start(&htim1);
   __HAL_TIM_ENABLE_IT(&htim1, TIM_IT_BREAK);
 
-  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC2_raw,8);
+
+  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC2_raw,4);
 
   /* USER CODE END 2 */
 

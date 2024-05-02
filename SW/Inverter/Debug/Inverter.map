@@ -5576,7 +5576,7 @@ LOAD C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .igot.plt      0x2000000c        0x0 C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7e-m+dp/hard/crtbegin.o
                 0x2000000c                        . = ALIGN (0x4)
 
-.bss            0x2000000c      0x3f8 load address 0x0800657c
+.bss            0x2000000c      0x3e8 load address 0x0800657c
                 0x2000000c                        _sbss = .
                 0x2000000c                        __bss_start__ = _sbss
  *(.bss)
@@ -5603,34 +5603,34 @@ LOAD C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
                 0x20000248                hdac
  .bss.hi2c1     0x2000025c       0x54 ./Core/Src/i2c.o
                 0x2000025c                hi2c1
- .bss.ADC2_raw  0x200002b0       0x20 ./Core/Src/main.o
+ .bss.ADC2_raw  0x200002b0       0x10 ./Core/Src/main.o
                 0x200002b0                ADC2_raw
- .bss.htim1     0x200002d0       0x4c ./Core/Src/tim.o
-                0x200002d0                htim1
- .bss.htim2     0x2000031c       0x4c ./Core/Src/tim.o
-                0x2000031c                htim2
- .bss.htim4     0x20000368       0x4c ./Core/Src/tim.o
-                0x20000368                htim4
- .bss.htim8     0x200003b4       0x4c ./Core/Src/tim.o
-                0x200003b4                htim8
- .bss.uwTick    0x20000400        0x4 ./Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
-                0x20000400                uwTick
+ .bss.htim1     0x200002c0       0x4c ./Core/Src/tim.o
+                0x200002c0                htim1
+ .bss.htim2     0x2000030c       0x4c ./Core/Src/tim.o
+                0x2000030c                htim2
+ .bss.htim4     0x20000358       0x4c ./Core/Src/tim.o
+                0x20000358                htim4
+ .bss.htim8     0x200003a4       0x4c ./Core/Src/tim.o
+                0x200003a4                htim8
+ .bss.uwTick    0x200003f0        0x4 ./Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.o
+                0x200003f0                uwTick
  *(COMMON)
-                0x20000404                        . = ALIGN (0x4)
-                0x20000404                        _ebss = .
-                0x20000404                        __bss_end__ = _ebss
+                0x200003f4                        . = ALIGN (0x4)
+                0x200003f4                        _ebss = .
+                0x200003f4                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x20000404      0x604 load address 0x0800657c
-                0x20000408                        . = ALIGN (0x8)
- *fill*         0x20000404        0x4 
+                0x200003f4      0x604 load address 0x0800657c
+                0x200003f8                        . = ALIGN (0x8)
+ *fill*         0x200003f4        0x4 
                 [!provide]                        PROVIDE (end = .)
-                0x20000408                        PROVIDE (_end = .)
-                0x20000608                        . = (. + _Min_Heap_Size)
- *fill*         0x20000408      0x200 
-                0x20000a08                        . = (. + _Min_Stack_Size)
- *fill*         0x20000608      0x400 
-                0x20000a08                        . = ALIGN (0x8)
+                0x200003f8                        PROVIDE (_end = .)
+                0x200005f8                        . = (. + _Min_Heap_Size)
+ *fill*         0x200003f8      0x200 
+                0x200009f8                        . = (. + _Min_Stack_Size)
+ *fill*         0x200005f8      0x400 
+                0x200009f8                        . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)

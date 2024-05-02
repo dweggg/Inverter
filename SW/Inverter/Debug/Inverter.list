@@ -21,9 +21,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   8 .data         0000000c  20000000  08006570  00008000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000003f8  2000000c  0800657c  0000800c  2**2
+  9 .bss          000003e8  2000000c  0800657c  0000800c  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  20000404  0800657c  00008404  2**0
+ 10 ._user_heap_stack 00000604  200003f4  0800657c  000083f4  2**0
                   ALLOC
  11 .ARM.attributes 0000002e  00000000  00000000  0000800c  2**0
                   CONTENTS, READONLY
@@ -599,8 +599,8 @@ void MX_ADC2_Init(void)
   sConfig.Rank = ADC_REGULAR_RANK_1;
  800067c:	2301      	movs	r3, #1
  800067e:	607b      	str	r3, [r7, #4]
-  sConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
- 8000680:	2301      	movs	r3, #1
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+ 8000680:	2300      	movs	r3, #0
  8000682:	60bb      	str	r3, [r7, #8]
   if (HAL_ADC_ConfigChannel(&hadc2, &sConfig) != HAL_OK)
  8000684:	463b      	mov	r3, r7
@@ -1043,13 +1043,13 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
  8000918:	4b4f      	ldr	r3, [pc, #316]	@ (8000a58 <HAL_ADC_MspInit+0x2b8>)
  800091a:	f44f 6280 	mov.w	r2, #1024	@ 0x400
  800091e:	611a      	str	r2, [r3, #16]
-    hdma_adc2.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
+    hdma_adc2.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
  8000920:	4b4d      	ldr	r3, [pc, #308]	@ (8000a58 <HAL_ADC_MspInit+0x2b8>)
- 8000922:	f44f 6200 	mov.w	r2, #2048	@ 0x800
+ 8000922:	f44f 5280 	mov.w	r2, #4096	@ 0x1000
  8000926:	615a      	str	r2, [r3, #20]
-    hdma_adc2.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
+    hdma_adc2.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
  8000928:	4b4b      	ldr	r3, [pc, #300]	@ (8000a58 <HAL_ADC_MspInit+0x2b8>)
- 800092a:	f44f 5200 	mov.w	r2, #8192	@ 0x2000
+ 800092a:	f44f 4280 	mov.w	r2, #16384	@ 0x4000
  800092e:	619a      	str	r2, [r3, #24]
     hdma_adc2.Init.Mode = DMA_NORMAL;
  8000930:	4b49      	ldr	r3, [pc, #292]	@ (8000a58 <HAL_ADC_MspInit+0x2b8>)
@@ -2180,8 +2180,9 @@ int main(void)
  8001020:	f042 0280 	orr.w	r2, r2, #128	@ 0x80
  8001024:	60da      	str	r2, [r3, #12]
 
-  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC2_raw,8);
- 8001026:	2208      	movs	r2, #8
+
+  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC2_raw,4);
+ 8001026:	2204      	movs	r2, #4
  8001028:	4914      	ldr	r1, [pc, #80]	@ (800107c <main+0xac>)
  800102a:	4815      	ldr	r0, [pc, #84]	@ (8001080 <main+0xb0>)
  800102c:	f000 ff38 	bl	8001ea0 <HAL_ADC_Start_DMA>
@@ -2237,7 +2238,7 @@ int main(void)
 	  if (HAL_GPIO_ReadPin(SC_det_GPIO_Port, SC_det_Pin) == GPIO_PIN_SET) {
  8001074:	e7dc      	b.n	8001030 <main+0x60>
  8001076:	bf00      	nop
- 8001078:	200002d0 	.word	0x200002d0
+ 8001078:	200002c0 	.word	0x200002c0
  800107c:	200002b0 	.word	0x200002b0
  8001080:	20000070 	.word	0x20000070
  8001084:	40020800 	.word	0x40020800
@@ -2895,9 +2896,9 @@ void MX_TIM1_Init(void)
  8001338:	4b51      	ldr	r3, [pc, #324]	@ (8001480 <MX_TIM1_Init+0x194>)
  800133a:	2200      	movs	r2, #0
  800133c:	609a      	str	r2, [r3, #8]
-  htim1.Init.Period = 65535;
+  htim1.Init.Period = 6553;
  800133e:	4b50      	ldr	r3, [pc, #320]	@ (8001480 <MX_TIM1_Init+0x194>)
- 8001340:	f64f 72ff 	movw	r2, #65535	@ 0xffff
+ 8001340:	f641 1299 	movw	r2, #6553	@ 0x1999
  8001344:	60da      	str	r2, [r3, #12]
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
  8001346:	4b4e      	ldr	r3, [pc, #312]	@ (8001480 <MX_TIM1_Init+0x194>)
@@ -2907,9 +2908,9 @@ void MX_TIM1_Init(void)
  800134c:	4b4c      	ldr	r3, [pc, #304]	@ (8001480 <MX_TIM1_Init+0x194>)
  800134e:	2200      	movs	r2, #0
  8001350:	615a      	str	r2, [r3, #20]
-  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
  8001352:	4b4b      	ldr	r3, [pc, #300]	@ (8001480 <MX_TIM1_Init+0x194>)
- 8001354:	2200      	movs	r2, #0
+ 8001354:	2280      	movs	r2, #128	@ 0x80
  8001356:	619a      	str	r2, [r3, #24]
   if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
  8001358:	4849      	ldr	r0, [pc, #292]	@ (8001480 <MX_TIM1_Init+0x194>)
@@ -2956,8 +2957,8 @@ void MX_TIM1_Init(void)
     Error_Handler();
  80013a0:	f7ff fee2 	bl	8001168 <Error_Handler>
   }
-  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
- 80013a4:	2300      	movs	r3, #0
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+ 80013a4:	2320      	movs	r3, #32
  80013a6:	64fb      	str	r3, [r7, #76]	@ 0x4c
   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
  80013a8:	2300      	movs	r3, #0
@@ -3097,7 +3098,7 @@ void MX_TIM1_Init(void)
  800147a:	3768      	adds	r7, #104	@ 0x68
  800147c:	46bd      	mov	sp, r7
  800147e:	bd80      	pop	{r7, pc}
- 8001480:	200002d0 	.word	0x200002d0
+ 8001480:	200002c0 	.word	0x200002c0
  8001484:	40010000 	.word	0x40010000
 
 08001488 <MX_TIM2_Init>:
@@ -3242,7 +3243,7 @@ void MX_TIM2_Init(void)
  8001552:	46bd      	mov	sp, r7
  8001554:	bd80      	pop	{r7, pc}
  8001556:	bf00      	nop
- 8001558:	2000031c 	.word	0x2000031c
+ 8001558:	2000030c 	.word	0x2000030c
 
 0800155c <MX_TIM4_Init>:
 /* TIM4 init function */
@@ -3385,7 +3386,7 @@ void MX_TIM4_Init(void)
  8001622:	3720      	adds	r7, #32
  8001624:	46bd      	mov	sp, r7
  8001626:	bd80      	pop	{r7, pc}
- 8001628:	20000368 	.word	0x20000368
+ 8001628:	20000358 	.word	0x20000358
  800162c:	40000800 	.word	0x40000800
 
 08001630 <MX_TIM8_Init>:
@@ -3647,7 +3648,7 @@ void MX_TIM8_Init(void)
  80017be:	3768      	adds	r7, #104	@ 0x68
  80017c0:	46bd      	mov	sp, r7
  80017c2:	bd80      	pop	{r7, pc}
- 80017c4:	200003b4 	.word	0x200003b4
+ 80017c4:	200003a4 	.word	0x200003a4
  80017c8:	40010400 	.word	0x40010400
 
 080017cc <HAL_TIM_Base_MspInit>:
@@ -4181,7 +4182,7 @@ LoopFillZerobss:
   ldr r2, =_sbss
  8001aec:	2000000c 	.word	0x2000000c
   ldr r4, =_ebss
- 8001af0:	20000404 	.word	0x20000404
+ 8001af0:	200003f4 	.word	0x200003f4
 
 08001af4 <CAN1_SCE_IRQHandler>:
  * @retval None       
@@ -4317,7 +4318,7 @@ __weak void HAL_IncTick(void)
  8001b8c:	4770      	bx	lr
  8001b8e:	bf00      	nop
  8001b90:	20000008 	.word	0x20000008
- 8001b94:	20000400 	.word	0x20000400
+ 8001b94:	200003f0 	.word	0x200003f0
 
 08001b98 <HAL_GetTick>:
   * @note This function is declared as __weak to be overwritten in case of other 
@@ -4337,7 +4338,7 @@ __weak uint32_t HAL_GetTick(void)
  8001ba4:	f85d 7b04 	ldr.w	r7, [sp], #4
  8001ba8:	4770      	bx	lr
  8001baa:	bf00      	nop
- 8001bac:	20000400 	.word	0x20000400
+ 8001bac:	200003f0 	.word	0x200003f0
 
 08001bb0 <HAL_Delay>:
   *       implementations in user file.
