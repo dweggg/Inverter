@@ -29,7 +29,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "FSM.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -64,6 +64,9 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+// Initialize left and right system controls
+InverterControl invLeft = { .state = INV_STATE_STARTUP };
+InverterControl invRight = { .state = INV_STATE_STARTUP };
 
 /* USER CODE END 0 */
 
@@ -122,6 +125,13 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+      // Run FSM for left system
+	  inv_FSM(&invLeft);
+
+      // Run FSM for right system
+	  inv_FSM(&invRight);
+
 	  // Check the status of SC_det_Pin
 	  if (HAL_GPIO_ReadPin(SC_det_GPIO_Port, SC_det_Pin) == GPIO_PIN_SET) {
 		  // Turn on the left LED
