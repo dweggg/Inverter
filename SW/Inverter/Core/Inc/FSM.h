@@ -1,5 +1,6 @@
 #ifndef FSM_H
 #define FSM_H
+#include "stm32f7xx_hal.h"
 
 #include <stdbool.h>
 
@@ -23,8 +24,18 @@ typedef enum {
  */
 typedef struct {
     InverterState state; /**< Current state of the inverter */
+
+    // GPIO pins for LEDs
+    GPIO_TypeDef *LED_port; /**< GPIO port for controlling the LED */
+    uint16_t LED_pin; /**< Pin number for controlling the LED */
+
+    // GPIO pin for enable/disable
+    GPIO_TypeDef *enable_port; /**< GPIO port for enabling/disabling the inverter */
+    uint16_t enable_pin; /**< Pin number for enabling/disabling the inverter */
+
     // Add any other inverter-specific variables here
 } InverterControl;
+
 
 /**
  * @brief Initialize the inverter control structure.
