@@ -18,4 +18,6 @@ void tasks_1ms(void) {
     // Call LED handler for left and right LEDs
     LED_handler(&led_left, ms_counter);
     LED_handler(&led_right, ms_counter);
+    LED_handler(&led_error, ms_counter);
+
 }
