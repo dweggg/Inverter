@@ -45,6 +45,8 @@ extern LED led_error;
 /**
  * @brief LED handler function.
  *
+ * This function handles the LED blinking modes based on the LED mode and current millisecond counter.
+ *
  * @param led Pointer to the LED structure.
  * @param ms_counter Millisecond counter for timing.
  */

@@ -1,11 +1,26 @@
+/*
+ * TASKS_1ms.c
+ *
+ *  Created on: May 5, 2024
+ *      Author: dwegg
+ */
+
 #include "PCB_IO.h"
 #include "main.h"
+
 // Define LED structures
 LED led_left = { .port = LED_LEFT_GPIO_Port, .pin = LED_LEFT_Pin, .mode = LED_MODE_OFF };
 LED led_right = { .port = LED_RIGHT_GPIO_Port, .pin = LED_RIGHT_Pin, .mode = LED_MODE_OFF };
 LED led_error = { .port = LED_ERR_GPIO_Port, .pin = LED_ERR_Pin, .mode = LED_MODE_OFF };
 
-
+/**
+ * @brief LED handler function.
+ *
+ * This function handles the LED blinking modes based on the LED mode and current millisecond counter.
+ *
+ * @param led Pointer to the LED structure.
+ * @param ms_counter Current millisecond counter.
+ */
 void LED_handler(LED *led, uint32_t ms_counter) {
     switch (led->mode) {
         case LED_MODE_BLINK_FAST:

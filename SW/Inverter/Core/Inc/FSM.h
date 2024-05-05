@@ -1,7 +1,7 @@
 #ifndef FSM_H
 #define FSM_H
-#include "stm32f7xx_hal.h"
 
+#include "stm32f7xx_hal.h"
 #include <stdbool.h>
 
 /**
@@ -10,7 +10,7 @@
  */
 
 /**
- * @brief Enumeration of inverter states.
+ * @brief Enumeration of inverter operation states.
  */
 typedef enum {
     INV_STATE_IDLE,    /**< Inverter idle state */
@@ -36,7 +36,6 @@ typedef struct {
     // Add any other inverter-specific variables here
 } InverterOperation;
 
-
 /**
  * @brief Initialize the inverter operation structure.
  *
@@ -50,6 +49,5 @@ void inv_init(InverterOperation *inv);
  * @param inv Pointer to the inverter operation structure.
  */
 void inv_FSM(InverterOperation *inv);
-
 
 #endif /* FSM_H */

@@ -1,9 +1,40 @@
 #include "FSM.h"
 #include "PCB_IO.h"
 
+/**
+ * @brief FSM state handler for the idle state.
+ *
+ * This function handles the actions and transitions for the idle state of the inverter operation.
+ *
+ * @param inv Pointer to the inverter operation structure.
+ */
 static void idle_handler(InverterOperation *inv);
+
+/**
+ * @brief FSM state handler for the startup state.
+ *
+ * This function handles the actions and transitions for the startup state of the inverter operation.
+ *
+ * @param inv Pointer to the inverter operation structure.
+ */
 static void startup_handler(InverterOperation *inv);
+
+/**
+ * @brief FSM state handler for the running state.
+ *
+ * This function handles the actions and transitions for the running state of the inverter operation.
+ *
+ * @param inv Pointer to the inverter operation structure.
+ */
 static void running_handler(InverterOperation *inv);
+
+/**
+ * @brief FSM state handler for the fault state.
+ *
+ * This function handles the actions and transitions for the fault state of the inverter operation.
+ *
+ * @param inv Pointer to the inverter operation structure.
+ */
 static void fault_handler(InverterOperation *inv);
 
 void inv_init(InverterOperation *inv) {
@@ -38,7 +69,6 @@ static void idle_handler(InverterOperation *inv) {
     // - Start startup sequence based on input condition
     // - Transition to fault state based on error conditions
     DISABLE(inv->enable_port, inv->enable_pin);
-
 }
 
 static void startup_handler(InverterOperation *inv) {

@@ -8,10 +8,10 @@
  * @brief Header file for tasks to be executed every 1ms.
  */
 
-extern uint32_t ms_counter;
-
 /**
  * @brief Function to be executed every 1ms.
+ *
+ * This function is called by the TIM6 IRQ handler every millisecond.
  */
 void tasks_1ms(void);
 
