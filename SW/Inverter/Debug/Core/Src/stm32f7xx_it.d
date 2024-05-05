@@ -33,7 +33,7 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
  ../Core/Inc/stm32f7xx_it.h ../Core/Inc/TASKS_1ms.h \
- ../Core/Inc/MEASUREMENTS.h
+ ../Core/Inc/MEASUREMENTS.h ../Core/Inc/PWM.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:
@@ -71,3 +71,4 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
 ../Core/Inc/stm32f7xx_it.h:
 ../Core/Inc/TASKS_1ms.h:
 ../Core/Inc/MEASUREMENTS.h:
+../Core/Inc/PWM.h:
