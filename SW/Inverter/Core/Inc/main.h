@@ -143,7 +143,6 @@ void Error_Handler(void);
 #define LED_ERR_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
-extern volatile uint32_t ADC2_raw[4];
 
 /* USER CODE END Private defines */
 

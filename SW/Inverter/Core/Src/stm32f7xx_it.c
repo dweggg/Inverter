@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "TASKS_1ms.h"
+#include "MEASUREMENTS.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -257,6 +259,14 @@ void TIM1_UP_TIM10_IRQHandler(void)
   /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
+
+  getADCelec(ADC_LEFT_raw, &encoder_LEFT, &measurements_LEFT);
+
+  // Compute control output for left inverter
+  //  float DaDbDc = control_loop(measurements, encoder_LEFT);
+
+  // Update duty cycle for left inverter
+  //  update_PWM(&htim1, DaDbDc);
 
   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }

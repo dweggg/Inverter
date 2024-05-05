@@ -30,6 +30,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "FSM.h"
+#include "MEASUREMENTS.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,8 +53,11 @@
 
 /* USER CODE BEGIN PV */
 
-extern ADC_HandleTypeDef hadc2;
-volatile uint32_t ADC2_raw[4]={0};
+extern ADC_HandleTypeDef hadc2; // ADC 2 LEFT
+extern ADC_HandleTypeDef hadc1; // ADC 1 RIGHT
+
+extern TIM_HandleTypeDef htim1; // TIM 1 LEFT
+extern TIM_HandleTypeDef htim8; // TIM 8 RIGHT
 
 /* USER CODE END PV */
 
@@ -133,7 +138,7 @@ int main(void)
 
 
 
-  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC2_raw,4);
+  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC_LEFT_raw,4);
 
   /* USER CODE END 2 */
 
@@ -142,10 +147,10 @@ int main(void)
   while (1)
   {
 
-      // Run FSM for left system
+      // Run FSM for left inverter
 	  inv_FSM(&invLeft);
 
-      // Run FSM for right system
+      // Run FSM for right inverter
 	  inv_FSM(&invRight);
 
     /* USER CODE END WHILE */

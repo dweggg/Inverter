@@ -21,7 +21,6 @@
 #define FSM_H
 
 #include "stm32f7xx_hal.h"
-#include <stdbool.h>
 
 /**
  * @brief Enumeration of inverter operation states.
