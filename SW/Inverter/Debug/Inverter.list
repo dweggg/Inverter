@@ -509,7 +509,7 @@ static void fault_handler(InverterOperation *inv) {
   * @param  ADC_raw Pointer to the raw ADC values array.
   * @param  encoder Pointer to the encoder struct.
   * @param  measurements Pointer to the measurements struct to store the results.
-  * @retval 0 if an error occurred, 1 if successful.
+  * @retval OK 0 if an error occurred, 1 if successful.
   */
 uint8_t getADCelec(volatile uint32_t* ADC_raw, volatile Encoder* encoder, volatile Measurements* measurements) {
  80005fc:	b580      	push	{r7, lr}
@@ -606,7 +606,7 @@ uint8_t getADCelec(volatile uint32_t* ADC_raw, volatile Encoder* encoder, volati
   * @param  bits The ADC reading.
   * @param  slope The slope (units per volt).
   * @param  offset The offset (volts at zero).
-  * @retval The physical measurement.
+  * @retval measurement The physical measurement.
   */
 float getLinear(uint32_t bits, float slope, float offset) {
  80006b0:	b480      	push	{r7}

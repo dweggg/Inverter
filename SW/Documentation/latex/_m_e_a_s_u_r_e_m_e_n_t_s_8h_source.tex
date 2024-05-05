@@ -1,0 +1,57 @@
+\doxysection{MEASUREMENTS.\+h}
+\hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_source}{}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_source}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h}}
+\mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{00018\ \textcolor{comment}{/*\ Define\ current\ and\ voltage\ gains/offsets\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ CURRENT\_SLOPE\ \ 54.4217687f\ \ }}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ CURRENT\_OFFSET\ 1.70068027211f\ }}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ VOLTAGE\_SLOPE\ \ 0.003796f\ \ }}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ VOLTAGE\_OFFSET\ 0.02083f\ }}
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#ifndef\ MEASUREMENTS\_H}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ MEASUREMENTS\_H}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{/*\ Include\ necessary\ header\ files\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}stm32f7xx\_hal.h"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint32\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_ae65626ff1d39c3c3678730e11078d672}{ADC\_LEFT\_raw}}[4];}
+\DoxyCodeLine{00033\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint32\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a68ae0f510e58a3691e454b5cfc2cc220}{ADC\_RIGHT\_raw}}[4];}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{/*\ Define\ encoder\ struct\ */}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00038\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_encoder_a48f5a6b346491762f3f7a32882f31bed}{A}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_encoder_ae783bd90764c8455228772c025c064e4}{B}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00040\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_encoder_a5a8eb607e6c3f820a971b163abc936d5}{Z}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_a9ef6094458503bd99cabadd1914f6be0}{wm\_rpm}};\ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_a45938c516b24d04e3bae20b3ae8c2d08}{we}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_a8bfd9b9ce99fa71e700d59714b1376f5}{theta\_m}};\ \ \ \ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_affa9013ea1e246c1f69bba53632a967b}{theta\_e}};\ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_encoder_a58808c7e66b07b82b662e956b63f7e70}{DIR}};\ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \}\ \mbox{\hyperlink{struct_encoder}{Encoder}};}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{/*\ Define\ measurements\ struct\ */}}
+\DoxyCodeLine{00049\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_measurements_a7b367da12b961437c2059d6da0595a14}{ia}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_measurements_aa2e5a869148258735d37540db788c66c}{ib}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_measurements_a9e556245df4e7b1be25fbb5e2075d50a}{ic}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_measurements_a030e5dad6897eee7085818cd9bc31e3d}{VDC}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \}\ \mbox{\hyperlink{struct_measurements}{Measurements}};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{comment}{/*\ Declare\ encoder\ instances\ */}}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_encoder}{Encoder}}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_aab8025633e92b3425949150a818e9e4d}{encoder\_LEFT}};}
+\DoxyCodeLine{00058\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_encoder}{Encoder}}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_aa96c55c34804d73fe8544e7a0ec16862}{encoder\_RIGHT}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{/*\ Declare\ measurement\ instances\ */}}
+\DoxyCodeLine{00061\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_measurements}{Measurements}}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a497a494e0b1693481bf070a893709108}{measurements\_LEFT}};}
+\DoxyCodeLine{00062\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_measurements}{Measurements}}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a69bcc992cd36895116ab849412f7f419}{measurements\_RIGHT}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{comment}{/*\ Define\ function\ prototypes\ */}}
+\DoxyCodeLine{00072\ uint8\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_af863b06b7db1fa9e67bc5a923bd1222c}{getADCelec}}(\textcolor{keyword}{volatile}\ uint32\_t*\ ADC\_raw,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_encoder}{Encoder}}*\ encoder,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_measurements}{Measurements}}*\ measurements);}
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_abcf257592e55cf0a5b03994ea60d12f7}{getLinear}}(uint32\_t\ bits,\ \textcolor{keywordtype}{float}\ slope,\ \textcolor{keywordtype}{float}\ offset);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MEASUREMENTS\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

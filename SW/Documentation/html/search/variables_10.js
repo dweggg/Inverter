@@ -5,5 +5,7 @@ var searchData=
   ['ta_2',['Ta',['../structsvpwm__struct.html#a50351efee76ac59cbfddc319a43f0081',1,'svpwm_struct']]],
   ['tb_3',['Tb',['../structsvpwm__struct.html#ab670caa75d08f1acf0768f0bc4333326',1,'svpwm_struct']]],
   ['tc_4',['Tc',['../structsvpwm__struct.html#a22e1179371b98f23e756984bc5e9ba95',1,'svpwm_struct']]],
-  ['ts_5',['Ts',['../structpi__aw__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_aw_struct::Ts'],['../structpi__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_struct::Ts'],['../structangle__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'angle_struct::Ts'],['../structfiltre_l_p__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'filtreLP_struct::Ts']]]
+  ['theta_5fe_5',['theta_e',['../struct_encoder.html#affa9013ea1e246c1f69bba53632a967b',1,'Encoder']]],
+  ['theta_5fm_6',['theta_m',['../struct_encoder.html#a8bfd9b9ce99fa71e700d59714b1376f5',1,'Encoder']]],
+  ['ts_7',['Ts',['../structpi__aw__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_aw_struct::Ts'],['../structpi__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_struct::Ts'],['../structangle__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'angle_struct::Ts'],['../structfiltre_l_p__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'filtreLP_struct::Ts']]]
 ];

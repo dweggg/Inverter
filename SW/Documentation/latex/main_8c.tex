@@ -15,6 +15,7 @@
 {\ttfamily \#include "{}usb\+\_\+otg.\+h"{}}\newline
 {\ttfamily \#include "{}gpio.\+h"{}}\newline
 {\ttfamily \#include "{}FSM.\+h"{}}\newline
+{\ttfamily \#include "{}MEASUREMENTS.\+h"{}}\newline
 Include dependency graph for main.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
@@ -36,7 +37,11 @@ void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Ha
 \item 
 ADC\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}
 \item 
-volatile uint32\+\_\+t \mbox{\hyperlink{main_8c_a9f82a01636dbf2767451864852ab6cb5}{ADC2\+\_\+raw}} \mbox{[}4\mbox{]} =\{0\}
+ADC\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a5faa27108379f799afb6984010bf0384}{htim8}}
 \item 
 \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \mbox{\hyperlink{main_8c_a28b5aab450c14cf6e720f6dce774ccdf}{inv\+Left}}
 \item 
@@ -137,17 +142,29 @@ Here is the caller graph for this function\+:\nopagebreak
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{main_8c_a9f82a01636dbf2767451864852ab6cb5}\label{main_8c_a9f82a01636dbf2767451864852ab6cb5} 
-\index{main.c@{main.c}!ADC2\_raw@{ADC2\_raw}}
-\index{ADC2\_raw@{ADC2\_raw}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{ADC2\_raw}{ADC2\_raw}}
-{\footnotesize\ttfamily volatile uint32\+\_\+t ADC2\+\_\+raw\mbox{[}4\mbox{]} =\{0\}}
+\Hypertarget{main_8c_a22b804736f5648d52f639b2647d4ed13}\label{main_8c_a22b804736f5648d52f639b2647d4ed13} 
+\index{main.c@{main.c}!hadc1@{hadc1}}
+\index{hadc1@{hadc1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hadc1}{hadc1}}
+{\footnotesize\ttfamily ADC\+\_\+\+Handle\+Type\+Def hadc1\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{main_8c_acd9221f1aa19aebfe0b744947f2daf49}\label{main_8c_acd9221f1aa19aebfe0b744947f2daf49} 
 \index{main.c@{main.c}!hadc2@{hadc2}}
 \index{hadc2@{hadc2}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{hadc2}{hadc2}}
 {\footnotesize\ttfamily ADC\+\_\+\+Handle\+Type\+Def hadc2\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_a25fc663547539bc49fecc0011bd76ab5}\label{main_8c_a25fc663547539bc49fecc0011bd76ab5} 
+\index{main.c@{main.c}!htim1@{htim1}}
+\index{htim1@{htim1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim1\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_a5faa27108379f799afb6984010bf0384}\label{main_8c_a5faa27108379f799afb6984010bf0384} 
+\index{main.c@{main.c}!htim8@{htim8}}
+\index{htim8@{htim8}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{htim8}{htim8}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim8\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{main_8c_a28b5aab450c14cf6e720f6dce774ccdf}\label{main_8c_a28b5aab450c14cf6e720f6dce774ccdf} 
 \index{main.c@{main.c}!invLeft@{invLeft}}

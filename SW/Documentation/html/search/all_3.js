@@ -10,5 +10,7 @@ var searchData=
   ['clarke3f_5fstruct_7',['clarke3F_struct',['../structclarke3_f__struct.html',1,'']]],
   ['cmsis_8',['CMSIS',['../group___c_m_s_i_s.html',1,'']]],
   ['cosfi_9',['cosFi',['../structrot__struct.html#a883fa6b46bf62e4b726b078ab0df3789',1,'rot_struct::cosFi'],['../structirot__struct.html#a883fa6b46bf62e4b726b078ab0df3789',1,'irot_struct::cosFi']]],
-  ['counter_10',['Counter',['../structstep__struct.html#abef4248412159e665620f746a9d7d3f8',1,'step_struct']]]
+  ['counter_10',['Counter',['../structstep__struct.html#abef4248412159e665620f746a9d7d3f8',1,'step_struct']]],
+  ['current_5foffset_11',['CURRENT_OFFSET',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aa4c5585f0614881f8b9a56ce287ed2f7',1,'MEASUREMENTS.h']]],
+  ['current_5fslope_12',['CURRENT_SLOPE',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2150fcc444ac69220b2a1d990e4df5c7',1,'MEASUREMENTS.h']]]
 ];

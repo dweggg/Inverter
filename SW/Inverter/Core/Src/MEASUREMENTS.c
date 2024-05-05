@@ -19,14 +19,34 @@
 #include "MEASUREMENTS.h"
 
 /* Define your functions here */
-
+/**
+  * @brief Raw ADC readings for the left inverter.
+  */
 volatile uint32_t ADC_LEFT_raw[4] = {0};
+
+/**
+  * @brief Raw ADC readings for the right inverter.
+  */
 volatile uint32_t ADC_RIGHT_raw[4] = {0};
 
+/**
+  * @brief Encoder data for the left inverter.
+  */
 volatile Encoder encoder_LEFT = {0};
+
+/**
+  * @brief Encoder data for the right inverter.
+  */
 volatile Encoder encoder_RIGHT = {0};
 
+/**
+  * @brief Measurements data for the left inverter.
+  */
 volatile Measurements measurements_LEFT = {0};
+
+/**
+  * @brief Measurements data for the right inverter.
+  */
 volatile Measurements measurements_RIGHT = {0};
 
 
@@ -35,7 +55,7 @@ volatile Measurements measurements_RIGHT = {0};
   * @param  ADC_raw Pointer to the raw ADC values array.
   * @param  encoder Pointer to the encoder struct.
   * @param  measurements Pointer to the measurements struct to store the results.
-  * @retval 0 if an error occurred, 1 if successful.
+  * @retval OK 0 if an error occurred, 1 if successful.
   */
 uint8_t getADCelec(volatile uint32_t* ADC_raw, volatile Encoder* encoder, volatile Measurements* measurements) {
     // Check for null pointers
@@ -63,7 +83,7 @@ uint8_t getADCelec(volatile uint32_t* ADC_raw, volatile Encoder* encoder, volati
   * @param  bits The ADC reading.
   * @param  slope The slope (units per volt).
   * @param  offset The offset (volts at zero).
-  * @retval The physical measurement.
+  * @retval measurement The physical measurement.
   */
 float getLinear(uint32_t bits, float slope, float offset) {
     // Convert ADC reading to voltage

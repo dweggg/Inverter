@@ -9,12 +9,15 @@ var searchData=
   ['enable_5fport_6',['enable_port',['../struct_inverter_operation.html#a36576b0f8a7daf14976aa2231602b0a7',1,'InverterOperation']]],
   ['enable_5fr_5fgpio_5fport_7',['ENABLE_R_GPIO_Port',['../main_8h.html#a486c95ff7de315e318e98ef8603c94c1',1,'main.h']]],
   ['enable_5fr_5fpin_8',['ENABLE_R_Pin',['../main_8h.html#af73cc11f2ca28f5b2568f978d6a6f910',1,'main.h']]],
-  ['environ_9',['environ',['../syscalls_8c.html#aa006daaf11f1e2e45a6ababaf463212b',1,'syscalls.c']]],
-  ['error_5fhandler_10',['Error_Handler',['../main_8h.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c'],['../main_8c.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c']]],
-  ['estat_11',['estat',['../structdatalog__struct.html#a22183ab35e606e4a696d06c4d7408843',1,'datalog_struct']]],
-  ['eth_5frx_5fbuf_5fsize_12',['ETH_RX_BUF_SIZE',['../stm32f7xx__hal__conf_8h.html#a0cdaf687f7a7f2dba570d5a722990786',1,'stm32f7xx_hal_conf.h']]],
-  ['eth_5frxbufnb_13',['ETH_RXBUFNB',['../stm32f7xx__hal__conf_8h.html#a62b0f224fa9c4f2e5574c9e52526f751',1,'stm32f7xx_hal_conf.h']]],
-  ['eth_5ftx_5fbuf_5fsize_14',['ETH_TX_BUF_SIZE',['../stm32f7xx__hal__conf_8h.html#af83956dfc1b135c3c92ac409758b6cf4',1,'stm32f7xx_hal_conf.h']]],
-  ['eth_5ftxbufnb_15',['ETH_TXBUFNB',['../stm32f7xx__hal__conf_8h.html#a4ad07ad8fa6f8639ab8ef362390d86c7',1,'stm32f7xx_hal_conf.h']]],
-  ['external_5fclock_5fvalue_16',['EXTERNAL_CLOCK_VALUE',['../stm32f7xx__hal__conf_8h.html#a8c47c935e91e70569098b41718558648',1,'stm32f7xx_hal_conf.h']]]
+  ['encoder_9',['Encoder',['../struct_encoder.html',1,'']]],
+  ['encoder_5fleft_10',['encoder_LEFT',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aab8025633e92b3425949150a818e9e4d',1,'encoder_LEFT:&#160;MEASUREMENTS.c'],['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#aab8025633e92b3425949150a818e9e4d',1,'encoder_LEFT:&#160;MEASUREMENTS.c']]],
+  ['encoder_5fright_11',['encoder_RIGHT',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aa96c55c34804d73fe8544e7a0ec16862',1,'encoder_RIGHT:&#160;MEASUREMENTS.c'],['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#aa96c55c34804d73fe8544e7a0ec16862',1,'encoder_RIGHT:&#160;MEASUREMENTS.c']]],
+  ['environ_12',['environ',['../syscalls_8c.html#aa006daaf11f1e2e45a6ababaf463212b',1,'syscalls.c']]],
+  ['error_5fhandler_13',['Error_Handler',['../main_8h.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c'],['../main_8c.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c']]],
+  ['estat_14',['estat',['../structdatalog__struct.html#a22183ab35e606e4a696d06c4d7408843',1,'datalog_struct']]],
+  ['eth_5frx_5fbuf_5fsize_15',['ETH_RX_BUF_SIZE',['../stm32f7xx__hal__conf_8h.html#a0cdaf687f7a7f2dba570d5a722990786',1,'stm32f7xx_hal_conf.h']]],
+  ['eth_5frxbufnb_16',['ETH_RXBUFNB',['../stm32f7xx__hal__conf_8h.html#a62b0f224fa9c4f2e5574c9e52526f751',1,'stm32f7xx_hal_conf.h']]],
+  ['eth_5ftx_5fbuf_5fsize_17',['ETH_TX_BUF_SIZE',['../stm32f7xx__hal__conf_8h.html#af83956dfc1b135c3c92ac409758b6cf4',1,'stm32f7xx_hal_conf.h']]],
+  ['eth_5ftxbufnb_18',['ETH_TXBUFNB',['../stm32f7xx__hal__conf_8h.html#a4ad07ad8fa6f8639ab8ef362390d86c7',1,'stm32f7xx_hal_conf.h']]],
+  ['external_5fclock_5fvalue_19',['EXTERNAL_CLOCK_VALUE',['../stm32f7xx__hal__conf_8h.html#a8c47c935e91e70569098b41718558648',1,'stm32f7xx_hal_conf.h']]]
 ];

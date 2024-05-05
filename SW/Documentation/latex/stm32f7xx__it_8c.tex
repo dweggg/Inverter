@@ -8,12 +8,12 @@ Interrupt Service Routines.
 {\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include "{}stm32f7xx\+\_\+it.\+h"{}}\newline
 {\ttfamily \#include "{}TASKS\+\_\+1ms.\+h"{}}\newline
-Include dependency graph for stm32f7xx\+\_\+it.\+c\+:
-\nopagebreak
+{\ttfamily \#include "{}MEASUREMENTS.\+h"{}}\newline
+Include dependency graph for stm32f7xx\+\_\+it.\+c\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=343pt]{stm32f7xx__it_8c__incl}
+\includegraphics[width=350pt]{stm32f7xx__it_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Functions}
@@ -257,6 +257,13 @@ This function handles TIM1 trigger and commutation interrupts and TIM11 global i
 
 This function handles TIM1 update interrupt and TIM10 global interrupt. 
 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm32f7xx__it_8c_ad1fd361bc5ad89facee67c76d1ff8dc0_cgraph}
+\end{center}
+\end{figure}
 \Hypertarget{stm32f7xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d}\label{stm32f7xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d} 
 \index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!TIM6\_DAC\_IRQHandler@{TIM6\_DAC\_IRQHandler}}
 \index{TIM6\_DAC\_IRQHandler@{TIM6\_DAC\_IRQHandler}!stm32f7xx\_it.c@{stm32f7xx\_it.c}}

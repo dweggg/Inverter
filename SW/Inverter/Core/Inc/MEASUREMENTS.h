@@ -16,10 +16,10 @@
   */
 
 /* Define current and voltage gains/offsets */
-#define CURRENT_SLOPE  54.4217687f  // [A/V] (10/(4.7+10)) * ( 1 A / 12.5 mV)
-#define CURRENT_OFFSET 1.70068027211f // [V] (10/(4.7+10))* 2.5 V
-#define VOLTAGE_SLOPE  0.003796f  // [V/V] 1/3 * 0.011388 V
-#define VOLTAGE_OFFSET 0.02083f // [V] (100/(4700+100) * 5 V
+#define CURRENT_SLOPE  54.4217687f  /**< [A/V] (10/(4.7+10)) * ( 1 / (12.5 mV / A)) */
+#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
+#define VOLTAGE_SLOPE  0.003796f  /**< [V/V] 1/3 * 0.011388 V */
+#define VOLTAGE_OFFSET 0.02083f /**< [V] (100/(4700+100) * 5 V */
 
 /* USER CODE END Header */
 #ifndef MEASUREMENTS_H
@@ -62,7 +62,21 @@ extern volatile Measurements measurements_LEFT;
 extern volatile Measurements measurements_RIGHT;
 
 /* Define function prototypes */
+/**
+  * @brief  Get electrical ADC measurements.
+  * @param  ADC_raw Pointer to the raw ADC values array.
+  * @param  encoder Pointer to the encoder struct.
+  * @param  measurements Pointer to the measurements struct to store the results.
+  * @retval OK 0 if an error occurred, 1 if successful.
+  */
 uint8_t getADCelec(volatile uint32_t* ADC_raw, volatile Encoder* encoder, volatile Measurements* measurements);
+/**
+  * @brief  Convert ADC reading to physical measurement with linear response.
+  * @param  bits The ADC reading.
+  * @param  slope The slope (volts per unit).
+  * @param  offset The offset (volts at zero).
+  * @retval measurement The physical measurement.
+  */
 float getLinear(uint32_t bits, float slope, float offset);
 
 #endif /* MEASUREMENTS_H */
