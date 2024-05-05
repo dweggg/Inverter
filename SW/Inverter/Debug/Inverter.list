@@ -9,43 +9,43 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
   2 .rodata       00000018  080069f4  080069f4  000079f4  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  08006a0c  08006a0c  0000803c  2**0
+  3 .ARM.extab    00000000  08006a0c  08006a0c  00008024  2**0
                   CONTENTS
   4 .ARM          00000008  08006a0c  08006a0c  00007a0c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  5 .preinit_array 00000000  08006a14  08006a14  0000803c  2**0
+  5 .preinit_array 00000000  08006a14  08006a14  00008024  2**0
                   CONTENTS, ALLOC, LOAD, DATA
   6 .init_array   00000004  08006a14  08006a14  00007a14  2**2
                   CONTENTS, ALLOC, LOAD, DATA
   7 .fini_array   00000004  08006a18  08006a18  00007a18  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         0000003c  20000000  08006a1c  00008000  2**2
+  8 .data         00000024  20000000  08006a1c  00008000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00000464  2000003c  08006a58  0000803c  2**2
+  9 .bss          0000047c  20000024  08006a40  00008024  2**2
                   ALLOC
- 10 ._user_heap_stack 00000600  200004a0  08006a58  000084a0  2**0
+ 10 ._user_heap_stack 00000600  200004a0  08006a40  000084a0  2**0
                   ALLOC
- 11 .ARM.attributes 0000002e  00000000  00000000  0000803c  2**0
+ 11 .ARM.attributes 0000002e  00000000  00000000  00008024  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00015c07  00000000  00000000  0000806a  2**0
+ 12 .debug_info   00015c09  00000000  00000000  00008052  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 00003b33  00000000  00000000  0001dc71  2**0
+ 13 .debug_abbrev 00003b32  00000000  00000000  0001dc5b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_aranges 00001398  00000000  00000000  000217a8  2**3
+ 14 .debug_aranges 00001398  00000000  00000000  00021790  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_rnglists 00000ef7  00000000  00000000  00022b40  2**0
+ 15 .debug_rnglists 00000ef7  00000000  00000000  00022b28  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  0002a863  00000000  00000000  00023a37  2**0
+ 16 .debug_macro  0002a863  00000000  00000000  00023a1f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   0001bddd  00000000  00000000  0004e29a  2**0
+ 17 .debug_line   0001bdde  00000000  00000000  0004e282  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0010007d  00000000  00000000  0006a077  2**0
+ 18 .debug_str    0010007d  00000000  00000000  0006a060  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000043  00000000  00000000  0016a0f4  2**0
+ 19 .comment      00000043  00000000  00000000  0016a0dd  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00004f3c  00000000  00000000  0016a138  2**2
+ 20 .debug_frame  00004f3c  00000000  00000000  0016a120  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 0000005a  00000000  00000000  0016f074  2**0
+ 21 .debug_line_str 0000005a  00000000  00000000  0016f05c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -62,7 +62,7 @@ Disassembly of section .text:
  800020a:	2301      	movs	r3, #1
  800020c:	7023      	strb	r3, [r4, #0]
  800020e:	bd10      	pop	{r4, pc}
- 8000210:	2000003c 	.word	0x2000003c
+ 8000210:	20000024 	.word	0x20000024
  8000214:	00000000 	.word	0x00000000
  8000218:	080069dc 	.word	0x080069dc
 
@@ -75,7 +75,7 @@ Disassembly of section .text:
  8000226:	f3af 8000 	nop.w
  800022a:	bd08      	pop	{r3, pc}
  800022c:	00000000 	.word	0x00000000
- 8000230:	20000040 	.word	0x20000040
+ 8000230:	20000028 	.word	0x20000028
  8000234:	080069dc 	.word	0x080069dc
 
 08000238 <__aeabi_uldivmod>:
@@ -345,11 +345,11 @@ Disassembly of section .text:
  8000526:	bf00      	nop
 
 08000528 <inv_init>:
- *
  * @param inv Pointer to the inverter operation structure.
+ * @param led Pointer to the LED structure.
+ * @param enable_port Pointer to the GPIO port for enabling/disabling the inverter.
+ * @param enable_pin Pin number for enabling/disabling the inverter.
  */
-static void fault_handler(InverterOperation *inv);
-
 void inv_init(InverterOperation *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin) {
  8000528:	b480      	push	{r7}
  800052a:	b085      	sub	sp, #20
@@ -385,7 +385,11 @@ void inv_init(InverterOperation *inv, LED *led, GPIO_TypeDef *enable_port, uint1
 	...
 
 0800055c <inv_FSM>:
-
+ *
+ * This function executes the finite state machine to control the inverter operation based on its current state.
+ *
+ * @param inv Pointer to the inverter operation structure.
+ */
 void inv_FSM(InverterOperation *inv) {
  800055c:	b580      	push	{r7, lr}
  800055e:	b082      	sub	sp, #8
@@ -440,7 +444,11 @@ void inv_FSM(InverterOperation *inv) {
  80005ae:	bf00      	nop
 
 080005b0 <idle_handler>:
-
+ *
+ * This function handles the actions and transitions for the idle state of the inverter operation.
+ *
+ * @param inv Pointer to the inverter operation structure.
+ */
 static void idle_handler(InverterOperation *inv) {
  80005b0:	b580      	push	{r7, lr}
  80005b2:	b082      	sub	sp, #8
@@ -450,10 +458,10 @@ static void idle_handler(InverterOperation *inv) {
     // Transition conditions to other states:
     // - Start startup sequence based on input condition
     // - Transition to fault state based on error conditions
-    inv->led->mode = LED_MODE_BLINK_SLOW; // Blink LED slow
+    inv->led->mode = LED_MODE_OFF;
  80005b8:	687b      	ldr	r3, [r7, #4]
  80005ba:	681b      	ldr	r3, [r3, #0]
- 80005bc:	2201      	movs	r2, #1
+ 80005bc:	2203      	movs	r2, #3
  80005be:	719a      	strb	r2, [r3, #6]
     DISABLE(inv->enable_port, inv->enable_pin);
  80005c0:	687b      	ldr	r3, [r7, #4]
@@ -470,7 +478,11 @@ static void idle_handler(InverterOperation *inv) {
  80005d6:	bd80      	pop	{r7, pc}
 
 080005d8 <startup_handler>:
-
+ *
+ * This function handles the actions and transitions for the startup state of the inverter operation.
+ *
+ * @param inv Pointer to the inverter operation structure.
+ */
 static void startup_handler(InverterOperation *inv) {
  80005d8:	b580      	push	{r7, lr}
  80005da:	b082      	sub	sp, #8
@@ -480,7 +492,7 @@ static void startup_handler(InverterOperation *inv) {
     // Transition conditions to other states:
     // - Transition to running state when startup sequence completes successfully
     // - Transition to fault state based on error conditions during startup
-    inv->led->mode = LED_MODE_BLINK_FAST; // Blink LED fast
+    inv->led->mode = LED_MODE_BLINK_FAST;
  80005e0:	687b      	ldr	r3, [r7, #4]
  80005e2:	681b      	ldr	r3, [r3, #0]
  80005e4:	2200      	movs	r2, #0
@@ -500,7 +512,11 @@ static void startup_handler(InverterOperation *inv) {
  80005fe:	bd80      	pop	{r7, pc}
 
 08000600 <running_handler>:
-
+ *
+ * This function handles the actions and transitions for the running state of the inverter operation.
+ *
+ * @param inv Pointer to the inverter operation structure.
+ */
 static void running_handler(InverterOperation *inv) {
  8000600:	b580      	push	{r7, lr}
  8000602:	b082      	sub	sp, #8
@@ -511,7 +527,7 @@ static void running_handler(InverterOperation *inv) {
     // Monitor inverter variables, adjust control parameters, etc.
     // Transition conditions to other states:
     // - Transition to fault state based on error conditions during operation
-    inv->led->mode = LED_MODE_ON; // Turn on LED
+    inv->led->mode = LED_MODE_ON;
  8000608:	687b      	ldr	r3, [r7, #4]
  800060a:	681b      	ldr	r3, [r3, #0]
  800060c:	2202      	movs	r2, #2
@@ -531,7 +547,11 @@ static void running_handler(InverterOperation *inv) {
  8000626:	bd80      	pop	{r7, pc}
 
 08000628 <fault_handler>:
-
+ *
+ * This function handles the actions and transitions for the fault state of the inverter operation.
+ *
+ * @param inv Pointer to the inverter operation structure.
+ */
 static void fault_handler(InverterOperation *inv) {
  8000628:	b580      	push	{r7, lr}
  800062a:	b082      	sub	sp, #8
@@ -542,10 +562,10 @@ static void fault_handler(InverterOperation *inv) {
     // Transition conditions to other states:
     // - Retry startup sequence after a delay if fault condition is recoverable
     // - Transition to idle state after fault is resolved
-    inv->led->mode = LED_MODE_OFF; // Turn off LED
+    inv->led->mode = LED_MODE_BLINK_SLOW;
  8000630:	687b      	ldr	r3, [r7, #4]
  8000632:	681b      	ldr	r3, [r3, #0]
- 8000634:	2203      	movs	r2, #3
+ 8000634:	2201      	movs	r2, #1
  8000636:	719a      	strb	r2, [r3, #6]
     DISABLE(inv->enable_port, inv->enable_pin);
  8000638:	687b      	ldr	r3, [r7, #4]
@@ -868,7 +888,7 @@ void tasks_1ms(void) {
  8000866:	bf00      	nop
  8000868:	bd80      	pop	{r7, pc}
  800086a:	bf00      	nop
- 800086c:	20000094 	.word	0x20000094
+ 800086c:	2000007c 	.word	0x2000007c
  8000870:	20000000 	.word	0x20000000
  8000874:	20000008 	.word	0x20000008
  8000878:	20000010 	.word	0x20000010
@@ -1033,7 +1053,7 @@ void MX_ADC1_Init(void)
  8000946:	3710      	adds	r7, #16
  8000948:	46bd      	mov	sp, r7
  800094a:	bd80      	pop	{r7, pc}
- 800094c:	20000098 	.word	0x20000098
+ 800094c:	20000080 	.word	0x20000080
  8000950:	40012000 	.word	0x40012000
  8000954:	0f000001 	.word	0x0f000001
 
@@ -1215,7 +1235,7 @@ void MX_ADC2_Init(void)
  8000a42:	3710      	adds	r7, #16
  8000a44:	46bd      	mov	sp, r7
  8000a46:	bd80      	pop	{r7, pc}
- 8000a48:	200000e0 	.word	0x200000e0
+ 8000a48:	200000c8 	.word	0x200000c8
  8000a4c:	40012100 	.word	0x40012100
 
 08000a50 <MX_ADC3_Init>:
@@ -1333,7 +1353,7 @@ void MX_ADC3_Init(void)
  8000ae2:	3710      	adds	r7, #16
  8000ae4:	46bd      	mov	sp, r7
  8000ae6:	bd80      	pop	{r7, pc}
- 8000ae8:	20000128 	.word	0x20000128
+ 8000ae8:	20000110 	.word	0x20000110
  8000aec:	40012200 	.word	0x40012200
  8000af0:	0f000001 	.word	0x0f000001
 
@@ -1704,15 +1724,15 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
  8000d60:	40012000 	.word	0x40012000
  8000d64:	40023800 	.word	0x40023800
  8000d68:	40020000 	.word	0x40020000
- 8000d6c:	20000170 	.word	0x20000170
+ 8000d6c:	20000158 	.word	0x20000158
  8000d70:	40026410 	.word	0x40026410
  8000d74:	40012100 	.word	0x40012100
  8000d78:	40020400 	.word	0x40020400
- 8000d7c:	200001d0 	.word	0x200001d0
+ 8000d7c:	200001b8 	.word	0x200001b8
  8000d80:	40026440 	.word	0x40026440
  8000d84:	40012200 	.word	0x40012200
  8000d88:	40020800 	.word	0x40020800
- 8000d8c:	20000230 	.word	0x20000230
+ 8000d8c:	20000218 	.word	0x20000218
  8000d90:	40026428 	.word	0x40026428
 
 08000d94 <MX_CAN1_Init>:
@@ -1794,7 +1814,7 @@ void MX_CAN1_Init(void)
 }
  8000df4:	bf00      	nop
  8000df6:	bd80      	pop	{r7, pc}
- 8000df8:	20000290 	.word	0x20000290
+ 8000df8:	20000278 	.word	0x20000278
  8000dfc:	40006400 	.word	0x40006400
 
 08000e00 <HAL_CAN_MspInit>:
@@ -1975,7 +1995,7 @@ void MX_DAC_Init(void)
  8000eee:	46bd      	mov	sp, r7
  8000ef0:	bd80      	pop	{r7, pc}
  8000ef2:	bf00      	nop
- 8000ef4:	200002b8 	.word	0x200002b8
+ 8000ef4:	200002a0 	.word	0x200002a0
  8000ef8:	40007400 	.word	0x40007400
 
 08000efc <HAL_DAC_MspInit>:
@@ -2575,7 +2595,7 @@ void MX_I2C1_Init(void)
  80012a2:	bf00      	nop
  80012a4:	bd80      	pop	{r7, pc}
  80012a6:	bf00      	nop
- 80012a8:	200002cc 	.word	0x200002cc
+ 80012a8:	200002b4 	.word	0x200002b4
  80012ac:	40005400 	.word	0x40005400
  80012b0:	20404768 	.word	0x20404768
 
@@ -2797,14 +2817,14 @@ int main(void)
  80013f2:	bf00      	nop
  80013f4:	20000320 	.word	0x20000320
  80013f8:	20000404 	.word	0x20000404
- 80013fc:	20000058 	.word	0x20000058
- 8001400:	200000e0 	.word	0x200000e0
+ 80013fc:	20000040 	.word	0x20000040
+ 8001400:	200000c8 	.word	0x200000c8
  8001404:	40021000 	.word	0x40021000
  8001408:	20000000 	.word	0x20000000
- 800140c:	20000018 	.word	0x20000018
+ 800140c:	20000308 	.word	0x20000308
  8001410:	40020400 	.word	0x40020400
  8001414:	20000008 	.word	0x20000008
- 8001418:	20000024 	.word	0x20000024
+ 8001418:	20000314 	.word	0x20000314
 
 0800141c <SystemClock_Config>:
 /**
@@ -3210,7 +3230,7 @@ void CAN1_RX0_IRQHandler(void)
  80015b6:	bf00      	nop
  80015b8:	bd80      	pop	{r7, pc}
  80015ba:	bf00      	nop
- 80015bc:	20000290 	.word	0x20000290
+ 80015bc:	20000278 	.word	0x20000278
 
 080015c0 <CAN1_RX1_IRQHandler>:
 
@@ -3234,7 +3254,7 @@ void CAN1_RX1_IRQHandler(void)
  80015ca:	bf00      	nop
  80015cc:	bd80      	pop	{r7, pc}
  80015ce:	bf00      	nop
- 80015d0:	20000290 	.word	0x20000290
+ 80015d0:	20000278 	.word	0x20000278
 
 080015d4 <TIM1_BRK_TIM9_IRQHandler>:
 
@@ -3291,9 +3311,9 @@ void TIM1_UP_TIM10_IRQHandler(void)
  80015fc:	bf00      	nop
  80015fe:	bd80      	pop	{r7, pc}
  8001600:	20000320 	.word	0x20000320
- 8001604:	20000084 	.word	0x20000084
- 8001608:	20000068 	.word	0x20000068
- 800160c:	20000058 	.word	0x20000058
+ 8001604:	2000006c 	.word	0x2000006c
+ 8001608:	20000050 	.word	0x20000050
+ 800160c:	20000040 	.word	0x20000040
 
 08001610 <TIM1_TRG_COM_TIM11_IRQHandler>:
 
@@ -3368,7 +3388,7 @@ void TIM6_DAC_IRQHandler(void)
 }
  800164c:	bf00      	nop
  800164e:	bd80      	pop	{r7, pc}
- 8001650:	200002b8 	.word	0x200002b8
+ 8001650:	200002a0 	.word	0x200002a0
  8001654:	20000404 	.word	0x20000404
 
 08001658 <DMA2_Stream0_IRQHandler>:
@@ -3393,7 +3413,7 @@ void DMA2_Stream0_IRQHandler(void)
  8001662:	bf00      	nop
  8001664:	bd80      	pop	{r7, pc}
  8001666:	bf00      	nop
- 8001668:	20000170 	.word	0x20000170
+ 8001668:	20000158 	.word	0x20000158
 
 0800166c <DMA2_Stream1_IRQHandler>:
 
@@ -3417,7 +3437,7 @@ void DMA2_Stream1_IRQHandler(void)
  8001676:	bf00      	nop
  8001678:	bd80      	pop	{r7, pc}
  800167a:	bf00      	nop
- 800167c:	20000230 	.word	0x20000230
+ 800167c:	20000218 	.word	0x20000218
 
 08001680 <DMA2_Stream2_IRQHandler>:
 
@@ -3441,7 +3461,7 @@ void DMA2_Stream2_IRQHandler(void)
  800168a:	bf00      	nop
  800168c:	bd80      	pop	{r7, pc}
  800168e:	bf00      	nop
- 8001690:	200001d0 	.word	0x200001d0
+ 8001690:	200001b8 	.word	0x200001b8
 
 08001694 <SystemInit>:
   *         SystemFrequency variable.
@@ -4929,11 +4949,11 @@ LoopFillZerobss:
   ldr r0, =_sdata
  8001f60:	20000000 	.word	0x20000000
   ldr r1, =_edata
- 8001f64:	2000003c 	.word	0x2000003c
+ 8001f64:	20000024 	.word	0x20000024
   ldr r2, =_sidata
  8001f68:	08006a1c 	.word	0x08006a1c
   ldr r2, =_sbss
- 8001f6c:	2000003c 	.word	0x2000003c
+ 8001f6c:	20000024 	.word	0x20000024
   ldr r4, =_ebss
  8001f70:	200004a0 	.word	0x200004a0
 
@@ -5042,9 +5062,9 @@ __weak HAL_StatusTypeDef HAL_InitTick(uint32_t TickPriority)
  8001fde:	3708      	adds	r7, #8
  8001fe0:	46bd      	mov	sp, r7
  8001fe2:	bd80      	pop	{r7, pc}
- 8001fe4:	20000030 	.word	0x20000030
- 8001fe8:	20000038 	.word	0x20000038
- 8001fec:	20000034 	.word	0x20000034
+ 8001fe4:	20000018 	.word	0x20000018
+ 8001fe8:	20000020 	.word	0x20000020
+ 8001fec:	2000001c 	.word	0x2000001c
 
 08001ff0 <HAL_IncTick>:
  * @note This function is declared as __weak to be overwritten in case of other 
@@ -5070,7 +5090,7 @@ __weak void HAL_IncTick(void)
  8002008:	f85d 7b04 	ldr.w	r7, [sp], #4
  800200c:	4770      	bx	lr
  800200e:	bf00      	nop
- 8002010:	20000038 	.word	0x20000038
+ 8002010:	20000020 	.word	0x20000020
  8002014:	2000049c 	.word	0x2000049c
 
 08002018 <HAL_GetTick>:
@@ -5553,7 +5573,7 @@ HAL_StatusTypeDef HAL_ADC_Start_DMA(ADC_HandleTypeDef* hadc, uint32_t* pData, ui
  8002282:	3718      	adds	r7, #24
  8002284:	46bd      	mov	sp, r7
  8002286:	bd80      	pop	{r7, pc}
- 8002288:	20000030 	.word	0x20000030
+ 8002288:	20000018 	.word	0x20000018
  800228c:	431bde83 	.word	0x431bde83
  8002290:	fffff8fe 	.word	0xfffff8fe
  8002294:	08002789 	.word	0x08002789
@@ -6063,7 +6083,7 @@ HAL_StatusTypeDef HAL_ADC_ConfigChannel(ADC_HandleTypeDef* hadc, ADC_ChannelConf
  8002580:	10000012 	.word	0x10000012
  8002584:	40012000 	.word	0x40012000
  8002588:	40012300 	.word	0x40012300
- 800258c:	20000030 	.word	0x20000030
+ 800258c:	20000018 	.word	0x20000018
  8002590:	431bde83 	.word	0x431bde83
 
 08002594 <ADC_Init>:
@@ -9564,7 +9584,7 @@ void HAL_DMA_IRQHandler(DMA_HandleTypeDef *hdma)
  8003732:	4798      	blx	r3
  8003734:	e02c      	b.n	8003790 <HAL_DMA_IRQHandler+0x2a0>
  8003736:	bf00      	nop
- 8003738:	20000030 	.word	0x20000030
+ 8003738:	20000018 	.word	0x20000018
  800373c:	1b4e81b5 	.word	0x1b4e81b5
           }
         }
@@ -12434,8 +12454,8 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  8004760:	40023c00 	.word	0x40023c00
  8004764:	40023800 	.word	0x40023800
  8004768:	080069f4 	.word	0x080069f4
- 800476c:	20000030 	.word	0x20000030
- 8004770:	20000034 	.word	0x20000034
+ 800476c:	20000018 	.word	0x20000018
+ 8004770:	2000001c 	.word	0x2000001c
 
 08004774 <HAL_RCC_GetSysClockFreq>:
   *

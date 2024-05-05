@@ -88,14 +88,18 @@ $(function() {
 <p>Header file for Finite State Machine (FSM) control.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;stm32f7xx_hal.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_p_c_b___i_o_8h_source.html">PCB_IO.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for FSM.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_f_s_m_8h__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_f_s_m_8h" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_f_s_m_8h" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_f_s_m_8h">
 <area shape="rect" title="Header file for Finite State Machine (FSM) control." alt="" coords="5,5,171,64"/>
-<area shape="rect" title=" " alt="" coords="30,112,146,139"/>
-<area shape="poly" title=" " alt="" coords="91,64,91,96,85,96,85,64"/>
+<area shape="rect" title=" " alt="" coords="30,187,146,213"/>
+<area shape="poly" title=" " alt="" coords="83,65,78,100,77,138,83,171,78,172,72,139,72,100,78,64"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs and other low&#45;priority tasks." alt="" coords="87,112,166,139"/>
+<area shape="poly" title=" " alt="" coords="103,63,117,96,113,99,98,65"/>
+<area shape="poly" title=" " alt="" coords="122,140,104,174,99,172,118,138"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -131,9 +135,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a632c5c1cec4d7469446a25b3c58d11dc" id="r_a632c5c1cec4d7469446a25b3c58d11dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a632c5c1cec4d7469446a25b3c58d11dc">inv_init</a> (<a class="el" href="struct_inverter_operation.html">InverterOperation</a> *inv)</td></tr>
-<tr class="memdesc:a632c5c1cec4d7469446a25b3c58d11dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the inverter operation structure.  <br /></td></tr>
-<tr class="separator:a632c5c1cec4d7469446a25b3c58d11dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6e713b24ac13985f78b322bcb1398d9" id="r_af6e713b24ac13985f78b322bcb1398d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6e713b24ac13985f78b322bcb1398d9">inv_init</a> (<a class="el" href="struct_inverter_operation.html">InverterOperation</a> *inv, <a class="el" href="struct_l_e_d.html">LED</a> *led, GPIO_TypeDef *enable_port, uint16_t enable_pin)</td></tr>
+<tr class="memdesc:af6e713b24ac13985f78b322bcb1398d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the inverter operation structure.  <br /></td></tr>
+<tr class="separator:af6e713b24ac13985f78b322bcb1398d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adec4df6cf6e5716c841ee925ea42990b" id="r_adec4df6cf6e5716c841ee925ea42990b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adec4df6cf6e5716c841ee925ea42990b">inv_FSM</a> (<a class="el" href="struct_inverter_operation.html">InverterOperation</a> *inv)</td></tr>
 <tr class="memdesc:adec4df6cf6e5716c841ee925ea42990b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the Finite State Machine (FSM) for inverter operation control.  <br /></td></tr>
 <tr class="separator:adec4df6cf6e5716c841ee925ea42990b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -189,6 +193,14 @@ Functions</h2></td></tr>
 <p>Run the Finite State Machine (FSM) for inverter operation control. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">inv</td><td>Pointer to the inverter operation structure.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Run the Finite State Machine (FSM) for inverter operation control.</p>
+<p>This function executes the finite state machine to control the inverter operation based on its current state.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramname">inv</td><td>Pointer to the inverter operation structure. </td></tr>
   </table>
   </dd>
@@ -206,8 +218,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a632c5c1cec4d7469446a25b3c58d11dc" name="a632c5c1cec4d7469446a25b3c58d11dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a632c5c1cec4d7469446a25b3c58d11dc">&#9670;&#160;</a></span>inv_init()</h2>
+<a id="af6e713b24ac13985f78b322bcb1398d9" name="af6e713b24ac13985f78b322bcb1398d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6e713b24ac13985f78b322bcb1398d9">&#9670;&#160;</a></span>inv_init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -215,8 +227,22 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void inv_init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="struct_inverter_operation.html">InverterOperation</a> *</td>          <td class="paramname"><span class="paramname"><em>inv</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="struct_inverter_operation.html">InverterOperation</a> *</td>          <td class="paramname"><span class="paramname"><em>inv</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="struct_l_e_d.html">LED</a> *</td>          <td class="paramname"><span class="paramname"><em>led</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GPIO_TypeDef *</td>          <td class="paramname"><span class="paramname"><em>enable_port</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>enable_pin</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -225,9 +251,33 @@ Here is the caller graph for this function:</div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inv</td><td>Pointer to the inverter operation structure. </td></tr>
+    <tr><td class="paramname">led</td><td>Pointer to the <a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> control struct. </td></tr>
+    <tr><td class="paramname">enable_port</td><td>Pointer to the GPIO port for enabling/disabling the inverter. </td></tr>
+    <tr><td class="paramname">enable_pin</td><td>Pin number for enabling/disabling the inverter.</td></tr>
   </table>
   </dd>
 </dl>
+<p>Initialize the inverter operation structure.</p>
+<p>This function initializes the inverter operation structure with the specified <a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a>, GPIO port, and pin.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inv</td><td>Pointer to the inverter operation structure. </td></tr>
+    <tr><td class="paramname">led</td><td>Pointer to the <a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> structure. </td></tr>
+    <tr><td class="paramname">enable_port</td><td>Pointer to the GPIO port for enabling/disabling the inverter. </td></tr>
+    <tr><td class="paramname">enable_pin</td><td>Pin number for enabling/disabling the inverter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_f_s_m_8h_af6e713b24ac13985f78b322bcb1398d9_icgraph.png" border="0" usemap="#a_f_s_m_8h_af6e713b24ac13985f78b322bcb1398d9_icgraph" alt=""/></div>
+<map name="a_f_s_m_8h_af6e713b24ac13985f78b322bcb1398d9_icgraph" id="a_f_s_m_8h_af6e713b24ac13985f78b322bcb1398d9_icgraph">
+<area shape="rect" title="Initialize the inverter operation structure." alt="" coords="103,5,163,32"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
 
 </div>
 </div>

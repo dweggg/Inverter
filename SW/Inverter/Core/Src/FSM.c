@@ -113,7 +113,7 @@ static void idle_handler(InverterOperation *inv) {
     // Transition conditions to other states:
     // - Start startup sequence based on input condition
     // - Transition to fault state based on error conditions
-    inv->led->mode = LED_MODE_BLINK_SLOW; // Blink LED slow
+    inv->led->mode = LED_MODE_OFF;
     DISABLE(inv->enable_port, inv->enable_pin);
 }
 
@@ -129,7 +129,7 @@ static void startup_handler(InverterOperation *inv) {
     // Transition conditions to other states:
     // - Transition to running state when startup sequence completes successfully
     // - Transition to fault state based on error conditions during startup
-    inv->led->mode = LED_MODE_BLINK_FAST; // Blink LED fast
+    inv->led->mode = LED_MODE_BLINK_FAST;
     DISABLE(inv->enable_port, inv->enable_pin);
 }
 
@@ -146,7 +146,7 @@ static void running_handler(InverterOperation *inv) {
     // Monitor inverter variables, adjust control parameters, etc.
     // Transition conditions to other states:
     // - Transition to fault state based on error conditions during operation
-    inv->led->mode = LED_MODE_ON; // Turn on LED
+    inv->led->mode = LED_MODE_ON;
     ENABLE(inv->enable_port, inv->enable_pin);
 }
 
@@ -163,6 +163,6 @@ static void fault_handler(InverterOperation *inv) {
     // Transition conditions to other states:
     // - Retry startup sequence after a delay if fault condition is recoverable
     // - Transition to idle state after fault is resolved
-    inv->led->mode = LED_MODE_OFF; // Turn off LED
+    inv->led->mode = LED_MODE_BLINK_SLOW;
     DISABLE(inv->enable_port, inv->enable_pin);
 }

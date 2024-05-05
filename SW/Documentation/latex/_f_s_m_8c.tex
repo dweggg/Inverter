@@ -6,21 +6,21 @@ This file provides code for Finite State Machine (FSM) control.
 
 
 {\ttfamily \#include "{}FSM.\+h"{}}\newline
-{\ttfamily \#include "{}PCB\+\_\+\+IO.\+h"{}}\newline
-Include dependency graph for FSM.\+c\+:\nopagebreak
+Include dependency graph for FSM.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=207pt]{_f_s_m_8c__incl}
+\includegraphics[width=204pt]{_f_s_m_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_f_s_m_8c_a632c5c1cec4d7469446a25b3c58d11dc}{inv\+\_\+init}} (\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \texorpdfstring{$\ast$}{*}inv)
-\begin{DoxyCompactList}\small\item\em Initialize the inverter operation structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_f_s_m_8c_af6e713b24ac13985f78b322bcb1398d9}{inv\+\_\+init}} (\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}enable\+\_\+port, uint16\+\_\+t enable\+\_\+pin)
+\begin{DoxyCompactList}\small\item\em Initialize the inverter operation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_f_s_m_8c_adec4df6cf6e5716c841ee925ea42990b}{inv\+\_\+\+FSM}} (\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \texorpdfstring{$\ast$}{*}inv)
-\begin{DoxyCompactList}\small\item\em Run the Finite State Machine (FSM) for inverter operation control. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Execute the finite state machine for inverter operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -42,32 +42,55 @@ This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+A
 
 
 
-Run the Finite State Machine (FSM) for inverter operation control. 
+Execute the finite state machine for inverter operation. 
+
+Run the Finite State Machine (FSM) for inverter operation control.
+
+This function executes the finite state machine to control the inverter operation based on its current state.
 
 
 \begin{DoxyParams}{Parameters}
 {\em inv} & Pointer to the inverter operation structure. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=207pt]{_f_s_m_8c_adec4df6cf6e5716c841ee925ea42990b_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{_f_s_m_8c_a632c5c1cec4d7469446a25b3c58d11dc}\label{_f_s_m_8c_a632c5c1cec4d7469446a25b3c58d11dc} 
+\Hypertarget{_f_s_m_8c_af6e713b24ac13985f78b322bcb1398d9}\label{_f_s_m_8c_af6e713b24ac13985f78b322bcb1398d9} 
 \index{FSM.c@{FSM.c}!inv\_init@{inv\_init}}
 \index{inv\_init@{inv\_init}!FSM.c@{FSM.c}}
 \doxysubsubsection{\texorpdfstring{inv\_init()}{inv\_init()}}
-{\footnotesize\ttfamily void inv\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \texorpdfstring{$\ast$}{*}}]{inv }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void inv\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \texorpdfstring{$\ast$}{*}}]{inv,  }\item[{\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{enable\+\_\+port,  }\item[{uint16\+\_\+t}]{enable\+\_\+pin }\end{DoxyParamCaption})}
 
 
 
-Initialize the inverter operation structure. 
+Initialize the inverter operation. 
+
+Initialize the inverter operation structure.
+
+This function initializes the inverter operation structure with the specified \doxylink{struct_l_e_d}{LED}, GPIO port, and pin.
 
 
 \begin{DoxyParams}{Parameters}
 {\em inv} & Pointer to the inverter operation structure. \\
 \hline
+{\em led} & Pointer to the \doxylink{struct_l_e_d}{LED} structure. \\
+\hline
+{\em enable\+\_\+port} & Pointer to the GPIO port for enabling/disabling the inverter. \\
+\hline
+{\em enable\+\_\+pin} & Pin number for enabling/disabling the inverter. \\
+\hline
 \end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{_f_s_m_8c_af6e713b24ac13985f78b322bcb1398d9_icgraph}
+\end{center}
+\end{figure}

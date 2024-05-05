@@ -72,16 +72,11 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-// Initialize left and right system controls
-InverterOperation invLeft = {
-    .enable_port = ENABLE_L_GPIO_Port,
-    .enable_pin = ENABLE_L_Pin
-};
+// Initialize left and right inverters
 
-InverterOperation invRight = {
-    .enable_port = ENABLE_R_GPIO_Port,
-    .enable_pin = ENABLE_R_Pin
-};
+InverterOperation invLeft = {0};
+
+InverterOperation invRight = {0};
 
 /* USER CODE END 0 */
 

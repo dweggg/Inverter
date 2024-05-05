@@ -9,18 +9,26 @@ Inverter operation structure.
 
 {\ttfamily \#include $<$FSM.\+h$>$}
 
+
+
+Collaboration diagram for Inverter\+Operation\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{struct_inverter_operation__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5f}{Inverter\+Operation\+State}} \mbox{\hyperlink{struct_inverter_operation_aa92327f462deb3af5e84566a8f25855f}{state}}
-\item 
-GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_inverter_operation_afad9c66b60c494fd0a86e551de8582ee}{LED\+\_\+port}}
-\item 
-uint16\+\_\+t \mbox{\hyperlink{struct_inverter_operation_a134c85c690873917ae81585bdc5de694}{LED\+\_\+pin}}
+\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_inverter_operation_ae6ddb8a94132877213fb3b58d9f25f97}{led}}
 \item 
 GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_inverter_operation_a36576b0f8a7daf14976aa2231602b0a7}{enable\+\_\+port}}
 \item 
 uint16\+\_\+t \mbox{\hyperlink{struct_inverter_operation_ab92945770bc3cbcd703dd87682c7ee6e}{enable\+\_\+pin}}
+\item 
+\mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5f}{Inverter\+Operation\+State}} \mbox{\hyperlink{struct_inverter_operation_aa92327f462deb3af5e84566a8f25855f}{state}}
 \end{DoxyCompactItemize}
 
 
@@ -40,19 +48,13 @@ Pin number for enabling/disabling the inverter \Hypertarget{struct_inverter_oper
 \doxysubsubsection{\texorpdfstring{enable\_port}{enable\_port}}
 {\footnotesize\ttfamily GPIO\+\_\+\+Type\+Def\texorpdfstring{$\ast$}{*} enable\+\_\+port}
 
-GPIO port for enabling/disabling the inverter \Hypertarget{struct_inverter_operation_a134c85c690873917ae81585bdc5de694}\label{struct_inverter_operation_a134c85c690873917ae81585bdc5de694} 
-\index{InverterOperation@{InverterOperation}!LED\_pin@{LED\_pin}}
-\index{LED\_pin@{LED\_pin}!InverterOperation@{InverterOperation}}
-\doxysubsubsection{\texorpdfstring{LED\_pin}{LED\_pin}}
-{\footnotesize\ttfamily uint16\+\_\+t LED\+\_\+pin}
+GPIO port for enabling/disabling the inverter \Hypertarget{struct_inverter_operation_ae6ddb8a94132877213fb3b58d9f25f97}\label{struct_inverter_operation_ae6ddb8a94132877213fb3b58d9f25f97} 
+\index{InverterOperation@{InverterOperation}!led@{led}}
+\index{led@{led}!InverterOperation@{InverterOperation}}
+\doxysubsubsection{\texorpdfstring{led}{led}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_l_e_d}{LED}}\texorpdfstring{$\ast$}{*} led}
 
-Pin number for controlling the \doxylink{struct_l_e_d}{LED} \Hypertarget{struct_inverter_operation_afad9c66b60c494fd0a86e551de8582ee}\label{struct_inverter_operation_afad9c66b60c494fd0a86e551de8582ee} 
-\index{InverterOperation@{InverterOperation}!LED\_port@{LED\_port}}
-\index{LED\_port@{LED\_port}!InverterOperation@{InverterOperation}}
-\doxysubsubsection{\texorpdfstring{LED\_port}{LED\_port}}
-{\footnotesize\ttfamily GPIO\+\_\+\+Type\+Def\texorpdfstring{$\ast$}{*} LED\+\_\+port}
-
-GPIO port for controlling the \doxylink{struct_l_e_d}{LED} \Hypertarget{struct_inverter_operation_aa92327f462deb3af5e84566a8f25855f}\label{struct_inverter_operation_aa92327f462deb3af5e84566a8f25855f} 
+\doxylink{struct_l_e_d}{LED} control struct \Hypertarget{struct_inverter_operation_aa92327f462deb3af5e84566a8f25855f}\label{struct_inverter_operation_aa92327f462deb3af5e84566a8f25855f} 
 \index{InverterOperation@{InverterOperation}!state@{state}}
 \index{state@{state}!InverterOperation@{InverterOperation}}
 \doxysubsubsection{\texorpdfstring{state}{state}}

@@ -16,7 +16,9 @@
 {\ttfamily \#include "{}gpio.\+h"{}}\newline
 {\ttfamily \#include "{}FSM.\+h"{}}\newline
 {\ttfamily \#include "{}MEASUREMENTS.\+h"{}}\newline
-Include dependency graph for main.\+c\+:\nopagebreak
+{\ttfamily \#include "{}PCB\+\_\+\+IO.\+h"{}}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -43,9 +45,9 @@ TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011
 \item 
 TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a5faa27108379f799afb6984010bf0384}{htim8}}
 \item 
-\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \mbox{\hyperlink{main_8c_a28b5aab450c14cf6e720f6dce774ccdf}{inv\+Left}}
+\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \mbox{\hyperlink{main_8c_a28b5aab450c14cf6e720f6dce774ccdf}{inv\+Left}} = \{0\}
 \item 
-\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \mbox{\hyperlink{main_8c_ae24b53a1b1a44a4e9ed946c982c55547}{inv\+Right}}
+\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \mbox{\hyperlink{main_8c_ae24b53a1b1a44a4e9ed946c982c55547}{inv\+Right}} = \{0\}
 \end{DoxyCompactItemize}
 
 
@@ -97,11 +99,12 @@ The application entry point.
 {\em int} & \\
 \hline
 \end{DoxyRetVals}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\includegraphics[height=550pt]{main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
 \end{center}
 \end{figure}
 \Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\label{main_8c_a70af21c671abfcc773614a9a4f63d920} 
@@ -170,33 +173,11 @@ Here is the caller graph for this function\+:\nopagebreak
 \index{main.c@{main.c}!invLeft@{invLeft}}
 \index{invLeft@{invLeft}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{invLeft}{invLeft}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} inv\+Left}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} inv\+Left = \{0\}}
 
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{=\ \{}
-\DoxyCodeLine{\ \ \ \ .state\ =\ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa3bffb8c0f8030eb6d38dac2a9b1e4edd}{INV\_STATE\_STARTUP}},}
-\DoxyCodeLine{\ \ \ \ .LED\_port\ =\ \mbox{\hyperlink{main_8h_a040c5e45349bb5eefe5767f88da3f8c1}{LED\_LEFT\_GPIO\_Port}},}
-\DoxyCodeLine{\ \ \ \ .LED\_pin\ =\ \mbox{\hyperlink{main_8h_a9a1e6f909f15dddfb346b8f7af082be3}{LED\_LEFT\_Pin}},}
-\DoxyCodeLine{\ \ \ \ .enable\_port\ =\ \mbox{\hyperlink{main_8h_a2cc7338cb725a5313d1d86bae67a72b1}{ENABLE\_L\_GPIO\_Port}},}
-\DoxyCodeLine{\ \ \ \ .enable\_pin\ =\ \mbox{\hyperlink{main_8h_a506ee5e684b8e8cafc67aeb632f56c50}{ENABLE\_L\_Pin}}}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}
 \Hypertarget{main_8c_ae24b53a1b1a44a4e9ed946c982c55547}\label{main_8c_ae24b53a1b1a44a4e9ed946c982c55547} 
 \index{main.c@{main.c}!invRight@{invRight}}
 \index{invRight@{invRight}!main.c@{main.c}}
 \doxysubsubsection{\texorpdfstring{invRight}{invRight}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} inv\+Right}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} inv\+Right = \{0\}}
 
-{\bfseries Initial value\+:}
-\begin{DoxyCode}{0}
-\DoxyCodeLine{=\ \{}
-\DoxyCodeLine{\ \ \ \ .state\ =\ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa3bffb8c0f8030eb6d38dac2a9b1e4edd}{INV\_STATE\_STARTUP}},}
-\DoxyCodeLine{\ \ \ \ .LED\_port\ =\ \mbox{\hyperlink{main_8h_a53c89327b6e7fd3ef2d02abacd31bd42}{LED\_RIGHT\_GPIO\_Port}},}
-\DoxyCodeLine{\ \ \ \ .LED\_pin\ =\ \mbox{\hyperlink{main_8h_a004aa8634a8d0bb7cd42dacd5a833912}{LED\_RIGHT\_Pin}},}
-\DoxyCodeLine{\ \ \ \ .enable\_port\ =\ \mbox{\hyperlink{main_8h_a486c95ff7de315e318e98ef8603c94c1}{ENABLE\_R\_GPIO\_Port}},}
-\DoxyCodeLine{\ \ \ \ .enable\_pin\ =\ \mbox{\hyperlink{main_8h_af73cc11f2ca28f5b2568f978d6a6f910}{ENABLE\_R\_Pin}}}
-\DoxyCodeLine{\}}
-
-\end{DoxyCode}

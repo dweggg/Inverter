@@ -1,0 +1,27 @@
+\doxysection{PWM.\+h}
+\hypertarget{_p_w_m_8h_source}{}\label{_p_w_m_8h_source}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h}}
+\mbox{\hyperlink{_p_w_m_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{00018\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ PWM\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ PWM\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}stm32f7xx\_hal.h"{}}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_duties_ad191bbe88e6eb3c2ec28fe5f5e31396c}{Da}};\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_duties_a5525c1567871b8ea98e28f23237b607c}{Db}};\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_duties_a0572a22e71233008995e38736a5331ec}{Dc}};\ }
+\DoxyCodeLine{00032\ \}\ \mbox{\hyperlink{struct_duties}{Duties}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_w_m_8h_afabeff529f42849e8c08263c002f3dd9}{enable\_PWM}}(TIM\_HandleTypeDef\ *htim);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_w_m_8h_a3c092c698c1b5dbdbbadea058e7897ad}{disable\_PWM}}(TIM\_HandleTypeDef\ *htim);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_w_m_8h_a3a0bf38f5fad780c5342083c6cfdba9e}{set\_PWM}}(TIM\_HandleTypeDef\ *htim,\ \mbox{\hyperlink{struct_duties}{Duties}}\ *duties);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PWM\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

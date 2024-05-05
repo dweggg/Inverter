@@ -1,0 +1,120 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\+PWM.h File Reference}
+\hypertarget{_p_w_m_8h}{}\label{_p_w_m_8h}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h}}
+
+
+Header file for controlling PWM output.  
+
+
+{\ttfamily \#include "{}stm32f7xx\+\_\+hal.\+h"{}}\newline
+Include dependency graph for PWM.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{_p_w_m_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{_p_w_m_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_duties}{Duties}}
+\begin{DoxyCompactList}\small\item\em Structure to hold PWM configuration parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_p_w_m_8h_afabeff529f42849e8c08263c002f3dd9}{enable\+\_\+\+PWM}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
+\begin{DoxyCompactList}\small\item\em Enable PWM output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_w_m_8h_a3c092c698c1b5dbdbbadea058e7897ad}{disable\+\_\+\+PWM}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
+\begin{DoxyCompactList}\small\item\em Disable PWM output. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_w_m_8h_a3a0bf38f5fad780c5342083c6cfdba9e}{set\+\_\+\+PWM}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, \mbox{\hyperlink{struct_duties}{Duties}} \texorpdfstring{$\ast$}{*}duties)
+\begin{DoxyCompactList}\small\item\em Set PWM duty cycles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for controlling PWM output. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_p_w_m_8h_a3c092c698c1b5dbdbbadea058e7897ad}\label{_p_w_m_8h_a3c092c698c1b5dbdbbadea058e7897ad} 
+\index{PWM.h@{PWM.h}!disable\_PWM@{disable\_PWM}}
+\index{disable\_PWM@{disable\_PWM}!PWM.h@{PWM.h}}
+\doxysubsubsection{\texorpdfstring{disable\_PWM()}{disable\_PWM()}}
+{\footnotesize\ttfamily void disable\+\_\+\+PWM (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim }\end{DoxyParamCaption})}
+
+
+
+Disable PWM output. 
+
+This function disables PWM output for the specified timer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em htim} & Pointer to the TIM\+\_\+\+Handle\+Type\+Def structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_p_w_m_8h_afabeff529f42849e8c08263c002f3dd9}\label{_p_w_m_8h_afabeff529f42849e8c08263c002f3dd9} 
+\index{PWM.h@{PWM.h}!enable\_PWM@{enable\_PWM}}
+\index{enable\_PWM@{enable\_PWM}!PWM.h@{PWM.h}}
+\doxysubsubsection{\texorpdfstring{enable\_PWM()}{enable\_PWM()}}
+{\footnotesize\ttfamily void enable\+\_\+\+PWM (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim }\end{DoxyParamCaption})}
+
+
+
+Enable PWM output. 
+
+This function enables PWM output for the specified timer.
+
+
+\begin{DoxyParams}{Parameters}
+{\em htim} & Pointer to the TIM\+\_\+\+Handle\+Type\+Def structure. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{_p_w_m_8h_afabeff529f42849e8c08263c002f3dd9_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_p_w_m_8h_a3a0bf38f5fad780c5342083c6cfdba9e}\label{_p_w_m_8h_a3a0bf38f5fad780c5342083c6cfdba9e} 
+\index{PWM.h@{PWM.h}!set\_PWM@{set\_PWM}}
+\index{set\_PWM@{set\_PWM}!PWM.h@{PWM.h}}
+\doxysubsubsection{\texorpdfstring{set\_PWM()}{set\_PWM()}}
+{\footnotesize\ttfamily void set\+\_\+\+PWM (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim,  }\item[{\mbox{\hyperlink{struct_duties}{Duties}} \texorpdfstring{$\ast$}{*}}]{duties }\end{DoxyParamCaption})}
+
+
+
+Set PWM duty cycles. 
+
+This function sets the duty cycles for the PWM channels.
+
+
+\begin{DoxyParams}{Parameters}
+{\em htim} & Pointer to the TIM\+\_\+\+Handle\+Type\+Def structure. \\
+\hline
+{\em duties} & Pointer to the \doxylink{struct_duties}{Duties} structure containing duty cycle values. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{_p_w_m_8h_a3a0bf38f5fad780c5342083c6cfdba9e_icgraph}
+\end{center}
+\end{figure}

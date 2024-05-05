@@ -30,5 +30,6 @@ var searchData=
   ['trip_5fl_5fpin_27',['TRIP_L_Pin',['../main_8h.html#a8ce5825f1cdb397130b6835daa116a99',1,'main.h']]],
   ['trip_5fr_5fgpio_5fport_28',['TRIP_R_GPIO_Port',['../main_8h.html#a641570b8ef7952050c60b28dc7ac90df',1,'main.h']]],
   ['trip_5fr_5fpin_29',['TRIP_R_Pin',['../main_8h.html#a9a019e3f23f1fdea93048af8c390b1b9',1,'main.h']]],
-  ['ts_30',['Ts',['../structpi__aw__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_aw_struct::Ts'],['../structpi__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_struct::Ts'],['../structangle__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'angle_struct::Ts'],['../structfiltre_l_p__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'filtreLP_struct::Ts']]]
+  ['ts_30',['Ts',['../structpi__aw__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_aw_struct::Ts'],['../structpi__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_struct::Ts'],['../structangle__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'angle_struct::Ts'],['../structfiltre_l_p__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'filtreLP_struct::Ts']]],
+  ['ts_31',['TS',['../main_8h.html#aaade3232ef08cf18b4f3a20a0a2c6fb6',1,'main.h']]]
 ];
