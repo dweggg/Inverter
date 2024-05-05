@@ -1,0 +1,185 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Src/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c}}
+
+
+\+: Main program body  
+
+
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include "{}adc.\+h"{}}\newline
+{\ttfamily \#include "{}can.\+h"{}}\newline
+{\ttfamily \#include "{}dac.\+h"{}}\newline
+{\ttfamily \#include "{}dma.\+h"{}}\newline
+{\ttfamily \#include "{}i2c.\+h"{}}\newline
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+{\ttfamily \#include "{}usb\+\_\+otg.\+h"{}}\newline
+{\ttfamily \#include "{}gpio.\+h"{}}\newline
+{\ttfamily \#include "{}FSM.\+h"{}}\newline
+Include dependency graph for main.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ADC\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{main_8c_a9f82a01636dbf2767451864852ab6cb5}{ADC2\+\_\+raw}} \mbox{[}4\mbox{]} =\{0\}
+\item 
+\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \mbox{\hyperlink{main_8c_a28b5aab450c14cf6e720f6dce774ccdf}{inv\+Left}}
+\item 
+\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \mbox{\hyperlink{main_8c_ae24b53a1b1a44a4e9ed946c982c55547}{inv\+Right}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Main program body 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2023 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a1730ffe1e560465665eb47d9264826f9}\label{main_8c_a1730ffe1e560465665eb47d9264826f9} 
+\index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{main_8c_a1730ffe1e560465665eb47d9264826f9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The application entry point. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\label{main_8c_a70af21c671abfcc773614a9a4f63d920} 
+\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}
+\index{SystemClock\_Config@{SystemClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SystemClock\_Config()}{SystemClock\_Config()}}
+{\footnotesize\ttfamily void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+System Clock Configuration. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Configure the main internal regulator output voltage
+
+Initializes the RCC Oscillators according to the specified parameters in the RCC\+\_\+\+Osc\+Init\+Type\+Def structure.
+
+Activate the Over-\/\+Drive mode
+
+Initializes the CPU, AHB and APB buses clocksHere is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=298pt]{main_8c_a70af21c671abfcc773614a9a4f63d920_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=260pt]{main_8c_a70af21c671abfcc773614a9a4f63d920_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_a9f82a01636dbf2767451864852ab6cb5}\label{main_8c_a9f82a01636dbf2767451864852ab6cb5} 
+\index{main.c@{main.c}!ADC2\_raw@{ADC2\_raw}}
+\index{ADC2\_raw@{ADC2\_raw}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{ADC2\_raw}{ADC2\_raw}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t ADC2\+\_\+raw\mbox{[}4\mbox{]} =\{0\}}
+
+\Hypertarget{main_8c_acd9221f1aa19aebfe0b744947f2daf49}\label{main_8c_acd9221f1aa19aebfe0b744947f2daf49} 
+\index{main.c@{main.c}!hadc2@{hadc2}}
+\index{hadc2@{hadc2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hadc2}{hadc2}}
+{\footnotesize\ttfamily ADC\+\_\+\+Handle\+Type\+Def hadc2\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{main_8c_a28b5aab450c14cf6e720f6dce774ccdf}\label{main_8c_a28b5aab450c14cf6e720f6dce774ccdf} 
+\index{main.c@{main.c}!invLeft@{invLeft}}
+\index{invLeft@{invLeft}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{invLeft}{invLeft}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} inv\+Left}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .state\ =\ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa3bffb8c0f8030eb6d38dac2a9b1e4edd}{INV\_STATE\_STARTUP}},}
+\DoxyCodeLine{\ \ \ \ .LED\_port\ =\ \mbox{\hyperlink{main_8h_a040c5e45349bb5eefe5767f88da3f8c1}{LED\_LEFT\_GPIO\_Port}},}
+\DoxyCodeLine{\ \ \ \ .LED\_pin\ =\ \mbox{\hyperlink{main_8h_a9a1e6f909f15dddfb346b8f7af082be3}{LED\_LEFT\_Pin}},}
+\DoxyCodeLine{\ \ \ \ .enable\_port\ =\ \mbox{\hyperlink{main_8h_a2cc7338cb725a5313d1d86bae67a72b1}{ENABLE\_L\_GPIO\_Port}},}
+\DoxyCodeLine{\ \ \ \ .enable\_pin\ =\ \mbox{\hyperlink{main_8h_a506ee5e684b8e8cafc67aeb632f56c50}{ENABLE\_L\_Pin}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{main_8c_ae24b53a1b1a44a4e9ed946c982c55547}\label{main_8c_ae24b53a1b1a44a4e9ed946c982c55547} 
+\index{main.c@{main.c}!invRight@{invRight}}
+\index{invRight@{invRight}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{invRight}{invRight}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} inv\+Right}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .state\ =\ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa3bffb8c0f8030eb6d38dac2a9b1e4edd}{INV\_STATE\_STARTUP}},}
+\DoxyCodeLine{\ \ \ \ .LED\_port\ =\ \mbox{\hyperlink{main_8h_a53c89327b6e7fd3ef2d02abacd31bd42}{LED\_RIGHT\_GPIO\_Port}},}
+\DoxyCodeLine{\ \ \ \ .LED\_pin\ =\ \mbox{\hyperlink{main_8h_a004aa8634a8d0bb7cd42dacd5a833912}{LED\_RIGHT\_Pin}},}
+\DoxyCodeLine{\ \ \ \ .enable\_port\ =\ \mbox{\hyperlink{main_8h_a486c95ff7de315e318e98ef8603c94c1}{ENABLE\_R\_GPIO\_Port}},}
+\DoxyCodeLine{\ \ \ \ .enable\_pin\ =\ \mbox{\hyperlink{main_8h_af73cc11f2ca28f5b2568f978d6a6f910}{ENABLE\_R\_Pin}}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

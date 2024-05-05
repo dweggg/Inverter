@@ -1,9 +1,22 @@
-/*
- * TASKS_1ms.c
- *
- *  Created on: May 5, 2024
- *      Author: dwegg
- */
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file    PCB_IO.c
+  * @brief   This file provides functions for handling GPIOs and other low-priority tasks.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 David Redondo (@dweggg in GitHub).
+  * All rights reserved.
+  *
+  * This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
+  * For more information, see: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+  *
+  ******************************************************************************
+  */
+
+/* USER CODE END Header */
+
 
 #include "PCB_IO.h"
 #include "main.h"

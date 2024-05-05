@@ -1,0 +1,419 @@
+\doxysection{Pergamon\+\_\+float.\+h}
+\hypertarget{_pergamon__float_8h_source}{}\label{_pergamon__float_8h_source}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/Pergamon\_float.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/Pergamon\_float.h}}
+\mbox{\hyperlink{_pergamon__float_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_\_\_\_\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ \_\_\ \(\backslash\)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ |}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ |\ |\_\_)\ |\_\_\ \_\ \_\_\ \_\_\ \_\ \ \_\_\ \_\ \_\ \_\_\ \_\_\_\ \ \ \_\_\_\ \ \_\ \_\_\ \ \ |\ |\_\_}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ \_\_\_/\ \_\ \(\backslash\)\ '\_\_/\ \_`\ |/\ \_`\ |\ '\_\ \`{}\ \_\ \(\backslash\)\ /\ \_\ \(\backslash\)|\ '\_\ \(\backslash\)\ \ |\ '\_\ \(\backslash\)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ |\ |\ \ |\ \ \_\_/\ |\ |\ (\_|\ |\ (\_|\ |\ |\ |\ |\ |\ |\ (\_)\ |\ |\ |\ |\_|\ |\ |\ |}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ |\_|\ \ \ \(\backslash\)\_\_\_|\_|\ \ \(\backslash\)\_\_,\ |\(\backslash\)\_\_,\_|\_|\ |\_|\ |\_|\(\backslash\)\_\_\_/|\_|\ |\_(\_)\_|\ |\_|}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \_\_/\ |}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ |\_\_\_/}}
+\DoxyCodeLine{00010\ \textcolor{comment}{}}
+\DoxyCodeLine{00011\ \textcolor{comment}{Arxiu\ que\ engloba\ totes\ les\ llibreries\ independents\ del\ hardware\ del\ CITCEA\ en\ una.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{Aquesta\ llibreria\ est{\ucr}\ basada\ en\ l'Alexandria\ feta\ per\ en\ Gabriel\ Gross\ i\ en\ \ Quim\ L{\ucr}pez\ Mestre\ el\ Setembre\ del\ 2006}}
+\DoxyCodeLine{00013\ \textcolor{comment}{Feta\ pel\ Gabriel\ Gross,\ Daniel\ Heredero\ i\ Tom{\ucr}s\ Lled{\ucr}\ el\ desembre\ de\ 2015.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{Tradu{\ucr}da\ a\ floats\ per\ Lucas\ Bouz{\ucr}n\ el\ Mar{\ucr}\ de\ 2020.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ SQ2\ \ \ \ \ 1.4142135624F\ \ \ }\textcolor{comment}{//\ sqrt(2)}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ ISQ2\ \ \ \ 0.7071067812F\ \ \ }\textcolor{comment}{//\ 1/sqrt(2)}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ SQ3\ \ \ \ \ 1.7320508076F\ \ \ }\textcolor{comment}{//\ sqrt(3)}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ ISQ3\ \ \ \ 0.5773502692F\ \ \ }\textcolor{comment}{//\ 1/sqrt(3)}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PI\ \ \ \ \ \ 3.1415926536F\ \ \ }\textcolor{comment}{//\ Pi}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ IPI\ \ \ \ \ 0.3183098862F\ \ \ }\textcolor{comment}{//\ 1/Pi}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ PI2\ \ \ \ \ 6.2831853072F\ \ \ }\textcolor{comment}{//\ 2*Pi}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ IPI2\ \ \ \ 0.1591549431F\ \ \ }\textcolor{comment}{//\ 1/(2*Pi)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ INV\_DEG\ 0.0027777778F\ \ \ }\textcolor{comment}{//\ 1/360}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ INV3\ \ \ \ 0.3333333333F\ \ \ }\textcolor{comment}{//\ 1/3}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ DIV2\ \ \ \ 0.5F\ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//\ 1/2}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//PI}}
+\DoxyCodeLine{00031\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Inclou\ saturaci{\ucr}\ interna\ amb\ antiwindup\ i\ ffw}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ PI\_DEFAULTS\_AW\ \{\ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))pi\_aw\_calc\ \ \ \}}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_a34328763a613d9a32ef986db8e14cbbd}{enable}};\ \ \ \ \ \ \ \textcolor{comment}{//\ si\ enable=1\ fa\ el\ pid,\ si\ no\ pid\_out\ =\ 0}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_ae404d1d1555eede4ef92c630399e0566}{Ts}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Per{\ucr}ode\ d'execuci{\ucr}}}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_a09cfc766a233ad617270562cc4146d07}{Kp}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Kp}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_a59fac16f568541187ff485c4c47b0ec5}{Ki}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ki}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_aeb9bfc42b0f082520a2c5a8c6da40620}{Kaw}};\ \ \ \ \ \textcolor{comment}{//\ Kaw}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ e[2];\ \ \ \ \ \ \ \textcolor{comment}{//\ Error\ k\ i\ k-\/1}}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_a7bd784d892e05d7b08fbb7284bfb7945}{pi\_consig}};\ \textcolor{comment}{//\ consigna}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_a1fff0ec006714e34b8320143dd6e5926}{pi\_fdb}};\ \ \ \ \ \ \ \textcolor{comment}{//\ realimentaci{\ucr}}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_a9e452af61f2565ec1ea9f588ba05bab8}{pi\_out\_max}};\ \ \ \textcolor{comment}{//\ Maximum\ output}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_af59186c1e2e1d4839ffd24ace57bf0c9}{pi\_out\_min}};\ \ \ \textcolor{comment}{//\ Minimum\ output}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_adbbdb52a2ed9dad1d0e806acf7877cb6}{pi\_out\_presat}};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_ae5c130007df2497e0d55659aa4f40803}{pi\_out\_postsat}};}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__aw__struct_a276577ad33c35df831f53f8ad9a9c084}{pi\_out}};\ \ \ \ \ \ \ \textcolor{comment}{//\ PID\ output}}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ pi\_int[2];\ \ \ \ \textcolor{comment}{//\ Integrator\ Part}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ pi\_ffw[2];\ \ \textcolor{comment}{//\ feedforward\ k\ i\ k-\/1}}
+\DoxyCodeLine{00067\ \ \ \ \ void(*calc)();\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Punter\ a\ la\ funci{\ucr}\ calc}}
+\DoxyCodeLine{00068\ \}\ \mbox{\hyperlink{structpi__aw__struct}{pi\_aw\_struct}};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a972a3c6a01a8a6a0c2ad415ca9af43cc}{pi\_aw\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structpi__aw__struct}{pi\_aw\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{comment}{//PI}}
+\DoxyCodeLine{00073\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00074\ \textcolor{comment}{//\ Inclou\ saturaci{\ucr}\ interna\ amb\ antiwindup\ i\ ffw}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ PI\_DEFAULTS\ \{\ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))pi\_init,\ \(\backslash\)}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))pi\_calc\ \ \}}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{comment}{//\ Saturaci{\ucr}\ externa,\ inclou\ ffw}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ PI\_EXTSAT\_DEFAULTS\ \{\ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))pi\_init,\ \(\backslash\)}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))pi\_extsat\_calc\ \ \ \}}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00110\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_a34328763a613d9a32ef986db8e14cbbd}{enable}};\ \ \ \ \ \ \ \textcolor{comment}{//\ si\ enable=1\ fa\ el\ pid,\ si\ no\ pid\_out\ =\ 0}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_ae404d1d1555eede4ef92c630399e0566}{Ts}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Per{\ucr}ode\ d'execuci{\ucr}}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_a09cfc766a233ad617270562cc4146d07}{Kp}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Kp}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_a59fac16f568541187ff485c4c47b0ec5}{Ki}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ki}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_ad386ff24196dd35007e547eae6e614e3}{K0}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ K0\ =\ Kp\ +\ (Ts*Ki)/2}}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_ab17d264405c0970e6cb3bf7a6409b280}{K1}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ K0\ =\ -\/Kp\ +\ (Ts*Ki)/2}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ e[2];\ \ \ \ \ \ \ \textcolor{comment}{//\ Error\ k\ i\ k-\/1}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_a7bd784d892e05d7b08fbb7284bfb7945}{pi\_consig}};\ \textcolor{comment}{//\ consigna}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_a1fff0ec006714e34b8320143dd6e5926}{pi\_fdb}};\ \ \ \ \ \ \ \textcolor{comment}{//\ realimentaci{\ucr}}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_a9e452af61f2565ec1ea9f588ba05bab8}{pi\_out\_max}};\ \ \ \textcolor{comment}{//\ Maximum\ output}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_af59186c1e2e1d4839ffd24ace57bf0c9}{pi\_out\_min}};\ \ \ \textcolor{comment}{//\ Minimum\ output}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structpi__struct_a276577ad33c35df831f53f8ad9a9c084}{pi\_out}};\ \ \ \ \ \ \ \textcolor{comment}{//\ PID\ output}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ pi\_ffw[2];\ \ \textcolor{comment}{//\ feedforward\ k\ i\ k-\/1}}
+\DoxyCodeLine{00124\ \ \ \ \ void(*init)();\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Punter\ a\ la\ funci{\ucr}\ init}}
+\DoxyCodeLine{00125\ \ \ \ \ void(*calc)();\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Punter\ a\ la\ funci{\ucr}\ calc}}
+\DoxyCodeLine{00126\ \}\ \mbox{\hyperlink{structpi__struct}{pi\_struct}};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a7d78cf2a5a20ee07e1311e01d20c3d3f}{pi\_init}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structpi__struct}{pi\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00129\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a911a13b7487ee7e538d7cfe2e276f12e}{pi\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structpi__struct}{pi\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00130\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a13d559c9758c61f2cab20c44beaac68c}{pi\_extsat\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structpi__struct}{pi\_struct}}\ *v);}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \textcolor{comment}{//CLARKE\ 3F}}
+\DoxyCodeLine{00134\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00135\ \textcolor{comment}{//La\ funci{\ucr}\ Clarke3F\ projecta\ per\ un\ sistema\ trifasic\ sense\ neutre\ A\ i,\ B\ en\ el\ pla\ de\ Park\ Alfa(D)-\/Beta(Q)}}
+\DoxyCodeLine{00136\ \textcolor{comment}{//Entrades\ amb\ components\ simples}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ CLARKE3F\_DEFAULTS\ \{\ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))clarke3F\_calc\ \}}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00145\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structclarke3_f__struct_a4aec1a5be9d9a4a394a2e49e9744286e}{a}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//entrada\ eix\ A}}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structclarke3_f__struct_a83fc1af92e29717b4513d121b0c72c7d}{b}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//entrada\ eix\ B}}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structclarke3_f__struct_aa6702f5ca985a5b97e1534be9d374bba}{D}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//sortida\ eix\ D}}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structclarke3_f__struct_a2297f86a6b8c26836b1f21bcf17c7a8b}{Q}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//sortida\ eix\ Q}}
+\DoxyCodeLine{00150\ \ \ \ \ void(*calc)();}
+\DoxyCodeLine{00151\ \}\ \mbox{\hyperlink{structclarke3_f__struct}{clarke3F\_struct}};}
+\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a467621f0bad48eddfbb75a5a460c371f}{clarke3F\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structclarke3_f__struct}{clarke3F\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \textcolor{comment}{//ICLARKE\ 3F}}
+\DoxyCodeLine{00155\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00156\ \textcolor{comment}{//La\ funci{\ucr}\ iClarke3F\ projecta\ per\ un\ sistema\ trifasic\ sense\ neutre\ Alfa\ i\ Beta\ en\ el\ pla\ de\ natural\ ABC}}
+\DoxyCodeLine{00157\ \textcolor{comment}{//Sortides\ amb\ components\ simples}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{preprocessor}{\#define\ ICLARKE3F\_DEFAULTS\ \{\ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))iclarke3F\_calc\ \}}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00166\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structiclarke3_f__struct_aa6702f5ca985a5b97e1534be9d374bba}{D}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//entrada\ eix\ D}}
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structiclarke3_f__struct_a2297f86a6b8c26836b1f21bcf17c7a8b}{Q}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//entrada\ eix\ Q}}
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structiclarke3_f__struct_a4aec1a5be9d9a4a394a2e49e9744286e}{a}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//sortida\ eix\ A}}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structiclarke3_f__struct_a83fc1af92e29717b4513d121b0c72c7d}{b}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//sortida\ eix\ B}}
+\DoxyCodeLine{00171\ \ \ \ \ void(*calc)();}
+\DoxyCodeLine{00172\ \}\ \mbox{\hyperlink{structiclarke3_f__struct}{iclarke3F\_struct}};}
+\DoxyCodeLine{00173\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a2b0f376e5a1df52bf340375e6e92cabf}{iclarke3F\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structiclarke3_f__struct}{iclarke3F\_struct}}\ *v);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{comment}{//Rotacio\ (la\ negativa,\ ergo\ sentit\ horari)\ -\/\ PARKE??}}
+\DoxyCodeLine{00176\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00177\ \textcolor{comment}{//La\ funcion\ Rotacio\ fa\ rotar\ els\ eixos\ de\ Clarke\ Alfa\ (D)\ i\ Beta\ (Q)\ en\ funci{\ucr}\ de\ sinFi\ i\ cosFi}}
+\DoxyCodeLine{00178\ \textcolor{comment}{//ens\ donen\ les\ coordenades\ est{\ucr}tiques\ (refer{\ucr}ncia\ sincrona)\ d\ i\ q}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#define\ ROT\_DEFAULTS\ \ \ \ \{\ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00183\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00184\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))rot\_calc\ \}}}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00189\ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrot__struct_aa6702f5ca985a5b97e1534be9d374bba}{D}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//eix\ Alfa\ (D)\ d'entrada}}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrot__struct_a2297f86a6b8c26836b1f21bcf17c7a8b}{Q}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//eix\ Beta\ (Q)\ d'entrada}}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrot__struct_a56670a00f3c413aad514d2ce8c0348e2}{sinFi}};\ \ \ \ \ \textcolor{comment}{//sinus\ de\ l'angle\ que\ es\ vol\ girar}}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrot__struct_a883fa6b46bf62e4b726b078ab0df3789}{cosFi}};\ \ \ \ \ \textcolor{comment}{//cosinus\ de\ l'angle\ que\ es\ vol\ girar}}
+\DoxyCodeLine{00194\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrot__struct_a3fbbd8a3959e76a2bc3455d3bade52dc}{d}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//eix\ d\ girat}}
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrot__struct_a0a19a0620af7373e3ddba0ce4e1058e1}{q}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//eix\ q\ girat}}
+\DoxyCodeLine{00196\ \ \ \ \ void(*calc)();}
+\DoxyCodeLine{00197\ \}\ \mbox{\hyperlink{structrot__struct}{rot\_struct}};}
+\DoxyCodeLine{00198\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a3a266e18ea629facbeb442439d066ce4}{rot\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structrot__struct}{rot\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \textcolor{comment}{//Rotacio\ inversa\ (la\ positiva,\ ergo\ sentit\ antihorari)\ -\/\ IPARKE??}}
+\DoxyCodeLine{00201\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00202\ \textcolor{comment}{//La\ funci{\ucr}\ iPark\ def{\ucr}\ la\ rotaci{\ucr}\ dels\ eixos\ de\ Park\ a\ en\ funci{\ucr}\ de\ sinFi\ i\ cosFi}}
+\DoxyCodeLine{00203\ \textcolor{comment}{//ens\ donen\ les\ coordenades\ rotatories\ Alfa\ (D)\ -\/\ Beta\ (Q)}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#define\ IROT\_DEFAULTS\ \ \ \{\ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))irot\_calc\ \}}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00214\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structirot__struct_a3fbbd8a3959e76a2bc3455d3bade52dc}{d}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//eix\ d\ d'entrada}}
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structirot__struct_a0a19a0620af7373e3ddba0ce4e1058e1}{q}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//eix\ q\ d'entrada}}
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structirot__struct_a56670a00f3c413aad514d2ce8c0348e2}{sinFi}};\ \ \ \ \ \textcolor{comment}{//sinus\ de\ l'angle\ que\ es\ vol\ girar}}
+\DoxyCodeLine{00218\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structirot__struct_a883fa6b46bf62e4b726b078ab0df3789}{cosFi}};\ \ \ \ \ \textcolor{comment}{//cosinus\ de\ l'angle\ que\ es\ vol\ girar}}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structirot__struct_aa6702f5ca985a5b97e1534be9d374bba}{D}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//eix\ Alfa\ (D)\ de\ sortida}}
+\DoxyCodeLine{00220\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structirot__struct_a2297f86a6b8c26836b1f21bcf17c7a8b}{Q}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//eix\ Beta\ (Q)\ de\ sortida\ girat}}
+\DoxyCodeLine{00221\ \ \ \ \ void(*calc)();}
+\DoxyCodeLine{00222\ \}\ \mbox{\hyperlink{structirot__struct}{irot\_struct}};}
+\DoxyCodeLine{00223\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a9ec9411a108959be4eda9241a127596a}{irot\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structirot__struct}{irot\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \textcolor{comment}{//Generaci{\ucr}\ angle}}
+\DoxyCodeLine{00226\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00227\ \textcolor{comment}{//\ Genera\ un\ angle\ a\ partir\ d'una\ freq{\ucr}{\ucr}ncia\ fixa}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \textcolor{preprocessor}{\#define\ ANGLE\_DEFAULTS\ \{\ \ \ \ 0,\ \ \(\backslash\)}}
+\DoxyCodeLine{00230\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \(\backslash\)}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \(\backslash\)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))angle\_calc\ \}}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00235\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structangle__struct_a4409e94ad13a060b0ffbc0f371c80004}{freq}};\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ freq{\ucr}{\ucr}ncia\ de\ la\ xarxa.\ Sortida\ del\ 1er\ filtre\ de\ freq{\ucr}{\ucr}ncia.}}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structangle__struct_ae404d1d1555eede4ef92c630399e0566}{Ts}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ freq{\ucr}{\ucr}ncia\ d'execuci{\ucr}\ de\ la\ integracio\ de\ la\ freq{\ucr}{\ucr}ncia}}
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structangle__struct_ab8ef1bf8a70cc07c6d55823c390a7e76}{angle}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ angle\ de\ la\ xarxa.}}
+\DoxyCodeLine{00238\ \textcolor{comment}{//\ \ float\ \ \ \ \ \ \ angle\_iq32;\ \ \ \ \ //\ angle\ de\ la\ xarxa.}}
+\DoxyCodeLine{00239\ \ \ \ \ void(*calc)();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Punter\ a\ la\ funci{\ucr}\ init}}
+\DoxyCodeLine{00240\ \}\ \mbox{\hyperlink{structangle__struct}{angle\_struct}};}
+\DoxyCodeLine{00241\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a7822a96ee28a38634e60b29f9d5f53f3}{angle\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structangle__struct}{angle\_struct}}\ *p)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \textcolor{comment}{//SVPWM}}
+\DoxyCodeLine{00244\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00245\ \textcolor{comment}{//Permet\ generar\ les\ 3\ sortides\ SVPWM\ (Ta,\ Tb\ i\ Tc)}}
+\DoxyCodeLine{00246\ \textcolor{comment}{//Partint\ de\ dues\ entrades\ en\ tant\ per\ 1\ (Ualfa,\ Ubeta)}}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#define\ SVPWM\_DEFAULTS\ \ \{\ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00249\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00250\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00251\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))svpwm\_calc\ \ \ \}}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00256\ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsvpwm__struct_ab030bd8f57fef9cd4a5c6f7d65c2ca9a}{valfa}};\ \ \ \ \ \textcolor{comment}{//Entrada\ en\ tant\ per\ 1}}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsvpwm__struct_a61e3f018c8da8d7a5572ee9464bce529}{vbeta}};\ \textcolor{comment}{//Entrada\ en\ tant\ per\ 1}}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsvpwm__struct_a50351efee76ac59cbfddc319a43f0081}{Ta}};\ \ \ \ \ \ \ \textcolor{comment}{//Sortida\ 0-\/1}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsvpwm__struct_ab670caa75d08f1acf0768f0bc4333326}{Tb}};\ \ \ \ \ \ \ \textcolor{comment}{//Sortida\ 0-\/1}}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsvpwm__struct_a22e1179371b98f23e756984bc5e9ba95}{Tc}};\ \ \ \ \ \ \ \textcolor{comment}{//Sortida\ 0-\/1}}
+\DoxyCodeLine{00262\ \ \ \ \ void(*calc)();}
+\DoxyCodeLine{00263\ \}\ \mbox{\hyperlink{structsvpwm__struct}{svpwm\_struct}};}
+\DoxyCodeLine{00264\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a6777e0c2b1e067acf6b99284625ec422}{svpwm\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structsvpwm__struct}{svpwm\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \textcolor{comment}{//\ RAMPA}}
+\DoxyCodeLine{00267\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\#define\ RAMPA\_DEFAULTS\ \ \{\ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00273\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ rampa\_calc\ \}}}
+\DoxyCodeLine{00274\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00275\ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structrampa__struct_ae7d18e86426895053287f7804575536b}{in}};}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structrampa__struct_af5a45dbcaa926b186e6f71d08212acc3}{out}};}
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structrampa__struct_a6da850aeb21ef46921710fca35d342ce}{Incr}};}
+\DoxyCodeLine{00279\ \ \ \ \ uint8\_t\ \ \ \ \ \mbox{\hyperlink{structrampa__struct_a324d63698d720716b386efb308337af8}{enable}};}
+\DoxyCodeLine{00280\ \ \ \ \ void(*calc)();}
+\DoxyCodeLine{00281\ \}\ \mbox{\hyperlink{structrampa__struct}{rampa\_struct}};}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\#define\ RAMPA\_DUAL\_DEFAULTS\ \{\ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00285\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00287\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ rampa\_dual\_calc\ \}}}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00291\ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structrampa__dual__struct_ae7d18e86426895053287f7804575536b}{in}};}
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structrampa__dual__struct_af5a45dbcaa926b186e6f71d08212acc3}{out}};}
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structrampa__dual__struct_a6da850aeb21ef46921710fca35d342ce}{Incr}};}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structrampa__dual__struct_a32c558a869ee30980565f9a77c158190}{Decr}};}
+\DoxyCodeLine{00296\ \ \ \ \ uint8\_t\ \ \ \ \ \mbox{\hyperlink{structrampa__dual__struct_a324d63698d720716b386efb308337af8}{enable}};}
+\DoxyCodeLine{00297\ \ \ \ \ void(*calc)();}
+\DoxyCodeLine{00298\ \}\ \mbox{\hyperlink{structrampa__dual__struct}{rampa\_dual\_struct}};}
+\DoxyCodeLine{00299\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_abebbba661473bad366efd03e7d641d6c}{rampa\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structrampa__struct}{rampa\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00300\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a3aa851ac283ae23f368d723a902adf5e}{rampa\_dual\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structrampa__dual__struct}{rampa\_dual\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \textcolor{comment}{//DATALOG}}
+\DoxyCodeLine{00303\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \textcolor{preprocessor}{\#define\ N\_DATALOG\ 512}}
+\DoxyCodeLine{00306\ \textcolor{preprocessor}{\#define\ DATALOG\_DEFAULTS\ \ \ \ \{\ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00307\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00309\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1,\ \(\backslash\)}}
+\DoxyCodeLine{00310\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000,\ }\textcolor{comment}{/*{\ucr}puntero\ a\ quien\ sabe\ donde?*/}\textcolor{preprocessor}{\ \(\backslash\)}}
+\DoxyCodeLine{00311\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))datalog\_calc\ \}}}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (!)\ no\ se\ inicializa\ el\ log}}
+\DoxyCodeLine{00313\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00314\ \{}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{structdatalog__struct_a78f7a37dba921e0b0347b960fb40bc51}{i}};\ \ \ \ \ \textcolor{comment}{//varible\ d'estat}}
+\DoxyCodeLine{00317\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{structdatalog__struct_a538d097420e725c4dad63c3caa9e55bd}{j}};\ \ \ \ \ \textcolor{comment}{//varible\ d'estat}}
+\DoxyCodeLine{00318\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{structdatalog__struct_a22183ab35e606e4a696d06c4d7408843}{estat}};\ \textcolor{comment}{//0=parat,\ 1=inici,\ 2=running}}
+\DoxyCodeLine{00319\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{structdatalog__struct_aed7c15ebb12ef4b8e90c0c0e79d414a7}{prescaler}};}
+\DoxyCodeLine{00320\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ *\mbox{\hyperlink{structdatalog__struct_a7b40c4da57cbde5dc963ea5186457749}{var}};}
+\DoxyCodeLine{00321\ \ \ \ \ void(*calc)();\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ (!)\ la\ funci{\ucr}n\ calc\ no\ se\ pone\ lo\ {\ucr}ltimo\ ya\ que\ en\ DATALOG\_DEFAULTS\ lo\ {\ucr}ltimo\ tiene\ que\ ser\ \ el\ log\ (no\ se\ inicializa)}}
+\DoxyCodeLine{00322\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ log[\mbox{\hyperlink{_pergamon__float_8h_ade7a581289700b0f02e5e29cf78e218b}{N\_DATALOG}}];}
+\DoxyCodeLine{00323\ \}\ \mbox{\hyperlink{structdatalog__struct}{datalog\_struct}};}
+\DoxyCodeLine{00324\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a04975f8703cefb2c6b7ef84c5afb99c9}{datalog\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structdatalog__struct}{datalog\_struct}}\ *dl);\ \textcolor{comment}{//\ \_\_attribute\_\_(\ (\ section\ (\ "{}.ccmram"{}\ )\ )\ );\ //\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );}}
+\DoxyCodeLine{00325\ }
+\DoxyCodeLine{00326\ \textcolor{comment}{//AVG}}
+\DoxyCodeLine{00327\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \textcolor{preprocessor}{\#define\ AVG\_DEFAULTS\ \ \ \ \{\ \ \ 0,\(\backslash\)}}
+\DoxyCodeLine{00330\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0\}\ \}}}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00332\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00333\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structavg__struct__10_af5a45dbcaa926b186e6f71d08212acc3}{out}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ variable\ de\ sortida}}
+\DoxyCodeLine{00335\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ in[10];\ \ \ \ \ \ \textcolor{comment}{//\ variable\ d'entrada\ i\ anteriors}}
+\DoxyCodeLine{00336\ \}\mbox{\hyperlink{structavg__struct__10}{avg\_struct\_10}};}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_abecfb1f35420bd9e8e175ba9695b47c4}{avg\_calc\_10\_samples}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structavg__struct__10}{avg\_struct\_10}}\ *v);}
+\DoxyCodeLine{00339\ }
+\DoxyCodeLine{00340\ \textcolor{comment}{//RMS}}
+\DoxyCodeLine{00341\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \textcolor{preprocessor}{\#define\ RMS\_DEFAULTS\ \ \ \ \{\ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00345\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00346\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00347\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00349\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \}}}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00352\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{struct_r_m_s__struct_ae43ba3eb3af0af99358f93f3e79bfdbc}{T\_exec}};\ \ \ \ \ \textcolor{comment}{//Cada\ quan\ executes\ la\ funci{\ucr}}}
+\DoxyCodeLine{00353\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{struct_r_m_s__struct_a0af02b8d5ae9c0272d99915c70220f68}{Measure}};\ \ \ \ \ \textcolor{comment}{//Senyal\ a\ RMSear}}
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{struct_r_m_s__struct_aae996104ddabc163da85b5a2e7cbeae0}{Sq\_Sum}};\ \ \ \ \ \textcolor{comment}{//Suma\ quadrats}}
+\DoxyCodeLine{00355\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{struct_r_m_s__struct_ad33e1262448a6f7f78f9dc8b88375d54}{Out\_RMS}};\ \ \ \ \textcolor{comment}{//Senyal\ RMSeat}}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{struct_r_m_s__struct_a43309625d2b3d92eaeef69a5a6797244}{Freq}};\ \ \ \ \ \ \ \textcolor{comment}{//Freq{\ucr}{\ucr}ncia\ de\ sortida\ de\ la\ pll}}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{struct_r_m_s__struct_a77219e3a8b4750baa3ba320d772b9d04}{Angle}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//angle}}
+\DoxyCodeLine{00358\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{struct_r_m_s__struct_a1d8eafc2c8a739019c95f20fe50be1ff}{Angle\_ant}};\ \ \textcolor{comment}{//angle\ anterior}}
+\DoxyCodeLine{00359\ \}\ \mbox{\hyperlink{struct_r_m_s__struct}{RMS\_struct}};}
+\DoxyCodeLine{00360\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_a67e0dc51870eb4743e252c8e6512070a}{RMS\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_r_m_s__struct}{RMS\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );}
+\DoxyCodeLine{00361\ }
+\DoxyCodeLine{00362\ \textcolor{comment}{//\ Filtre\ 1er\ ordre}}
+\DoxyCodeLine{00363\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \textcolor{preprocessor}{\#define\ FILTRELP\_DEFAULTS\ \ \ \{\ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00366\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00367\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00368\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00369\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00370\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00371\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ filtreLP\_init,\ \(\backslash\)}}
+\DoxyCodeLine{00372\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ filtreLP\_calc\ \}}}
+\DoxyCodeLine{00373\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00374\ \{}
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structfiltre_l_p__struct_ae7d18e86426895053287f7804575536b}{in}};}
+\DoxyCodeLine{00376\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structfiltre_l_p__struct_af5a45dbcaa926b186e6f71d08212acc3}{out}};}
+\DoxyCodeLine{00377\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structfiltre_l_p__struct_a5bf563dfc55db9dac98ac73ed7a8df92}{alfa}};}
+\DoxyCodeLine{00378\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structfiltre_l_p__struct_ae404d1d1555eede4ef92c630399e0566}{Ts}};}
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \mbox{\hyperlink{structfiltre_l_p__struct_aa7e91fb4ae3d43a619ae7d427767b97e}{fc}};}
+\DoxyCodeLine{00380\ \ \ \ \ uint16\_t\ \ \ \ \mbox{\hyperlink{structfiltre_l_p__struct_a34328763a613d9a32ef986db8e14cbbd}{enable}};}
+\DoxyCodeLine{00381\ \ \ \ \ void(*init)();}
+\DoxyCodeLine{00382\ \ \ \ \ void(*calc)();}
+\DoxyCodeLine{00383\ \}\ \mbox{\hyperlink{structfiltre_l_p__struct}{filtreLP\_struct}};}
+\DoxyCodeLine{00384\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_adf4453b19a3d2334b2378ad5998133aa}{filtreLP\_init}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structfiltre_l_p__struct}{filtreLP\_struct}}\ *v);}
+\DoxyCodeLine{00385\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_aeae3629e14741deddb169656d4d19cc8}{filtreLP\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structfiltre_l_p__struct}{filtreLP\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );;}}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00388\ \textcolor{comment}{//Step}}
+\DoxyCodeLine{00389\ \textcolor{comment}{//=========================================================================}}
+\DoxyCodeLine{00390\ \textcolor{comment}{//\ Afegeix\ un\ step\ a\ una\ variable\ d'entrada\ amb\ l'ample\ i\ la\ duraci\ desitjada.\ Permet\ mes\ o\ menys\ 20\ s\ a\ 100\ kHz}}
+\DoxyCodeLine{00391\ }
+\DoxyCodeLine{00392\ \textcolor{preprocessor}{\#define\ STEP\_DEFAULTS\ \{\ \ \ \ \ 0.0F,\ \(\backslash\)}}
+\DoxyCodeLine{00393\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0F,\ \(\backslash\)}}
+\DoxyCodeLine{00394\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0F,\ \(\backslash\)}}
+\DoxyCodeLine{00395\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0F,\ \(\backslash\)}}
+\DoxyCodeLine{00396\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0F,\ \(\backslash\)}}
+\DoxyCodeLine{00397\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00398\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}}
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ step\_calc\ \}}}
+\DoxyCodeLine{00401\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00402\ \{}
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structstep__struct_abda5a6ad49c233891cb4b563a37ab105}{fs}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Freqncia\ d'execuci\ de\ la\ funci.}}
+\DoxyCodeLine{00404\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structstep__struct_a42110e0d8fa1f4f88cfba5704c1fe3a1}{In}};\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Variable\ d'entrada}}
+\DoxyCodeLine{00405\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structstep__struct_a6bd2ff5633bb0078948e3f9f54bd083c}{Out}};\ \ \ \ \ \ \ \ \textcolor{comment}{//\ Variable\ de\ sortida\ (amb\ el\ step\ quan\ calgui)}}
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structstep__struct_a1c2969ff45f80f83afc6376aac12fd94}{Step}};\ \ \ \ \ \ \ \textcolor{comment}{//\ Amplitud\ del\ step}}
+\DoxyCodeLine{00407\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structstep__struct_a0c87080ceb65ae86de972a8a75c6eb19}{t\_step}};\ \ \ \ \ \textcolor{comment}{//\ Duraci\ del\ step\ en\ segons.}}
+\DoxyCodeLine{00408\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structstep__struct_a5c0f85874c673b4f82dad202861079be}{Pulses}};\ \ \ \ \ \textcolor{comment}{//\ Polsos\ peper\ comptar\ els\ segons}}
+\DoxyCodeLine{00409\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structstep__struct_abef4248412159e665620f746a9d7d3f8}{Counter}};\ \ \ \ \textcolor{comment}{//\ Comptador\ pels\ polsos}}
+\DoxyCodeLine{00410\ \ \ \ \ uint16\_t\ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structstep__struct_a34328763a613d9a32ef986db8e14cbbd}{enable}};\ \ \ \ \ \textcolor{comment}{//\ Habilita\ el\ step.}}
+\DoxyCodeLine{00411\ \ \ \ \ void(*calc)();}
+\DoxyCodeLine{00412\ \}\ \mbox{\hyperlink{structstep__struct}{step\_struct}};}
+\DoxyCodeLine{00413\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_pergamon__float_8h_af6846d0a6709be95c2bd9dc7a7339f70}{step\_calc}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{structstep__struct}{step\_struct}}\ *v)\ \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\_\_attribute\_\_}}(\ (\ section\ (\ \textcolor{stringliteral}{"{}.ccmram"{}}\ )\ )\ );\ \textcolor{comment}{//\_\_attribute\_\_(\ (\ section\ (\ "{}.code\_in\_ram"{}\ )\ )\ );;}}
+
+\end{DoxyCode}

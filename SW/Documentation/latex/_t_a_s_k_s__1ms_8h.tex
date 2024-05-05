@@ -1,0 +1,59 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\+TASKS\+\_\+1ms.h File Reference}
+\hypertarget{_t_a_s_k_s__1ms_8h}{}\label{_t_a_s_k_s__1ms_8h}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/TASKS\_1ms.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/TASKS\_1ms.h}}
+
+
+Header file for functions related to tasks executed every 1ms.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{_t_a_s_k_s__1ms_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac}{tasks\+\_\+1ms}} (void)
+\begin{DoxyCompactList}\small\item\em Function to be executed every 1ms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for functions related to tasks executed every 1ms. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac}\label{_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac} 
+\index{TASKS\_1ms.h@{TASKS\_1ms.h}!tasks\_1ms@{tasks\_1ms}}
+\index{tasks\_1ms@{tasks\_1ms}!TASKS\_1ms.h@{TASKS\_1ms.h}}
+\doxysubsubsection{\texorpdfstring{tasks\_1ms()}{tasks\_1ms()}}
+{\footnotesize\ttfamily void tasks\+\_\+1ms (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to be executed every 1ms. 
+
+This function is called by the TIM6 IRQ handler every millisecond.
+
+This function is called by the TIM6 IRQ handler every millisecond. It increments the millisecond counter and calls the \doxylink{struct_l_e_d}{LED} handler for left, right, and error LEDs. Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac_icgraph}
+\end{center}
+\end{figure}

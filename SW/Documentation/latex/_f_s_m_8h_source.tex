@@ -1,0 +1,38 @@
+\doxysection{FSM.\+h}
+\hypertarget{_f_s_m_8h_source}{}\label{_f_s_m_8h_source}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h}}
+\mbox{\hyperlink{_f_s_m_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{00018\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ FSM\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ FSM\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}stm32f7xx\_hal.h"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa5a425be53774c4b4e59e440ab2369e8e}{INV\_STATE\_IDLE}},\ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa3bffb8c0f8030eb6d38dac2a9b1e4edd}{INV\_STATE\_STARTUP}},\ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fac7be32525d0b9b1c5165d1371eebd7e7}{INV\_STATE\_RUNNING}},\ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa4c6e89e99f6d2b3f6ff649c27cc73bc9}{INV\_STATE\_FAULT}}\ \ \ \ }
+\DoxyCodeLine{00034\ \}\ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5f}{InverterOperationState}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5f}{InverterOperationState}}\ \mbox{\hyperlink{struct_inverter_operation_aa92327f462deb3af5e84566a8f25855f}{state}};\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ GPIO\ pins\ for\ LEDs}}
+\DoxyCodeLine{00043\ \ \ \ \ GPIO\_TypeDef\ *\mbox{\hyperlink{struct_inverter_operation_afad9c66b60c494fd0a86e551de8582ee}{LED\_port}};\ }
+\DoxyCodeLine{00044\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_inverter_operation_a134c85c690873917ae81585bdc5de694}{LED\_pin}};\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ GPIO\ pin\ for\ enable/disable}}
+\DoxyCodeLine{00047\ \ \ \ \ GPIO\_TypeDef\ *\mbox{\hyperlink{struct_inverter_operation_a36576b0f8a7daf14976aa2231602b0a7}{enable\_port}};\ }
+\DoxyCodeLine{00048\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_inverter_operation_ab92945770bc3cbcd703dd87682c7ee6e}{enable\_pin}};\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Add\ any\ other\ inverter-\/specific\ variables\ here}}
+\DoxyCodeLine{00051\ \}\ \mbox{\hyperlink{struct_inverter_operation}{InverterOperation}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f_s_m_8h_a632c5c1cec4d7469446a25b3c58d11dc}{inv\_init}}(\mbox{\hyperlink{struct_inverter_operation}{InverterOperation}}\ *inv);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_f_s_m_8h_adec4df6cf6e5716c841ee925ea42990b}{inv\_FSM}}(\mbox{\hyperlink{struct_inverter_operation}{InverterOperation}}\ *inv);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ FSM\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,9 +1,21 @@
-/*
- * TASKS_1ms.c
- *
- *  Created on: May 5, 2024
- *      Author: dwegg
- */
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file    TASKS_1ms.c
+  * @brief   This file contains functions to execute tasks every 1ms.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 David Redondo (@dweggg in GitHub).
+  * All rights reserved.
+  *
+  * This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
+  * For more information, see: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+  *
+  ******************************************************************************
+  */
+
+/* USER CODE END Header */
 
 #include "TASKS_1ms.h"
 #include "PCB_IO.h"

@@ -1,0 +1,49 @@
+\doxysection{PCB\+\_\+\+IO.\+h}
+\hypertarget{_p_c_b___i_o_8h_source}{}\label{_p_c_b___i_o_8h_source}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PCB\_IO.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PCB\_IO.h}}
+\mbox{\hyperlink{_p_c_b___i_o_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{00018\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#ifndef\ PCB\_IO\_H}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ PCB\_IO\_H}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}stm32f7xx\_hal.h"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Read\ SC\_det\ and\ DIR\ GPIOs}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ SC\_DET\_STATE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ (HAL\_GPIO\_ReadPin(SC\_det\_GPIO\_Port,\ SC\_det\_Pin))}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ DIR\_STATE()\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (HAL\_GPIO\_ReadPin(DIR\_GPIO\_Port,\ DIR\_Pin))}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ Read\ WRN\ GPIOs}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ WRN\_STATE(port,\ pin)\ \ \ \ \ \ \ \ (HAL\_GPIO\_ReadPin(port,\ pin))}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ Control\ ENABLE\ GPIOs}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ ENABLE(port,\ pin)\ \ \ \ \ \ \ \ \ \ \ do\ \{\ HAL\_GPIO\_WritePin(port,\ pin,\ GPIO\_PIN\_SET);\ \}\ while(0)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ DISABLE(port,\ pin)\ \ \ \ \ \ \ \ \ \ do\ \{\ HAL\_GPIO\_WritePin(port,\ pin,\ GPIO\_PIN\_RESET);\ \}\ while(0)}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{comment}{//\ Define\ LED\ modes}}
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2ac5a6ac5071ad0d0794f5af505d535277}{LED\_MODE\_BLINK\_FAST}},\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2aad274940a97455f16e268e36b469ee50}{LED\_MODE\_BLINK\_SLOW}},\ }
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2a93ba1b43b2933514d8f0172d5fb9ff0a}{LED\_MODE\_ON}},\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003}{LED\_MODE\_OFF}}\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00043\ \}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2}{LEDMode}};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00049\ \ \ \ \ GPIO\_TypeDef\ *\mbox{\hyperlink{struct_l_e_d_a82241972e0292c7de95ea1e293e11be3}{port}};\ }
+\DoxyCodeLine{00050\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_l_e_d_a4144813adfa4dfe7e7cbeea17d1b06eb}{pin}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2}{LEDMode}}\ \mbox{\hyperlink{struct_l_e_d_a4818c083da43e1287221b9fde5f396a1}{mode}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \}\ \mbox{\hyperlink{struct_l_e_d}{LED}};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{comment}{//\ Declare\ LED\ variables\ as\ extern}}
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a6bec7a15732c2d17f534f00a96bbb86c}{led\_left}};}
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a58d9f4951ca109fec7fd0340238fda36}{led\_right}};}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a46fee14934f450f31883fcd676f66595}{led\_error}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{comment}{//\ Function\ prototypes}}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a4670279a37c6f5e27434c66d2db61cb1}{LED\_handler}}(\mbox{\hyperlink{struct_l_e_d}{LED}}\ *led,\ uint32\_t\ ms\_counter);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PCB\_IO\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

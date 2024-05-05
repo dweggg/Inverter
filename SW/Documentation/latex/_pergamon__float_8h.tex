@@ -1,0 +1,615 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\+Pergamon\+\_\+float.h File Reference}
+\hypertarget{_pergamon__float_8h}{}\label{_pergamon__float_8h}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/Pergamon\_float.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/Pergamon\_float.h}}
+{\ttfamily \#include "{}stdint.\+h"{}}\newline
+Include dependency graph for Pergamon\+\_\+float.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{_pergamon__float_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{_pergamon__float_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpi__aw__struct}{pi\+\_\+aw\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structclarke3_f__struct}{clarke3\+F\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structiclarke3_f__struct}{iclarke3\+F\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structrot__struct}{rot\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structirot__struct}{irot\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structangle__struct}{angle\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structsvpwm__struct}{svpwm\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structrampa__struct}{rampa\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structrampa__dual__struct}{rampa\+\_\+dual\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structdatalog__struct}{datalog\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structavg__struct__10}{avg\+\_\+struct\+\_\+10}}
+\item 
+struct \mbox{\hyperlink{struct_r_m_s__struct}{RMS\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structfiltre_l_p__struct}{filtre\+LP\+\_\+struct}}
+\item 
+struct \mbox{\hyperlink{structstep__struct}{step\+\_\+struct}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a0b19f406e0cc4cbaf7a935f155567869}{SQ2}}~1.\+4142135624F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a788eb2ed624cde63e6902dcc03796305}{ISQ2}}~0.\+7071067812F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a85e6b2a01ad8662cb146ebe3d924eb2d}{SQ3}}~1.\+7320508076F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a94aa515bac36ec5f615e8ffe10aca980}{ISQ3}}~0.\+5773502692F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a598a3330b3c21701223ee0ca14316eca}{PI}}~3.\+1415926536F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_ac6110d043f9781a03ec97af1f46ef289}{IPI}}~0.\+3183098862F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a2750dfdda752269a036f487a4a34b849}{PI2}}~6.\+2831853072F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a68217a18b8e871b10045c020c2b6f6cd}{IPI2}}~0.\+1591549431F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a872ec2b182d0f7eb2c5a59b1fc66816c}{INV\+\_\+\+DEG}}~0.\+0027777778F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a08731c9065583731b2a5be232937943a}{INV3}}~0.\+3333333333F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a16f56a3dca36413c6fc15513c04c5348}{DIV2}}~0.\+5F
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a609e5e0b42bb31087805c66b5323d20b}{PI\+\_\+\+DEFAULTS\+\_\+\+AW}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a9f21fffdbe210c05fb4405eb76abe289}{PI\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_aed73e2c3b8b08d6ae74ad49a31e49cf5}{PI\+\_\+\+EXTSAT\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_ad5df00bacb5c44c376284f329cca9eca}{CLARKE3\+F\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a7ec1d0085801ad1046c086770bd0ec9c}{ICLARKE3\+F\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_acc7db0f942195a3fb2100f9960f4810e}{ROT\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_aa4d8319145c3ca699c4ff78655ff6138}{IROT\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a86a0bde957ee760c5ca67e879389fd65}{ANGLE\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a29a2062b22d5e91145cb741d0c091381}{SVPWM\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a007c1b18a91413cd97e9091bc0149d87}{RAMPA\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_af9972b731d123800f8101f7d053452b2}{RAMPA\+\_\+\+DUAL\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_ade7a581289700b0f02e5e29cf78e218b}{N\+\_\+\+DATALOG}}~512
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a947cec97dcbc8671010bf09298de29d5}{DATALOG\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a02cb94bab5465ce3025855310f854c70}{AVG\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a0f6af97a9a8018ff5fff0f70c52c30f3}{RMS\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a6ad05a00e03063019febbb9d16f64da5}{FILTRELP\+\_\+\+DEFAULTS}}
+\item 
+\#define \mbox{\hyperlink{_pergamon__float_8h_a8e7814d2417138e8362cdccc68f8829a}{STEP\+\_\+\+DEFAULTS}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a972a3c6a01a8a6a0c2ad415ca9af43cc}{pi\+\_\+aw\+\_\+calc}} (volatile \mbox{\hyperlink{structpi__aw__struct}{pi\+\_\+aw\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a7d78cf2a5a20ee07e1311e01d20c3d3f}{pi\+\_\+init}} (volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a911a13b7487ee7e538d7cfe2e276f12e}{pi\+\_\+calc}} (volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a13d559c9758c61f2cab20c44beaac68c}{pi\+\_\+extsat\+\_\+calc}} (volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}v)
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a467621f0bad48eddfbb75a5a460c371f}{clarke3\+F\+\_\+calc}} (volatile \mbox{\hyperlink{structclarke3_f__struct}{clarke3\+F\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a2b0f376e5a1df52bf340375e6e92cabf}{iclarke3\+F\+\_\+calc}} (volatile \mbox{\hyperlink{structiclarke3_f__struct}{iclarke3\+F\+\_\+struct}} \texorpdfstring{$\ast$}{*}v)
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a3a266e18ea629facbeb442439d066ce4}{rot\+\_\+calc}} (volatile \mbox{\hyperlink{structrot__struct}{rot\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a9ec9411a108959be4eda9241a127596a}{irot\+\_\+calc}} (volatile \mbox{\hyperlink{structirot__struct}{irot\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a7822a96ee28a38634e60b29f9d5f53f3}{angle\+\_\+calc}} (volatile \mbox{\hyperlink{structangle__struct}{angle\+\_\+struct}} \texorpdfstring{$\ast$}{*}p) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a6777e0c2b1e067acf6b99284625ec422}{svpwm\+\_\+calc}} (volatile \mbox{\hyperlink{structsvpwm__struct}{svpwm\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_abebbba661473bad366efd03e7d641d6c}{rampa\+\_\+calc}} (volatile \mbox{\hyperlink{structrampa__struct}{rampa\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a3aa851ac283ae23f368d723a902adf5e}{rampa\+\_\+dual\+\_\+calc}} (volatile \mbox{\hyperlink{structrampa__dual__struct}{rampa\+\_\+dual\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a04975f8703cefb2c6b7ef84c5afb99c9}{datalog\+\_\+calc}} (volatile \mbox{\hyperlink{structdatalog__struct}{datalog\+\_\+struct}} \texorpdfstring{$\ast$}{*}dl)
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_abecfb1f35420bd9e8e175ba9695b47c4}{avg\+\_\+calc\+\_\+10\+\_\+samples}} (volatile \mbox{\hyperlink{structavg__struct__10}{avg\+\_\+struct\+\_\+10}} \texorpdfstring{$\ast$}{*}v)
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_a67e0dc51870eb4743e252c8e6512070a}{RMS\+\_\+calc}} (volatile \mbox{\hyperlink{struct_r_m_s__struct}{RMS\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_adf4453b19a3d2334b2378ad5998133aa}{filtre\+LP\+\_\+init}} (volatile \mbox{\hyperlink{structfiltre_l_p__struct}{filtre\+LP\+\_\+struct}} \texorpdfstring{$\ast$}{*}v)
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_aeae3629e14741deddb169656d4d19cc8}{filtre\+LP\+\_\+calc}} (volatile \mbox{\hyperlink{structfiltre_l_p__struct}{filtre\+LP\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\item 
+void \mbox{\hyperlink{_pergamon__float_8h_af6846d0a6709be95c2bd9dc7a7339f70}{step\+\_\+calc}} (volatile \mbox{\hyperlink{structstep__struct}{step\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \mbox{\hyperlink{syscalls_8c_af9aace1b44b73111e15aa39f06f43456}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}((section("{}.ccmram"{})))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_pergamon__float_8h_a86a0bde957ee760c5ca67e879389fd65}\label{_pergamon__float_8h_a86a0bde957ee760c5ca67e879389fd65} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!ANGLE\_DEFAULTS@{ANGLE\_DEFAULTS}}
+\index{ANGLE\_DEFAULTS@{ANGLE\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{ANGLE\_DEFAULTS}{ANGLE\_DEFAULTS}}
+{\footnotesize\ttfamily \#define ANGLE\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a7822a96ee28a38634e60b29f9d5f53f3}{angle\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a02cb94bab5465ce3025855310f854c70}\label{_pergamon__float_8h_a02cb94bab5465ce3025855310f854c70} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!AVG\_DEFAULTS@{AVG\_DEFAULTS}}
+\index{AVG\_DEFAULTS@{AVG\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{AVG\_DEFAULTS}{AVG\_DEFAULTS}}
+{\footnotesize\ttfamily \#define AVG\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0\}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_ad5df00bacb5c44c376284f329cca9eca}\label{_pergamon__float_8h_ad5df00bacb5c44c376284f329cca9eca} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!CLARKE3F\_DEFAULTS@{CLARKE3F\_DEFAULTS}}
+\index{CLARKE3F\_DEFAULTS@{CLARKE3F\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{CLARKE3F\_DEFAULTS}{CLARKE3F\_DEFAULTS}}
+{\footnotesize\ttfamily \#define CLARKE3\+F\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a467621f0bad48eddfbb75a5a460c371f}{clarke3F\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a947cec97dcbc8671010bf09298de29d5}\label{_pergamon__float_8h_a947cec97dcbc8671010bf09298de29d5} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!DATALOG\_DEFAULTS@{DATALOG\_DEFAULTS}}
+\index{DATALOG\_DEFAULTS@{DATALOG\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{DATALOG\_DEFAULTS}{DATALOG\_DEFAULTS}}
+{\footnotesize\ttfamily \#define DATALOG\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 1,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0x00000000,\ \textcolor{comment}{/*{\ucr}puntero\ a\ quien\ sabe\ donde?*/}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a04975f8703cefb2c6b7ef84c5afb99c9}{datalog\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a16f56a3dca36413c6fc15513c04c5348}\label{_pergamon__float_8h_a16f56a3dca36413c6fc15513c04c5348} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!DIV2@{DIV2}}
+\index{DIV2@{DIV2}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{DIV2}{DIV2}}
+{\footnotesize\ttfamily \#define DIV2~0.\+5F}
+
+\Hypertarget{_pergamon__float_8h_a6ad05a00e03063019febbb9d16f64da5}\label{_pergamon__float_8h_a6ad05a00e03063019febbb9d16f64da5} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!FILTRELP\_DEFAULTS@{FILTRELP\_DEFAULTS}}
+\index{FILTRELP\_DEFAULTS@{FILTRELP\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{FILTRELP\_DEFAULTS}{FILTRELP\_DEFAULTS}}
+{\footnotesize\ttfamily \#define FILTRELP\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ \mbox{\hyperlink{_pergamon__float_8h_adf4453b19a3d2334b2378ad5998133aa}{filtreLP\_init}},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ \mbox{\hyperlink{_pergamon__float_8h_aeae3629e14741deddb169656d4d19cc8}{filtreLP\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a7ec1d0085801ad1046c086770bd0ec9c}\label{_pergamon__float_8h_a7ec1d0085801ad1046c086770bd0ec9c} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!ICLARKE3F\_DEFAULTS@{ICLARKE3F\_DEFAULTS}}
+\index{ICLARKE3F\_DEFAULTS@{ICLARKE3F\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{ICLARKE3F\_DEFAULTS}{ICLARKE3F\_DEFAULTS}}
+{\footnotesize\ttfamily \#define ICLARKE3\+F\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a2b0f376e5a1df52bf340375e6e92cabf}{iclarke3F\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a08731c9065583731b2a5be232937943a}\label{_pergamon__float_8h_a08731c9065583731b2a5be232937943a} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!INV3@{INV3}}
+\index{INV3@{INV3}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{INV3}{INV3}}
+{\footnotesize\ttfamily \#define INV3~0.\+3333333333F}
+
+\Hypertarget{_pergamon__float_8h_a872ec2b182d0f7eb2c5a59b1fc66816c}\label{_pergamon__float_8h_a872ec2b182d0f7eb2c5a59b1fc66816c} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!INV\_DEG@{INV\_DEG}}
+\index{INV\_DEG@{INV\_DEG}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{INV\_DEG}{INV\_DEG}}
+{\footnotesize\ttfamily \#define INV\+\_\+\+DEG~0.\+0027777778F}
+
+\Hypertarget{_pergamon__float_8h_ac6110d043f9781a03ec97af1f46ef289}\label{_pergamon__float_8h_ac6110d043f9781a03ec97af1f46ef289} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!IPI@{IPI}}
+\index{IPI@{IPI}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{IPI}{IPI}}
+{\footnotesize\ttfamily \#define IPI~0.\+3183098862F}
+
+\Hypertarget{_pergamon__float_8h_a68217a18b8e871b10045c020c2b6f6cd}\label{_pergamon__float_8h_a68217a18b8e871b10045c020c2b6f6cd} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!IPI2@{IPI2}}
+\index{IPI2@{IPI2}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{IPI2}{IPI2}}
+{\footnotesize\ttfamily \#define IPI2~0.\+1591549431F}
+
+\Hypertarget{_pergamon__float_8h_aa4d8319145c3ca699c4ff78655ff6138}\label{_pergamon__float_8h_aa4d8319145c3ca699c4ff78655ff6138} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!IROT\_DEFAULTS@{IROT\_DEFAULTS}}
+\index{IROT\_DEFAULTS@{IROT\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{IROT\_DEFAULTS}{IROT\_DEFAULTS}}
+{\footnotesize\ttfamily \#define IROT\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a9ec9411a108959be4eda9241a127596a}{irot\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a788eb2ed624cde63e6902dcc03796305}\label{_pergamon__float_8h_a788eb2ed624cde63e6902dcc03796305} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!ISQ2@{ISQ2}}
+\index{ISQ2@{ISQ2}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{ISQ2}{ISQ2}}
+{\footnotesize\ttfamily \#define ISQ2~0.\+7071067812F}
+
+\Hypertarget{_pergamon__float_8h_a94aa515bac36ec5f615e8ffe10aca980}\label{_pergamon__float_8h_a94aa515bac36ec5f615e8ffe10aca980} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!ISQ3@{ISQ3}}
+\index{ISQ3@{ISQ3}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{ISQ3}{ISQ3}}
+{\footnotesize\ttfamily \#define ISQ3~0.\+5773502692F}
+
+\Hypertarget{_pergamon__float_8h_ade7a581289700b0f02e5e29cf78e218b}\label{_pergamon__float_8h_ade7a581289700b0f02e5e29cf78e218b} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!N\_DATALOG@{N\_DATALOG}}
+\index{N\_DATALOG@{N\_DATALOG}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{N\_DATALOG}{N\_DATALOG}}
+{\footnotesize\ttfamily \#define N\+\_\+\+DATALOG~512}
+
+\Hypertarget{_pergamon__float_8h_a598a3330b3c21701223ee0ca14316eca}\label{_pergamon__float_8h_a598a3330b3c21701223ee0ca14316eca} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!PI@{PI}}
+\index{PI@{PI}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily \#define PI~3.\+1415926536F}
+
+\Hypertarget{_pergamon__float_8h_a2750dfdda752269a036f487a4a34b849}\label{_pergamon__float_8h_a2750dfdda752269a036f487a4a34b849} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!PI2@{PI2}}
+\index{PI2@{PI2}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{PI2}{PI2}}
+{\footnotesize\ttfamily \#define PI2~6.\+2831853072F}
+
+\Hypertarget{_pergamon__float_8h_a9f21fffdbe210c05fb4405eb76abe289}\label{_pergamon__float_8h_a9f21fffdbe210c05fb4405eb76abe289} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!PI\_DEFAULTS@{PI\_DEFAULTS}}
+\index{PI\_DEFAULTS@{PI\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{PI\_DEFAULTS}{PI\_DEFAULTS}}
+{\footnotesize\ttfamily \#define PI\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a7d78cf2a5a20ee07e1311e01d20c3d3f}{pi\_init}},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a911a13b7487ee7e538d7cfe2e276f12e}{pi\_calc}}\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a609e5e0b42bb31087805c66b5323d20b}\label{_pergamon__float_8h_a609e5e0b42bb31087805c66b5323d20b} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!PI\_DEFAULTS\_AW@{PI\_DEFAULTS\_AW}}
+\index{PI\_DEFAULTS\_AW@{PI\_DEFAULTS\_AW}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{PI\_DEFAULTS\_AW}{PI\_DEFAULTS\_AW}}
+{\footnotesize\ttfamily \#define PI\+\_\+\+DEFAULTS\+\_\+\+AW}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a972a3c6a01a8a6a0c2ad415ca9af43cc}{pi\_aw\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_aed73e2c3b8b08d6ae74ad49a31e49cf5}\label{_pergamon__float_8h_aed73e2c3b8b08d6ae74ad49a31e49cf5} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!PI\_EXTSAT\_DEFAULTS@{PI\_EXTSAT\_DEFAULTS}}
+\index{PI\_EXTSAT\_DEFAULTS@{PI\_EXTSAT\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{PI\_EXTSAT\_DEFAULTS}{PI\_EXTSAT\_DEFAULTS}}
+{\footnotesize\ttfamily \#define PI\+\_\+\+EXTSAT\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{0,0\},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a7d78cf2a5a20ee07e1311e01d20c3d3f}{pi\_init}},\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a13d559c9758c61f2cab20c44beaac68c}{pi\_extsat\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a007c1b18a91413cd97e9091bc0149d87}\label{_pergamon__float_8h_a007c1b18a91413cd97e9091bc0149d87} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!RAMPA\_DEFAULTS@{RAMPA\_DEFAULTS}}
+\index{RAMPA\_DEFAULTS@{RAMPA\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{RAMPA\_DEFAULTS}{RAMPA\_DEFAULTS}}
+{\footnotesize\ttfamily \#define RAMPA\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ \mbox{\hyperlink{_pergamon__float_8h_abebbba661473bad366efd03e7d641d6c}{rampa\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_af9972b731d123800f8101f7d053452b2}\label{_pergamon__float_8h_af9972b731d123800f8101f7d053452b2} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!RAMPA\_DUAL\_DEFAULTS@{RAMPA\_DUAL\_DEFAULTS}}
+\index{RAMPA\_DUAL\_DEFAULTS@{RAMPA\_DUAL\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{RAMPA\_DUAL\_DEFAULTS}{RAMPA\_DUAL\_DEFAULTS}}
+{\footnotesize\ttfamily \#define RAMPA\+\_\+\+DUAL\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ \mbox{\hyperlink{_pergamon__float_8h_a3aa851ac283ae23f368d723a902adf5e}{rampa\_dual\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a0f6af97a9a8018ff5fff0f70c52c30f3}\label{_pergamon__float_8h_a0f6af97a9a8018ff5fff0f70c52c30f3} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!RMS\_DEFAULTS@{RMS\_DEFAULTS}}
+\index{RMS\_DEFAULTS@{RMS\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{RMS\_DEFAULTS}{RMS\_DEFAULTS}}
+{\footnotesize\ttfamily \#define RMS\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0\ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_acc7db0f942195a3fb2100f9960f4810e}\label{_pergamon__float_8h_acc7db0f942195a3fb2100f9960f4810e} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!ROT\_DEFAULTS@{ROT\_DEFAULTS}}
+\index{ROT\_DEFAULTS@{ROT\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{ROT\_DEFAULTS}{ROT\_DEFAULTS}}
+{\footnotesize\ttfamily \#define ROT\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a3a266e18ea629facbeb442439d066ce4}{rot\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a0b19f406e0cc4cbaf7a935f155567869}\label{_pergamon__float_8h_a0b19f406e0cc4cbaf7a935f155567869} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!SQ2@{SQ2}}
+\index{SQ2@{SQ2}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{SQ2}{SQ2}}
+{\footnotesize\ttfamily \#define SQ2~1.\+4142135624F}
+
+\Hypertarget{_pergamon__float_8h_a85e6b2a01ad8662cb146ebe3d924eb2d}\label{_pergamon__float_8h_a85e6b2a01ad8662cb146ebe3d924eb2d} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!SQ3@{SQ3}}
+\index{SQ3@{SQ3}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{SQ3}{SQ3}}
+{\footnotesize\ttfamily \#define SQ3~1.\+7320508076F}
+
+\Hypertarget{_pergamon__float_8h_a8e7814d2417138e8362cdccc68f8829a}\label{_pergamon__float_8h_a8e7814d2417138e8362cdccc68f8829a} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!STEP\_DEFAULTS@{STEP\_DEFAULTS}}
+\index{STEP\_DEFAULTS@{STEP\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{STEP\_DEFAULTS}{STEP\_DEFAULTS}}
+{\footnotesize\ttfamily \#define STEP\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ 0.0F,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0F,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0F,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0F,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0.0F,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\ \mbox{\hyperlink{_pergamon__float_8h_af6846d0a6709be95c2bd9dc7a7339f70}{step\_calc}}\ \}}
+
+\end{DoxyCode}
+\Hypertarget{_pergamon__float_8h_a29a2062b22d5e91145cb741d0c091381}\label{_pergamon__float_8h_a29a2062b22d5e91145cb741d0c091381} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!SVPWM\_DEFAULTS@{SVPWM\_DEFAULTS}}
+\index{SVPWM\_DEFAULTS@{SVPWM\_DEFAULTS}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{SVPWM\_DEFAULTS}{SVPWM\_DEFAULTS}}
+{\footnotesize\ttfamily \#define SVPWM\+\_\+\+DEFAULTS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 0,\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (void\ (*)(int32\_t))\mbox{\hyperlink{_pergamon__float_8h_a6777e0c2b1e067acf6b99284625ec422}{svpwm\_calc}}\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_pergamon__float_8h_a7822a96ee28a38634e60b29f9d5f53f3}\label{_pergamon__float_8h_a7822a96ee28a38634e60b29f9d5f53f3} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!angle\_calc@{angle\_calc}}
+\index{angle\_calc@{angle\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{angle\_calc()}{angle\_calc()}}
+{\footnotesize\ttfamily void angle\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structangle__struct}{angle\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{p }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_abecfb1f35420bd9e8e175ba9695b47c4}\label{_pergamon__float_8h_abecfb1f35420bd9e8e175ba9695b47c4} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!avg\_calc\_10\_samples@{avg\_calc\_10\_samples}}
+\index{avg\_calc\_10\_samples@{avg\_calc\_10\_samples}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{avg\_calc\_10\_samples()}{avg\_calc\_10\_samples()}}
+{\footnotesize\ttfamily void avg\+\_\+calc\+\_\+10\+\_\+samples (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structavg__struct__10}{avg\+\_\+struct\+\_\+10}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a467621f0bad48eddfbb75a5a460c371f}\label{_pergamon__float_8h_a467621f0bad48eddfbb75a5a460c371f} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!clarke3F\_calc@{clarke3F\_calc}}
+\index{clarke3F\_calc@{clarke3F\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{clarke3F\_calc()}{clarke3F\_calc()}}
+{\footnotesize\ttfamily void clarke3\+F\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structclarke3_f__struct}{clarke3\+F\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a04975f8703cefb2c6b7ef84c5afb99c9}\label{_pergamon__float_8h_a04975f8703cefb2c6b7ef84c5afb99c9} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!datalog\_calc@{datalog\_calc}}
+\index{datalog\_calc@{datalog\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{datalog\_calc()}{datalog\_calc()}}
+{\footnotesize\ttfamily void datalog\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structdatalog__struct}{datalog\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{dl }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_aeae3629e14741deddb169656d4d19cc8}\label{_pergamon__float_8h_aeae3629e14741deddb169656d4d19cc8} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!filtreLP\_calc@{filtreLP\_calc}}
+\index{filtreLP\_calc@{filtreLP\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{filtreLP\_calc()}{filtreLP\_calc()}}
+{\footnotesize\ttfamily void filtre\+LP\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structfiltre_l_p__struct}{filtre\+LP\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_adf4453b19a3d2334b2378ad5998133aa}\label{_pergamon__float_8h_adf4453b19a3d2334b2378ad5998133aa} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!filtreLP\_init@{filtreLP\_init}}
+\index{filtreLP\_init@{filtreLP\_init}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{filtreLP\_init()}{filtreLP\_init()}}
+{\footnotesize\ttfamily void filtre\+LP\+\_\+init (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structfiltre_l_p__struct}{filtre\+LP\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a2b0f376e5a1df52bf340375e6e92cabf}\label{_pergamon__float_8h_a2b0f376e5a1df52bf340375e6e92cabf} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!iclarke3F\_calc@{iclarke3F\_calc}}
+\index{iclarke3F\_calc@{iclarke3F\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{iclarke3F\_calc()}{iclarke3F\_calc()}}
+{\footnotesize\ttfamily void iclarke3\+F\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structiclarke3_f__struct}{iclarke3\+F\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a9ec9411a108959be4eda9241a127596a}\label{_pergamon__float_8h_a9ec9411a108959be4eda9241a127596a} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!irot\_calc@{irot\_calc}}
+\index{irot\_calc@{irot\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{irot\_calc()}{irot\_calc()}}
+{\footnotesize\ttfamily void irot\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structirot__struct}{irot\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a972a3c6a01a8a6a0c2ad415ca9af43cc}\label{_pergamon__float_8h_a972a3c6a01a8a6a0c2ad415ca9af43cc} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!pi\_aw\_calc@{pi\_aw\_calc}}
+\index{pi\_aw\_calc@{pi\_aw\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{pi\_aw\_calc()}{pi\_aw\_calc()}}
+{\footnotesize\ttfamily void pi\+\_\+aw\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structpi__aw__struct}{pi\+\_\+aw\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a911a13b7487ee7e538d7cfe2e276f12e}\label{_pergamon__float_8h_a911a13b7487ee7e538d7cfe2e276f12e} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!pi\_calc@{pi\_calc}}
+\index{pi\_calc@{pi\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{pi\_calc()}{pi\_calc()}}
+{\footnotesize\ttfamily void pi\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a13d559c9758c61f2cab20c44beaac68c}\label{_pergamon__float_8h_a13d559c9758c61f2cab20c44beaac68c} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!pi\_extsat\_calc@{pi\_extsat\_calc}}
+\index{pi\_extsat\_calc@{pi\_extsat\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{pi\_extsat\_calc()}{pi\_extsat\_calc()}}
+{\footnotesize\ttfamily void pi\+\_\+extsat\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a7d78cf2a5a20ee07e1311e01d20c3d3f}\label{_pergamon__float_8h_a7d78cf2a5a20ee07e1311e01d20c3d3f} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!pi\_init@{pi\_init}}
+\index{pi\_init@{pi\_init}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{pi\_init()}{pi\_init()}}
+{\footnotesize\ttfamily void pi\+\_\+init (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_abebbba661473bad366efd03e7d641d6c}\label{_pergamon__float_8h_abebbba661473bad366efd03e7d641d6c} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!rampa\_calc@{rampa\_calc}}
+\index{rampa\_calc@{rampa\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{rampa\_calc()}{rampa\_calc()}}
+{\footnotesize\ttfamily void rampa\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structrampa__struct}{rampa\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a3aa851ac283ae23f368d723a902adf5e}\label{_pergamon__float_8h_a3aa851ac283ae23f368d723a902adf5e} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!rampa\_dual\_calc@{rampa\_dual\_calc}}
+\index{rampa\_dual\_calc@{rampa\_dual\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{rampa\_dual\_calc()}{rampa\_dual\_calc()}}
+{\footnotesize\ttfamily void rampa\+\_\+dual\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structrampa__dual__struct}{rampa\+\_\+dual\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a67e0dc51870eb4743e252c8e6512070a}\label{_pergamon__float_8h_a67e0dc51870eb4743e252c8e6512070a} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!RMS\_calc@{RMS\_calc}}
+\index{RMS\_calc@{RMS\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{RMS\_calc()}{RMS\_calc()}}
+{\footnotesize\ttfamily void RMS\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_r_m_s__struct}{RMS\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a3a266e18ea629facbeb442439d066ce4}\label{_pergamon__float_8h_a3a266e18ea629facbeb442439d066ce4} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!rot\_calc@{rot\_calc}}
+\index{rot\_calc@{rot\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{rot\_calc()}{rot\_calc()}}
+{\footnotesize\ttfamily void rot\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structrot__struct}{rot\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_af6846d0a6709be95c2bd9dc7a7339f70}\label{_pergamon__float_8h_af6846d0a6709be95c2bd9dc7a7339f70} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!step\_calc@{step\_calc}}
+\index{step\_calc@{step\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{step\_calc()}{step\_calc()}}
+{\footnotesize\ttfamily void step\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structstep__struct}{step\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+\Hypertarget{_pergamon__float_8h_a6777e0c2b1e067acf6b99284625ec422}\label{_pergamon__float_8h_a6777e0c2b1e067acf6b99284625ec422} 
+\index{Pergamon\_float.h@{Pergamon\_float.h}!svpwm\_calc@{svpwm\_calc}}
+\index{svpwm\_calc@{svpwm\_calc}!Pergamon\_float.h@{Pergamon\_float.h}}
+\doxysubsubsection{\texorpdfstring{svpwm\_calc()}{svpwm\_calc()}}
+{\footnotesize\ttfamily void svpwm\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structsvpwm__struct}{svpwm\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+

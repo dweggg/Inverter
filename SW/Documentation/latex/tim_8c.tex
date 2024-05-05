@@ -1,0 +1,240 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Src/tim.c File Reference}
+\hypertarget{tim_8c}{}\label{tim_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c}}
+
+
+This file provides code for the configuration of the TIM instances.  
+
+
+{\ttfamily \#include "{}tim.\+h"{}}\newline
+Include dependency graph for tim.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{tim_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tim_8c_ad1f9d42690163f73f73e5b820c81ca14}{MX\+\_\+\+TIM1\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8c_a4b8ff887fd3fdf26605e35927e4ff202}{MX\+\_\+\+TIM2\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8c_aef1e0b132b1af1c923cc420a57180c67}{MX\+\_\+\+TIM4\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8c_abbf5454212cb039fb90d523b2473af91}{MX\+\_\+\+TIM6\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8c_a265aef7a46164094e791259bf59d9cb4}{MX\+\_\+\+TIM8\+\_\+\+Init}} (void)
+\item 
+void \mbox{\hyperlink{tim_8c_a59716af159bfbbb6023b31354fb23af8}{HAL\+\_\+\+TIM\+\_\+\+Base\+\_\+\+Msp\+Init}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}tim\+\_\+base\+Handle)
+\item 
+void \mbox{\hyperlink{tim_8c_a13619a751dea657d9faa32b690b2f80e}{HAL\+\_\+\+TIM\+\_\+\+IC\+\_\+\+Msp\+Init}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}tim\+\_\+ic\+Handle)
+\item 
+void \mbox{\hyperlink{tim_8c_a708f19bbc41b292fccf38f2d9796c46a}{HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}tim\+Handle)
+\item 
+void \mbox{\hyperlink{tim_8c_adee8ed7d3ebb3a217c27ac10af86ce2f}{HAL\+\_\+\+TIM\+\_\+\+Base\+\_\+\+Msp\+De\+Init}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}tim\+\_\+base\+Handle)
+\item 
+void \mbox{\hyperlink{tim_8c_a701032abe2709bc890df9474d3294861}{HAL\+\_\+\+TIM\+\_\+\+IC\+\_\+\+Msp\+De\+Init}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}tim\+\_\+ic\+Handle)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{tim_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{tim_8c_a2c80fd5510e2990a59a5c90d745c716c}{htim2}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{tim_8c_a85788cec5a97ee377e4ee2e74f026484}{htim4}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{tim_8c_a1564492831a79fa18466467c3420c3c3}{htim6}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{tim_8c_a5faa27108379f799afb6984010bf0384}{htim8}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file provides code for the configuration of the TIM instances. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tim_8c_adee8ed7d3ebb3a217c27ac10af86ce2f}\label{tim_8c_adee8ed7d3ebb3a217c27ac10af86ce2f} 
+\index{tim.c@{tim.c}!HAL\_TIM\_Base\_MspDeInit@{HAL\_TIM\_Base\_MspDeInit}}
+\index{HAL\_TIM\_Base\_MspDeInit@{HAL\_TIM\_Base\_MspDeInit}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_Base\_MspDeInit()}{HAL\_TIM\_Base\_MspDeInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+Base\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{tim\+\_\+base\+Handle }\end{DoxyParamCaption})}
+
+Uncomment the line below to disable the "{}\+TIM6\+\_\+\+DAC\+\_\+\+IRQn"{} interrupt Be aware, disabling shared interrupt may affect other IPs\Hypertarget{tim_8c_a59716af159bfbbb6023b31354fb23af8}\label{tim_8c_a59716af159bfbbb6023b31354fb23af8} 
+\index{tim.c@{tim.c}!HAL\_TIM\_Base\_MspInit@{HAL\_TIM\_Base\_MspInit}}
+\index{HAL\_TIM\_Base\_MspInit@{HAL\_TIM\_Base\_MspInit}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_Base\_MspInit()}{HAL\_TIM\_Base\_MspInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+Base\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{tim\+\_\+base\+Handle }\end{DoxyParamCaption})}
+
+\Hypertarget{tim_8c_a701032abe2709bc890df9474d3294861}\label{tim_8c_a701032abe2709bc890df9474d3294861} 
+\index{tim.c@{tim.c}!HAL\_TIM\_IC\_MspDeInit@{HAL\_TIM\_IC\_MspDeInit}}
+\index{HAL\_TIM\_IC\_MspDeInit@{HAL\_TIM\_IC\_MspDeInit}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_IC\_MspDeInit()}{HAL\_TIM\_IC\_MspDeInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+IC\+\_\+\+Msp\+De\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{tim\+\_\+ic\+Handle }\end{DoxyParamCaption})}
+
+TIM2 GPIO Configuration PB10 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM2\+\_\+\+CH3 PB11 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM2\+\_\+\+CH4 PA15 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM2\+\_\+\+CH1
+
+TIM4 GPIO Configuration PD12 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM4\+\_\+\+CH1 PD14 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM4\+\_\+\+CH3 PD15 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM4\+\_\+\+CH4\Hypertarget{tim_8c_a13619a751dea657d9faa32b690b2f80e}\label{tim_8c_a13619a751dea657d9faa32b690b2f80e} 
+\index{tim.c@{tim.c}!HAL\_TIM\_IC\_MspInit@{HAL\_TIM\_IC\_MspInit}}
+\index{HAL\_TIM\_IC\_MspInit@{HAL\_TIM\_IC\_MspInit}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_IC\_MspInit()}{HAL\_TIM\_IC\_MspInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+IC\+\_\+\+Msp\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{tim\+\_\+ic\+Handle }\end{DoxyParamCaption})}
+
+TIM2 GPIO Configuration PB10 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM2\+\_\+\+CH3 PB11 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM2\+\_\+\+CH4 PA15 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM2\+\_\+\+CH1
+
+TIM4 GPIO Configuration PD12 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM4\+\_\+\+CH1 PD14 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM4\+\_\+\+CH3 PD15 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM4\+\_\+\+CH4\Hypertarget{tim_8c_a708f19bbc41b292fccf38f2d9796c46a}\label{tim_8c_a708f19bbc41b292fccf38f2d9796c46a} 
+\index{tim.c@{tim.c}!HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}}
+\index{HAL\_TIM\_MspPostInit@{HAL\_TIM\_MspPostInit}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_TIM\_MspPostInit()}{HAL\_TIM\_MspPostInit()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+TIM\+\_\+\+Msp\+Post\+Init (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{tim\+Handle }\end{DoxyParamCaption})}
+
+TIM1 GPIO Configuration PE8 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH1N PE9 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH1 PE10 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH2N PE11 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH2 PE12 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH3N PE13 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM1\+\_\+\+CH3
+
+TIM8 GPIO Configuration PA5 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM8\+\_\+\+CH1N PB14 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM8\+\_\+\+CH2N PB15 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM8\+\_\+\+CH3N PC6 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM8\+\_\+\+CH1 PC7 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM8\+\_\+\+CH2 PC8 -\/-\/-\/-\/-\/-\/\texorpdfstring{$>$}{>} TIM8\+\_\+\+CH3Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{tim_8c_a708f19bbc41b292fccf38f2d9796c46a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{tim_8c_ad1f9d42690163f73f73e5b820c81ca14}\label{tim_8c_ad1f9d42690163f73f73e5b820c81ca14} 
+\index{tim.c@{tim.c}!MX\_TIM1\_Init@{MX\_TIM1\_Init}}
+\index{MX\_TIM1\_Init@{MX\_TIM1\_Init}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM1\_Init()}{MX\_TIM1\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+TIM1\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{tim_8c_ad1f9d42690163f73f73e5b820c81ca14_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{tim_8c_ad1f9d42690163f73f73e5b820c81ca14_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{tim_8c_a4b8ff887fd3fdf26605e35927e4ff202}\label{tim_8c_a4b8ff887fd3fdf26605e35927e4ff202} 
+\index{tim.c@{tim.c}!MX\_TIM2\_Init@{MX\_TIM2\_Init}}
+\index{MX\_TIM2\_Init@{MX\_TIM2\_Init}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM2\_Init()}{MX\_TIM2\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+TIM2\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{tim_8c_a4b8ff887fd3fdf26605e35927e4ff202_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{tim_8c_a4b8ff887fd3fdf26605e35927e4ff202_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{tim_8c_aef1e0b132b1af1c923cc420a57180c67}\label{tim_8c_aef1e0b132b1af1c923cc420a57180c67} 
+\index{tim.c@{tim.c}!MX\_TIM4\_Init@{MX\_TIM4\_Init}}
+\index{MX\_TIM4\_Init@{MX\_TIM4\_Init}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM4\_Init()}{MX\_TIM4\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+TIM4\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{tim_8c_aef1e0b132b1af1c923cc420a57180c67_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{tim_8c_aef1e0b132b1af1c923cc420a57180c67_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{tim_8c_abbf5454212cb039fb90d523b2473af91}\label{tim_8c_abbf5454212cb039fb90d523b2473af91} 
+\index{tim.c@{tim.c}!MX\_TIM6\_Init@{MX\_TIM6\_Init}}
+\index{MX\_TIM6\_Init@{MX\_TIM6\_Init}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM6\_Init()}{MX\_TIM6\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+TIM6\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=265pt]{tim_8c_abbf5454212cb039fb90d523b2473af91_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{tim_8c_abbf5454212cb039fb90d523b2473af91_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{tim_8c_a265aef7a46164094e791259bf59d9cb4}\label{tim_8c_a265aef7a46164094e791259bf59d9cb4} 
+\index{tim.c@{tim.c}!MX\_TIM8\_Init@{MX\_TIM8\_Init}}
+\index{MX\_TIM8\_Init@{MX\_TIM8\_Init}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{MX\_TIM8\_Init()}{MX\_TIM8\_Init()}}
+{\footnotesize\ttfamily void MX\+\_\+\+TIM8\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{tim_8c_a265aef7a46164094e791259bf59d9cb4_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{tim_8c_a265aef7a46164094e791259bf59d9cb4_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{tim_8c_a25fc663547539bc49fecc0011bd76ab5}\label{tim_8c_a25fc663547539bc49fecc0011bd76ab5} 
+\index{tim.c@{tim.c}!htim1@{htim1}}
+\index{htim1@{htim1}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim1}
+
+\Hypertarget{tim_8c_a2c80fd5510e2990a59a5c90d745c716c}\label{tim_8c_a2c80fd5510e2990a59a5c90d745c716c} 
+\index{tim.c@{tim.c}!htim2@{htim2}}
+\index{htim2@{htim2}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{htim2}{htim2}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim2}
+
+\Hypertarget{tim_8c_a85788cec5a97ee377e4ee2e74f026484}\label{tim_8c_a85788cec5a97ee377e4ee2e74f026484} 
+\index{tim.c@{tim.c}!htim4@{htim4}}
+\index{htim4@{htim4}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{htim4}{htim4}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim4}
+
+\Hypertarget{tim_8c_a1564492831a79fa18466467c3420c3c3}\label{tim_8c_a1564492831a79fa18466467c3420c3c3} 
+\index{tim.c@{tim.c}!htim6@{htim6}}
+\index{htim6@{htim6}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{htim6}{htim6}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim6}
+
+\Hypertarget{tim_8c_a5faa27108379f799afb6984010bf0384}\label{tim_8c_a5faa27108379f799afb6984010bf0384} 
+\index{tim.c@{tim.c}!htim8@{htim8}}
+\index{htim8@{htim8}!tim.c@{tim.c}}
+\doxysubsubsection{\texorpdfstring{htim8}{htim8}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim8}
+

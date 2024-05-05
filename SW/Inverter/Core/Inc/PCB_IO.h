@@ -1,12 +1,27 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file    PCB_IO.h
+  * @brief   Header file for handling GPIOs and other low-priority tasks.
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2024 David Redondo (@dweggg in GitHub).
+  * All rights reserved.
+  *
+  * This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
+  * For more information, see: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+  *
+  ******************************************************************************
+  */
+
+/* USER CODE END Header */
+
+
 #ifndef PCB_IO_H
 #define PCB_IO_H
 
 #include "stm32f7xx_hal.h"
-
-/**
- * @file PCB_IO.h
- * @brief Header file for handling GPIOs and other low-priority tasks.
- */
 
 // Read SC_det and DIR GPIOs
 #define SC_DET_STATE()              (HAL_GPIO_ReadPin(SC_det_GPIO_Port, SC_det_Pin))
