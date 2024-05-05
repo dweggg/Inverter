@@ -124,14 +124,14 @@ int main(void)
   MX_TIM8_Init();
   MX_TIM2_Init();
   MX_TIM4_Init();
-  MX_TIM3_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
   HAL_TIM_Base_Start(&htim1);
   __HAL_TIM_ENABLE_IT(&htim1, TIM_IT_BREAK);
 
-  HAL_TIM_Base_Start(&htim3);
-  __HAL_TIM_ENABLE_IT(&htim3, TIM_IT_BREAK);
+  HAL_TIM_Base_Start_IT(&htim6);
+
 
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC2_raw,4);
