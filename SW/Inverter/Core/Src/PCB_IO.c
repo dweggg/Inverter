@@ -37,7 +37,7 @@ LED led_error = { .port = LED_ERR_GPIO_Port, .pin = LED_ERR_Pin, .mode = LED_MOD
 void LED_handler(LED *led, uint32_t ms_counter) {
     switch (led->mode) {
         case LED_MODE_BLINK_FAST:
-            if (ms_counter % 500 < 250) {
+            if (ms_counter % 200 < 100) {
                 HAL_GPIO_WritePin(led->port, led->pin, GPIO_PIN_SET);
             } else {
                 HAL_GPIO_WritePin(led->port, led->pin, GPIO_PIN_RESET);

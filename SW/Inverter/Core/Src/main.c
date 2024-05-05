@@ -31,6 +31,8 @@
 /* USER CODE BEGIN Includes */
 #include "FSM.h"
 #include "MEASUREMENTS.h"
+#include "PCB_IO.h"
+
 
 /* USER CODE END Includes */
 
@@ -69,19 +71,14 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 // Initialize left and right system controls
 InverterOperation invLeft = {
-    .state = INV_STATE_STARTUP,
-    .LED_port = LED_LEFT_GPIO_Port,
-    .LED_pin = LED_LEFT_Pin,
     .enable_port = ENABLE_L_GPIO_Port,
     .enable_pin = ENABLE_L_Pin
 };
 
 InverterOperation invRight = {
-    .state = INV_STATE_STARTUP,
-    .LED_port = LED_RIGHT_GPIO_Port,
-    .LED_pin = LED_RIGHT_Pin,
     .enable_port = ENABLE_R_GPIO_Port,
     .enable_pin = ENABLE_R_Pin
 };
@@ -139,6 +136,9 @@ int main(void)
 
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC_LEFT_raw,4);
+
+  inv_init(&invLeft, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin);
+  inv_init(&invRight, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin);
 
   /* USER CODE END 2 */
 
