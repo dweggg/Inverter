@@ -1,35 +1,18 @@
 #include "FSM.h"
+#include "PCB_IO.h"
 
-static void idle_handler(InverterControl *inv);
+static void idle_handler(InverterOperation *inv);
+static void startup_handler(InverterOperation *inv);
+static void running_handler(InverterOperation *inv);
+static void fault_handler(InverterOperation *inv);
 
-/**
- * @brief FSM state handler for the startup state.
- *
- * @param inv Pointer to the inverter control structure.
- */
-static void startup_handler(InverterControl *inv);
-
-/**
- * @brief FSM state handler for the running state.
- *
- * @param inv Pointer to the inverter control structure.
- */
-static void running_handler(InverterControl *inv);
-
-/**
- * @brief FSM state handler for the fault state.
- *
- * @param inv Pointer to the inverter control structure.
- */
-static void fault_handler(InverterControl *inv);
-
-void inv_init(InverterControl *inv) {
-    // Initialize inverter control structure
-    inv->state = INV_STATE_STARTUP;
+void inv_init(InverterOperation *inv) {
+    // Initialize inverter operation structure
+    inv->state = INV_STATE_IDLE;
     // Add initialization of other inverter-specific variables here
 }
 
-void inv_FSM(InverterControl *inv) {
+void inv_FSM(InverterOperation *inv) {
     switch (inv->state) {
         case INV_STATE_IDLE:
             idle_handler(inv);
@@ -49,32 +32,37 @@ void inv_FSM(InverterControl *inv) {
     }
 }
 
-static void idle_handler(InverterControl *inv) {
+static void idle_handler(InverterOperation *inv) {
     // Perform actions required in idle state
     // Transition conditions to other states:
     // - Start startup sequence based on input condition
     // - Transition to fault state based on error conditions
+    DISABLE(inv->enable_port, inv->enable_pin);
+
 }
 
-static void startup_handler(InverterControl *inv) {
+static void startup_handler(InverterOperation *inv) {
     // Perform actions required in startup state
     // Transition conditions to other states:
     // - Transition to running state when startup sequence completes successfully
     // - Transition to fault state based on error conditions during startup
+    DISABLE(inv->enable_port, inv->enable_pin);
 }
 
-static void running_handler(InverterControl *inv) {
+static void running_handler(InverterOperation *inv) {
     // Perform actions required in running state
     // This is where the main control loop resides
     // Monitor inverter variables, adjust control parameters, etc.
     // Transition conditions to other states:
     // - Transition to fault state based on error conditions during operation
+    ENABLE(inv->enable_port, inv->enable_pin);
 }
 
-static void fault_handler(InverterControl *inv) {
+static void fault_handler(InverterOperation *inv) {
     // Perform actions required in fault state
     // This could involve shutting down the inverter, logging error messages, etc.
     // Transition conditions to other states:
     // - Retry startup sequence after a delay if fault condition is recoverable
     // - Transition to idle state after fault is resolved
+    DISABLE(inv->enable_port, inv->enable_pin);
 }

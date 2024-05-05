@@ -17,13 +17,13 @@ typedef enum {
     INV_STATE_STARTUP, /**< Inverter startup state */
     INV_STATE_RUNNING, /**< Inverter running state */
     INV_STATE_FAULT    /**< Inverter fault state */
-} InverterState;
+} InverterOperationState;
 
 /**
- * @brief Inverter control structure.
+ * @brief Inverter operation structure.
  */
 typedef struct {
-    InverterState state; /**< Current state of the inverter */
+    InverterOperationState state; /**< Current state of the inverter operation */
 
     // GPIO pins for LEDs
     GPIO_TypeDef *LED_port; /**< GPIO port for controlling the LED */
@@ -34,28 +34,22 @@ typedef struct {
     uint16_t enable_pin; /**< Pin number for enabling/disabling the inverter */
 
     // Add any other inverter-specific variables here
-} InverterControl;
+} InverterOperation;
 
 
 /**
- * @brief Initialize the inverter control structure.
+ * @brief Initialize the inverter operation structure.
  *
- * @param inv Pointer to the inverter control structure.
+ * @param inv Pointer to the inverter operation structure.
  */
-void inv_init(InverterControl *inv);
+void inv_init(InverterOperation *inv);
 
 /**
- * @brief Run the Finite State Machine (FSM) for inverter control.
+ * @brief Run the Finite State Machine (FSM) for inverter operation control.
  *
- * @param inv Pointer to the inverter control structure.
+ * @param inv Pointer to the inverter operation structure.
  */
-void inv_FSM(InverterControl *inv);
-
-/**
- * @brief FSM state handler for the idle state.
- *
- * @param inv Pointer to the inverter control structure.
- */
+void inv_FSM(InverterOperation *inv);
 
 
 #endif /* FSM_H */

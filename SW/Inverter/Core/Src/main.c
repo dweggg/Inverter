@@ -65,7 +65,7 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 // Initialize left and right system controls
-InverterControl invLeft = {
+InverterOperation invLeft = {
     .state = INV_STATE_STARTUP,
     .LED_port = LED_LEFT_GPIO_Port,
     .LED_pin = LED_LEFT_Pin,
@@ -73,7 +73,7 @@ InverterControl invLeft = {
     .enable_pin = ENABLE_L_Pin
 };
 
-InverterControl invRight = {
+InverterOperation invRight = {
     .state = INV_STATE_STARTUP,
     .LED_port = LED_RIGHT_GPIO_Port,
     .LED_pin = LED_RIGHT_Pin,
@@ -124,13 +124,14 @@ int main(void)
   MX_TIM8_Init();
   MX_TIM2_Init();
   MX_TIM4_Init();
-  MX_TIM7_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
   HAL_TIM_Base_Start(&htim1);
   __HAL_TIM_ENABLE_IT(&htim1, TIM_IT_BREAK);
 
-  HAL_TIM_Base_Start(&htim7);
+  HAL_TIM_Base_Start(&htim3);
+  __HAL_TIM_ENABLE_IT(&htim3, TIM_IT_BREAK);
 
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC2_raw,4);

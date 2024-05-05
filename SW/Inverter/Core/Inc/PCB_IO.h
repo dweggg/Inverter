@@ -21,14 +21,33 @@
 
 // Define LED modes
 typedef enum {
-    LED_MODE_OFF,
-    LED_MODE_ON,
-    LED_MODE_BLINK_FAST,
-    LED_MODE_BLINK_SLOW
+    LED_MODE_BLINK_FAST, /**< Fast blink mode */
+    LED_MODE_BLINK_SLOW, /**< Slow blink mode */
+    LED_MODE_ON,         /**< LED on mode */
+    LED_MODE_OFF         /**< LED off mode */
 } LEDMode;
 
-// Function prototypes
-void LED_handler(GPIO_TypeDef *port, uint16_t pin, LEDMode mode, uint32_t ms_counter);
+/**
+ * @brief LED structure.
+ */
+typedef struct {
+    GPIO_TypeDef *port; /**< GPIO port for controlling the LED */
+    uint16_t pin;       /**< Pin number for controlling the LED */
+    LEDMode mode;       /**< Current LED mode */
+} LED;
 
+// Declare LED variables as extern
+extern LED led_left;
+extern LED led_right;
+extern LED led_error;
+
+// Function prototypes
+/**
+ * @brief LED handler function.
+ *
+ * @param led Pointer to the LED structure.
+ * @param ms_counter Millisecond counter for timing.
+ */
+void LED_handler(LED *led, uint32_t ms_counter);
 
 #endif /* PCB_IO_H */
