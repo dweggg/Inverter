@@ -78,12 +78,7 @@ void disable_PWM(TIM_HandleTypeDef *htim) {
  */
 void set_PWM(TIM_HandleTypeDef *htim, Duties *duties) {
 	htim->Instance->CCR1 = (duties->Da)*htim->Instance->ARR;
-	htim->Instance->CCR2 = htim->Instance->ARR - htim->Instance->CCR1;
-
-	htim->Instance->CCR3 = (duties->Db)*htim->Instance->ARR;
-	htim->Instance->CCR4 = htim->Instance->ARR - htim->Instance->CCR1;
-
-	htim->Instance->CCR5 = (duties->Dc)*htim->Instance->ARR;
-	htim->Instance->CCR6 = htim->Instance->ARR - htim->Instance->CCR1;
+	htim->Instance->CCR2 = (duties->Db)*htim->Instance->ARR;
+	htim->Instance->CCR3 = (duties->Dc)*htim->Instance->ARR;
 
 }
