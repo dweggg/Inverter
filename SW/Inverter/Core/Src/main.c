@@ -129,8 +129,6 @@ int main(void)
 
   HAL_TIM_Base_Start_IT(&htim6);
 
-
-
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC_LEFT_raw,4);
 
   inv_init(&invLeft, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin);
