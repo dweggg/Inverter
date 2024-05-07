@@ -28,21 +28,21 @@
  */
 void enable_PWM(TIM_HandleTypeDef *htim) {
 
-	//Reset the counter
-//	htimX.Instance->CNT=0;
-
+//	//Reset the counter
+//	htim->Instance->CNT=0;
+//
 	htim->Instance->CCMR1 = 0x6868; // Set Channel 1 and Channel 2 Output Compare mode to PWM Mode
-
-	//	htim1.Instance->CCER = 0x888;
+//
+//	//	htim1.Instance->CCER = 0x888;
 	htim->Instance->CCER = 0x10555;
-
-	//Enable Main Output
+//
+//	//Enable Main Output
 	htim->Instance->BDTR |=(1<<15);
-
-	//Enable Counter
+//
+//	//Enable Counter
 	htim->Instance->CR1 |=1;
 
-    Duties duties = {0.8F,0.5F,0.2F};
+    Duties duties = {0.7F,0.7F,0.7F};
 
     set_PWM(htim, &duties);
 }
@@ -77,8 +77,8 @@ void disable_PWM(TIM_HandleTypeDef *htim) {
  * @param duties Pointer to the Duties structure containing duty cycle values.
  */
 void set_PWM(TIM_HandleTypeDef *htim, Duties *duties) {
-	htim->Instance->CCR1 = (duties->Da)*htim->Instance->ARR;
-	htim->Instance->CCR2 = (duties->Db)*htim->Instance->ARR;
-	htim->Instance->CCR3 = (duties->Dc)*htim->Instance->ARR;
+	htim->Instance->CCR1 = (1.0F-duties->Da)*htim->Instance->ARR;
+	htim->Instance->CCR2 = (1.0F-duties->Db)*htim->Instance->ARR;
+	htim->Instance->CCR3 = (1.0F-duties->Dc)*htim->Instance->ARR;
 
 }
