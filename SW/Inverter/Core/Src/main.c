@@ -30,7 +30,6 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "FSM.h" // main.c needs the inv_FSM() function
-#include "CONTROL.h"
 #include "INVERTER.h" // main.c needs the inv_init() function
 
 /* USER CODE END Includes */
@@ -53,7 +52,8 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+float valfa_L = -0.2F;
+float vbeta_L = 0.2F;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

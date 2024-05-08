@@ -145,6 +145,8 @@ void Error_Handler(void);
 #define LED_ERR_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
+extern float valfa_L;
+extern float vbeta_L;
 
 /* USER CODE END Private defines */
 

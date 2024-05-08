@@ -10,10 +10,6 @@
  * @brief Header file for control logic.
  */
 
-extern float valfa_L;
-extern float vbeta_L;
-
-
 /**
  * @brief Control function.
  *

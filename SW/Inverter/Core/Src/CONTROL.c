@@ -5,10 +5,6 @@
  * @brief Source file for control logic.
  */
 
-float valfa_L = -0.2F;
-float vbeta_L = 0.2F;
-
-
 /**
  * @brief Control function.
  *
