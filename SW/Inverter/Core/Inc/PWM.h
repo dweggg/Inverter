@@ -38,7 +38,7 @@ typedef struct {
  *
  * @param htim Pointer to the TIM_HandleTypeDef structure.
  */
-void enable_PWM(TIM_HandleTypeDef *htim, Duties *duties);
+void enable_PWM(TIM_HandleTypeDef *htim);
 
 /**
  * @brief Disable PWM output.
@@ -49,14 +49,6 @@ void enable_PWM(TIM_HandleTypeDef *htim, Duties *duties);
  */
 void disable_PWM(TIM_HandleTypeDef *htim);
 
-#define COMPARE3F_DEFAULTS {	0, \
-								0, \
-								0, \
-								0, \
-								0, \
-								0, \
-								(void (*)(int32_t))Compare3F_calc	}
-
 typedef struct
 {
 	float	 		alfaA;		// Alfa d'entrada, branca A, en PU
@@ -65,7 +57,7 @@ typedef struct
 	uint32_t 		compA;		// Valor de sortida a aplicar al CompareA
 	uint32_t 		compB;		// Valor de sortida a aplicar al CompareB
 	uint32_t 		compC;		// Valor de sortida a aplicar al CompareC
-	void(*calc)();		// Punter a la funci� per calcular 3 Compares
+	void(*calc)();		// Punter a la funcio per calcular 3 Compares
 } Compare3F_struct;
 
 extern Compare3F_struct compares_LEFT; /**< Compares for the left side */
@@ -79,8 +71,8 @@ void Compare3F_calc(TIM_HandleTypeDef *htim, Compare3F_struct *v);
  * This function sets the duty cycles for the PWM channels.
  *
  * @param htim Pointer to the TIM_HandleTypeDef structure.
- * @param duties Pointer to the Duties structure containing duty cycle values.
+ * @param duties Duties structure containing duty cycle values.
  */
-void set_PWM(TIM_HandleTypeDef *htim, Duties *duties);
+void set_PWM(TIM_HandleTypeDef *htim, Duties duties);
 
 #endif /* PWM_H */

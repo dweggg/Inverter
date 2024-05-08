@@ -22,66 +22,47 @@
 /**
  * @brief FSM state handler for the idle state.
  *
- * This function handles the actions and transitions for the idle state of the inverter operation.
+ * This function handles the actions and transitions for the idle state of the inverter.
  *
- * @param inv Pointer to the inverter operation structure.
+ * @param inv Pointer to the inverter structure.
  */
-static void idle_handler(InverterOperation *inv);
+static void idle_handler(inverterStruct *inv);
 
 /**
  * @brief FSM state handler for the startup state.
  *
- * This function handles the actions and transitions for the startup state of the inverter operation.
+ * This function handles the actions and transitions for the startup state of the inverter.
  *
- * @param inv Pointer to the inverter operation structure.
+ * @param inv Pointer to the inverter structure.
  */
-static void startup_handler(InverterOperation *inv);
+static void startup_handler(inverterStruct *inv);
 
 /**
  * @brief FSM state handler for the running state.
  *
- * This function handles the actions and transitions for the running state of the inverter operation.
+ * This function handles the actions and transitions for the running state of the inverter.
  *
- * @param inv Pointer to the inverter operation structure.
+ * @param inv Pointer to the inverter structure.
  */
-static void running_handler(InverterOperation *inv);
+static void running_handler(inverterStruct *inv);
 
 /**
  * @brief FSM state handler for the fault state.
  *
- * This function handles the actions and transitions for the fault state of the inverter operation.
+ * This function handles the actions and transitions for the fault state of the inverter.
  *
- * @param inv Pointer to the inverter operation structure.
+ * @param inv Pointer to the inverter structure.
  */
-static void fault_handler(InverterOperation *inv);
+static void fault_handler(inverterStruct *inv);
 
 /**
- * @brief Initialize the inverter operation.
+ * @brief Execute the finite state machine for inverter.
  *
- * This function initializes the inverter operation structure with the specified LED, GPIO port, and pin.
+ * This function executes the finite state machine to control the inverter based on its current state.
  *
- * @param inv Pointer to the inverter operation structure.
- * @param led Pointer to the LED structure.
- * @param enable_port Pointer to the GPIO port for enabling/disabling the inverter.
- * @param enable_pin Pin number for enabling/disabling the inverter.
+ * @param inv Pointer to the inverter structure.
  */
-void inv_init(InverterOperation *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin) {
-    // Initialize inverter operation structure
-    inv->state = INV_STATE_STARTUP;
-    inv->led = led;
-    inv->enable_pin = enable_pin;
-    inv->enable_port = enable_port;
-    // Add initialization of other inverter-specific variables here
-}
-
-/**
- * @brief Execute the finite state machine for inverter operation.
- *
- * This function executes the finite state machine to control the inverter operation based on its current state.
- *
- * @param inv Pointer to the inverter operation structure.
- */
-void inv_FSM(InverterOperation *inv) {
+void inv_FSM(inverterStruct *inv) {
     switch (inv->state) {
         case INV_STATE_IDLE:
             idle_handler(inv);
@@ -104,11 +85,11 @@ void inv_FSM(InverterOperation *inv) {
 /**
  * @brief FSM state handler for the idle state.
  *
- * This function handles the actions and transitions for the idle state of the inverter operation.
+ * This function handles the actions and transitions for the idle state of the inverter.
  *
- * @param inv Pointer to the inverter operation structure.
+ * @param inv Pointer to the inverter structure.
  */
-static void idle_handler(InverterOperation *inv) {
+static void idle_handler(inverterStruct *inv) {
     // Perform actions required in idle state
     // Transition conditions to other states:
     // - Start startup sequence based on input condition
@@ -120,11 +101,11 @@ static void idle_handler(InverterOperation *inv) {
 /**
  * @brief FSM state handler for the startup state.
  *
- * This function handles the actions and transitions for the startup state of the inverter operation.
+ * This function handles the actions and transitions for the startup state of the inverter.
  *
- * @param inv Pointer to the inverter operation structure.
+ * @param inv Pointer to the inverter structure.
  */
-static void startup_handler(InverterOperation *inv) {
+static void startup_handler(inverterStruct *inv) {
     // Perform actions required in startup state
     // Transition conditions to other states:
     // - Transition to running state when startup sequence completes successfully
@@ -136,11 +117,11 @@ static void startup_handler(InverterOperation *inv) {
 /**
  * @brief FSM state handler for the running state.
  *
- * This function handles the actions and transitions for the running state of the inverter operation.
+ * This function handles the actions and transitions for the running state of the inverter.
  *
- * @param inv Pointer to the inverter operation structure.
+ * @param inv Pointer to the inverter structure.
  */
-static void running_handler(InverterOperation *inv) {
+static void running_handler(inverterStruct *inv) {
     // Perform actions required in running state
     // This is where the main control loop resides
     // Monitor inverter variables, adjust control parameters, etc.
@@ -153,11 +134,11 @@ static void running_handler(InverterOperation *inv) {
 /**
  * @brief FSM state handler for the fault state.
  *
- * This function handles the actions and transitions for the fault state of the inverter operation.
+ * This function handles the actions and transitions for the fault state of the inverter.
  *
- * @param inv Pointer to the inverter operation structure.
+ * @param inv Pointer to the inverter structure.
  */
-static void fault_handler(InverterOperation *inv) {
+static void fault_handler(inverterStruct *inv) {
     // Perform actions required in fault state
     // This could involve shutting down the inverter, logging error messages, etc.
     // Transition conditions to other states:

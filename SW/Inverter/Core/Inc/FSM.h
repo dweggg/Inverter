@@ -20,44 +20,13 @@
 #ifndef FSM_H
 #define FSM_H
 
-#include "stm32f7xx_hal.h"
-#include "PCB_IO.h"
-
-/**
- * @brief Enumeration of inverter operation states.
- */
-typedef enum {
-    INV_STATE_IDLE,    /**< Inverter idle state */
-    INV_STATE_STARTUP, /**< Inverter startup state */
-    INV_STATE_RUNNING, /**< Inverter running state */
-    INV_STATE_FAULT    /**< Inverter fault state */
-} InverterOperationState;
-
-/**
- * @brief Inverter operation structure.
- */
-typedef struct {
-    LED *led;                    /**< LED control struct */
-    GPIO_TypeDef *enable_port;  /**< GPIO port for enabling/disabling the inverter */
-    uint16_t enable_pin;        /**< Pin number for enabling/disabling the inverter */
-    InverterOperationState state; /**< Current state of the inverter operation */
-} InverterOperation;
-
-/**
- * @brief Initialize the inverter operation structure.
- *
- * @param inv Pointer to the inverter operation structure.
- * @param led Pointer to the LED control struct.
- * @param enable_port Pointer to the GPIO port for enabling/disabling the inverter.
- * @param enable_pin Pin number for enabling/disabling the inverter.
- */
-void inv_init(InverterOperation *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin);
+#include "INVERTER.h"
 
 /**
  * @brief Run the Finite State Machine (FSM) for inverter operation control.
  *
- * @param inv Pointer to the inverter operation structure.
+ * @param inv Pointer to the inverter structure.
  */
-void inv_FSM(InverterOperation *inv);
+void inv_FSM(inverterStruct *inv);
 
 #endif /* FSM_H */

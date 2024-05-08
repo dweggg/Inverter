@@ -26,6 +26,7 @@
 #include "MEASUREMENTS.h"
 #include "PWM.h"
 #include "CONTROL.h"
+#include "INVERTER.h"
 
 /* USER CODE END Includes */
 
@@ -247,11 +248,12 @@ void TIM1_UP_TIM10_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
 
-  getADCelec(ADC_LEFT_raw, &encoder_LEFT, &measurements_LEFT);
+  getADCelec(invLeft.ADC_raw, &invLeft.measurements);
 
-  control(valfa_L, vbeta_L, &measurements_LEFT, &duties_LEFT);
+  control(valfa_L, vbeta_L, invLeft.measurements, &invLeft.duties);
 
-  set_PWM(&htim1, &duties_LEFT);
+  set_PWM(invLeft.htim, invLeft.duties);
+
   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }
 

@@ -26,23 +26,28 @@
  *
  * @param htim Pointer to the TIM_HandleTypeDef structure.
  */
-void enable_PWM(TIM_HandleTypeDef *htim, Duties *duties) {
+void enable_PWM(TIM_HandleTypeDef *htim) {
 
-//	//Reset the counter
+//	Reset the counter
 //	htim->Instance->CNT=0;
-//
 	htim->Instance->CCMR1 = 0x6868; // Set Channel 1 and Channel 2 Output Compare mode to PWM Mode
-//
-//	//	htim1.Instance->CCER = 0x888;
+
+//	htim1.Instance->CCER = 0x888;
 	htim->Instance->CCER = 0x10555;
-//
-//	//Enable Main Output
+
+//	Enable Main Output
 	htim->Instance->BDTR |=(1<<15);
-//
-//	//Enable Counter
+
+//	Enable Counter
 	htim->Instance->CR1 |=1;
 
-    set_PWM(htim, duties);
+
+//	Duties duties;
+//	duties.Da = 0.5;
+//	duties.Db = 0.5;
+//	duties.Dc = 0.5;
+//
+//    set_PWM(htim, duties);
 }
 
 /**
@@ -82,15 +87,15 @@ void Compare3F_calc(TIM_HandleTypeDef *htim, Compare3F_struct *v)
  * This function sets the duty cycles for the PWM channels.
  *
  * @param htim Pointer to the TIM_HandleTypeDef structure.
- * @param duties Pointer to the Duties structure containing duty cycle values.
+ * @param duties Duties structure containing duty cycle values.
  */
-void set_PWM(TIM_HandleTypeDef *htim, Duties *duties) {
+void set_PWM(TIM_HandleTypeDef *htim, Duties duties) {
 
-	Compare3F_struct Compare = COMPARE3F_DEFAULTS;
+	Compare3F_struct Compare = {0};
 
-	Compare.alfaA = 1.0F - duties->Da;
-	Compare.alfaB = 1.0F - duties->Db;
-	Compare.alfaC = 1.0F - duties->Dc;
+	Compare.alfaA = 1.0F - duties.Da;
+	Compare.alfaB = 1.0F - duties.Db;
+	Compare.alfaC = 1.0F - duties.Dc;
 
 
 	Compare3F_calc(htim, &Compare);

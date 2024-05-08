@@ -29,11 +29,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "FSM.h"
-#include "MEASUREMENTS.h"
-#include "PCB_IO.h"
+#include "FSM.h" // main.c needs the inv_FSM() function
 #include "CONTROL.h"
-
+#include "INVERTER.h" // main.c needs the inv_init() function
 
 /* USER CODE END Includes */
 
@@ -56,12 +54,6 @@
 
 /* USER CODE BEGIN PV */
 
-extern ADC_HandleTypeDef hadc2; // ADC 2 LEFT
-extern ADC_HandleTypeDef hadc1; // ADC 1 RIGHT
-
-extern TIM_HandleTypeDef htim1; // TIM 1 LEFT
-extern TIM_HandleTypeDef htim8; // TIM 8 RIGHT
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -72,12 +64,6 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
-// Initialize left and right inverters
-
-InverterOperation invLeft = {0};
-
-InverterOperation invRight = {0};
 
 /* USER CODE END 0 */
 
@@ -125,18 +111,12 @@ int main(void)
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
-  HAL_TIM_Base_Start_IT(&htim1);
-//	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_BREAK);	  /* Enable the TIM Break interrupt */
+  // Create inverter structures and assign the peripherals
+  inv_init(&invLeft, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
+  inv_init(&invRight, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
 
+  // 1ms timer
   HAL_TIM_Base_Start_IT(&htim6);
-
-  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC_LEFT_raw,4);
-
-  inv_init(&invLeft, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin);
-  inv_init(&invRight, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin);
-
-
-  enable_PWM(&htim1, &duties_LEFT);
 
   /* USER CODE END 2 */
 

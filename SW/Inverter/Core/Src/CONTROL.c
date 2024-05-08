@@ -5,12 +5,8 @@
  * @brief Source file for control logic.
  */
 
-// Initialize duties for the left and right sides
-Duties duties_LEFT = {0.5f, 0.5f, 0.5f}; /**< Duties for the left side */
-Duties duties_RIGHT = {0.5f, 0.5f, 0.5f}; /**< Duties for the right side */
-
-volatile float valfa_L = -0.2F;
-volatile float vbeta_L = 0.2F;
+float valfa_L = -0.2F;
+float vbeta_L = 0.2F;
 
 
 /**
@@ -19,10 +15,10 @@ volatile float vbeta_L = 0.2F;
  * This function implements the control logic based on measurements.
  * For now, it sets a constant duty cycle.
  *
- * @param measurements Pointer to the measurements structure.
+ * @param measurements Measurements structure.
  * @param duties Pointer to the duties structure.
  */
-void control(volatile float valfa, volatile float vbeta, Measurements *measurements, Duties *duties) {
+void control(float valfa, float vbeta, Measurements measurements, volatile Duties *duties) {
 
 
 	static svpwm_struct svpwm;
@@ -38,8 +34,5 @@ void control(volatile float valfa, volatile float vbeta, Measurements *measureme
     duties->Da = svpwm.Ta;
     duties->Db = svpwm.Tb;
     duties->Dc = svpwm.Tc;
-//    duties->Da = 0.5F;
-//    duties->Db = 0.5F;
-//    duties->Dc = 0.5F;
 
 }
