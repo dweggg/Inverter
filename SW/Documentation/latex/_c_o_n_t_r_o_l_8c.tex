@@ -1,0 +1,86 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Src/\+CONTROL.c File Reference}
+\hypertarget{_c_o_n_t_r_o_l_8c}{}\label{_c_o_n_t_r_o_l_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c}}
+
+
+Source file for control logic.  
+
+
+{\ttfamily \#include "{}CONTROL.\+h"{}}\newline
+Include dependency graph for CONTROL.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_c_o_n_t_r_o_l_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3}{control}} (float valfa, float vbeta, \mbox{\hyperlink{struct_measurements}{Measurements}} measurements, volatile \mbox{\hyperlink{struct_duties}{Duties}} \texorpdfstring{$\ast$}{*}duties)
+\begin{DoxyCompactList}\small\item\em Control function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{_c_o_n_t_r_o_l_8c_aefe6cb8481b445384065a5509d50a266}{valfa\+\_\+L}} = -\/0.\+2F
+\item 
+float \mbox{\hyperlink{_c_o_n_t_r_o_l_8c_aca12ad290c0898ce5285c387c96aa437}{vbeta\+\_\+L}} = 0.\+2F
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Source file for control logic. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3}\label{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3} 
+\index{CONTROL.c@{CONTROL.c}!control@{control}}
+\index{control@{control}!CONTROL.c@{CONTROL.c}}
+\doxysubsubsection{\texorpdfstring{control()}{control()}}
+{\footnotesize\ttfamily void control (\begin{DoxyParamCaption}\item[{float}]{valfa,  }\item[{float}]{vbeta,  }\item[{\mbox{\hyperlink{struct_measurements}{Measurements}}}]{measurements,  }\item[{volatile \mbox{\hyperlink{struct_duties}{Duties}} \texorpdfstring{$\ast$}{*}}]{duties }\end{DoxyParamCaption})}
+
+
+
+Control function. 
+
+This function implements the control logic based on measurements. For now, it sets a constant duty cycle.
+
+
+\begin{DoxyParams}{Parameters}
+{\em measurements} & \doxylink{struct_measurements}{Measurements} structure. \\
+\hline
+{\em duties} & Pointer to the duties structure. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=230pt]{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=303pt]{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_c_o_n_t_r_o_l_8c_aefe6cb8481b445384065a5509d50a266}\label{_c_o_n_t_r_o_l_8c_aefe6cb8481b445384065a5509d50a266} 
+\index{CONTROL.c@{CONTROL.c}!valfa\_L@{valfa\_L}}
+\index{valfa\_L@{valfa\_L}!CONTROL.c@{CONTROL.c}}
+\doxysubsubsection{\texorpdfstring{valfa\_L}{valfa\_L}}
+{\footnotesize\ttfamily float valfa\+\_\+L = -\/0.\+2F}
+
+\Hypertarget{_c_o_n_t_r_o_l_8c_aca12ad290c0898ce5285c387c96aa437}\label{_c_o_n_t_r_o_l_8c_aca12ad290c0898ce5285c387c96aa437} 
+\index{CONTROL.c@{CONTROL.c}!vbeta\_L@{vbeta\_L}}
+\index{vbeta\_L@{vbeta\_L}!CONTROL.c@{CONTROL.c}}
+\doxysubsubsection{\texorpdfstring{vbeta\_L}{vbeta\_L}}
+{\footnotesize\ttfamily float vbeta\+\_\+L = 0.\+2F}
+

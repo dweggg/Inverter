@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="14638292694123764552">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\INVERTER.h" line="23" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="30" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\Pergamon_float.h" line="25" column="0"/>
+        </error>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:30:6" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c" line="66" col="13" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c:29:13" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c" line="97" col="5" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c:38:13" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c" line="113" col="5" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c:47:13" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c" line="130" col="5" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c:56:13" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c" line="147" col="5" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:30:6" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/FSM.c" line="66" col="13" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="inv_FSM" lineNumber="65"/>
+    <functiondecl functionName="idle_handler" lineNumber="92"/>
+    <functiondecl functionName="startup_handler" lineNumber="108"/>
+    <functiondecl functionName="running_handler" lineNumber="124"/>
+    <functiondecl functionName="fault_handler" lineNumber="141"/>
+    <functioncall functionName="GPIO_PIN_RESET"/>
+    <functioncall functionName="GPIO_PIN_SET"/>
+    <functioncall functionName="HAL_GPIO_WritePin"/>
+    <functioncall functionName="LED_MODE_BLINK_FAST"/>
+    <functioncall functionName="LED_MODE_BLINK_SLOW"/>
+    <functioncall functionName="LED_MODE_OFF"/>
+    <functioncall functionName="LED_MODE_ON"/>
+    <functioncall functionName="fault_handler"/>
+    <functioncall functionName="idle_handler"/>
+    <functioncall functionName="running_handler"/>
+    <functioncall functionName="startup_handler"/>
+  </FileInfo>
+</analyzerinfo>

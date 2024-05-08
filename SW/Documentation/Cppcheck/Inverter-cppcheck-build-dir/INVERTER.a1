@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="10090115244182150323">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\INVERTER.h" line="23" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="30" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\Pergamon_float.h" line="25" column="0"/>
+        </error>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/INVERTER.h:72:6" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c" line="44" col="5" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="inv_init" lineNumber="42"/>
+    <functioncall functionName="HAL_ADC_Start_DMA"/>
+    <functioncall functionName="HAL_TIM_Base_Start_IT"/>
+    <functioncall functionName="INV_STATE_STARTUP"/>
+    <functioncall functionName="enable_PWM"/>
+  </FileInfo>
+</analyzerinfo>

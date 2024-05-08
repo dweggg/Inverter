@@ -6,35 +6,21 @@ This file provides functions for handling measurements.
 
 
 {\ttfamily \#include "{}MEASUREMENTS.\+h"{}}\newline
-Include dependency graph for MEASUREMENTS.\+c\+:\nopagebreak
+Include dependency graph for MEASUREMENTS.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=242pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8c__incl}
+\includegraphics[width=231pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8c_af863b06b7db1fa9e67bc5a923bd1222c}{get\+ADCelec}} (volatile uint32\+\_\+t \texorpdfstring{$\ast$}{*}ADC\+\_\+raw, volatile \mbox{\hyperlink{struct_encoder}{Encoder}} \texorpdfstring{$\ast$}{*}encoder, volatile \mbox{\hyperlink{struct_measurements}{Measurements}} \texorpdfstring{$\ast$}{*}measurements)
+uint8\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a7f9aa1fe4be967abd635c06bb7e98616}{get\+ADCelec}} (volatile uint32\+\_\+t \texorpdfstring{$\ast$}{*}ADC\+\_\+raw, volatile \mbox{\hyperlink{struct_measurements}{Measurements}} \texorpdfstring{$\ast$}{*}measurements)
 \begin{DoxyCompactList}\small\item\em Get electrical ADC measurements. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8c_abcf257592e55cf0a5b03994ea60d12f7}{get\+Linear}} (uint32\+\_\+t bits, float slope, float offset)
 \begin{DoxyCompactList}\small\item\em Convert ADC reading to physical measurement with linear response. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-volatile uint32\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8c_ae65626ff1d39c3c3678730e11078d672}{ADC\+\_\+\+LEFT\+\_\+raw}} \mbox{[}4\mbox{]} = \{0\}
-\begin{DoxyCompactList}\small\item\em Raw ADC readings for the left inverter. \end{DoxyCompactList}\item 
-volatile uint32\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a68ae0f510e58a3691e454b5cfc2cc220}{ADC\+\_\+\+RIGHT\+\_\+raw}} \mbox{[}4\mbox{]} = \{0\}
-\begin{DoxyCompactList}\small\item\em Raw ADC readings for the right inverter. \end{DoxyCompactList}\item 
-volatile \mbox{\hyperlink{struct_encoder}{Encoder}} \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8c_aab8025633e92b3425949150a818e9e4d}{encoder\+\_\+\+LEFT}} = \{0\}
-\begin{DoxyCompactList}\small\item\em \doxylink{struct_encoder}{Encoder} data for the left inverter. \end{DoxyCompactList}\item 
-volatile \mbox{\hyperlink{struct_encoder}{Encoder}} \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8c_aa96c55c34804d73fe8544e7a0ec16862}{encoder\+\_\+\+RIGHT}} = \{0\}
-\begin{DoxyCompactList}\small\item\em \doxylink{struct_encoder}{Encoder} data for the right inverter. \end{DoxyCompactList}\item 
-volatile \mbox{\hyperlink{struct_measurements}{Measurements}} \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a497a494e0b1693481bf070a893709108}{measurements\+\_\+\+LEFT}} = \{0\}
-\begin{DoxyCompactList}\small\item\em \doxylink{struct_measurements}{Measurements} data for the left inverter. \end{DoxyCompactList}\item 
-volatile \mbox{\hyperlink{struct_measurements}{Measurements}} \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a69bcc992cd36895116ab849412f7f419}{measurements\+\_\+\+RIGHT}} = \{0\}
-\begin{DoxyCompactList}\small\item\em \doxylink{struct_measurements}{Measurements} data for the right inverter. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -48,11 +34,11 @@ Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
 This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8c_af863b06b7db1fa9e67bc5a923bd1222c}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8c_af863b06b7db1fa9e67bc5a923bd1222c} 
+\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a7f9aa1fe4be967abd635c06bb7e98616}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a7f9aa1fe4be967abd635c06bb7e98616} 
 \index{MEASUREMENTS.c@{MEASUREMENTS.c}!getADCelec@{getADCelec}}
 \index{getADCelec@{getADCelec}!MEASUREMENTS.c@{MEASUREMENTS.c}}
 \doxysubsubsection{\texorpdfstring{getADCelec()}{getADCelec()}}
-{\footnotesize\ttfamily uint8\+\_\+t get\+ADCelec (\begin{DoxyParamCaption}\item[{volatile uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{ADC\+\_\+raw,  }\item[{volatile \mbox{\hyperlink{struct_encoder}{Encoder}} \texorpdfstring{$\ast$}{*}}]{encoder,  }\item[{volatile \mbox{\hyperlink{struct_measurements}{Measurements}} \texorpdfstring{$\ast$}{*}}]{measurements }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily uint8\+\_\+t get\+ADCelec (\begin{DoxyParamCaption}\item[{volatile uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{ADC\+\_\+raw,  }\item[{volatile \mbox{\hyperlink{struct_measurements}{Measurements}} \texorpdfstring{$\ast$}{*}}]{measurements }\end{DoxyParamCaption})}
 
 
 
@@ -62,8 +48,6 @@ Get electrical ADC measurements.
 \begin{DoxyParams}{Parameters}
 {\em ADC\+\_\+raw} & Pointer to the raw ADC values array. \\
 \hline
-{\em encoder} & Pointer to the encoder struct. \\
-\hline
 {\em measurements} & Pointer to the measurements struct to store the results. \\
 \hline
 \end{DoxyParams}
@@ -72,18 +56,20 @@ Get electrical ADC measurements.
 {\em OK} & 0 if an error occurred, 1 if successful. \\
 \hline
 \end{DoxyRetVals}
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=240pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8c_af863b06b7db1fa9e67bc5a923bd1222c_cgraph}
+\includegraphics[width=240pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a7f9aa1fe4be967abd635c06bb7e98616_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=326pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8c_af863b06b7db1fa9e67bc5a923bd1222c_icgraph}
+\includegraphics[width=326pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a7f9aa1fe4be967abd635c06bb7e98616_icgraph}
 \end{center}
 \end{figure}
 \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8c_abcf257592e55cf0a5b03994ea60d12f7}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8c_abcf257592e55cf0a5b03994ea60d12f7} 
@@ -110,73 +96,11 @@ Convert ADC reading to physical measurement with linear response.
 {\em measurement} & The physical measurement. \\
 \hline
 \end{DoxyRetVals}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8c_abcf257592e55cf0a5b03994ea60d12f7_icgraph}
 \end{center}
 \end{figure}
-
-
-\doxysubsection{Variable Documentation}
-\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8c_ae65626ff1d39c3c3678730e11078d672}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8c_ae65626ff1d39c3c3678730e11078d672} 
-\index{MEASUREMENTS.c@{MEASUREMENTS.c}!ADC\_LEFT\_raw@{ADC\_LEFT\_raw}}
-\index{ADC\_LEFT\_raw@{ADC\_LEFT\_raw}!MEASUREMENTS.c@{MEASUREMENTS.c}}
-\doxysubsubsection{\texorpdfstring{ADC\_LEFT\_raw}{ADC\_LEFT\_raw}}
-{\footnotesize\ttfamily volatile uint32\+\_\+t ADC\+\_\+\+LEFT\+\_\+raw\mbox{[}4\mbox{]} = \{0\}}
-
-
-
-Raw ADC readings for the left inverter. 
-
-\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a68ae0f510e58a3691e454b5cfc2cc220}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a68ae0f510e58a3691e454b5cfc2cc220} 
-\index{MEASUREMENTS.c@{MEASUREMENTS.c}!ADC\_RIGHT\_raw@{ADC\_RIGHT\_raw}}
-\index{ADC\_RIGHT\_raw@{ADC\_RIGHT\_raw}!MEASUREMENTS.c@{MEASUREMENTS.c}}
-\doxysubsubsection{\texorpdfstring{ADC\_RIGHT\_raw}{ADC\_RIGHT\_raw}}
-{\footnotesize\ttfamily volatile uint32\+\_\+t ADC\+\_\+\+RIGHT\+\_\+raw\mbox{[}4\mbox{]} = \{0\}}
-
-
-
-Raw ADC readings for the right inverter. 
-
-\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8c_aab8025633e92b3425949150a818e9e4d}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8c_aab8025633e92b3425949150a818e9e4d} 
-\index{MEASUREMENTS.c@{MEASUREMENTS.c}!encoder\_LEFT@{encoder\_LEFT}}
-\index{encoder\_LEFT@{encoder\_LEFT}!MEASUREMENTS.c@{MEASUREMENTS.c}}
-\doxysubsubsection{\texorpdfstring{encoder\_LEFT}{encoder\_LEFT}}
-{\footnotesize\ttfamily volatile \mbox{\hyperlink{struct_encoder}{Encoder}} encoder\+\_\+\+LEFT = \{0\}}
-
-
-
-\doxylink{struct_encoder}{Encoder} data for the left inverter. 
-
-\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8c_aa96c55c34804d73fe8544e7a0ec16862}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8c_aa96c55c34804d73fe8544e7a0ec16862} 
-\index{MEASUREMENTS.c@{MEASUREMENTS.c}!encoder\_RIGHT@{encoder\_RIGHT}}
-\index{encoder\_RIGHT@{encoder\_RIGHT}!MEASUREMENTS.c@{MEASUREMENTS.c}}
-\doxysubsubsection{\texorpdfstring{encoder\_RIGHT}{encoder\_RIGHT}}
-{\footnotesize\ttfamily volatile \mbox{\hyperlink{struct_encoder}{Encoder}} encoder\+\_\+\+RIGHT = \{0\}}
-
-
-
-\doxylink{struct_encoder}{Encoder} data for the right inverter. 
-
-\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a497a494e0b1693481bf070a893709108}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a497a494e0b1693481bf070a893709108} 
-\index{MEASUREMENTS.c@{MEASUREMENTS.c}!measurements\_LEFT@{measurements\_LEFT}}
-\index{measurements\_LEFT@{measurements\_LEFT}!MEASUREMENTS.c@{MEASUREMENTS.c}}
-\doxysubsubsection{\texorpdfstring{measurements\_LEFT}{measurements\_LEFT}}
-{\footnotesize\ttfamily volatile \mbox{\hyperlink{struct_measurements}{Measurements}} measurements\+\_\+\+LEFT = \{0\}}
-
-
-
-\doxylink{struct_measurements}{Measurements} data for the left inverter. 
-
-\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a69bcc992cd36895116ab849412f7f419}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8c_a69bcc992cd36895116ab849412f7f419} 
-\index{MEASUREMENTS.c@{MEASUREMENTS.c}!measurements\_RIGHT@{measurements\_RIGHT}}
-\index{measurements\_RIGHT@{measurements\_RIGHT}!MEASUREMENTS.c@{MEASUREMENTS.c}}
-\doxysubsubsection{\texorpdfstring{measurements\_RIGHT}{measurements\_RIGHT}}
-{\footnotesize\ttfamily volatile \mbox{\hyperlink{struct_measurements}{Measurements}} measurements\+\_\+\+RIGHT = \{0\}}
-
-
-
-\doxylink{struct_measurements}{Measurements} data for the right inverter. 
-

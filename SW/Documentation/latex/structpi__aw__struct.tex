@@ -2,6 +2,11 @@
 \hypertarget{structpi__aw__struct}{}\label{structpi__aw__struct}\index{pi\_aw\_struct@{pi\_aw\_struct}}
 
 
+PI Controller with internal saturation, anti-\/windup, and feedforward.  
+
+
+
+
 {\ttfamily \#include $<$Pergamon\+\_\+float.\+h$>$}
 
 \doxysubsubsection*{Data Fields}
@@ -41,6 +46,9 @@ void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structpi__aw__struct_aa2e607744
 \end{DoxyCompactItemize}
 
 
+\doxysubsection{Detailed Description}
+PI Controller with internal saturation, anti-\/windup, and feedforward. 
+
 \doxysubsection{Field Documentation}
 \Hypertarget{structpi__aw__struct_aa2e607744fefe17f425d4f666a7b7411}\label{structpi__aw__struct_aa2e607744fefe17f425d4f666a7b7411} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!calc@{calc}}
@@ -48,97 +56,97 @@ void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structpi__aw__struct_aa2e607744
 \doxysubsubsection{\texorpdfstring{calc}{calc}}
 {\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} calc) ()}
 
-\Hypertarget{structpi__aw__struct_ade0eeaad7669910d2e1a5d2d48e0e139}\label{structpi__aw__struct_ade0eeaad7669910d2e1a5d2d48e0e139} 
+Pointer to the calculation function \Hypertarget{structpi__aw__struct_ade0eeaad7669910d2e1a5d2d48e0e139}\label{structpi__aw__struct_ade0eeaad7669910d2e1a5d2d48e0e139} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!e@{e}}
 \index{e@{e}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{e}{e}}
 {\footnotesize\ttfamily float e\mbox{[}2\mbox{]}}
 
-\Hypertarget{structpi__aw__struct_a34328763a613d9a32ef986db8e14cbbd}\label{structpi__aw__struct_a34328763a613d9a32ef986db8e14cbbd} 
+Error at current and previous step \Hypertarget{structpi__aw__struct_a34328763a613d9a32ef986db8e14cbbd}\label{structpi__aw__struct_a34328763a613d9a32ef986db8e14cbbd} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!enable@{enable}}
 \index{enable@{enable}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{enable}{enable}}
 {\footnotesize\ttfamily uint16\+\_\+t enable}
 
-\Hypertarget{structpi__aw__struct_aeb9bfc42b0f082520a2c5a8c6da40620}\label{structpi__aw__struct_aeb9bfc42b0f082520a2c5a8c6da40620} 
+Enable flag for the controller \Hypertarget{structpi__aw__struct_aeb9bfc42b0f082520a2c5a8c6da40620}\label{structpi__aw__struct_aeb9bfc42b0f082520a2c5a8c6da40620} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!Kaw@{Kaw}}
 \index{Kaw@{Kaw}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{Kaw}{Kaw}}
 {\footnotesize\ttfamily float Kaw}
 
-\Hypertarget{structpi__aw__struct_a59fac16f568541187ff485c4c47b0ec5}\label{structpi__aw__struct_a59fac16f568541187ff485c4c47b0ec5} 
+Anti-\/windup gain \Hypertarget{structpi__aw__struct_a59fac16f568541187ff485c4c47b0ec5}\label{structpi__aw__struct_a59fac16f568541187ff485c4c47b0ec5} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!Ki@{Ki}}
 \index{Ki@{Ki}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{Ki}{Ki}}
 {\footnotesize\ttfamily float Ki}
 
-\Hypertarget{structpi__aw__struct_a09cfc766a233ad617270562cc4146d07}\label{structpi__aw__struct_a09cfc766a233ad617270562cc4146d07} 
+Integral gain \Hypertarget{structpi__aw__struct_a09cfc766a233ad617270562cc4146d07}\label{structpi__aw__struct_a09cfc766a233ad617270562cc4146d07} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!Kp@{Kp}}
 \index{Kp@{Kp}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{Kp}{Kp}}
 {\footnotesize\ttfamily float Kp}
 
-\Hypertarget{structpi__aw__struct_a7bd784d892e05d7b08fbb7284bfb7945}\label{structpi__aw__struct_a7bd784d892e05d7b08fbb7284bfb7945} 
+Proportional gain \Hypertarget{structpi__aw__struct_a7bd784d892e05d7b08fbb7284bfb7945}\label{structpi__aw__struct_a7bd784d892e05d7b08fbb7284bfb7945} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!pi\_consig@{pi\_consig}}
 \index{pi\_consig@{pi\_consig}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{pi\_consig}{pi\_consig}}
 {\footnotesize\ttfamily float pi\+\_\+consig}
 
-\Hypertarget{structpi__aw__struct_a1fff0ec006714e34b8320143dd6e5926}\label{structpi__aw__struct_a1fff0ec006714e34b8320143dd6e5926} 
+Setpoint \Hypertarget{structpi__aw__struct_a1fff0ec006714e34b8320143dd6e5926}\label{structpi__aw__struct_a1fff0ec006714e34b8320143dd6e5926} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!pi\_fdb@{pi\_fdb}}
 \index{pi\_fdb@{pi\_fdb}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{pi\_fdb}{pi\_fdb}}
 {\footnotesize\ttfamily float pi\+\_\+fdb}
 
-\Hypertarget{structpi__aw__struct_a34e8c28a21eef4dcab50c5646d888d47}\label{structpi__aw__struct_a34e8c28a21eef4dcab50c5646d888d47} 
+Feedback \Hypertarget{structpi__aw__struct_a34e8c28a21eef4dcab50c5646d888d47}\label{structpi__aw__struct_a34e8c28a21eef4dcab50c5646d888d47} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!pi\_ffw@{pi\_ffw}}
 \index{pi\_ffw@{pi\_ffw}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{pi\_ffw}{pi\_ffw}}
 {\footnotesize\ttfamily float pi\+\_\+ffw\mbox{[}2\mbox{]}}
 
-\Hypertarget{structpi__aw__struct_a71f26437df8f125fbea97dc0f0bf0184}\label{structpi__aw__struct_a71f26437df8f125fbea97dc0f0bf0184} 
+Feedforward at current and previous step \Hypertarget{structpi__aw__struct_a71f26437df8f125fbea97dc0f0bf0184}\label{structpi__aw__struct_a71f26437df8f125fbea97dc0f0bf0184} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!pi\_int@{pi\_int}}
 \index{pi\_int@{pi\_int}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{pi\_int}{pi\_int}}
 {\footnotesize\ttfamily float pi\+\_\+int\mbox{[}2\mbox{]}}
 
-\Hypertarget{structpi__aw__struct_a276577ad33c35df831f53f8ad9a9c084}\label{structpi__aw__struct_a276577ad33c35df831f53f8ad9a9c084} 
+Integrator Part \Hypertarget{structpi__aw__struct_a276577ad33c35df831f53f8ad9a9c084}\label{structpi__aw__struct_a276577ad33c35df831f53f8ad9a9c084} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!pi\_out@{pi\_out}}
 \index{pi\_out@{pi\_out}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{pi\_out}{pi\_out}}
 {\footnotesize\ttfamily float pi\+\_\+out}
 
-\Hypertarget{structpi__aw__struct_a9e452af61f2565ec1ea9f588ba05bab8}\label{structpi__aw__struct_a9e452af61f2565ec1ea9f588ba05bab8} 
+Controller output \Hypertarget{structpi__aw__struct_a9e452af61f2565ec1ea9f588ba05bab8}\label{structpi__aw__struct_a9e452af61f2565ec1ea9f588ba05bab8} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!pi\_out\_max@{pi\_out\_max}}
 \index{pi\_out\_max@{pi\_out\_max}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{pi\_out\_max}{pi\_out\_max}}
 {\footnotesize\ttfamily float pi\+\_\+out\+\_\+max}
 
-\Hypertarget{structpi__aw__struct_af59186c1e2e1d4839ffd24ace57bf0c9}\label{structpi__aw__struct_af59186c1e2e1d4839ffd24ace57bf0c9} 
+Maximum output \Hypertarget{structpi__aw__struct_af59186c1e2e1d4839ffd24ace57bf0c9}\label{structpi__aw__struct_af59186c1e2e1d4839ffd24ace57bf0c9} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!pi\_out\_min@{pi\_out\_min}}
 \index{pi\_out\_min@{pi\_out\_min}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{pi\_out\_min}{pi\_out\_min}}
 {\footnotesize\ttfamily float pi\+\_\+out\+\_\+min}
 
-\Hypertarget{structpi__aw__struct_ae5c130007df2497e0d55659aa4f40803}\label{structpi__aw__struct_ae5c130007df2497e0d55659aa4f40803} 
+Minimum output \Hypertarget{structpi__aw__struct_ae5c130007df2497e0d55659aa4f40803}\label{structpi__aw__struct_ae5c130007df2497e0d55659aa4f40803} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!pi\_out\_postsat@{pi\_out\_postsat}}
 \index{pi\_out\_postsat@{pi\_out\_postsat}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{pi\_out\_postsat}{pi\_out\_postsat}}
 {\footnotesize\ttfamily float pi\+\_\+out\+\_\+postsat}
 
-\Hypertarget{structpi__aw__struct_adbbdb52a2ed9dad1d0e806acf7877cb6}\label{structpi__aw__struct_adbbdb52a2ed9dad1d0e806acf7877cb6} 
+Output after saturation \Hypertarget{structpi__aw__struct_adbbdb52a2ed9dad1d0e806acf7877cb6}\label{structpi__aw__struct_adbbdb52a2ed9dad1d0e806acf7877cb6} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!pi\_out\_presat@{pi\_out\_presat}}
 \index{pi\_out\_presat@{pi\_out\_presat}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{pi\_out\_presat}{pi\_out\_presat}}
 {\footnotesize\ttfamily float pi\+\_\+out\+\_\+presat}
 
-\Hypertarget{structpi__aw__struct_ae404d1d1555eede4ef92c630399e0566}\label{structpi__aw__struct_ae404d1d1555eede4ef92c630399e0566} 
+Output before saturation \Hypertarget{structpi__aw__struct_ae404d1d1555eede4ef92c630399e0566}\label{structpi__aw__struct_ae404d1d1555eede4ef92c630399e0566} 
 \index{pi\_aw\_struct@{pi\_aw\_struct}!Ts@{Ts}}
 \index{Ts@{Ts}!pi\_aw\_struct@{pi\_aw\_struct}}
 \doxysubsubsection{\texorpdfstring{Ts}{Ts}}
 {\footnotesize\ttfamily float Ts}
 
-
+Execution period 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

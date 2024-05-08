@@ -1,0 +1,115 @@
+\doxysection{inverter\+Struct Struct Reference}
+\hypertarget{structinverter_struct}{}\label{structinverter_struct}\index{inverterStruct@{inverterStruct}}
+
+
+Inverter structure.  
+
+
+
+
+{\ttfamily \#include $<$INVERTER.\+h$>$}
+
+
+
+Collaboration diagram for inverter\+Struct\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structinverter_struct__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structinverter_struct_ae6ddb8a94132877213fb3b58d9f25f97}{led}}
+\item 
+GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structinverter_struct_a36576b0f8a7daf14976aa2231602b0a7}{enable\+\_\+port}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{structinverter_struct_ab92945770bc3cbcd703dd87682c7ee6e}{enable\+\_\+pin}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structinverter_struct_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}}
+\item 
+ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structinverter_struct_af982c0fe5d77061049c468b599100134}{hadc}}
+\item 
+\mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a8059a74ef735d3a56d3428e6e4e1ac80}{inverter\+State}} \mbox{\hyperlink{structinverter_struct_aa80d18c53362cd832311b39cbb9ab365}{state}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structinverter_struct_afd73db63ea47d6d367d8ead54d628770}{ADC\+\_\+raw}} \mbox{[}4\mbox{]}
+\item 
+\mbox{\hyperlink{struct_measurements}{Measurements}} \mbox{\hyperlink{structinverter_struct_a81ad2e5a631fb14dee3e955fea8b74c0}{measurements}}
+\item 
+\mbox{\hyperlink{struct_encoder}{Encoder}} \mbox{\hyperlink{structinverter_struct_a133a3017d675be921d0d7586eec7bb7c}{encoder}}
+\item 
+\mbox{\hyperlink{struct_duties}{Duties}} \mbox{\hyperlink{structinverter_struct_a88998233bb1ff2e5bc086febe6789332}{duties}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Inverter structure. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{structinverter_struct_afd73db63ea47d6d367d8ead54d628770}\label{structinverter_struct_afd73db63ea47d6d367d8ead54d628770} 
+\index{inverterStruct@{inverterStruct}!ADC\_raw@{ADC\_raw}}
+\index{ADC\_raw@{ADC\_raw}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{ADC\_raw}{ADC\_raw}}
+{\footnotesize\ttfamily uint32\+\_\+t ADC\+\_\+raw\mbox{[}4\mbox{]}}
+
+Raw ADC measurements \Hypertarget{structinverter_struct_a88998233bb1ff2e5bc086febe6789332}\label{structinverter_struct_a88998233bb1ff2e5bc086febe6789332} 
+\index{inverterStruct@{inverterStruct}!duties@{duties}}
+\index{duties@{duties}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{duties}{duties}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_duties}{Duties}} duties}
+
+Duty cycles for phase A,B,C \Hypertarget{structinverter_struct_ab92945770bc3cbcd703dd87682c7ee6e}\label{structinverter_struct_ab92945770bc3cbcd703dd87682c7ee6e} 
+\index{inverterStruct@{inverterStruct}!enable\_pin@{enable\_pin}}
+\index{enable\_pin@{enable\_pin}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{enable\_pin}{enable\_pin}}
+{\footnotesize\ttfamily uint16\+\_\+t enable\+\_\+pin}
+
+Pin number for enabling/disabling the inverter \Hypertarget{structinverter_struct_a36576b0f8a7daf14976aa2231602b0a7}\label{structinverter_struct_a36576b0f8a7daf14976aa2231602b0a7} 
+\index{inverterStruct@{inverterStruct}!enable\_port@{enable\_port}}
+\index{enable\_port@{enable\_port}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{enable\_port}{enable\_port}}
+{\footnotesize\ttfamily GPIO\+\_\+\+Type\+Def\texorpdfstring{$\ast$}{*} enable\+\_\+port}
+
+GPIO port for enabling/disabling the inverter \Hypertarget{structinverter_struct_a133a3017d675be921d0d7586eec7bb7c}\label{structinverter_struct_a133a3017d675be921d0d7586eec7bb7c} 
+\index{inverterStruct@{inverterStruct}!encoder@{encoder}}
+\index{encoder@{encoder}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{encoder}{encoder}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_encoder}{Encoder}} encoder}
+
+Electrical and mechanical angles and speeds \Hypertarget{structinverter_struct_af982c0fe5d77061049c468b599100134}\label{structinverter_struct_af982c0fe5d77061049c468b599100134} 
+\index{inverterStruct@{inverterStruct}!hadc@{hadc}}
+\index{hadc@{hadc}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{hadc}{hadc}}
+{\footnotesize\ttfamily ADC\+\_\+\+Handle\+Type\+Def\texorpdfstring{$\ast$}{*} hadc}
+
+Handle of the ADC peripheral for the current phase currents and DC voltage sensing \Hypertarget{structinverter_struct_a5dc7d1c65997ccaed48a93a3f4ffc486}\label{structinverter_struct_a5dc7d1c65997ccaed48a93a3f4ffc486} 
+\index{inverterStruct@{inverterStruct}!htim@{htim}}
+\index{htim@{htim}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{htim}{htim}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def\texorpdfstring{$\ast$}{*} htim}
+
+Handle of the timer peripheral for the PWM output \Hypertarget{structinverter_struct_ae6ddb8a94132877213fb3b58d9f25f97}\label{structinverter_struct_ae6ddb8a94132877213fb3b58d9f25f97} 
+\index{inverterStruct@{inverterStruct}!led@{led}}
+\index{led@{led}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{led}{led}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_l_e_d}{LED}}\texorpdfstring{$\ast$}{*} led}
+
+\doxylink{struct_l_e_d}{LED} control struct \Hypertarget{structinverter_struct_a81ad2e5a631fb14dee3e955fea8b74c0}\label{structinverter_struct_a81ad2e5a631fb14dee3e955fea8b74c0} 
+\index{inverterStruct@{inverterStruct}!measurements@{measurements}}
+\index{measurements@{measurements}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{measurements}{measurements}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_measurements}{Measurements}} measurements}
+
+Phase currents and DC voltage measurements \Hypertarget{structinverter_struct_aa80d18c53362cd832311b39cbb9ab365}\label{structinverter_struct_aa80d18c53362cd832311b39cbb9ab365} 
+\index{inverterStruct@{inverterStruct}!state@{state}}
+\index{state@{state}!inverterStruct@{inverterStruct}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a8059a74ef735d3a56d3428e6e4e1ac80}{inverter\+State}} state}
+
+Current state of the inverter operation 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h}{INVERTER.\+h}}\end{DoxyCompactItemize}

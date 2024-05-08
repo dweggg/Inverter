@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="8801533181819110343">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h:66:6" call-funcname="Compare3F_calc" call-argnr="2" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PWM.c" line="101" col="16" call-argexpr="&amp;Compare" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h:66:6" call-funcname="Compare3F_calc" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PWM.c" line="101" col="2" my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h:76:6" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h:41:6" my-argnr="1" my-argname="htim" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PWM.c" line="33" col="2" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h:50:6" my-argnr="1" my-argname="htim" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PWM.c" line="63" col="2" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h:66:6" my-argnr="1" my-argname="htim" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PWM.c" line="77" col="24" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h:66:6" my-argnr="2" my-argname="v" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PWM.c" line="77" col="2" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h:66:6" my-argnr="1" my-argname="htim" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PWM.c" line="77" col="24" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="enable_PWM" lineNumber="29"/>
+    <functiondecl functionName="disable_PWM" lineNumber="60"/>
+    <functiondecl functionName="Compare3F_calc" lineNumber="74"/>
+    <functiondecl functionName="set_PWM" lineNumber="92"/>
+    <functioncall functionName="Compare3F_calc"/>
+  </FileInfo>
+</analyzerinfo>

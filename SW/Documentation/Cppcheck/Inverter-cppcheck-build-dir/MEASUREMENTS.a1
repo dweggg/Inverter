@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="8570232330281158663">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="30" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;ADC_raw&apos; can be declared as pointer to const" verbose="Parameter &apos;ADC_raw&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\MEASUREMENTS.c" line="28" column="39" info="Parameter &apos;ADC_raw&apos; can be declared as pointer to const"/>
+            <symbol>ADC_raw</symbol>
+        </error>
+  <FileInfo check="Bounds checking">
+    <array-index>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:59:9" my-argnr="1" my-argname="ADC_raw" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="31" col="26" value="0"/>
+    </array-index>
+  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:59:9" my-argnr="1" my-argname="ADC_raw" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="31" col="26" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:59:9" my-argnr="2" my-argname="measurements" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="37" col="5" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:59:9" my-argnr="1" my-argname="ADC_raw" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="31" col="26" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="getADCelec" lineNumber="28"/>
+    <functiondecl functionName="getLinear" lineNumber="52"/>
+    <functioncall functionName="getLinear"/>
+  </FileInfo>
+</analyzerinfo>

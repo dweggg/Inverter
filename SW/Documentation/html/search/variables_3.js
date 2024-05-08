@@ -6,5 +6,6 @@ var searchData=
   ['db_3',['Db',['../struct_duties.html#a5525c1567871b8ea98e28f23237b607c',1,'Duties']]],
   ['dc_4',['Dc',['../struct_duties.html#a0572a22e71233008995e38736a5331ec',1,'Duties']]],
   ['decr_5',['Decr',['../structrampa__dual__struct.html#a32c558a869ee30980565f9a77c158190',1,'rampa_dual_struct']]],
-  ['dir_6',['DIR',['../struct_encoder.html#a58808c7e66b07b82b662e956b63f7e70',1,'Encoder']]]
+  ['dir_6',['DIR',['../struct_encoder.html#a58808c7e66b07b82b662e956b63f7e70',1,'Encoder']]],
+  ['duties_7',['duties',['../structinverter_struct.html#a88998233bb1ff2e5bc086febe6789332',1,'inverterStruct']]]
 ];

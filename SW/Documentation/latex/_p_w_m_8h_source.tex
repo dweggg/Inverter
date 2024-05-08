@@ -20,8 +20,23 @@
 \DoxyCodeLine{00042\ }
 \DoxyCodeLine{00050\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_w_m_8h_a3c092c698c1b5dbdbbadea058e7897ad}{disable\_PWM}}(TIM\_HandleTypeDef\ *htim);}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00060\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_w_m_8h_a3a0bf38f5fad780c5342083c6cfdba9e}{set\_PWM}}(TIM\_HandleTypeDef\ *htim,\ \mbox{\hyperlink{struct_duties}{Duties}}\ *duties);}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PWM\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct}}
+\DoxyCodeLine{00053\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_compare3_f__struct_a21c735cd09919291b1c673f117c54478}{alfaA}};\ \ \ \ \ \textcolor{comment}{//\ Alfa\ d'entrada,\ branca\ A,\ en\ PU}}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_compare3_f__struct_ac6bbfcf7d0f355a7e9065434187a9f92}{alfaB}};\ \ \ \ \ \textcolor{comment}{//\ Alfa\ d'entrada,\ branca\ B,\ en\ PU}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{float}\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_compare3_f__struct_aaf892b2a0d2fc860717a7fbceca9b8f3}{alfaC}};\ \ \ \ \ \textcolor{comment}{//\ Alfa\ d'entrada,\ branca\ C,\ en\ PU}}
+\DoxyCodeLine{00057\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_compare3_f__struct_a3ae1bb0da4a6ac03a5c948037d812813}{compA}};\ \ \ \ \ \textcolor{comment}{//\ Valor\ de\ sortida\ a\ aplicar\ al\ CompareA}}
+\DoxyCodeLine{00058\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_compare3_f__struct_a5e69ddd008b01c84e583140ee5f43f2c}{compB}};\ \ \ \ \ \textcolor{comment}{//\ Valor\ de\ sortida\ a\ aplicar\ al\ CompareB}}
+\DoxyCodeLine{00059\ \ \ \ \ uint32\_t\ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_compare3_f__struct_ac6c49d6a03cdf584d6ea6440ffc33cbe}{compC}};\ \ \ \ \ \textcolor{comment}{//\ Valor\ de\ sortida\ a\ aplicar\ al\ CompareC}}
+\DoxyCodeLine{00060\ \ \ \ \ void(*calc)();\ \ \ \ \ \ \textcolor{comment}{//\ Punter\ a\ la\ funcio\ per\ calcular\ 3\ Compares}}
+\DoxyCodeLine{00061\ \}\ \mbox{\hyperlink{struct_compare3_f__struct}{Compare3F\_struct}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_compare3_f__struct}{Compare3F\_struct}}\ \mbox{\hyperlink{_p_w_m_8h_a19778f604c730b8c6c0fbc7a88233dce}{compares\_LEFT}};\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_compare3_f__struct}{Compare3F\_struct}}\ \mbox{\hyperlink{_p_w_m_8h_a1334ce4fab1a6ea59b6811ca7cc6bb7d}{compares\_RIGHT}};\ }
+\DoxyCodeLine{00066\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_w_m_8h_a506e22f45734ecee8546a7f5fe781026}{Compare3F\_calc}}(TIM\_HandleTypeDef\ *htim,\ \mbox{\hyperlink{struct_compare3_f__struct}{Compare3F\_struct}}\ *v);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_w_m_8h_a7b3977d450548b394cc8ff93b5d3be35}{set\_PWM}}(TIM\_HandleTypeDef\ *htim,\ \mbox{\hyperlink{struct_duties}{Duties}}\ duties);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PWM\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

@@ -15,8 +15,8 @@
 {\ttfamily \#include "{}usb\+\_\+otg.\+h"{}}\newline
 {\ttfamily \#include "{}gpio.\+h"{}}\newline
 {\ttfamily \#include "{}FSM.\+h"{}}\newline
-{\ttfamily \#include "{}MEASUREMENTS.\+h"{}}\newline
-{\ttfamily \#include "{}PCB\+\_\+\+IO.\+h"{}}\newline
+{\ttfamily \#include "{}CONTROL.\+h"{}}\newline
+{\ttfamily \#include "{}INVERTER.\+h"{}}\newline
 Include dependency graph for main.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -34,21 +34,6 @@ int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
 \begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
 \begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-ADC\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_acd9221f1aa19aebfe0b744947f2daf49}{hadc2}}
-\item 
-ADC\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a22b804736f5648d52f639b2647d4ed13}{hadc1}}
-\item 
-TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
-\item 
-TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a5faa27108379f799afb6984010bf0384}{htim8}}
-\item 
-\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \mbox{\hyperlink{main_8c_a28b5aab450c14cf6e720f6dce774ccdf}{inv\+Left}} = \{0\}
-\item 
-\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \mbox{\hyperlink{main_8c_ae24b53a1b1a44a4e9ed946c982c55547}{inv\+Right}} = \{0\}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -142,42 +127,3 @@ Here is the caller graph for this function\+:\nopagebreak
 \includegraphics[width=260pt]{main_8c_a70af21c671abfcc773614a9a4f63d920_icgraph}
 \end{center}
 \end{figure}
-
-
-\doxysubsection{Variable Documentation}
-\Hypertarget{main_8c_a22b804736f5648d52f639b2647d4ed13}\label{main_8c_a22b804736f5648d52f639b2647d4ed13} 
-\index{main.c@{main.c}!hadc1@{hadc1}}
-\index{hadc1@{hadc1}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{hadc1}{hadc1}}
-{\footnotesize\ttfamily ADC\+\_\+\+Handle\+Type\+Def hadc1\hspace{0.3cm}{\ttfamily [extern]}}
-
-\Hypertarget{main_8c_acd9221f1aa19aebfe0b744947f2daf49}\label{main_8c_acd9221f1aa19aebfe0b744947f2daf49} 
-\index{main.c@{main.c}!hadc2@{hadc2}}
-\index{hadc2@{hadc2}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{hadc2}{hadc2}}
-{\footnotesize\ttfamily ADC\+\_\+\+Handle\+Type\+Def hadc2\hspace{0.3cm}{\ttfamily [extern]}}
-
-\Hypertarget{main_8c_a25fc663547539bc49fecc0011bd76ab5}\label{main_8c_a25fc663547539bc49fecc0011bd76ab5} 
-\index{main.c@{main.c}!htim1@{htim1}}
-\index{htim1@{htim1}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
-{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim1\hspace{0.3cm}{\ttfamily [extern]}}
-
-\Hypertarget{main_8c_a5faa27108379f799afb6984010bf0384}\label{main_8c_a5faa27108379f799afb6984010bf0384} 
-\index{main.c@{main.c}!htim8@{htim8}}
-\index{htim8@{htim8}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{htim8}{htim8}}
-{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim8\hspace{0.3cm}{\ttfamily [extern]}}
-
-\Hypertarget{main_8c_a28b5aab450c14cf6e720f6dce774ccdf}\label{main_8c_a28b5aab450c14cf6e720f6dce774ccdf} 
-\index{main.c@{main.c}!invLeft@{invLeft}}
-\index{invLeft@{invLeft}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{invLeft}{invLeft}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} inv\+Left = \{0\}}
-
-\Hypertarget{main_8c_ae24b53a1b1a44a4e9ed946c982c55547}\label{main_8c_ae24b53a1b1a44a4e9ed946c982c55547} 
-\index{main.c@{main.c}!invRight@{invRight}}
-\index{invRight@{invRight}!main.c@{main.c}}
-\doxysubsubsection{\texorpdfstring{invRight}{invRight}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} inv\+Right = \{0\}}
-

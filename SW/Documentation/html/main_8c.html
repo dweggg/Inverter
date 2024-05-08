@@ -78,8 +78,7 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">main.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -96,16 +95,16 @@ $(function() {
 <code>#include &quot;<a class="el" href="usb__otg_8h_source.html">usb_otg.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_f_s_m_8h_source.html">FSM.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h_source.html">MEASUREMENTS.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_p_c_b___i_o_8h_source.html">PCB_IO.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_c_o_n_t_r_o_l_8h_source.html">CONTROL.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_i_n_v_e_r_t_e_r_8h_source.html">INVERTER.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2main_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2main_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2main_8c">
 <area shape="rect" title=": Main program body" alt="" coords="315,5,480,64"/>
-<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="293,187,353,213"/>
-<area shape="poly" title=" " alt="" coords="315,43,230,51,139,64,61,85,32,98,13,114,8,125,13,137,30,150,56,162,128,179,208,189,278,194,277,199,207,194,127,184,55,167,27,155,9,140,3,125,9,110,29,94,59,80,138,59,229,46,314,38"/>
+<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="289,187,349,213"/>
+<area shape="poly" title=" " alt="" coords="315,43,230,51,139,64,61,85,32,98,13,114,8,125,13,137,30,150,56,161,126,178,205,189,274,194,273,199,204,194,125,183,54,166,27,155,9,140,3,125,9,110,29,94,59,80,138,59,229,46,314,38"/>
 <area shape="rect" href="adc_8h.html" title="This file contains all the function prototypes for the adc.c file." alt="" coords="23,112,76,139"/>
 <area shape="poly" title=" " alt="" coords="315,58,92,114,90,109,314,52"/>
 <area shape="rect" href="can_8h.html" title="This file contains all the function prototypes for the can.c file." alt="" coords="100,112,154,139"/>
@@ -122,28 +121,39 @@ Include dependency graph for main.c:</div>
 <area shape="poly" title=" " alt="" coords="440,62,495,101,492,105,437,67"/>
 <area shape="rect" href="gpio_8h.html" title="This file contains all the function prototypes for the gpio.c file." alt="" coords="587,112,643,139"/>
 <area shape="poly" title=" " alt="" coords="469,62,573,104,571,109,467,67"/>
-<area shape="rect" href="_f_s_m_8h.html" title="Header file for Finite State Machine (FSM) control." alt="" coords="667,112,728,139"/>
-<area shape="poly" title=" " alt="" coords="482,58,654,108,652,113,480,63"/>
-<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs and other low&#45;priority tasks." alt="" coords="706,187,785,213"/>
-<area shape="poly" title=" " alt="" coords="481,40,555,50,633,64,699,84,725,96,742,110,751,124,755,140,754,172,749,172,750,141,746,126,738,114,722,101,698,89,631,69,554,55,480,46"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="802,112,945,139"/>
-<area shape="poly" title=" " alt="" coords="481,49,791,106,790,111,480,54"/>
-<area shape="rect" title=" " alt="" coords="649,261,765,288"/>
-<area shape="poly" title=" " alt="" coords="354,204,634,257,633,262,353,210"/>
-<area shape="poly" title=" " alt="" coords="77,133,89,136,278,185,277,190,88,141,76,138"/>
-<area shape="poly" title=" " alt="" coords="155,134,279,180,278,185,153,139"/>
-<area shape="poly" title=" " alt="" coords="226,137,291,176,288,181,224,141"/>
-<area shape="poly" title=" " alt="" coords="293,138,312,172,307,174,289,140"/>
-<area shape="poly" title=" " alt="" coords="357,140,339,174,334,172,353,138"/>
-<area shape="poly" title=" " alt="" coords="417,141,357,180,354,176,414,137"/>
-<area shape="poly" title=" " alt="" coords="489,142,369,185,367,180,487,137"/>
-<area shape="poly" title=" " alt="" coords="587,138,574,141,369,191,367,186,573,136,586,133"/>
-<area shape="poly" title=" " alt="" coords="699,139,696,173,696,213,702,246,697,247,691,214,690,173,693,139"/>
-<area shape="poly" title=" " alt="" coords="708,138,731,172,727,175,704,141"/>
-<area shape="poly" title=" " alt="" coords="741,215,723,249,718,246,737,213"/>
-<area shape="poly" title=" " alt="" coords="867,140,838,176,799,215,744,255,741,251,796,211,834,172,863,137"/>
-<area shape="rect" title=" " alt="" coords="860,187,924,213"/>
-<area shape="poly" title=" " alt="" coords="879,139,888,171,883,172,874,140"/>
+<area shape="rect" href="_f_s_m_8h.html" title="Header file for Finite State Machine (FSM) control." alt="" coords="718,112,778,139"/>
+<area shape="poly" title=" " alt="" coords="481,54,704,110,703,115,480,59"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for Finite State Machine (FSM) control." alt="" coords="633,187,730,213"/>
+<area shape="poly" title=" " alt="" coords="481,38,526,46,573,59,618,80,657,110,675,139,682,171,677,172,670,141,653,114,615,85,571,64,525,51,480,43"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for control logic." alt="" coords="768,261,862,288"/>
+<area shape="poly" title=" " alt="" coords="481,38,567,47,659,61,740,81,771,94,793,110,813,142,822,179,824,215,822,246,817,246,819,215,817,179,808,144,789,114,769,99,738,86,658,66,566,52,481,44"/>
+<area shape="rect" title=" " alt="" coords="499,411,616,437"/>
+<area shape="poly" title=" " alt="" coords="334,212,535,398,532,402,331,216"/>
+<area shape="poly" title=" " alt="" coords="77,133,89,136,274,185,273,190,88,141,76,138"/>
+<area shape="poly" title=" " alt="" coords="155,134,275,179,273,184,153,139"/>
+<area shape="poly" title=" " alt="" coords="226,137,287,176,285,180,223,141"/>
+<area shape="poly" title=" " alt="" coords="293,138,309,171,304,174,288,140"/>
+<area shape="poly" title=" " alt="" coords="357,141,336,175,332,172,352,138"/>
+<area shape="poly" title=" " alt="" coords="416,141,354,180,351,176,413,137"/>
+<area shape="poly" title=" " alt="" coords="488,142,365,185,363,180,487,137"/>
+<area shape="poly" title=" " alt="" coords="587,138,574,141,365,191,364,186,573,136,586,133"/>
+<area shape="poly" title=" " alt="" coords="739,141,705,177,701,173,735,137"/>
+<area shape="poly" title=" " alt="" coords="677,215,607,337,574,398,569,396,602,335,672,213"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs and other low&#45;priority tasks." alt="" coords="462,261,541,288"/>
+<area shape="poly" title=" " alt="" coords="651,216,548,258,546,253,649,211"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="616,336,758,363"/>
+<area shape="poly" title=" " alt="" coords="685,214,689,320,683,321,679,214"/>
+<area shape="poly" title=" " alt="" coords="706,212,780,251,777,256,704,216"/>
+<area shape="poly" title=" " alt="" coords="509,288,550,395,545,397,504,289"/>
+<area shape="rect" title=" " alt="" coords="675,411,739,437"/>
+<area shape="poly" title=" " alt="" coords="693,362,702,395,697,397,688,364"/>
+<area shape="poly" title=" " alt="" coords="794,291,724,330,721,326,791,286"/>
+<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="782,336,848,363"/>
+<area shape="poly" title=" " alt="" coords="818,289,818,320,812,320,812,289"/>
+<area shape="rect" href="_pergamon__float_8h.html" title=" " alt="" coords="871,336,993,363"/>
+<area shape="poly" title=" " alt="" coords="837,286,901,325,898,330,834,291"/>
+<area shape="poly" title=" " alt="" coords="783,363,618,409,617,403,781,357"/>
+<area shape="poly" title=" " alt="" coords="894,366,755,410,753,405,892,361"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -158,21 +168,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a1730ffe1e560465665eb47d9264826f9" id="r_a1730ffe1e560465665eb47d9264826f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a> (void)</td></tr>
 <tr class="memdesc:a1730ffe1e560465665eb47d9264826f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is executed in case of error occurrence.  <br /></td></tr>
 <tr class="separator:a1730ffe1e560465665eb47d9264826f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:acd9221f1aa19aebfe0b744947f2daf49" id="r_acd9221f1aa19aebfe0b744947f2daf49"><td class="memItemLeft" align="right" valign="top">ADC_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd9221f1aa19aebfe0b744947f2daf49">hadc2</a></td></tr>
-<tr class="separator:acd9221f1aa19aebfe0b744947f2daf49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22b804736f5648d52f639b2647d4ed13" id="r_a22b804736f5648d52f639b2647d4ed13"><td class="memItemLeft" align="right" valign="top">ADC_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22b804736f5648d52f639b2647d4ed13">hadc1</a></td></tr>
-<tr class="separator:a22b804736f5648d52f639b2647d4ed13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25fc663547539bc49fecc0011bd76ab5" id="r_a25fc663547539bc49fecc0011bd76ab5"><td class="memItemLeft" align="right" valign="top">TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25fc663547539bc49fecc0011bd76ab5">htim1</a></td></tr>
-<tr class="separator:a25fc663547539bc49fecc0011bd76ab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5faa27108379f799afb6984010bf0384" id="r_a5faa27108379f799afb6984010bf0384"><td class="memItemLeft" align="right" valign="top">TIM_HandleTypeDef&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5faa27108379f799afb6984010bf0384">htim8</a></td></tr>
-<tr class="separator:a5faa27108379f799afb6984010bf0384"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28b5aab450c14cf6e720f6dce774ccdf" id="r_a28b5aab450c14cf6e720f6dce774ccdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_inverter_operation.html">InverterOperation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28b5aab450c14cf6e720f6dce774ccdf">invLeft</a> = {0}</td></tr>
-<tr class="separator:a28b5aab450c14cf6e720f6dce774ccdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae24b53a1b1a44a4e9ed946c982c55547" id="r_ae24b53a1b1a44a4e9ed946c982c55547"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_inverter_operation.html">InverterOperation</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae24b53a1b1a44a4e9ed946c982c55547">invRight</a> = {0}</td></tr>
-<tr class="separator:ae24b53a1b1a44a4e9ed946c982c55547"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>: Main program body </p>
@@ -282,9 +277,9 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.png" border="0" usemap="#amain_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" alt=""/></div>
 <map name="amain_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" id="amain_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph">
 <area shape="rect" title="The application entry point." alt="" coords="5,411,55,437"/>
-<area shape="rect" href="_f_s_m_8c.html#adec4df6cf6e5716c841ee925ea42990b" title="Run the Finite State Machine (FSM) for inverter operation control." alt="" coords="162,5,233,32"/>
+<area shape="rect" href="_f_s_m_8c.html#a18db87280b4ca8efa85cbfc09442514c" title="Run the Finite State Machine (FSM) for inverter operation control." alt="" coords="162,5,233,32"/>
 <area shape="poly" title=" " alt="" coords="29,410,35,335,47,224,68,115,83,72,101,42,121,27,145,19,147,24,124,32,105,46,88,74,73,117,52,225,40,335,35,410"/>
-<area shape="rect" href="_f_s_m_8c.html#af6e713b24ac13985f78b322bcb1398d9" title="Initialize the inverter operation structure." alt="" coords="167,56,228,83"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html#a25b8e1bfc9e8cf879e0993f0b32eb35d" title="Initialize the inverter." alt="" coords="167,56,228,83"/>
 <area shape="poly" title=" " alt="" coords="30,410,37,343,50,248,71,155,85,118,101,93,124,77,151,69,153,74,127,82,105,97,89,121,76,157,55,249,42,344,35,410"/>
 <area shape="rect" href="adc_8c.html#acccd58aa70215a6b184ad242312ffd0c" title=" " alt="" coords="145,157,250,184"/>
 <area shape="poly" title=" " alt="" coords="29,410,31,369,41,310,63,248,79,219,101,194,129,177,132,182,104,198,84,222,68,251,46,312,37,369,34,411"/>
@@ -316,6 +311,8 @@ Here is the call graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="35,438,40,513,52,623,73,731,88,774,105,802,107,805,103,808,101,806,83,776,68,733,47,624,35,513,29,438"/>
 <area shape="rect" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="System Clock Configuration." alt="" coords="126,107,269,133"/>
 <area shape="poly" title=" " alt="" coords="30,410,53,273,74,195,87,165,101,144,111,135,114,139,105,147,91,167,79,197,59,274,36,411"/>
+<area shape="rect" href="_p_w_m_8c.html#afabeff529f42849e8c08263c002f3dd9" title="Enable PWM output." alt="" coords="366,56,465,83"/>
+<area shape="poly" title=" " alt="" coords="228,67,350,67,350,72,228,72"/>
 <area shape="rect" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9" title="This function is executed in case of error occurrence." alt="" coords="365,385,465,412"/>
 <area shape="poly" title=" " alt="" coords="251,175,273,182,294,194,335,235,367,283,391,330,407,370,402,372,387,332,363,285,331,238,290,198,271,187,249,180"/>
 <area shape="poly" title=" " alt="" coords="251,227,273,234,293,244,329,273,359,307,402,370,397,373,355,310,325,277,291,249,271,239,249,232"/>
@@ -383,123 +380,6 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="a22b804736f5648d52f639b2647d4ed13" name="a22b804736f5648d52f639b2647d4ed13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22b804736f5648d52f639b2647d4ed13">&#9670;&#160;</a></span>hadc1</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ADC_HandleTypeDef hadc1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="acd9221f1aa19aebfe0b744947f2daf49" name="acd9221f1aa19aebfe0b744947f2daf49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd9221f1aa19aebfe0b744947f2daf49">&#9670;&#160;</a></span>hadc2</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">ADC_HandleTypeDef hadc2</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a25fc663547539bc49fecc0011bd76ab5" name="a25fc663547539bc49fecc0011bd76ab5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25fc663547539bc49fecc0011bd76ab5">&#9670;&#160;</a></span>htim1</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TIM_HandleTypeDef htim1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5faa27108379f799afb6984010bf0384" name="a5faa27108379f799afb6984010bf0384"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5faa27108379f799afb6984010bf0384">&#9670;&#160;</a></span>htim8</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TIM_HandleTypeDef htim8</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a28b5aab450c14cf6e720f6dce774ccdf" name="a28b5aab450c14cf6e720f6dce774ccdf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28b5aab450c14cf6e720f6dce774ccdf">&#9670;&#160;</a></span>invLeft</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_inverter_operation.html">InverterOperation</a> invLeft = {0}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ae24b53a1b1a44a4e9ed946c982c55547" name="ae24b53a1b1a44a4e9ed946c982c55547"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae24b53a1b1a44a4e9ed946c982c55547">&#9670;&#160;</a></span>invRight</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_inverter_operation.html">InverterOperation</a> invRight = {0}</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

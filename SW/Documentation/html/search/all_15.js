@@ -42,5 +42,6 @@ var searchData=
   ['use_5fhal_5fusart_5fregister_5fcallbacks_39',['USE_HAL_USART_REGISTER_CALLBACKS',['../stm32f7xx__hal__conf_8h.html#ac79983d623c7f760c5077618a453561b',1,'stm32f7xx_hal_conf.h']]],
   ['use_5fhal_5fwwdg_5fregister_5fcallbacks_40',['USE_HAL_WWDG_REGISTER_CALLBACKS',['../stm32f7xx__hal__conf_8h.html#a6879802837c27d8761d8a8fdab626891',1,'stm32f7xx_hal_conf.h']]],
   ['use_5frtos_41',['USE_RTOS',['../stm32f7xx__hal__conf_8h.html#ad048ac737242c2c2cb9f4a72953d10ce',1,'stm32f7xx_hal_conf.h']]],
-  ['use_5fspi_5fcrc_42',['USE_SPI_CRC',['../stm32f7xx__hal__conf_8h.html#a4c6fab687afc7ba4469b1b2d34472358',1,'stm32f7xx_hal_conf.h']]]
+  ['use_5fspi_5fcrc_42',['USE_SPI_CRC',['../stm32f7xx__hal__conf_8h.html#a4c6fab687afc7ba4469b1b2d34472358',1,'stm32f7xx_hal_conf.h']]],
+  ['utility_20functions_43',['Utility Functions',['../group___utility___functions.html',1,'']]]
 ];

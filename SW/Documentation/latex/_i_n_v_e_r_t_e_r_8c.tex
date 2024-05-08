@@ -1,0 +1,99 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Src/\+INVERTER.c File Reference}
+\hypertarget{_i_n_v_e_r_t_e_r_8c}{}\label{_i_n_v_e_r_t_e_r_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c}}
+
+
+This file provides code for Finite State Machine (FSM) control.  
+
+
+{\ttfamily \#include "{}INVERTER.\+h"{}}\newline
+Include dependency graph for INVERTER.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i_n_v_e_r_t_e_r_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_a25b8e1bfc9e8cf879e0993f0b32eb35d}{inv\+\_\+init}} (\mbox{\hyperlink{structinverter_struct}{inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}enable\+\_\+port, uint16\+\_\+t enable\+\_\+pin, TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hadc)
+\begin{DoxyCompactList}\small\item\em Initialize the inverter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structinverter_struct}{inverter\+Struct}} \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_a64d69b7bb6277970dc225bd929ebbcb7}{inv\+Left}} = \{0\}
+\item 
+\mbox{\hyperlink{structinverter_struct}{inverter\+Struct}} \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_a57c8122fa34986dbece71fb9f652be8f}{inv\+Right}} = \{0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file provides code for Finite State Machine (FSM) control. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_i_n_v_e_r_t_e_r_8c_a25b8e1bfc9e8cf879e0993f0b32eb35d}\label{_i_n_v_e_r_t_e_r_8c_a25b8e1bfc9e8cf879e0993f0b32eb35d} 
+\index{INVERTER.c@{INVERTER.c}!inv\_init@{inv\_init}}
+\index{inv\_init@{inv\_init}!INVERTER.c@{INVERTER.c}}
+\doxysubsubsection{\texorpdfstring{inv\_init()}{inv\_init()}}
+{\footnotesize\ttfamily void inv\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structinverter_struct}{inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv,  }\item[{\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{enable\+\_\+port,  }\item[{uint16\+\_\+t}]{enable\+\_\+pin,  }\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim,  }\item[{ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hadc }\end{DoxyParamCaption})}
+
+
+
+Initialize the inverter. 
+
+This function initializes the inverter structure with the specified \doxylink{struct_l_e_d}{LED}, GPIO port, and pin.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inv} & Pointer to the inverter structure. \\
+\hline
+{\em led} & Pointer to the \doxylink{struct_l_e_d}{LED} structure. \\
+\hline
+{\em enable\+\_\+port} & Pointer to the GPIO port for enabling/disabling the inverter. \\
+\hline
+{\em enable\+\_\+pin} & Pin number for enabling/disabling the inverter. \\
+\hline
+{\em htim} & Timer peripheral for the PWM output. \\
+\hline
+{\em hadc} & ADC peripheral for the current phase current and DC voltage sensing. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=236pt]{_i_n_v_e_r_t_e_r_8c_a25b8e1bfc9e8cf879e0993f0b32eb35d_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=198pt]{_i_n_v_e_r_t_e_r_8c_a25b8e1bfc9e8cf879e0993f0b32eb35d_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_i_n_v_e_r_t_e_r_8c_a64d69b7bb6277970dc225bd929ebbcb7}\label{_i_n_v_e_r_t_e_r_8c_a64d69b7bb6277970dc225bd929ebbcb7} 
+\index{INVERTER.c@{INVERTER.c}!invLeft@{invLeft}}
+\index{invLeft@{invLeft}!INVERTER.c@{INVERTER.c}}
+\doxysubsubsection{\texorpdfstring{invLeft}{invLeft}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structinverter_struct}{inverter\+Struct}} inv\+Left = \{0\}}
+
+\Hypertarget{_i_n_v_e_r_t_e_r_8c_a57c8122fa34986dbece71fb9f652be8f}\label{_i_n_v_e_r_t_e_r_8c_a57c8122fa34986dbece71fb9f652be8f} 
+\index{INVERTER.c@{INVERTER.c}!invRight@{invRight}}
+\index{invRight@{invRight}!INVERTER.c@{INVERTER.c}}
+\doxysubsubsection{\texorpdfstring{invRight}{invRight}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structinverter_struct}{inverter\+Struct}} inv\+Right = \{0\}}
+

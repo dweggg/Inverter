@@ -5,14 +5,13 @@
 Header file for Finite State Machine (FSM) control.  
 
 
-{\ttfamily \#include "{}stm32f7xx\+\_\+hal.\+h"{}}\newline
-{\ttfamily \#include "{}PCB\+\_\+\+IO.\+h"{}}\newline
+{\ttfamily \#include "{}INVERTER.\+h"{}}\newline
 Include dependency graph for FSM.\+h\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=204pt]{_f_s_m_8h__incl}
+\includegraphics[width=350pt]{_f_s_m_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:\nopagebreak
@@ -22,26 +21,10 @@ This graph shows which files directly or indirectly include this file\+:\nopageb
 \includegraphics[width=346pt]{_f_s_m_8h__dep__incl}
 \end{center}
 \end{figure}
-\doxysubsubsection*{Data Structures}
-\begin{DoxyCompactItemize}
-\item 
-struct \mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}}
-\begin{DoxyCompactList}\small\item\em Inverter operation structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Enumerations}
-\begin{DoxyCompactItemize}
-\item 
-enum \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5f}{Inverter\+Operation\+State}} \{ \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa5a425be53774c4b4e59e440ab2369e8e}{INV\+\_\+\+STATE\+\_\+\+IDLE}}
-, \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa3bffb8c0f8030eb6d38dac2a9b1e4edd}{INV\+\_\+\+STATE\+\_\+\+STARTUP}}
-, \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fac7be32525d0b9b1c5165d1371eebd7e7}{INV\+\_\+\+STATE\+\_\+\+RUNNING}}
-, \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa4c6e89e99f6d2b3f6ff649c27cc73bc9}{INV\+\_\+\+STATE\+\_\+\+FAULT}}
- \}
-\begin{DoxyCompactList}\small\item\em Enumeration of inverter operation states. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_f_s_m_8h_af6e713b24ac13985f78b322bcb1398d9}{inv\+\_\+init}} (\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}enable\+\_\+port, uint16\+\_\+t enable\+\_\+pin)
-\begin{DoxyCompactList}\small\item\em Initialize the inverter operation structure. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_f_s_m_8h_adec4df6cf6e5716c841ee925ea42990b}{inv\+\_\+\+FSM}} (\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \texorpdfstring{$\ast$}{*}inv)
+void \mbox{\hyperlink{_f_s_m_8h_a18db87280b4ca8efa85cbfc09442514c}{inv\+\_\+\+FSM}} (\mbox{\hyperlink{structinverter_struct}{inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv)
 \begin{DoxyCompactList}\small\item\em Run the Finite State Machine (FSM) for inverter operation control. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -55,43 +38,12 @@ Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
 
 This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
 
-\doxysubsection{Enumeration Type Documentation}
-\Hypertarget{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5f}\label{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5f} 
-\index{FSM.h@{FSM.h}!InverterOperationState@{InverterOperationState}}
-\index{InverterOperationState@{InverterOperationState}!FSM.h@{FSM.h}}
-\doxysubsubsection{\texorpdfstring{InverterOperationState}{InverterOperationState}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5f}{Inverter\+Operation\+State}}}
-
-
-
-Enumeration of inverter operation states. 
-
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{INV\_STATE\_IDLE@{INV\_STATE\_IDLE}!FSM.h@{FSM.h}}\index{FSM.h@{FSM.h}!INV\_STATE\_IDLE@{INV\_STATE\_IDLE}}}\Hypertarget{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa5a425be53774c4b4e59e440ab2369e8e}\label{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa5a425be53774c4b4e59e440ab2369e8e} 
-INV\+\_\+\+STATE\+\_\+\+IDLE&Inverter idle state \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{INV\_STATE\_STARTUP@{INV\_STATE\_STARTUP}!FSM.h@{FSM.h}}\index{FSM.h@{FSM.h}!INV\_STATE\_STARTUP@{INV\_STATE\_STARTUP}}}\Hypertarget{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa3bffb8c0f8030eb6d38dac2a9b1e4edd}\label{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa3bffb8c0f8030eb6d38dac2a9b1e4edd} 
-INV\+\_\+\+STATE\+\_\+\+STARTUP&Inverter startup state \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{INV\_STATE\_RUNNING@{INV\_STATE\_RUNNING}!FSM.h@{FSM.h}}\index{FSM.h@{FSM.h}!INV\_STATE\_RUNNING@{INV\_STATE\_RUNNING}}}\Hypertarget{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fac7be32525d0b9b1c5165d1371eebd7e7}\label{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fac7be32525d0b9b1c5165d1371eebd7e7} 
-INV\+\_\+\+STATE\+\_\+\+RUNNING&Inverter running state \\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{INV\_STATE\_FAULT@{INV\_STATE\_FAULT}!FSM.h@{FSM.h}}\index{FSM.h@{FSM.h}!INV\_STATE\_FAULT@{INV\_STATE\_FAULT}}}\Hypertarget{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa4c6e89e99f6d2b3f6ff649c27cc73bc9}\label{_f_s_m_8h_a9ba0342d32a250a90a2025003cc8ee5fa4c6e89e99f6d2b3f6ff649c27cc73bc9} 
-INV\+\_\+\+STATE\+\_\+\+FAULT&Inverter fault state \\
-\hline
-
-\end{DoxyEnumFields}
-
-
 \doxysubsection{Function Documentation}
-\Hypertarget{_f_s_m_8h_adec4df6cf6e5716c841ee925ea42990b}\label{_f_s_m_8h_adec4df6cf6e5716c841ee925ea42990b} 
+\Hypertarget{_f_s_m_8h_a18db87280b4ca8efa85cbfc09442514c}\label{_f_s_m_8h_a18db87280b4ca8efa85cbfc09442514c} 
 \index{FSM.h@{FSM.h}!inv\_FSM@{inv\_FSM}}
 \index{inv\_FSM@{inv\_FSM}!FSM.h@{FSM.h}}
 \doxysubsubsection{\texorpdfstring{inv\_FSM()}{inv\_FSM()}}
-{\footnotesize\ttfamily void inv\+\_\+\+FSM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \texorpdfstring{$\ast$}{*}}]{inv }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void inv\+\_\+\+FSM (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structinverter_struct}{inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv }\end{DoxyParamCaption})}
 
 
 
@@ -99,59 +51,16 @@ Run the Finite State Machine (FSM) for inverter operation control.
 
 
 \begin{DoxyParams}{Parameters}
-{\em inv} & Pointer to the inverter operation structure.\\
+{\em inv} & Pointer to the inverter structure.\\
 \hline
 \end{DoxyParams}
 Run the Finite State Machine (FSM) for inverter operation control.
 
-This function executes the finite state machine to control the inverter operation based on its current state.
+This function executes the finite state machine to control the inverter based on its current state.
 
 
 \begin{DoxyParams}{Parameters}
-{\em inv} & Pointer to the inverter operation structure. \\
-\hline
-\end{DoxyParams}
-Here is the caller graph for this function\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=207pt]{_f_s_m_8h_adec4df6cf6e5716c841ee925ea42990b_icgraph}
-\end{center}
-\end{figure}
-\Hypertarget{_f_s_m_8h_af6e713b24ac13985f78b322bcb1398d9}\label{_f_s_m_8h_af6e713b24ac13985f78b322bcb1398d9} 
-\index{FSM.h@{FSM.h}!inv\_init@{inv\_init}}
-\index{inv\_init@{inv\_init}!FSM.h@{FSM.h}}
-\doxysubsubsection{\texorpdfstring{inv\_init()}{inv\_init()}}
-{\footnotesize\ttfamily void inv\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_inverter_operation}{Inverter\+Operation}} \texorpdfstring{$\ast$}{*}}]{inv,  }\item[{\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{enable\+\_\+port,  }\item[{uint16\+\_\+t}]{enable\+\_\+pin }\end{DoxyParamCaption})}
-
-
-
-Initialize the inverter operation structure. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em inv} & Pointer to the inverter operation structure. \\
-\hline
-{\em led} & Pointer to the \doxylink{struct_l_e_d}{LED} control struct. \\
-\hline
-{\em enable\+\_\+port} & Pointer to the GPIO port for enabling/disabling the inverter. \\
-\hline
-{\em enable\+\_\+pin} & Pin number for enabling/disabling the inverter.\\
-\hline
-\end{DoxyParams}
-Initialize the inverter operation structure.
-
-This function initializes the inverter operation structure with the specified \doxylink{struct_l_e_d}{LED}, GPIO port, and pin.
-
-
-\begin{DoxyParams}{Parameters}
-{\em inv} & Pointer to the inverter operation structure. \\
-\hline
-{\em led} & Pointer to the \doxylink{struct_l_e_d}{LED} structure. \\
-\hline
-{\em enable\+\_\+port} & Pointer to the GPIO port for enabling/disabling the inverter. \\
-\hline
-{\em enable\+\_\+pin} & Pin number for enabling/disabling the inverter. \\
+{\em inv} & Pointer to the inverter structure. \\
 \hline
 \end{DoxyParams}
 Here is the caller graph for this function\+:
@@ -159,6 +68,6 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=198pt]{_f_s_m_8h_af6e713b24ac13985f78b322bcb1398d9_icgraph}
+\includegraphics[width=207pt]{_f_s_m_8h_a18db87280b4ca8efa85cbfc09442514c_icgraph}
 \end{center}
 \end{figure}
