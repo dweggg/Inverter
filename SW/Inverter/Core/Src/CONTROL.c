@@ -14,21 +14,21 @@
  * @param measurements Measurements structure.
  * @param duties Pointer to the duties structure.
  */
-void control(float valfa, float vbeta, Measurements measurements, volatile Duties *duties) {
+void control(float alpha, float beta, Measurements measurements, volatile Duties *duties) {
 
 
 	static svpwm_struct svpwm;
 
     // Assign values to SVPWM structure
-    svpwm.valfa = valfa; // Example value, replace with actual measurement or calculation
-    svpwm.vbeta = vbeta; // Example value, replace with actual measurement or calculation
+    svpwm.alpha = alpha; // Example value, replace with actual measurement or calculation
+    svpwm.beta = beta; // Example value, replace with actual measurement or calculation
 
     // Calculate SVPWM
     svpwm_calc(&svpwm);
 
     // Assign SVPWM duties
-    duties->Da = svpwm.Ta;
-    duties->Db = svpwm.Tb;
-    duties->Dc = svpwm.Tc;
+    duties->Da = svpwm.Da;
+    duties->Db = svpwm.Db;
+    duties->Dc = svpwm.Dc;
 
 }

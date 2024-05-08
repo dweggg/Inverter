@@ -39,15 +39,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  17 .debug_macro  0002b8fe  00000000  00000000  000281f1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0001def2  00000000  00000000  00053aef  2**0
+ 18 .debug_line   0001def4  00000000  00000000  00053aef  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00103cc6  00000000  00000000  000719e1  2**0
+ 19 .debug_str    00103ccc  00000000  00000000  000719e3  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  001756a7  2**0
+ 20 .comment      00000043  00000000  00000000  001756af  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00005454  00000000  00000000  001756ec  2**2
+ 21 .debug_frame  00005454  00000000  00000000  001756f4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000005a  00000000  00000000  0017ab40  2**0
+ 22 .debug_line_str 0000005a  00000000  00000000  0017ab48  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -352,7 +352,7 @@ Disassembly of section .text:
  * @param measurements Measurements structure.
  * @param duties Pointer to the duties structure.
  */
-void control(float valfa, float vbeta, Measurements measurements, volatile Duties *duties) {
+void control(float alpha, float beta, Measurements measurements, volatile Duties *duties) {
  8000528:	b580      	push	{r7, lr}
  800052a:	b088      	sub	sp, #32
  800052c:	af00      	add	r7, sp, #0
@@ -372,11 +372,11 @@ void control(float valfa, float vbeta, Measurements measurements, volatile Dutie
 	static svpwm_struct svpwm;
 
     // Assign values to SVPWM structure
-    svpwm.valfa = valfa; // Example value, replace with actual measurement or calculation
+    svpwm.alpha = alpha; // Example value, replace with actual measurement or calculation
  8000558:	4a0c      	ldr	r2, [pc, #48]	@ (800058c <control+0x64>)
  800055a:	69fb      	ldr	r3, [r7, #28]
  800055c:	6013      	str	r3, [r2, #0]
-    svpwm.vbeta = vbeta; // Example value, replace with actual measurement or calculation
+    svpwm.beta = beta; // Example value, replace with actual measurement or calculation
  800055e:	4a0b      	ldr	r2, [pc, #44]	@ (800058c <control+0x64>)
  8000560:	69bb      	ldr	r3, [r7, #24]
  8000562:	6053      	str	r3, [r2, #4]
@@ -387,17 +387,17 @@ void control(float valfa, float vbeta, Measurements measurements, volatile Dutie
  8000566:	f006 fd03 	bl	8006f70 <svpwm_calc>
 
     // Assign SVPWM duties
-    duties->Da = svpwm.Ta;
+    duties->Da = svpwm.Da;
  800056a:	4b08      	ldr	r3, [pc, #32]	@ (800058c <control+0x64>)
  800056c:	689a      	ldr	r2, [r3, #8]
  800056e:	687b      	ldr	r3, [r7, #4]
  8000570:	601a      	str	r2, [r3, #0]
-    duties->Db = svpwm.Tb;
+    duties->Db = svpwm.Db;
  8000572:	4b06      	ldr	r3, [pc, #24]	@ (800058c <control+0x64>)
  8000574:	68da      	ldr	r2, [r3, #12]
  8000576:	687b      	ldr	r3, [r7, #4]
  8000578:	605a      	str	r2, [r3, #4]
-    duties->Dc = svpwm.Tc;
+    duties->Dc = svpwm.Dc;
  800057a:	4b04      	ldr	r3, [pc, #16]	@ (800058c <control+0x64>)
  800057c:	691a      	ldr	r2, [r3, #16]
  800057e:	687b      	ldr	r3, [r7, #4]
@@ -19070,7 +19070,7 @@ void irot_calc(volatile irot_struct *v)
  8006ea2:	b083      	sub	sp, #12
  8006ea4:	af00      	add	r7, sp, #0
  8006ea6:	6078      	str	r0, [r7, #4]
-    v->D = v->d*v->cosFi - v->q*v->sinFi;              // Alfa(D) = d*cos(Fi) - q*sin(Fi)
+    v->alpha = v->d*v->cosFi - v->q*v->sinFi;              // Alfa(D) = d*cos(Fi) - q*sin(Fi)
  8006ea8:	687b      	ldr	r3, [r7, #4]
  8006eaa:	ed93 7a00 	vldr	s14, [r3]
  8006eae:	687b      	ldr	r3, [r7, #4]
@@ -19084,7 +19084,7 @@ void irot_calc(volatile irot_struct *v)
  8006ec8:	ee77 7a67 	vsub.f32	s15, s14, s15
  8006ecc:	687b      	ldr	r3, [r7, #4]
  8006ece:	edc3 7a04 	vstr	s15, [r3, #16]
-    v->Q = v->d*v->sinFi + v->q*v->cosFi;              // Beta(Q) = d*sin(Fi) + q*cos(Fi)
+    v->beta = v->d*v->sinFi + v->q*v->cosFi;              // Beta(Q) = d*sin(Fi) + q*cos(Fi)
  8006ed2:	687b      	ldr	r3, [r7, #4]
  8006ed4:	ed93 7a00 	vldr	s14, [r3]
  8006ed8:	687b      	ldr	r3, [r7, #4]
@@ -19168,12 +19168,12 @@ void svpwm_calc(volatile svpwm_struct *v)
     float Va, Vb, Vc, max, min, h;
 
     // Calculate Va, Vb, and Vc for three-phase system without neutral
-    Va = v->valfa;                                      // A = Alfa
+    Va = v->alpha;                                      // A = Alfa
  8006f78:	687b      	ldr	r3, [r7, #4]
  8006f7a:	681b      	ldr	r3, [r3, #0]
  8006f7c:	61fb      	str	r3, [r7, #28]
     //Vb = (- v->valfa + SQ3*v->vbeta)*0.5;              // B = -1/2*Alfa + sqrt(3)/2*Beta
-    Vb = (- v->valfa + SQ3*v->vbeta)*DIV2;              // B = -1/2*Alfa + sqrt(3)/2*Beta
+    Vb = (- v->alpha + SQ3*v->beta)*DIV2;              // B = -1/2*Alfa + sqrt(3)/2*Beta
  8006f7e:	687b      	ldr	r3, [r7, #4]
  8006f80:	edd3 7a01 	vldr	s15, [r3, #4]
  8006f84:	ed9f 7a44 	vldr	s14, [pc, #272]	@ 8007098 <svpwm_calc+0x128>
@@ -19251,7 +19251,7 @@ void svpwm_calc(volatile svpwm_struct *v)
 
     // Generate duty cycles (range from 0 to 1)
     // Convert sinusoids ranging up to 0.5 to sinusoids ranging from 0 to 1
-    v->Ta = (Va - h + 0.5F);
+    v->Da = (Va - h + 0.5F);
  800703e:	ed97 7a07 	vldr	s14, [r7, #28]
  8007042:	edd7 7a02 	vldr	s15, [r7, #8]
  8007046:	ee77 7a67 	vsub.f32	s15, s14, s15
@@ -19259,7 +19259,7 @@ void svpwm_calc(volatile svpwm_struct *v)
  800704e:	ee77 7a87 	vadd.f32	s15, s15, s14
  8007052:	687b      	ldr	r3, [r7, #4]
  8007054:	edc3 7a02 	vstr	s15, [r3, #8]
-    v->Tb = (Vb - h + 0.5F);
+    v->Db = (Vb - h + 0.5F);
  8007058:	ed97 7a06 	vldr	s14, [r7, #24]
  800705c:	edd7 7a02 	vldr	s15, [r7, #8]
  8007060:	ee77 7a67 	vsub.f32	s15, s14, s15
@@ -19267,7 +19267,7 @@ void svpwm_calc(volatile svpwm_struct *v)
  8007068:	ee77 7a87 	vadd.f32	s15, s15, s14
  800706c:	687b      	ldr	r3, [r7, #4]
  800706e:	edc3 7a03 	vstr	s15, [r3, #12]
-    v->Tc = (Vc - h + 0.5F);
+    v->Dc = (Vc - h + 0.5F);
  8007072:	ed97 7a05 	vldr	s14, [r7, #20]
  8007076:	edd7 7a02 	vldr	s15, [r7, #8]
  800707a:	ee77 7a67 	vsub.f32	s15, s14, s15
