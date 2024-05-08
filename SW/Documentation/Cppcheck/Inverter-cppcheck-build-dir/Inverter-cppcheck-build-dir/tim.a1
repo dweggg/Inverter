@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="4922557911884983591">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\main.h" line="30" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;tim_baseHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;tim_baseHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\tim.c" line="332" column="46" info="Parameter &apos;tim_baseHandle&apos; can be declared as pointer to const"/>
+            <symbol>tim_baseHandle</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;tim_icHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;tim_icHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\tim.c" line="378" column="44" info="Parameter &apos;tim_icHandle&apos; can be declared as pointer to const"/>
+            <symbol>tim_icHandle</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;timHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;timHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\tim.c" line="439" column="45" info="Parameter &apos;timHandle&apos; can be declared as pointer to const"/>
+            <symbol>timHandle</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;tim_baseHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;tim_baseHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\tim.c" line="514" column="48" info="Parameter &apos;tim_baseHandle&apos; can be declared as pointer to const"/>
+            <symbol>tim_baseHandle</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;tim_icHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;tim_icHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\tim.c" line="565" column="46" info="Parameter &apos;tim_icHandle&apos; can be declared as pointer to const"/>
+            <symbol>tim_icHandle</symbol>
+        </error>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c:332:6" my-argnr="1" my-argname="tim_baseHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="335" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c:378:6" my-argnr="1" my-argname="tim_icHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="382" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/tim.h:55:6" my-argnr="1" my-argname="timHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="443" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c:514:6" my-argnr="1" my-argname="tim_baseHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="517" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c:565:6" my-argnr="1" my-argname="tim_icHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="568" col="6" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c:332:6" my-argnr="1" my-argname="tim_baseHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="335" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c:378:6" my-argnr="1" my-argname="tim_icHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="382" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/tim.h:55:6" my-argnr="1" my-argname="timHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="443" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c:514:6" my-argnr="1" my-argname="tim_baseHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="517" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c:565:6" my-argnr="1" my-argname="tim_icHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/tim.c" line="568" col="6" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="MX_TIM1_Init" lineNumber="34"/>
+    <functiondecl functionName="MX_TIM2_Init" lineNumber="117"/>
+    <functiondecl functionName="MX_TIM4_Init" lineNumber="164"/>
+    <functiondecl functionName="MX_TIM6_Init" lineNumber="211"/>
+    <functiondecl functionName="MX_TIM8_Init" lineNumber="244"/>
+    <functiondecl functionName="HAL_TIM_Base_MspInit" lineNumber="332"/>
+    <functiondecl functionName="HAL_TIM_IC_MspInit" lineNumber="378"/>
+    <functiondecl functionName="HAL_TIM_MspPostInit" lineNumber="439"/>
+    <functiondecl functionName="HAL_TIM_Base_MspDeInit" lineNumber="514"/>
+    <functiondecl functionName="HAL_TIM_IC_MspDeInit" lineNumber="565"/>
+    <functioncall functionName="Error_Handler"/>
+    <functioncall functionName="GPIOA"/>
+    <functioncall functionName="GPIOB"/>
+    <functioncall functionName="GPIOC"/>
+    <functioncall functionName="GPIOD"/>
+    <functioncall functionName="GPIOE"/>
+    <functioncall functionName="GPIO_AF1_TIM1"/>
+    <functioncall functionName="GPIO_AF1_TIM2"/>
+    <functioncall functionName="GPIO_AF2_TIM4"/>
+    <functioncall functionName="GPIO_AF3_TIM8"/>
+    <functioncall functionName="GPIO_MODE_AF_PP"/>
+    <functioncall functionName="GPIO_NOPULL"/>
+    <functioncall functionName="GPIO_PIN_10"/>
+    <functioncall functionName="GPIO_PIN_13"/>
+    <functioncall functionName="GPIO_PIN_14"/>
+    <functioncall functionName="GPIO_PIN_15"/>
+    <functioncall functionName="GPIO_PIN_5"/>
+    <functioncall functionName="GPIO_PIN_8"/>
+    <functioncall functionName="GPIO_SPEED_FREQ_LOW"/>
+    <functioncall functionName="HAL_GPIO_DeInit"/>
+    <functioncall functionName="HAL_GPIO_Init"/>
+    <functioncall functionName="HAL_NVIC_DisableIRQ"/>
+    <functioncall functionName="HAL_NVIC_EnableIRQ"/>
+    <functioncall functionName="HAL_NVIC_SetPriority"/>
+    <functioncall functionName="HAL_TIMEx_ConfigBreakDeadTime"/>
+    <functioncall functionName="HAL_TIMEx_MasterConfigSynchronization"/>
+    <functioncall functionName="HAL_TIM_Base_Init"/>
+    <functioncall functionName="HAL_TIM_ConfigClockSource"/>
+    <functioncall functionName="HAL_TIM_IC_ConfigChannel"/>
+    <functioncall functionName="HAL_TIM_IC_Init"/>
+    <functioncall functionName="HAL_TIM_MspPostInit"/>
+    <functioncall functionName="HAL_TIM_OC_ConfigChannel"/>
+    <functioncall functionName="HAL_TIM_OC_Init"/>
+    <functioncall functionName="HAL_TIM_PWM_ConfigChannel"/>
+    <functioncall functionName="HAL_TIM_PWM_Init"/>
+    <functioncall functionName="TIM1"/>
+    <functioncall functionName="TIM1_UP_TIM10_IRQn"/>
+    <functioncall functionName="TIM2"/>
+    <functioncall functionName="TIM4"/>
+    <functioncall functionName="TIM6"/>
+    <functioncall functionName="TIM6_DAC_IRQn"/>
+    <functioncall functionName="TIM8"/>
+    <functioncall functionName="TIM_AUTOMATICOUTPUT_DISABLE"/>
+    <functioncall functionName="TIM_AUTORELOAD_PRELOAD_DISABLE"/>
+    <functioncall functionName="TIM_AUTORELOAD_PRELOAD_ENABLE"/>
+    <functioncall functionName="TIM_BREAK2POLARITY_HIGH"/>
+    <functioncall functionName="TIM_BREAK2_DISABLE"/>
+    <functioncall functionName="TIM_BREAK2_ENABLE"/>
+    <functioncall functionName="TIM_BREAKPOLARITY_HIGH"/>
+    <functioncall functionName="TIM_BREAK_DISABLE"/>
+    <functioncall functionName="TIM_CHANNEL_1"/>
+    <functioncall functionName="TIM_CHANNEL_2"/>
+    <functioncall functionName="TIM_CHANNEL_3"/>
+    <functioncall functionName="TIM_CLOCKDIVISION_DIV1"/>
+    <functioncall functionName="TIM_CLOCKSOURCE_INTERNAL"/>
+    <functioncall functionName="TIM_COUNTERMODE_CENTERALIGNED1"/>
+    <functioncall functionName="TIM_COUNTERMODE_UP"/>
+    <functioncall functionName="TIM_ICPSC_DIV1"/>
+    <functioncall functionName="TIM_ICSELECTION_DIRECTTI"/>
+    <functioncall functionName="TIM_INPUTCHANNELPOLARITY_RISING"/>
+    <functioncall functionName="TIM_LOCKLEVEL_1"/>
+    <functioncall functionName="TIM_LOCKLEVEL_OFF"/>
+    <functioncall functionName="TIM_MASTERSLAVEMODE_DISABLE"/>
+    <functioncall functionName="TIM_OCFAST_DISABLE"/>
+    <functioncall functionName="TIM_OCIDLESTATE_RESET"/>
+    <functioncall functionName="TIM_OCMODE_PWM1"/>
+    <functioncall functionName="TIM_OCMODE_TIMING"/>
+    <functioncall functionName="TIM_OCNIDLESTATE_RESET"/>
+    <functioncall functionName="TIM_OCNIDLESTATE_SET"/>
+    <functioncall functionName="TIM_OCNPOLARITY_HIGH"/>
+    <functioncall functionName="TIM_OCNPOLARITY_LOW"/>
+    <functioncall functionName="TIM_OCPOLARITY_HIGH"/>
+    <functioncall functionName="TIM_OSSI_DISABLE"/>
+    <functioncall functionName="TIM_OSSI_ENABLE"/>
+    <functioncall functionName="TIM_OSSR_DISABLE"/>
+    <functioncall functionName="TIM_OSSR_ENABLE"/>
+    <functioncall functionName="TIM_TRGO2_RESET"/>
+    <functioncall functionName="TIM_TRGO_RESET"/>
+    <functioncall functionName="TIM_TRGO_UPDATE"/>
+    <functioncall functionName="__HAL_RCC_GPIOA_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_GPIOB_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_GPIOC_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_GPIOD_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_GPIOE_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM1_CLK_DISABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM1_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM2_CLK_DISABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM2_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM4_CLK_DISABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM4_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM6_CLK_DISABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM6_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM8_CLK_DISABLE"/>
+    <functioncall functionName="__HAL_RCC_TIM8_CLK_ENABLE"/>
+  </FileInfo>
+</analyzerinfo>

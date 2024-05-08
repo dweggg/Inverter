@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="11414689499530047148">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="29" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="30" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\Pergamon_float.h" line="25" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/Pergamon_float.h:240:6" call-funcname="svpwm_calc" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c" line="35" col="15" call-argexpr="&amp;svpwm" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CONTROL.h:28:6" my-argnr="4" my-argname="duties" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c" line="38" col="5" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="control" lineNumber="25"/>
+    <functioncall functionName="svpwm_calc"/>
+  </FileInfo>
+</analyzerinfo>

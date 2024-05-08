@@ -251,7 +251,7 @@ void TIM1_UP_TIM10_IRQHandler(void)
 
   control(valfa_L, vbeta_L, &measurements_LEFT, &duties_LEFT);
 
-  enable_PWM(&htim1, &duties_LEFT);
+  set_PWM(&htim1, &duties_LEFT);
   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }
 

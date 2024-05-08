@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="16951090120498148486">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\main.h" line="30" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;dacHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;dacHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\dac.c" line="65" column="41" info="Parameter &apos;dacHandle&apos; can be declared as pointer to const"/>
+            <symbol>dacHandle</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;dacHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;dacHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\dac.c" line="95" column="43" info="Parameter &apos;dacHandle&apos; can be declared as pointer to const"/>
+            <symbol>dacHandle</symbol>
+        </error>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c:65:6" my-argnr="1" my-argname="dacHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c" line="69" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c:95:6" my-argnr="1" my-argname="dacHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c" line="98" col="6" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c:65:6" my-argnr="1" my-argname="dacHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c" line="69" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c:95:6" my-argnr="1" my-argname="dacHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/dac.c" line="98" col="6" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="MX_DAC_Init" lineNumber="30"/>
+    <functiondecl functionName="HAL_DAC_MspInit" lineNumber="65"/>
+    <functiondecl functionName="HAL_DAC_MspDeInit" lineNumber="95"/>
+    <functioncall functionName="DAC"/>
+    <functioncall functionName="DAC_CHANNEL_1"/>
+    <functioncall functionName="DAC_OUTPUTBUFFER_ENABLE"/>
+    <functioncall functionName="DAC_TRIGGER_NONE"/>
+    <functioncall functionName="Error_Handler"/>
+    <functioncall functionName="GPIOA"/>
+    <functioncall functionName="GPIO_MODE_ANALOG"/>
+    <functioncall functionName="GPIO_NOPULL"/>
+    <functioncall functionName="GPIO_PIN_4"/>
+    <functioncall functionName="HAL_DAC_ConfigChannel"/>
+    <functioncall functionName="HAL_DAC_Init"/>
+    <functioncall functionName="HAL_GPIO_DeInit"/>
+    <functioncall functionName="HAL_GPIO_Init"/>
+    <functioncall functionName="HAL_NVIC_EnableIRQ"/>
+    <functioncall functionName="HAL_NVIC_SetPriority"/>
+    <functioncall functionName="TIM6_DAC_IRQn"/>
+    <functioncall functionName="__HAL_RCC_DAC_CLK_DISABLE"/>
+    <functioncall functionName="__HAL_RCC_DAC_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_GPIOA_CLK_ENABLE"/>
+  </FileInfo>
+</analyzerinfo>

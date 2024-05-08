@@ -1,0 +1,6 @@
+inv_init
+inv_FSM call:[fault_handler,idle_handler,running_handler,startup_handler]
+idle_handler call:[HAL_GPIO_WritePin,while] noreturn:[HAL_GPIO_WritePin,while]
+startup_handler call:[HAL_GPIO_WritePin,while] noreturn:[HAL_GPIO_WritePin,while]
+running_handler call:[HAL_GPIO_WritePin,while] noreturn:[HAL_GPIO_WritePin,while]
+fault_handler call:[HAL_GPIO_WritePin,while] noreturn:[HAL_GPIO_WritePin,while]

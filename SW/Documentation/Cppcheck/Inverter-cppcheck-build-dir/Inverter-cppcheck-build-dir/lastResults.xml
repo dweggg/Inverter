@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.14.0"/>
+    <errors>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." verbose="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Inc\PWM.h" line="23"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." verbose="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Inc\MEASUREMENTS.h" line="29"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;stdint.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;stdint.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Inc\MEASUREMENTS.h" line="30"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;stdint.h&amp;quot; not found." verbose="Include file: &amp;quot;stdint.h&amp;quot; not found." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Inc\Pergamon_float.h" line="25"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." verbose="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Inc\FSM.h" line="23"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." verbose="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Inc\PCB_IO.h" line="24"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;ADC_raw&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;ADC_raw&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/MEASUREMENTS.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\MEASUREMENTS.c" line="60"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;encoder&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;encoder&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/MEASUREMENTS.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\MEASUREMENTS.c" line="60"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." verbose="Include file: &amp;quot;stm32f7xx_hal.h&amp;quot; not found." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Inc\main.h" line="30"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;duties&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;duties&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/PWM.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\PWM.c" line="87"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;disable_PWM&amp;#039; is never used." verbose="The function &amp;#039;disable_PWM&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\PWM.c" line="55"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;math.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;math.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="22"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;RMS_calc&amp;#039; is never used." verbose="The function &amp;#039;RMS_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="435"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;angle_calc&amp;#039; is never used." verbose="The function &amp;#039;angle_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="210"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;avg_calc_10_samples&amp;#039; is never used." verbose="The function &amp;#039;avg_calc_10_samples&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="410"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;clarke3F_calc&amp;#039; is never used." verbose="The function &amp;#039;clarke3F_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="150"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;datalog_calc&amp;#039; is never used." verbose="The function &amp;#039;datalog_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="340"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;filtreLP_calc&amp;#039; is never used." verbose="The function &amp;#039;filtreLP_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="389"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;filtreLP_init&amp;#039; is never used." verbose="The function &amp;#039;filtreLP_init&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="373"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;iclarke3F_calc&amp;#039; is never used." verbose="The function &amp;#039;iclarke3F_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="165"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;irot_calc&amp;#039; is never used." verbose="The function &amp;#039;irot_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="195"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;pi_aw_calc&amp;#039; is never used." verbose="The function &amp;#039;pi_aw_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="33"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;pi_calc&amp;#039; is never used." verbose="The function &amp;#039;pi_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="89"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;pi_extsat_calc&amp;#039; is never used." verbose="The function &amp;#039;pi_extsat_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="122"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;pi_init&amp;#039; is never used." verbose="The function &amp;#039;pi_init&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="76"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;rampa_calc&amp;#039; is never used." verbose="The function &amp;#039;rampa_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="272"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;rampa_dual_calc&amp;#039; is never used." verbose="The function &amp;#039;rampa_dual_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="305"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;rot_calc&amp;#039; is never used." verbose="The function &amp;#039;rot_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="180"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;step_calc&amp;#039; is never used." verbose="The function &amp;#039;step_calc&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\Pergamon_float.c" line="471"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;canHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;canHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/can.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\can.c" line="62"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;canHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;canHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/can.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\can.c" line="97"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_CAN_MspDeInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_CAN_MspDeInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\can.c" line="97"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_CAN_MspInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_CAN_MspInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\can.c" line="62"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;dacHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;dacHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/dac.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\dac.c" line="65"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;dacHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;dacHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/dac.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\dac.c" line="95"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_DAC_MspDeInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_DAC_MspDeInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\dac.c" line="95"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_DAC_MspInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_DAC_MspInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\dac.c" line="65"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;i2cHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;i2cHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/i2c.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\i2c.c" line="73"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;i2cHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;i2cHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/i2c.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\i2c.c" line="113"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_I2C_MspDeInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_I2C_MspDeInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\i2c.c" line="113"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_I2C_MspInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_I2C_MspInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\i2c.c" line="73"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;file&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;file&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/main.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\main.c" line="237"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;assert_failed&amp;#039; is never used." verbose="The function &amp;#039;assert_failed&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\main.c" line="237"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;sys/stat.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;sys/stat.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="24"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;stdlib.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;stdlib.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="25"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;errno.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;errno.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="26"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;stdio.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;stdio.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="27"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;signal.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;signal.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="28"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;time.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;time.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="29"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;sys/time.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;sys/time.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="30"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;sys/times.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;sys/times.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="31"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;ptr&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;ptr&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/syscalls.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="80"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_close&amp;#039; is never used." verbose="The function &amp;#039;_close&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="92"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_execve&amp;#039; is never used." verbose="The function &amp;#039;_execve&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="169"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_exit&amp;#039; is never used." verbose="The function &amp;#039;_exit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="61"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_fork&amp;#039; is never used." verbose="The function &amp;#039;_fork&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="163"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_fstat&amp;#039; is never used." verbose="The function &amp;#039;_fstat&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="99"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_getpid&amp;#039; is never used." verbose="The function &amp;#039;_getpid&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="48"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_isatty&amp;#039; is never used." verbose="The function &amp;#039;_isatty&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="106"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_link&amp;#039; is never used." verbose="The function &amp;#039;_link&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="155"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_lseek&amp;#039; is never used." verbose="The function &amp;#039;_lseek&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="112"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_open&amp;#039; is never used." verbose="The function &amp;#039;_open&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="120"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_read&amp;#039; is never used." verbose="The function &amp;#039;_read&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="67"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_stat&amp;#039; is never used." verbose="The function &amp;#039;_stat&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="148"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_times&amp;#039; is never used." verbose="The function &amp;#039;_times&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="142"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_unlink&amp;#039; is never used." verbose="The function &amp;#039;_unlink&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="135"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_wait&amp;#039; is never used." verbose="The function &amp;#039;_wait&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="128"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_write&amp;#039; is never used." verbose="The function &amp;#039;_write&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="80"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;initialise_monitor_handles&amp;#039; is never used." verbose="The function &amp;#039;initialise_monitor_handles&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\syscalls.c" line="44"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;errno.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;errno.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\sysmem.c" line="24"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &amp;lt;stdint.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &amp;lt;stdint.h&amp;gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\sysmem.c" line="25"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;_sbrk&amp;#039; is never used." verbose="The function &amp;#039;_sbrk&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\sysmem.c" line="53"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &amp;quot;stm32f7xx.h&amp;quot; not found." verbose="Include file: &amp;quot;stm32f7xx.h&amp;quot; not found." sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\system_stm32f7xx.c" line="47"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SystemCoreClockUpdate&amp;#039; is never used." verbose="The function &amp;#039;SystemCoreClockUpdate&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\system_stm32f7xx.c" line="200"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SystemInit&amp;#039; is never used." verbose="The function &amp;#039;SystemInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\system_stm32f7xx.c" line="151"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;tim_baseHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;tim_baseHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/tim.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\tim.c" line="332"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;tim_icHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;tim_icHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/tim.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\tim.c" line="378"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;timHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;timHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/tim.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\tim.c" line="439"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;tim_baseHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;tim_baseHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/tim.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\tim.c" line="514"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &amp;#039;tim_icHandle&amp;#039; can be declared as pointer to const" verbose="Parameter &amp;#039;tim_icHandle&amp;#039; can be declared as pointer to const" cwe="398" file0="../../../Inverter/Core/Src/tim.c" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\tim.c" line="565"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_TIM_Base_MspDeInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_TIM_Base_MspDeInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\tim.c" line="514"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_TIM_Base_MspInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_TIM_Base_MspInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\tim.c" line="332"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_TIM_IC_MspDeInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_TIM_IC_MspDeInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\tim.c" line="565"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_TIM_IC_MspInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_TIM_IC_MspInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\tim.c" line="378"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;BusFault_Handler&amp;#039; is never used." verbose="The function &amp;#039;BusFault_Handler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="124"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CAN1_RX0_IRQHandler&amp;#039; is never used." verbose="The function &amp;#039;CAN1_RX0_IRQHandler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="214"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;CAN1_RX1_IRQHandler&amp;#039; is never used." verbose="The function &amp;#039;CAN1_RX1_IRQHandler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="228"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA2_Stream1_IRQHandler&amp;#039; is never used." verbose="The function &amp;#039;DMA2_Stream1_IRQHandler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="276"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DMA2_Stream2_IRQHandler&amp;#039; is never used." verbose="The function &amp;#039;DMA2_Stream2_IRQHandler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="290"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;DebugMon_Handler&amp;#039; is never used." verbose="The function &amp;#039;DebugMon_Handler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="167"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HardFault_Handler&amp;#039; is never used." verbose="The function &amp;#039;HardFault_Handler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="94"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;MemManage_Handler&amp;#039; is never used." verbose="The function &amp;#039;MemManage_Handler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="109"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;NMI_Handler&amp;#039; is never used." verbose="The function &amp;#039;NMI_Handler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="79"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;PendSV_Handler&amp;#039; is never used." verbose="The function &amp;#039;PendSV_Handler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="180"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SVC_Handler&amp;#039; is never used." verbose="The function &amp;#039;SVC_Handler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="154"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;SysTick_Handler&amp;#039; is never used." verbose="The function &amp;#039;SysTick_Handler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="193"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TIM1_UP_TIM10_IRQHandler&amp;#039; is never used." verbose="The function &amp;#039;TIM1_UP_TIM10_IRQHandler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="242"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;TIM6_DAC_IRQHandler&amp;#039; is never used." verbose="The function &amp;#039;TIM6_DAC_IRQHandler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="261"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;UsageFault_Handler&amp;#039; is never used." verbose="The function &amp;#039;UsageFault_Handler&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_it.c" line="139"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_ADC_MspDeInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_ADC_MspDeInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\adc.c" line="342"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_ADC_MspInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_ADC_MspInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\adc.c" line="220"/>
+        </error>
+        <error id="unusedFunction" severity="style" msg="The function &amp;#039;HAL_MspInit&amp;#039; is never used." verbose="The function &amp;#039;HAL_MspInit&amp;#039; is never used." cwe="561" sinceDate="08/05/2024">
+            <location file="..\..\..\Inverter\Core\Src\stm32f7xx_hal_msp.c" line="63"/>
+        </error>
+    </errors>
+</results>

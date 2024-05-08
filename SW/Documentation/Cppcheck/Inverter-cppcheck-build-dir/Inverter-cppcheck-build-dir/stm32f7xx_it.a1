@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="7633231071129319372">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\main.h" line="30" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="29" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="30" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\Pergamon_float.h" line="25" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:72:9" call-funcname="getADCelec" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/stm32f7xx_it.c" line="250" col="13" call-argexpr="ADC_LEFT_raw" call-argvaluetype="7" call-argvalue="16"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:72:9" call-funcname="getADCelec" call-argnr="2" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/stm32f7xx_it.c" line="250" col="13" call-argexpr="&amp;encoder_LEFT" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:72:9" call-funcname="getADCelec" call-argnr="3" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/stm32f7xx_it.c" line="250" col="13" call-argexpr="&amp;measurements_LEFT" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CONTROL.h:28:6" call-funcname="control" call-argnr="3" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/stm32f7xx_it.c" line="252" col="10" call-argexpr="&amp;measurements_LEFT" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CONTROL.h:28:6" call-funcname="control" call-argnr="4" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/stm32f7xx_it.c" line="252" col="10" call-argexpr="&amp;duties_LEFT" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PWM.h:41:6" call-funcname="enable_PWM" call-argnr="2" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/stm32f7xx_it.c" line="254" col="13" call-argexpr="&amp;duties_LEFT" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="NMI_Handler" lineNumber="79"/>
+    <functiondecl functionName="HardFault_Handler" lineNumber="94"/>
+    <functiondecl functionName="MemManage_Handler" lineNumber="109"/>
+    <functiondecl functionName="BusFault_Handler" lineNumber="124"/>
+    <functiondecl functionName="UsageFault_Handler" lineNumber="139"/>
+    <functiondecl functionName="SVC_Handler" lineNumber="154"/>
+    <functiondecl functionName="DebugMon_Handler" lineNumber="167"/>
+    <functiondecl functionName="PendSV_Handler" lineNumber="180"/>
+    <functiondecl functionName="SysTick_Handler" lineNumber="193"/>
+    <functiondecl functionName="CAN1_RX0_IRQHandler" lineNumber="214"/>
+    <functiondecl functionName="CAN1_RX1_IRQHandler" lineNumber="228"/>
+    <functiondecl functionName="TIM1_UP_TIM10_IRQHandler" lineNumber="242"/>
+    <functiondecl functionName="TIM6_DAC_IRQHandler" lineNumber="261"/>
+    <functiondecl functionName="DMA2_Stream1_IRQHandler" lineNumber="276"/>
+    <functiondecl functionName="DMA2_Stream2_IRQHandler" lineNumber="290"/>
+    <functioncall functionName="HAL_CAN_IRQHandler"/>
+    <functioncall functionName="HAL_DAC_IRQHandler"/>
+    <functioncall functionName="HAL_DMA_IRQHandler"/>
+    <functioncall functionName="HAL_IncTick"/>
+    <functioncall functionName="HAL_TIM_IRQHandler"/>
+    <functioncall functionName="control"/>
+    <functioncall functionName="enable_PWM"/>
+    <functioncall functionName="getADCelec"/>
+    <functioncall functionName="tasks_1ms"/>
+  </FileInfo>
+</analyzerinfo>

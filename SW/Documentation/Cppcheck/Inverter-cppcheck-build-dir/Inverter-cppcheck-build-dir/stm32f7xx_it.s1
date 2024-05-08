@@ -1,0 +1,15 @@
+NMI_Handler
+HardFault_Handler
+MemManage_Handler
+BusFault_Handler
+UsageFault_Handler
+SVC_Handler
+DebugMon_Handler
+PendSV_Handler
+SysTick_Handler call:[HAL_IncTick] noreturn:[HAL_IncTick]
+CAN1_RX0_IRQHandler global:[hcan1] call:[HAL_CAN_IRQHandler] noreturn:[HAL_CAN_IRQHandler]
+CAN1_RX1_IRQHandler global:[hcan1] call:[HAL_CAN_IRQHandler] noreturn:[HAL_CAN_IRQHandler]
+TIM1_UP_TIM10_IRQHandler global:[ADC_LEFT_raw,duties_LEFT,encoder_LEFT,htim1,measurements_LEFT,valfa_L,vbeta_L] call:[HAL_TIM_IRQHandler,control,enable_PWM,getADCelec] noreturn:[enable_PWM]
+TIM6_DAC_IRQHandler global:[hdac,htim6] call:[HAL_DAC_IRQHandler,HAL_TIM_IRQHandler,tasks_1ms] noreturn:[tasks_1ms]
+DMA2_Stream1_IRQHandler global:[hdma_adc3] call:[HAL_DMA_IRQHandler] noreturn:[HAL_DMA_IRQHandler]
+DMA2_Stream2_IRQHandler global:[hdma_adc2] call:[HAL_DMA_IRQHandler] noreturn:[HAL_DMA_IRQHandler]

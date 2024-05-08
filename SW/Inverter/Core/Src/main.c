@@ -32,6 +32,7 @@
 #include "FSM.h"
 #include "MEASUREMENTS.h"
 #include "PCB_IO.h"
+#include "CONTROL.h"
 
 
 /* USER CODE END Includes */
@@ -133,6 +134,9 @@ int main(void)
 
   inv_init(&invLeft, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin);
   inv_init(&invRight, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin);
+
+
+  enable_PWM(&htim1, &duties_LEFT);
 
   /* USER CODE END 2 */
 

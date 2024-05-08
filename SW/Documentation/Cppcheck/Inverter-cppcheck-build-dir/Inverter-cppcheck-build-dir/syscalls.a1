@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="15151632728550135828">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;sys/stat.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;sys/stat.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\syscalls.c" line="24" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdlib.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdlib.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\syscalls.c" line="25" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;errno.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;errno.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\syscalls.c" line="26" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdio.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\syscalls.c" line="27" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;signal.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;signal.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\syscalls.c" line="28" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;time.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;time.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\syscalls.c" line="29" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;sys/time.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;sys/time.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\syscalls.c" line="30" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;sys/times.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;sys/times.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\syscalls.c" line="31" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;ptr&apos; can be declared as pointer to const" verbose="Parameter &apos;ptr&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/syscalls.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\syscalls.c" line="80" column="50" info="Parameter &apos;ptr&apos; can be declared as pointer to const"/>
+            <symbol>ptr</symbol>
+        </error>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/syscalls.c:99:5" my-argnr="2" my-argname="st" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/syscalls.c" line="102" col="3" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/syscalls.c:148:5" my-argnr="2" my-argname="st" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/syscalls.c" line="151" col="3" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="initialise_monitor_handles" lineNumber="44"/>
+    <functiondecl functionName="_getpid" lineNumber="48"/>
+    <functiondecl functionName="_kill" lineNumber="53"/>
+    <functiondecl functionName="_exit" lineNumber="61"/>
+    <functiondecl functionName="_read" lineNumber="67"/>
+    <functiondecl functionName="_write" lineNumber="80"/>
+    <functiondecl functionName="_close" lineNumber="92"/>
+    <functiondecl functionName="_fstat" lineNumber="99"/>
+    <functiondecl functionName="_isatty" lineNumber="106"/>
+    <functiondecl functionName="_lseek" lineNumber="112"/>
+    <functiondecl functionName="_open" lineNumber="120"/>
+    <functiondecl functionName="_wait" lineNumber="128"/>
+    <functiondecl functionName="_unlink" lineNumber="135"/>
+    <functiondecl functionName="_times" lineNumber="142"/>
+    <functiondecl functionName="_stat" lineNumber="148"/>
+    <functiondecl functionName="_link" lineNumber="155"/>
+    <functiondecl functionName="_fork" lineNumber="163"/>
+    <functiondecl functionName="_execve" lineNumber="169"/>
+    <functioncall functionName="EAGAIN"/>
+    <functioncall functionName="ECHILD"/>
+    <functioncall functionName="EINVAL"/>
+    <functioncall functionName="EMLINK"/>
+    <functioncall functionName="ENOENT"/>
+    <functioncall functionName="ENOMEM"/>
+    <functioncall functionName="S_IFCHR"/>
+    <functioncall functionName="__io_getchar"/>
+    <functioncall functionName="__io_putchar"/>
+    <functioncall functionName="_kill"/>
+  </FileInfo>
+</analyzerinfo>

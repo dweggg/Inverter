@@ -1,0 +1,3 @@
+MX_DAC_Init global:[hdac] call:[Error_Handler,HAL_DAC_ConfigChannel,HAL_DAC_Init] noreturn:[Error_Handler]
+HAL_DAC_MspInit call:[HAL_GPIO_Init,HAL_NVIC_EnableIRQ,HAL_NVIC_SetPriority,__HAL_RCC_DAC_CLK_ENABLE,__HAL_RCC_GPIOA_CLK_ENABLE] noreturn:[HAL_NVIC_EnableIRQ]
+HAL_DAC_MspDeInit call:[HAL_GPIO_DeInit,__HAL_RCC_DAC_CLK_DISABLE] noreturn:[HAL_GPIO_DeInit]

@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="7924801214710475889">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\main.h" line="30" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;i2cHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;i2cHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\i2c.c" line="73" column="41" info="Parameter &apos;i2cHandle&apos; can be declared as pointer to const"/>
+            <symbol>i2cHandle</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;i2cHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;i2cHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\i2c.c" line="113" column="43" info="Parameter &apos;i2cHandle&apos; can be declared as pointer to const"/>
+            <symbol>i2cHandle</symbol>
+        </error>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c:73:6" my-argnr="1" my-argname="i2cHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c" line="78" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c:113:6" my-argnr="1" my-argname="i2cHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c" line="116" col="6" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c:73:6" my-argnr="1" my-argname="i2cHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c" line="78" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c:113:6" my-argnr="1" my-argname="i2cHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/i2c.c" line="116" col="6" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="MX_I2C1_Init" lineNumber="30"/>
+    <functiondecl functionName="HAL_I2C_MspInit" lineNumber="73"/>
+    <functiondecl functionName="HAL_I2C_MspDeInit" lineNumber="113"/>
+    <functioncall functionName="Error_Handler"/>
+    <functioncall functionName="GPIOB"/>
+    <functioncall functionName="GPIO_AF4_I2C1"/>
+    <functioncall functionName="GPIO_MODE_AF_OD"/>
+    <functioncall functionName="GPIO_NOPULL"/>
+    <functioncall functionName="GPIO_PIN_6"/>
+    <functioncall functionName="GPIO_PIN_7"/>
+    <functioncall functionName="GPIO_SPEED_FREQ_VERY_HIGH"/>
+    <functioncall functionName="HAL_GPIO_DeInit"/>
+    <functioncall functionName="HAL_GPIO_Init"/>
+    <functioncall functionName="HAL_I2CEx_ConfigAnalogFilter"/>
+    <functioncall functionName="HAL_I2CEx_ConfigDigitalFilter"/>
+    <functioncall functionName="HAL_I2C_Init"/>
+    <functioncall functionName="HAL_RCCEx_PeriphCLKConfig"/>
+    <functioncall functionName="I2C1"/>
+    <functioncall functionName="I2C_ADDRESSINGMODE_7BIT"/>
+    <functioncall functionName="I2C_ANALOGFILTER_ENABLE"/>
+    <functioncall functionName="I2C_DUALADDRESS_DISABLE"/>
+    <functioncall functionName="I2C_GENERALCALL_DISABLE"/>
+    <functioncall functionName="I2C_NOSTRETCH_DISABLE"/>
+    <functioncall functionName="I2C_OA2_NOMASK"/>
+    <functioncall functionName="RCC_I2C1CLKSOURCE_PCLK1"/>
+    <functioncall functionName="RCC_PERIPHCLK_I2C1"/>
+    <functioncall functionName="__HAL_RCC_GPIOB_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_I2C1_CLK_DISABLE"/>
+    <functioncall functionName="__HAL_RCC_I2C1_CLK_ENABLE"/>
+  </FileInfo>
+</analyzerinfo>

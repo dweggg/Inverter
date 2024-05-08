@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="5232561789204607738">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\main.h" line="30" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;canHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;canHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\can.c" line="62" column="41" info="Parameter &apos;canHandle&apos; can be declared as pointer to const"/>
+            <symbol>canHandle</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;canHandle&apos; can be declared as pointer to const" verbose="Parameter &apos;canHandle&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\can.c" line="97" column="43" info="Parameter &apos;canHandle&apos; can be declared as pointer to const"/>
+            <symbol>canHandle</symbol>
+        </error>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c:62:6" my-argnr="1" my-argname="canHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c" line="66" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c:97:6" my-argnr="1" my-argname="canHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c" line="100" col="6" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c:62:6" my-argnr="1" my-argname="canHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c" line="66" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c:97:6" my-argnr="1" my-argname="canHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/can.c" line="100" col="6" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="MX_CAN1_Init" lineNumber="30"/>
+    <functiondecl functionName="HAL_CAN_MspInit" lineNumber="62"/>
+    <functiondecl functionName="HAL_CAN_MspDeInit" lineNumber="97"/>
+    <functioncall functionName="CAN1"/>
+    <functioncall functionName="CAN1_RX0_IRQn"/>
+    <functioncall functionName="CAN1_RX1_IRQn"/>
+    <functioncall functionName="CAN_BS1_5TQ"/>
+    <functioncall functionName="CAN_BS2_3TQ"/>
+    <functioncall functionName="CAN_MODE_NORMAL"/>
+    <functioncall functionName="CAN_SJW_1TQ"/>
+    <functioncall functionName="DISABLE"/>
+    <functioncall functionName="Error_Handler"/>
+    <functioncall functionName="GPIOD"/>
+    <functioncall functionName="GPIO_AF9_CAN1"/>
+    <functioncall functionName="GPIO_MODE_AF_PP"/>
+    <functioncall functionName="GPIO_NOPULL"/>
+    <functioncall functionName="GPIO_PIN_1"/>
+    <functioncall functionName="GPIO_SPEED_FREQ_VERY_HIGH"/>
+    <functioncall functionName="HAL_CAN_Init"/>
+    <functioncall functionName="HAL_GPIO_DeInit"/>
+    <functioncall functionName="HAL_GPIO_Init"/>
+    <functioncall functionName="HAL_NVIC_DisableIRQ"/>
+    <functioncall functionName="HAL_NVIC_EnableIRQ"/>
+    <functioncall functionName="HAL_NVIC_SetPriority"/>
+    <functioncall functionName="__HAL_RCC_CAN1_CLK_DISABLE"/>
+    <functioncall functionName="__HAL_RCC_CAN1_CLK_ENABLE"/>
+    <functioncall functionName="__HAL_RCC_GPIOD_CLK_ENABLE"/>
+  </FileInfo>
+</analyzerinfo>

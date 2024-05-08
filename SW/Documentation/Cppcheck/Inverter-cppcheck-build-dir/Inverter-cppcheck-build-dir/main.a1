@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="4359627046380654159">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\main.h" line="30" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\FSM.h" line="23" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="29" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="30" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:54:6" call-funcname="inv_init" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="134" col="11" call-argexpr="&amp;invLeft" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:54:6" call-funcname="inv_init" call-argnr="2" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="134" col="11" call-argexpr="&amp;led_left" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:54:6" call-funcname="inv_init" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="135" col="11" call-argexpr="&amp;invRight" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:54:6" call-funcname="inv_init" call-argnr="2" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="135" col="11" call-argexpr="&amp;led_right" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:61:6" call-funcname="inv_FSM" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="145" col="11" call-argexpr="&amp;invLeft" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:61:6" call-funcname="inv_FSM" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="148" col="11" call-argexpr="&amp;invRight" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="main" lineNumber="87"/>
+    <functiondecl functionName="SystemClock_Config" lineNumber="161"/>
+    <functiondecl functionName="Error_Handler" lineNumber="218"/>
+    <functioncall functionName="Error_Handler"/>
+    <functioncall functionName="FLASH_LATENCY_7"/>
+    <functioncall functionName="GPIOB"/>
+    <functioncall functionName="GPIOE"/>
+    <functioncall functionName="GPIO_PIN_2"/>
+    <functioncall functionName="GPIO_PIN_7"/>
+    <functioncall functionName="HAL_ADC_Start_DMA"/>
+    <functioncall functionName="HAL_Init"/>
+    <functioncall functionName="HAL_PWREx_EnableOverDrive"/>
+    <functioncall functionName="HAL_RCC_ClockConfig"/>
+    <functioncall functionName="HAL_RCC_OscConfig"/>
+    <functioncall functionName="HAL_TIM_Base_Start_IT"/>
+    <functioncall functionName="MX_ADC1_Init"/>
+    <functioncall functionName="MX_ADC2_Init"/>
+    <functioncall functionName="MX_ADC3_Init"/>
+    <functioncall functionName="MX_CAN1_Init"/>
+    <functioncall functionName="MX_DAC_Init"/>
+    <functioncall functionName="MX_DMA_Init"/>
+    <functioncall functionName="MX_GPIO_Init"/>
+    <functioncall functionName="MX_I2C1_Init"/>
+    <functioncall functionName="MX_TIM1_Init"/>
+    <functioncall functionName="MX_TIM2_Init"/>
+    <functioncall functionName="MX_TIM4_Init"/>
+    <functioncall functionName="MX_TIM6_Init"/>
+    <functioncall functionName="MX_TIM8_Init"/>
+    <functioncall functionName="MX_USB_OTG_FS_USB_Init"/>
+    <functioncall functionName="PWR_REGULATOR_VOLTAGE_SCALE1"/>
+    <functioncall functionName="RCC_CLOCKTYPE_PCLK2"/>
+    <functioncall functionName="RCC_HCLK_DIV2"/>
+    <functioncall functionName="RCC_HCLK_DIV4"/>
+    <functioncall functionName="RCC_HSE_ON"/>
+    <functioncall functionName="RCC_OSCILLATORTYPE_HSE"/>
+    <functioncall functionName="RCC_PLLP_DIV2"/>
+    <functioncall functionName="RCC_PLLSOURCE_HSE"/>
+    <functioncall functionName="RCC_PLL_ON"/>
+    <functioncall functionName="RCC_SYSCLKSOURCE_PLLCLK"/>
+    <functioncall functionName="RCC_SYSCLK_DIV1"/>
+    <functioncall functionName="SystemClock_Config"/>
+    <functioncall functionName="__HAL_PWR_VOLTAGESCALING_CONFIG"/>
+    <functioncall functionName="__HAL_RCC_PWR_CLK_ENABLE"/>
+    <functioncall functionName="__disable_irq"/>
+    <functioncall functionName="inv_FSM"/>
+    <functioncall functionName="inv_init"/>
+  </FileInfo>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;file&apos; can be declared as pointer to const" verbose="Parameter &apos;file&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\main.c" line="237" column="29" info="Parameter &apos;file&apos; can be declared as pointer to const"/>
+            <symbol>file</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:54:6" call-funcname="inv_init" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="134" col="11" call-argexpr="&amp;invLeft" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:54:6" call-funcname="inv_init" call-argnr="2" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="134" col="11" call-argexpr="&amp;led_left" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:54:6" call-funcname="inv_init" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="135" col="11" call-argexpr="&amp;invRight" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:54:6" call-funcname="inv_init" call-argnr="2" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="135" col="11" call-argexpr="&amp;led_right" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:61:6" call-funcname="inv_FSM" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="145" col="11" call-argexpr="&amp;invLeft" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/FSM.h:61:6" call-funcname="inv_FSM" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/main.c" line="148" col="11" call-argexpr="&amp;invRight" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="main" lineNumber="87"/>
+    <functiondecl functionName="SystemClock_Config" lineNumber="161"/>
+    <functiondecl functionName="Error_Handler" lineNumber="218"/>
+    <functiondecl functionName="assert_failed" lineNumber="237"/>
+    <functioncall functionName="Error_Handler"/>
+    <functioncall functionName="FLASH_LATENCY_7"/>
+    <functioncall functionName="GPIOB"/>
+    <functioncall functionName="GPIOE"/>
+    <functioncall functionName="GPIO_PIN_2"/>
+    <functioncall functionName="GPIO_PIN_7"/>
+    <functioncall functionName="HAL_ADC_Start_DMA"/>
+    <functioncall functionName="HAL_Init"/>
+    <functioncall functionName="HAL_PWREx_EnableOverDrive"/>
+    <functioncall functionName="HAL_RCC_ClockConfig"/>
+    <functioncall functionName="HAL_RCC_OscConfig"/>
+    <functioncall functionName="HAL_TIM_Base_Start_IT"/>
+    <functioncall functionName="MX_ADC1_Init"/>
+    <functioncall functionName="MX_ADC2_Init"/>
+    <functioncall functionName="MX_ADC3_Init"/>
+    <functioncall functionName="MX_CAN1_Init"/>
+    <functioncall functionName="MX_DAC_Init"/>
+    <functioncall functionName="MX_DMA_Init"/>
+    <functioncall functionName="MX_GPIO_Init"/>
+    <functioncall functionName="MX_I2C1_Init"/>
+    <functioncall functionName="MX_TIM1_Init"/>
+    <functioncall functionName="MX_TIM2_Init"/>
+    <functioncall functionName="MX_TIM4_Init"/>
+    <functioncall functionName="MX_TIM6_Init"/>
+    <functioncall functionName="MX_TIM8_Init"/>
+    <functioncall functionName="MX_USB_OTG_FS_USB_Init"/>
+    <functioncall functionName="PWR_REGULATOR_VOLTAGE_SCALE1"/>
+    <functioncall functionName="RCC_CLOCKTYPE_PCLK2"/>
+    <functioncall functionName="RCC_HCLK_DIV2"/>
+    <functioncall functionName="RCC_HCLK_DIV4"/>
+    <functioncall functionName="RCC_HSE_ON"/>
+    <functioncall functionName="RCC_OSCILLATORTYPE_HSE"/>
+    <functioncall functionName="RCC_PLLP_DIV2"/>
+    <functioncall functionName="RCC_PLLSOURCE_HSE"/>
+    <functioncall functionName="RCC_PLL_ON"/>
+    <functioncall functionName="RCC_SYSCLKSOURCE_PLLCLK"/>
+    <functioncall functionName="RCC_SYSCLK_DIV1"/>
+    <functioncall functionName="SystemClock_Config"/>
+    <functioncall functionName="__HAL_PWR_VOLTAGESCALING_CONFIG"/>
+    <functioncall functionName="__HAL_RCC_PWR_CLK_ENABLE"/>
+    <functioncall functionName="__disable_irq"/>
+    <functioncall functionName="inv_FSM"/>
+    <functioncall functionName="inv_init"/>
+  </FileInfo>
+</analyzerinfo>
