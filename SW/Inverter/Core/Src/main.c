@@ -125,11 +125,9 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   HAL_TIM_Base_Start_IT(&htim1);
-	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_BREAK);	  /* Enable the TIM Break interrupt */
+//	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_BREAK);	  /* Enable the TIM Break interrupt */
 
   HAL_TIM_Base_Start_IT(&htim6);
-
-
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC_LEFT_raw,4);
 

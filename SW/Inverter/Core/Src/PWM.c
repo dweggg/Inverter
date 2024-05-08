@@ -26,25 +26,23 @@
  *
  * @param htim Pointer to the TIM_HandleTypeDef structure.
  */
-void enable_PWM(TIM_HandleTypeDef *htim) {
+void enable_PWM(TIM_HandleTypeDef *htim, Duties *duties) {
 
-	//Reset the counter
-//	htimX.Instance->CNT=0;
-
+//	//Reset the counter
+//	htim->Instance->CNT=0;
+//
 	htim->Instance->CCMR1 = 0x6868; // Set Channel 1 and Channel 2 Output Compare mode to PWM Mode
-
-	//	htim1.Instance->CCER = 0x888;
+//
+//	//	htim1.Instance->CCER = 0x888;
 	htim->Instance->CCER = 0x10555;
-
-	//Enable Main Output
+//
+//	//Enable Main Output
 	htim->Instance->BDTR |=(1<<15);
-
-	//Enable Counter
+//
+//	//Enable Counter
 	htim->Instance->CR1 |=1;
 
-    Duties duties = {0.8F,0.5F,0.2F};
-
-    set_PWM(htim, &duties);
+    set_PWM(htim, duties);
 }
 
 /**
@@ -63,10 +61,20 @@ void disable_PWM(TIM_HandleTypeDef *htim) {
 	htim->Instance->CCER = 0xCCC;
 	//	htim1.Instance->CCER |= 0x555;
 
-	//Disable Main Output
+		//Disable Main Output
 	htim->Instance->BDTR &= 0xFFFF7FFF;
 	//	htim1.Instance->BDTR &=(0<<15);
 }
+
+void Compare3F_calc(TIM_HandleTypeDef *htim, Compare3F_struct *v)
+{
+
+	v->compA = ((int32_t)(htim->Instance->ARR) * v->alfaA);
+	v->compB = ((int32_t)(htim->Instance->ARR) * v->alfaB);
+	v->compC = ((int32_t)(htim->Instance->ARR) * v->alfaC);
+
+}
+
 
 /**
  * @brief Set PWM duty cycles.
@@ -77,8 +85,18 @@ void disable_PWM(TIM_HandleTypeDef *htim) {
  * @param duties Pointer to the Duties structure containing duty cycle values.
  */
 void set_PWM(TIM_HandleTypeDef *htim, Duties *duties) {
-	htim->Instance->CCR1 = (duties->Da)*htim->Instance->ARR;
-	htim->Instance->CCR2 = (duties->Db)*htim->Instance->ARR;
-	htim->Instance->CCR3 = (duties->Dc)*htim->Instance->ARR;
+
+	Compare3F_struct Compare = COMPARE3F_DEFAULTS;
+
+	Compare.alfaA = 1.0F - duties->Da;
+	Compare.alfaB = 1.0F - duties->Db;
+	Compare.alfaC = 1.0F - duties->Dc;
+
+
+	Compare3F_calc(htim, &Compare);
+
+	htim->Instance->CCR1 = Compare.compA;
+	htim->Instance->CCR2 = Compare.compB;
+	htim->Instance->CCR3 = Compare.compC;
 
 }
