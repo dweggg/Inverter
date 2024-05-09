@@ -65,6 +65,6 @@ extern LED led_error;
  * @param led Pointer to the LED structure.
  * @param ms_counter Millisecond counter for timing.
  */
-void LED_handler(LED *led, uint32_t ms_counter);
+void handle_LED(LED *led, uint32_t ms_counter);
 
 #endif /* PCB_IO_H */

@@ -248,11 +248,11 @@ void TIM1_UP_TIM10_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
 
-  getADCelec(ADC_raw_L, &invLeft.measurements);
+  get_ADC(ADC_raw_L, &invLeft.measurements);
 
   calc_duties(vd_L, vq_L, vDC_L, freq_L, &invLeft.duties);
 
-  set_PWM(invLeft.htim, invLeft.duties);
+  update_PWM(invLeft.htim, invLeft.duties);
 
   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }

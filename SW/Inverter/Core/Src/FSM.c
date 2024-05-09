@@ -26,7 +26,7 @@
  *
  * @param inv Pointer to the inverter structure.
  */
-static void idle_handler(volatile inverterStruct *inv);
+static void handle_idle(volatile inverterStruct *inv);
 
 /**
  * @brief FSM state handler for the startup state.
@@ -35,7 +35,7 @@ static void idle_handler(volatile inverterStruct *inv);
  *
  * @param inv Pointer to the inverter structure.
  */
-static void startup_handler(volatile inverterStruct *inv);
+static void handle_startup(volatile inverterStruct *inv);
 
 /**
  * @brief FSM state handler for the running state.
@@ -44,7 +44,7 @@ static void startup_handler(volatile inverterStruct *inv);
  *
  * @param inv Pointer to the inverter structure.
  */
-static void running_handler(volatile inverterStruct *inv);
+static void handle_running(volatile inverterStruct *inv);
 
 /**
  * @brief FSM state handler for the fault state.
@@ -53,7 +53,7 @@ static void running_handler(volatile inverterStruct *inv);
  *
  * @param inv Pointer to the inverter structure.
  */
-static void fault_handler(volatile inverterStruct *inv);
+static void handle_fault(volatile inverterStruct *inv);
 
 /**
  * @brief Execute the finite state machine for inverter.
@@ -62,19 +62,19 @@ static void fault_handler(volatile inverterStruct *inv);
  *
  * @param inv Pointer to the inverter structure.
  */
-void inv_FSM(volatile inverterStruct *inv) {
+void eval_inv_FSM(volatile inverterStruct *inv) {
     switch (inv->state) {
         case INV_STATE_IDLE:
-            idle_handler(inv);
+        	handle_idle(inv);
             break;
         case INV_STATE_STARTUP:
-            startup_handler(inv);
+        	handle_startup(inv);
             break;
         case INV_STATE_RUNNING:
-            running_handler(inv);
+        	handle_running(inv);
             break;
         case INV_STATE_FAULT:
-            fault_handler(inv);
+        	handle_fault(inv);
             break;
         default:
             // Invalid state, handle error
@@ -89,7 +89,7 @@ void inv_FSM(volatile inverterStruct *inv) {
  *
  * @param inv Pointer to the inverter structure.
  */
-void idle_handler(volatile inverterStruct *inv) {
+void handle_idle(volatile inverterStruct *inv) {
     // Perform actions required in idle state
     // Transition conditions to other states:
     // - Start startup sequence based on input condition
@@ -105,7 +105,7 @@ void idle_handler(volatile inverterStruct *inv) {
  *
  * @param inv Pointer to the inverter structure.
  */
-void startup_handler(volatile inverterStruct *inv) {
+void handle_startup(volatile inverterStruct *inv) {
     // Perform actions required in startup state
     // Transition conditions to other states:
     // - Transition to running state when startup sequence completes successfully
@@ -121,7 +121,7 @@ void startup_handler(volatile inverterStruct *inv) {
  *
  * @param inv Pointer to the inverter structure.
  */
-void running_handler(volatile inverterStruct *inv) {
+void handle_running(volatile inverterStruct *inv) {
     // Perform actions required in running state
     // This is where the main control loop resides
     // Monitor inverter variables, adjust control parameters, etc.
@@ -138,7 +138,7 @@ void running_handler(volatile inverterStruct *inv) {
  *
  * @param inv Pointer to the inverter structure.
  */
-void fault_handler(volatile inverterStruct *inv) {
+void handle_fault(volatile inverterStruct *inv) {
     // Perform actions required in fault state
     // This could involve shutting down the inverter, logging error messages, etc.
     // Transition conditions to other states:

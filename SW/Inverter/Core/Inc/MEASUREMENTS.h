@@ -56,7 +56,7 @@ typedef struct {
   * @param  measurements Pointer to the measurements struct to store the results.
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t getADCelec(volatile uint32_t ADC_raw[], volatile Measurements* measurements);
+uint8_t get_ADC(volatile uint32_t ADC_raw[], volatile Measurements* measurements);
 /**
   * @brief  Convert ADC reading to physical measurement with linear response.
   * @param  bits The ADC reading.
@@ -64,6 +64,6 @@ uint8_t getADCelec(volatile uint32_t ADC_raw[], volatile Measurements* measureme
   * @param  offset The offset (volts at zero).
   * @retval measurement The physical measurement.
   */
-float getLinear(uint32_t bits, float slope, float offset);
+float get_linear(uint32_t bits, float slope, float offset);
 
 #endif /* MEASUREMENTS_H */

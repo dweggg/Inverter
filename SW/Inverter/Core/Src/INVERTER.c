@@ -41,7 +41,7 @@ volatile uint32_t ADC_raw_R[4] = {0};
  * @param hadc ADC peripheral for the current phase current and DC voltage sensing.
 
  */
-void inv_init(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
+void initialize_inverter(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
     // Initialize inverter structure
     inv->state = INV_STATE_STARTUP;
     inv->led = led;

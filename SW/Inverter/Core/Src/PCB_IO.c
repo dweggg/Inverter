@@ -34,7 +34,7 @@ LED led_error = { .port = LED_ERR_GPIO_Port, .pin = LED_ERR_Pin, .mode = LED_MOD
  * @param led Pointer to the LED structure.
  * @param ms_counter Current millisecond counter.
  */
-void LED_handler(LED *led, uint32_t ms_counter) {
+void handle_LED(LED *led, uint32_t ms_counter) {
     switch (led->mode) {
         case LED_MODE_BLINK_FAST:
             if (ms_counter % 200 < 100) {

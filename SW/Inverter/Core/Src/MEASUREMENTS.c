@@ -25,13 +25,13 @@
   * @param  measurements Pointer to the measurements struct to store the results.
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t getADCelec(volatile uint32_t ADC_raw[], volatile Measurements* measurements) {
+uint8_t get_ADC(volatile uint32_t ADC_raw[], volatile Measurements* measurements) {
 
     // Calculate currents and voltage
-    float ia = getLinear(ADC_raw[0], CURRENT_SLOPE, CURRENT_OFFSET);
-    float ib = getLinear(ADC_raw[1], CURRENT_SLOPE, CURRENT_OFFSET);
-    float ic = getLinear(ADC_raw[2], CURRENT_SLOPE, CURRENT_OFFSET);
-    float VDC = getLinear(ADC_raw[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
+    float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, CURRENT_OFFSET);
+    float ib = get_linear(ADC_raw[1], CURRENT_SLOPE, CURRENT_OFFSET);
+    float ic = get_linear(ADC_raw[2], CURRENT_SLOPE, CURRENT_OFFSET);
+    float VDC = get_linear(ADC_raw[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
 
     // Store the measurements
     measurements->ia = ia;
@@ -49,7 +49,7 @@ uint8_t getADCelec(volatile uint32_t ADC_raw[], volatile Measurements* measureme
   * @param  offset The offset (volts at zero).
   * @retval measurement The physical measurement.
   */
-float getLinear(uint32_t bits, float slope, float offset) {
+float get_linear(uint32_t bits, float slope, float offset) {
     // Convert ADC reading to voltage
     float voltage = (float) bits * 0.0008058608f; // Assuming 12-bit ADC and 3.3V reference (bits * (3.3 V / 4095.0 bits))
 
