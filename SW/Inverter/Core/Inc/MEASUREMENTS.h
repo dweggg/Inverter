@@ -26,28 +26,39 @@
 #ifndef MEASUREMENTS_H
 #define MEASUREMENTS_H
 
-/* Include necessary header files */
 #include <stdint.h>
 
-/* Define encoder struct */
+/**
+ * @brief Structure for encoder reading.
+ */
 typedef struct {
-    uint16_t A;       /**< Encoder channel A value */
-    uint16_t B;       /**< Encoder channel B value */
-    uint16_t Z;       /**< Encoder channel Z value */
-    float wm_rpm;     /**< Mechanical angular velocity (RPM) */
-    float we;         /**< Electrical angular velocity */
-    float theta_m;    /**< Mechanical rotor position */
-    float theta_e;    /**< Electrical rotor position */
-    uint8_t DIR;      /**< Direction */
+    uint16_t A;       			 /**< Encoder channel A value */
+    uint16_t B;       			 /**< Encoder channel B value */
+    uint16_t Z;      			 /**< Encoder channel Z value */
+    float we;       			 /**< Electrical angular velocity */
+    float theta_e; 				 /**< Electrical rotor position */
+    uint8_t direction_meas;      /**< Measured direction */
 } Encoder;
 
-/* Define measurements struct */
+/**
+ * @brief Structure for ADC measurements in units.
+ */
 typedef struct {
-    float ia;         /**< Phase A current */
-    float ib;         /**< Phase B current */
-    float ic;         /**< Phase C current */
-    float VDC;        /**< DC link voltage */
+    float ia;         /**< Phase A current in A*/
+    float ib;         /**< Phase B current in A*/
+    float ic;         /**< Phase C current in A*/
+    float VDC;        /**< DC link voltage in V*/
 } Measurements;
+
+/**
+ * @brief Structure for feedback values.
+ */
+typedef struct {
+    float id_meas;      /**< Measured d-axis current in A*/
+    float iq_meas;      /**< Measured q-axis current in A*/
+    float torque_calc;  /**< Calculated torque in N·m*/
+    float speed_calc;   /**< Calculated speed in RPM*/
+} Feedback;
 
 /* Define function prototypes */
 /**

@@ -114,7 +114,7 @@ int main(void)
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
-  // Create inverter structures and assign the peripherals
+  // Initialize inverters
   initialize_inverter(&invLeft, &ledLeft, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
   initialize_inverter(&invRight, &ledRight, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
 

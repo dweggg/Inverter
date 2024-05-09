@@ -23,31 +23,31 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   9 .data         00000084  20000000  08008358  0000a000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
- 10 .bss          0000060c  20000084  080083dc  0000a084  2**2
+ 10 .bss          00000644  20000084  080083dc  0000a084  2**2
                   ALLOC
- 11 ._user_heap_stack 00000600  20000690  080083dc  0000a690  2**0
+ 11 ._user_heap_stack 00000600  200006c8  080083dc  0000a6c8  2**0
                   ALLOC
  12 .ARM.attributes 0000002e  00000000  00000000  0000a084  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00019840  00000000  00000000  0000a0b2  2**0
+ 13 .debug_info   00019b5b  00000000  00000000  0000a0b2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00004176  00000000  00000000  000238f2  2**0
+ 14 .debug_abbrev 00004176  00000000  00000000  00023c0d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00001490  00000000  00000000  00027a68  2**3
+ 15 .debug_aranges 00001490  00000000  00000000  00027d88  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 00000fa9  00000000  00000000  00028ef8  2**0
+ 16 .debug_rnglists 00000fa9  00000000  00000000  00029218  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0002b96c  00000000  00000000  00029ea1  2**0
+ 17 .debug_macro  0002b99e  00000000  00000000  0002a1c1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0001e01d  00000000  00000000  0005580d  2**0
+ 18 .debug_line   0001e068  00000000  00000000  00055b5f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00103cd8  00000000  00000000  0007382a  2**0
+ 19 .debug_str    00103d61  00000000  00000000  00073bc7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00177502  2**0
+ 20 .comment      00000043  00000000  00000000  00177928  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  0000560c  00000000  00000000  00177548  2**2
+ 21 .debug_frame  0000560c  00000000  00000000  0017796c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000005a  00000000  00000000  0017cb54  2**0
+ 22 .debug_line_str 0000005a  00000000  00000000  0017cf78  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -728,15 +728,15 @@ void initialize_inverter(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *e
     inv->duties.Da = 0.5;
  8000776:	68fb      	ldr	r3, [r7, #12]
  8000778:	f04f 527c 	mov.w	r2, #1056964608	@ 0x3f000000
- 800077c:	645a      	str	r2, [r3, #68]	@ 0x44
+ 800077c:	661a      	str	r2, [r3, #96]	@ 0x60
     inv->duties.Db = 0.5;
  800077e:	68fb      	ldr	r3, [r7, #12]
  8000780:	f04f 527c 	mov.w	r2, #1056964608	@ 0x3f000000
- 8000784:	649a      	str	r2, [r3, #72]	@ 0x48
+ 8000784:	665a      	str	r2, [r3, #100]	@ 0x64
     inv->duties.Dc = 0.5;
  8000786:	68fb      	ldr	r3, [r7, #12]
  8000788:	f04f 527c 	mov.w	r2, #1056964608	@ 0x3f000000
- 800078c:	64da      	str	r2, [r3, #76]	@ 0x4c
+ 800078c:	669a      	str	r2, [r3, #104]	@ 0x68
 
     HAL_TIM_Base_Start_IT(inv->htim);
  800078e:	68fb      	ldr	r3, [r7, #12]
@@ -1275,12 +1275,12 @@ void tasks_1ms(void) {
  8000b1e:	bf00      	nop
  8000b20:	bd80      	pop	{r7, pc}
  8000b22:	bf00      	nop
- 8000b24:	200001ac 	.word	0x200001ac
+ 8000b24:	200001e4 	.word	0x200001e4
  8000b28:	20000000 	.word	0x20000000
  8000b2c:	20000008 	.word	0x20000008
  8000b30:	20000010 	.word	0x20000010
- 8000b34:	20000188 	.word	0x20000188
- 8000b38:	20000134 	.word	0x20000134
+ 8000b34:	200001c0 	.word	0x200001c0
+ 8000b38:	20000150 	.word	0x20000150
 
 08000b3c <MX_ADC1_Init>:
 DMA_HandleTypeDef hdma_adc2;
@@ -1442,7 +1442,7 @@ void MX_ADC1_Init(void)
  8000c06:	3710      	adds	r7, #16
  8000c08:	46bd      	mov	sp, r7
  8000c0a:	bd80      	pop	{r7, pc}
- 8000c0c:	200001b0 	.word	0x200001b0
+ 8000c0c:	200001e8 	.word	0x200001e8
  8000c10:	40012000 	.word	0x40012000
  8000c14:	0f000001 	.word	0x0f000001
 
@@ -1624,7 +1624,7 @@ void MX_ADC2_Init(void)
  8000d02:	3710      	adds	r7, #16
  8000d04:	46bd      	mov	sp, r7
  8000d06:	bd80      	pop	{r7, pc}
- 8000d08:	200001f8 	.word	0x200001f8
+ 8000d08:	20000230 	.word	0x20000230
  8000d0c:	40012100 	.word	0x40012100
 
 08000d10 <MX_ADC3_Init>:
@@ -1742,7 +1742,7 @@ void MX_ADC3_Init(void)
  8000da2:	3710      	adds	r7, #16
  8000da4:	46bd      	mov	sp, r7
  8000da6:	bd80      	pop	{r7, pc}
- 8000da8:	20000240 	.word	0x20000240
+ 8000da8:	20000278 	.word	0x20000278
  8000dac:	40012200 	.word	0x40012200
  8000db0:	0f000001 	.word	0x0f000001
 
@@ -2055,11 +2055,11 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
  8000fcc:	40020000 	.word	0x40020000
  8000fd0:	40012100 	.word	0x40012100
  8000fd4:	40020400 	.word	0x40020400
- 8000fd8:	20000288 	.word	0x20000288
+ 8000fd8:	200002c0 	.word	0x200002c0
  8000fdc:	40026440 	.word	0x40026440
  8000fe0:	40012200 	.word	0x40012200
  8000fe4:	40020800 	.word	0x40020800
- 8000fe8:	200002e8 	.word	0x200002e8
+ 8000fe8:	20000320 	.word	0x20000320
  8000fec:	40026428 	.word	0x40026428
 
 08000ff0 <MX_CAN1_Init>:
@@ -2141,7 +2141,7 @@ void MX_CAN1_Init(void)
 }
  8001050:	bf00      	nop
  8001052:	bd80      	pop	{r7, pc}
- 8001054:	20000348 	.word	0x20000348
+ 8001054:	20000380 	.word	0x20000380
  8001058:	40006400 	.word	0x40006400
 
 0800105c <HAL_CAN_MspInit>:
@@ -2322,7 +2322,7 @@ void MX_DAC_Init(void)
  800114a:	46bd      	mov	sp, r7
  800114c:	bd80      	pop	{r7, pc}
  800114e:	bf00      	nop
- 8001150:	20000370 	.word	0x20000370
+ 8001150:	200003a8 	.word	0x200003a8
  8001154:	40007400 	.word	0x40007400
 
 08001158 <HAL_DAC_MspInit>:
@@ -2913,7 +2913,7 @@ void MX_I2C1_Init(void)
  80014ee:	bf00      	nop
  80014f0:	bd80      	pop	{r7, pc}
  80014f2:	bf00      	nop
- 80014f4:	20000384 	.word	0x20000384
+ 80014f4:	200003bc 	.word	0x200003bc
  80014f8:	40005400 	.word	0x40005400
  80014fc:	20404768 	.word	0x20404768
 
@@ -3142,19 +3142,19 @@ int main(void)
 	  eval_inv_FSM(&invLeft);
  8001650:	bf00      	nop
  8001652:	e7f7      	b.n	8001644 <main+0x88>
- 8001654:	200001f8 	.word	0x200001f8
- 8001658:	200003d8 	.word	0x200003d8
+ 8001654:	20000230 	.word	0x20000230
+ 8001658:	20000410 	.word	0x20000410
  800165c:	40021000 	.word	0x40021000
  8001660:	20000000 	.word	0x20000000
  8001664:	200000e4 	.word	0x200000e4
- 8001668:	200001b0 	.word	0x200001b0
- 800166c:	20000508 	.word	0x20000508
+ 8001668:	200001e8 	.word	0x200001e8
+ 800166c:	20000540 	.word	0x20000540
  8001670:	40020400 	.word	0x40020400
  8001674:	20000008 	.word	0x20000008
- 8001678:	20000138 	.word	0x20000138
- 800167c:	2000018c 	.word	0x2000018c
- 8001680:	2000019c 	.word	0x2000019c
- 8001684:	200004bc 	.word	0x200004bc
+ 8001678:	20000154 	.word	0x20000154
+ 800167c:	200001c4 	.word	0x200001c4
+ 8001680:	200001d4 	.word	0x200001d4
+ 8001684:	200004f4 	.word	0x200004f4
 
 08001688 <SystemClock_Config>:
 /**
@@ -3560,7 +3560,7 @@ void CAN1_RX0_IRQHandler(void)
  8001822:	bf00      	nop
  8001824:	bd80      	pop	{r7, pc}
  8001826:	bf00      	nop
- 8001828:	20000348 	.word	0x20000348
+ 8001828:	20000380 	.word	0x20000380
 
 0800182c <CAN1_RX1_IRQHandler>:
 
@@ -3584,7 +3584,7 @@ void CAN1_RX1_IRQHandler(void)
  8001836:	bf00      	nop
  8001838:	bd80      	pop	{r7, pc}
  800183a:	bf00      	nop
- 800183c:	20000348 	.word	0x20000348
+ 800183c:	20000380 	.word	0x20000380
 
 08001840 <TIM1_UP_TIM10_IRQHandler>:
 
@@ -3628,9 +3628,9 @@ void TIM1_UP_TIM10_IRQHandler(void)
  8001880:	4b11      	ldr	r3, [pc, #68]	@ (80018c8 <TIM1_UP_TIM10_IRQHandler+0x88>)
  8001882:	68da      	ldr	r2, [r3, #12]
  8001884:	4b10      	ldr	r3, [pc, #64]	@ (80018c8 <TIM1_UP_TIM10_IRQHandler+0x88>)
- 8001886:	edd3 6a11 	vldr	s13, [r3, #68]	@ 0x44
- 800188a:	ed93 7a12 	vldr	s14, [r3, #72]	@ 0x48
- 800188e:	edd3 7a13 	vldr	s15, [r3, #76]	@ 0x4c
+ 8001886:	edd3 6a18 	vldr	s13, [r3, #96]	@ 0x60
+ 800188a:	ed93 7a19 	vldr	s14, [r3, #100]	@ 0x64
+ 800188e:	edd3 7a1a 	vldr	s15, [r3, #104]	@ 0x68
  8001892:	eeb0 0a66 	vmov.f32	s0, s13
  8001896:	eef0 0a47 	vmov.f32	s1, s14
  800189a:	eeb0 1a67 	vmov.f32	s2, s15
@@ -3641,14 +3641,14 @@ void TIM1_UP_TIM10_IRQHandler(void)
 }
  80018a4:	bf00      	nop
  80018a6:	bd80      	pop	{r7, pc}
- 80018a8:	200003d8 	.word	0x200003d8
+ 80018a8:	20000410 	.word	0x20000410
  80018ac:	200000fc 	.word	0x200000fc
- 80018b0:	2000018c 	.word	0x2000018c
+ 80018b0:	200001c4 	.word	0x200001c4
  80018b4:	20000018 	.word	0x20000018
  80018b8:	2000001c 	.word	0x2000001c
  80018bc:	20000020 	.word	0x20000020
  80018c0:	20000024 	.word	0x20000024
- 80018c4:	20000128 	.word	0x20000128
+ 80018c4:	20000144 	.word	0x20000144
  80018c8:	200000e4 	.word	0x200000e4
 
 080018cc <TIM6_DAC_IRQHandler>:
@@ -3676,8 +3676,8 @@ void TIM6_DAC_IRQHandler(void)
 }
  80018e0:	bf00      	nop
  80018e2:	bd80      	pop	{r7, pc}
- 80018e4:	20000370 	.word	0x20000370
- 80018e8:	200004bc 	.word	0x200004bc
+ 80018e4:	200003a8 	.word	0x200003a8
+ 80018e8:	200004f4 	.word	0x200004f4
 
 080018ec <DMA2_Stream1_IRQHandler>:
 
@@ -3701,7 +3701,7 @@ void DMA2_Stream1_IRQHandler(void)
  80018f6:	bf00      	nop
  80018f8:	bd80      	pop	{r7, pc}
  80018fa:	bf00      	nop
- 80018fc:	200002e8 	.word	0x200002e8
+ 80018fc:	20000320 	.word	0x20000320
 
 08001900 <DMA2_Stream2_IRQHandler>:
 
@@ -3725,7 +3725,7 @@ void DMA2_Stream2_IRQHandler(void)
  800190a:	bf00      	nop
  800190c:	bd80      	pop	{r7, pc}
  800190e:	bf00      	nop
- 8001910:	20000288 	.word	0x20000288
+ 8001910:	200002c0 	.word	0x200002c0
 
 08001914 <SystemInit>:
   *         SystemFrequency variable.
@@ -4007,7 +4007,7 @@ void MX_TIM1_Init(void)
  8001abe:	46bd      	mov	sp, r7
  8001ac0:	bd80      	pop	{r7, pc}
  8001ac2:	bf00      	nop
- 8001ac4:	200003d8 	.word	0x200003d8
+ 8001ac4:	20000410 	.word	0x20000410
  8001ac8:	40010000 	.word	0x40010000
 
 08001acc <MX_TIM2_Init>:
@@ -4138,7 +4138,7 @@ void MX_TIM2_Init(void)
  8001b7e:	3720      	adds	r7, #32
  8001b80:	46bd      	mov	sp, r7
  8001b82:	bd80      	pop	{r7, pc}
- 8001b84:	20000424 	.word	0x20000424
+ 8001b84:	2000045c 	.word	0x2000045c
 
 08001b88 <MX_TIM4_Init>:
 /* TIM4 init function */
@@ -4269,7 +4269,7 @@ void MX_TIM4_Init(void)
  8001c3a:	46bd      	mov	sp, r7
  8001c3c:	bd80      	pop	{r7, pc}
  8001c3e:	bf00      	nop
- 8001c40:	20000470 	.word	0x20000470
+ 8001c40:	200004a8 	.word	0x200004a8
  8001c44:	40000800 	.word	0x40000800
 
 08001c48 <MX_TIM6_Init>:
@@ -4351,7 +4351,7 @@ void MX_TIM6_Init(void)
  8001ca6:	3710      	adds	r7, #16
  8001ca8:	46bd      	mov	sp, r7
  8001caa:	bd80      	pop	{r7, pc}
- 8001cac:	200004bc 	.word	0x200004bc
+ 8001cac:	200004f4 	.word	0x200004f4
  8001cb0:	40001000 	.word	0x40001000
 
 08001cb4 <MX_TIM8_Init>:
@@ -4613,7 +4613,7 @@ void MX_TIM8_Init(void)
  8001e42:	3768      	adds	r7, #104	@ 0x68
  8001e44:	46bd      	mov	sp, r7
  8001e46:	bd80      	pop	{r7, pc}
- 8001e48:	20000508 	.word	0x20000508
+ 8001e48:	20000540 	.word	0x20000540
  8001e4c:	40010400 	.word	0x40010400
 
 08001e50 <HAL_TIM_Base_MspInit>:
@@ -5183,7 +5183,7 @@ LoopFillZerobss:
   ldr r2, =_sbss
  80021b4:	20000084 	.word	0x20000084
   ldr r4, =_ebss
- 80021b8:	20000690 	.word	0x20000690
+ 80021b8:	200006c8 	.word	0x200006c8
 
 080021bc <ADC_IRQHandler>:
  * @retval None       
@@ -5319,7 +5319,7 @@ __weak void HAL_IncTick(void)
  8002254:	4770      	bx	lr
  8002256:	bf00      	nop
  8002258:	20000030 	.word	0x20000030
- 800225c:	20000554 	.word	0x20000554
+ 800225c:	2000058c 	.word	0x2000058c
 
 08002260 <HAL_GetTick>:
   * @note This function is declared as __weak to be overwritten in case of other 
@@ -5339,7 +5339,7 @@ __weak uint32_t HAL_GetTick(void)
  800226c:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002270:	4770      	bx	lr
  8002272:	bf00      	nop
- 8002274:	20000554 	.word	0x20000554
+ 8002274:	2000058c 	.word	0x2000058c
 
 08002278 <HAL_ADC_Init>:
   * @param  hadc pointer to a ADC_HandleTypeDef structure that contains

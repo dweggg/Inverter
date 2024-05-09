@@ -32,7 +32,7 @@ Core/Src/INVERTER.o: ../Core/Src/INVERTER.c ../Core/Inc/INVERTER.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
- ../Core/Inc/MEASUREMENTS.h ../Core/Inc/PWM.h
+ ../Core/Inc/MEASUREMENTS.h ../Core/Inc/REFERENCE.h ../Core/Inc/PWM.h
 ../Core/Inc/INVERTER.h:
 ../Core/Inc/PCB_IO.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -69,4 +69,5 @@ Core/Src/INVERTER.o: ../Core/Src/INVERTER.c ../Core/Inc/INVERTER.h \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h:
 ../Core/Inc/MEASUREMENTS.h:
+../Core/Inc/REFERENCE.h:
 ../Core/Inc/PWM.h:
