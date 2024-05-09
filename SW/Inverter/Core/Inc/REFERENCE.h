@@ -21,17 +21,7 @@
 #define REFERENCE_H
 
 #include <stdint.h>
-
-/**
- * @brief Structure for reference values.
- */
-typedef struct {
-    float id_ref;       /**< d-axis current reference in A */
-    float iq_ref;       /**< q-axis current reference in A */
-    float torque_ref;   /**< Torque reference in N·m */
-    float dTorque_max;	/**< Maximum torque increment in N·m/s */
-    float speed_max;    /**< Maximum mechanical speed reference in RPM */
-} Reference;
+#include "Pergamon_float.h"
 
 /**
  * @brief Set torque direction based on inverter direction.
@@ -45,5 +35,28 @@ typedef struct {
  * @return The adjusted torque reference value.
  */
 float set_torque_direction(float torque_ref, int8_t direction);
+
+/**
+ * @brief Symmetrically saturate a reference value.
+ *
+ * This function symmetrically saturates a reference value based on the maximum allowed value.
+ * If the reference value exceeds the maximum allowed value, it is saturated to the maximum value.
+ * If the reference value is less than the negative of the maximum allowed value, it is saturated to the negative of the maximum value.
+ *
+ * @param ref The reference value to saturate.
+ * @param max_value The maximum allowed value for saturation.
+ * @return The saturated reference value.
+ */
+float saturate_symmetric(float ref, float max_value);
+
+/**
+ * @brief Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed.
+ * @param speed_max The maximum speed value in RPM.
+ * @param speed_meas The measured speed value in RPM.
+ * @param torque_ref_pre The torque reference value before this saturation.
+ * @param loop_speed Pointer to the speed PI controller structure.
+ * @return The limited torque reference value after this saturation.
+ */
+float limit_torque_to_prevent_overspeed(float speed_max, float speed_meas, float torque_ref_pre, volatile pi_struct *loop_speed);
 
 #endif /* REFERENCE_H */

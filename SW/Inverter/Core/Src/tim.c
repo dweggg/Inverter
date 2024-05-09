@@ -21,7 +21,7 @@
 #include "tim.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "INVERTER.h" // for TS and DT
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim1;

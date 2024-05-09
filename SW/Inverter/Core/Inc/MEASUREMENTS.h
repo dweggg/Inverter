@@ -57,7 +57,7 @@ typedef struct {
     float id_meas;      /**< Measured d-axis current in A*/
     float iq_meas;      /**< Measured q-axis current in A*/
     float torque_calc;  /**< Calculated torque in N·m*/
-    float speed_calc;   /**< Calculated speed in RPM*/
+    float speed_meas;   /**< Measured speed in RPM*/
 } Feedback;
 
 /* Define function prototypes */

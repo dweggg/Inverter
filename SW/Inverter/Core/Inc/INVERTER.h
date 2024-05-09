@@ -25,6 +25,7 @@
 #include "REFERENCE.h" // reference struct
 #include "PWM.h" // duties struct
 
+
 /**
  * @brief Enumeration of inverter operation states.
  */
@@ -35,6 +36,8 @@ typedef enum {
     INV_STATE_FAULT    /**< Inverter fault state */
 } inverterState;
 
+#define TS 0.00002      /**< Switching time in seconds (20 us), inverse of the switching frequency of 50 kHz */
+#define DT 0.00000015   /**< Dead time in seconds (150 ns), time in which both top and bottom transistors are open */
 
 /**
  * @brief Inverter structure.
@@ -49,7 +52,6 @@ typedef struct {
     Measurements measurements;  /**< Structure for phase currents and DC voltage measurements */
     Encoder encoder;            /**< Structure for encoder input */
     Feedback feedback;			/**< Structure for measured currents and calculated mechanical torque and speed */
-    Reference reference;		/**< Structure for reference currents, torque and maximum mechanical speed */
     Duties duties;              /**< Structure for duty cycles for phases A, B, and C */
     int8_t direction;			/**< Motor direction: 1 CW, -1 CCW, 0 stopped*/
 } inverterStruct;

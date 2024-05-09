@@ -20,7 +20,7 @@
 #include "CONTROL.h"
 #include "Pergamon_float.h" // control functions
 #include <math.h> // sin/cos, M_PI
-#include "main.h" // TS
+#include "INVERTER.h" // TS
 
 /**
  * @brief function.
