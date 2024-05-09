@@ -46,8 +46,9 @@ typedef struct {
     ADC_HandleTypeDef *hadc;    /**< Handle of the ADC peripheral for current phase currents and DC voltage sensing */
     inverterState state;        /**< Current state of inverter operation */
     Measurements measurements;  /**< Structure for phase currents and DC voltage measurements */
-    Encoder encoder;            /**< Structure for electrical and mechanical angles and speeds */
+    Encoder encoder;            /**< Structure for ABZ inputs, electrical and mechanical angles and speeds */
     Duties duties;              /**< Structure for duty cycles for phases A, B, and C */
+    int8_t direction;			/**< Motor direction: 1 CW, -1 CCW, 0 stopped*/
 } inverterStruct;
 
 

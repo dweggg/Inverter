@@ -1,8 +1,8 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    CONTROL.h
-  * @brief   Header file for control logic.
+  * @file    CONTROL.c
+  * @brief   This file provides code for the control loop.
   ******************************************************************************
   * @attention
   *
@@ -19,7 +19,7 @@
 
 #include "CONTROL.h"
 #include "Pergamon_float.h" // control functions
-#include <math.h> // sin/cos
+#include <math.h> // sin/cos, M_PI
 #include "main.h" // TS
 
 /**

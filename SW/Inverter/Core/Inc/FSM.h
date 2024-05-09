@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    FSM.h
-  * @brief   Header file for Finite State Machine (FSM) control.
+  * @brief   Header for the inverter Finite State Machine.
   ******************************************************************************
   * @attention
   *

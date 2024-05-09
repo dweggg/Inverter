@@ -67,4 +67,17 @@ extern LED led_error;
  */
 void handle_LED(LED *led, uint32_t ms_counter);
 
+/**
+ * @brief Handles the direction of the motors.
+ *
+ * This function reads the state of the DIR switch and updates the directions
+ * of both the left and right motors. If one motor is set to rotate
+ * clockwise (CW), the other one is set to rotate counterclockwise (CCW),
+ * and vice versa.
+ *
+ * @param dirLeft Pointer to the left inverter direction.
+ * @param dirRight Pointer to the right inverter direction.
+ */
+void handle_direction(volatile int8_t *dirLeft, volatile int8_t *dirRight);
+
 #endif /* PCB_IO_H */

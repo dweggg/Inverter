@@ -19,6 +19,7 @@
 
 #include "TASKS_1ms.h"
 #include "PCB_IO.h"
+#include "INVERTER.h" // needs invLeft/invRight
 
 // Define the ms_counter variable
 static uint32_t ms_counter = 0;
@@ -38,4 +39,7 @@ void tasks_1ms(void) {
     handle_LED(&led_left, ms_counter);
     handle_LED(&led_right, ms_counter);
     handle_LED(&led_error, ms_counter);
+
+    // Read direction switch
+    handle_direction(&invLeft.direction, &invRight.direction);
 }

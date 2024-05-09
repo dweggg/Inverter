@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    INVERTER.c
-  * @brief   Header file for the inverter struct and extern variables.
+  * @brief   This file provides code for the inverter struct.
   ******************************************************************************
   * @attention
   *

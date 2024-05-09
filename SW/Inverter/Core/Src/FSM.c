@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    FSM.c
-  * @brief   This file provides code for Finite State Machine (FSM) control.
+  * @brief   This file provides code for the inverter Finite State Machine.
   ******************************************************************************
   * @attention
   *
