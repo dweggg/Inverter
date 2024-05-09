@@ -96,6 +96,8 @@ void handle_idle(volatile inverterStruct *inv) {
     // - Transition to fault state based on error conditions
     inv->led->mode = LED_MODE_OFF;
     DISABLE(inv->enable_port, inv->enable_pin);
+    disable_PWM(inv->htim);
+
 }
 
 /**
@@ -112,6 +114,8 @@ void handle_startup(volatile inverterStruct *inv) {
     // - Transition to fault state based on error conditions during startup
     inv->led->mode = LED_MODE_BLINK_FAST;
     DISABLE(inv->enable_port, inv->enable_pin);
+    enable_PWM(inv->htim);
+
 }
 
 /**
@@ -129,6 +133,8 @@ void handle_running(volatile inverterStruct *inv) {
     // - Transition to fault state based on error conditions during operation
     inv->led->mode = LED_MODE_ON;
     ENABLE(inv->enable_port, inv->enable_pin);
+    enable_PWM(inv->htim);
+
 }
 
 /**
@@ -146,4 +152,5 @@ void handle_fault(volatile inverterStruct *inv) {
     // - Transition to idle state after fault is resolved
     inv->led->mode = LED_MODE_BLINK_SLOW;
     DISABLE(inv->enable_port, inv->enable_pin);
+    disable_PWM(inv->htim);
 }

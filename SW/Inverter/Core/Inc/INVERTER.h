@@ -2,11 +2,11 @@
 /**
   ******************************************************************************
   * @file    INVERTER.h
-  * @brief   Header file for Finite State Machine (FSM) control.
+  * @brief   Header file for the inverter struct and extern variables.
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 David Redondo (@dweggg in GitHub).
+  * Copyright (c) 2024 David Redondo (@dweggg on GitHub).
   * All rights reserved.
   *
   * This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
@@ -20,10 +20,9 @@
 #ifndef INVERTER_H
 #define INVERTER_H
 
-#include "stm32f7xx_hal.h"
-#include "PCB_IO.h"
-#include "MEASUREMENTS.h"
-#include "CONTROL.h"
+#include "PCB_IO.h" // peripheral types
+#include "MEASUREMENTS.h" // measurements struct
+#include "PWM.h" // duties struct
 
 /**
  * @brief Enumeration of inverter operation states.
@@ -40,25 +39,23 @@ typedef enum {
  * @brief Inverter structure.
  */
 typedef struct {
-    LED *led;                   /**< LED control struct */
-    GPIO_TypeDef *enable_port;  /**< GPIO port for enabling/disabling the inverter */
+    LED *led;                   /**< Pointer to LED control structure */
+    GPIO_TypeDef *enable_port;  /**< Pointer to GPIO port for enabling/disabling the inverter */
     uint16_t enable_pin;        /**< Pin number for enabling/disabling the inverter */
-    TIM_HandleTypeDef *htim;	/**< Handle of the timer peripheral for the PWM output */
-    ADC_HandleTypeDef *hadc;	/**< Handle of the ADC peripheral for the current phase currents and DC voltage sensing */
-    inverterState state;		/**< Current state of the inverter operation */
-    Measurements measurements;	/**< Phase currents and DC voltage measurements*/
-    Encoder encoder;			/**< Electrical and mechanical angles and speeds */
-    Duties duties;				/**< Duty cycles for phase A,B,C */
+    TIM_HandleTypeDef *htim;    /**< Handle of the timer peripheral for PWM output */
+    ADC_HandleTypeDef *hadc;    /**< Handle of the ADC peripheral for current phase currents and DC voltage sensing */
+    inverterState state;        /**< Current state of inverter operation */
+    Measurements measurements;  /**< Structure for phase currents and DC voltage measurements */
+    Encoder encoder;            /**< Structure for electrical and mechanical angles and speeds */
+    Duties duties;              /**< Structure for duty cycles for phases A, B, and C */
 } inverterStruct;
 
 
-extern volatile inverterStruct invLeft;
-extern volatile inverterStruct invRight;
+extern volatile inverterStruct invLeft; /**< External declaration of the left inverter structure */
+extern volatile inverterStruct invRight; /**< External declaration of the right inverter structure */
 
-
-extern volatile uint32_t ADC_raw_L[4];
-extern volatile uint32_t ADC_raw_R[4];
-
+extern volatile uint32_t ADC_raw_L[4]; /**< External declaration of raw ADC data for the left inverter */
+extern volatile uint32_t ADC_raw_R[4]; /**< External declaration of raw ADC data for the right inverter */
 
 /**
  * @brief Initialize the inverter.
@@ -69,9 +66,8 @@ extern volatile uint32_t ADC_raw_R[4];
  * @param led Pointer to the LED structure.
  * @param enable_port Pointer to the GPIO port for enabling/disabling the inverter.
  * @param enable_pin Pin number for enabling/disabling the inverter.
- * @param htim Timer peripheral for the PWM output.
- * @param hadc ADC peripheral for the current phase current and DC voltage sensing.
-
+ * @param htim Timer peripheral for PWM output.
+ * @param hadc ADC peripheral for phase current and DC voltage sensing.
  */
 void initialize_inverter(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc);
 

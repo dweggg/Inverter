@@ -19,7 +19,7 @@
 
 #ifndef FSM_H
 #define FSM_H
-#include "INVERTER.h"
+#include "INVERTER.h" // inverter struct
 
 
 /**

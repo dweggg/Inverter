@@ -2,11 +2,11 @@
 /**
   ******************************************************************************
   * @file    INVERTER.c
-  * @brief   This file provides code for Finite State Machine (FSM) control.
+  * @brief   Header file for the inverter struct and extern variables.
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2024 David Redondo (@dweggg in GitHub).
+  * Copyright (c) 2024 David Redondo (@dweggg on GitHub).
   * All rights reserved.
   *
   * This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license.
@@ -22,10 +22,32 @@
 
 // Initialize left and right inverters
 
+/**
+ * @brief Left inverter structure.
+ *
+ * External declaration of the left inverter structure.
+ */
 volatile inverterStruct invLeft = {0};
+
+/**
+ * @brief Right inverter structure.
+ *
+ * External declaration of the right inverter structure.
+ */
 volatile inverterStruct invRight = {0};
 
+/**
+ * @brief Raw ADC data for the left inverter.
+ *
+ * External declaration of raw ADC data for the left inverter.
+ */
 volatile uint32_t ADC_raw_L[4] = {0};
+
+/**
+ * @brief Raw ADC data for the right inverter.
+ *
+ * External declaration of raw ADC data for the right inverter.
+ */
 volatile uint32_t ADC_raw_R[4] = {0};
 
 /**
@@ -39,7 +61,6 @@ volatile uint32_t ADC_raw_R[4] = {0};
  * @param enable_pin Pin number for enabling/disabling the inverter.
  * @param htim Timer peripheral for the PWM output.
  * @param hadc ADC peripheral for the current phase current and DC voltage sensing.
-
  */
 void initialize_inverter(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
     // Initialize inverter structure
@@ -53,8 +74,6 @@ void initialize_inverter(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *e
     inv->duties.Db = 0.5;
     inv->duties.Dc = 0.5;
 
-    HAL_TIM_Base_Start_IT(inv->htim); // Initializes Inverter timer with interrupt
-
-    enable_PWM(inv->htim); // Put in running state transition
+    HAL_TIM_Base_Start_IT(inv->htim);
 
 }
