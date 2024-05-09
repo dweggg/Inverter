@@ -29,8 +29,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "FSM.h" // main.c needs the inv_FSM() function
-#include "INVERTER.h" // main.c needs the inv_init() function
+#include "FSM.h" // needs eval_inv_FSM()
+#include "INVERTER.h" // needs initialize_inverter()
 
 /* USER CODE END Includes */
 

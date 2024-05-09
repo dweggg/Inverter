@@ -34,7 +34,6 @@ motorParameters motorLeft = {
     .speed_max_RPM = 8500.0,
     .iPhase_pk_max = 60.0,
     .vDC_max = 450.0
-    // Initialize other parameters as needed
 };
 
 /**
@@ -52,5 +51,4 @@ motorParameters motorRight = {
 	    .speed_max_RPM = 8500.0,
 	    .iPhase_pk_max = 60.0,
 	    .vDC_max = 450.0
-	    // Initialize other parameters as needed
 	};

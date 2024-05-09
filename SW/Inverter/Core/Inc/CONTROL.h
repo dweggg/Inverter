@@ -23,9 +23,9 @@
 #include "PWM.h" // duties struct
 
 /**
- * @brief Control function.
+ * @brief function.
  *
- * This function implements the control logic based on measurements.
+ * This function calculates the inverse Park transform (irot) and the duty cycles using SVPWM
  *
  * @param vd Voltage in the d-axis.
  * @param vq Voltage in the q-axis.
