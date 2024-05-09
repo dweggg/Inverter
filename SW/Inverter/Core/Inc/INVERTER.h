@@ -46,15 +46,19 @@ typedef struct {
     TIM_HandleTypeDef *htim;	/**< Handle of the timer peripheral for the PWM output */
     ADC_HandleTypeDef *hadc;	/**< Handle of the ADC peripheral for the current phase currents and DC voltage sensing */
     inverterState state;		/**< Current state of the inverter operation */
-    uint32_t ADC_raw[4];		/**< Raw ADC measurements */
     Measurements measurements;	/**< Phase currents and DC voltage measurements*/
     Encoder encoder;			/**< Electrical and mechanical angles and speeds */
     Duties duties;				/**< Duty cycles for phase A,B,C */
 } inverterStruct;
 
 
-extern inverterStruct invLeft;
-extern inverterStruct invRight;
+extern volatile inverterStruct invLeft;
+extern volatile inverterStruct invRight;
+
+
+extern volatile uint32_t ADC_raw_L[4];
+extern volatile uint32_t ADC_raw_R[4];
+
 
 /**
  * @brief Initialize the inverter.
@@ -69,7 +73,7 @@ extern inverterStruct invRight;
  * @param hadc ADC peripheral for the current phase current and DC voltage sensing.
 
  */
-void inv_init(inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc);
+void inv_init(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc);
 
 
 #endif /* INVERTER_H */

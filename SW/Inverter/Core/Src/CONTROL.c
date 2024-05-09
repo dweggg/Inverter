@@ -1,5 +1,6 @@
 #include "CONTROL.h"
-
+#include <math.h>
+#include "main.h"
 /**
  * @file control.c
  * @brief Source file for control logic.
@@ -14,16 +15,23 @@
  * @param measurements Measurements structure.
  * @param duties Pointer to the duties structure.
  */
-void control(float alpha, float beta, Measurements measurements, volatile Duties *duties) {
+void calc_duties(float vd, float vq, float vDC, float freq, volatile Duties *duties) {
+	static angle_struct angle;
+	angle.freq = freq;
+	angle.Ts = TS;
+	angle_calc(&angle);
 
+	static irot_struct irot;
+	irot.d = vd/vDC;
+	irot.q = vq/vDC;
+	irot.sinFi = sin(angle.angle*M_TWOPI);
+	irot.cosFi = cos(angle.angle*M_TWOPI);
+    irot_calc(&irot);
 
-	static svpwm_struct svpwm;
-
+    static svpwm_struct svpwm;
     // Assign values to SVPWM structure
-    svpwm.alpha = alpha; // Example value, replace with actual measurement or calculation
-    svpwm.beta = beta; // Example value, replace with actual measurement or calculation
-
-    // Calculate SVPWM
+    svpwm.alpha = irot.alpha;
+    svpwm.beta = irot.beta;
     svpwm_calc(&svpwm);
 
     // Assign SVPWM duties

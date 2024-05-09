@@ -19,14 +19,14 @@
 
 #ifndef FSM_H
 #define FSM_H
-
 #include "INVERTER.h"
+
 
 /**
  * @brief Run the Finite State Machine (FSM) for inverter operation control.
  *
  * @param inv Pointer to the inverter structure.
  */
-void inv_FSM(inverterStruct *inv);
+void inv_FSM(volatile inverterStruct *inv);
 
 #endif /* FSM_H */

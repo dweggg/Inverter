@@ -18,6 +18,6 @@
  * @param measurements Measurements structure.
  * @param duties Pointer to the duties structure.
  */
-void control(float valfa, float vbeta, Measurements measurements, volatile Duties *duties);
+void calc_duties(float vd, float vq, float vDC, float freq, volatile Duties *duties);
 
 #endif /* CONTROL_H */

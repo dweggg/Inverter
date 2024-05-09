@@ -52,8 +52,11 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-float valfa_L = -0.2F;
-float vbeta_L = 0.2F;
+volatile float vd_L = -10.0F;
+volatile float vq_L = 40.0F;
+volatile float vDC_L = 300.0F;
+volatile float freq_L = 0.2F;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -114,6 +117,9 @@ int main(void)
   // Create inverter structures and assign the peripherals
   inv_init(&invLeft, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
   inv_init(&invRight, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
+
+  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC_raw_L,4); // Starts ADC DMA
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t *) ADC_raw_R,4); // Starts ADC DMA
 
   // 1ms timer
   HAL_TIM_Base_Start_IT(&htim6);

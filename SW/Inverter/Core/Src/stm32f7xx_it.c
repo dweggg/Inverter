@@ -248,9 +248,9 @@ void TIM1_UP_TIM10_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
 
-  getADCelec(invLeft.ADC_raw, &invLeft.measurements);
+  getADCelec(ADC_raw_L, &invLeft.measurements);
 
-  control(valfa_L, vbeta_L, invLeft.measurements, &invLeft.duties);
+  calc_duties(vd_L, vq_L, vDC_L, freq_L, &invLeft.duties);
 
   set_PWM(invLeft.htim, invLeft.duties);
 

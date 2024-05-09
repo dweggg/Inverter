@@ -25,7 +25,7 @@
   * @param  measurements Pointer to the measurements struct to store the results.
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t getADCelec(volatile uint32_t* ADC_raw, volatile Measurements* measurements) {
+uint8_t getADCelec(volatile uint32_t ADC_raw[], volatile Measurements* measurements) {
 
     // Calculate currents and voltage
     float ia = getLinear(ADC_raw[0], CURRENT_SLOPE, CURRENT_OFFSET);

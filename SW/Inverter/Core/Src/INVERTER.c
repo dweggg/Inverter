@@ -22,9 +22,11 @@
 
 // Initialize left and right inverters
 
-inverterStruct invLeft = {0};
+volatile inverterStruct invLeft = {0};
+volatile inverterStruct invRight = {0};
 
-inverterStruct invRight = {0};
+volatile uint32_t ADC_raw_L[4] = {0};
+volatile uint32_t ADC_raw_R[4] = {0};
 
 /**
  * @brief Initialize the inverter.
@@ -39,7 +41,7 @@ inverterStruct invRight = {0};
  * @param hadc ADC peripheral for the current phase current and DC voltage sensing.
 
  */
-void inv_init(inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
+void inv_init(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
     // Initialize inverter structure
     inv->state = INV_STATE_STARTUP;
     inv->led = led;
@@ -52,7 +54,6 @@ void inv_init(inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t
     inv->duties.Dc = 0.5;
 
     HAL_TIM_Base_Start_IT(inv->htim); // Initializes Inverter timer with interrupt
-    HAL_ADC_Start_DMA(hadc, (uint32_t *) inv->ADC_raw,4); // Starts ADC DMA
 
     enable_PWM(inv->htim); // Put in running state transition
 
