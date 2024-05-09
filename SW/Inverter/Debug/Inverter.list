@@ -41,9 +41,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_line   0001e01d  00000000  00000000  0005580d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00103cdb  00000000  00000000  0007382a  2**0
+ 19 .debug_str    00103cd8  00000000  00000000  0007382a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00177505  2**0
+ 20 .comment      00000043  00000000  00000000  00177502  2**0
                   CONTENTS, READONLY
  21 .debug_frame  0000560c  00000000  00000000  00177548  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -1247,19 +1247,19 @@ void tasks_1ms(void) {
  8000af0:	6013      	str	r3, [r2, #0]
 
     // Call LED handler for left, right, and error LEDs
-    handle_LED(&led_left, ms_counter);
+    handle_LED(&ledLeft, ms_counter);
  8000af2:	4b0c      	ldr	r3, [pc, #48]	@ (8000b24 <tasks_1ms+0x40>)
  8000af4:	681b      	ldr	r3, [r3, #0]
  8000af6:	4619      	mov	r1, r3
  8000af8:	480b      	ldr	r0, [pc, #44]	@ (8000b28 <tasks_1ms+0x44>)
  8000afa:	f7ff fecb 	bl	8000894 <handle_LED>
-    handle_LED(&led_right, ms_counter);
+    handle_LED(&ledRight, ms_counter);
  8000afe:	4b09      	ldr	r3, [pc, #36]	@ (8000b24 <tasks_1ms+0x40>)
  8000b00:	681b      	ldr	r3, [r3, #0]
  8000b02:	4619      	mov	r1, r3
  8000b04:	4809      	ldr	r0, [pc, #36]	@ (8000b2c <tasks_1ms+0x48>)
  8000b06:	f7ff fec5 	bl	8000894 <handle_LED>
-    handle_LED(&led_error, ms_counter);
+    handle_LED(&ledError, ms_counter);
  8000b0a:	4b06      	ldr	r3, [pc, #24]	@ (8000b24 <tasks_1ms+0x40>)
  8000b0c:	681b      	ldr	r3, [r3, #0]
  8000b0e:	4619      	mov	r1, r3
@@ -3090,7 +3090,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // Create inverter structures and assign the peripherals
-  initialize_inverter(&invLeft, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
+  initialize_inverter(&invLeft, &ledLeft, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
  8001602:	4b14      	ldr	r3, [pc, #80]	@ (8001654 <main+0x98>)
  8001604:	9301      	str	r3, [sp, #4]
  8001606:	4b14      	ldr	r3, [pc, #80]	@ (8001658 <main+0x9c>)
@@ -3100,7 +3100,7 @@ int main(void)
  800160e:	4914      	ldr	r1, [pc, #80]	@ (8001660 <main+0xa4>)
  8001610:	4814      	ldr	r0, [pc, #80]	@ (8001664 <main+0xa8>)
  8001612:	f7ff f897 	bl	8000744 <initialize_inverter>
-  initialize_inverter(&invRight, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
+  initialize_inverter(&invRight, &ledRight, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
  8001616:	4b14      	ldr	r3, [pc, #80]	@ (8001668 <main+0xac>)
  8001618:	9301      	str	r3, [sp, #4]
  800161a:	4b14      	ldr	r3, [pc, #80]	@ (800166c <main+0xb0>)

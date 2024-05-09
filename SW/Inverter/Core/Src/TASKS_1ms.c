@@ -36,9 +36,9 @@ void tasks_1ms(void) {
     ms_counter++;
 
     // Call LED handler for left, right, and error LEDs
-    handle_LED(&led_left, ms_counter);
-    handle_LED(&led_right, ms_counter);
-    handle_LED(&led_error, ms_counter);
+    handle_LED(&ledLeft, ms_counter);
+    handle_LED(&ledRight, ms_counter);
+    handle_LED(&ledError, ms_counter);
 
     // Read direction switch
     handle_direction(&invLeft.direction, &invRight.direction);

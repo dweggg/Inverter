@@ -52,9 +52,9 @@ typedef struct {
 } LED;
 
 // Declare LED variables as extern
-extern LED led_left;
-extern LED led_right;
-extern LED led_error;
+extern LED ledLeft;
+extern LED ledRight;
+extern LED ledError;
 
 // Function prototypes
 /**

@@ -115,8 +115,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // Create inverter structures and assign the peripherals
-  initialize_inverter(&invLeft, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
-  initialize_inverter(&invRight, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
+  initialize_inverter(&invLeft, &ledLeft, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
+  initialize_inverter(&invRight, &ledRight, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
 
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC_raw_L,4); // Starts ADC DMA
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *) ADC_raw_R,4); // Starts ADC DMA
