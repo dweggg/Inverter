@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    PCB_IO.c
-  * @brief   This file provides functions for handling GPIOs and other low-priority tasks.
+  * @brief   This file provides functions for handling GPIOs.
   ******************************************************************************
   * @attention
   *

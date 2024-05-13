@@ -27,14 +27,14 @@
  *
  * External declaration of the left inverter structure.
  */
-volatile inverterStruct inverter_left = {0};
+volatile InverterStruct inverter_left = {0};
 
 /**
  * @brief Right inverter structure.
  *
  * External declaration of the right inverter structure.
  */
-volatile inverterStruct inverter_right = {0};
+volatile InverterStruct inverter_right = {0};
 
 /**
  * @brief Initialize the inverter.

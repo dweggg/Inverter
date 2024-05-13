@@ -34,7 +34,7 @@ typedef enum {
     INV_STATE_STARTUP, /**< Inverter startup state */
     INV_STATE_RUNNING, /**< Inverter running state */
     INV_STATE_FAULT    /**< Inverter fault state */
-} inverterState;
+} InverterState;
 
 #define TS 0.00002      /**< Switching time in seconds (20 us), inverse of the switching frequency of 50 kHz */
 #define DT 0.00000015   /**< Dead time in seconds (150 ns), time in which both top and bottom transistors are open */
@@ -48,7 +48,7 @@ typedef struct {
     uint16_t enable_pin;        /**< Pin number for enabling/disabling the inverter */
     TIM_HandleTypeDef *htim;    /**< Handle of the timer peripheral for PWM output */
     ADC_HandleTypeDef *hadc;    /**< Handle of the ADC peripheral for current phase currents and DC voltage sensing */
-    inverterState state;        /**< Current state of inverter operation */
+    InverterState state;        /**< Current state of inverter operation */
     Analog analog;  /**< Structure for phase currents and DC voltage measurements */
     Encoder encoder;            /**< Structure for encoder input */
     Feedback feedback;			/**< Structure for measured currents and calculated mechanical torque and speed */
@@ -56,10 +56,10 @@ typedef struct {
     int8_t direction;			/**< Motor direction: 1 CW, -1 CCW, 0 stopped*/
     float temp_inverter;		/**< Semiconductor temperature in degC*/
     float temp_motor;		/**< Motor temperature in degC*/
-} inverterStruct;
+} InverterStruct;
 
-extern volatile inverterStruct inverter_left; /**< External declaration of the left inverter structure */
-extern volatile inverterStruct inverter_right; /**< External declaration of the right inverter structure */
+extern volatile InverterStruct inverter_left; /**< External declaration of the left inverter structure */
+extern volatile InverterStruct inverter_right; /**< External declaration of the right inverter structure */
 
 /**
  * @brief Initialize the inverter.

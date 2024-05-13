@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file    PCB_IO.h
-  * @brief   Header file for handling GPIOs and other low-priority tasks.
+  * @brief   Header file for handling GPIOs.
   ******************************************************************************
   * @attention
   *
