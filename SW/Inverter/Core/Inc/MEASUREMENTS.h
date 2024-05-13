@@ -22,11 +22,18 @@
 #define VOLTAGE_SLOPE  263.435f  /**< [V/V] 1/(1/3 * 0.011388) V */
 #define VOLTAGE_OFFSET 0.02083f /**< [V] (100/(4700+100) * 5 V */
 
-
 #ifndef MEASUREMENTS_H
 #define MEASUREMENTS_H
 
 #include <stdint.h>
+
+extern const float tempLUT_inverter[];
+extern const float tempLUT_motor[];
+
+extern volatile uint32_t ADC_raw_L[4]; /**< External declaration of raw ADC data for the left inverter */
+extern volatile uint32_t ADC_raw_R[4]; /**< External declaration of raw ADC data for the right inverter */
+extern volatile uint32_t ADC_raw_temp[4]; /**< External declaration of raw ADC data for the temperatures*/
+
 
 /**
  * @brief Structure for encoder reading.
@@ -67,7 +74,8 @@ typedef struct {
   * @param[out]  analog Pointer to the adc struct to store the results.
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_ADC(volatile uint32_t ADC_raw[], volatile Analog* analog);
+uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog);
+
 /**
   * @brief  Convert ADC reading to physical measurement with linear response.
   * @param[in]  bits The ADC reading.
@@ -77,6 +85,31 @@ uint8_t get_ADC(volatile uint32_t ADC_raw[], volatile Analog* analog);
   */
 float get_linear(uint32_t bits, float slope, float offset);
 
-
+/**
+ * @brief Computes d-q currents from current measurements and electrical angle.
+ *
+ * This function computes the d-q currents from phase currents (ABC), theta_e, and stores
+ * the results in the provided pointers.
+ *
+ * @param[in] ia Phase A current in A.
+ * @param[in] ib Phase B current in A.
+ * @param[in] ic Phase C current in A.
+ * @param[in] theta_e Electrical rotor position in radians.
+ * @param[out] id_meas Pointer to store the D-axis current.
+ * @param[out] iq_meas Pointer to store the Q-axis current.
+ */
 void get_idiq(float ia, float ib, float ic, float theta_e, float *id_meas, float *iq_meas);
+
+
+/**
+ * @brief Retrieves temperature from a lookup table based on ADC bits.
+ *
+ * This function retrieves temperature from a lookup table based on the ADC bits.
+ * The lookup table (LUT) must have a value for each possible ADC bit combination.
+ *
+ * @param[in] bits ADC reading converted to bits.
+ * @param[in] tempLUT Lookup table containing temperature values.
+ * @return Temperature corresponding to the provided ADC bits.
+ */
+float get_temperature(uint32_t bits, const float tempLUT[]);
 #endif /* MEASUREMENTS_H */

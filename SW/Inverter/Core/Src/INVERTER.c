@@ -37,20 +37,6 @@ volatile inverterStruct invLeft = {0};
 volatile inverterStruct invRight = {0};
 
 /**
- * @brief Raw ADC data for the left inverter.
- *
- * External declaration of raw ADC data for the left inverter.
- */
-volatile uint32_t ADC_raw_L[4] = {0};
-
-/**
- * @brief Raw ADC data for the right inverter.
- *
- * External declaration of raw ADC data for the right inverter.
- */
-volatile uint32_t ADC_raw_R[4] = {0};
-
-/**
  * @brief Initialize the inverter.
  *
  * This function initializes the inverter structure with the specified LED, GPIO port, and pin.

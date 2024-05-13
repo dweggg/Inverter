@@ -37,7 +37,7 @@ void tasks_20us_LEFT(void){
 
   invLeft.encoder.theta_e = angle.angle*PI;
 
-  get_ADC(ADC_raw_L, &invLeft.analog);
+  get_currents_voltage(ADC_raw_L, &invLeft.analog);
 
   calc_duties(vd_L, vq_L, vDC_L, invLeft.encoder.theta_e, &invLeft.duties);
 

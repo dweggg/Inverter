@@ -92,6 +92,12 @@ output_str = [output_str, 'const float tempLUT[] = {'];
 output_str = [output_str, sprintf('%.2f, ', NTC_LUT_temps(1:end-1))];
 output_str = [output_str, sprintf('%.2f};\n', NTC_LUT_temps(end))];
 
-% Print the formatted string
-disp("C-style array for copypasting:");
-disp(output_str);
+% Specify the file name
+filename = 'output_LUT.txt';
+
+% Write the string to the text file
+fid = fopen(filename, 'w');
+fprintf(fid, '%s', output_str);
+fclose(fid);
+
+disp(['Output saved to: ', filename]);

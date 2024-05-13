@@ -18,8 +18,10 @@
 /* USER CODE END Header */
 
 #include "TASKS_1ms.h"
-#include "PCB_IO.h"
+#include "PCB_IO.h"		// needs handle functions
 #include "INVERTER.h" // needs invLeft/invRight
+#include "MEASUREMENTS.h" // needs get_temperature
+
 
 // Define the ms_counter variable
 static uint32_t ms_counter = 0;
@@ -42,4 +44,9 @@ void tasks_1ms(void) {
 
     // Read direction switch
     handle_direction(&invLeft.direction, &invRight.direction);
+
+    invLeft.temp_inverter = get_temperature(ADC_raw_temp[0], tempLUT_inverter);
+    invRight.temp_inverter = get_temperature(ADC_raw_temp[1], tempLUT_inverter);
+    invLeft.temp_motor = get_temperature(ADC_raw_temp[2], tempLUT_motor);
+    invRight.temp_motor = get_temperature(ADC_raw_temp[3], tempLUT_motor);
 }

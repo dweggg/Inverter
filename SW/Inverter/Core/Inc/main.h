@@ -57,6 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define TS 0.00002
+#define DT 0.00000015
 #define Tinv_L_Pin GPIO_PIN_0
 #define Tinv_L_GPIO_Port GPIOC
 #define Tinv_R_Pin GPIO_PIN_1

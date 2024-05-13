@@ -54,14 +54,12 @@ typedef struct {
     Feedback feedback;			/**< Structure for measured currents and calculated mechanical torque and speed */
     Duties duties;              /**< Structure for duty cycles for phases A, B, and C */
     int8_t direction;			/**< Motor direction: 1 CW, -1 CCW, 0 stopped*/
+    float temp_inverter;		/**< Semiconductor temperature in degC*/
+    float temp_motor;		/**< Motor temperature in degC*/
 } inverterStruct;
-
 
 extern volatile inverterStruct invLeft; /**< External declaration of the left inverter structure */
 extern volatile inverterStruct invRight; /**< External declaration of the right inverter structure */
-
-extern volatile uint32_t ADC_raw_L[4]; /**< External declaration of raw ADC data for the left inverter */
-extern volatile uint32_t ADC_raw_R[4]; /**< External declaration of raw ADC data for the right inverter */
 
 /**
  * @brief Initialize the inverter.
