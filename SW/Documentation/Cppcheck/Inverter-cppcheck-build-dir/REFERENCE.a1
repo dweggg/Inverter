@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="10815271219564925368">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PergaMOD.h" line="23" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="24" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\REFERENCE.c" line="21" column="0"/>
+        </error>
+  <FileInfo check="Null pointer">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/REFERENCE.h:60:7" my-argnr="4" my-argname="loop_speed" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/REFERENCE.c" line="80" col="2" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="set_torque_direction" lineNumber="33"/>
+    <functiondecl functionName="saturate_symmetric" lineNumber="58"/>
+    <functiondecl functionName="limit_torque_to_prevent_overspeed" lineNumber="78"/>
+    <functioncall functionName="fabsf"/>
+    <functioncall functionName="pi_calc"/>
+    <functioncall functionName="pi_init"/>
+  </FileInfo>
+</analyzerinfo>

@@ -1,5 +1,5 @@
 MX_ADC1_Init global:[hadc1] call:[Error_Handler,HAL_ADC_ConfigChannel,HAL_ADC_Init] noreturn:[Error_Handler]
 MX_ADC2_Init global:[hadc2] call:[Error_Handler,HAL_ADC_ConfigChannel,HAL_ADC_Init] noreturn:[Error_Handler]
 MX_ADC3_Init global:[hadc3] call:[Error_Handler,HAL_ADC_ConfigChannel,HAL_ADC_Init] noreturn:[Error_Handler]
-HAL_ADC_MspInit global:[hdma_adc2,hdma_adc3] call:[Error_Handler,HAL_DMA_Init,HAL_GPIO_Init,__HAL_LINKDMA,__HAL_RCC_ADC1_CLK_ENABLE,__HAL_RCC_ADC2_CLK_ENABLE,__HAL_RCC_ADC3_CLK_ENABLE,__HAL_RCC_GPIOA_CLK_ENABLE,__HAL_RCC_GPIOB_CLK_ENABLE,__HAL_RCC_GPIOC_CLK_ENABLE] noreturn:[Error_Handler,HAL_GPIO_Init,__HAL_LINKDMA]
-HAL_ADC_MspDeInit call:[HAL_DMA_DeInit,HAL_GPIO_DeInit,__HAL_RCC_ADC1_CLK_DISABLE,__HAL_RCC_ADC2_CLK_DISABLE,__HAL_RCC_ADC3_CLK_DISABLE] noreturn:[HAL_DMA_DeInit,HAL_GPIO_DeInit]
+HAL_ADC_MspInit global:[hdma_adc1,hdma_adc2,hdma_adc3] call:[Error_Handler,HAL_DMA_Init,HAL_GPIO_Init,__HAL_LINKDMA,__HAL_RCC_ADC1_CLK_ENABLE,__HAL_RCC_ADC2_CLK_ENABLE,__HAL_RCC_ADC3_CLK_ENABLE,__HAL_RCC_GPIOA_CLK_ENABLE,__HAL_RCC_GPIOB_CLK_ENABLE,__HAL_RCC_GPIOC_CLK_ENABLE] noreturn:[Error_Handler,__HAL_LINKDMA]
+HAL_ADC_MspDeInit call:[HAL_DMA_DeInit,HAL_GPIO_DeInit,__HAL_RCC_ADC1_CLK_DISABLE,__HAL_RCC_ADC2_CLK_DISABLE,__HAL_RCC_ADC3_CLK_DISABLE] noreturn:[HAL_DMA_DeInit]

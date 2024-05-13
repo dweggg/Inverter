@@ -1,40 +1,43 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="11957378300680491876">
+<analyzerinfo hash="13687487721519765313">
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\main.h" line="30" column="0"/>
         </error>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c:220:6" my-argnr="1" my-argname="adcHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c" line="224" col="6" value="0"/>
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c:342:6" my-argnr="1" my-argname="adcHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c" line="345" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c:257:6" my-argnr="1" my-argname="adcHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c" line="261" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c:398:6" my-argnr="1" my-argname="adcHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c" line="401" col="6" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c:220:6" my-argnr="1" my-argname="adcHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c" line="224" col="6" value="0"/>
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c:342:6" my-argnr="1" my-argname="adcHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c" line="345" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c:257:6" my-argnr="1" my-argname="adcHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c" line="261" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c:398:6" my-argnr="1" my-argname="adcHandle" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/adc.c" line="401" col="6" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="MX_ADC1_Init" lineNumber="34"/>
-    <functiondecl functionName="MX_ADC2_Init" lineNumber="99"/>
-    <functiondecl functionName="MX_ADC3_Init" lineNumber="173"/>
-    <functiondecl functionName="HAL_ADC_MspInit" lineNumber="220"/>
-    <functiondecl functionName="HAL_ADC_MspDeInit" lineNumber="342"/>
+    <functiondecl functionName="MX_ADC1_Init" lineNumber="35"/>
+    <functiondecl functionName="MX_ADC2_Init" lineNumber="109"/>
+    <functiondecl functionName="MX_ADC3_Init" lineNumber="183"/>
+    <functiondecl functionName="HAL_ADC_MspInit" lineNumber="257"/>
+    <functiondecl functionName="HAL_ADC_MspDeInit" lineNumber="398"/>
     <functioncall functionName="ADC1"/>
     <functioncall functionName="ADC2"/>
     <functioncall functionName="ADC3"/>
     <functioncall functionName="ADC_CHANNEL_0"/>
     <functioncall functionName="ADC_CHANNEL_1"/>
     <functioncall functionName="ADC_CHANNEL_10"/>
+    <functioncall functionName="ADC_CHANNEL_11"/>
+    <functioncall functionName="ADC_CHANNEL_12"/>
+    <functioncall functionName="ADC_CHANNEL_13"/>
+    <functioncall functionName="ADC_CHANNEL_2"/>
+    <functioncall functionName="ADC_CHANNEL_3"/>
     <functioncall functionName="ADC_CHANNEL_6"/>
     <functioncall functionName="ADC_CHANNEL_7"/>
     <functioncall functionName="ADC_CHANNEL_8"/>
     <functioncall functionName="ADC_CHANNEL_9"/>
-    <functioncall functionName="ADC_CHANNEL_VBAT"/>
     <functioncall functionName="ADC_CLOCK_SYNC_PCLK_DIV4"/>
     <functioncall functionName="ADC_DATAALIGN_RIGHT"/>
     <functioncall functionName="ADC_EOC_SEQ_CONV"/>
-    <functioncall functionName="ADC_EOC_SINGLE_CONV"/>
-    <functioncall functionName="ADC_EXTERNALTRIGCONVEDGE_NONE"/>
     <functioncall functionName="ADC_EXTERNALTRIGCONVEDGE_RISING"/>
     <functioncall functionName="ADC_EXTERNALTRIGCONV_T1_TRGO"/>
+    <functioncall functionName="ADC_EXTERNALTRIGCONV_T6_TRGO"/>
     <functioncall functionName="ADC_REGULAR_RANK_1"/>
     <functioncall functionName="ADC_REGULAR_RANK_2"/>
     <functioncall functionName="ADC_REGULAR_RANK_3"/>
@@ -42,22 +45,20 @@
     <functioncall functionName="ADC_RESOLUTION_12B"/>
     <functioncall functionName="ADC_SAMPLETIME_3CYCLES"/>
     <functioncall functionName="ADC_SAMPLETIME_56CYCLES"/>
-    <functioncall functionName="ADC_SCAN_DISABLE"/>
     <functioncall functionName="ADC_SCAN_ENABLE"/>
-    <functioncall functionName="ADC_SOFTWARE_START"/>
     <functioncall functionName="DISABLE"/>
+    <functioncall functionName="DMA2_Stream0"/>
     <functioncall functionName="DMA2_Stream1"/>
     <functioncall functionName="DMA2_Stream2"/>
+    <functioncall functionName="DMA_CHANNEL_0"/>
     <functioncall functionName="DMA_CHANNEL_1"/>
     <functioncall functionName="DMA_CHANNEL_2"/>
     <functioncall functionName="DMA_CIRCULAR"/>
     <functioncall functionName="DMA_FIFOMODE_DISABLE"/>
     <functioncall functionName="DMA_Handle"/>
-    <functioncall functionName="DMA_MDATAALIGN_HALFWORD"/>
     <functioncall functionName="DMA_MDATAALIGN_WORD"/>
     <functioncall functionName="DMA_MINC_ENABLE"/>
     <functioncall functionName="DMA_NORMAL"/>
-    <functioncall functionName="DMA_PDATAALIGN_HALFWORD"/>
     <functioncall functionName="DMA_PDATAALIGN_WORD"/>
     <functioncall functionName="DMA_PERIPH_TO_MEMORY"/>
     <functioncall functionName="DMA_PINC_DISABLE"/>

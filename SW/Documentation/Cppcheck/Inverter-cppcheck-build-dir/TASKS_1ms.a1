@@ -1,12 +1,26 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="5459666357947898818">
+<analyzerinfo hash="4292962547220474289">
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
         </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="28" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PergaMOD.h" line="23" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="24" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
+        </error>
   <FileInfo check="ctu">
-<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PCB_IO.h:68:6" call-funcname="LED_handler" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_1ms.c" line="38" col="16" call-argexpr="&amp;led_left" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PCB_IO.h:68:6" call-funcname="LED_handler" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_1ms.c" line="39" col="16" call-argexpr="&amp;led_right" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PCB_IO.h:68:6" call-funcname="LED_handler" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_1ms.c" line="40" col="16" call-argexpr="&amp;led_error" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PCB_IO.h:68:6" call-funcname="handle_LED" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_1ms.c" line="40" col="15" call-argexpr="&amp;led_left" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PCB_IO.h:68:6" call-funcname="handle_LED" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_1ms.c" line="41" col="15" call-argexpr="&amp;led_right" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PCB_IO.h:68:6" call-funcname="handle_LED" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_1ms.c" line="42" col="15" call-argexpr="&amp;ledError" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="tasks_1ms" lineNumber="33"/>
-    <functioncall functionName="LED_handler"/>
+    <functiondecl functionName="tasks_1ms" lineNumber="35"/>
+    <functioncall functionName="get_temperature"/>
+    <functioncall functionName="handle_LED"/>
+    <functioncall functionName="handle_direction"/>
   </FileInfo>
 </analyzerinfo>

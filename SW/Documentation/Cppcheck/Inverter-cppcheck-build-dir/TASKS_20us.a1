@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="5218080850366260971">
+<analyzerinfo hash="13992176925341845023">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
+        </error>
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
         </error>
@@ -12,15 +15,14 @@
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="24" column="0"/>
         </error>
-        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
-        </error>
-  <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/INVERTER.h:76:6" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c" line="53" col="5" value="0"/>
-  </FileInfo>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PergaMOD.h:219:6" call-funcname="angle_calc" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_20us.c" line="42" col="13" call-argexpr="&amp;angle_left" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:77:9" call-funcname="get_currents_voltage" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_20us.c" line="46" col="23" call-argexpr="rawADC_left" call-argvaluetype="7" call-argvalue="16"/>  </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="initialize_inverter" lineNumber="51"/>
-    <functioncall functionName="HAL_TIM_Base_Start_IT"/>
-    <functioncall functionName="INV_STATE_STARTUP"/>
+    <functiondecl functionName="tasks_20us_left" lineNumber="39"/>
+    <functiondecl functionName="tasks_20us_right" lineNumber="60"/>
+    <functioncall functionName="angle_calc"/>
+    <functioncall functionName="calc_duties"/>
+    <functioncall functionName="get_currents_voltage"/>
+    <functioncall functionName="update_PWM"/>
   </FileInfo>
 </analyzerinfo>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="16826377340256160396">
+<analyzerinfo hash="2451225968186408122">
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
         </error>
@@ -13,13 +13,16 @@
     <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PCB_IO.h:68:6" my-argnr="1" my-argname="led" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PCB_IO.c" line="38" col="13" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="LED_handler" lineNumber="37"/>
+    <functiondecl functionName="handle_LED" lineNumber="37"/>
+    <functiondecl functionName="handle_direction" lineNumber="76"/>
     <functioncall functionName="GPIOD"/>
+    <functioncall functionName="GPIO_PIN_3"/>
     <functioncall functionName="GPIO_PIN_4"/>
     <functioncall functionName="GPIO_PIN_5"/>
     <functioncall functionName="GPIO_PIN_6"/>
     <functioncall functionName="GPIO_PIN_RESET"/>
     <functioncall functionName="GPIO_PIN_SET"/>
+    <functioncall functionName="HAL_GPIO_ReadPin"/>
     <functioncall functionName="HAL_GPIO_WritePin"/>
     <functioncall functionName="LED_MODE_OFF"/>
   </FileInfo>
