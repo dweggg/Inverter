@@ -41,12 +41,12 @@ volatile inverterStruct inverter_right = {0};
  *
  * This function initializes the inverter structure with the specified LED, GPIO port, and pin.
  *
- * @param inv Pointer to the inverter structure.
- * @param led Pointer to the LED structure.
- * @param enable_port Pointer to the GPIO port for enabling/disabling the inverter.
- * @param enable_pin Pin number for enabling/disabling the inverter.
- * @param htim Timer peripheral for the PWM output.
- * @param hadc ADC peripheral for the current phase current and DC voltage sensing.
+ * @param[out] inv Pointer to the inverter structure.
+ * @param[in] led Pointer to the LED structure.
+ * @param[in] enable_port Pointer to the GPIO port for enabling/disabling the inverter.
+ * @param[in] enable_pin Pin number for enabling/disabling the inverter.
+ * @param[in] htim Timer peripheral for the PWM output.
+ * @param[in] hadc ADC peripheral for the current phase current and DC voltage sensing.
  */
 void initialize_inverter(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
     // Initialize inverter structure

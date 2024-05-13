@@ -41,13 +41,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_line   0001eb3d  00000000  00000000  0005d943  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00103de5  00000000  00000000  0007c480  2**0
+ 19 .debug_str    00103de9  00000000  00000000  0007c480  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  00180265  2**0
+ 20 .comment      00000043  00000000  00000000  00180269  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00005704  00000000  00000000  001802a8  2**2
+ 21 .debug_frame  00005704  00000000  00000000  001802ac  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000005a  00000000  00000000  001859ac  2**0
+ 22 .debug_line_str 0000005a  00000000  00000000  001859b0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -965,10 +965,10 @@ void handle_fault(volatile inverterStruct *inv) {
  8000a8e:	bd80      	pop	{r7, pc}
 
 08000a90 <initialize_inverter>:
- * @param enable_port Pointer to the GPIO port for enabling/disabling the inverter.
- * @param enable_pin Pin number for enabling/disabling the inverter.
- * @param htim Timer peripheral for the PWM output.
- * @param hadc ADC peripheral for the current phase current and DC voltage sensing.
+ * @param[in] enable_port Pointer to the GPIO port for enabling/disabling the inverter.
+ * @param[in] enable_pin Pin number for enabling/disabling the inverter.
+ * @param[in] htim Timer peripheral for the PWM output.
+ * @param[in] hadc ADC peripheral for the current phase current and DC voltage sensing.
  */
 void initialize_inverter(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
  8000a90:	b580      	push	{r7, lr}
@@ -1309,10 +1309,10 @@ void handle_LED(LED *led, uint32_t ms_counter) {
 08000ce0 <handle_direction>:
  * and vice versa.
  *
- * @param invLeft Pointer to the left inverter structure.
- * @param invRight Pointer to the right inverter structure.
+ * @param dir_left Pointer to the direction parameter in the left inverter structure.
+ * @param dir_right Pointer to the direction parameter in the right inverter structure.
  */
-void handle_direction(volatile int8_t *dirLeft, volatile int8_t *dirRight){
+void handle_direction(volatile int8_t *dir_left, volatile int8_t *dir_right){
  8000ce0:	b580      	push	{r7, lr}
  8000ce2:	b084      	sub	sp, #16
  8000ce4:	af00      	add	r7, sp, #0
@@ -1331,25 +1331,25 @@ void handle_direction(volatile int8_t *dirLeft, volatile int8_t *dirRight){
  8000cf6:	7bfb      	ldrb	r3, [r7, #15]
  8000cf8:	2b01      	cmp	r3, #1
  8000cfa:	d106      	bne.n	8000d0a <handle_direction+0x2a>
-    	*dirLeft = 1;  // CW
+    	*dir_left = 1;  // CW
  8000cfc:	687b      	ldr	r3, [r7, #4]
  8000cfe:	2201      	movs	r2, #1
  8000d00:	701a      	strb	r2, [r3, #0]
-    	*dirRight = -1;  // CCW
+    	*dir_right = -1;  // CCW
  8000d02:	683b      	ldr	r3, [r7, #0]
  8000d04:	22ff      	movs	r2, #255	@ 0xff
  8000d06:	701a      	strb	r2, [r3, #0]
     } else {
-    	*dirLeft = -1;  // CCW
-    	*dirRight = 1;  // CW
+    	*dir_left = -1;  // CCW
+    	*dir_right = 1;  // CW
     }
 }
  8000d08:	e005      	b.n	8000d16 <handle_direction+0x36>
-    	*dirLeft = -1;  // CCW
+    	*dir_left = -1;  // CCW
  8000d0a:	687b      	ldr	r3, [r7, #4]
  8000d0c:	22ff      	movs	r2, #255	@ 0xff
  8000d0e:	701a      	strb	r2, [r3, #0]
-    	*dirRight = 1;  // CW
+    	*dir_right = 1;  // CW
  8000d10:	683b      	ldr	r3, [r7, #0]
  8000d12:	2201      	movs	r2, #1
  8000d14:	701a      	strb	r2, [r3, #0]
@@ -1552,13 +1552,13 @@ void tasks_1ms(void) {
  8000e64:	6013      	str	r3, [r2, #0]
 
     // Call LED handler for left, right, and error LEDs
-    handle_LED(&ledLeft, ms_counter);
+    handle_LED(&led_left, ms_counter);
  8000e66:	4b22      	ldr	r3, [pc, #136]	@ (8000ef0 <tasks_1ms+0x98>)
  8000e68:	681b      	ldr	r3, [r3, #0]
  8000e6a:	4619      	mov	r1, r3
  8000e6c:	4821      	ldr	r0, [pc, #132]	@ (8000ef4 <tasks_1ms+0x9c>)
  8000e6e:	f7ff fecb 	bl	8000c08 <handle_LED>
-    handle_LED(&ledRight, ms_counter);
+    handle_LED(&led_right, ms_counter);
  8000e72:	4b1f      	ldr	r3, [pc, #124]	@ (8000ef0 <tasks_1ms+0x98>)
  8000e74:	681b      	ldr	r3, [r3, #0]
  8000e76:	4619      	mov	r1, r3
@@ -3654,7 +3654,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // Initialize inverters
-  initialize_inverter(&inverter_left, &ledLeft, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
+  initialize_inverter(&inverter_left, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
  8001b5a:	4b17      	ldr	r3, [pc, #92]	@ (8001bb8 <main+0xa4>)
  8001b5c:	9301      	str	r3, [sp, #4]
  8001b5e:	4b17      	ldr	r3, [pc, #92]	@ (8001bbc <main+0xa8>)
@@ -3664,7 +3664,7 @@ int main(void)
  8001b66:	4917      	ldr	r1, [pc, #92]	@ (8001bc4 <main+0xb0>)
  8001b68:	4817      	ldr	r0, [pc, #92]	@ (8001bc8 <main+0xb4>)
  8001b6a:	f7fe ff91 	bl	8000a90 <initialize_inverter>
-  initialize_inverter(&inverter_right, &ledRight, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
+  initialize_inverter(&inverter_right, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
  8001b6e:	4b17      	ldr	r3, [pc, #92]	@ (8001bcc <main+0xb8>)
  8001b70:	9301      	str	r3, [sp, #4]
  8001b72:	4b17      	ldr	r3, [pc, #92]	@ (8001bd0 <main+0xbc>)

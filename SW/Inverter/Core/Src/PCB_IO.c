@@ -22,8 +22,8 @@
 #include "main.h" // Pins
 
 // Define LED structures
-LED ledLeft = { .port = LED_LEFT_GPIO_Port, .pin = LED_LEFT_Pin, .mode = LED_MODE_OFF };
-LED ledRight = { .port = LED_RIGHT_GPIO_Port, .pin = LED_RIGHT_Pin, .mode = LED_MODE_OFF };
+LED led_left = { .port = LED_LEFT_GPIO_Port, .pin = LED_LEFT_Pin, .mode = LED_MODE_OFF };
+LED led_right = { .port = LED_RIGHT_GPIO_Port, .pin = LED_RIGHT_Pin, .mode = LED_MODE_OFF };
 LED ledError = { .port = LED_ERR_GPIO_Port, .pin = LED_ERR_Pin, .mode = LED_MODE_OFF };
 
 /**
@@ -70,19 +70,19 @@ void handle_LED(LED *led, uint32_t ms_counter) {
  * clockwise (CW), the other one is set to rotate counterclockwise (CCW),
  * and vice versa.
  *
- * @param invLeft Pointer to the left inverter structure.
- * @param invRight Pointer to the right inverter structure.
+ * @param dir_left Pointer to the direction parameter in the left inverter structure.
+ * @param dir_right Pointer to the direction parameter in the right inverter structure.
  */
-void handle_direction(volatile int8_t *dirLeft, volatile int8_t *dirRight){
+void handle_direction(volatile int8_t *dir_left, volatile int8_t *dir_right){
 	// Read the state of the DIR switch
     GPIO_PinState dirState = HAL_GPIO_ReadPin(DIR_GPIO_Port, DIR_Pin);
 
     // Update the directions of the inverters based on the DIR switch state
     if (dirState == GPIO_PIN_SET) {
-    	*dirLeft = 1;  // CW
-    	*dirRight = -1;  // CCW
+    	*dir_left = 1;  // CW
+    	*dir_right = -1;  // CCW
     } else {
-    	*dirLeft = -1;  // CCW
-    	*dirRight = 1;  // CW
+    	*dir_left = -1;  // CCW
+    	*dir_right = 1;  // CW
     }
 }

@@ -52,8 +52,8 @@ typedef struct {
 } LED;
 
 // Declare LED variables as extern
-extern LED ledLeft;
-extern LED ledRight;
+extern LED led_left;
+extern LED led_right;
 extern LED ledError;
 
 // Function prototypes
@@ -75,9 +75,9 @@ void handle_LED(LED *led, uint32_t ms_counter);
  * clockwise (CW), the other one is set to rotate counterclockwise (CCW),
  * and vice versa.
  *
- * @param dirLeft Pointer to the left inverter direction.
- * @param dirRight Pointer to the right inverter direction.
+ * @param dir_left Pointer to the direction parameter in the left inverter structure.
+ * @param dir_right Pointer to the direction parameter in the right inverter structure.
  */
-void handle_direction(volatile int8_t *dirLeft, volatile int8_t *dirRight);
+void handle_direction(volatile int8_t *dir_left, volatile int8_t *dir_right);
 
 #endif /* PCB_IO_H */

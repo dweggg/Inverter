@@ -30,20 +30,20 @@ static uint32_t ms_counter = 0;
  * @brief Function to be executed every 1ms.
  *
  * This function is called by the TIM6 IRQ handler every millisecond.
- * It increments the millisecond counter and calls the LED handler
- * for left, right, and error LEDs.
+ * It increments the millisecond counter and executes all the low priority tasks.
  */
 void tasks_1ms(void) {
     // Increment millisecond counter
     ms_counter++;
 
     // Call LED handler for left, right, and error LEDs
-    handle_LED(&ledLeft, ms_counter);
-    handle_LED(&ledRight, ms_counter);
+    handle_LED(&led_left, ms_counter);
+    handle_LED(&led_right, ms_counter);
     handle_LED(&ledError, ms_counter);
 
     // Read direction switch
     handle_direction(&inverter_left.direction, &inverter_right.direction);
+
 
     inverter_left.temp_inverter = get_temperature(rawADC_temp[0], tempLUT_inverter);
     inverter_right.temp_inverter = get_temperature(rawADC_temp[1], tempLUT_inverter);
