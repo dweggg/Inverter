@@ -21,26 +21,41 @@
 #include "INVERTER.h"
 
 
-float vd_L = 0.0F;
-float vq_L = 100.0F;
-float vDC_L = 300.0F;
-float freq_L = 50.0F;
+float vd_left = 0.0F;
+float vq_left = 100.0F;
+float vDC_left = 300.0F;
+float freq_left = 50.0F;
 
-angle_struct angle = {
+angle_struct angle_left = {
     .freq = 0.2F,
     .Ts = TS,
 };
-void tasks_20us_LEFT(void){
+
+/**
+ * @brief Function to be executed every TS.
+ *
+ * This function is called by the TIM1 trigger handler every TS.
+ */
+void tasks_20us_left(void){
 
 
-  angle_calc(&angle);
+  angle_calc(&angle_left);
 
-  invLeft.encoder.theta_e = angle.angle*PI;
+  inverter_left.encoder.theta_e = angle_left.angle*PI;
 
-  get_currents_voltage(ADC_raw_L, &invLeft.analog);
+  get_currents_voltage(rawADC_left, &inverter_left.analog);
 
-  calc_duties(vd_L, vq_L, vDC_L, invLeft.encoder.theta_e, &invLeft.duties);
+  calc_duties(vd_left, vq_left, vDC_left, inverter_left.encoder.theta_e, &inverter_left.duties);
 
-  update_PWM(invLeft.htim, invLeft.duties);
+  update_PWM(inverter_left.htim, inverter_left.duties);
 
+}
+
+
+/**
+ * @brief Function to be executed every TS.
+ *
+ * This function is called by the TIM8 trigger handler every TS.
+ */
+void tasks_20us_right(void){
 }

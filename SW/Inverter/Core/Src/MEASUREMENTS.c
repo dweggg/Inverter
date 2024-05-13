@@ -34,21 +34,21 @@ const float tempLUT_motor[] = {-2.45, -2.44, -2.44, -2.43, -2.42, -2.42, -2.41, 
  *
  * External declaration of raw ADC data for the left inverter.
  */
-volatile uint32_t ADC_raw_L[4] = {0};
+volatile uint32_t rawADC_left[4] = {0};
 
 /**
  * @brief Raw ADC data for the right inverter.
  *
  * External declaration of raw ADC data for the right inverter.
  */
-volatile uint32_t ADC_raw_R[4] = {0};
+volatile uint32_t rawADC_right[4] = {0};
 
 /**
  * @brief Raw ADC data for the temperatures.
  *
  * External declaration of raw ADC data for the temperature readings.
  */
-volatile uint32_t ADC_raw_temp[4] = {0};
+volatile uint32_t rawADC_temp[4] = {0};
 
 /**
   * @brief  Get electrical ADC measurements.

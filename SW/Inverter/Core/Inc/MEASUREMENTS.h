@@ -30,9 +30,9 @@
 extern const float tempLUT_inverter[];
 extern const float tempLUT_motor[];
 
-extern volatile uint32_t ADC_raw_L[4]; /**< External declaration of raw ADC data for the left inverter */
-extern volatile uint32_t ADC_raw_R[4]; /**< External declaration of raw ADC data for the right inverter */
-extern volatile uint32_t ADC_raw_temp[4]; /**< External declaration of raw ADC data for the temperatures*/
+extern volatile uint32_t rawADC_left[4]; /**< External declaration of raw ADC data for the left inverter */
+extern volatile uint32_t rawADC_right[4]; /**< External declaration of raw ADC data for the right inverter */
+extern volatile uint32_t rawADC_temp[4]; /**< External declaration of raw ADC data for the temperatures*/
 
 
 /**

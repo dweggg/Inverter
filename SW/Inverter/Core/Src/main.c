@@ -111,14 +111,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // Initialize inverters
-  initialize_inverter(&invLeft, &ledLeft, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
-  initialize_inverter(&invRight, &ledRight, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
+  initialize_inverter(&inverter_left, &ledLeft, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
+  initialize_inverter(&inverter_right, &ledRight, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
 
-  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC_raw_L,4); // Starts ADC DMA for left inverter
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t *) ADC_raw_R,4); // Starts ADC DMA for right inverter
+  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) rawADC_left,4); // Starts ADC DMA for left inverter
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t *) rawADC_right,4); // Starts ADC DMA for right inverter
 
 
-  HAL_ADC_Start_DMA(&hadc3, (uint32_t *) ADC_raw_temp,4); // Starts ADC DMA for temperatures
+  HAL_ADC_Start_DMA(&hadc3, (uint32_t *) rawADC_temp,4); // Starts ADC DMA for temperatures
 
   // 1ms timer
   HAL_TIM_Base_Start_IT(&htim6);
@@ -131,10 +131,10 @@ int main(void)
   {
 
       // Run FSM for left inverter
-	  eval_inv_FSM(&invLeft);
+	  eval_inv_FSM(&inverter_left);
 
       // Run FSM for right inverter
-	  eval_inv_FSM(&invRight);
+	  eval_inv_FSM(&inverter_right);
 
     /* USER CODE END WHILE */
 

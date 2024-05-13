@@ -43,10 +43,10 @@ void tasks_1ms(void) {
     handle_LED(&ledError, ms_counter);
 
     // Read direction switch
-    handle_direction(&invLeft.direction, &invRight.direction);
+    handle_direction(&inverter_left.direction, &inverter_right.direction);
 
-    invLeft.temp_inverter = get_temperature(ADC_raw_temp[0], tempLUT_inverter);
-    invRight.temp_inverter = get_temperature(ADC_raw_temp[1], tempLUT_inverter);
-    invLeft.temp_motor = get_temperature(ADC_raw_temp[2], tempLUT_motor);
-    invRight.temp_motor = get_temperature(ADC_raw_temp[3], tempLUT_motor);
+    inverter_left.temp_inverter = get_temperature(rawADC_temp[0], tempLUT_inverter);
+    inverter_right.temp_inverter = get_temperature(rawADC_temp[1], tempLUT_inverter);
+    inverter_left.temp_motor = get_temperature(rawADC_temp[2], tempLUT_motor);
+    inverter_right.temp_motor = get_temperature(rawADC_temp[3], tempLUT_motor);
 }

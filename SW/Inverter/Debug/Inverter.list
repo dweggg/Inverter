@@ -29,25 +29,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 0000002e  00000000  00000000  0001108c  2**0
                   CONTENTS, READONLY
- 13 .debug_info   0001a1ab  00000000  00000000  000110ba  2**0
+ 13 .debug_info   0001a1bd  00000000  00000000  000110ba  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 000043c5  00000000  00000000  0002b265  2**0
+ 14 .debug_abbrev 000043de  00000000  00000000  0002b277  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 000014c0  00000000  00000000  0002f630  2**3
+ 15 .debug_aranges 000014c8  00000000  00000000  0002f658  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 00000fca  00000000  00000000  00030af0  2**0
+ 16 .debug_rnglists 00000fd0  00000000  00000000  00030b20  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0002be53  00000000  00000000  00031aba  2**0
+ 17 .debug_macro  0002be53  00000000  00000000  00031af0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   0001eb29  00000000  00000000  0005d90d  2**0
+ 18 .debug_line   0001eb3d  00000000  00000000  0005d943  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00103dad  00000000  00000000  0007c436  2**0
+ 19 .debug_str    00103de5  00000000  00000000  0007c480  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  001801e3  2**0
+ 20 .comment      00000043  00000000  00000000  00180265  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  000056e4  00000000  00000000  00180228  2**2
+ 21 .debug_frame  00005704  00000000  00000000  001802a8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 22 .debug_line_str 0000005a  00000000  00000000  0018590c  2**0
+ 22 .debug_line_str 0000005a  00000000  00000000  001859ac  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1572,12 +1572,12 @@ void tasks_1ms(void) {
  8000e86:	f7ff febf 	bl	8000c08 <handle_LED>
 
     // Read direction switch
-    handle_direction(&invLeft.direction, &invRight.direction);
+    handle_direction(&inverter_left.direction, &inverter_right.direction);
  8000e8a:	491d      	ldr	r1, [pc, #116]	@ (8000f00 <tasks_1ms+0xa8>)
  8000e8c:	481d      	ldr	r0, [pc, #116]	@ (8000f04 <tasks_1ms+0xac>)
  8000e8e:	f7ff ff27 	bl	8000ce0 <handle_direction>
 
-    invLeft.temp_inverter = get_temperature(ADC_raw_temp[0], tempLUT_inverter);
+    inverter_left.temp_inverter = get_temperature(rawADC_temp[0], tempLUT_inverter);
  8000e92:	4b1d      	ldr	r3, [pc, #116]	@ (8000f08 <tasks_1ms+0xb0>)
  8000e94:	681b      	ldr	r3, [r3, #0]
  8000e96:	491d      	ldr	r1, [pc, #116]	@ (8000f0c <tasks_1ms+0xb4>)
@@ -1586,7 +1586,7 @@ void tasks_1ms(void) {
  8000e9e:	eef0 7a40 	vmov.f32	s15, s0
  8000ea2:	4b1b      	ldr	r3, [pc, #108]	@ (8000f10 <tasks_1ms+0xb8>)
  8000ea4:	edc3 7a17 	vstr	s15, [r3, #92]	@ 0x5c
-    invRight.temp_inverter = get_temperature(ADC_raw_temp[1], tempLUT_inverter);
+    inverter_right.temp_inverter = get_temperature(rawADC_temp[1], tempLUT_inverter);
  8000ea8:	4b17      	ldr	r3, [pc, #92]	@ (8000f08 <tasks_1ms+0xb0>)
  8000eaa:	685b      	ldr	r3, [r3, #4]
  8000eac:	4917      	ldr	r1, [pc, #92]	@ (8000f0c <tasks_1ms+0xb4>)
@@ -1595,7 +1595,7 @@ void tasks_1ms(void) {
  8000eb4:	eef0 7a40 	vmov.f32	s15, s0
  8000eb8:	4b16      	ldr	r3, [pc, #88]	@ (8000f14 <tasks_1ms+0xbc>)
  8000eba:	edc3 7a17 	vstr	s15, [r3, #92]	@ 0x5c
-    invLeft.temp_motor = get_temperature(ADC_raw_temp[2], tempLUT_motor);
+    inverter_left.temp_motor = get_temperature(rawADC_temp[2], tempLUT_motor);
  8000ebe:	4b12      	ldr	r3, [pc, #72]	@ (8000f08 <tasks_1ms+0xb0>)
  8000ec0:	689b      	ldr	r3, [r3, #8]
  8000ec2:	4915      	ldr	r1, [pc, #84]	@ (8000f18 <tasks_1ms+0xc0>)
@@ -1604,7 +1604,7 @@ void tasks_1ms(void) {
  8000eca:	eef0 7a40 	vmov.f32	s15, s0
  8000ece:	4b10      	ldr	r3, [pc, #64]	@ (8000f10 <tasks_1ms+0xb8>)
  8000ed0:	edc3 7a18 	vstr	s15, [r3, #96]	@ 0x60
-    invRight.temp_motor = get_temperature(ADC_raw_temp[3], tempLUT_motor);
+    inverter_right.temp_motor = get_temperature(rawADC_temp[3], tempLUT_motor);
  8000ed4:	4b0c      	ldr	r3, [pc, #48]	@ (8000f08 <tasks_1ms+0xb0>)
  8000ed6:	68db      	ldr	r3, [r3, #12]
  8000ed8:	490f      	ldr	r1, [pc, #60]	@ (8000f18 <tasks_1ms+0xc0>)
@@ -1629,54 +1629,54 @@ void tasks_1ms(void) {
  8000f14:	2000010c 	.word	0x2000010c
  8000f18:	0800bd70 	.word	0x0800bd70
 
-08000f1c <tasks_20us_LEFT>:
-
-angle_struct angle = {
-    .freq = 0.2F,
-    .Ts = TS,
-};
-void tasks_20us_LEFT(void){
+08000f1c <tasks_20us_left>:
+/**
+ * @brief Function to be executed every TS.
+ *
+ * This function is called by the TIM1 trigger handler every TS.
+ */
+void tasks_20us_left(void){
  8000f1c:	b580      	push	{r7, lr}
  8000f1e:	af00      	add	r7, sp, #0
 
 
-  angle_calc(&angle);
- 8000f20:	481d      	ldr	r0, [pc, #116]	@ (8000f98 <tasks_20us_LEFT+0x7c>)
+  angle_calc(&angle_left);
+ 8000f20:	481d      	ldr	r0, [pc, #116]	@ (8000f98 <tasks_20us_left+0x7c>)
  8000f22:	f006 fca1 	bl	8007868 <angle_calc>
 
-  invLeft.encoder.theta_e = angle.angle*PI;
- 8000f26:	4b1c      	ldr	r3, [pc, #112]	@ (8000f98 <tasks_20us_LEFT+0x7c>)
+  inverter_left.encoder.theta_e = angle_left.angle*PI;
+ 8000f26:	4b1c      	ldr	r3, [pc, #112]	@ (8000f98 <tasks_20us_left+0x7c>)
  8000f28:	edd3 7a02 	vldr	s15, [r3, #8]
- 8000f2c:	ed9f 7a1b 	vldr	s14, [pc, #108]	@ 8000f9c <tasks_20us_LEFT+0x80>
+ 8000f2c:	ed9f 7a1b 	vldr	s14, [pc, #108]	@ 8000f9c <tasks_20us_left+0x80>
  8000f30:	ee67 7a87 	vmul.f32	s15, s15, s14
- 8000f34:	4b1a      	ldr	r3, [pc, #104]	@ (8000fa0 <tasks_20us_LEFT+0x84>)
+ 8000f34:	4b1a      	ldr	r3, [pc, #104]	@ (8000fa0 <tasks_20us_left+0x84>)
  8000f36:	edc3 7a0d 	vstr	s15, [r3, #52]	@ 0x34
 
-  get_currents_voltage(ADC_raw_L, &invLeft.analog);
- 8000f3a:	491a      	ldr	r1, [pc, #104]	@ (8000fa4 <tasks_20us_LEFT+0x88>)
- 8000f3c:	481a      	ldr	r0, [pc, #104]	@ (8000fa8 <tasks_20us_LEFT+0x8c>)
+  get_currents_voltage(rawADC_left, &inverter_left.analog);
+ 8000f3a:	491a      	ldr	r1, [pc, #104]	@ (8000fa4 <tasks_20us_left+0x88>)
+ 8000f3c:	481a      	ldr	r0, [pc, #104]	@ (8000fa8 <tasks_20us_left+0x8c>)
  8000f3e:	f7ff fdd5 	bl	8000aec <get_currents_voltage>
 
-  calc_duties(vd_L, vq_L, vDC_L, invLeft.encoder.theta_e, &invLeft.duties);
- 8000f42:	4b1a      	ldr	r3, [pc, #104]	@ (8000fac <tasks_20us_LEFT+0x90>)
+  calc_duties(vd_left, vq_left, vDC_left, inverter_left.encoder.theta_e, &inverter_left.duties);
+ 8000f42:	4b1a      	ldr	r3, [pc, #104]	@ (8000fac <tasks_20us_left+0x90>)
  8000f44:	edd3 7a00 	vldr	s15, [r3]
- 8000f48:	4b19      	ldr	r3, [pc, #100]	@ (8000fb0 <tasks_20us_LEFT+0x94>)
+ 8000f48:	4b19      	ldr	r3, [pc, #100]	@ (8000fb0 <tasks_20us_left+0x94>)
  8000f4a:	ed93 7a00 	vldr	s14, [r3]
- 8000f4e:	4b19      	ldr	r3, [pc, #100]	@ (8000fb4 <tasks_20us_LEFT+0x98>)
+ 8000f4e:	4b19      	ldr	r3, [pc, #100]	@ (8000fb4 <tasks_20us_left+0x98>)
  8000f50:	edd3 6a00 	vldr	s13, [r3]
- 8000f54:	4b12      	ldr	r3, [pc, #72]	@ (8000fa0 <tasks_20us_LEFT+0x84>)
+ 8000f54:	4b12      	ldr	r3, [pc, #72]	@ (8000fa0 <tasks_20us_left+0x84>)
  8000f56:	ed93 6a0d 	vldr	s12, [r3, #52]	@ 0x34
- 8000f5a:	4817      	ldr	r0, [pc, #92]	@ (8000fb8 <tasks_20us_LEFT+0x9c>)
+ 8000f5a:	4817      	ldr	r0, [pc, #92]	@ (8000fb8 <tasks_20us_left+0x9c>)
  8000f5c:	eef0 1a46 	vmov.f32	s3, s12
  8000f60:	eeb0 1a66 	vmov.f32	s2, s13
  8000f64:	eef0 0a47 	vmov.f32	s1, s14
  8000f68:	eeb0 0a67 	vmov.f32	s0, s15
  8000f6c:	f7ff fc98 	bl	80008a0 <calc_duties>
 
-  update_PWM(invLeft.htim, invLeft.duties);
- 8000f70:	4b0b      	ldr	r3, [pc, #44]	@ (8000fa0 <tasks_20us_LEFT+0x84>)
+  update_PWM(inverter_left.htim, inverter_left.duties);
+ 8000f70:	4b0b      	ldr	r3, [pc, #44]	@ (8000fa0 <tasks_20us_left+0x84>)
  8000f72:	68da      	ldr	r2, [r3, #12]
- 8000f74:	4b0a      	ldr	r3, [pc, #40]	@ (8000fa0 <tasks_20us_LEFT+0x84>)
+ 8000f74:	4b0a      	ldr	r3, [pc, #40]	@ (8000fa0 <tasks_20us_left+0x84>)
  8000f76:	edd3 6a13 	vldr	s13, [r3, #76]	@ 0x4c
  8000f7a:	ed93 7a14 	vldr	s14, [r3, #80]	@ 0x50
  8000f7e:	edd3 7a15 	vldr	s15, [r3, #84]	@ 0x54
@@ -3654,7 +3654,7 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // Initialize inverters
-  initialize_inverter(&invLeft, &ledLeft, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
+  initialize_inverter(&inverter_left, &ledLeft, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2);
  8001b5a:	4b17      	ldr	r3, [pc, #92]	@ (8001bb8 <main+0xa4>)
  8001b5c:	9301      	str	r3, [sp, #4]
  8001b5e:	4b17      	ldr	r3, [pc, #92]	@ (8001bbc <main+0xa8>)
@@ -3664,7 +3664,7 @@ int main(void)
  8001b66:	4917      	ldr	r1, [pc, #92]	@ (8001bc4 <main+0xb0>)
  8001b68:	4817      	ldr	r0, [pc, #92]	@ (8001bc8 <main+0xb4>)
  8001b6a:	f7fe ff91 	bl	8000a90 <initialize_inverter>
-  initialize_inverter(&invRight, &ledRight, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
+  initialize_inverter(&inverter_right, &ledRight, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1);
  8001b6e:	4b17      	ldr	r3, [pc, #92]	@ (8001bcc <main+0xb8>)
  8001b70:	9301      	str	r3, [sp, #4]
  8001b72:	4b17      	ldr	r3, [pc, #92]	@ (8001bd0 <main+0xbc>)
@@ -3675,19 +3675,19 @@ int main(void)
  8001b7c:	4817      	ldr	r0, [pc, #92]	@ (8001bdc <main+0xc8>)
  8001b7e:	f7fe ff87 	bl	8000a90 <initialize_inverter>
 
-  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) ADC_raw_L,4); // Starts ADC DMA for left inverter
+  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) rawADC_left,4); // Starts ADC DMA for left inverter
  8001b82:	2204      	movs	r2, #4
  8001b84:	4916      	ldr	r1, [pc, #88]	@ (8001be0 <main+0xcc>)
  8001b86:	480c      	ldr	r0, [pc, #48]	@ (8001bb8 <main+0xa4>)
  8001b88:	f000 fe36 	bl	80027f8 <HAL_ADC_Start_DMA>
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t *) ADC_raw_R,4); // Starts ADC DMA for right inverter
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t *) rawADC_right,4); // Starts ADC DMA for right inverter
  8001b8c:	2204      	movs	r2, #4
  8001b8e:	4915      	ldr	r1, [pc, #84]	@ (8001be4 <main+0xd0>)
  8001b90:	480e      	ldr	r0, [pc, #56]	@ (8001bcc <main+0xb8>)
  8001b92:	f000 fe31 	bl	80027f8 <HAL_ADC_Start_DMA>
 
 
-  HAL_ADC_Start_DMA(&hadc3, (uint32_t *) ADC_raw_temp,4); // Starts ADC DMA for temperatures
+  HAL_ADC_Start_DMA(&hadc3, (uint32_t *) rawADC_temp,4); // Starts ADC DMA for temperatures
  8001b96:	2204      	movs	r2, #4
  8001b98:	4913      	ldr	r1, [pc, #76]	@ (8001be8 <main+0xd4>)
  8001b9a:	4814      	ldr	r0, [pc, #80]	@ (8001bec <main+0xd8>)
@@ -3702,15 +3702,15 @@ int main(void)
   {
 
       // Run FSM for left inverter
-	  eval_inv_FSM(&invLeft);
+	  eval_inv_FSM(&inverter_left);
  8001ba6:	4808      	ldr	r0, [pc, #32]	@ (8001bc8 <main+0xb4>)
  8001ba8:	f7fe fee0 	bl	800096c <eval_inv_FSM>
 
       // Run FSM for right inverter
-	  eval_inv_FSM(&invRight);
+	  eval_inv_FSM(&inverter_right);
  8001bac:	480b      	ldr	r0, [pc, #44]	@ (8001bdc <main+0xc8>)
  8001bae:	f7fe fedd 	bl	800096c <eval_inv_FSM>
-	  eval_inv_FSM(&invLeft);
+	  eval_inv_FSM(&inverter_left);
  8001bb2:	bf00      	nop
  8001bb4:	e7f7      	b.n	8001ba6 <main+0x92>
  8001bb6:	bf00      	nop
@@ -4152,8 +4152,8 @@ void TIM1_UP_TIM10_IRQHandler(void)
  8001d9c:	4803      	ldr	r0, [pc, #12]	@ (8001dac <TIM1_UP_TIM10_IRQHandler+0x14>)
  8001d9e:	f003 ff78 	bl	8005c92 <HAL_TIM_IRQHandler>
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
-  tasks_20us_LEFT();
- 8001da2:	f7ff f8bb 	bl	8000f1c <tasks_20us_LEFT>
+  tasks_20us_left();
+ 8001da2:	f7ff f8bb 	bl	8000f1c <tasks_20us_left>
   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }
  8001da6:	bf00      	nop

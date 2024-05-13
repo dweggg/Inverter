@@ -58,8 +58,8 @@ typedef struct {
     float temp_motor;		/**< Motor temperature in degC*/
 } inverterStruct;
 
-extern volatile inverterStruct invLeft; /**< External declaration of the left inverter structure */
-extern volatile inverterStruct invRight; /**< External declaration of the right inverter structure */
+extern volatile inverterStruct inverter_left; /**< External declaration of the left inverter structure */
+extern volatile inverterStruct inverter_right; /**< External declaration of the right inverter structure */
 
 /**
  * @brief Initialize the inverter.

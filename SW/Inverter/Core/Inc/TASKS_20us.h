@@ -17,6 +17,16 @@
 
 /* USER CODE END Header */
 
+/**
+ * @brief Function to be executed every TS.
+ *
+ * This function is called by the TIM1 trigger out handler every TS.
+ */
+void tasks_20us_left();
 
-void tasks_20us_LEFT();
-
+/**
+ * @brief Function to be executed every TS.
+ *
+ * This function is called by the TIM8 trigger out handler every TS.
+ */
+void tasks_20us_right();
