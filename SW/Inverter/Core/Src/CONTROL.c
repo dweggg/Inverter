@@ -18,41 +18,37 @@
 /* USER CODE END Header */
 
 #include "CONTROL.h"
-#include "Pergamon_float.h" // control functions
 #include <math.h> // sin/cos, M_PI
+#include <PergaMOD.h> // control functions
 #include "INVERTER.h" // TS
 
 /**
  * @brief function.
  *
- * This function calculates the inverse Park transform (irot) and the duty cycles using SVPWM
+ * This function calculates the inverse Park transform and the duty cycles using SVPWM
  *
- * @param vd Voltage in the d-axis.
- * @param vq Voltage in the q-axis.
- * @param vDC DC voltage.
- * @param freq Frequency.
- * @param duties Pointer to the duties structure.
+ * @param[in] vd Voltage in the d-axis.
+ * @param[in] vq Voltage in the q-axis.
+ * @param[in] vDC DC voltage.
+ * @param[in] theta_e Electrical angle in radians (-pi..pi).
+ * @param[out] duties Pointer to the duties structure.
  */
-void calc_duties(float vd, float vq, float vDC, float freq, volatile Duties *duties) {
-  static angle_struct angle;
-  angle.freq = freq;
-  angle.Ts = TS;
-  angle_calc(&angle);
+void calc_duties(float vd, float vq, float vDC, float theta_e, volatile Duties *duties) {
 
-  static irot_struct irot;
-  irot.d = vd/vDC;
-  irot.q = vq/vDC;
-  irot.sinFi = sin(angle.angle*M_TWOPI);
-  irot.cosFi = cos(angle.angle*M_TWOPI);
-  irot_calc(&irot);
 
-  static svpwm_struct svpwm;
-  // Assign values to SVPWM structure
-  svpwm.alpha = irot.alpha;
-  svpwm.beta = irot.beta;
+  // inverse Park transform
+  float alpha = (vd/vDC)*cos(theta_e) - (vq/vDC)*sin(theta_e);              // Alpha(D) = d*cos(Fi) - q*sin(Fi)
+  float beta = (vd/vDC)*sin(theta_e) + (vq/vDC)*cos(theta_e);              // Beta(Q) = d*sin(Fi) + q*cos(Fi)
+
+
+  svpwm_struct svpwm;
+
+  // Assign values to SVPWM structure, works with alpha/beta not a/b/c
+  svpwm.alpha = alpha;
+  svpwm.beta = beta;
   svpwm_calc(&svpwm);
 
-  // Assign SVPWM duties
+  // Assign SVPWM duties (0 to 1, high side)
   duties->Da = svpwm.Da;
   duties->Db = svpwm.Db;
   duties->Dc = svpwm.Dc;

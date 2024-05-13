@@ -20,8 +20,8 @@
 #ifndef REFERENCE_H
 #define REFERENCE_H
 
+#include <PergaMOD.h>
 #include <stdint.h>
-#include "Pergamon_float.h"
 
 /**
  * @brief Set torque direction based on inverter direction.

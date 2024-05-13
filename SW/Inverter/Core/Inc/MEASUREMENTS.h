@@ -47,8 +47,8 @@ typedef struct {
     float ia;         /**< Phase A current in A*/
     float ib;         /**< Phase B current in A*/
     float ic;         /**< Phase C current in A*/
-    float VDC;        /**< DC link voltage in V*/
-} Measurements;
+    float vDC;        /**< DC link voltage in V*/
+} Analog;
 
 /**
  * @brief Structure for feedback values.
@@ -63,18 +63,20 @@ typedef struct {
 /* Define function prototypes */
 /**
   * @brief  Get electrical ADC measurements.
-  * @param  ADC_raw Pointer to the raw ADC values array.
-  * @param  measurements Pointer to the measurements struct to store the results.
+  * @param[in]  ADC_raw Pointer to the raw ADC values array.
+  * @param[out]  analog Pointer to the adc struct to store the results.
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_ADC(volatile uint32_t ADC_raw[], volatile Measurements* measurements);
+uint8_t get_ADC(volatile uint32_t ADC_raw[], volatile Analog* analog);
 /**
   * @brief  Convert ADC reading to physical measurement with linear response.
-  * @param  bits The ADC reading.
-  * @param  slope The slope (volts per unit).
-  * @param  offset The offset (volts at zero).
+  * @param[in]  bits The ADC reading.
+  * @param[in]  slope The slope (volts per unit).
+  * @param[in]  offset The offset (volts at zero).
   * @retval measurement The physical measurement.
   */
 float get_linear(uint32_t bits, float slope, float offset);
 
+
+void get_idiq(float ia, float ib, float ic, float theta_e, float *id_meas, float *iq_meas);
 #endif /* MEASUREMENTS_H */

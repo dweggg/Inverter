@@ -52,10 +52,6 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile float vd_L = -10.0F;
-volatile float vq_L = 40.0F;
-volatile float vDC_L = 300.0F;
-volatile float freq_L = 0.2F;
 
 /* USER CODE END PV */
 

@@ -34,7 +34,7 @@ Core/Src/FSM.o: ../Core/Src/FSM.c ../Core/Inc/FSM.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
  ../Core/Inc/MEASUREMENTS.h ../Core/Inc/REFERENCE.h \
- ../Core/Inc/Pergamon_float.h ../Core/Inc/PWM.h
+ ../Core/Inc/PergaMOD.h ../Core/Inc/PWM.h
 ../Core/Inc/FSM.h:
 ../Core/Inc/INVERTER.h:
 ../Core/Inc/PCB_IO.h:
@@ -73,5 +73,5 @@ Core/Src/FSM.o: ../Core/Src/FSM.c ../Core/Inc/FSM.h \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h:
 ../Core/Inc/MEASUREMENTS.h:
 ../Core/Inc/REFERENCE.h:
-../Core/Inc/Pergamon_float.h:
+../Core/Inc/PergaMOD.h:
 ../Core/Inc/PWM.h:

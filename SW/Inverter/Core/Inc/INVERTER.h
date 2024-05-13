@@ -49,7 +49,7 @@ typedef struct {
     TIM_HandleTypeDef *htim;    /**< Handle of the timer peripheral for PWM output */
     ADC_HandleTypeDef *hadc;    /**< Handle of the ADC peripheral for current phase currents and DC voltage sensing */
     inverterState state;        /**< Current state of inverter operation */
-    Measurements measurements;  /**< Structure for phase currents and DC voltage measurements */
+    Analog analog;  /**< Structure for phase currents and DC voltage measurements */
     Encoder encoder;            /**< Structure for encoder input */
     Feedback feedback;			/**< Structure for measured currents and calculated mechanical torque and speed */
     Duties duties;              /**< Structure for duty cycles for phases A, B, and C */

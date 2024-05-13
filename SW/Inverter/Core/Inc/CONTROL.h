@@ -22,17 +22,18 @@
 
 #include "PWM.h" // duties struct
 
+
 /**
  * @brief function.
  *
  * This function calculates the inverse Park transform (irot) and the duty cycles using SVPWM
  *
- * @param vd Voltage in the d-axis.
- * @param vq Voltage in the q-axis.
- * @param vDC DC voltage.
- * @param freq Frequency.
- * @param duties Pointer to the duties structure.
+ * @param[in] vd Voltage in the d-axis.
+ * @param[in] vq Voltage in the q-axis.
+ * @param[in] vDC DC voltage.
+ * @param[in] theta_e Electrical angle in radians (-pi..pi).
+ * @param[out] duties Pointer to the duties structure.
  */
-void calc_duties(float vd, float vq, float vDC, float freq, volatile Duties *duties);
+void calc_duties(float vd, float vq, float vDC, float theta_e, volatile Duties *duties);
 
 #endif /* CONTROL_H */

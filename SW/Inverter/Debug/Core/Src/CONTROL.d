@@ -32,9 +32,8 @@ Core/Src/CONTROL.o: ../Core/Src/CONTROL.c ../Core/Inc/CONTROL.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
- ../Core/Inc/Pergamon_float.h ../Core/Inc/INVERTER.h ../Core/Inc/PCB_IO.h \
- ../Core/Inc/MEASUREMENTS.h ../Core/Inc/REFERENCE.h \
- ../Core/Inc/Pergamon_float.h
+ ../Core/Inc/PergaMOD.h ../Core/Inc/INVERTER.h ../Core/Inc/PCB_IO.h \
+ ../Core/Inc/MEASUREMENTS.h ../Core/Inc/REFERENCE.h
 ../Core/Inc/CONTROL.h:
 ../Core/Inc/PWM.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -70,9 +69,8 @@ Core/Src/CONTROL.o: ../Core/Src/CONTROL.c ../Core/Inc/CONTROL.h \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h:
-../Core/Inc/Pergamon_float.h:
+../Core/Inc/PergaMOD.h:
 ../Core/Inc/INVERTER.h:
 ../Core/Inc/PCB_IO.h:
 ../Core/Inc/MEASUREMENTS.h:
 ../Core/Inc/REFERENCE.h:
-../Core/Inc/Pergamon_float.h:

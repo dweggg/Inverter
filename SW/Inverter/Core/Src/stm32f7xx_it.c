@@ -23,10 +23,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "TASKS_1ms.h"
-#include "MEASUREMENTS.h"
-#include "PWM.h"
-#include "CONTROL.h"
-#include "INVERTER.h"
+#include "TASKS_20us.h"
 
 /* USER CODE END Includes */
 
@@ -225,20 +222,6 @@ void CAN1_RX0_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles CAN1 RX1 interrupt.
-  */
-void CAN1_RX1_IRQHandler(void)
-{
-  /* USER CODE BEGIN CAN1_RX1_IRQn 0 */
-
-  /* USER CODE END CAN1_RX1_IRQn 0 */
-  HAL_CAN_IRQHandler(&hcan1);
-  /* USER CODE BEGIN CAN1_RX1_IRQn 1 */
-
-  /* USER CODE END CAN1_RX1_IRQn 1 */
-}
-
-/**
   * @brief This function handles TIM1 update interrupt and TIM10 global interrupt.
   */
 void TIM1_UP_TIM10_IRQHandler(void)
@@ -248,13 +231,7 @@ void TIM1_UP_TIM10_IRQHandler(void)
   /* USER CODE END TIM1_UP_TIM10_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
-
-  get_ADC(ADC_raw_L, &invLeft.measurements);
-
-  calc_duties(vd_L, vq_L, vDC_L, freq_L, &invLeft.duties);
-
-  update_PWM(invLeft.htim, invLeft.duties);
-
+  tasks_20us_LEFT();
   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }
 

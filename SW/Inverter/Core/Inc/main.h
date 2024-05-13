@@ -143,11 +143,6 @@ void Error_Handler(void);
 #define LED_ERR_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
-extern volatile float vd_L;
-extern volatile float vq_L;
-extern volatile float vDC_L;
-extern volatile float freq_L;
-
 
 /* USER CODE END Private defines */
 
