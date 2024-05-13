@@ -36,6 +36,6 @@ typedef struct {
     float iPhase_pk_max;    /**< Maximum phase current (peak value, or RMS*sqrt2) */
     float vDC_max;          /**< Maximum DC bus voltage in volts */
 
-} motorParameters;
+} MotorParameters;
 
 #endif /* MOTOR_H */

@@ -26,6 +26,13 @@
 #include "PWM.h" // duties struct
 
 
+
+#define TS 0.00002      /**< Switching time in seconds (20 us), inverse of the switching frequency of 50 kHz */
+#define DT 0.00000015   /**< Dead time in seconds (150 ns), time in which both top and bottom transistors are open */
+
+
+
+
 /**
  * @brief Enumeration of inverter operation states.
  */
@@ -35,9 +42,6 @@ typedef enum {
     INV_STATE_RUNNING, /**< Inverter running state */
     INV_STATE_FAULT    /**< Inverter fault state */
 } InverterState;
-
-#define TS 0.00002      /**< Switching time in seconds (20 us), inverse of the switching frequency of 50 kHz */
-#define DT 0.00000015   /**< Dead time in seconds (150 ns), time in which both top and bottom transistors are open */
 
 /**
  * @brief Inverter structure.

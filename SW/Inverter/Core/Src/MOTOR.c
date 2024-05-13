@@ -22,7 +22,7 @@
 /**
  * @brief Left motor parameters
  */
-motorParameters motorLeft = {
+MotorParameters motor_left = {
     .Ld = 0.00291,
     .Lq = 0.00295,
     .Rs = 1.95,
@@ -39,7 +39,7 @@ motorParameters motorLeft = {
 /**
  * @brief Right motor parameters
  */
-motorParameters motorRight = {
+MotorParameters motor_right = {
 	    .Ld = 0.00291,
 	    .Lq = 0.00295,
 	    .Rs = 1.95,
