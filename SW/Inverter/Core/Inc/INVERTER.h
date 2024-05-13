@@ -21,7 +21,7 @@
 #define INVERTER_H
 
 #include "PCB_IO.h" // peripheral types
-#include "MEASUREMENTS.h" // needs structs
+#include "MEASUREMENTS.h" // a few structs
 #include "REFERENCE.h" // reference struct
 #include "MOTOR.h" // motor struct
 #include "PWM.h" // duties struct
@@ -57,6 +57,7 @@ typedef struct {
     Analog analog;  			/**< Structure for phase currents and DC voltage measurements */
     Encoder encoder;            /**< Structure for encoder input */
     Feedback feedback;			/**< Structure for measured currents and calculated mechanical torque and speed */
+    Reference reference;		/**< Structure for referece currents and torque*/
     Duties duties;              /**< Structure for duty cycles for phases A, B, and C */
     int8_t direction;			/**< Motor direction: 1 CW, -1 CCW, 0 stopped*/
     float temp_inverter;		/**< Semiconductor temperature in degC*/

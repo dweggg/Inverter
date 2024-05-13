@@ -21,9 +21,22 @@
 
 #include <math.h> // sin/cos, M_PI
 #include <PergaMOD.h> // control functions
-#include "INVERTER.h" // TS
 
+/**
+ * @brief Calculates the id-iq currents control actions.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void calc_current_loop(volatile InverterStruct *inv){
 
+	inv->id_pi.pi_consig = inv->reference.id_ref;  	   // Setpoint
+    inv->id_pi.pi_fdb = inv->feedback.id_meas;         // Feedback
+    pi_calc(&(inv->id_pi));                            // Calculate id PI controller output
+
+    inv->iq_pi.pi_consig = inv->reference.iq_ref;  	   // Setpoint
+    inv->iq_pi.pi_fdb = inv->feedback.iq_meas;         // Feedback
+    pi_calc(&(inv->iq_pi));                            // Calculate iq PI controller output
+}
 
 /**
  * @brief function.

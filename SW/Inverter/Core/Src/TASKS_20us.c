@@ -51,6 +51,7 @@ void tasks_20us_left(void){
 
   start_ticks = SysTick->VAL;
   get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
+  calc_current_loop(&inverter_left);
   calc_duties(vd_left, vq_left, vDC_left,  inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e, &inverter_left.duties);
   elapsed_ticks = start_ticks - SysTick->VAL;
 

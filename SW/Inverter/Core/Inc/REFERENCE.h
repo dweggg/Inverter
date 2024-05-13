@@ -24,6 +24,15 @@
 #include <stdint.h>
 
 /**
+ * @brief Structure for reference values.
+ */
+typedef struct {
+    float id_ref;      /**< Reference d-axis current in A*/
+    float iq_ref;      /**< Reference q-axis current in A*/
+    float torque_ref;  /**< Reference torque in N·m*/
+} Reference;
+
+/**
  * @brief Set torque direction based on inverter direction.
  *
  * This function adjusts the torque reference based on the direction of the inverter.

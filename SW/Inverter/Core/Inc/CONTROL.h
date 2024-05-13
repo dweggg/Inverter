@@ -21,7 +21,14 @@
 #define CONTROL_H
 
 #include "PWM.h" // duties struct
+#include "INVERTER.h" // TS & Inverter struct
 
+/**
+ * @brief Calculates the id-iq currents control actions.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void calc_current_loop(volatile InverterStruct *inv);
 
 /**
  * @brief function.
