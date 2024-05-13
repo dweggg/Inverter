@@ -54,9 +54,11 @@ volatile uint32_t rawADC_temp[4] = {0};
   * @brief  Get electrical ADC measurements.
   * @param[in]  ADC_raw Pointer to the raw ADC values array.
   * @param[out]  analog Pointer to the ADC struct to store the results.
+  * @param[out] feedback Pointer to the Feedback struct to store id and iq.
+  * @param[in]  theta_e Electrical angle in radians.
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog) {
+uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float theta_e){
 
     // Calculate currents and voltage
     float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, CURRENT_OFFSET);
@@ -69,6 +71,16 @@ uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analo
     analog->ib = ib;
     analog->ic = ic;
     analog->vDC = vDC;
+
+    // Define variables to store DQ currents
+    float id_meas, iq_meas;
+
+    // Pass pointers to id_meas and iq_meas
+    get_idiq(ia, ib, ic, theta_e, &id_meas, &iq_meas);
+
+    // Store DQ currents in feedback struct
+    feedback->id_meas = id_meas;
+    feedback->iq_meas = iq_meas;
 
     return 1; // Success
 }
@@ -111,8 +123,8 @@ void get_idiq(float ia, float ib, float ic, float theta_e, float *id_meas, float
     // float beta = (ia + 2.0F*ib) * ISQ3;
 
     // Park transformation
-    *id_meas = alpha * cos(theta_e) + beta * sin(theta_e);  // d = alpha * cos(theta_e) + beta * sin(theta_e)
-    *iq_meas = beta * cos(theta_e) - alpha * sin(theta_e);  // q = beta * cos(theta_e) - alpha * sin(theta_e)
+    *id_meas = alpha * cosf(theta_e) + beta * sinf(theta_e);  // d = alpha * cos(theta_e) + beta * sin(theta_e)
+    *iq_meas = beta * cosf(theta_e) - alpha * sinf(theta_e);  // q = beta * cos(theta_e) - alpha * sin(theta_e)
 
 }
 

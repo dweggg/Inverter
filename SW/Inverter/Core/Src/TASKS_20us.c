@@ -40,10 +40,9 @@ void tasks_20us_left(void){
 
 
   angle_calc(&angle_left);
+  inverter_left.encoder.theta_e = angle_left.angle*PI; // angle simulation
 
-  inverter_left.encoder.theta_e = angle_left.angle*PI;
-
-  get_currents_voltage(rawADC_left, &inverter_left.analog);
+  get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.theta_e);
 
   calc_duties(vd_left, vq_left, vDC_left, inverter_left.encoder.theta_e, &inverter_left.duties);
 

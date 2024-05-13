@@ -67,14 +67,15 @@ typedef struct {
     float speed_meas;   /**< Measured speed in RPM*/
 } Feedback;
 
-/* Define function prototypes */
 /**
   * @brief  Get electrical ADC measurements.
   * @param[in]  ADC_raw Pointer to the raw ADC values array.
-  * @param[out]  analog Pointer to the adc struct to store the results.
+  * @param[out]  analog Pointer to the ADC struct to store the results.
+  * @param[out] feedback Pointer to the Feedback struct to store id and iq.
+  * @param[in]  theta_e Electrical angle in radians.
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog);
+uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float theta_e);
 
 /**
   * @brief  Convert ADC reading to physical measurement with linear response.
