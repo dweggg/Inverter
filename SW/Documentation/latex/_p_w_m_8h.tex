@@ -25,9 +25,7 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{struct_duties}{Duties}}
-\begin{DoxyCompactList}\small\item\em Structure to hold PWM configuration parameters. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{struct_compare3_f__struct}{Compare3\+F\+\_\+struct}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Structure to hold PWM configuration parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -35,17 +33,8 @@ void \mbox{\hyperlink{_p_w_m_8h_afabeff529f42849e8c08263c002f3dd9}{enable\+\_\+\
 \begin{DoxyCompactList}\small\item\em Enable PWM output. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_p_w_m_8h_a3c092c698c1b5dbdbbadea058e7897ad}{disable\+\_\+\+PWM}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim)
 \begin{DoxyCompactList}\small\item\em Disable PWM output. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{_p_w_m_8h_a506e22f45734ecee8546a7f5fe781026}{Compare3\+F\+\_\+calc}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, \mbox{\hyperlink{struct_compare3_f__struct}{Compare3\+F\+\_\+struct}} \texorpdfstring{$\ast$}{*}v)
-\item 
-void \mbox{\hyperlink{_p_w_m_8h_a7b3977d450548b394cc8ff93b5d3be35}{set\+\_\+\+PWM}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, \mbox{\hyperlink{struct_duties}{Duties}} duties)
+void \mbox{\hyperlink{_p_w_m_8h_a9b7cfc95a135d15862e6b5619c9696fe}{update\+\_\+\+PWM}} (TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, \mbox{\hyperlink{struct_duties}{Duties}} duties)
 \begin{DoxyCompactList}\small\item\em Set PWM duty cycles. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{struct_compare3_f__struct}{Compare3\+F\+\_\+struct}} \mbox{\hyperlink{_p_w_m_8h_a19778f604c730b8c6c0fbc7a88233dce}{compares\+\_\+\+LEFT}}
-\item 
-\mbox{\hyperlink{struct_compare3_f__struct}{Compare3\+F\+\_\+struct}} \mbox{\hyperlink{_p_w_m_8h_a1334ce4fab1a6ea59b6811ca7cc6bb7d}{compares\+\_\+\+RIGHT}}
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -59,20 +48,6 @@ Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
 This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_p_w_m_8h_a506e22f45734ecee8546a7f5fe781026}\label{_p_w_m_8h_a506e22f45734ecee8546a7f5fe781026} 
-\index{PWM.h@{PWM.h}!Compare3F\_calc@{Compare3F\_calc}}
-\index{Compare3F\_calc@{Compare3F\_calc}!PWM.h@{PWM.h}}
-\doxysubsubsection{\texorpdfstring{Compare3F\_calc()}{Compare3F\_calc()}}
-{\footnotesize\ttfamily void Compare3\+F\+\_\+calc (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim,  }\item[{\mbox{\hyperlink{struct_compare3_f__struct}{Compare3\+F\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{_p_w_m_8h_a506e22f45734ecee8546a7f5fe781026_icgraph}
-\end{center}
-\end{figure}
 \Hypertarget{_p_w_m_8h_a3c092c698c1b5dbdbbadea058e7897ad}\label{_p_w_m_8h_a3c092c698c1b5dbdbbadea058e7897ad} 
 \index{PWM.h@{PWM.h}!disable\_PWM@{disable\_PWM}}
 \index{disable\_PWM@{disable\_PWM}!PWM.h@{PWM.h}}
@@ -107,19 +82,11 @@ This function enables PWM output for the specified timer.
 {\em htim} & Pointer to the TIM\+\_\+\+Handle\+Type\+Def structure. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=309pt]{_p_w_m_8h_afabeff529f42849e8c08263c002f3dd9_icgraph}
-\end{center}
-\end{figure}
-\Hypertarget{_p_w_m_8h_a7b3977d450548b394cc8ff93b5d3be35}\label{_p_w_m_8h_a7b3977d450548b394cc8ff93b5d3be35} 
-\index{PWM.h@{PWM.h}!set\_PWM@{set\_PWM}}
-\index{set\_PWM@{set\_PWM}!PWM.h@{PWM.h}}
-\doxysubsubsection{\texorpdfstring{set\_PWM()}{set\_PWM()}}
-{\footnotesize\ttfamily void set\+\_\+\+PWM (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim,  }\item[{\mbox{\hyperlink{struct_duties}{Duties}}}]{duties }\end{DoxyParamCaption})}
+\Hypertarget{_p_w_m_8h_a9b7cfc95a135d15862e6b5619c9696fe}\label{_p_w_m_8h_a9b7cfc95a135d15862e6b5619c9696fe} 
+\index{PWM.h@{PWM.h}!update\_PWM@{update\_PWM}}
+\index{update\_PWM@{update\_PWM}!PWM.h@{PWM.h}}
+\doxysubsubsection{\texorpdfstring{update\_PWM()}{update\_PWM()}}
+{\footnotesize\ttfamily void update\+\_\+\+PWM (\begin{DoxyParamCaption}\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim,  }\item[{\mbox{\hyperlink{struct_duties}{Duties}}}]{duties }\end{DoxyParamCaption})}
 
 
 
@@ -134,35 +101,11 @@ This function sets the duty cycles for the PWM channels.
 {\em duties} & \doxylink{struct_duties}{Duties} structure containing duty cycle values. \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=265pt]{_p_w_m_8h_a7b3977d450548b394cc8ff93b5d3be35_cgraph}
-\end{center}
-\end{figure}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=318pt]{_p_w_m_8h_a7b3977d450548b394cc8ff93b5d3be35_icgraph}
+\includegraphics[width=350pt]{_p_w_m_8h_a9b7cfc95a135d15862e6b5619c9696fe_icgraph}
 \end{center}
 \end{figure}
-
-
-\doxysubsection{Variable Documentation}
-\Hypertarget{_p_w_m_8h_a19778f604c730b8c6c0fbc7a88233dce}\label{_p_w_m_8h_a19778f604c730b8c6c0fbc7a88233dce} 
-\index{PWM.h@{PWM.h}!compares\_LEFT@{compares\_LEFT}}
-\index{compares\_LEFT@{compares\_LEFT}!PWM.h@{PWM.h}}
-\doxysubsubsection{\texorpdfstring{compares\_LEFT}{compares\_LEFT}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_compare3_f__struct}{Compare3\+F\+\_\+struct}} compares\+\_\+\+LEFT\hspace{0.3cm}{\ttfamily [extern]}}
-
-Compares for the left side \Hypertarget{_p_w_m_8h_a1334ce4fab1a6ea59b6811ca7cc6bb7d}\label{_p_w_m_8h_a1334ce4fab1a6ea59b6811ca7cc6bb7d} 
-\index{PWM.h@{PWM.h}!compares\_RIGHT@{compares\_RIGHT}}
-\index{compares\_RIGHT@{compares\_RIGHT}!PWM.h@{PWM.h}}
-\doxysubsubsection{\texorpdfstring{compares\_RIGHT}{compares\_RIGHT}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_compare3_f__struct}{Compare3\+F\+\_\+struct}} compares\+\_\+\+RIGHT\hspace{0.3cm}{\ttfamily [extern]}}
-
-Compares for the right side 

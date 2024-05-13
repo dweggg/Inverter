@@ -2,12 +2,13 @@
 \hypertarget{_p_c_b___i_o_8c}{}\label{_p_c_b___i_o_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PCB\_IO.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/PCB\_IO.c}}
 
 
-This file provides functions for handling GPIOs and other low-\/priority tasks.  
+This file provides functions for handling GPIOs.  
 
 
 {\ttfamily \#include "{}PCB\+\_\+\+IO.\+h"{}}\newline
 {\ttfamily \#include "{}main.\+h"{}}\newline
-Include dependency graph for PCB\+\_\+\+IO.\+c\+:\nopagebreak
+Include dependency graph for PCB\+\_\+\+IO.\+c\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -17,8 +18,10 @@ Include dependency graph for PCB\+\_\+\+IO.\+c\+:\nopagebreak
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_p_c_b___i_o_8c_a4670279a37c6f5e27434c66d2db61cb1}{LED\+\_\+handler}} (\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, uint32\+\_\+t ms\+\_\+counter)
-\begin{DoxyCompactList}\small\item\em \doxylink{struct_l_e_d}{LED} handler function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{_p_c_b___i_o_8c_a6736efa24340a6743e5d41dab343c15b}{handle\+\_\+\+LED}} (\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, uint32\+\_\+t ms\+\_\+counter)
+\begin{DoxyCompactList}\small\item\em \doxylink{struct_l_e_d}{LED} handler function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_c_b___i_o_8c_afec13170cd54a3dc4f50bae3cb8f386e}{handle\+\_\+direction}} (volatile int8\+\_\+t \texorpdfstring{$\ast$}{*}dir\+\_\+left, volatile int8\+\_\+t \texorpdfstring{$\ast$}{*}dir\+\_\+right)
+\begin{DoxyCompactList}\small\item\em Handles the direction of the motors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,12 +29,12 @@ void \mbox{\hyperlink{_p_c_b___i_o_8c_a4670279a37c6f5e27434c66d2db61cb1}{LED\+\_
 \item 
 \mbox{\hyperlink{struct_l_e_d}{LED}} \mbox{\hyperlink{_p_c_b___i_o_8c_a58d9f4951ca109fec7fd0340238fda36}{led\+\_\+right}} = \{ .port = \mbox{\hyperlink{main_8h_a53c89327b6e7fd3ef2d02abacd31bd42}{LED\+\_\+\+RIGHT\+\_\+\+GPIO\+\_\+\+Port}}, .pin = \mbox{\hyperlink{main_8h_a004aa8634a8d0bb7cd42dacd5a833912}{LED\+\_\+\+RIGHT\+\_\+\+Pin}}, .mode = \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003}{LED\+\_\+\+MODE\+\_\+\+OFF}} \}
 \item 
-\mbox{\hyperlink{struct_l_e_d}{LED}} \mbox{\hyperlink{_p_c_b___i_o_8c_a46fee14934f450f31883fcd676f66595}{led\+\_\+error}} = \{ .port = \mbox{\hyperlink{main_8h_a1e3af8f5ba56354b9a278d70f313221a}{LED\+\_\+\+ERR\+\_\+\+GPIO\+\_\+\+Port}}, .pin = \mbox{\hyperlink{main_8h_a40e4b2abeab59547bd615bec64954a68}{LED\+\_\+\+ERR\+\_\+\+Pin}}, .mode = \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003}{LED\+\_\+\+MODE\+\_\+\+OFF}} \}
+\mbox{\hyperlink{struct_l_e_d}{LED}} \mbox{\hyperlink{_p_c_b___i_o_8c_a911ebfc5de443a53e3882ff327266616}{led\+Error}} = \{ .port = \mbox{\hyperlink{main_8h_a1e3af8f5ba56354b9a278d70f313221a}{LED\+\_\+\+ERR\+\_\+\+GPIO\+\_\+\+Port}}, .pin = \mbox{\hyperlink{main_8h_a40e4b2abeab59547bd615bec64954a68}{LED\+\_\+\+ERR\+\_\+\+Pin}}, .mode = \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003}{LED\+\_\+\+MODE\+\_\+\+OFF}} \}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-This file provides functions for handling GPIOs and other low-\/priority tasks. 
+This file provides functions for handling GPIOs. 
 
 \begin{DoxyAttention}{Attention}
 
@@ -41,11 +44,38 @@ Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
 This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_p_c_b___i_o_8c_a4670279a37c6f5e27434c66d2db61cb1}\label{_p_c_b___i_o_8c_a4670279a37c6f5e27434c66d2db61cb1} 
-\index{PCB\_IO.c@{PCB\_IO.c}!LED\_handler@{LED\_handler}}
-\index{LED\_handler@{LED\_handler}!PCB\_IO.c@{PCB\_IO.c}}
-\doxysubsubsection{\texorpdfstring{LED\_handler()}{LED\_handler()}}
-{\footnotesize\ttfamily void LED\+\_\+handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{uint32\+\_\+t}]{ms\+\_\+counter }\end{DoxyParamCaption})}
+\Hypertarget{_p_c_b___i_o_8c_afec13170cd54a3dc4f50bae3cb8f386e}\label{_p_c_b___i_o_8c_afec13170cd54a3dc4f50bae3cb8f386e} 
+\index{PCB\_IO.c@{PCB\_IO.c}!handle\_direction@{handle\_direction}}
+\index{handle\_direction@{handle\_direction}!PCB\_IO.c@{PCB\_IO.c}}
+\doxysubsubsection{\texorpdfstring{handle\_direction()}{handle\_direction()}}
+{\footnotesize\ttfamily void handle\+\_\+direction (\begin{DoxyParamCaption}\item[{volatile int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{dir\+\_\+left,  }\item[{volatile int8\+\_\+t \texorpdfstring{$\ast$}{*}}]{dir\+\_\+right }\end{DoxyParamCaption})}
+
+
+
+Handles the direction of the motors. 
+
+This function reads the state of the DIR switch and updates the directions of both the left and right motors. If one motor is set to rotate clockwise (CW), the other one is set to rotate counterclockwise (CCW), and vice versa.
+
+
+\begin{DoxyParams}{Parameters}
+{\em dir\+\_\+left} & Pointer to the direction parameter in the left inverter structure. \\
+\hline
+{\em dir\+\_\+right} & Pointer to the direction parameter in the right inverter structure. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_c_b___i_o_8c_afec13170cd54a3dc4f50bae3cb8f386e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_p_c_b___i_o_8c_a6736efa24340a6743e5d41dab343c15b}\label{_p_c_b___i_o_8c_a6736efa24340a6743e5d41dab343c15b} 
+\index{PCB\_IO.c@{PCB\_IO.c}!handle\_LED@{handle\_LED}}
+\index{handle\_LED@{handle\_LED}!PCB\_IO.c@{PCB\_IO.c}}
+\doxysubsubsection{\texorpdfstring{handle\_LED()}{handle\_LED()}}
+{\footnotesize\ttfamily void handle\+\_\+\+LED (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{uint32\+\_\+t}]{ms\+\_\+counter }\end{DoxyParamCaption})}
 
 
 
@@ -60,22 +90,17 @@ This function handles the \doxylink{struct_l_e_d}{LED} blinking modes based on t
 {\em ms\+\_\+counter} & Current millisecond counter. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{_p_c_b___i_o_8c_a4670279a37c6f5e27434c66d2db61cb1_icgraph}
+\includegraphics[width=350pt]{_p_c_b___i_o_8c_a6736efa24340a6743e5d41dab343c15b_icgraph}
 \end{center}
 \end{figure}
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{_p_c_b___i_o_8c_a46fee14934f450f31883fcd676f66595}\label{_p_c_b___i_o_8c_a46fee14934f450f31883fcd676f66595} 
-\index{PCB\_IO.c@{PCB\_IO.c}!led\_error@{led\_error}}
-\index{led\_error@{led\_error}!PCB\_IO.c@{PCB\_IO.c}}
-\doxysubsubsection{\texorpdfstring{led\_error}{led\_error}}
-{\footnotesize\ttfamily \mbox{\hyperlink{struct_l_e_d}{LED}} led\+\_\+error = \{ .port = \mbox{\hyperlink{main_8h_a1e3af8f5ba56354b9a278d70f313221a}{LED\+\_\+\+ERR\+\_\+\+GPIO\+\_\+\+Port}}, .pin = \mbox{\hyperlink{main_8h_a40e4b2abeab59547bd615bec64954a68}{LED\+\_\+\+ERR\+\_\+\+Pin}}, .mode = \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003}{LED\+\_\+\+MODE\+\_\+\+OFF}} \}}
-
 \Hypertarget{_p_c_b___i_o_8c_a6bec7a15732c2d17f534f00a96bbb86c}\label{_p_c_b___i_o_8c_a6bec7a15732c2d17f534f00a96bbb86c} 
 \index{PCB\_IO.c@{PCB\_IO.c}!led\_left@{led\_left}}
 \index{led\_left@{led\_left}!PCB\_IO.c@{PCB\_IO.c}}
@@ -87,4 +112,10 @@ Here is the caller graph for this function\+:\nopagebreak
 \index{led\_right@{led\_right}!PCB\_IO.c@{PCB\_IO.c}}
 \doxysubsubsection{\texorpdfstring{led\_right}{led\_right}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_l_e_d}{LED}} led\+\_\+right = \{ .port = \mbox{\hyperlink{main_8h_a53c89327b6e7fd3ef2d02abacd31bd42}{LED\+\_\+\+RIGHT\+\_\+\+GPIO\+\_\+\+Port}}, .pin = \mbox{\hyperlink{main_8h_a004aa8634a8d0bb7cd42dacd5a833912}{LED\+\_\+\+RIGHT\+\_\+\+Pin}}, .mode = \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003}{LED\+\_\+\+MODE\+\_\+\+OFF}} \}}
+
+\Hypertarget{_p_c_b___i_o_8c_a911ebfc5de443a53e3882ff327266616}\label{_p_c_b___i_o_8c_a911ebfc5de443a53e3882ff327266616} 
+\index{PCB\_IO.c@{PCB\_IO.c}!ledError@{ledError}}
+\index{ledError@{ledError}!PCB\_IO.c@{PCB\_IO.c}}
+\doxysubsubsection{\texorpdfstring{ledError}{ledError}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_l_e_d}{LED}} led\+Error = \{ .port = \mbox{\hyperlink{main_8h_a1e3af8f5ba56354b9a278d70f313221a}{LED\+\_\+\+ERR\+\_\+\+GPIO\+\_\+\+Port}}, .pin = \mbox{\hyperlink{main_8h_a40e4b2abeab59547bd615bec64954a68}{LED\+\_\+\+ERR\+\_\+\+Pin}}, .mode = \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003}{LED\+\_\+\+MODE\+\_\+\+OFF}} \}}
 

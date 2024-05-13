@@ -7,20 +7,20 @@ Space Vector Pulse Width Modulation (SVPWM) implementation.
 
 
 
-{\ttfamily \#include $<$Pergamon\+\_\+float.\+h$>$}
+{\ttfamily \#include $<$Perga\+MOD.\+h$>$}
 
 \doxysubsubsection*{Data Fields}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{structsvpwm__struct_ab030bd8f57fef9cd4a5c6f7d65c2ca9a}{valfa}}
+float \mbox{\hyperlink{structsvpwm__struct_ab1551d8043c2aa4410fb7dbb1fe3be7b}{alpha}}
 \item 
-float \mbox{\hyperlink{structsvpwm__struct_a61e3f018c8da8d7a5572ee9464bce529}{vbeta}}
+float \mbox{\hyperlink{structsvpwm__struct_aa773d9a6c0ccefaa0fc9ab66fec68ec1}{beta}}
 \item 
-float \mbox{\hyperlink{structsvpwm__struct_a50351efee76ac59cbfddc319a43f0081}{Ta}}
+float \mbox{\hyperlink{structsvpwm__struct_ad191bbe88e6eb3c2ec28fe5f5e31396c}{Da}}
 \item 
-float \mbox{\hyperlink{structsvpwm__struct_ab670caa75d08f1acf0768f0bc4333326}{Tb}}
+float \mbox{\hyperlink{structsvpwm__struct_a5525c1567871b8ea98e28f23237b607c}{Db}}
 \item 
-float \mbox{\hyperlink{structsvpwm__struct_a22e1179371b98f23e756984bc5e9ba95}{Tc}}
+float \mbox{\hyperlink{structsvpwm__struct_a0572a22e71233008995e38736a5331ec}{Dc}}
 \item 
 void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structsvpwm__struct_aa2e607744fefe17f425d4f666a7b7411}{calc}} )()
 \end{DoxyCompactItemize}
@@ -30,44 +30,44 @@ void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structsvpwm__struct_aa2e607744f
 Space Vector Pulse Width Modulation (SVPWM) implementation. 
 
 \doxysubsection{Field Documentation}
-\Hypertarget{structsvpwm__struct_aa2e607744fefe17f425d4f666a7b7411}\label{structsvpwm__struct_aa2e607744fefe17f425d4f666a7b7411} 
+\Hypertarget{structsvpwm__struct_ab1551d8043c2aa4410fb7dbb1fe3be7b}\label{structsvpwm__struct_ab1551d8043c2aa4410fb7dbb1fe3be7b} 
+\index{svpwm\_struct@{svpwm\_struct}!alpha@{alpha}}
+\index{alpha@{alpha}!svpwm\_struct@{svpwm\_struct}}
+\doxysubsubsection{\texorpdfstring{alpha}{alpha}}
+{\footnotesize\ttfamily float alpha}
+
+Input in per-\/unit for alpha phase (0deg) \Hypertarget{structsvpwm__struct_aa773d9a6c0ccefaa0fc9ab66fec68ec1}\label{structsvpwm__struct_aa773d9a6c0ccefaa0fc9ab66fec68ec1} 
+\index{svpwm\_struct@{svpwm\_struct}!beta@{beta}}
+\index{beta@{beta}!svpwm\_struct@{svpwm\_struct}}
+\doxysubsubsection{\texorpdfstring{beta}{beta}}
+{\footnotesize\ttfamily float beta}
+
+Input in per-\/unit for beta phase (90deg) \Hypertarget{structsvpwm__struct_aa2e607744fefe17f425d4f666a7b7411}\label{structsvpwm__struct_aa2e607744fefe17f425d4f666a7b7411} 
 \index{svpwm\_struct@{svpwm\_struct}!calc@{calc}}
 \index{calc@{calc}!svpwm\_struct@{svpwm\_struct}}
 \doxysubsubsection{\texorpdfstring{calc}{calc}}
 {\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} calc) ()}
 
-Pointer to the calculation function \Hypertarget{structsvpwm__struct_a50351efee76ac59cbfddc319a43f0081}\label{structsvpwm__struct_a50351efee76ac59cbfddc319a43f0081} 
-\index{svpwm\_struct@{svpwm\_struct}!Ta@{Ta}}
-\index{Ta@{Ta}!svpwm\_struct@{svpwm\_struct}}
-\doxysubsubsection{\texorpdfstring{Ta}{Ta}}
-{\footnotesize\ttfamily float Ta}
+Pointer to the calculation function \Hypertarget{structsvpwm__struct_ad191bbe88e6eb3c2ec28fe5f5e31396c}\label{structsvpwm__struct_ad191bbe88e6eb3c2ec28fe5f5e31396c} 
+\index{svpwm\_struct@{svpwm\_struct}!Da@{Da}}
+\index{Da@{Da}!svpwm\_struct@{svpwm\_struct}}
+\doxysubsubsection{\texorpdfstring{Da}{Da}}
+{\footnotesize\ttfamily float Da}
 
-Output for phase A (0-\/1) \Hypertarget{structsvpwm__struct_ab670caa75d08f1acf0768f0bc4333326}\label{structsvpwm__struct_ab670caa75d08f1acf0768f0bc4333326} 
-\index{svpwm\_struct@{svpwm\_struct}!Tb@{Tb}}
-\index{Tb@{Tb}!svpwm\_struct@{svpwm\_struct}}
-\doxysubsubsection{\texorpdfstring{Tb}{Tb}}
-{\footnotesize\ttfamily float Tb}
+Output for phase A (0-\/1) \Hypertarget{structsvpwm__struct_a5525c1567871b8ea98e28f23237b607c}\label{structsvpwm__struct_a5525c1567871b8ea98e28f23237b607c} 
+\index{svpwm\_struct@{svpwm\_struct}!Db@{Db}}
+\index{Db@{Db}!svpwm\_struct@{svpwm\_struct}}
+\doxysubsubsection{\texorpdfstring{Db}{Db}}
+{\footnotesize\ttfamily float Db}
 
-Output for phase B (0-\/1) \Hypertarget{structsvpwm__struct_a22e1179371b98f23e756984bc5e9ba95}\label{structsvpwm__struct_a22e1179371b98f23e756984bc5e9ba95} 
-\index{svpwm\_struct@{svpwm\_struct}!Tc@{Tc}}
-\index{Tc@{Tc}!svpwm\_struct@{svpwm\_struct}}
-\doxysubsubsection{\texorpdfstring{Tc}{Tc}}
-{\footnotesize\ttfamily float Tc}
+Output for phase B (0-\/1) \Hypertarget{structsvpwm__struct_a0572a22e71233008995e38736a5331ec}\label{structsvpwm__struct_a0572a22e71233008995e38736a5331ec} 
+\index{svpwm\_struct@{svpwm\_struct}!Dc@{Dc}}
+\index{Dc@{Dc}!svpwm\_struct@{svpwm\_struct}}
+\doxysubsubsection{\texorpdfstring{Dc}{Dc}}
+{\footnotesize\ttfamily float Dc}
 
-Output for phase C (0-\/1) \Hypertarget{structsvpwm__struct_ab030bd8f57fef9cd4a5c6f7d65c2ca9a}\label{structsvpwm__struct_ab030bd8f57fef9cd4a5c6f7d65c2ca9a} 
-\index{svpwm\_struct@{svpwm\_struct}!valfa@{valfa}}
-\index{valfa@{valfa}!svpwm\_struct@{svpwm\_struct}}
-\doxysubsubsection{\texorpdfstring{valfa}{valfa}}
-{\footnotesize\ttfamily float valfa}
-
-Input in per-\/unit for A phase \Hypertarget{structsvpwm__struct_a61e3f018c8da8d7a5572ee9464bce529}\label{structsvpwm__struct_a61e3f018c8da8d7a5572ee9464bce529} 
-\index{svpwm\_struct@{svpwm\_struct}!vbeta@{vbeta}}
-\index{vbeta@{vbeta}!svpwm\_struct@{svpwm\_struct}}
-\doxysubsubsection{\texorpdfstring{vbeta}{vbeta}}
-{\footnotesize\ttfamily float vbeta}
-
-Input in per-\/unit for B phase 
+Output for phase C (0-\/1) 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\mbox{\hyperlink{_pergamon__float_8h}{Pergamon\+\_\+float.\+h}}\end{DoxyCompactItemize}
+C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\mbox{\hyperlink{_perga_m_o_d_8h}{Perga\+MOD.\+h}}\end{DoxyCompactItemize}

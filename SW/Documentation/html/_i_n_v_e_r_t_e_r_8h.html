@@ -79,6 +79,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
@@ -86,36 +87,35 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Header file for Finite State Machine (FSM) control.  
+<p>Header file for the inverter struct and extern variables.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;stm32f7xx_hal.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="_p_c_b___i_o_8h_source.html">PCB_IO.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_p_c_b___i_o_8h_source.html">PCB_IO.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h_source.html">MEASUREMENTS.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_c_o_n_t_r_o_l_8h_source.html">CONTROL.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h_source.html">REFERENCE.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_p_w_m_8h_source.html">PWM.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for INVERTER.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_i_n_v_e_r_t_e_r_8h__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_i_n_v_e_r_t_e_r_8h" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_i_n_v_e_r_t_e_r_8h" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_i_n_v_e_r_t_e_r_8h">
-<area shape="rect" title="Header file for Finite State Machine (FSM) control." alt="" coords="88,5,253,64"/>
-<area shape="rect" title=" " alt="" coords="5,261,122,288"/>
-<area shape="poly" title=" " alt="" coords="112,67,86,87,66,113,55,147,52,182,54,216,59,245,54,246,49,217,46,182,49,146,61,111,82,83,108,62"/>
-<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs and other low&#45;priority tasks." alt="" coords="76,112,155,139"/>
-<area shape="poly" title=" " alt="" coords="155,66,134,100,129,97,150,63"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="336,187,479,213"/>
-<area shape="poly" title=" " alt="" coords="222,62,298,110,383,175,380,179,295,114,220,67"/>
-<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for control logic." alt="" coords="192,112,285,139"/>
-<area shape="poly" title=" " alt="" coords="194,63,221,98,217,101,190,66"/>
-<area shape="poly" title=" " alt="" coords="112,140,91,188,73,247,68,245,86,186,107,138"/>
-<area shape="rect" title=" " alt="" coords="297,261,361,288"/>
-<area shape="poly" title=" " alt="" coords="396,216,355,253,352,249,392,212"/>
-<area shape="poly" title=" " alt="" coords="269,137,365,178,363,183,267,142"/>
-<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="102,187,167,213"/>
-<area shape="poly" title=" " alt="" coords="222,141,166,180,163,175,219,137"/>
-<area shape="rect" href="_pergamon__float_8h.html" title=" " alt="" coords="190,187,313,213"/>
-<area shape="poly" title=" " alt="" coords="243,139,249,171,244,172,238,140"/>
-<area shape="poly" title=" " alt="" coords="124,216,88,252,84,248,120,212"/>
-<area shape="poly" title=" " alt="" coords="267,212,306,249,303,253,263,216"/>
+<area shape="rect" title="Header file for the inverter struct and extern variables." alt="" coords="105,5,270,64"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="17,112,97,139"/>
+<area shape="poly" title=" " alt="" coords="147,67,89,105,87,101,144,62"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="148,187,291,213"/>
+<area shape="poly" title=" " alt="" coords="196,64,217,171,212,172,190,65"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="271,112,384,139"/>
+<area shape="poly" title=" " alt="" coords="234,62,296,101,293,106,232,67"/>
+<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="120,112,186,139"/>
+<area shape="poly" title=" " alt="" coords="179,65,166,98,161,96,174,63"/>
+<area shape="rect" title=" " alt="" coords="5,187,122,213"/>
+<area shape="poly" title=" " alt="" coords="61,139,64,171,58,171,55,139"/>
+<area shape="rect" title=" " alt="" coords="295,261,360,288"/>
+<area shape="poly" title=" " alt="" coords="240,212,297,250,294,254,237,216"/>
+<area shape="poly" title=" " alt="" coords="330,139,330,246,325,246,325,139"/>
+<area shape="rect" href="_perga_m_o_d_8h.html" title=" " alt="" coords="365,187,461,213"/>
+<area shape="poly" title=" " alt="" coords="344,137,389,175,385,179,341,141"/>
+<area shape="poly" title=" " alt="" coords="400,216,355,253,352,249,396,212"/>
+<area shape="poly" title=" " alt="" coords="139,141,92,179,89,175,136,137"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -123,16 +123,22 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_i_n_v_e_r_t_e_r_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_i_n_v_e_r_t_e_r_8hdep" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_i_n_v_e_r_t_e_r_8hdep" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_i_n_v_e_r_t_e_r_8hdep">
-<area shape="rect" title="Header file for Finite State Machine (FSM) control." alt="" coords="255,5,420,64"/>
-<area shape="rect" href="_f_s_m_8h.html" title="Header file for Finite State Machine (FSM) control." alt="" coords="75,112,240,171"/>
-<area shape="poly" title=" " alt="" coords="277,74,208,114,205,109,274,70"/>
+<area shape="rect" title="Header file for the inverter struct and extern variables." alt="" coords="504,5,669,64"/>
+<area shape="rect" href="_f_s_m_8h.html" title="Header for the inverter Finite State Machine." alt="" coords="75,112,240,171"/>
+<area shape="poly" title=" " alt="" coords="489,60,259,115,241,119,240,114,258,109,488,55"/>
 <area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="195,219,360,277"/>
-<area shape="poly" title=" " alt="" coords="318,79,305,113,291,169,283,219,278,218,286,168,300,111,313,77"/>
-<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html" title="This file provides code for Finite State Machine (FSM) control." alt="" coords="315,112,480,171"/>
-<area shape="poly" title=" " alt="" coords="364,76,383,110,379,113,359,79"/>
-<area shape="rect" href="stm32f7xx__it_8c.html" title="Interrupt Service Routines." alt="" coords="504,112,669,171"/>
-<area shape="poly" title=" " alt="" coords="420,68,519,109,517,114,418,73"/>
-<area shape="rect" href="_f_s_m_8c.html" title="This file provides code for Finite State Machine (FSM) control." alt="" coords="5,219,171,277"/>
+<area shape="poly" title=" " alt="" coords="489,53,379,79,334,95,305,114,289,138,281,165,277,218,272,218,276,164,284,135,301,110,331,90,378,73,488,48"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8c.html" title="This file provides code for the control loop." alt="" coords="315,112,480,171"/>
+<area shape="poly" title=" " alt="" coords="523,74,450,114,448,109,521,69"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html" title="This file provides code for the inverter struct." alt="" coords="504,112,669,171"/>
+<area shape="poly" title=" " alt="" coords="589,80,589,112,584,112,584,80"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html" title="This file contains functions to execute tasks every 1ms." alt="" coords="693,112,859,171"/>
+<area shape="poly" title=" " alt="" coords="653,69,726,109,723,114,650,74"/>
+<area shape="rect" href="_t_a_s_k_s__20us_8c.html" title="This file contains functions executed every 20us in each PWM timer interruption." alt="" coords="883,112,1053,171"/>
+<area shape="poly" title=" " alt="" coords="685,59,871,109,884,113,882,118,870,115,683,64"/>
+<area shape="rect" href="tim_8c.html" title="This file provides code for the configuration of the TIM instances." alt="" coords="1077,112,1243,171"/>
+<area shape="poly" title=" " alt="" coords="685,45,863,71,1066,109,1078,112,1076,117,1065,115,862,76,685,50"/>
+<area shape="rect" href="_f_s_m_8c.html" title="This file provides code for the inverter Finite State Machine." alt="" coords="5,219,171,277"/>
 <area shape="poly" title=" " alt="" coords="132,185,109,220,105,217,128,182"/>
 <area shape="poly" title=" " alt="" coords="203,179,246,216,243,220,200,183"/>
 </map>
@@ -142,76 +148,116 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structinverter_struct.html">inverterStruct</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverter structure.  <a href="structinverter_struct.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_inverter_struct.html">InverterStruct</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverter structure.  <a href="struct_inverter_struct.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aaade3232ef08cf18b4f3a20a0a2c6fb6" id="r_aaade3232ef08cf18b4f3a20a0a2c6fb6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaade3232ef08cf18b4f3a20a0a2c6fb6">TS</a>&#160;&#160;&#160;0.00002</td></tr>
+<tr class="separator:aaade3232ef08cf18b4f3a20a0a2c6fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a943f07034774ef1261d62cd0d3d1fec9" id="r_a943f07034774ef1261d62cd0d3d1fec9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a943f07034774ef1261d62cd0d3d1fec9">DT</a>&#160;&#160;&#160;0.00000015</td></tr>
+<tr class="separator:a943f07034774ef1261d62cd0d3d1fec9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a8059a74ef735d3a56d3428e6e4e1ac80" id="r_a8059a74ef735d3a56d3428e6e4e1ac80"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8059a74ef735d3a56d3428e6e4e1ac80">inverterState</a> { <a class="el" href="#a8059a74ef735d3a56d3428e6e4e1ac80a5a425be53774c4b4e59e440ab2369e8e">INV_STATE_IDLE</a>
-, <a class="el" href="#a8059a74ef735d3a56d3428e6e4e1ac80a3bffb8c0f8030eb6d38dac2a9b1e4edd">INV_STATE_STARTUP</a>
-, <a class="el" href="#a8059a74ef735d3a56d3428e6e4e1ac80ac7be32525d0b9b1c5165d1371eebd7e7">INV_STATE_RUNNING</a>
-, <a class="el" href="#a8059a74ef735d3a56d3428e6e4e1ac80a4c6e89e99f6d2b3f6ff649c27cc73bc9">INV_STATE_FAULT</a>
+<tr class="memitem:a3dfb1164df31bf0c9b6476f888fd5311" id="r_a3dfb1164df31bf0c9b6476f888fd5311"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3dfb1164df31bf0c9b6476f888fd5311">InverterState</a> { <a class="el" href="#a3dfb1164df31bf0c9b6476f888fd5311a5a425be53774c4b4e59e440ab2369e8e">INV_STATE_IDLE</a>
+, <a class="el" href="#a3dfb1164df31bf0c9b6476f888fd5311a3bffb8c0f8030eb6d38dac2a9b1e4edd">INV_STATE_STARTUP</a>
+, <a class="el" href="#a3dfb1164df31bf0c9b6476f888fd5311ac7be32525d0b9b1c5165d1371eebd7e7">INV_STATE_RUNNING</a>
+, <a class="el" href="#a3dfb1164df31bf0c9b6476f888fd5311a4c6e89e99f6d2b3f6ff649c27cc73bc9">INV_STATE_FAULT</a>
  }</td></tr>
-<tr class="memdesc:a8059a74ef735d3a56d3428e6e4e1ac80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of inverter operation states.  <a href="#a8059a74ef735d3a56d3428e6e4e1ac80">More...</a><br /></td></tr>
-<tr class="separator:a8059a74ef735d3a56d3428e6e4e1ac80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:a3dfb1164df31bf0c9b6476f888fd5311"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of inverter operation states.  <a href="#a3dfb1164df31bf0c9b6476f888fd5311">More...</a><br /></td></tr>
+<tr class="separator:a3dfb1164df31bf0c9b6476f888fd5311"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a25b8e1bfc9e8cf879e0993f0b32eb35d" id="r_a25b8e1bfc9e8cf879e0993f0b32eb35d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25b8e1bfc9e8cf879e0993f0b32eb35d">inv_init</a> (<a class="el" href="structinverter_struct.html">inverterStruct</a> *inv, <a class="el" href="struct_l_e_d.html">LED</a> *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc)</td></tr>
-<tr class="memdesc:a25b8e1bfc9e8cf879e0993f0b32eb35d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the inverter.  <br /></td></tr>
-<tr class="separator:a25b8e1bfc9e8cf879e0993f0b32eb35d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab166dd27a896ec83c7677462360eeba7" id="r_ab166dd27a896ec83c7677462360eeba7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab166dd27a896ec83c7677462360eeba7">initialize_inverter</a> (volatile <a class="el" href="struct_inverter_struct.html">InverterStruct</a> *inv, <a class="el" href="struct_l_e_d.html">LED</a> *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc)</td></tr>
+<tr class="memdesc:ab166dd27a896ec83c7677462360eeba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the inverter.  <br /></td></tr>
+<tr class="separator:ab166dd27a896ec83c7677462360eeba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a64d69b7bb6277970dc225bd929ebbcb7" id="r_a64d69b7bb6277970dc225bd929ebbcb7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structinverter_struct.html">inverterStruct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64d69b7bb6277970dc225bd929ebbcb7">invLeft</a></td></tr>
-<tr class="separator:a64d69b7bb6277970dc225bd929ebbcb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57c8122fa34986dbece71fb9f652be8f" id="r_a57c8122fa34986dbece71fb9f652be8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structinverter_struct.html">inverterStruct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57c8122fa34986dbece71fb9f652be8f">invRight</a></td></tr>
-<tr class="separator:a57c8122fa34986dbece71fb9f652be8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d4c83ba0ff9eff71fe732ddac1dc208" id="r_a9d4c83ba0ff9eff71fe732ddac1dc208"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_inverter_struct.html">InverterStruct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d4c83ba0ff9eff71fe732ddac1dc208">inverter_left</a></td></tr>
+<tr class="memdesc:a9d4c83ba0ff9eff71fe732ddac1dc208"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left inverter structure.  <br /></td></tr>
+<tr class="separator:a9d4c83ba0ff9eff71fe732ddac1dc208"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a1270f4b4f50328b300e5fb98dee476" id="r_a9a1270f4b4f50328b300e5fb98dee476"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_inverter_struct.html">InverterStruct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a1270f4b4f50328b300e5fb98dee476">inverter_right</a></td></tr>
+<tr class="memdesc:a9a1270f4b4f50328b300e5fb98dee476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Right inverter structure.  <br /></td></tr>
+<tr class="separator:a9a1270f4b4f50328b300e5fb98dee476"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for Finite State Machine (FSM) control. </p>
+<div class="textblock"><p>Header file for the inverter struct and extern variables. </p>
 <dl class="section attention"><dt>Attention</dt><dd></dd></dl>
-<p>Copyright (c) 2024 David Redondo (@dweggg in GitHub). All rights reserved.</p>
+<p>Copyright (c) 2024 David Redondo (@dweggg on GitHub). All rights reserved.</p>
 <p>This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. For more information, see: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</a> </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a8059a74ef735d3a56d3428e6e4e1ac80" name="a8059a74ef735d3a56d3428e6e4e1ac80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8059a74ef735d3a56d3428e6e4e1ac80">&#9670;&#160;</a></span>inverterState</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a943f07034774ef1261d62cd0d3d1fec9" name="a943f07034774ef1261d62cd0d3d1fec9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a943f07034774ef1261d62cd0d3d1fec9">&#9670;&#160;</a></span>DT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="#a8059a74ef735d3a56d3428e6e4e1ac80">inverterState</a></td>
+          <td class="memname">#define DT&#160;&#160;&#160;0.00000015</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dead time in seconds (150 ns), time in which both top and bottom transistors are open </p>
+
+</div>
+</div>
+<a id="aaade3232ef08cf18b4f3a20a0a2c6fb6" name="aaade3232ef08cf18b4f3a20a0a2c6fb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaade3232ef08cf18b4f3a20a0a2c6fb6">&#9670;&#160;</a></span>TS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TS&#160;&#160;&#160;0.00002</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Switching time in seconds (20 us), inverse of the switching frequency of 50 kHz </p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a3dfb1164df31bf0c9b6476f888fd5311" name="a3dfb1164df31bf0c9b6476f888fd5311"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dfb1164df31bf0c9b6476f888fd5311">&#9670;&#160;</a></span>InverterState</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#a3dfb1164df31bf0c9b6476f888fd5311">InverterState</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Enumeration of inverter operation states. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8059a74ef735d3a56d3428e6e4e1ac80a5a425be53774c4b4e59e440ab2369e8e" name="a8059a74ef735d3a56d3428e6e4e1ac80a5a425be53774c4b4e59e440ab2369e8e"></a>INV_STATE_IDLE&#160;</td><td class="fielddoc"><p>Inverter idle state </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3dfb1164df31bf0c9b6476f888fd5311a5a425be53774c4b4e59e440ab2369e8e" name="a3dfb1164df31bf0c9b6476f888fd5311a5a425be53774c4b4e59e440ab2369e8e"></a>INV_STATE_IDLE&#160;</td><td class="fielddoc"><p>Inverter idle state </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a8059a74ef735d3a56d3428e6e4e1ac80a3bffb8c0f8030eb6d38dac2a9b1e4edd" name="a8059a74ef735d3a56d3428e6e4e1ac80a3bffb8c0f8030eb6d38dac2a9b1e4edd"></a>INV_STATE_STARTUP&#160;</td><td class="fielddoc"><p>Inverter startup state </p>
+<tr><td class="fieldname"><a id="a3dfb1164df31bf0c9b6476f888fd5311a3bffb8c0f8030eb6d38dac2a9b1e4edd" name="a3dfb1164df31bf0c9b6476f888fd5311a3bffb8c0f8030eb6d38dac2a9b1e4edd"></a>INV_STATE_STARTUP&#160;</td><td class="fielddoc"><p>Inverter startup state </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a8059a74ef735d3a56d3428e6e4e1ac80ac7be32525d0b9b1c5165d1371eebd7e7" name="a8059a74ef735d3a56d3428e6e4e1ac80ac7be32525d0b9b1c5165d1371eebd7e7"></a>INV_STATE_RUNNING&#160;</td><td class="fielddoc"><p>Inverter running state </p>
+<tr><td class="fieldname"><a id="a3dfb1164df31bf0c9b6476f888fd5311ac7be32525d0b9b1c5165d1371eebd7e7" name="a3dfb1164df31bf0c9b6476f888fd5311ac7be32525d0b9b1c5165d1371eebd7e7"></a>INV_STATE_RUNNING&#160;</td><td class="fielddoc"><p>Inverter running state </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a8059a74ef735d3a56d3428e6e4e1ac80a4c6e89e99f6d2b3f6ff649c27cc73bc9" name="a8059a74ef735d3a56d3428e6e4e1ac80a4c6e89e99f6d2b3f6ff649c27cc73bc9"></a>INV_STATE_FAULT&#160;</td><td class="fielddoc"><p>Inverter fault state </p>
+<tr><td class="fieldname"><a id="a3dfb1164df31bf0c9b6476f888fd5311a4c6e89e99f6d2b3f6ff649c27cc73bc9" name="a3dfb1164df31bf0c9b6476f888fd5311a4c6e89e99f6d2b3f6ff649c27cc73bc9"></a>INV_STATE_FAULT&#160;</td><td class="fielddoc"><p>Inverter fault state </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a25b8e1bfc9e8cf879e0993f0b32eb35d" name="a25b8e1bfc9e8cf879e0993f0b32eb35d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25b8e1bfc9e8cf879e0993f0b32eb35d">&#9670;&#160;</a></span>inv_init()</h2>
+<a id="ab166dd27a896ec83c7677462360eeba7" name="ab166dd27a896ec83c7677462360eeba7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab166dd27a896ec83c7677462360eeba7">&#9670;&#160;</a></span>initialize_inverter()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void inv_init </td>
+          <td class="memname">void initialize_inverter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structinverter_struct.html">inverterStruct</a> *</td>          <td class="paramname"><span class="paramname"><em>inv</em>, </span></td>
+          <td class="paramtype">volatile <a class="el" href="struct_inverter_struct.html">InverterStruct</a> *</td>          <td class="paramname"><span class="paramname"><em>inv</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -245,31 +291,21 @@ Variables</h2></td></tr>
 <p>This function initializes the inverter structure with the specified <a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a>, GPIO port, and pin.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">inv</td><td>Pointer to the inverter structure. </td></tr>
-    <tr><td class="paramname">led</td><td>Pointer to the <a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> structure. </td></tr>
-    <tr><td class="paramname">enable_port</td><td>Pointer to the GPIO port for enabling/disabling the inverter. </td></tr>
-    <tr><td class="paramname">enable_pin</td><td>Pin number for enabling/disabling the inverter. </td></tr>
-    <tr><td class="paramname">htim</td><td>Timer peripheral for the PWM output. </td></tr>
-    <tr><td class="paramname">hadc</td><td>ADC peripheral for the current phase current and DC voltage sensing. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">inv</td><td>Pointer to the inverter structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">led</td><td>Pointer to the <a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable_port</td><td>Pointer to the GPIO port for enabling/disabling the inverter. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable_pin</td><td>Pin number for enabling/disabling the inverter. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">htim</td><td>Timer peripheral for the PWM output. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">hadc</td><td>ADC peripheral for the current phase current and DC voltage sensing. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_i_n_v_e_r_t_e_r_8h_a25b8e1bfc9e8cf879e0993f0b32eb35d_cgraph.png" border="0" usemap="#a_i_n_v_e_r_t_e_r_8h_a25b8e1bfc9e8cf879e0993f0b32eb35d_cgraph" alt=""/></div>
-<map name="a_i_n_v_e_r_t_e_r_8h_a25b8e1bfc9e8cf879e0993f0b32eb35d_cgraph" id="a_i_n_v_e_r_t_e_r_8h_a25b8e1bfc9e8cf879e0993f0b32eb35d_cgraph">
-<area shape="rect" title="Initialize the inverter." alt="" coords="5,5,66,32"/>
-<area shape="rect" href="_p_w_m_8c.html#afabeff529f42849e8c08263c002f3dd9" title="Enable PWM output." alt="" coords="114,5,213,32"/>
-<area shape="poly" title=" " alt="" coords="66,16,98,16,98,21,66,21"/>
-</map>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_i_n_v_e_r_t_e_r_8h_a25b8e1bfc9e8cf879e0993f0b32eb35d_icgraph.png" border="0" usemap="#a_i_n_v_e_r_t_e_r_8h_a25b8e1bfc9e8cf879e0993f0b32eb35d_icgraph" alt=""/></div>
-<map name="a_i_n_v_e_r_t_e_r_8h_a25b8e1bfc9e8cf879e0993f0b32eb35d_icgraph" id="a_i_n_v_e_r_t_e_r_8h_a25b8e1bfc9e8cf879e0993f0b32eb35d_icgraph">
-<area shape="rect" title="Initialize the inverter." alt="" coords="103,5,163,32"/>
+<div class="center"><img src="_i_n_v_e_r_t_e_r_8h_ab166dd27a896ec83c7677462360eeba7_icgraph.png" border="0" usemap="#a_i_n_v_e_r_t_e_r_8h_ab166dd27a896ec83c7677462360eeba7_icgraph" alt=""/></div>
+<map name="a_i_n_v_e_r_t_e_r_8h_ab166dd27a896ec83c7677462360eeba7_icgraph" id="a_i_n_v_e_r_t_e_r_8h_ab166dd27a896ec83c7677462360eeba7_icgraph">
+<area shape="rect" title="Initialize the inverter." alt="" coords="103,5,219,32"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
@@ -278,8 +314,8 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a64d69b7bb6277970dc225bd929ebbcb7" name="a64d69b7bb6277970dc225bd929ebbcb7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64d69b7bb6277970dc225bd929ebbcb7">&#9670;&#160;</a></span>invLeft</h2>
+<a id="a9d4c83ba0ff9eff71fe732ddac1dc208" name="a9d4c83ba0ff9eff71fe732ddac1dc208"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d4c83ba0ff9eff71fe732ddac1dc208">&#9670;&#160;</a></span>inverter_left</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,7 +324,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structinverter_struct.html">inverterStruct</a> invLeft</td>
+          <td class="memname">volatile <a class="el" href="struct_inverter_struct.html">InverterStruct</a> inverter_left</td>
         </tr>
       </table>
   </td>
@@ -298,10 +334,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>Left inverter structure. </p>
+<p>External declaration of the left inverter structure</p>
+<p>External declaration of the left inverter structure. </p>
+
 </div>
 </div>
-<a id="a57c8122fa34986dbece71fb9f652be8f" name="a57c8122fa34986dbece71fb9f652be8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57c8122fa34986dbece71fb9f652be8f">&#9670;&#160;</a></span>invRight</h2>
+<a id="a9a1270f4b4f50328b300e5fb98dee476" name="a9a1270f4b4f50328b300e5fb98dee476"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a1270f4b4f50328b300e5fb98dee476">&#9670;&#160;</a></span>inverter_right</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -310,7 +350,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structinverter_struct.html">inverterStruct</a> invRight</td>
+          <td class="memname">volatile <a class="el" href="struct_inverter_struct.html">InverterStruct</a> inverter_right</td>
         </tr>
       </table>
   </td>
@@ -319,6 +359,10 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Right inverter structure. </p>
+<p>External declaration of the right inverter structure</p>
+<p>External declaration of the right inverter structure. </p>
 
 </div>
 </div>

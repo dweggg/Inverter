@@ -87,18 +87,37 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_t_a_s_k_s__1ms_8h_source.html">TASKS_1ms.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_p_c_b___i_o_8h_source.html">PCB_IO.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_i_n_v_e_r_t_e_r_8h_source.html">INVERTER.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h_source.html">MEASUREMENTS.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for TASKS_1ms.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="_t_a_s_k_s__1ms_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_t_a_s_k_s__1ms_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_t_a_s_k_s__1ms_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_t_a_s_k_s__1ms_8c">
-<area shape="rect" title="This file contains functions to execute tasks every 1ms." alt="" coords="35,5,201,64"/>
+<area shape="rect" title="This file contains functions to execute tasks every 1ms." alt="" coords="109,5,276,64"/>
 <area shape="rect" href="_t_a_s_k_s__1ms_8h.html" title="Header file for functions related to tasks executed every 1ms." alt="" coords="5,112,113,139"/>
-<area shape="poly" title=" " alt="" coords="101,66,78,100,73,98,97,63"/>
-<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs and other low&#45;priority tasks." alt="" coords="137,112,216,139"/>
-<area shape="poly" title=" " alt="" coords="139,63,162,98,157,100,134,66"/>
-<area shape="rect" title=" " alt="" coords="118,187,235,213"/>
-<area shape="poly" title=" " alt="" coords="179,139,179,171,174,171,174,139"/>
+<area shape="poly" title=" " alt="" coords="151,67,92,106,89,101,148,62"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="42,187,121,213"/>
+<area shape="poly" title=" " alt="" coords="176,66,127,140,102,176,97,172,122,137,172,63"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="187,112,283,139"/>
+<area shape="poly" title=" " alt="" coords="208,63,225,97,220,99,204,65"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="372,187,514,213"/>
+<area shape="poly" title=" " alt="" coords="237,62,413,176,410,180,235,67"/>
+<area shape="rect" title=" " alt="" coords="72,261,188,288"/>
+<area shape="poly" title=" " alt="" coords="92,212,115,247,111,250,88,215"/>
+<area shape="poly" title=" " alt="" coords="209,142,124,182,121,177,207,137"/>
+<area shape="poly" title=" " alt="" coords="272,137,393,179,391,184,270,142"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="235,187,347,213"/>
+<area shape="poly" title=" " alt="" coords="247,138,274,173,270,176,243,141"/>
+<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="145,187,210,213"/>
+<area shape="poly" title=" " alt="" coords="227,141,199,176,195,173,223,138"/>
+<area shape="rect" title=" " alt="" coords="326,336,390,363"/>
+<area shape="poly" title=" " alt="" coords="444,214,436,249,420,289,405,310,387,328,384,324,401,307,415,287,431,248,439,213"/>
+<area shape="poly" title=" " alt="" coords="292,214,291,248,294,268,300,287,313,307,330,324,326,328,309,310,295,289,289,269,286,248,287,214"/>
+<area shape="rect" href="_perga_m_o_d_8h.html" title=" " alt="" coords="310,261,406,288"/>
+<area shape="poly" title=" " alt="" coords="305,212,338,248,334,252,301,216"/>
+<area shape="poly" title=" " alt="" coords="360,289,360,320,355,320,355,289"/>
+<area shape="poly" title=" " alt="" coords="172,215,149,250,144,247,167,212"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -130,15 +149,19 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function to be executed every 1ms. </p>
-<p>This function is called by the TIM6 IRQ handler every millisecond. It increments the millisecond counter and calls the <a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> handler for left, right, and error LEDs. </p>
+<p>This function is called by the TIM6 IRQ handler every millisecond. It increments the millisecond counter and executes all the low priority tasks. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_t_a_s_k_s__1ms_8c_afb9caded33eef2ec19467eff02dfaaac_cgraph.png" border="0" usemap="#a_t_a_s_k_s__1ms_8c_afb9caded33eef2ec19467eff02dfaaac_cgraph" alt=""/></div>
 <map name="a_t_a_s_k_s__1ms_8c_afb9caded33eef2ec19467eff02dfaaac_cgraph" id="a_t_a_s_k_s__1ms_8c_afb9caded33eef2ec19467eff02dfaaac_cgraph">
-<area shape="rect" title="Function to be executed every 1ms." alt="" coords="5,5,91,32"/>
-<area shape="rect" href="_p_c_b___i_o_8c.html#a4670279a37c6f5e27434c66d2db61cb1" title="LED handler function." alt="" coords="139,5,234,32"/>
-<area shape="poly" title=" " alt="" coords="91,16,123,16,123,21,91,21"/>
+<area shape="rect" title="Function to be executed every 1ms." alt="" coords="5,56,91,83"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a2ca7064e54ee37e91151caeeeb31e129" title="Retrieves temperature from a lookup table based on ADC bits." alt="" coords="139,5,254,32"/>
+<area shape="poly" title=" " alt="" coords="89,53,140,35,141,40,90,58"/>
+<area shape="rect" href="_p_c_b___i_o_8c.html#afec13170cd54a3dc4f50bae3cb8f386e" title="Handles the direction of the motors." alt="" coords="139,56,254,83"/>
+<area shape="poly" title=" " alt="" coords="91,67,123,67,123,72,91,72"/>
+<area shape="rect" href="_p_c_b___i_o_8c.html#a6736efa24340a6743e5d41dab343c15b" title="LED handler function." alt="" coords="151,107,242,133"/>
+<area shape="poly" title=" " alt="" coords="90,81,141,99,140,104,89,86"/>
 </map>
 </div>
 <div class="dynheader">

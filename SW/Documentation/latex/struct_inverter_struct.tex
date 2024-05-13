@@ -1,0 +1,139 @@
+\doxysection{Inverter\+Struct Struct Reference}
+\hypertarget{struct_inverter_struct}{}\label{struct_inverter_struct}\index{InverterStruct@{InverterStruct}}
+
+
+Inverter structure.  
+
+
+
+
+{\ttfamily \#include $<$INVERTER.\+h$>$}
+
+
+
+Collaboration diagram for Inverter\+Struct\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{struct_inverter_struct__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97}{led}}
+\item 
+GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_inverter_struct_a36576b0f8a7daf14976aa2231602b0a7}{enable\+\_\+port}}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{struct_inverter_struct_ab92945770bc3cbcd703dd87682c7ee6e}{enable\+\_\+pin}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_inverter_struct_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}}
+\item 
+ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_inverter_struct_af982c0fe5d77061049c468b599100134}{hadc}}
+\item 
+\mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311}{Inverter\+State}} \mbox{\hyperlink{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650}{state}}
+\item 
+\mbox{\hyperlink{struct_analog}{Analog}} \mbox{\hyperlink{struct_inverter_struct_a9723ebcdadc80d0da627ff27716ae5a5}{analog}}
+\item 
+\mbox{\hyperlink{struct_encoder}{Encoder}} \mbox{\hyperlink{struct_inverter_struct_a133a3017d675be921d0d7586eec7bb7c}{encoder}}
+\item 
+\mbox{\hyperlink{struct_feedback}{Feedback}} \mbox{\hyperlink{struct_inverter_struct_a20a30b84d36e84b3d0e6ca4db56f723c}{feedback}}
+\item 
+\mbox{\hyperlink{struct_duties}{Duties}} \mbox{\hyperlink{struct_inverter_struct_a88998233bb1ff2e5bc086febe6789332}{duties}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{struct_inverter_struct_a64137967141ad97b940c16a035615d09}{direction}}
+\item 
+float \mbox{\hyperlink{struct_inverter_struct_a4beef132716905853cd6ae37080c4c5d}{temp\+\_\+inverter}}
+\item 
+float \mbox{\hyperlink{struct_inverter_struct_abb60d2beeef6a3b479773078b9ed98d2}{temp\+\_\+motor}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Inverter structure. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_inverter_struct_a9723ebcdadc80d0da627ff27716ae5a5}\label{struct_inverter_struct_a9723ebcdadc80d0da627ff27716ae5a5} 
+\index{InverterStruct@{InverterStruct}!analog@{analog}}
+\index{analog@{analog}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{analog}{analog}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_analog}{Analog}} analog}
+
+Structure for phase currents and DC voltage measurements \Hypertarget{struct_inverter_struct_a64137967141ad97b940c16a035615d09}\label{struct_inverter_struct_a64137967141ad97b940c16a035615d09} 
+\index{InverterStruct@{InverterStruct}!direction@{direction}}
+\index{direction@{direction}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily int8\+\_\+t direction}
+
+Motor direction\+: 1 CW, -\/1 CCW, 0 stopped \Hypertarget{struct_inverter_struct_a88998233bb1ff2e5bc086febe6789332}\label{struct_inverter_struct_a88998233bb1ff2e5bc086febe6789332} 
+\index{InverterStruct@{InverterStruct}!duties@{duties}}
+\index{duties@{duties}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{duties}{duties}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_duties}{Duties}} duties}
+
+Structure for duty cycles for phases A, B, and C \Hypertarget{struct_inverter_struct_ab92945770bc3cbcd703dd87682c7ee6e}\label{struct_inverter_struct_ab92945770bc3cbcd703dd87682c7ee6e} 
+\index{InverterStruct@{InverterStruct}!enable\_pin@{enable\_pin}}
+\index{enable\_pin@{enable\_pin}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{enable\_pin}{enable\_pin}}
+{\footnotesize\ttfamily uint16\+\_\+t enable\+\_\+pin}
+
+Pin number for enabling/disabling the inverter \Hypertarget{struct_inverter_struct_a36576b0f8a7daf14976aa2231602b0a7}\label{struct_inverter_struct_a36576b0f8a7daf14976aa2231602b0a7} 
+\index{InverterStruct@{InverterStruct}!enable\_port@{enable\_port}}
+\index{enable\_port@{enable\_port}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{enable\_port}{enable\_port}}
+{\footnotesize\ttfamily GPIO\+\_\+\+Type\+Def\texorpdfstring{$\ast$}{*} enable\+\_\+port}
+
+Pointer to GPIO port for enabling/disabling the inverter \Hypertarget{struct_inverter_struct_a133a3017d675be921d0d7586eec7bb7c}\label{struct_inverter_struct_a133a3017d675be921d0d7586eec7bb7c} 
+\index{InverterStruct@{InverterStruct}!encoder@{encoder}}
+\index{encoder@{encoder}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{encoder}{encoder}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_encoder}{Encoder}} encoder}
+
+Structure for encoder input \Hypertarget{struct_inverter_struct_a20a30b84d36e84b3d0e6ca4db56f723c}\label{struct_inverter_struct_a20a30b84d36e84b3d0e6ca4db56f723c} 
+\index{InverterStruct@{InverterStruct}!feedback@{feedback}}
+\index{feedback@{feedback}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{feedback}{feedback}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_feedback}{Feedback}} feedback}
+
+Structure for measured currents and calculated mechanical torque and speed \Hypertarget{struct_inverter_struct_af982c0fe5d77061049c468b599100134}\label{struct_inverter_struct_af982c0fe5d77061049c468b599100134} 
+\index{InverterStruct@{InverterStruct}!hadc@{hadc}}
+\index{hadc@{hadc}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{hadc}{hadc}}
+{\footnotesize\ttfamily ADC\+\_\+\+Handle\+Type\+Def\texorpdfstring{$\ast$}{*} hadc}
+
+Handle of the ADC peripheral for current phase currents and DC voltage sensing \Hypertarget{struct_inverter_struct_a5dc7d1c65997ccaed48a93a3f4ffc486}\label{struct_inverter_struct_a5dc7d1c65997ccaed48a93a3f4ffc486} 
+\index{InverterStruct@{InverterStruct}!htim@{htim}}
+\index{htim@{htim}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{htim}{htim}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def\texorpdfstring{$\ast$}{*} htim}
+
+Handle of the timer peripheral for PWM output \Hypertarget{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97}\label{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97} 
+\index{InverterStruct@{InverterStruct}!led@{led}}
+\index{led@{led}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{led}{led}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_l_e_d}{LED}}\texorpdfstring{$\ast$}{*} led}
+
+Pointer to \doxylink{struct_l_e_d}{LED} control structure \Hypertarget{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650}\label{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650} 
+\index{InverterStruct@{InverterStruct}!state@{state}}
+\index{state@{state}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311}{Inverter\+State}} state}
+
+Current state of inverter operation \Hypertarget{struct_inverter_struct_a4beef132716905853cd6ae37080c4c5d}\label{struct_inverter_struct_a4beef132716905853cd6ae37080c4c5d} 
+\index{InverterStruct@{InverterStruct}!temp\_inverter@{temp\_inverter}}
+\index{temp\_inverter@{temp\_inverter}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{temp\_inverter}{temp\_inverter}}
+{\footnotesize\ttfamily float temp\+\_\+inverter}
+
+Semiconductor temperature in degC \Hypertarget{struct_inverter_struct_abb60d2beeef6a3b479773078b9ed98d2}\label{struct_inverter_struct_abb60d2beeef6a3b479773078b9ed98d2} 
+\index{InverterStruct@{InverterStruct}!temp\_motor@{temp\_motor}}
+\index{temp\_motor@{temp\_motor}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{temp\_motor}{temp\_motor}}
+{\footnotesize\ttfamily float temp\+\_\+motor}
+
+Motor temperature in degC 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h}{INVERTER.\+h}}\end{DoxyCompactItemize}

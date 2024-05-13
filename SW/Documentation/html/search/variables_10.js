@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['t_5fexec_0',['T_exec',['../struct_r_m_s__struct.html#ae43ba3eb3af0af99358f93f3e79bfdbc',1,'RMS_struct']]],
-  ['t_5fstep_1',['t_step',['../structstep__struct.html#a0c87080ceb65ae86de972a8a75c6eb19',1,'step_struct']]],
-  ['ta_2',['Ta',['../structsvpwm__struct.html#a50351efee76ac59cbfddc319a43f0081',1,'svpwm_struct']]],
-  ['tb_3',['Tb',['../structsvpwm__struct.html#ab670caa75d08f1acf0768f0bc4333326',1,'svpwm_struct']]],
-  ['tc_4',['Tc',['../structsvpwm__struct.html#a22e1179371b98f23e756984bc5e9ba95',1,'svpwm_struct']]],
-  ['theta_5fe_5',['theta_e',['../struct_encoder.html#affa9013ea1e246c1f69bba53632a967b',1,'Encoder']]],
-  ['theta_5fm_6',['theta_m',['../struct_encoder.html#a8bfd9b9ce99fa71e700d59714b1376f5',1,'Encoder']]],
-  ['ts_7',['Ts',['../structpi__aw__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_aw_struct::Ts'],['../structpi__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'pi_struct::Ts'],['../structangle__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'angle_struct::Ts'],['../structfiltre_l_p__struct.html#ae404d1d1555eede4ef92c630399e0566',1,'filtreLP_struct::Ts']]]
+  ['sinfi_0',['sinFi',['../structrot__struct.html#a56670a00f3c413aad514d2ce8c0348e2',1,'rot_struct::sinFi'],['../structirot__struct.html#a56670a00f3c413aad514d2ce8c0348e2',1,'irot_struct::sinFi']]],
+  ['speed_5fmax_5frpm_1',['speed_max_RPM',['../structmotor_parameters.html#a316b2fe5d1f410ba6f5f343830110d2d',1,'motorParameters']]],
+  ['speed_5fmeas_2',['speed_meas',['../struct_feedback.html#a36cc750b6ad8640f7dde3a9db5c72757',1,'Feedback']]],
+  ['sq_5fsum_3',['Sq_Sum',['../struct_r_m_s__struct.html#aae996104ddabc163da85b5a2e7cbeae0',1,'RMS_struct']]],
+  ['state_4',['state',['../struct_inverter_struct.html#a90233d4d22b0a532c6c36114e0ce7650',1,'InverterStruct']]],
+  ['step_5',['Step',['../structstep__struct.html#a1c2969ff45f80f83afc6376aac12fd94',1,'step_struct']]],
+  ['systemcoreclock_6',['SystemCoreClock',['../group___s_t_m32_f7xx___system___private___variables.html#gaa3cd3e43291e81e795d642b79b6088e6',1,'system_stm32f7xx.c']]]
 ];

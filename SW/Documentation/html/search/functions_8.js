@@ -14,5 +14,7 @@ var searchData=
   ['hal_5ftim_5fic_5fmspdeinit_11',['HAL_TIM_IC_MspDeInit',['../tim_8c.html#a701032abe2709bc890df9474d3294861',1,'tim.c']]],
   ['hal_5ftim_5fic_5fmspinit_12',['HAL_TIM_IC_MspInit',['../tim_8c.html#a13619a751dea657d9faa32b690b2f80e',1,'tim.c']]],
   ['hal_5ftim_5fmsppostinit_13',['HAL_TIM_MspPostInit',['../tim_8h.html#ae70bce6c39d0b570a7523b86738cec4b',1,'HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim):&#160;tim.c'],['../tim_8c.html#a708f19bbc41b292fccf38f2d9796c46a',1,'HAL_TIM_MspPostInit(TIM_HandleTypeDef *timHandle):&#160;tim.c']]],
-  ['hardfault_5fhandler_14',['HardFault_Handler',['../stm32f7xx__it_8h.html#a2bffc10d5bd4106753b7c30e86903bea',1,'HardFault_Handler(void):&#160;stm32f7xx_it.c'],['../stm32f7xx__it_8c.html#a2bffc10d5bd4106753b7c30e86903bea',1,'HardFault_Handler(void):&#160;stm32f7xx_it.c']]]
+  ['handle_5fdirection_14',['handle_direction',['../_p_c_b___i_o_8h.html#afec13170cd54a3dc4f50bae3cb8f386e',1,'handle_direction(volatile int8_t *dir_left, volatile int8_t *dir_right):&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#afec13170cd54a3dc4f50bae3cb8f386e',1,'handle_direction(volatile int8_t *dir_left, volatile int8_t *dir_right):&#160;PCB_IO.c']]],
+  ['handle_5fled_15',['handle_LED',['../_p_c_b___i_o_8h.html#a6736efa24340a6743e5d41dab343c15b',1,'handle_LED(LED *led, uint32_t ms_counter):&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a6736efa24340a6743e5d41dab343c15b',1,'handle_LED(LED *led, uint32_t ms_counter):&#160;PCB_IO.c']]],
+  ['hardfault_5fhandler_16',['HardFault_Handler',['../stm32f7xx__it_8h.html#a2bffc10d5bd4106753b7c30e86903bea',1,'HardFault_Handler(void):&#160;stm32f7xx_it.c'],['../stm32f7xx__it_8c.html#a2bffc10d5bd4106753b7c30e86903bea',1,'HardFault_Handler(void):&#160;stm32f7xx_it.c']]]
 ];

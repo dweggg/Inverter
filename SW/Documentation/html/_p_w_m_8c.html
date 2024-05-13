@@ -107,11 +107,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3c092c698c1b5dbdbbadea058e7897ad" id="r_a3c092c698c1b5dbdbbadea058e7897ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c092c698c1b5dbdbbadea058e7897ad">disable_PWM</a> (TIM_HandleTypeDef *htim)</td></tr>
 <tr class="memdesc:a3c092c698c1b5dbdbbadea058e7897ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable PWM output.  <br /></td></tr>
 <tr class="separator:a3c092c698c1b5dbdbbadea058e7897ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a506e22f45734ecee8546a7f5fe781026" id="r_a506e22f45734ecee8546a7f5fe781026"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a506e22f45734ecee8546a7f5fe781026">Compare3F_calc</a> (TIM_HandleTypeDef *htim, <a class="el" href="struct_compare3_f__struct.html">Compare3F_struct</a> *v)</td></tr>
-<tr class="separator:a506e22f45734ecee8546a7f5fe781026"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b3977d450548b394cc8ff93b5d3be35" id="r_a7b3977d450548b394cc8ff93b5d3be35"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b3977d450548b394cc8ff93b5d3be35">set_PWM</a> (TIM_HandleTypeDef *htim, <a class="el" href="struct_duties.html">Duties</a> duties)</td></tr>
-<tr class="memdesc:a7b3977d450548b394cc8ff93b5d3be35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM duty cycles.  <br /></td></tr>
-<tr class="separator:a7b3977d450548b394cc8ff93b5d3be35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b7cfc95a135d15862e6b5619c9696fe" id="r_a9b7cfc95a135d15862e6b5619c9696fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b7cfc95a135d15862e6b5619c9696fe">update_PWM</a> (TIM_HandleTypeDef *htim, <a class="el" href="struct_duties.html">Duties</a> duties)</td></tr>
+<tr class="memdesc:a9b7cfc95a135d15862e6b5619c9696fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set PWM duty cycles.  <br /></td></tr>
+<tr class="separator:a9b7cfc95a135d15862e6b5619c9696fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file provides functions for controlling PWM output. </p>
@@ -119,39 +117,6 @@ Functions</h2></td></tr>
 <p>Copyright (c) 2024 David Redondo (@dweggg in GitHub). All rights reserved.</p>
 <p>This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. For more information, see: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</a> </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a506e22f45734ecee8546a7f5fe781026" name="a506e22f45734ecee8546a7f5fe781026"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a506e22f45734ecee8546a7f5fe781026">&#9670;&#160;</a></span>Compare3F_calc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Compare3F_calc </td>
-          <td>(</td>
-          <td class="paramtype">TIM_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>htim</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="struct_compare3_f__struct.html">Compare3F_struct</a> *</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a506e22f45734ecee8546a7f5fe781026_icgraph.png" border="0" usemap="#a_p_w_m_8c_a506e22f45734ecee8546a7f5fe781026_icgraph" alt=""/></div>
-<map name="a_p_w_m_8c_a506e22f45734ecee8546a7f5fe781026_icgraph" id="a_p_w_m_8c_a506e22f45734ecee8546a7f5fe781026_icgraph">
-<area shape="rect" title=" " alt="" coords="370,5,489,32"/>
-<area shape="rect" href="_p_w_m_8c.html#a7b3977d450548b394cc8ff93b5d3be35" title="Set PWM duty cycles." alt="" coords="243,5,322,32"/>
-<area shape="poly" title=" " alt="" coords="355,21,323,21,323,16,355,16"/>
-<area shape="rect" href="stm32f7xx__it_8c.html#ad1fd361bc5ad89facee67c76d1ff8dc0" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,5,195,32"/>
-<area shape="poly" title=" " alt="" coords="227,21,195,21,195,16,227,16"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="a3c092c698c1b5dbdbbadea058e7897ad" name="a3c092c698c1b5dbdbbadea058e7897ad"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3c092c698c1b5dbdbbadea058e7897ad">&#9670;&#160;</a></span>disable_PWM()</h2>
 
@@ -201,29 +166,17 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_afabeff529f42849e8c08263c002f3dd9_icgraph.png" border="0" usemap="#a_p_w_m_8c_afabeff529f42849e8c08263c002f3dd9_icgraph" alt=""/></div>
-<map name="a_p_w_m_8c_afabeff529f42849e8c08263c002f3dd9_icgraph" id="a_p_w_m_8c_afabeff529f42849e8c08263c002f3dd9_icgraph">
-<area shape="rect" title="Enable PWM output." alt="" coords="211,5,310,32"/>
-<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html#a25b8e1bfc9e8cf879e0993f0b32eb35d" title="Initialize the inverter." alt="" coords="103,5,163,32"/>
-<area shape="poly" title=" " alt="" coords="195,21,163,21,163,16,195,16"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>
-</div>
 
 </div>
 </div>
-<a id="a7b3977d450548b394cc8ff93b5d3be35" name="a7b3977d450548b394cc8ff93b5d3be35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b3977d450548b394cc8ff93b5d3be35">&#9670;&#160;</a></span>set_PWM()</h2>
+<a id="a9b7cfc95a135d15862e6b5619c9696fe" name="a9b7cfc95a135d15862e6b5619c9696fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b7cfc95a135d15862e6b5619c9696fe">&#9670;&#160;</a></span>update_PWM()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void set_PWM </td>
+          <td class="memname">void update_PWM </td>
           <td>(</td>
           <td class="paramtype">TIM_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>htim</em>, </span></td>
         </tr>
@@ -245,21 +198,13 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a7b3977d450548b394cc8ff93b5d3be35_cgraph.png" border="0" usemap="#a_p_w_m_8c_a7b3977d450548b394cc8ff93b5d3be35_cgraph" alt=""/></div>
-<map name="a_p_w_m_8c_a7b3977d450548b394cc8ff93b5d3be35_cgraph" id="a_p_w_m_8c_a7b3977d450548b394cc8ff93b5d3be35_cgraph">
-<area shape="rect" title="Set PWM duty cycles." alt="" coords="5,5,85,32"/>
-<area shape="rect" href="_p_w_m_8c.html#a506e22f45734ecee8546a7f5fe781026" title=" " alt="" coords="133,5,252,32"/>
-<area shape="poly" title=" " alt="" coords="85,16,117,16,117,21,85,21"/>
-</map>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_w_m_8c_a7b3977d450548b394cc8ff93b5d3be35_icgraph.png" border="0" usemap="#a_p_w_m_8c_a7b3977d450548b394cc8ff93b5d3be35_icgraph" alt=""/></div>
-<map name="a_p_w_m_8c_a7b3977d450548b394cc8ff93b5d3be35_icgraph" id="a_p_w_m_8c_a7b3977d450548b394cc8ff93b5d3be35_icgraph">
-<area shape="rect" title="Set PWM duty cycles." alt="" coords="243,5,322,32"/>
+<div class="center"><img src="_p_w_m_8c_a9b7cfc95a135d15862e6b5619c9696fe_icgraph.png" border="0" usemap="#a_p_w_m_8c_a9b7cfc95a135d15862e6b5619c9696fe_icgraph" alt=""/></div>
+<map name="a_p_w_m_8c_a9b7cfc95a135d15862e6b5619c9696fe_icgraph" id="a_p_w_m_8c_a9b7cfc95a135d15862e6b5619c9696fe_icgraph">
+<area shape="rect" title="Set PWM duty cycles." alt="" coords="403,5,503,32"/>
+<area shape="rect" href="_t_a_s_k_s__20us_8c.html#a9adc53eb4c963075bf9d7443c8b5c903" title="Function to be executed every TS." alt="" coords="243,5,355,32"/>
+<area shape="poly" title=" " alt="" coords="387,21,355,21,355,16,387,16"/>
 <area shape="rect" href="stm32f7xx__it_8c.html#ad1fd361bc5ad89facee67c76d1ff8dc0" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,5,195,32"/>
 <area shape="poly" title=" " alt="" coords="227,21,195,21,195,16,227,16"/>
 </map>

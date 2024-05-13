@@ -82,26 +82,56 @@ $(function() {
 <p>Space Vector Pulse Width Modulation (SVPWM) implementation.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_pergamon__float_8h_source.html">Pergamon_float.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_perga_m_o_d_8h_source.html">PergaMOD.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:ab030bd8f57fef9cd4a5c6f7d65c2ca9a" id="r_ab030bd8f57fef9cd4a5c6f7d65c2ca9a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab030bd8f57fef9cd4a5c6f7d65c2ca9a">valfa</a></td></tr>
-<tr class="separator:ab030bd8f57fef9cd4a5c6f7d65c2ca9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61e3f018c8da8d7a5572ee9464bce529" id="r_a61e3f018c8da8d7a5572ee9464bce529"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61e3f018c8da8d7a5572ee9464bce529">vbeta</a></td></tr>
-<tr class="separator:a61e3f018c8da8d7a5572ee9464bce529"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a50351efee76ac59cbfddc319a43f0081" id="r_a50351efee76ac59cbfddc319a43f0081"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a50351efee76ac59cbfddc319a43f0081">Ta</a></td></tr>
-<tr class="separator:a50351efee76ac59cbfddc319a43f0081"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab670caa75d08f1acf0768f0bc4333326" id="r_ab670caa75d08f1acf0768f0bc4333326"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab670caa75d08f1acf0768f0bc4333326">Tb</a></td></tr>
-<tr class="separator:ab670caa75d08f1acf0768f0bc4333326"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22e1179371b98f23e756984bc5e9ba95" id="r_a22e1179371b98f23e756984bc5e9ba95"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22e1179371b98f23e756984bc5e9ba95">Tc</a></td></tr>
-<tr class="separator:a22e1179371b98f23e756984bc5e9ba95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1551d8043c2aa4410fb7dbb1fe3be7b" id="r_ab1551d8043c2aa4410fb7dbb1fe3be7b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1551d8043c2aa4410fb7dbb1fe3be7b">alpha</a></td></tr>
+<tr class="separator:ab1551d8043c2aa4410fb7dbb1fe3be7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa773d9a6c0ccefaa0fc9ab66fec68ec1" id="r_aa773d9a6c0ccefaa0fc9ab66fec68ec1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa773d9a6c0ccefaa0fc9ab66fec68ec1">beta</a></td></tr>
+<tr class="separator:aa773d9a6c0ccefaa0fc9ab66fec68ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad191bbe88e6eb3c2ec28fe5f5e31396c" id="r_ad191bbe88e6eb3c2ec28fe5f5e31396c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad191bbe88e6eb3c2ec28fe5f5e31396c">Da</a></td></tr>
+<tr class="separator:ad191bbe88e6eb3c2ec28fe5f5e31396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5525c1567871b8ea98e28f23237b607c" id="r_a5525c1567871b8ea98e28f23237b607c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5525c1567871b8ea98e28f23237b607c">Db</a></td></tr>
+<tr class="separator:a5525c1567871b8ea98e28f23237b607c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0572a22e71233008995e38736a5331ec" id="r_a0572a22e71233008995e38736a5331ec"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0572a22e71233008995e38736a5331ec">Dc</a></td></tr>
+<tr class="separator:a0572a22e71233008995e38736a5331ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2e607744fefe17f425d4f666a7b7411" id="r_aa2e607744fefe17f425d4f666a7b7411"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2e607744fefe17f425d4f666a7b7411">calc</a> )()</td></tr>
 <tr class="separator:aa2e607744fefe17f425d4f666a7b7411"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Space Vector Pulse Width Modulation (SVPWM) implementation. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
+<a id="ab1551d8043c2aa4410fb7dbb1fe3be7b" name="ab1551d8043c2aa4410fb7dbb1fe3be7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1551d8043c2aa4410fb7dbb1fe3be7b">&#9670;&#160;</a></span>alpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float alpha</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Input in per-unit for alpha phase (0deg) </p>
+
+</div>
+</div>
+<a id="aa773d9a6c0ccefaa0fc9ab66fec68ec1" name="aa773d9a6c0ccefaa0fc9ab66fec68ec1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa773d9a6c0ccefaa0fc9ab66fec68ec1">&#9670;&#160;</a></span>beta</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float beta</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Input in per-unit for beta phase (90deg) </p>
+
+</div>
+</div>
 <a id="aa2e607744fefe17f425d4f666a7b7411" name="aa2e607744fefe17f425d4f666a7b7411"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa2e607744fefe17f425d4f666a7b7411">&#9670;&#160;</a></span>calc</h2>
 
@@ -117,14 +147,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a50351efee76ac59cbfddc319a43f0081" name="a50351efee76ac59cbfddc319a43f0081"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50351efee76ac59cbfddc319a43f0081">&#9670;&#160;</a></span>Ta</h2>
+<a id="ad191bbe88e6eb3c2ec28fe5f5e31396c" name="ad191bbe88e6eb3c2ec28fe5f5e31396c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad191bbe88e6eb3c2ec28fe5f5e31396c">&#9670;&#160;</a></span>Da</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Ta</td>
+          <td class="memname">float Da</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -132,14 +162,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ab670caa75d08f1acf0768f0bc4333326" name="ab670caa75d08f1acf0768f0bc4333326"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab670caa75d08f1acf0768f0bc4333326">&#9670;&#160;</a></span>Tb</h2>
+<a id="a5525c1567871b8ea98e28f23237b607c" name="a5525c1567871b8ea98e28f23237b607c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5525c1567871b8ea98e28f23237b607c">&#9670;&#160;</a></span>Db</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Tb</td>
+          <td class="memname">float Db</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -147,14 +177,14 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a22e1179371b98f23e756984bc5e9ba95" name="a22e1179371b98f23e756984bc5e9ba95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22e1179371b98f23e756984bc5e9ba95">&#9670;&#160;</a></span>Tc</h2>
+<a id="a0572a22e71233008995e38736a5331ec" name="a0572a22e71233008995e38736a5331ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0572a22e71233008995e38736a5331ec">&#9670;&#160;</a></span>Dc</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float Tc</td>
+          <td class="memname">float Dc</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -162,38 +192,8 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ab030bd8f57fef9cd4a5c6f7d65c2ca9a" name="ab030bd8f57fef9cd4a5c6f7d65c2ca9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab030bd8f57fef9cd4a5c6f7d65c2ca9a">&#9670;&#160;</a></span>valfa</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float valfa</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Input in per-unit for A phase </p>
-
-</div>
-</div>
-<a id="a61e3f018c8da8d7a5572ee9464bce529" name="a61e3f018c8da8d7a5572ee9464bce529"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61e3f018c8da8d7a5572ee9464bce529">&#9670;&#160;</a></span>vbeta</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float vbeta</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Input in per-unit for B phase </p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/<a class="el" href="_pergamon__float_8h_source.html">Pergamon_float.h</a></li>
+<li>C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/<a class="el" href="_perga_m_o_d_8h_source.html">PergaMOD.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

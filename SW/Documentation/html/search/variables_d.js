@@ -11,6 +11,7 @@ var searchData=
   ['pi_5fout_5fpresat_8',['pi_out_presat',['../structpi__aw__struct.html#adbbdb52a2ed9dad1d0e806acf7877cb6',1,'pi_aw_struct']]],
   ['pin_9',['pin',['../struct_l_e_d.html#a4144813adfa4dfe7e7cbeea17d1b06eb',1,'LED']]],
   ['port_10',['port',['../struct_l_e_d.html#a82241972e0292c7de95ea1e293e11be3',1,'LED']]],
-  ['prescaler_11',['prescaler',['../structdatalog__struct.html#aed7c15ebb12ef4b8e90c0c0e79d414a7',1,'datalog_struct']]],
-  ['pulses_12',['Pulses',['../structstep__struct.html#a5c0f85874c673b4f82dad202861079be',1,'step_struct']]]
+  ['pp_11',['pp',['../structmotor_parameters.html#abd6dcb9676af8cd7922ef29864fa03eb',1,'motorParameters']]],
+  ['prescaler_12',['prescaler',['../structdatalog__struct.html#aed7c15ebb12ef4b8e90c0c0e79d414a7',1,'datalog_struct']]],
+  ['pulses_13',['Pulses',['../structstep__struct.html#a5c0f85874c673b4f82dad202861079be',1,'step_struct']]]
 ];

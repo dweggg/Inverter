@@ -42,11 +42,12 @@ Function to be executed every 1ms.
 
 This function is called by the TIM6 IRQ handler every millisecond.
 
-This function is called by the TIM6 IRQ handler every millisecond. It increments the millisecond counter and calls the \doxylink{struct_l_e_d}{LED} handler for left, right, and error LEDs. Here is the call graph for this function\+:\nopagebreak
+This function is called by the TIM6 IRQ handler every millisecond. It increments the millisecond counter and executes all the low priority tasks. Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=252pt]{_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac_cgraph}
+\includegraphics[width=267pt]{_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:\nopagebreak

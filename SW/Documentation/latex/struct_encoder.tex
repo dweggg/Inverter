@@ -2,6 +2,11 @@
 \hypertarget{struct_encoder}{}\label{struct_encoder}\index{Encoder@{Encoder}}
 
 
+Structure for encoder reading.  
+
+
+
+
 {\ttfamily \#include $<$MEASUREMENTS.\+h$>$}
 
 \doxysubsubsection*{Data Fields}
@@ -13,17 +18,16 @@ uint16\+\_\+t \mbox{\hyperlink{struct_encoder_ae783bd90764c8455228772c025c064e4}
 \item 
 uint16\+\_\+t \mbox{\hyperlink{struct_encoder_a5a8eb607e6c3f820a971b163abc936d5}{Z}}
 \item 
-float \mbox{\hyperlink{struct_encoder_a9ef6094458503bd99cabadd1914f6be0}{wm\+\_\+rpm}}
-\item 
 float \mbox{\hyperlink{struct_encoder_a45938c516b24d04e3bae20b3ae8c2d08}{we}}
-\item 
-float \mbox{\hyperlink{struct_encoder_a8bfd9b9ce99fa71e700d59714b1376f5}{theta\+\_\+m}}
 \item 
 float \mbox{\hyperlink{struct_encoder_affa9013ea1e246c1f69bba53632a967b}{theta\+\_\+e}}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{struct_encoder_a58808c7e66b07b82b662e956b63f7e70}{DIR}}
+uint8\+\_\+t \mbox{\hyperlink{struct_encoder_a81b668fe449f8b496072376c71fa2866}{direction\+\_\+meas}}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+Structure for encoder reading. 
 
 \doxysubsection{Field Documentation}
 \Hypertarget{struct_encoder_a48f5a6b346491762f3f7a32882f31bed}\label{struct_encoder_a48f5a6b346491762f3f7a32882f31bed} 
@@ -38,37 +42,25 @@ uint8\+\_\+t \mbox{\hyperlink{struct_encoder_a58808c7e66b07b82b662e956b63f7e70}{
 \doxysubsubsection{\texorpdfstring{B}{B}}
 {\footnotesize\ttfamily uint16\+\_\+t B}
 
-\doxylink{struct_encoder}{Encoder} channel B value \Hypertarget{struct_encoder_a58808c7e66b07b82b662e956b63f7e70}\label{struct_encoder_a58808c7e66b07b82b662e956b63f7e70} 
-\index{Encoder@{Encoder}!DIR@{DIR}}
-\index{DIR@{DIR}!Encoder@{Encoder}}
-\doxysubsubsection{\texorpdfstring{DIR}{DIR}}
-{\footnotesize\ttfamily uint8\+\_\+t DIR}
+\doxylink{struct_encoder}{Encoder} channel B value \Hypertarget{struct_encoder_a81b668fe449f8b496072376c71fa2866}\label{struct_encoder_a81b668fe449f8b496072376c71fa2866} 
+\index{Encoder@{Encoder}!direction\_meas@{direction\_meas}}
+\index{direction\_meas@{direction\_meas}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{direction\_meas}{direction\_meas}}
+{\footnotesize\ttfamily uint8\+\_\+t direction\+\_\+meas}
 
-Direction \Hypertarget{struct_encoder_affa9013ea1e246c1f69bba53632a967b}\label{struct_encoder_affa9013ea1e246c1f69bba53632a967b} 
+Measured direction \Hypertarget{struct_encoder_affa9013ea1e246c1f69bba53632a967b}\label{struct_encoder_affa9013ea1e246c1f69bba53632a967b} 
 \index{Encoder@{Encoder}!theta\_e@{theta\_e}}
 \index{theta\_e@{theta\_e}!Encoder@{Encoder}}
 \doxysubsubsection{\texorpdfstring{theta\_e}{theta\_e}}
 {\footnotesize\ttfamily float theta\+\_\+e}
 
-Electrical rotor position \Hypertarget{struct_encoder_a8bfd9b9ce99fa71e700d59714b1376f5}\label{struct_encoder_a8bfd9b9ce99fa71e700d59714b1376f5} 
-\index{Encoder@{Encoder}!theta\_m@{theta\_m}}
-\index{theta\_m@{theta\_m}!Encoder@{Encoder}}
-\doxysubsubsection{\texorpdfstring{theta\_m}{theta\_m}}
-{\footnotesize\ttfamily float theta\+\_\+m}
-
-Mechanical rotor position \Hypertarget{struct_encoder_a45938c516b24d04e3bae20b3ae8c2d08}\label{struct_encoder_a45938c516b24d04e3bae20b3ae8c2d08} 
+Electrical rotor position \Hypertarget{struct_encoder_a45938c516b24d04e3bae20b3ae8c2d08}\label{struct_encoder_a45938c516b24d04e3bae20b3ae8c2d08} 
 \index{Encoder@{Encoder}!we@{we}}
 \index{we@{we}!Encoder@{Encoder}}
 \doxysubsubsection{\texorpdfstring{we}{we}}
 {\footnotesize\ttfamily float we}
 
-Electrical angular velocity \Hypertarget{struct_encoder_a9ef6094458503bd99cabadd1914f6be0}\label{struct_encoder_a9ef6094458503bd99cabadd1914f6be0} 
-\index{Encoder@{Encoder}!wm\_rpm@{wm\_rpm}}
-\index{wm\_rpm@{wm\_rpm}!Encoder@{Encoder}}
-\doxysubsubsection{\texorpdfstring{wm\_rpm}{wm\_rpm}}
-{\footnotesize\ttfamily float wm\+\_\+rpm}
-
-Mechanical angular velocity (RPM) \Hypertarget{struct_encoder_a5a8eb607e6c3f820a971b163abc936d5}\label{struct_encoder_a5a8eb607e6c3f820a971b163abc936d5} 
+Electrical angular velocity \Hypertarget{struct_encoder_a5a8eb607e6c3f820a971b163abc936d5}\label{struct_encoder_a5a8eb607e6c3f820a971b163abc936d5} 
 \index{Encoder@{Encoder}!Z@{Z}}
 \index{Z@{Z}!Encoder@{Encoder}}
 \doxysubsubsection{\texorpdfstring{Z}{Z}}

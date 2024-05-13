@@ -2,10 +2,13 @@
 \hypertarget{_c_o_n_t_r_o_l_8c}{}\label{_c_o_n_t_r_o_l_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c}}
 
 
-Source file for control logic.  
+This file provides code for the control loop.  
 
 
 {\ttfamily \#include "{}CONTROL.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$Perga\+MOD.\+h$>$}\newline
+{\ttfamily \#include "{}INVERTER.\+h"{}}\newline
 Include dependency graph for CONTROL.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -17,40 +20,44 @@ Include dependency graph for CONTROL.\+c\+:
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3}{control}} (float valfa, float vbeta, \mbox{\hyperlink{struct_measurements}{Measurements}} measurements, volatile \mbox{\hyperlink{struct_duties}{Duties}} \texorpdfstring{$\ast$}{*}duties)
-\begin{DoxyCompactList}\small\item\em Control function. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-float \mbox{\hyperlink{_c_o_n_t_r_o_l_8c_aefe6cb8481b445384065a5509d50a266}{valfa\+\_\+L}} = -\/0.\+2F
-\item 
-float \mbox{\hyperlink{_c_o_n_t_r_o_l_8c_aca12ad290c0898ce5285c387c96aa437}{vbeta\+\_\+L}} = 0.\+2F
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb}{calc\+\_\+duties}} (float vd, float vq, float v\+DC, float theta\+\_\+e, volatile \mbox{\hyperlink{struct_duties}{Duties}} \texorpdfstring{$\ast$}{*}duties)
+\begin{DoxyCompactList}\small\item\em function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Source file for control logic. 
+This file provides code for the control loop. 
 
+\begin{DoxyAttention}{Attention}
 
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg on Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3}\label{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3} 
-\index{CONTROL.c@{CONTROL.c}!control@{control}}
-\index{control@{control}!CONTROL.c@{CONTROL.c}}
-\doxysubsubsection{\texorpdfstring{control()}{control()}}
-{\footnotesize\ttfamily void control (\begin{DoxyParamCaption}\item[{float}]{valfa,  }\item[{float}]{vbeta,  }\item[{\mbox{\hyperlink{struct_measurements}{Measurements}}}]{measurements,  }\item[{volatile \mbox{\hyperlink{struct_duties}{Duties}} \texorpdfstring{$\ast$}{*}}]{duties }\end{DoxyParamCaption})}
+\Hypertarget{_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb}\label{_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb} 
+\index{CONTROL.c@{CONTROL.c}!calc\_duties@{calc\_duties}}
+\index{calc\_duties@{calc\_duties}!CONTROL.c@{CONTROL.c}}
+\doxysubsubsection{\texorpdfstring{calc\_duties()}{calc\_duties()}}
+{\footnotesize\ttfamily void calc\+\_\+duties (\begin{DoxyParamCaption}\item[{float}]{vd,  }\item[{float}]{vq,  }\item[{float}]{v\+DC,  }\item[{float}]{theta\+\_\+e,  }\item[{volatile \mbox{\hyperlink{struct_duties}{Duties}} \texorpdfstring{$\ast$}{*}}]{duties }\end{DoxyParamCaption})}
 
 
 
-Control function. 
+function. 
 
-This function implements the control logic based on measurements. For now, it sets a constant duty cycle.
+This function calculates the inverse Park transform and the duty cycles using SVPWM
 
 
-\begin{DoxyParams}{Parameters}
-{\em measurements} & \doxylink{struct_measurements}{Measurements} structure. \\
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em vd} & Voltage in the d-\/axis. \\
 \hline
-{\em duties} & Pointer to the duties structure. \\
+\mbox{\texttt{ in}}  & {\em vq} & Voltage in the q-\/axis. \\
+\hline
+\mbox{\texttt{ in}}  & {\em v\+DC} & DC voltage. \\
+\hline
+\mbox{\texttt{ in}}  & {\em theta\+\_\+e} & Electrical angle in radians (-\/pi..pi). \\
+\hline
+\mbox{\texttt{ out}}  & {\em duties} & Pointer to the duties structure. \\
 \hline
 \end{DoxyParams}
 Here is the call graph for this function\+:
@@ -58,7 +65,7 @@ Here is the call graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=230pt]{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_cgraph}
+\includegraphics[width=250pt]{_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:
@@ -66,21 +73,6 @@ Here is the caller graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=303pt]{_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_icgraph}
+\includegraphics[width=350pt]{_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_icgraph}
 \end{center}
 \end{figure}
-
-
-\doxysubsection{Variable Documentation}
-\Hypertarget{_c_o_n_t_r_o_l_8c_aefe6cb8481b445384065a5509d50a266}\label{_c_o_n_t_r_o_l_8c_aefe6cb8481b445384065a5509d50a266} 
-\index{CONTROL.c@{CONTROL.c}!valfa\_L@{valfa\_L}}
-\index{valfa\_L@{valfa\_L}!CONTROL.c@{CONTROL.c}}
-\doxysubsubsection{\texorpdfstring{valfa\_L}{valfa\_L}}
-{\footnotesize\ttfamily float valfa\+\_\+L = -\/0.\+2F}
-
-\Hypertarget{_c_o_n_t_r_o_l_8c_aca12ad290c0898ce5285c387c96aa437}\label{_c_o_n_t_r_o_l_8c_aca12ad290c0898ce5285c387c96aa437} 
-\index{CONTROL.c@{CONTROL.c}!vbeta\_L@{vbeta\_L}}
-\index{vbeta\_L@{vbeta\_L}!CONTROL.c@{CONTROL.c}}
-\doxysubsubsection{\texorpdfstring{vbeta\_L}{vbeta\_L}}
-{\footnotesize\ttfamily float vbeta\+\_\+L = 0.\+2F}
-

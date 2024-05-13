@@ -84,7 +84,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>This file provides functions for handling GPIOs and other low-priority tasks.  
+<p>This file provides functions for handling GPIOs.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_p_c_b___i_o_8h_source.html">PCB_IO.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
@@ -93,8 +93,8 @@ Include dependency graph for PCB_IO.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_c_b___i_o_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_p_c_b___i_o_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_p_c_b___i_o_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_p_c_b___i_o_8c">
-<area shape="rect" title="This file provides functions for handling GPIOs and other low&#45;priority tasks." alt="" coords="9,5,174,64"/>
-<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs and other low&#45;priority tasks." alt="" coords="5,112,85,139"/>
+<area shape="rect" title="This file provides functions for handling GPIOs." alt="" coords="9,5,174,64"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="5,112,85,139"/>
 <area shape="poly" title=" " alt="" coords="79,66,61,99,56,97,74,63"/>
 <area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="108,112,169,139"/>
 <area shape="poly" title=" " alt="" coords="109,63,127,97,122,99,104,66"/>
@@ -106,9 +106,12 @@ Include dependency graph for PCB_IO.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4670279a37c6f5e27434c66d2db61cb1" id="r_a4670279a37c6f5e27434c66d2db61cb1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4670279a37c6f5e27434c66d2db61cb1">LED_handler</a> (<a class="el" href="struct_l_e_d.html">LED</a> *led, uint32_t ms_counter)</td></tr>
-<tr class="memdesc:a4670279a37c6f5e27434c66d2db61cb1"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> handler function.  <br /></td></tr>
-<tr class="separator:a4670279a37c6f5e27434c66d2db61cb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6736efa24340a6743e5d41dab343c15b" id="r_a6736efa24340a6743e5d41dab343c15b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6736efa24340a6743e5d41dab343c15b">handle_LED</a> (<a class="el" href="struct_l_e_d.html">LED</a> *led, uint32_t ms_counter)</td></tr>
+<tr class="memdesc:a6736efa24340a6743e5d41dab343c15b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> handler function.  <br /></td></tr>
+<tr class="separator:a6736efa24340a6743e5d41dab343c15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afec13170cd54a3dc4f50bae3cb8f386e" id="r_afec13170cd54a3dc4f50bae3cb8f386e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afec13170cd54a3dc4f50bae3cb8f386e">handle_direction</a> (volatile int8_t *dir_left, volatile int8_t *dir_right)</td></tr>
+<tr class="memdesc:afec13170cd54a3dc4f50bae3cb8f386e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the direction of the motors.  <br /></td></tr>
+<tr class="separator:afec13170cd54a3dc4f50bae3cb8f386e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -116,23 +119,66 @@ Variables</h2></td></tr>
 <tr class="separator:a6bec7a15732c2d17f534f00a96bbb86c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58d9f4951ca109fec7fd0340238fda36" id="r_a58d9f4951ca109fec7fd0340238fda36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_l_e_d.html">LED</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58d9f4951ca109fec7fd0340238fda36">led_right</a> = { .port = <a class="el" href="main_8h.html#a53c89327b6e7fd3ef2d02abacd31bd42">LED_RIGHT_GPIO_Port</a>, .pin = <a class="el" href="main_8h.html#a004aa8634a8d0bb7cd42dacd5a833912">LED_RIGHT_Pin</a>, .mode = <a class="el" href="_p_c_b___i_o_8h.html#a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003">LED_MODE_OFF</a> }</td></tr>
 <tr class="separator:a58d9f4951ca109fec7fd0340238fda36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46fee14934f450f31883fcd676f66595" id="r_a46fee14934f450f31883fcd676f66595"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_l_e_d.html">LED</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46fee14934f450f31883fcd676f66595">led_error</a> = { .port = <a class="el" href="main_8h.html#a1e3af8f5ba56354b9a278d70f313221a">LED_ERR_GPIO_Port</a>, .pin = <a class="el" href="main_8h.html#a40e4b2abeab59547bd615bec64954a68">LED_ERR_Pin</a>, .mode = <a class="el" href="_p_c_b___i_o_8h.html#a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003">LED_MODE_OFF</a> }</td></tr>
-<tr class="separator:a46fee14934f450f31883fcd676f66595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a911ebfc5de443a53e3882ff327266616" id="r_a911ebfc5de443a53e3882ff327266616"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_l_e_d.html">LED</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a911ebfc5de443a53e3882ff327266616">ledError</a> = { .port = <a class="el" href="main_8h.html#a1e3af8f5ba56354b9a278d70f313221a">LED_ERR_GPIO_Port</a>, .pin = <a class="el" href="main_8h.html#a40e4b2abeab59547bd615bec64954a68">LED_ERR_Pin</a>, .mode = <a class="el" href="_p_c_b___i_o_8h.html#a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003">LED_MODE_OFF</a> }</td></tr>
+<tr class="separator:a911ebfc5de443a53e3882ff327266616"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file provides functions for handling GPIOs and other low-priority tasks. </p>
+<div class="textblock"><p>This file provides functions for handling GPIOs. </p>
 <dl class="section attention"><dt>Attention</dt><dd></dd></dl>
 <p>Copyright (c) 2024 David Redondo (@dweggg in GitHub). All rights reserved.</p>
 <p>This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. For more information, see: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</a> </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a4670279a37c6f5e27434c66d2db61cb1" name="a4670279a37c6f5e27434c66d2db61cb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4670279a37c6f5e27434c66d2db61cb1">&#9670;&#160;</a></span>LED_handler()</h2>
+<a id="afec13170cd54a3dc4f50bae3cb8f386e" name="afec13170cd54a3dc4f50bae3cb8f386e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afec13170cd54a3dc4f50bae3cb8f386e">&#9670;&#160;</a></span>handle_direction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void LED_handler </td>
+          <td class="memname">void handle_direction </td>
+          <td>(</td>
+          <td class="paramtype">volatile int8_t *</td>          <td class="paramname"><span class="paramname"><em>dir_left</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile int8_t *</td>          <td class="paramname"><span class="paramname"><em>dir_right</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles the direction of the motors. </p>
+<p>This function reads the state of the DIR switch and updates the directions of both the left and right motors. If one motor is set to rotate clockwise (CW), the other one is set to rotate counterclockwise (CCW), and vice versa.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dir_left</td><td>Pointer to the direction parameter in the left inverter structure. </td></tr>
+    <tr><td class="paramname">dir_right</td><td>Pointer to the direction parameter in the right inverter structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_p_c_b___i_o_8c_afec13170cd54a3dc4f50bae3cb8f386e_icgraph.png" border="0" usemap="#a_p_c_b___i_o_8c_afec13170cd54a3dc4f50bae3cb8f386e_icgraph" alt=""/></div>
+<map name="a_p_c_b___i_o_8c_afec13170cd54a3dc4f50bae3cb8f386e_icgraph" id="a_p_c_b___i_o_8c_afec13170cd54a3dc4f50bae3cb8f386e_icgraph">
+<area shape="rect" title="Handles the direction of the motors." alt="" coords="343,5,458,32"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,5,295,32"/>
+<area shape="poly" title=" " alt="" coords="327,21,296,21,296,16,327,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#a0839a45f331c4c067939b9c4533bbf4d" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,5,162,32"/>
+<area shape="poly" title=" " alt="" coords="194,21,162,21,162,16,194,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6736efa24340a6743e5d41dab343c15b" name="a6736efa24340a6743e5d41dab343c15b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6736efa24340a6743e5d41dab343c15b">&#9670;&#160;</a></span>handle_LED()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void handle_LED </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="struct_l_e_d.html">LED</a> *</td>          <td class="paramname"><span class="paramname"><em>led</em>, </span></td>
         </tr>
@@ -156,11 +202,11 @@ Variables</h2></td></tr>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_p_c_b___i_o_8c_a4670279a37c6f5e27434c66d2db61cb1_icgraph.png" border="0" usemap="#a_p_c_b___i_o_8c_a4670279a37c6f5e27434c66d2db61cb1_icgraph" alt=""/></div>
-<map name="a_p_c_b___i_o_8c_a4670279a37c6f5e27434c66d2db61cb1_icgraph" id="a_p_c_b___i_o_8c_a4670279a37c6f5e27434c66d2db61cb1_icgraph">
-<area shape="rect" title="LED handler function." alt="" coords="343,5,438,32"/>
+<div class="center"><img src="_p_c_b___i_o_8c_a6736efa24340a6743e5d41dab343c15b_icgraph.png" border="0" usemap="#a_p_c_b___i_o_8c_a6736efa24340a6743e5d41dab343c15b_icgraph" alt=""/></div>
+<map name="a_p_c_b___i_o_8c_a6736efa24340a6743e5d41dab343c15b_icgraph" id="a_p_c_b___i_o_8c_a6736efa24340a6743e5d41dab343c15b_icgraph">
+<area shape="rect" title="LED handler function." alt="" coords="343,5,434,32"/>
 <area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,5,295,32"/>
-<area shape="poly" title=" " alt="" coords="328,21,295,21,295,16,328,16"/>
+<area shape="poly" title=" " alt="" coords="327,21,295,21,295,16,327,16"/>
 <area shape="rect" href="stm32f7xx__it_8c.html#a0839a45f331c4c067939b9c4533bbf4d" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,5,162,32"/>
 <area shape="poly" title=" " alt="" coords="194,21,162,21,162,16,194,16"/>
 </map>
@@ -169,20 +215,6 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a46fee14934f450f31883fcd676f66595" name="a46fee14934f450f31883fcd676f66595"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46fee14934f450f31883fcd676f66595">&#9670;&#160;</a></span>led_error</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="struct_l_e_d.html">LED</a> led_error = { .port = <a class="el" href="main_8h.html#a1e3af8f5ba56354b9a278d70f313221a">LED_ERR_GPIO_Port</a>, .pin = <a class="el" href="main_8h.html#a40e4b2abeab59547bd615bec64954a68">LED_ERR_Pin</a>, .mode = <a class="el" href="_p_c_b___i_o_8h.html#a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003">LED_MODE_OFF</a> }</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a6bec7a15732c2d17f534f00a96bbb86c" name="a6bec7a15732c2d17f534f00a96bbb86c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6bec7a15732c2d17f534f00a96bbb86c">&#9670;&#160;</a></span>led_left</h2>
 
@@ -205,6 +237,20 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="struct_l_e_d.html">LED</a> led_right = { .port = <a class="el" href="main_8h.html#a53c89327b6e7fd3ef2d02abacd31bd42">LED_RIGHT_GPIO_Port</a>, .pin = <a class="el" href="main_8h.html#a004aa8634a8d0bb7cd42dacd5a833912">LED_RIGHT_Pin</a>, .mode = <a class="el" href="_p_c_b___i_o_8h.html#a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003">LED_MODE_OFF</a> }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a911ebfc5de443a53e3882ff327266616" name="a911ebfc5de443a53e3882ff327266616"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a911ebfc5de443a53e3882ff327266616">&#9670;&#160;</a></span>ledError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_l_e_d.html">LED</a> ledError = { .port = <a class="el" href="main_8h.html#a1e3af8f5ba56354b9a278d70f313221a">LED_ERR_GPIO_Port</a>, .pin = <a class="el" href="main_8h.html#a40e4b2abeab59547bd615bec64954a68">LED_ERR_Pin</a>, .mode = <a class="el" href="_p_c_b___i_o_8h.html#a57effb96f46e458675a2653d4c543ca2a5a472505476f1d9c473bacb9450dd003">LED_MODE_OFF</a> }</td>
         </tr>
       </table>
 </div><div class="memdoc">

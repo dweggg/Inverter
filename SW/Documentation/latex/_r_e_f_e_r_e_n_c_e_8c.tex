@@ -1,0 +1,115 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Src/\+REFERENCE.c File Reference}
+\hypertarget{_r_e_f_e_r_e_n_c_e_8c}{}\label{_r_e_f_e_r_e_n_c_e_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/REFERENCE.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/REFERENCE.c}}
+
+
+Source file for torque reference handling.  
+
+
+{\ttfamily \#include "{}REFERENCE.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for REFERENCE.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{_r_e_f_e_r_e_n_c_e_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_a238eebcf74235b4455217edd8f1aa77b}{set\+\_\+torque\+\_\+direction}} (float torque\+\_\+ref, int8\+\_\+t direction)
+\begin{DoxyCompactList}\small\item\em Set torque direction based on inverter direction. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_adcef1f154971c0514781a7738dad6db7}{saturate\+\_\+symmetric}} (float ref, float max\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Symmetrically saturate a reference value. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_a4250eb8409c403d07add674c6d2e80c7}{limit\+\_\+torque\+\_\+to\+\_\+prevent\+\_\+overspeed}} (float speed\+\_\+max, float speed\+\_\+meas, float torque\+\_\+ref\+\_\+pre, volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}loop\+\_\+speed)
+\begin{DoxyCompactList}\small\item\em Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Source file for torque reference handling. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_a4250eb8409c403d07add674c6d2e80c7}\label{_r_e_f_e_r_e_n_c_e_8c_a4250eb8409c403d07add674c6d2e80c7} 
+\index{REFERENCE.c@{REFERENCE.c}!limit\_torque\_to\_prevent\_overspeed@{limit\_torque\_to\_prevent\_overspeed}}
+\index{limit\_torque\_to\_prevent\_overspeed@{limit\_torque\_to\_prevent\_overspeed}!REFERENCE.c@{REFERENCE.c}}
+\doxysubsubsection{\texorpdfstring{limit\_torque\_to\_prevent\_overspeed()}{limit\_torque\_to\_prevent\_overspeed()}}
+{\footnotesize\ttfamily float limit\+\_\+torque\+\_\+to\+\_\+prevent\+\_\+overspeed (\begin{DoxyParamCaption}\item[{float}]{speed\+\_\+max,  }\item[{float}]{speed\+\_\+meas,  }\item[{float}]{torque\+\_\+ref\+\_\+pre,  }\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{loop\+\_\+speed }\end{DoxyParamCaption})}
+
+
+
+Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em speed\+\_\+max} & The maximum speed value in RPM. \\
+\hline
+\mbox{\texttt{ in}}  & {\em speed\+\_\+meas} & The measured speed value in RPM. \\
+\hline
+\mbox{\texttt{ in}}  & {\em torque\+\_\+ref\+\_\+pre} & The torque reference value before this saturation. \\
+\hline
+\mbox{\texttt{ in}}  & {\em loop\+\_\+speed} & Pointer to the speed PI controller structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The limited torque reference value after this saturation. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=279pt]{_r_e_f_e_r_e_n_c_e_8c_a4250eb8409c403d07add674c6d2e80c7_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_adcef1f154971c0514781a7738dad6db7}\label{_r_e_f_e_r_e_n_c_e_8c_adcef1f154971c0514781a7738dad6db7} 
+\index{REFERENCE.c@{REFERENCE.c}!saturate\_symmetric@{saturate\_symmetric}}
+\index{saturate\_symmetric@{saturate\_symmetric}!REFERENCE.c@{REFERENCE.c}}
+\doxysubsubsection{\texorpdfstring{saturate\_symmetric()}{saturate\_symmetric()}}
+{\footnotesize\ttfamily float saturate\+\_\+symmetric (\begin{DoxyParamCaption}\item[{float}]{ref,  }\item[{float}]{max\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Symmetrically saturate a reference value. 
+
+This function symmetrically saturates a reference value based on the maximum allowed value. If the reference value exceeds the maximum allowed value, it is saturated to the maximum value. If the reference value is less than the negative of the maximum allowed value, it is saturated to the negative of the maximum value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ref} & The reference value to saturate. \\
+\hline
+\mbox{\texttt{ in}}  & {\em max\+\_\+value} & The maximum allowed value for saturation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The saturated reference value. 
+\end{DoxyReturn}
+\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_a238eebcf74235b4455217edd8f1aa77b}\label{_r_e_f_e_r_e_n_c_e_8c_a238eebcf74235b4455217edd8f1aa77b} 
+\index{REFERENCE.c@{REFERENCE.c}!set\_torque\_direction@{set\_torque\_direction}}
+\index{set\_torque\_direction@{set\_torque\_direction}!REFERENCE.c@{REFERENCE.c}}
+\doxysubsubsection{\texorpdfstring{set\_torque\_direction()}{set\_torque\_direction()}}
+{\footnotesize\ttfamily float set\+\_\+torque\+\_\+direction (\begin{DoxyParamCaption}\item[{float}]{torque\+\_\+ref,  }\item[{int8\+\_\+t}]{direction }\end{DoxyParamCaption})}
+
+
+
+Set torque direction based on inverter direction. 
+
+This function adjusts the torque reference based on the desired direction. If the motor is set to rotate counterclockwise (CCW), positive torque represents braking. If the motor is set to rotate clockwise (CW), positive torque represents traction.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em torque\+\_\+ref} & The torque reference value to adjust. \\
+\hline
+\mbox{\texttt{ in}}  & {\em direction} & Pointer to the direction of the inverter (1 for CW, -\/1 for CCW). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The adjusted torque reference value. 
+\end{DoxyReturn}

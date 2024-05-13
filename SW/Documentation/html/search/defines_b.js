@@ -13,5 +13,5 @@ var searchData=
   ['trip_5fl_5fpin_10',['TRIP_L_Pin',['../main_8h.html#a8ce5825f1cdb397130b6835daa116a99',1,'main.h']]],
   ['trip_5fr_5fgpio_5fport_11',['TRIP_R_GPIO_Port',['../main_8h.html#a641570b8ef7952050c60b28dc7ac90df',1,'main.h']]],
   ['trip_5fr_5fpin_12',['TRIP_R_Pin',['../main_8h.html#a9a019e3f23f1fdea93048af8c390b1b9',1,'main.h']]],
-  ['ts_13',['TS',['../main_8h.html#aaade3232ef08cf18b4f3a20a0a2c6fb6',1,'main.h']]]
+  ['ts_13',['TS',['../_i_n_v_e_r_t_e_r_8h.html#aaade3232ef08cf18b4f3a20a0a2c6fb6',1,'TS:&#160;INVERTER.h'],['../main_8h.html#aaade3232ef08cf18b4f3a20a0a2c6fb6',1,'TS:&#160;main.h']]]
 ];

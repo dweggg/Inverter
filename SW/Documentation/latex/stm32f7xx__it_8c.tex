@@ -8,10 +8,7 @@ Interrupt Service Routines.
 {\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include "{}stm32f7xx\+\_\+it.\+h"{}}\newline
 {\ttfamily \#include "{}TASKS\+\_\+1ms.\+h"{}}\newline
-{\ttfamily \#include "{}MEASUREMENTS.\+h"{}}\newline
-{\ttfamily \#include "{}PWM.\+h"{}}\newline
-{\ttfamily \#include "{}CONTROL.\+h"{}}\newline
-{\ttfamily \#include "{}INVERTER.\+h"{}}\newline
+{\ttfamily \#include "{}TASKS\+\_\+20us.\+h"{}}\newline
 Include dependency graph for stm32f7xx\+\_\+it.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -43,18 +40,20 @@ void \mbox{\hyperlink{stm32f7xx__it_8c_ab5e09814056d617c521549e542639b7e}{Sys\+T
 \begin{DoxyCompactList}\small\item\em This function handles System tick timer. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{stm32f7xx__it_8c_a4dcf621094d563287c456f7aa751e86b}{CAN1\+\_\+\+RX0\+\_\+\+IRQHandler}} (void)
 \begin{DoxyCompactList}\small\item\em This function handles CAN1 RX0 interrupts. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{stm32f7xx__it_8c_aa1a82ca3e49421333b17a4ec6996d03d}{CAN1\+\_\+\+RX1\+\_\+\+IRQHandler}} (void)
-\begin{DoxyCompactList}\small\item\em This function handles CAN1 RX1 interrupt. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{stm32f7xx__it_8c_ad1fd361bc5ad89facee67c76d1ff8dc0}{TIM1\+\_\+\+UP\+\_\+\+TIM10\+\_\+\+IRQHandler}} (void)
 \begin{DoxyCompactList}\small\item\em This function handles TIM1 update interrupt and TIM10 global interrupt. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{stm32f7xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d}{TIM6\+\_\+\+DAC\+\_\+\+IRQHandler}} (void)
 \begin{DoxyCompactList}\small\item\em This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{stm32f7xx__it_8c_aaf6ce196dde98712e1223b99766e06c0}{DMA2\+\_\+\+Stream0\+\_\+\+IRQHandler}} (void)
+\begin{DoxyCompactList}\small\item\em This function handles DMA2 stream0 global interrupt. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{stm32f7xx__it_8c_adab6f3e22e90bd5b1ceebb98022abdf2}{DMA2\+\_\+\+Stream1\+\_\+\+IRQHandler}} (void)
 \begin{DoxyCompactList}\small\item\em This function handles DMA2 stream1 global interrupt. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{stm32f7xx__it_8c_a7e367d7c7b74485c4c75cdef30ad01e1}{DMA2\+\_\+\+Stream2\+\_\+\+IRQHandler}} (void)
 \begin{DoxyCompactList}\small\item\em This function handles DMA2 stream2 global interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
+\item 
+DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32f7xx__it_8c_a1c126854bb1813d31ab4776b21dcc51f}{hdma\+\_\+adc1}}
 \item 
 DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{stm32f7xx__it_8c_ad99dd74cc50b61cf07680c1adaf80337}{hdma\+\_\+adc2}}
 \item 
@@ -101,16 +100,6 @@ This function handles Pre-\/fetch fault, memory access fault.
 
 This function handles CAN1 RX0 interrupts. 
 
-\Hypertarget{stm32f7xx__it_8c_aa1a82ca3e49421333b17a4ec6996d03d}\label{stm32f7xx__it_8c_aa1a82ca3e49421333b17a4ec6996d03d} 
-\index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!CAN1\_RX1\_IRQHandler@{CAN1\_RX1\_IRQHandler}}
-\index{CAN1\_RX1\_IRQHandler@{CAN1\_RX1\_IRQHandler}!stm32f7xx\_it.c@{stm32f7xx\_it.c}}
-\doxysubsubsection{\texorpdfstring{CAN1\_RX1\_IRQHandler()}{CAN1\_RX1\_IRQHandler()}}
-{\footnotesize\ttfamily void CAN1\+\_\+\+RX1\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
-
-
-
-This function handles CAN1 RX1 interrupt. 
-
 \Hypertarget{stm32f7xx__it_8c_adbdfb05858cc36fc520974df37ec3cb0}\label{stm32f7xx__it_8c_adbdfb05858cc36fc520974df37ec3cb0} 
 \index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!DebugMon\_Handler@{DebugMon\_Handler}}
 \index{DebugMon\_Handler@{DebugMon\_Handler}!stm32f7xx\_it.c@{stm32f7xx\_it.c}}
@@ -120,6 +109,16 @@ This function handles CAN1 RX1 interrupt.
 
 
 This function handles Debug monitor. 
+
+\Hypertarget{stm32f7xx__it_8c_aaf6ce196dde98712e1223b99766e06c0}\label{stm32f7xx__it_8c_aaf6ce196dde98712e1223b99766e06c0} 
+\index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!DMA2\_Stream0\_IRQHandler@{DMA2\_Stream0\_IRQHandler}}
+\index{DMA2\_Stream0\_IRQHandler@{DMA2\_Stream0\_IRQHandler}!stm32f7xx\_it.c@{stm32f7xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{DMA2\_Stream0\_IRQHandler()}{DMA2\_Stream0\_IRQHandler()}}
+{\footnotesize\ttfamily void DMA2\+\_\+\+Stream0\+\_\+\+IRQHandler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function handles DMA2 stream0 global interrupt. 
 
 \Hypertarget{stm32f7xx__it_8c_adab6f3e22e90bd5b1ceebb98022abdf2}\label{stm32f7xx__it_8c_adab6f3e22e90bd5b1ceebb98022abdf2} 
 \index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!DMA2\_Stream1\_IRQHandler@{DMA2\_Stream1\_IRQHandler}}
@@ -229,7 +228,8 @@ Here is the call graph for this function\+:
 
 This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts. 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -260,6 +260,12 @@ This function handles Undefined instruction or illegal state.
 \index{hdac@{hdac}!stm32f7xx\_it.c@{stm32f7xx\_it.c}}
 \doxysubsubsection{\texorpdfstring{hdac}{hdac}}
 {\footnotesize\ttfamily DAC\+\_\+\+Handle\+Type\+Def hdac\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{stm32f7xx__it_8c_a1c126854bb1813d31ab4776b21dcc51f}\label{stm32f7xx__it_8c_a1c126854bb1813d31ab4776b21dcc51f} 
+\index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!hdma\_adc1@{hdma\_adc1}}
+\index{hdma\_adc1@{hdma\_adc1}!stm32f7xx\_it.c@{stm32f7xx\_it.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_adc1}{hdma\_adc1}}
+{\footnotesize\ttfamily DMA\+\_\+\+Handle\+Type\+Def hdma\+\_\+adc1\hspace{0.3cm}{\ttfamily [extern]}}
 
 \Hypertarget{stm32f7xx__it_8c_ad99dd74cc50b61cf07680c1adaf80337}\label{stm32f7xx__it_8c_ad99dd74cc50b61cf07680c1adaf80337} 
 \index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!hdma\_adc2@{hdma\_adc2}}

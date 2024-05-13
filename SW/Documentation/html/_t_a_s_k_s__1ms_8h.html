@@ -129,15 +129,19 @@ Functions</h2></td></tr>
 
 <p>Function to be executed every 1ms. </p>
 <p>This function is called by the TIM6 IRQ handler every millisecond.</p>
-<p>This function is called by the TIM6 IRQ handler every millisecond. It increments the millisecond counter and calls the <a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> handler for left, right, and error LEDs. </p>
+<p>This function is called by the TIM6 IRQ handler every millisecond. It increments the millisecond counter and executes all the low priority tasks. </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac_cgraph.png" border="0" usemap="#a_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac_cgraph" alt=""/></div>
 <map name="a_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac_cgraph" id="a_t_a_s_k_s__1ms_8h_afb9caded33eef2ec19467eff02dfaaac_cgraph">
-<area shape="rect" title="Function to be executed every 1ms." alt="" coords="5,5,91,32"/>
-<area shape="rect" href="_p_c_b___i_o_8c.html#a4670279a37c6f5e27434c66d2db61cb1" title="LED handler function." alt="" coords="139,5,234,32"/>
-<area shape="poly" title=" " alt="" coords="91,16,123,16,123,21,91,21"/>
+<area shape="rect" title="Function to be executed every 1ms." alt="" coords="5,56,91,83"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a2ca7064e54ee37e91151caeeeb31e129" title="Retrieves temperature from a lookup table based on ADC bits." alt="" coords="139,5,254,32"/>
+<area shape="poly" title=" " alt="" coords="89,53,140,35,141,40,90,58"/>
+<area shape="rect" href="_p_c_b___i_o_8c.html#afec13170cd54a3dc4f50bae3cb8f386e" title="Handles the direction of the motors." alt="" coords="139,56,254,83"/>
+<area shape="poly" title=" " alt="" coords="91,67,123,67,123,72,91,72"/>
+<area shape="rect" href="_p_c_b___i_o_8c.html#a6736efa24340a6743e5d41dab343c15b" title="LED handler function." alt="" coords="151,107,242,133"/>
+<area shape="poly" title=" " alt="" coords="90,81,141,99,140,104,89,86"/>
 </map>
 </div>
 <div class="dynheader">

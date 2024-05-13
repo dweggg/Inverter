@@ -8,39 +8,42 @@
 \DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ INVERTER\_H}}
 \DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ INVERTER\_H}}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}stm32f7xx\_hal.h"{}}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_p_c_b___i_o_8h}{PCB\_IO.h}}"{}}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h}{MEASUREMENTS.h}}"{}}}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_o_n_t_r_o_l_8h}{CONTROL.h}}"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_p_c_b___i_o_8h}{PCB\_IO.h}}"{}}\ \textcolor{comment}{//\ peripheral\ types}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h}{MEASUREMENTS.h}}"{}}\ \textcolor{comment}{//\ needs\ structs}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h}{REFERENCE.h}}"{}}\ \textcolor{comment}{//\ reference\ struct}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_p_w_m_8h}{PWM.h}}"{}}\ \textcolor{comment}{//\ duties\ struct}}
 \DoxyCodeLine{00027\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
-\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a8059a74ef735d3a56d3428e6e4e1ac80a5a425be53774c4b4e59e440ab2369e8e}{INV\_STATE\_IDLE}},\ \ \ \ }
-\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a8059a74ef735d3a56d3428e6e4e1ac80a3bffb8c0f8030eb6d38dac2a9b1e4edd}{INV\_STATE\_STARTUP}},\ }
-\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a8059a74ef735d3a56d3428e6e4e1ac80ac7be32525d0b9b1c5165d1371eebd7e7}{INV\_STATE\_RUNNING}},\ }
-\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a8059a74ef735d3a56d3428e6e4e1ac80a4c6e89e99f6d2b3f6ff649c27cc73bc9}{INV\_STATE\_FAULT}}\ \ \ \ }
-\DoxyCodeLine{00036\ \}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a8059a74ef735d3a56d3428e6e4e1ac80}{inverterState}};}
-\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311a5a425be53774c4b4e59e440ab2369e8e}{INV\_STATE\_IDLE}},\ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311a3bffb8c0f8030eb6d38dac2a9b1e4edd}{INV\_STATE\_STARTUP}},\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311ac7be32525d0b9b1c5165d1371eebd7e7}{INV\_STATE\_RUNNING}},\ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311a4c6e89e99f6d2b3f6ff649c27cc73bc9}{INV\_STATE\_FAULT}}\ \ \ \ }
+\DoxyCodeLine{00037\ \}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311}{InverterState}};}
 \DoxyCodeLine{00038\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{struct_l_e_d}{LED}}\ *\mbox{\hyperlink{structinverter_struct_ae6ddb8a94132877213fb3b58d9f25f97}{led}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00044\ \ \ \ \ GPIO\_TypeDef\ *\mbox{\hyperlink{structinverter_struct_a36576b0f8a7daf14976aa2231602b0a7}{enable\_port}};\ \ }
-\DoxyCodeLine{00045\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{structinverter_struct_ab92945770bc3cbcd703dd87682c7ee6e}{enable\_pin}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00046\ \ \ \ \ TIM\_HandleTypeDef\ *\mbox{\hyperlink{structinverter_struct_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}};\ \ \ \ }
-\DoxyCodeLine{00047\ \ \ \ \ ADC\_HandleTypeDef\ *\mbox{\hyperlink{structinverter_struct_af982c0fe5d77061049c468b599100134}{hadc}};\ \ \ \ }
-\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a8059a74ef735d3a56d3428e6e4e1ac80}{inverterState}}\ \mbox{\hyperlink{structinverter_struct_aa80d18c53362cd832311b39cbb9ab365}{state}};\ \ \ \ \ \ }
-\DoxyCodeLine{00049\ \ \ \ \ uint32\_t\ ADC\_raw[4];\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{struct_measurements}{Measurements}}\ \mbox{\hyperlink{structinverter_struct_a81ad2e5a631fb14dee3e955fea8b74c0}{measurements}};\ \ }
-\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{struct_encoder}{Encoder}}\ \mbox{\hyperlink{structinverter_struct_a133a3017d675be921d0d7586eec7bb7c}{encoder}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{struct_duties}{Duties}}\ \mbox{\hyperlink{structinverter_struct_a88998233bb1ff2e5bc086febe6789332}{duties}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00053\ \}\ \mbox{\hyperlink{structinverter_struct}{inverterStruct}};}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ }
-\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structinverter_struct}{inverterStruct}}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a64d69b7bb6277970dc225bd929ebbcb7}{invLeft}};}
-\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structinverter_struct}{inverterStruct}}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a57c8122fa34986dbece71fb9f652be8f}{invRight}};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a25b8e1bfc9e8cf879e0993f0b32eb35d}{inv\_init}}(\mbox{\hyperlink{structinverter_struct}{inverterStruct}}\ *inv,\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ *led,\ GPIO\_TypeDef\ *enable\_port,\ uint16\_t\ enable\_pin,\ TIM\_HandleTypeDef\ *htim,\ ADC\_HandleTypeDef\ *hadc);}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INVERTER\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ TS\ 0.00002\ \ \ \ \ \ }}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ DT\ 0.00000015\ \ \ }}
+\DoxyCodeLine{00045\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{struct_l_e_d}{LED}}\ *\mbox{\hyperlink{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97}{led}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ GPIO\_TypeDef\ *\mbox{\hyperlink{struct_inverter_struct_a36576b0f8a7daf14976aa2231602b0a7}{enable\_port}};\ \ }
+\DoxyCodeLine{00048\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_inverter_struct_ab92945770bc3cbcd703dd87682c7ee6e}{enable\_pin}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ TIM\_HandleTypeDef\ *\mbox{\hyperlink{struct_inverter_struct_a5dc7d1c65997ccaed48a93a3f4ffc486}{htim}};\ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ ADC\_HandleTypeDef\ *\mbox{\hyperlink{struct_inverter_struct_af982c0fe5d77061049c468b599100134}{hadc}};\ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311}{InverterState}}\ \mbox{\hyperlink{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650}{state}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{struct_analog}{Analog}}\ \mbox{\hyperlink{struct_inverter_struct_a9723ebcdadc80d0da627ff27716ae5a5}{analog}};\ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{struct_encoder}{Encoder}}\ \mbox{\hyperlink{struct_inverter_struct_a133a3017d675be921d0d7586eec7bb7c}{encoder}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{struct_feedback}{Feedback}}\ \mbox{\hyperlink{struct_inverter_struct_a20a30b84d36e84b3d0e6ca4db56f723c}{feedback}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{struct_duties}{Duties}}\ \mbox{\hyperlink{struct_inverter_struct_a88998233bb1ff2e5bc086febe6789332}{duties}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00056\ \ \ \ \ int8\_t\ \mbox{\hyperlink{struct_inverter_struct_a64137967141ad97b940c16a035615d09}{direction}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_inverter_struct_a4beef132716905853cd6ae37080c4c5d}{temp\_inverter}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_inverter_struct_abb60d2beeef6a3b479773078b9ed98d2}{temp\_motor}};\ \ \ \ \ }
+\DoxyCodeLine{00059\ \}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a9d4c83ba0ff9eff71fe732ddac1dc208}{inverter\_left}};\ }
+\DoxyCodeLine{00062\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a9a1270f4b4f50328b300e5fb98dee476}{inverter\_right}};\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_ab166dd27a896ec83c7677462360eeba7}{initialize\_inverter}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv,\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ *led,\ GPIO\_TypeDef\ *enable\_port,\ uint16\_t\ enable\_pin,\ TIM\_HandleTypeDef\ *htim,\ ADC\_HandleTypeDef\ *hadc);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INVERTER\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

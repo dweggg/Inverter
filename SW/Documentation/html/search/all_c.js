@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['led_0',['LED',['../struct_l_e_d.html',1,'']]],
-  ['led_1',['led',['../structinverter_struct.html#ae6ddb8a94132877213fb3b58d9f25f97',1,'inverterStruct']]],
-  ['led_5ferr_5fgpio_5fport_2',['LED_ERR_GPIO_Port',['../main_8h.html#a1e3af8f5ba56354b9a278d70f313221a',1,'main.h']]],
-  ['led_5ferr_5fpin_3',['LED_ERR_Pin',['../main_8h.html#a40e4b2abeab59547bd615bec64954a68',1,'main.h']]],
-  ['led_5ferror_4',['led_error',['../_p_c_b___i_o_8h.html#a46fee14934f450f31883fcd676f66595',1,'led_error:&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a46fee14934f450f31883fcd676f66595',1,'led_error:&#160;PCB_IO.c']]],
-  ['led_5fhandler_5',['LED_handler',['../_p_c_b___i_o_8h.html#a4670279a37c6f5e27434c66d2db61cb1',1,'LED_handler(LED *led, uint32_t ms_counter):&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a4670279a37c6f5e27434c66d2db61cb1',1,'LED_handler(LED *led, uint32_t ms_counter):&#160;PCB_IO.c']]],
+  ['lambda_0',['lambda',['../structmotor_parameters.html#acac4a565486bad0b88b62387d8a5d891',1,'motorParameters']]],
+  ['ld_1',['Ld',['../structmotor_parameters.html#a07bad721e5354a6283503711b07129c9',1,'motorParameters']]],
+  ['led_2',['LED',['../struct_l_e_d.html',1,'']]],
+  ['led_3',['led',['../struct_inverter_struct.html#ae6ddb8a94132877213fb3b58d9f25f97',1,'InverterStruct']]],
+  ['led_5ferr_5fgpio_5fport_4',['LED_ERR_GPIO_Port',['../main_8h.html#a1e3af8f5ba56354b9a278d70f313221a',1,'main.h']]],
+  ['led_5ferr_5fpin_5',['LED_ERR_Pin',['../main_8h.html#a40e4b2abeab59547bd615bec64954a68',1,'main.h']]],
   ['led_5fleft_6',['led_left',['../_p_c_b___i_o_8h.html#a6bec7a15732c2d17f534f00a96bbb86c',1,'led_left:&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a6bec7a15732c2d17f534f00a96bbb86c',1,'led_left:&#160;PCB_IO.c']]],
   ['led_5fleft_5fgpio_5fport_7',['LED_LEFT_GPIO_Port',['../main_8h.html#a040c5e45349bb5eefe5767f88da3f8c1',1,'main.h']]],
   ['led_5fleft_5fpin_8',['LED_LEFT_Pin',['../main_8h.html#a9a1e6f909f15dddfb346b8f7af082be3',1,'main.h']]],
@@ -16,9 +16,12 @@ var searchData=
   ['led_5fright_13',['led_right',['../_p_c_b___i_o_8h.html#a58d9f4951ca109fec7fd0340238fda36',1,'led_right:&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a58d9f4951ca109fec7fd0340238fda36',1,'led_right:&#160;PCB_IO.c']]],
   ['led_5fright_5fgpio_5fport_14',['LED_RIGHT_GPIO_Port',['../main_8h.html#a53c89327b6e7fd3ef2d02abacd31bd42',1,'main.h']]],
   ['led_5fright_5fpin_15',['LED_RIGHT_Pin',['../main_8h.html#a004aa8634a8d0bb7cd42dacd5a833912',1,'main.h']]],
-  ['ledmode_16',['LEDMode',['../_p_c_b___i_o_8h.html#a57effb96f46e458675a2653d4c543ca2',1,'PCB_IO.h']]],
-  ['log_17',['log',['../structdatalog__struct.html#aba3acc8cf586fde40a40dce79d3cd95b',1,'datalog_struct']]],
-  ['lse_5fstartup_5ftimeout_18',['LSE_STARTUP_TIMEOUT',['../stm32f7xx__hal__conf_8h.html#a85e6fc812dc26f7161a04be2568a5462',1,'stm32f7xx_hal_conf.h']]],
-  ['lse_5fvalue_19',['LSE_VALUE',['../stm32f7xx__hal__conf_8h.html#a7bbb9d19e5189a6ccd0fb6fa6177d20d',1,'stm32f7xx_hal_conf.h']]],
-  ['lsi_5fvalue_20',['LSI_VALUE',['../stm32f7xx__hal__conf_8h.html#a4872023e65449c0506aac3ea6bec99e9',1,'stm32f7xx_hal_conf.h']]]
+  ['lederror_16',['ledError',['../_p_c_b___i_o_8h.html#a911ebfc5de443a53e3882ff327266616',1,'ledError:&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a911ebfc5de443a53e3882ff327266616',1,'ledError:&#160;PCB_IO.c']]],
+  ['ledmode_17',['LEDMode',['../_p_c_b___i_o_8h.html#a57effb96f46e458675a2653d4c543ca2',1,'PCB_IO.h']]],
+  ['limit_5ftorque_5fto_5fprevent_5foverspeed_18',['limit_torque_to_prevent_overspeed',['../_r_e_f_e_r_e_n_c_e_8h.html#a4250eb8409c403d07add674c6d2e80c7',1,'limit_torque_to_prevent_overspeed(float speed_max, float speed_meas, float torque_ref_pre, volatile pi_struct *loop_speed):&#160;REFERENCE.c'],['../_r_e_f_e_r_e_n_c_e_8c.html#a4250eb8409c403d07add674c6d2e80c7',1,'limit_torque_to_prevent_overspeed(float speed_max, float speed_meas, float torque_ref_pre, volatile pi_struct *loop_speed):&#160;REFERENCE.c']]],
+  ['log_19',['log',['../structdatalog__struct.html#aba3acc8cf586fde40a40dce79d3cd95b',1,'datalog_struct']]],
+  ['lq_20',['Lq',['../structmotor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b',1,'motorParameters']]],
+  ['lse_5fstartup_5ftimeout_21',['LSE_STARTUP_TIMEOUT',['../stm32f7xx__hal__conf_8h.html#a85e6fc812dc26f7161a04be2568a5462',1,'stm32f7xx_hal_conf.h']]],
+  ['lse_5fvalue_22',['LSE_VALUE',['../stm32f7xx__hal__conf_8h.html#a7bbb9d19e5189a6ccd0fb6fa6177d20d',1,'stm32f7xx_hal_conf.h']]],
+  ['lsi_5fvalue_23',['LSI_VALUE',['../stm32f7xx__hal__conf_8h.html#a4872023e65449c0506aac3ea6bec99e9',1,'stm32f7xx_hal_conf.h']]]
 ];

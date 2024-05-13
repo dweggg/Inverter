@@ -78,73 +78,88 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">CONTROL.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Source file for control logic.  
+<p>This file provides code for the control loop.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_c_o_n_t_r_o_l_8h_source.html">CONTROL.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;<a class="el" href="_perga_m_o_d_8h_source.html">PergaMOD.h</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="_i_n_v_e_r_t_e_r_8h_source.html">INVERTER.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for CONTROL.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="_c_o_n_t_r_o_l_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_c_o_n_t_r_o_l_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_c_o_n_t_r_o_l_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_c_o_n_t_r_o_l_8c">
-<area shape="rect" title="Source file for control logic." alt="" coords="109,5,274,64"/>
-<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for control logic." alt="" coords="145,112,238,139"/>
-<area shape="poly" title=" " alt="" coords="194,64,194,96,189,96,189,64"/>
-<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="31,187,96,213"/>
-<area shape="poly" title=" " alt="" coords="171,142,100,181,98,176,168,137"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="120,187,263,213"/>
-<area shape="poly" title=" " alt="" coords="194,139,194,171,189,171,189,139"/>
-<area shape="rect" href="_pergamon__float_8h.html" title=" " alt="" coords="286,187,409,213"/>
-<area shape="poly" title=" " alt="" coords="220,137,308,177,305,182,218,142"/>
-<area shape="rect" title=" " alt="" coords="5,261,122,288"/>
-<area shape="poly" title=" " alt="" coords="66,214,66,246,61,246,61,214"/>
-<area shape="rect" title=" " alt="" coords="237,261,301,288"/>
-<area shape="poly" title=" " alt="" coords="207,212,246,249,243,253,203,216"/>
-<area shape="poly" title=" " alt="" coords="336,216,295,253,292,249,332,212"/>
+<area shape="rect" title="This file provides code for the control loop." alt="" coords="121,5,287,64"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for control logic." alt="" coords="5,112,99,139"/>
+<area shape="poly" title=" " alt="" coords="156,67,88,106,85,102,153,62"/>
+<area shape="rect" title=" " alt="" coords="123,112,184,139"/>
+<area shape="poly" title=" " alt="" coords="190,66,170,100,166,97,185,63"/>
+<area shape="rect" href="_perga_m_o_d_8h.html" title=" " alt="" coords="375,261,471,288"/>
+<area shape="poly" title=" " alt="" coords="263,62,299,84,338,113,374,146,404,185,416,216,423,246,418,247,411,217,399,188,370,150,334,117,296,89,260,67"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="208,112,304,139"/>
+<area shape="poly" title=" " alt="" coords="223,63,243,97,239,100,218,66"/>
+<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="34,187,99,213"/>
+<area shape="poly" title=" " alt="" coords="57,139,64,171,59,172,52,140"/>
+<area shape="rect" title=" " alt="" coords="15,261,132,288"/>
+<area shape="poly" title=" " alt="" coords="70,214,73,245,68,246,65,214"/>
+<area shape="rect" title=" " alt="" coords="305,336,370,363"/>
+<area shape="poly" title=" " alt="" coords="410,291,365,328,362,324,406,287"/>
+<area shape="poly" title=" " alt="" coords="224,142,115,183,113,178,222,137"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="123,187,202,213"/>
+<area shape="poly" title=" " alt="" coords="241,141,192,179,189,175,238,137"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="158,261,301,288"/>
+<area shape="poly" title=" " alt="" coords="256,140,237,246,232,245,251,139"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="277,187,390,213"/>
+<area shape="poly" title=" " alt="" coords="271,137,311,174,307,178,268,141"/>
+<area shape="poly" title=" " alt="" coords="149,216,102,253,99,249,145,212"/>
+<area shape="poly" title=" " alt="" coords="250,286,307,325,304,329,247,291"/>
+<area shape="poly" title=" " alt="" coords="351,212,397,249,394,253,347,216"/>
+<area shape="poly" title=" " alt="" coords="336,214,339,320,334,321,331,214"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6fa4dea6d452809f8736f11de4a3cba3" id="r_a6fa4dea6d452809f8736f11de4a3cba3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fa4dea6d452809f8736f11de4a3cba3">control</a> (float valfa, float vbeta, <a class="el" href="struct_measurements.html">Measurements</a> measurements, volatile <a class="el" href="struct_duties.html">Duties</a> *duties)</td></tr>
-<tr class="memdesc:a6fa4dea6d452809f8736f11de4a3cba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Control function.  <br /></td></tr>
-<tr class="separator:a6fa4dea6d452809f8736f11de4a3cba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aefe6cb8481b445384065a5509d50a266" id="r_aefe6cb8481b445384065a5509d50a266"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aefe6cb8481b445384065a5509d50a266">valfa_L</a> = -0.2F</td></tr>
-<tr class="separator:aefe6cb8481b445384065a5509d50a266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca12ad290c0898ce5285c387c96aa437" id="r_aca12ad290c0898ce5285c387c96aa437"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca12ad290c0898ce5285c387c96aa437">vbeta_L</a> = 0.2F</td></tr>
-<tr class="separator:aca12ad290c0898ce5285c387c96aa437"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5a290ef4e712f9ed13c9bec1a1dcbb" id="r_aac5a290ef4e712f9ed13c9bec1a1dcbb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac5a290ef4e712f9ed13c9bec1a1dcbb">calc_duties</a> (float vd, float vq, float vDC, float theta_e, volatile <a class="el" href="struct_duties.html">Duties</a> *duties)</td></tr>
+<tr class="memdesc:aac5a290ef4e712f9ed13c9bec1a1dcbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">function.  <br /></td></tr>
+<tr class="separator:aac5a290ef4e712f9ed13c9bec1a1dcbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Source file for control logic. </p>
+<div class="textblock"><p>This file provides code for the control loop. </p>
+<dl class="section attention"><dt>Attention</dt><dd></dd></dl>
+<p>Copyright (c) 2024 David Redondo (@dweggg on GitHub). All rights reserved.</p>
+<p>This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. For more information, see: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</a> </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a6fa4dea6d452809f8736f11de4a3cba3" name="a6fa4dea6d452809f8736f11de4a3cba3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fa4dea6d452809f8736f11de4a3cba3">&#9670;&#160;</a></span>control()</h2>
+<a id="aac5a290ef4e712f9ed13c9bec1a1dcbb" name="aac5a290ef4e712f9ed13c9bec1a1dcbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac5a290ef4e712f9ed13c9bec1a1dcbb">&#9670;&#160;</a></span>calc_duties()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void control </td>
+          <td class="memname">void calc_duties </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>valfa</em>, </span></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>vd</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>vbeta</em>, </span></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>vq</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="struct_measurements.html">Measurements</a></td>          <td class="paramname"><span class="paramname"><em>measurements</em>, </span></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>vDC</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>theta_e</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -154,64 +169,40 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Control function. </p>
-<p>This function implements the control logic based on measurements. For now, it sets a constant duty cycle.</p>
+<p>function. </p>
+<p>This function calculates the inverse Park transform and the duty cycles using SVPWM</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">measurements</td><td><a class="el" href="struct_measurements.html">Measurements</a> structure. </td></tr>
-    <tr><td class="paramname">duties</td><td>Pointer to the duties structure. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vd</td><td>Voltage in the d-axis. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vq</td><td>Voltage in the q-axis. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vDC</td><td>DC voltage. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">theta_e</td><td>Electrical angle in radians (-pi..pi). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">duties</td><td>Pointer to the duties structure. </td></tr>
   </table>
   </dd>
 </dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_cgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_cgraph" alt=""/></div>
-<map name="a_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_cgraph" id="a_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_cgraph">
-<area shape="rect" title="Control function." alt="" coords="5,5,66,32"/>
-<area shape="rect" href="group___utility___functions.html#ga6777e0c2b1e067acf6b99284625ec422" title="Calculates the SVPWM outputs." alt="" coords="114,5,205,32"/>
-<area shape="poly" title=" " alt="" coords="66,16,98,16,98,21,66,21"/>
+<div class="center"><img src="_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_cgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_cgraph" alt=""/></div>
+<map name="a_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_cgraph" id="a_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_cgraph">
+<area shape="rect" title="function." alt="" coords="5,5,93,32"/>
+<area shape="rect" href="group___utility___functions.html#ga6777e0c2b1e067acf6b99284625ec422" title="Calculates the SVPWM outputs." alt="" coords="141,5,232,32"/>
+<area shape="poly" title=" " alt="" coords="93,16,125,16,125,21,93,21"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_icgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_icgraph" alt=""/></div>
-<map name="a_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_icgraph" id="a_c_o_n_t_r_o_l_8c_a6fa4dea6d452809f8736f11de4a3cba3_icgraph">
-<area shape="rect" title="Control function." alt="" coords="243,5,303,32"/>
+<div class="center"><img src="_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_icgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_icgraph" alt=""/></div>
+<map name="a_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_icgraph" id="a_c_o_n_t_r_o_l_8c_aac5a290ef4e712f9ed13c9bec1a1dcbb_icgraph">
+<area shape="rect" title="function." alt="" coords="403,5,490,32"/>
+<area shape="rect" href="_t_a_s_k_s__20us_8c.html#a9adc53eb4c963075bf9d7443c8b5c903" title="Function to be executed every TS." alt="" coords="243,5,355,32"/>
+<area shape="poly" title=" " alt="" coords="388,21,356,21,356,16,388,16"/>
 <area shape="rect" href="stm32f7xx__it_8c.html#ad1fd361bc5ad89facee67c76d1ff8dc0" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,5,195,32"/>
 <area shape="poly" title=" " alt="" coords="227,21,195,21,195,16,227,16"/>
 </map>
 </div>
-
-</div>
-</div>
-<h2 class="groupheader">Variable Documentation</h2>
-<a id="aefe6cb8481b445384065a5509d50a266" name="aefe6cb8481b445384065a5509d50a266"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefe6cb8481b445384065a5509d50a266">&#9670;&#160;</a></span>valfa_L</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float valfa_L = -0.2F</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="aca12ad290c0898ce5285c387c96aa437" name="aca12ad290c0898ce5285c387c96aa437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca12ad290c0898ce5285c387c96aa437">&#9670;&#160;</a></span>vbeta_L</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float vbeta_L = 0.2F</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

@@ -39,11 +39,13 @@
 \DoxyCodeLine{00054\ \textcolor{comment}{//\ Declare\ LED\ variables\ as\ extern}}
 \DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a6bec7a15732c2d17f534f00a96bbb86c}{led\_left}};}
 \DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a58d9f4951ca109fec7fd0340238fda36}{led\_right}};}
-\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a46fee14934f450f31883fcd676f66595}{led\_error}};}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a911ebfc5de443a53e3882ff327266616}{ledError}};}
 \DoxyCodeLine{00058\ }
 \DoxyCodeLine{00059\ \textcolor{comment}{//\ Function\ prototypes}}
-\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a4670279a37c6f5e27434c66d2db61cb1}{LED\_handler}}(\mbox{\hyperlink{struct_l_e_d}{LED}}\ *led,\ uint32\_t\ ms\_counter);}
+\DoxyCodeLine{00068\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_c_b___i_o_8h_a6736efa24340a6743e5d41dab343c15b}{handle\_LED}}(\mbox{\hyperlink{struct_l_e_d}{LED}}\ *led,\ uint32\_t\ ms\_counter);}
 \DoxyCodeLine{00069\ }
-\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PCB\_IO\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_p_c_b___i_o_8h_afec13170cd54a3dc4f50bae3cb8f386e}{handle\_direction}}(\textcolor{keyword}{volatile}\ int8\_t\ *dir\_left,\ \textcolor{keyword}{volatile}\ int8\_t\ *dir\_right);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ PCB\_IO\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

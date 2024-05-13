@@ -1,0 +1,127 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Src/\+TASKS\+\_\+20us.c File Reference}
+\hypertarget{_t_a_s_k_s__20us_8c}{}\label{_t_a_s_k_s__20us_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS\_20us.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS\_20us.c}}
+
+
+This file contains functions executed every 20us in each PWM timer interruption.  
+
+
+{\ttfamily \#include "{}CONTROL.\+h"{}}\newline
+{\ttfamily \#include "{}INVERTER.\+h"{}}\newline
+Include dependency graph for TASKS\+\_\+20us.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s__20us_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a9adc53eb4c963075bf9d7443c8b5c903}{tasks\+\_\+20us\+\_\+left}} (void)
+\begin{DoxyCompactList}\small\item\em Function to be executed every TS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a1dc62194539b83b444ddf4658a8e1f62}{tasks\+\_\+20us\+\_\+right}} (void)
+\begin{DoxyCompactList}\small\item\em Function to be executed every TS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a1f2b3f8239fe7b32931b5ccb0613f8d1}{vd\+\_\+left}} = 0.\+0F
+\item 
+float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_ac990a58377b2c4496f157cd43ca215ac}{vq\+\_\+left}} = 100.\+0F
+\item 
+float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a6a6bfeb277826868bf71f2a3a914c712}{v\+DC\+\_\+left}} = 300.\+0F
+\item 
+float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_abe64f3d8173a781972d45d6c592ce177}{freq\+\_\+left}} = 50.\+0F
+\item 
+\mbox{\hyperlink{structangle__struct}{angle\+\_\+struct}} \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a33748c6dd95f9c76db83760d8719fc26}{angle\+\_\+left}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains functions executed every 20us in each PWM timer interruption. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_t_a_s_k_s__20us_8c_a9adc53eb4c963075bf9d7443c8b5c903}\label{_t_a_s_k_s__20us_8c_a9adc53eb4c963075bf9d7443c8b5c903} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!tasks\_20us\_left@{tasks\_20us\_left}}
+\index{tasks\_20us\_left@{tasks\_20us\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{tasks\_20us\_left()}{tasks\_20us\_left()}}
+{\footnotesize\ttfamily void tasks\+\_\+20us\+\_\+left (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to be executed every TS. 
+
+This function is called by the TIM1 trigger handler every TS. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s__20us_8c_a9adc53eb4c963075bf9d7443c8b5c903_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=342pt]{_t_a_s_k_s__20us_8c_a9adc53eb4c963075bf9d7443c8b5c903_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_t_a_s_k_s__20us_8c_a1dc62194539b83b444ddf4658a8e1f62}\label{_t_a_s_k_s__20us_8c_a1dc62194539b83b444ddf4658a8e1f62} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!tasks\_20us\_right@{tasks\_20us\_right}}
+\index{tasks\_20us\_right@{tasks\_20us\_right}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{tasks\_20us\_right()}{tasks\_20us\_right()}}
+{\footnotesize\ttfamily void tasks\+\_\+20us\+\_\+right (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to be executed every TS. 
+
+This function is called by the TIM8 trigger handler every TS. 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_t_a_s_k_s__20us_8c_a33748c6dd95f9c76db83760d8719fc26}\label{_t_a_s_k_s__20us_8c_a33748c6dd95f9c76db83760d8719fc26} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!angle\_left@{angle\_left}}
+\index{angle\_left@{angle\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{angle\_left}{angle\_left}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structangle__struct}{angle\+\_\+struct}} angle\+\_\+left}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .freq\ =\ 0.2F,}
+\DoxyCodeLine{\ \ \ \ .Ts\ =\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaade3232ef08cf18b4f3a20a0a2c6fb6}{TS}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{_t_a_s_k_s__20us_8c_abe64f3d8173a781972d45d6c592ce177}\label{_t_a_s_k_s__20us_8c_abe64f3d8173a781972d45d6c592ce177} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!freq\_left@{freq\_left}}
+\index{freq\_left@{freq\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{freq\_left}{freq\_left}}
+{\footnotesize\ttfamily float freq\+\_\+left = 50.\+0F}
+
+\Hypertarget{_t_a_s_k_s__20us_8c_a1f2b3f8239fe7b32931b5ccb0613f8d1}\label{_t_a_s_k_s__20us_8c_a1f2b3f8239fe7b32931b5ccb0613f8d1} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!vd\_left@{vd\_left}}
+\index{vd\_left@{vd\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{vd\_left}{vd\_left}}
+{\footnotesize\ttfamily float vd\+\_\+left = 0.\+0F}
+
+\Hypertarget{_t_a_s_k_s__20us_8c_a6a6bfeb277826868bf71f2a3a914c712}\label{_t_a_s_k_s__20us_8c_a6a6bfeb277826868bf71f2a3a914c712} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!vDC\_left@{vDC\_left}}
+\index{vDC\_left@{vDC\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{vDC\_left}{vDC\_left}}
+{\footnotesize\ttfamily float v\+DC\+\_\+left = 300.\+0F}
+
+\Hypertarget{_t_a_s_k_s__20us_8c_ac990a58377b2c4496f157cd43ca215ac}\label{_t_a_s_k_s__20us_8c_ac990a58377b2c4496f157cd43ca215ac} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!vq\_left@{vq\_left}}
+\index{vq\_left@{vq\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{vq\_left}{vq\_left}}
+{\footnotesize\ttfamily float vq\+\_\+left = 100.\+0F}
+

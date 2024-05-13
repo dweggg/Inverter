@@ -85,28 +85,21 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">CONTROL.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_c_o_n_t_r_o_l_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CONTROL_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CONTROL_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="_p_w_m_8h.html">PWM.h</a>&quot;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html">MEASUREMENTS.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="_pergamon__float_8h.html">Pergamon_float.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_c_o_n_t_r_o_l_8h.html#aefe6cb8481b445384065a5509d50a266">valfa_L</a>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">extern</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_c_o_n_t_r_o_l_8h.html#aca12ad290c0898ce5285c387c96aa437">vbeta_L</a>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> <a class="code hl_function" href="_c_o_n_t_r_o_l_8h.html#a6fa4dea6d452809f8736f11de4a3cba3">control</a>(<span class="keywordtype">float</span> valfa, <span class="keywordtype">float</span> vbeta, <a class="code hl_struct" href="struct_measurements.html">Measurements</a> measurements, <span class="keyword">volatile</span> <a class="code hl_struct" href="struct_duties.html">Duties</a> *duties);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#endif </span><span class="comment">/* CONTROL_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="a_c_o_n_t_r_o_l_8h_html_a6fa4dea6d452809f8736f11de4a3cba3"><div class="ttname"><a href="_c_o_n_t_r_o_l_8h.html#a6fa4dea6d452809f8736f11de4a3cba3">control</a></div><div class="ttdeci">void control(float valfa, float vbeta, Measurements measurements, volatile Duties *duties)</div><div class="ttdoc">Control function.</div><div class="ttdef"><b>Definition</b> CONTROL.c:21</div></div>
-<div class="ttc" id="a_c_o_n_t_r_o_l_8h_html_aca12ad290c0898ce5285c387c96aa437"><div class="ttname"><a href="_c_o_n_t_r_o_l_8h.html#aca12ad290c0898ce5285c387c96aa437">vbeta_L</a></div><div class="ttdeci">float vbeta_L</div><div class="ttdef"><b>Definition</b> CONTROL.c:9</div></div>
-<div class="ttc" id="a_c_o_n_t_r_o_l_8h_html_aefe6cb8481b445384065a5509d50a266"><div class="ttname"><a href="_c_o_n_t_r_o_l_8h.html#aefe6cb8481b445384065a5509d50a266">valfa_L</a></div><div class="ttdeci">float valfa_L</div><div class="ttdef"><b>Definition</b> CONTROL.c:8</div></div>
-<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html">MEASUREMENTS.h</a></div><div class="ttdoc">Header file for handling measurements.</div></div>
+<a href="_c_o_n_t_r_o_l_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* USER CODE BEGIN Header */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">/* USER CODE END Header */</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifndef CONTROL_H</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define CONTROL_H</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="_p_w_m_8h.html">PWM.h</a>&quot;</span> <span class="comment">// duties struct</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">void</span> <a class="code hl_function" href="_c_o_n_t_r_o_l_8h.html#aac5a290ef4e712f9ed13c9bec1a1dcbb">calc_duties</a>(<span class="keywordtype">float</span> vd, <span class="keywordtype">float</span> vq, <span class="keywordtype">float</span> vDC, <span class="keywordtype">float</span> theta_e, <span class="keyword">volatile</span> <a class="code hl_struct" href="struct_duties.html">Duties</a> *duties);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#endif </span><span class="comment">/* CONTROL_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="a_c_o_n_t_r_o_l_8h_html_aac5a290ef4e712f9ed13c9bec1a1dcbb"><div class="ttname"><a href="_c_o_n_t_r_o_l_8h.html#aac5a290ef4e712f9ed13c9bec1a1dcbb">calc_duties</a></div><div class="ttdeci">void calc_duties(float vd, float vq, float vDC, float theta_e, volatile Duties *duties)</div><div class="ttdoc">function.</div><div class="ttdef"><b>Definition</b> CONTROL.c:37</div></div>
 <div class="ttc" id="a_p_w_m_8h_html"><div class="ttname"><a href="_p_w_m_8h.html">PWM.h</a></div><div class="ttdoc">Header file for controlling PWM output.</div></div>
-<div class="ttc" id="a_pergamon__float_8h_html"><div class="ttname"><a href="_pergamon__float_8h.html">Pergamon_float.h</a></div></div>
 <div class="ttc" id="astruct_duties_html"><div class="ttname"><a href="struct_duties.html">Duties</a></div><div class="ttdoc">Structure to hold PWM configuration parameters.</div><div class="ttdef"><b>Definition</b> PWM.h:28</div></div>
-<div class="ttc" id="astruct_measurements_html"><div class="ttname"><a href="struct_measurements.html">Measurements</a></div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:45</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
