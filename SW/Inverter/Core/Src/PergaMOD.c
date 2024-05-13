@@ -227,7 +227,7 @@ void svpwm_calc(volatile svpwm_struct *v)
        SVPWM reduces line voltages by approximately 15.4% by adding the homopolar component.
        The homopolar component is not visible in line-line voltages, effectively synthesizing something slightly larger than ±0.5.
        Desired ±1/sqrt(3) is approximately 15.4% larger.
-       Duties (Ta, Tb, and Tc) range from 0 to 1. */
+       Duties (Da, Db, and Dc) range from 0 to 1. */
 
     // Auxiliary variables for SVPWM
     float Va, Vb, Vc, max, min, h;

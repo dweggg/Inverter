@@ -23,6 +23,8 @@
 #include <PergaMOD.h> // control functions
 #include "INVERTER.h" // TS
 
+
+
 /**
  * @brief function.
  *
@@ -31,20 +33,21 @@
  * @param[in] vd Voltage in the d-axis.
  * @param[in] vq Voltage in the q-axis.
  * @param[in] vDC DC voltage.
- * @param[in] theta_e Electrical angle in radians (-pi..pi).
+ * @param[in] sinTheta_e Electrical angle sine (-1..1)
+ * @param[in] cosTheta_e Electrical angle cosine (-1..1)
  * @param[out] duties Pointer to the duties structure.
  */
-void calc_duties(float vd, float vq, float vDC, float theta_e, volatile Duties *duties) {
-
+void calc_duties(float vd, float vq, float vDC, float sinTheta_e, float cosTheta_e, volatile Duties *duties) {
 
   // inverse Park transform
-  float alpha = (vd/vDC)*cosf(theta_e) - (vq/vDC)*sinf(theta_e);              // Alpha(D) = d*cos(Fi) - q*sin(Fi)
-  float beta = (vd/vDC)*sinf(theta_e) + (vq/vDC)*cosf(theta_e);              // Beta(Q) = d*sin(Fi) + q*cos(Fi)
+  float alpha = (vd/vDC)*cosTheta_e - (vq/vDC)*sinTheta_e;              // Alpha(D) = d*cos(Fi) - q*sin(Fi)
+  float beta = (vd/vDC)*sinTheta_e + (vq/vDC)*cosTheta_e;              // Beta(Q) = d*sin(Fi) + q*cos(Fi)
 
 
   svpwm_struct svpwm;
 
-  // Assign values to SVPWM structure, works with alpha/beta not a/b/c
+  // Assign values to SVPWM structure, works with alpha/beta (not a/b/c)
+  // alpha and beta are meant to be in the range +-(1/sqrt3)
   svpwm.alpha = alpha;
   svpwm.beta = beta;
   svpwm_calc(&svpwm);

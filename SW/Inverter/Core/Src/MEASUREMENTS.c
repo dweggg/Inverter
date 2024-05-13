@@ -55,10 +55,11 @@ volatile uint32_t rawADC_temp[4] = {0};
   * @param[in]  ADC_raw Pointer to the raw ADC values array.
   * @param[out]  analog Pointer to the ADC struct to store the results.
   * @param[out] feedback Pointer to the Feedback struct to store id and iq.
-  * @param[in]  theta_e Electrical angle in radians.
+  * @param[in] sinTheta_e Electrical angle sine (-1..1)
+  * @param[in] cosTheta_e Electrical angle cosine (-1..1)
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float theta_e){
+uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float sinTheta_e, float cosTheta_e){
 
     // Calculate currents and voltage
     float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, CURRENT_OFFSET);
@@ -76,7 +77,7 @@ uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analo
     float id_meas, iq_meas;
 
     // Pass pointers to id_meas and iq_meas
-    get_idiq(ia, ib, ic, theta_e, &id_meas, &iq_meas);
+    get_idiq(ia, ib, ic,  sinTheta_e, cosTheta_e, &id_meas, &iq_meas);
 
     // Store DQ currents in feedback struct
     feedback->id_meas = id_meas;
@@ -111,11 +112,12 @@ float get_linear(uint32_t bits, float slope, float offset) {
  * @param[in] ia Phase A current in A.
  * @param[in] ib Phase B current in A.
  * @param[in] ic Phase C current in A.
- * @param[in] theta_e Electrical rotor position in radians.
+ * @param[in] sinTheta_e Electrical angle sine (-1..1)
+ * @param[in] cosTheta_e Electrical angle cosine (-1..1)
  * @param[out] id_meas Pointer to store the D-axis current.
  * @param[out] iq_meas Pointer to store the Q-axis current.
  */
-void get_idiq(float ia, float ib, float ic, float theta_e, float *id_meas, float *iq_meas) {
+void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *id_meas, float *iq_meas) {
 
 	// Compute alpha beta using Clarke transformation
     float alpha = ia;
@@ -123,8 +125,8 @@ void get_idiq(float ia, float ib, float ic, float theta_e, float *id_meas, float
     // float beta = (ia + 2.0F*ib) * ISQ3;
 
     // Park transformation
-    *id_meas = alpha * cosf(theta_e) + beta * sinf(theta_e);  // d = alpha * cos(theta_e) + beta * sin(theta_e)
-    *iq_meas = beta * cosf(theta_e) - alpha * sinf(theta_e);  // q = beta * cos(theta_e) - alpha * sin(theta_e)
+    *id_meas = alpha * cosTheta_e + beta * sinTheta_e;  // d = alpha * cos(theta_e) + beta * sin(theta_e)
+    *iq_meas = beta * cosTheta_e - alpha * sinTheta_e;  // q = beta * cos(theta_e) - alpha * sin(theta_e)
 
 }
 

@@ -19,7 +19,7 @@
 
 #include "CONTROL.h"
 #include "INVERTER.h"
-
+#include <math.h>
 
 float vd_left = 0.0F;
 float vq_left = 100.0F;
@@ -46,11 +46,12 @@ void tasks_20us_left(void){
 
   angle_calc(&angle_left);
   inverter_left.encoder.theta_e = angle_left.angle*PI; // angle simulation
-
+  inverter_left.encoder.sinTheta_e = sinf(inverter_left.encoder.theta_e);
+  inverter_left.encoder.cosTheta_e = cosf(inverter_left.encoder.theta_e);
 
   start_ticks = SysTick->VAL;
-  get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.theta_e);
-  calc_duties(vd_left, vq_left, vDC_left, inverter_left.encoder.theta_e, &inverter_left.duties);
+  get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
+  calc_duties(vd_left, vq_left, vDC_left,  inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e, &inverter_left.duties);
   elapsed_ticks = start_ticks - SysTick->VAL;
 
   update_PWM(inverter_left.htim, inverter_left.duties);
