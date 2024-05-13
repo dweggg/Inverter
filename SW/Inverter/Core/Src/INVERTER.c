@@ -48,7 +48,7 @@ volatile InverterStruct inverter_right = {0};
  * @param[in] htim Timer peripheral for the PWM output.
  * @param[in] hadc ADC peripheral for the current phase current and DC voltage sensing.
  */
-void initialize_inverter(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
+void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
     // Initialize inverter structure
     inv->state = INV_STATE_STARTUP;
     inv->led = led;

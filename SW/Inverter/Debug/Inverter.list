@@ -746,7 +746,7 @@ void calc_duties(float vd, float vq, float vDC, float theta_e, volatile Duties *
  *
  * @param inv Pointer to the inverter structure.
  */
-void eval_inv_FSM(volatile inverterStruct *inv) {
+void eval_inv_FSM(volatile InverterStruct *inv) {
  800096c:	b580      	push	{r7, lr}
  800096e:	b082      	sub	sp, #8
  8000970:	af00      	add	r7, sp, #0
@@ -805,7 +805,7 @@ void eval_inv_FSM(volatile inverterStruct *inv) {
  *
  * @param inv Pointer to the inverter structure.
  */
-void handle_idle(volatile inverterStruct *inv) {
+void handle_idle(volatile InverterStruct *inv) {
  80009c0:	b580      	push	{r7, lr}
  80009c2:	b082      	sub	sp, #8
  80009c4:	af00      	add	r7, sp, #0
@@ -846,7 +846,7 @@ void handle_idle(volatile inverterStruct *inv) {
  *
  * @param inv Pointer to the inverter structure.
  */
-void handle_startup(volatile inverterStruct *inv) {
+void handle_startup(volatile InverterStruct *inv) {
  80009f4:	b580      	push	{r7, lr}
  80009f6:	b082      	sub	sp, #8
  80009f8:	af00      	add	r7, sp, #0
@@ -887,7 +887,7 @@ void handle_startup(volatile inverterStruct *inv) {
  *
  * @param inv Pointer to the inverter structure.
  */
-void handle_running(volatile inverterStruct *inv) {
+void handle_running(volatile InverterStruct *inv) {
  8000a28:	b580      	push	{r7, lr}
  8000a2a:	b082      	sub	sp, #8
  8000a2c:	af00      	add	r7, sp, #0
@@ -929,7 +929,7 @@ void handle_running(volatile inverterStruct *inv) {
  *
  * @param inv Pointer to the inverter structure.
  */
-void handle_fault(volatile inverterStruct *inv) {
+void handle_fault(volatile InverterStruct *inv) {
  8000a5c:	b580      	push	{r7, lr}
  8000a5e:	b082      	sub	sp, #8
  8000a60:	af00      	add	r7, sp, #0
@@ -970,7 +970,7 @@ void handle_fault(volatile inverterStruct *inv) {
  * @param[in] htim Timer peripheral for the PWM output.
  * @param[in] hadc ADC peripheral for the current phase current and DC voltage sensing.
  */
-void initialize_inverter(volatile inverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
+void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc) {
  8000a90:	b580      	push	{r7, lr}
  8000a92:	b084      	sub	sp, #16
  8000a94:	af00      	add	r7, sp, #0
@@ -1535,10 +1535,10 @@ void update_PWM(TIM_HandleTypeDef *htim, Duties duties) {
 	...
 
 08000e58 <tasks_1ms>:
+ * @brief Function to be executed every 1ms.
  *
  * This function is called by the TIM6 IRQ handler every millisecond.
- * It increments the millisecond counter and calls the LED handler
- * for left, right, and error LEDs.
+ * It increments the millisecond counter and executes all the low priority tasks.
  */
 void tasks_1ms(void) {
  8000e58:	b580      	push	{r7, lr}
@@ -1576,6 +1576,7 @@ void tasks_1ms(void) {
  8000e8a:	491d      	ldr	r1, [pc, #116]	@ (8000f00 <tasks_1ms+0xa8>)
  8000e8c:	481d      	ldr	r0, [pc, #116]	@ (8000f04 <tasks_1ms+0xac>)
  8000e8e:	f7ff ff27 	bl	8000ce0 <handle_direction>
+
 
     inverter_left.temp_inverter = get_temperature(rawADC_temp[0], tempLUT_inverter);
  8000e92:	4b1d      	ldr	r3, [pc, #116]	@ (8000f08 <tasks_1ms+0xb0>)

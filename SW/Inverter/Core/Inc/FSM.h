@@ -27,6 +27,6 @@
  *
  * @param inv Pointer to the inverter structure.
  */
-void eval_inv_FSM(volatile inverterStruct *inv);
+void eval_inv_FSM(volatile InverterStruct *inv);
 
 #endif /* FSM_H */
