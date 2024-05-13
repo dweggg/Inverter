@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 
 #include "CONTROL.h"
+
 #include <math.h> // sin/cos, M_PI
 #include <PergaMOD.h> // control functions
 #include "INVERTER.h" // TS
@@ -37,8 +38,8 @@ void calc_duties(float vd, float vq, float vDC, float theta_e, volatile Duties *
 
 
   // inverse Park transform
-  float alpha = (vd/vDC)*cos(theta_e) - (vq/vDC)*sin(theta_e);              // Alpha(D) = d*cos(Fi) - q*sin(Fi)
-  float beta = (vd/vDC)*sin(theta_e) + (vq/vDC)*cos(theta_e);              // Beta(Q) = d*sin(Fi) + q*cos(Fi)
+  float alpha = (vd/vDC)*cosf(theta_e) - (vq/vDC)*sinf(theta_e);              // Alpha(D) = d*cos(Fi) - q*sin(Fi)
+  float beta = (vd/vDC)*sinf(theta_e) + (vq/vDC)*cosf(theta_e);              // Beta(Q) = d*sin(Fi) + q*cos(Fi)
 
 
   svpwm_struct svpwm;
