@@ -23,6 +23,7 @@
 #include "PCB_IO.h" // peripheral types
 #include "MEASUREMENTS.h" // needs structs
 #include "REFERENCE.h" // reference struct
+#include "MOTOR.h" // motor struct
 #include "PWM.h" // duties struct
 
 
@@ -53,13 +54,16 @@ typedef struct {
     TIM_HandleTypeDef *htim;    /**< Handle of the timer peripheral for PWM output */
     ADC_HandleTypeDef *hadc;    /**< Handle of the ADC peripheral for current phase currents and DC voltage sensing */
     InverterState state;        /**< Current state of inverter operation */
-    Analog analog;  /**< Structure for phase currents and DC voltage measurements */
+    Analog analog;  			/**< Structure for phase currents and DC voltage measurements */
     Encoder encoder;            /**< Structure for encoder input */
     Feedback feedback;			/**< Structure for measured currents and calculated mechanical torque and speed */
     Duties duties;              /**< Structure for duty cycles for phases A, B, and C */
     int8_t direction;			/**< Motor direction: 1 CW, -1 CCW, 0 stopped*/
     float temp_inverter;		/**< Semiconductor temperature in degC*/
-    float temp_motor;		/**< Motor temperature in degC*/
+    float temp_motor;			/**< Motor temperature in degC*/
+    MotorParameters *motor;		/**< Motor parameters struct*/
+    pi_struct id_pi;    		/**< PI controller for D-axis current */
+    pi_struct iq_pi;   			/**< PI controller for Q-axis current */
 } InverterStruct;
 
 extern volatile InverterStruct inverter_left; /**< External declaration of the left inverter structure */
@@ -76,8 +80,16 @@ extern volatile InverterStruct inverter_right; /**< External declaration of the 
  * @param[in] enable_pin Pin number for enabling/disabling the inverter.
  * @param[in] htim Timer peripheral for the PWM output.
  * @param[in] hadc ADC peripheral for the current phase current and DC voltage sensing.
+ * @param[in] motor MotorParameters struct.
  */
-void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc);
+void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, MotorParameters *motor);
 
+
+/**
+ * @brief Initializes the id-iq current control PI controllers.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void init_idiq_loops(volatile InverterStruct *inv, MotorParameters *motor);
 
 #endif /* INVERTER_H */

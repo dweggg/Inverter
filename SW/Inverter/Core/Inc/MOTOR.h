@@ -38,4 +38,7 @@ typedef struct {
 
 } MotorParameters;
 
+extern MotorParameters motor_left;
+extern MotorParameters motor_right;
+
 #endif /* MOTOR_H */

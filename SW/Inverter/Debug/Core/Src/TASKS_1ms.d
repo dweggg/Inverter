@@ -33,8 +33,8 @@ Core/Src/TASKS_1ms.o: ../Core/Src/TASKS_1ms.c ../Core/Inc/TASKS_1ms.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
  ../Core/Inc/INVERTER.h ../Core/Inc/PCB_IO.h ../Core/Inc/MEASUREMENTS.h \
- ../Core/Inc/REFERENCE.h ../Core/Inc/PergaMOD.h ../Core/Inc/PWM.h \
- ../Core/Inc/MEASUREMENTS.h
+ ../Core/Inc/REFERENCE.h ../Core/Inc/PergaMOD.h ../Core/Inc/MOTOR.h \
+ ../Core/Inc/PWM.h ../Core/Inc/MEASUREMENTS.h
 ../Core/Inc/TASKS_1ms.h:
 ../Core/Inc/PCB_IO.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -75,5 +75,6 @@ Core/Src/TASKS_1ms.o: ../Core/Src/TASKS_1ms.c ../Core/Inc/TASKS_1ms.h \
 ../Core/Inc/MEASUREMENTS.h:
 ../Core/Inc/REFERENCE.h:
 ../Core/Inc/PergaMOD.h:
+../Core/Inc/MOTOR.h:
 ../Core/Inc/PWM.h:
 ../Core/Inc/MEASUREMENTS.h:
