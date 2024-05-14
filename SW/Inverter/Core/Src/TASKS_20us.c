@@ -22,9 +22,8 @@
 #include <math.h>
 
 float vd_left = 0.0F;
-float vq_left = 100.0F;
-float vDC_left = 300.0F;
-float freqRef_left = 50.0F;
+float vq_left = 7.5F;
+float vDC_left = 15.0F;
 
 
 uint32_t start_ticks = 0;
@@ -37,8 +36,8 @@ angle_struct angle_left = {
 };
 
 rampa_struct freqRamp_left = {
-		.in = 50.0F,
-		.Incr = 5*TS,
+		.in = 5.0F,
+		.Incr = TS,
 };
 
 /**
