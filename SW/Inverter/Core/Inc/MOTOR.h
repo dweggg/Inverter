@@ -41,4 +41,10 @@ typedef struct {
 extern MotorParameters motor_left;
 extern MotorParameters motor_right;
 
+/**
+  * @brief Perform a parameter check and correct possible errors.
+  * @param[in] motor Pointer to the MotorParameters struct.
+  * @retval OK 0 if an error occurred, 1 if successful.
+  */
+int check_motor_parameters(MotorParameters *motor, float Ts);
 #endif /* MOTOR_H */

@@ -65,7 +65,10 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
 
     HAL_TIM_Base_Start_IT(inv->htim);
 
-    init_idiq_loops(inv, motor);
+    if(check_motor_parameters(motor, TS))
+    	init_idiq_loops(inv, motor);
+    else
+        inv->state = INV_STATE_FAULT;
 
 }
 
@@ -78,7 +81,7 @@ void init_idiq_loops(volatile InverterStruct *inv, MotorParameters *motor) {
     inv->id_pi.Ts = TS;
     inv->iq_pi.Ts = TS;
 
-	float Mp = 0.02; // 2% overshoot
+	float Mp = 0.05; // 5% overshoot
 	float set_time = 0.001; // 1ms set time
 
     // Calculate damping ratio (xi)
