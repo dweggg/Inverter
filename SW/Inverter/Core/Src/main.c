@@ -117,12 +117,13 @@ int main(void)
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *) rawADC_left,4); // Starts ADC DMA for left inverter
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *) rawADC_right,4); // Starts ADC DMA for right inverter
 
-
   HAL_ADC_Start_DMA(&hadc3, (uint32_t *) rawADC_temp,4); // Starts ADC DMA for temperatures
 
   // 1ms timer
   HAL_TIM_Base_Start_IT(&htim6);
 
+
+  HAL_CAN_Start(&hcan1);
   /* USER CODE END 2 */
 
   /* Infinite loop */

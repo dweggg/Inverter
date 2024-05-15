@@ -16,14 +16,15 @@
   */
 /* USER CODE END Header */
 
+
+#ifndef MEASUREMENTS_H
+#define MEASUREMENTS_H
+
 /* Define current and voltage gains/offsets */
 #define CURRENT_SLOPE  54.4217687f  /**< [A/V] (10/(4.7+10)) * ( 1 / (12.5 mV / A)) */
 #define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
 #define VOLTAGE_SLOPE  263.435f  /**< [V/V] 1/(1/3 * 0.011388) V */
 #define VOLTAGE_OFFSET 0.02083f /**< [V] (100/(4700+100) * 5 V */
-
-#ifndef MEASUREMENTS_H
-#define MEASUREMENTS_H
 
 #include <stdint.h>
 

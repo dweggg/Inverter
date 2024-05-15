@@ -47,14 +47,19 @@ rampa_struct freqRamp_left = {
  */
 void tasks_20us_left(void){
 
+  // encoder simulation
   rampa_calc(&freqRamp_left);
   angle_left.freq = freqRamp_left.out;
-
   angle_calc(&angle_left);
+
+
+  // put this in encoder function
   inverter_left.encoder.theta_e = angle_left.angle*PI; // angle simulation
   inverter_left.encoder.sinTheta_e = sinf(inverter_left.encoder.theta_e);
   inverter_left.encoder.cosTheta_e = cosf(inverter_left.encoder.theta_e);
 
+
+  // actual control loop
   start_ticks = SysTick->VAL;
 
   get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);

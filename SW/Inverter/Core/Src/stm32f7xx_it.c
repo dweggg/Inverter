@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 #include "TASKS_1ms.h"
 #include "TASKS_20us.h"
+#include "CAN_e-Tech.h"
 
 /* USER CODE END Includes */
 
@@ -217,7 +218,7 @@ void CAN1_RX0_IRQHandler(void)
   /* USER CODE END CAN1_RX0_IRQn 0 */
   HAL_CAN_IRQHandler(&hcan1);
   /* USER CODE BEGIN CAN1_RX0_IRQn 1 */
-
+  handle_CAN(&hcan1);
   /* USER CODE END CAN1_RX0_IRQn 1 */
 }
 
