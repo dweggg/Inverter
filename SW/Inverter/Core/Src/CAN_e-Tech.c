@@ -45,19 +45,20 @@ void handle_CAN(CAN_HandleTypeDef *hcan) {
 }
 
 /**
-  * @brief Send a CAN message using generic information.
+  * @brief Send a CAN message using CAN1db.h information.
   *
-  * This function prepares and sends a CAN message using generic information.
+  * This function prepares and sends a CAN message using information from CAN1db.h.
   *
   * @param hcan Pointer to the CAN handle structure.
-  * @param msg_info Pointer to the structure containing CAN message information.
+  * @param dbc_msg Pointer to the structure containing CAN message information from CAN1db.h.
   * @param data Pointer to the array of float data to be sent.
   */
-void send_CAN_message_generic(CAN_HandleTypeDef *hcan, const CANMessageInfo *msg_info, const float *data) {
-    // Get the message attributes
-    const signal_positioned *signals = msg_info->getSig;
-    uint32_t id = msg_info->ID;
-    uint8_t dlc = msg_info->DLC;
+void send_CAN_message(CAN_HandleTypeDef *hcan, void *dbc_msg, const float *data) {
+    // Extract message information from dbc_msg
+    uint32_t id = ((const uint32_t*)dbc_msg)[0];
+    uint8_t ide = ((const uint8_t*)dbc_msg)[4];
+    uint8_t dlc = ((const uint8_t*)dbc_msg)[5];
+    const struct signal_positioned *signals = (const struct signal_positioned*)((const uint8_t*)dbc_msg + 12);
 
     // Prepare data array
     uint8_t txData[8] = {0};
@@ -81,7 +82,7 @@ void send_CAN_message_generic(CAN_HandleTypeDef *hcan, const CANMessageInfo *msg
     // Prepare CAN header
     CAN_TxHeaderTypeDef txHeader;
     txHeader.StdId = id;
-    txHeader.IDE = msg_info->IDE;
+    txHeader.IDE = ide;
     txHeader.RTR = CAN_RTR_DATA;
     txHeader.DLC = dlc;
 

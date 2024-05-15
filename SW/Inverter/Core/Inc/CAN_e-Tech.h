@@ -41,14 +41,14 @@ typedef struct {
 void handle_CAN(CAN_HandleTypeDef *hcan);
 
 /**
-  * @brief Send a CAN message using generic information.
+  * @brief Send a CAN message using CAN1db.h information.
   *
-  * This function prepares and sends a CAN message using generic information.
+  * This function prepares and sends a CAN message using information from CAN1db.h.
   *
   * @param hcan Pointer to the CAN handle structure.
-  * @param msg_info Pointer to the structure containing CAN message information.
+  * @param dbc_msg Pointer to the structure containing CAN message information from CAN1db.h.
   * @param data Pointer to the array of float data to be sent.
   */
-void send_CAN_message_generic(CAN_HandleTypeDef *hcan, const CANMessageInfo *msg_info, const float *data);
+void send_CAN_message(CAN_HandleTypeDef *hcan, void *dbc_msg, const float *data);
 
 #endif /* CAN_E_TECH_H */
