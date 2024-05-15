@@ -66,18 +66,20 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     HAL_TIM_Base_Start_IT(inv->htim);
 
     if(check_motor_parameters(motor, TS))
-    	init_idiq_loops(inv, motor);
+    	init_control_loops(inv, motor);
     else
         inv->state = INV_STATE_FAULT;
 
 }
 
 /**
- * @brief Initializes the id-iq current control PI controllers.
+ * @brief Initializes the PI controllers.
  *
  * @param inv Pointer to the inverter structure.
  */
-void init_idiq_loops(volatile InverterStruct *inv, MotorParameters *motor) {
+void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor) {
+
+	// current controllers
     inv->id_pi.Ts = TS;
     inv->iq_pi.Ts = TS;
 
@@ -99,5 +101,25 @@ void init_idiq_loops(volatile InverterStruct *inv, MotorParameters *motor) {
     inv->iq_pi.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
     inv->iq_pi.Ki = powf(omega_n, 2) * motor->Lq;
     pi_init(&(inv->iq_pi)); // Initialize iq PI controller (calculate K0, K1)
+
+
+    // speed controller
+    inv->speed_pi.Ts = TS;
+
+	float Mp_speed = 0.05; // 5% overshoot
+	float set_time_speed = 2; // 2s set time
+
+	float xi_speed = sqrtf(powf(logf(Mp_speed), 2) / (powf(PI, 2) + powf(logf(Mp_speed), 2))); // Mp is unitless
+    // Calculate natural frequency (omega_n)
+    float omega_n_speed = 3.0F / (xi_speed * set_time_speed); // set_time in seconds
+
+    inv->speed_pi.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
+    inv->speed_pi.Ki = powf(omega_n_speed, 2) * motor->J;
+
+    pi_init(&(inv->speed_pi)); // Initialize iq PI controller (calculate K0, K1)
+
+    inv->speed_pi.pi_out_max = motor->torque_max;
+    inv->speed_pi.pi_out_min = -(motor->torque_max);
+
 
 }

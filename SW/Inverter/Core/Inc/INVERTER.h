@@ -63,8 +63,10 @@ typedef struct {
     float temp_inverter;		/**< Semiconductor temperature in degC*/
     float temp_motor;			/**< Motor temperature in degC*/
     MotorParameters *motor;		/**< Motor parameters struct*/
-    pi_struct id_pi;    		/**< PI controller for D-axis current */
-    pi_struct iq_pi;   			/**< PI controller for Q-axis current */
+    pi_struct id_pi;    		/**< PI controller for d-axis current */
+    pi_struct iq_pi;   			/**< PI controller for q-axis current */
+    pi_struct speed_pi;   			/**< PI controller for q-axis current */
+
 } InverterStruct;
 
 extern volatile InverterStruct inverter_left; /**< External declaration of the left inverter structure */
@@ -91,6 +93,6 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
  *
  * @param inv Pointer to the inverter structure.
  */
-void init_idiq_loops(volatile InverterStruct *inv, MotorParameters *motor);
+void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor);
 
 #endif /* INVERTER_H */

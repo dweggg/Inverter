@@ -20,7 +20,8 @@
 #ifndef REFERENCE_H
 #define REFERENCE_H
 
-#include <PergaMOD.h>
+#include "PergaMOD.h" // ramp, pi struct
+#include "MOTOR.h" // motor struct
 #include <stdint.h>
 
 /**
@@ -31,6 +32,31 @@ typedef struct {
     float iq_ref;      /**< Reference q-axis current in A*/
     float torque_ref;  /**< Reference torque in N·m*/
 } Reference;
+
+
+/**
+ * @brief Handles torque control based on the reference torque, direction, maximum torque, maximum speed, measured speed,
+ *        maximum torque rate of change, speed control loop parameters, and sampling time.
+ *
+ * @param torque_ref_in     Input reference torque.
+ * @param direction         Direction of torque (1 for positive torque, -1 for negative torque).
+ * @param torque_max        Maximum allowable torque.
+ * @param speed_max_RPM     Maximum allowable speed in RPM.
+ * @param speed_meas        Measured speed.
+ * @param loop_speed        Speed control loop parameters.
+ *
+ * @return The output torque after handling direction, saturation, and rate limiting.
+ */
+float handle_torque_ref(float torque_ref_in, int8_t direction, float torque_max, float speed_max_RPM, float speed_meas, volatile pi_struct *loop_speed);
+
+/**
+ * @brief Initializes torque ramp
+ *
+ * @param dTorque_max       Maximum allowable rate of change of torque.
+ * @param Ts                Sampling time.
+ */
+void initialize_torque_ramp(float dTorque_max, float Ts);
+
 
 /**
  * @brief Set torque direction based on inverter direction.
@@ -62,10 +88,10 @@ float saturate_symmetric(float ref, float max_value);
  * @brief Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed.
  * @param[in] speed_max The maximum speed value in RPM.
  * @param[in] speed_meas The measured speed value in RPM.
- * @param[in] torque_ref_pre The torque reference value before this saturation.
+ * @param[in] torque_ref_in The torque reference value before this saturation.
  * @param[in] loop_speed Pointer to the speed PI controller structure.
- * @return The limited torque reference value after this saturation.
+ * @return torque_ref_out The limited torque reference value after this saturation.
  */
-float limit_torque_to_prevent_overspeed(float speed_max, float speed_meas, float torque_ref_pre, volatile pi_struct *loop_speed);
+float limit_torque_to_prevent_overspeed(float speed_max, float speed_meas, float torque_ref_in, volatile pi_struct *loop_speed);
 
 #endif /* REFERENCE_H */
