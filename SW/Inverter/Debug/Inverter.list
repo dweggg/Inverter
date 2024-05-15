@@ -29,27 +29,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 0000002e  00000000  00000000  0000f100  2**0
                   CONTENTS, READONLY
- 13 .debug_info   000270c8  00000000  00000000  0000f12e  2**0
+ 13 .debug_info   00027ee1  00000000  00000000  0000f12e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00005632  00000000  00000000  000361f6  2**0
+ 14 .debug_abbrev 00005673  00000000  00000000  0003700f  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_loclists 0000f4a2  00000000  00000000  0003b828  2**0
+ 15 .debug_loclists 0000f4a2  00000000  00000000  0003c682  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_aranges 000013a0  00000000  00000000  0004acd0  2**3
+ 16 .debug_aranges 000013a0  00000000  00000000  0004bb28  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_rnglists 00001ed3  00000000  00000000  0004c070  2**0
+ 17 .debug_rnglists 00001ed3  00000000  00000000  0004cec8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_macro  0002c2c9  00000000  00000000  0004df43  2**0
+ 18 .debug_macro  0002c2c9  00000000  00000000  0004ed9b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   0002a637  00000000  00000000  0007a20c  2**0
+ 19 .debug_line   0002a639  00000000  00000000  0007b064  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    001046f5  00000000  00000000  000a4843  2**0
+ 20 .debug_str    00104702  00000000  00000000  000a569d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .comment      00000043  00000000  00000000  001a8f38  2**0
+ 21 .comment      00000043  00000000  00000000  001a9d9f  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  000039fc  00000000  00000000  001a8f7c  2**2
+ 22 .debug_frame  000039fc  00000000  00000000  001a9de4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_line_str 0000005a  00000000  00000000  001ac978  2**0
+ 23 .debug_line_str 0000005a  00000000  00000000  001ad7e0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -676,7 +676,10 @@ void handle_CAN(CAN_HandleTypeDef *hcan) {
  80008ae:	9b03      	ldr	r3, [sp, #12]
  80008b0:	2bb1      	cmp	r3, #177	@ 0xb1
  80008b2:	d002      	beq.n	80008ba <handle_CAN+0x1a>
-        enableCAN = DBC_INVERTERS_MSG_AP_ETAS_EnableInv.getSigVal->Enable_Inv_R;
+        // sending a message: move all this to the synchronism message
+        float temperatures[] = {inverter_left.temp_inverter, inverter_right.temp_inverter, inverter_left.temp_motor, inverter_right.temp_motor};
+        send_CAN_message(hcan, &DBC_INVERTERS_MSG_AP_Inv_R_Temperatures, temperatures);
+
     }
 }
  80008b4:	b00b      	add	sp, #44	@ 0x2c

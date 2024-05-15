@@ -41,6 +41,11 @@ void handle_CAN(CAN_HandleTypeDef *hcan) {
     // Example: Check if the received message ID matches a specific ID
     if (rxHeader.StdId == DBC_INVERTERS_MSG_AP_ETAS_EnableInv.ID) {
         enableCAN = DBC_INVERTERS_MSG_AP_ETAS_EnableInv.getSigVal->Enable_Inv_R;
+
+        // sending a message: move all this to the synchronism message
+        float temperatures[] = {inverter_left.temp_inverter, inverter_right.temp_inverter, inverter_left.temp_motor, inverter_right.temp_motor};
+        send_CAN_message(hcan, &DBC_INVERTERS_MSG_AP_Inv_R_Temperatures, temperatures);
+
     }
 }
 
