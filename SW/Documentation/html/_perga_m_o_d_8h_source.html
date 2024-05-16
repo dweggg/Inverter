@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -55,6 +59,23 @@ $(function() {
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_perga_m_o_d_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -76,11 +97,6 @@ $(function() { codefold.init(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">PergaMOD.h</div></div>
 </div><!--header-->
@@ -142,7 +158,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>} <a class="code hl_struct" href="structpi__aw__struct.html">pi_aw_struct</a>;</div>
 </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___proportional.html#ga972a3c6a01a8a6a0c2ad415ca9af43cc">pi_aw_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structpi__aw__struct.html">pi_aw_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___proportional.html#ga972a3c6a01a8a6a0c2ad415ca9af43cc">pi_aw_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structpi__aw__struct.html">pi_aw_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
 <div class="foldopen" id="foldopen00078" data-start="{" data-end="};">
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="structpi__struct.html">   78</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
@@ -165,9 +181,9 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>} <a class="code hl_struct" href="structpi__struct.html">pi_struct</a>;</div>
 </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___proportional.html#ga7d78cf2a5a20ee07e1311e01d20c3d3f">pi_init</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structpi__struct.html">pi_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___proportional.html#ga7d78cf2a5a20ee07e1311e01d20c3d3f">pi_init</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structpi__struct.html">pi_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___proportional.html#ga911a13b7487ee7e538d7cfe2e276f12e">pi_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structpi__struct.html">pi_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___proportional.html#ga911a13b7487ee7e538d7cfe2e276f12e">pi_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structpi__struct.html">pi_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___proportional.html#ga13d559c9758c61f2cab20c44beaac68c">pi_extsat_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structpi__struct.html">pi_struct</a> *v);</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
@@ -182,7 +198,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>} <a class="code hl_struct" href="structclarke3_f__struct.html">clarke3F_struct</a>;</div>
 </div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___transformation___functions.html#ga467621f0bad48eddfbb75a5a460c371f">clarke3F_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structclarke3_f__struct.html">clarke3F_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___transformation___functions.html#ga467621f0bad48eddfbb75a5a460c371f">clarke3F_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structclarke3_f__struct.html">clarke3F_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
 <div class="foldopen" id="foldopen00143" data-start="{" data-end="};">
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="structiclarke3_f__struct.html">  143</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
@@ -210,7 +226,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>} <a class="code hl_struct" href="structrot__struct.html">rot_struct</a>;</div>
 </div>
 <div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___transformation___functions.html#ga3a266e18ea629facbeb442439d066ce4">rot_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structrot__struct.html">rot_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___transformation___functions.html#ga3a266e18ea629facbeb442439d066ce4">rot_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structrot__struct.html">rot_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
 <div class="foldopen" id="foldopen00181" data-start="{" data-end="};">
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="structirot__struct.html">  181</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
@@ -225,7 +241,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>} <a class="code hl_struct" href="structirot__struct.html">irot_struct</a>;</div>
 </div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___transformation___functions.html#ga9ec9411a108959be4eda9241a127596a">irot_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structirot__struct.html">irot_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___transformation___functions.html#ga9ec9411a108959be4eda9241a127596a">irot_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structirot__struct.html">irot_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
 <div class="foldopen" id="foldopen00208" data-start="{" data-end="};">
 <div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="structangle__struct.html">  208</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
@@ -236,7 +252,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>} <a class="code hl_struct" href="structangle__struct.html">angle_struct</a>;</div>
 </div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___utility___functions.html#ga7822a96ee28a38634e60b29f9d5f53f3">angle_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structangle__struct.html">angle_struct</a> *p) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___utility___functions.html#ga7822a96ee28a38634e60b29f9d5f53f3">angle_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structangle__struct.html">angle_struct</a> *p) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
 <div class="foldopen" id="foldopen00224" data-start="{" data-end="};">
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="structsvpwm__struct.html">  224</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
@@ -250,7 +266,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>} <a class="code hl_struct" href="structsvpwm__struct.html">svpwm_struct</a>;</div>
 </div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___utility___functions.html#ga6777e0c2b1e067acf6b99284625ec422">svpwm_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structsvpwm__struct.html">svpwm_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___utility___functions.html#ga6777e0c2b1e067acf6b99284625ec422">svpwm_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structsvpwm__struct.html">svpwm_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
 <div class="foldopen" id="foldopen00249" data-start="{" data-end="};">
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="structrampa__struct.html">  249</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
@@ -275,9 +291,9 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>} <a class="code hl_struct" href="structrampa__dual__struct.html">rampa_dual_struct</a>;</div>
 </div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___signal___processing___functions.html#gabebbba661473bad366efd03e7d641d6c">rampa_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structrampa__struct.html">rampa_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___signal___processing___functions.html#gabebbba661473bad366efd03e7d641d6c">rampa_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structrampa__struct.html">rampa_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___signal___processing___functions.html#ga3aa851ac283ae23f368d723a902adf5e">rampa_dual_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structrampa__dual__struct.html">rampa_dual_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___signal___processing___functions.html#ga3aa851ac283ae23f368d723a902adf5e">rampa_dual_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structrampa__dual__struct.html">rampa_dual_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="group___signal___processing___functions.html#gade7a581289700b0f02e5e29cf78e218b">  287</a></span><span class="preprocessor">#define N_DATALOG 256   </span></div>
 <div class="foldopen" id="foldopen00289" data-start="{" data-end="};">
@@ -317,7 +333,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>} <a class="code hl_struct" href="struct_r_m_s__struct.html">RMS_struct</a>;</div>
 </div>
 <div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___signal___processing___functions.html#ga67e0dc51870eb4743e252c8e6512070a">RMS_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="struct_r_m_s__struct.html">RMS_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___signal___processing___functions.html#ga67e0dc51870eb4743e252c8e6512070a">RMS_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="struct_r_m_s__struct.html">RMS_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
 <div class="foldopen" id="foldopen00343" data-start="{" data-end="};">
 <div class="line"><a id="l00343" name="l00343"></a><span class="lineno"><a class="line" href="structfiltre_l_p__struct.html">  343</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
@@ -335,7 +351,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span> </div>
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___signal___processing___functions.html#gadf4453b19a3d2334b2378ad5998133aa">filtreLP_init</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structfiltre_l_p__struct.html">filtreLP_struct</a> *v);</div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___signal___processing___functions.html#gaeae3629e14741deddb169656d4d19cc8">filtreLP_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structfiltre_l_p__struct.html">filtreLP_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___signal___processing___functions.html#gaeae3629e14741deddb169656d4d19cc8">filtreLP_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structfiltre_l_p__struct.html">filtreLP_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
 <div class="foldopen" id="foldopen00377" data-start="{" data-end="};">
 <div class="line"><a id="l00377" name="l00377"></a><span class="lineno"><a class="line" href="structstep__struct.html">  377</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
@@ -352,9 +368,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>} <a class="code hl_struct" href="structstep__struct.html">step_struct</a>;</div>
 </div>
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___miscellaneous___functions.html#gaf6846d0a6709be95c2bd9dc7a7339f70">step_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structstep__struct.html">step_struct</a> *v) <a class="code hl_function" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___miscellaneous___functions.html#gaf6846d0a6709be95c2bd9dc7a7339f70">step_calc</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="structstep__struct.html">step_struct</a> *v) <a class="code hl_function" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a>( ( section ( <span class="stringliteral">&quot;.ccmram&quot;</span> ) ) );</div>
 <div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span><span class="preprocessor">#endif </span><span class="comment">// __PERGAMON_FLOAT_H__</span></div>
+<div class="ttc" id="a_c_a_n1db_8h_html_a5cc5a29441018be950f2fd9ede0345a2"><div class="ttname"><a href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">__attribute__</a></div><div class="ttdeci">struct __attribute__((packed)) DBC_INVERTERS_MSG_AP_ETAS_EnableInv_getSigVal</div><div class="ttdef"><b>Definition</b> CAN1db.h:6</div></div>
 <div class="ttc" id="agroup___miscellaneous___functions_html_gaf6846d0a6709be95c2bd9dc7a7339f70"><div class="ttname"><a href="group___miscellaneous___functions.html#gaf6846d0a6709be95c2bd9dc7a7339f70">step_calc</a></div><div class="ttdeci">void step_calc(volatile step_struct *v) __attribute__((section(&quot;.ccmram&quot;)))</div><div class="ttdoc">Calculates the output of the step function generator.</div><div class="ttdef"><b>Definition</b> PergaMOD.c:468</div></div>
 <div class="ttc" id="agroup___proportional_html_ga13d559c9758c61f2cab20c44beaac68c"><div class="ttname"><a href="group___proportional.html#ga13d559c9758c61f2cab20c44beaac68c">pi_extsat_calc</a></div><div class="ttdeci">void pi_extsat_calc(volatile pi_struct *v)</div><div class="ttdoc">Calculates the output of the PI controller with external saturation.</div><div class="ttdef"><b>Definition</b> PergaMOD.c:119</div></div>
 <div class="ttc" id="agroup___proportional_html_ga7d78cf2a5a20ee07e1311e01d20c3d3f"><div class="ttname"><a href="group___proportional.html#ga7d78cf2a5a20ee07e1311e01d20c3d3f">pi_init</a></div><div class="ttdeci">void pi_init(volatile pi_struct *v) __attribute__((section(&quot;.ccmram&quot;)))</div><div class="ttdoc">Initializes the PI controller.</div><div class="ttdef"><b>Definition</b> PergaMOD.c:73</div></div>
@@ -476,11 +493,14 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="astructsvpwm__struct_html_aa773d9a6c0ccefaa0fc9ab66fec68ec1"><div class="ttname"><a href="structsvpwm__struct.html#aa773d9a6c0ccefaa0fc9ab66fec68ec1">svpwm_struct::beta</a></div><div class="ttdeci">float beta</div><div class="ttdef"><b>Definition</b> PergaMOD.h:227</div></div>
 <div class="ttc" id="astructsvpwm__struct_html_ab1551d8043c2aa4410fb7dbb1fe3be7b"><div class="ttname"><a href="structsvpwm__struct.html#ab1551d8043c2aa4410fb7dbb1fe3be7b">svpwm_struct::alpha</a></div><div class="ttdeci">float alpha</div><div class="ttdef"><b>Definition</b> PergaMOD.h:226</div></div>
 <div class="ttc" id="astructsvpwm__struct_html_ad191bbe88e6eb3c2ec28fe5f5e31396c"><div class="ttname"><a href="structsvpwm__struct.html#ad191bbe88e6eb3c2ec28fe5f5e31396c">svpwm_struct::Da</a></div><div class="ttdeci">float Da</div><div class="ttdef"><b>Definition</b> PergaMOD.h:228</div></div>
-<div class="ttc" id="asyscalls_8c_html_af9aace1b44b73111e15aa39f06f43456"><div class="ttname"><a href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">__attribute__</a></div><div class="ttdeci">__attribute__((weak))</div><div class="ttdef"><b>Definition</b> syscalls.c:67</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li><li class="navelem"><a class="el" href="_perga_m_o_d_8h.html">PergaMOD.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

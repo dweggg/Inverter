@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -51,6 +55,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('functions_vars.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -85,13 +105,14 @@ $(function() {
 <li>angle&#160;:&#160;<a class="el" href="structangle__struct.html#ab8ef1bf8a70cc07c6d55823c390a7e76">angle_struct</a></li>
 <li>Angle&#160;:&#160;<a class="el" href="struct_r_m_s__struct.html#a77219e3a8b4750baa3ba320d772b9d04">RMS_struct</a></li>
 <li>Angle_ant&#160;:&#160;<a class="el" href="struct_r_m_s__struct.html#a1d8eafc2c8a739019c95f20fe50be1ff">RMS_struct</a></li>
+<li>attributes&#160;:&#160;<a class="el" href="structsignal__positioned.html#ae9ee7710af2dfbbc0fcb6ec6fd199266">signal_positioned</a></li>
 </ul>
 
 
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
 <li>b&#160;:&#160;<a class="el" href="structclarke3_f__struct.html#a83fc1af92e29717b4513d121b0c72c7d">clarke3F_struct</a></li>
 <li>B&#160;:&#160;<a class="el" href="struct_encoder.html#ae783bd90764c8455228772c025c064e4">Encoder</a></li>
-<li>b&#160;:&#160;<a class="el" href="structiclarke3_f__struct.html#a83fc1af92e29717b4513d121b0c72c7d">iclarke3F_struct</a>, <a class="el" href="structmotor_parameters.html#a83fc1af92e29717b4513d121b0c72c7d">motorParameters</a></li>
+<li>b&#160;:&#160;<a class="el" href="structiclarke3_f__struct.html#a83fc1af92e29717b4513d121b0c72c7d">iclarke3F_struct</a>, <a class="el" href="struct_motor_parameters.html#a83fc1af92e29717b4513d121b0c72c7d">MotorParameters</a></li>
 <li>beta&#160;:&#160;<a class="el" href="structirot__struct.html#aa773d9a6c0ccefaa0fc9ab66fec68ec1">irot_struct</a>, <a class="el" href="structsvpwm__struct.html#aa773d9a6c0ccefaa0fc9ab66fec68ec1">svpwm_struct</a></li>
 </ul>
 
@@ -99,6 +120,7 @@ $(function() {
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>calc&#160;:&#160;<a class="el" href="structangle__struct.html#aa2e607744fefe17f425d4f666a7b7411">angle_struct</a>, <a class="el" href="structclarke3_f__struct.html#aa2e607744fefe17f425d4f666a7b7411">clarke3F_struct</a>, <a class="el" href="structdatalog__struct.html#aa2e607744fefe17f425d4f666a7b7411">datalog_struct</a>, <a class="el" href="structfiltre_l_p__struct.html#aa2e607744fefe17f425d4f666a7b7411">filtreLP_struct</a>, <a class="el" href="structiclarke3_f__struct.html#aa2e607744fefe17f425d4f666a7b7411">iclarke3F_struct</a>, <a class="el" href="structirot__struct.html#aa2e607744fefe17f425d4f666a7b7411">irot_struct</a>, <a class="el" href="structpi__aw__struct.html#aa2e607744fefe17f425d4f666a7b7411">pi_aw_struct</a>, <a class="el" href="structpi__struct.html#aa2e607744fefe17f425d4f666a7b7411">pi_struct</a>, <a class="el" href="structrampa__dual__struct.html#aa2e607744fefe17f425d4f666a7b7411">rampa_dual_struct</a>, <a class="el" href="structrampa__struct.html#aa2e607744fefe17f425d4f666a7b7411">rampa_struct</a>, <a class="el" href="structrot__struct.html#aa2e607744fefe17f425d4f666a7b7411">rot_struct</a>, <a class="el" href="structstep__struct.html#aa2e607744fefe17f425d4f666a7b7411">step_struct</a>, <a class="el" href="structsvpwm__struct.html#aa2e607744fefe17f425d4f666a7b7411">svpwm_struct</a></li>
 <li>cosFi&#160;:&#160;<a class="el" href="structirot__struct.html#a883fa6b46bf62e4b726b078ab0df3789">irot_struct</a>, <a class="el" href="structrot__struct.html#a883fa6b46bf62e4b726b078ab0df3789">rot_struct</a></li>
+<li>cosTheta_e&#160;:&#160;<a class="el" href="struct_encoder.html#ac6881e0192309ae82ce5b4e9ac4dc714">Encoder</a></li>
 <li>Counter&#160;:&#160;<a class="el" href="structstep__struct.html#abef4248412159e665620f746a9d7d3f8">step_struct</a></li>
 </ul>
 
@@ -112,8 +134,9 @@ $(function() {
 <li>Dc&#160;:&#160;<a class="el" href="struct_duties.html#a0572a22e71233008995e38736a5331ec">Duties</a>, <a class="el" href="structsvpwm__struct.html#a0572a22e71233008995e38736a5331ec">svpwm_struct</a></li>
 <li>Decr&#160;:&#160;<a class="el" href="structrampa__dual__struct.html#a32c558a869ee30980565f9a77c158190">rampa_dual_struct</a></li>
 <li>direction&#160;:&#160;<a class="el" href="struct_inverter_struct.html#a64137967141ad97b940c16a035615d09">InverterStruct</a></li>
-<li>direction_meas&#160;:&#160;<a class="el" href="struct_encoder.html#a81b668fe449f8b496072376c71fa2866">Encoder</a></li>
-<li>dTorque_max&#160;:&#160;<a class="el" href="structmotor_parameters.html#aa2f8997a0bbb31cf092fcd15801add2a">motorParameters</a></li>
+<li>directionMeas&#160;:&#160;<a class="el" href="struct_encoder.html#ab68fc2f847c9a5e38d2339d378e294c1">Encoder</a></li>
+<li>DLC&#160;:&#160;<a class="el" href="struct_c_a_n_message_info.html#a4727282c7bbfbfe8dddae8e965a5e41f">CANMessageInfo</a></li>
+<li>dTorque_max&#160;:&#160;<a class="el" href="struct_motor_parameters.html#aa2f8997a0bbb31cf092fcd15801add2a">MotorParameters</a></li>
 <li>duties&#160;:&#160;<a class="el" href="struct_inverter_struct.html#a88998233bb1ff2e5bc086febe6789332">InverterStruct</a></li>
 </ul>
 
@@ -129,11 +152,17 @@ $(function() {
 
 
 <h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
+<li>factor&#160;:&#160;<a class="el" href="structsignal.html#a652dcaa1d83d3a739296976a19c37347">signal</a></li>
 <li>fc&#160;:&#160;<a class="el" href="structfiltre_l_p__struct.html#aa7e91fb4ae3d43a619ae7d427767b97e">filtreLP_struct</a></li>
 <li>feedback&#160;:&#160;<a class="el" href="struct_inverter_struct.html#a20a30b84d36e84b3d0e6ca4db56f723c">InverterStruct</a></li>
 <li>freq&#160;:&#160;<a class="el" href="structangle__struct.html#a4409e94ad13a060b0ffbc0f371c80004">angle_struct</a></li>
 <li>Freq&#160;:&#160;<a class="el" href="struct_r_m_s__struct.html#a43309625d2b3d92eaeef69a5a6797244">RMS_struct</a></li>
 <li>fs&#160;:&#160;<a class="el" href="structstep__struct.html#abda5a6ad49c233891cb4b563a37ab105">step_struct</a></li>
+</ul>
+
+
+<h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
+<li>getSig&#160;:&#160;<a class="el" href="struct_c_a_n_message_info.html#ab99f66f8b3fd2662754d745acd77f248">CANMessageInfo</a></li>
 </ul>
 
 
@@ -148,19 +177,25 @@ $(function() {
 <li>ia&#160;:&#160;<a class="el" href="struct_analog.html#a7b367da12b961437c2059d6da0595a14">Analog</a></li>
 <li>ib&#160;:&#160;<a class="el" href="struct_analog.html#aa2e5a869148258735d37540db788c66c">Analog</a></li>
 <li>ic&#160;:&#160;<a class="el" href="struct_analog.html#a9e556245df4e7b1be25fbb5e2075d50a">Analog</a></li>
-<li>id_meas&#160;:&#160;<a class="el" href="struct_feedback.html#aba9357ae5dd0ef451a25dc0b9a1d5684">Feedback</a></li>
+<li>ID&#160;:&#160;<a class="el" href="struct_c_a_n_message_info.html#a0364849925d3c762ce722e963712b123">CANMessageInfo</a></li>
+<li>IDE&#160;:&#160;<a class="el" href="struct_c_a_n_message_info.html#a374853775ad7fb1713c183fecf6aa487">CANMessageInfo</a></li>
+<li>idLoop&#160;:&#160;<a class="el" href="struct_inverter_struct.html#a76141940d12e361a3b7f33840274133a">InverterStruct</a></li>
+<li>idMeas&#160;:&#160;<a class="el" href="struct_feedback.html#ad4e628fe9fa9c7d9ab0f0a1b0f826ee7">Feedback</a></li>
+<li>idRef&#160;:&#160;<a class="el" href="struct_reference.html#a5896cad66e973075ed4fb7f0ad07965c">Reference</a></li>
 <li>in&#160;:&#160;<a class="el" href="structavg__struct__10.html#aa08a0d16672cd94c2599061cae435a2f">avg_struct_10</a>, <a class="el" href="structfiltre_l_p__struct.html#ae7d18e86426895053287f7804575536b">filtreLP_struct</a>, <a class="el" href="structrampa__dual__struct.html#ae7d18e86426895053287f7804575536b">rampa_dual_struct</a>, <a class="el" href="structrampa__struct.html#ae7d18e86426895053287f7804575536b">rampa_struct</a></li>
 <li>In&#160;:&#160;<a class="el" href="structstep__struct.html#a42110e0d8fa1f4f88cfba5704c1fe3a1">step_struct</a></li>
 <li>Incr&#160;:&#160;<a class="el" href="structrampa__dual__struct.html#a6da850aeb21ef46921710fca35d342ce">rampa_dual_struct</a>, <a class="el" href="structrampa__struct.html#a6da850aeb21ef46921710fca35d342ce">rampa_struct</a></li>
 <li>init&#160;:&#160;<a class="el" href="structfiltre_l_p__struct.html#afd461a800544d52e7c3899da989ffe44">filtreLP_struct</a>, <a class="el" href="structpi__struct.html#afd461a800544d52e7c3899da989ffe44">pi_struct</a></li>
-<li>iPhase_pk_max&#160;:&#160;<a class="el" href="structmotor_parameters.html#ae0b158be47384d1cbf1bfb3d1ec9f88b">motorParameters</a></li>
-<li>iq_meas&#160;:&#160;<a class="el" href="struct_feedback.html#ab8f3225cf816659420ce027c3de5d2e7">Feedback</a></li>
+<li>iPhase_pk_max&#160;:&#160;<a class="el" href="struct_motor_parameters.html#ae0b158be47384d1cbf1bfb3d1ec9f88b">MotorParameters</a></li>
+<li>iqLoop&#160;:&#160;<a class="el" href="struct_inverter_struct.html#aabc1539fbf53f8a59763438070b3f124">InverterStruct</a></li>
+<li>iqMeas&#160;:&#160;<a class="el" href="struct_feedback.html#a3c7d6939406c8a0ba89c96cbf49db5db">Feedback</a></li>
+<li>iqRef&#160;:&#160;<a class="el" href="struct_reference.html#ada1dbfeb5f056dc31bd0f044f5129754">Reference</a></li>
 </ul>
 
 
 <h3><a id="index_j" name="index_j"></a>- j -</h3><ul>
 <li>j&#160;:&#160;<a class="el" href="structdatalog__struct.html#a538d097420e725c4dad63c3caa9e55bd">datalog_struct</a></li>
-<li>J&#160;:&#160;<a class="el" href="structmotor_parameters.html#a7c20f6b5c2b8c830d450944735b761b3">motorParameters</a></li>
+<li>J&#160;:&#160;<a class="el" href="struct_motor_parameters.html#a7c20f6b5c2b8c830d450944735b761b3">MotorParameters</a></li>
 </ul>
 
 
@@ -174,21 +209,31 @@ $(function() {
 
 
 <h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>lambda&#160;:&#160;<a class="el" href="structmotor_parameters.html#acac4a565486bad0b88b62387d8a5d891">motorParameters</a></li>
-<li>Ld&#160;:&#160;<a class="el" href="structmotor_parameters.html#a07bad721e5354a6283503711b07129c9">motorParameters</a></li>
+<li>lambda&#160;:&#160;<a class="el" href="struct_motor_parameters.html#acac4a565486bad0b88b62387d8a5d891">MotorParameters</a></li>
+<li>Ld&#160;:&#160;<a class="el" href="struct_motor_parameters.html#a07bad721e5354a6283503711b07129c9">MotorParameters</a></li>
 <li>led&#160;:&#160;<a class="el" href="struct_inverter_struct.html#ae6ddb8a94132877213fb3b58d9f25f97">InverterStruct</a></li>
+<li>lengthBits&#160;:&#160;<a class="el" href="structsignal.html#a1702990dd39dfa0b7bd671fdd45b2a7c">signal</a></li>
 <li>log&#160;:&#160;<a class="el" href="structdatalog__struct.html#aba3acc8cf586fde40a40dce79d3cd95b">datalog_struct</a></li>
-<li>Lq&#160;:&#160;<a class="el" href="structmotor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b">motorParameters</a></li>
+<li>Lq&#160;:&#160;<a class="el" href="struct_motor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b">MotorParameters</a></li>
 </ul>
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
+<li>max&#160;:&#160;<a class="el" href="structsignal.html#a9a639a62d4e16d1e3a243f6c136eab4e">signal</a></li>
 <li>Measure&#160;:&#160;<a class="el" href="struct_r_m_s__struct.html#a0af02b8d5ae9c0272d99915c70220f68">RMS_struct</a></li>
+<li>min&#160;:&#160;<a class="el" href="structsignal.html#ab37ee3f0c5e4985ec164e679ae217a54">signal</a></li>
 <li>mode&#160;:&#160;<a class="el" href="struct_l_e_d.html#a4818c083da43e1287221b9fde5f396a1">LED</a></li>
+<li>motor&#160;:&#160;<a class="el" href="struct_inverter_struct.html#aeb5a73cc5e210677ca154e796186787f">InverterStruct</a></li>
+</ul>
+
+
+<h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
+<li>name&#160;:&#160;<a class="el" href="structsignal.html#a8f8f80d37794cde9472343e4487ba3eb">signal</a></li>
 </ul>
 
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
+<li>offset&#160;:&#160;<a class="el" href="structsignal.html#a348ad5fc33f6dc5e6e30f74951997898">signal</a></li>
 <li>out&#160;:&#160;<a class="el" href="structavg__struct__10.html#af5a45dbcaa926b186e6f71d08212acc3">avg_struct_10</a>, <a class="el" href="structfiltre_l_p__struct.html#af5a45dbcaa926b186e6f71d08212acc3">filtreLP_struct</a>, <a class="el" href="structrampa__dual__struct.html#af5a45dbcaa926b186e6f71d08212acc3">rampa_dual_struct</a>, <a class="el" href="structrampa__struct.html#af5a45dbcaa926b186e6f71d08212acc3">rampa_struct</a></li>
 <li>Out&#160;:&#160;<a class="el" href="structstep__struct.html#a6bd2ff5633bb0078948e3f9f54bd083c">step_struct</a></li>
 <li>Out_RMS&#160;:&#160;<a class="el" href="struct_r_m_s__struct.html#ad33e1262448a6f7f78f9dc8b88375d54">RMS_struct</a></li>
@@ -207,7 +252,8 @@ $(function() {
 <li>pi_out_presat&#160;:&#160;<a class="el" href="structpi__aw__struct.html#adbbdb52a2ed9dad1d0e806acf7877cb6">pi_aw_struct</a></li>
 <li>pin&#160;:&#160;<a class="el" href="struct_l_e_d.html#a4144813adfa4dfe7e7cbeea17d1b06eb">LED</a></li>
 <li>port&#160;:&#160;<a class="el" href="struct_l_e_d.html#a82241972e0292c7de95ea1e293e11be3">LED</a></li>
-<li>pp&#160;:&#160;<a class="el" href="structmotor_parameters.html#abd6dcb9676af8cd7922ef29864fa03eb">motorParameters</a></li>
+<li>position&#160;:&#160;<a class="el" href="structsignal__positioned.html#a5357273a366d4845a424d253da67e1a0">signal_positioned</a></li>
+<li>pp&#160;:&#160;<a class="el" href="struct_motor_parameters.html#abd6dcb9676af8cd7922ef29864fa03eb">MotorParameters</a></li>
 <li>prescaler&#160;:&#160;<a class="el" href="structdatalog__struct.html#aed7c15ebb12ef4b8e90c0c0e79d414a7">datalog_struct</a></li>
 <li>Pulses&#160;:&#160;<a class="el" href="structstep__struct.html#a5c0f85874c673b4f82dad202861079be">step_struct</a></li>
 </ul>
@@ -221,14 +267,17 @@ $(function() {
 
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>Rs&#160;:&#160;<a class="el" href="structmotor_parameters.html#aca721ce2e7dddc5d3091a18d715dd409">motorParameters</a></li>
+<li>reference&#160;:&#160;<a class="el" href="struct_inverter_struct.html#a5a963265d9630f699ae4106f34002ac5">InverterStruct</a></li>
+<li>Rs&#160;:&#160;<a class="el" href="struct_motor_parameters.html#aca721ce2e7dddc5d3091a18d715dd409">MotorParameters</a></li>
 </ul>
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>sinFi&#160;:&#160;<a class="el" href="structirot__struct.html#a56670a00f3c413aad514d2ce8c0348e2">irot_struct</a>, <a class="el" href="structrot__struct.html#a56670a00f3c413aad514d2ce8c0348e2">rot_struct</a></li>
-<li>speed_max_RPM&#160;:&#160;<a class="el" href="structmotor_parameters.html#a316b2fe5d1f410ba6f5f343830110d2d">motorParameters</a></li>
-<li>speed_meas&#160;:&#160;<a class="el" href="struct_feedback.html#a36cc750b6ad8640f7dde3a9db5c72757">Feedback</a></li>
+<li>sinTheta_e&#160;:&#160;<a class="el" href="struct_encoder.html#a47f02ef71d97b242663572202fe64f90">Encoder</a></li>
+<li>speed_max_RPM&#160;:&#160;<a class="el" href="struct_motor_parameters.html#a316b2fe5d1f410ba6f5f343830110d2d">MotorParameters</a></li>
+<li>speedLoop&#160;:&#160;<a class="el" href="struct_inverter_struct.html#aaed477d964d824fd09123df9e8b16b50">InverterStruct</a></li>
+<li>speedMeas&#160;:&#160;<a class="el" href="struct_feedback.html#a2583c34bc441014f4cd3b6f6cc4f5ac4">Feedback</a></li>
 <li>Sq_Sum&#160;:&#160;<a class="el" href="struct_r_m_s__struct.html#aae996104ddabc163da85b5a2e7cbeae0">RMS_struct</a></li>
 <li>state&#160;:&#160;<a class="el" href="struct_inverter_struct.html#a90233d4d22b0a532c6c36114e0ce7650">InverterStruct</a></li>
 <li>Step&#160;:&#160;<a class="el" href="structstep__struct.html#a1c2969ff45f80f83afc6376aac12fd94">step_struct</a></li>
@@ -238,19 +287,26 @@ $(function() {
 <h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
 <li>T_exec&#160;:&#160;<a class="el" href="struct_r_m_s__struct.html#ae43ba3eb3af0af99358f93f3e79bfdbc">RMS_struct</a></li>
 <li>t_step&#160;:&#160;<a class="el" href="structstep__struct.html#a0c87080ceb65ae86de972a8a75c6eb19">step_struct</a></li>
-<li>temp_inverter&#160;:&#160;<a class="el" href="struct_inverter_struct.html#a4beef132716905853cd6ae37080c4c5d">InverterStruct</a></li>
-<li>temp_motor&#160;:&#160;<a class="el" href="struct_inverter_struct.html#abb60d2beeef6a3b479773078b9ed98d2">InverterStruct</a></li>
+<li>tempInverter&#160;:&#160;<a class="el" href="struct_inverter_struct.html#a9732bacc0a7fa9b2fcc3b08fc85b071f">InverterStruct</a></li>
+<li>tempMotor&#160;:&#160;<a class="el" href="struct_inverter_struct.html#ac6c9938ffe4a3de041c4d27c141d35d7">InverterStruct</a></li>
 <li>theta_e&#160;:&#160;<a class="el" href="struct_encoder.html#affa9013ea1e246c1f69bba53632a967b">Encoder</a></li>
-<li>torque_calc&#160;:&#160;<a class="el" href="struct_feedback.html#a7e4ae436265fab61d86e430a8b13191d">Feedback</a></li>
-<li>torque_max&#160;:&#160;<a class="el" href="structmotor_parameters.html#acab6d1fef9697fa064ebe6f10cdd7ec9">motorParameters</a></li>
+<li>torque_max&#160;:&#160;<a class="el" href="struct_motor_parameters.html#acab6d1fef9697fa064ebe6f10cdd7ec9">MotorParameters</a></li>
+<li>torqueCalc&#160;:&#160;<a class="el" href="struct_feedback.html#a7cf0ca173060ec36197dd701fc1688ea">Feedback</a></li>
+<li>torqueRef&#160;:&#160;<a class="el" href="struct_reference.html#a0ec2edb27428865626d5581b8af17d9e">Reference</a></li>
 <li>Ts&#160;:&#160;<a class="el" href="structangle__struct.html#ae404d1d1555eede4ef92c630399e0566">angle_struct</a>, <a class="el" href="structfiltre_l_p__struct.html#ae404d1d1555eede4ef92c630399e0566">filtreLP_struct</a>, <a class="el" href="structpi__aw__struct.html#ae404d1d1555eede4ef92c630399e0566">pi_aw_struct</a>, <a class="el" href="structpi__struct.html#ae404d1d1555eede4ef92c630399e0566">pi_struct</a></li>
 </ul>
 
 
+<h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
+<li>unit&#160;:&#160;<a class="el" href="structsignal.html#aecc11ed10081190afa939a166627f9d4">signal</a></li>
+</ul>
+
+
 <h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>valueType&#160;:&#160;<a class="el" href="structsignal.html#a403f75144618434595f6204cb006b8ed">signal</a></li>
 <li>var&#160;:&#160;<a class="el" href="structdatalog__struct.html#a7b40c4da57cbde5dc963ea5186457749">datalog_struct</a></li>
 <li>vDC&#160;:&#160;<a class="el" href="struct_analog.html#a8e83e7c3f440822ab3af5f71c6bee348">Analog</a></li>
-<li>vDC_max&#160;:&#160;<a class="el" href="structmotor_parameters.html#a7c16493fa7f251e317f1a8f30355e04c">motorParameters</a></li>
+<li>vDC_max&#160;:&#160;<a class="el" href="struct_motor_parameters.html#a7c16493fa7f251e317f1a8f30355e04c">MotorParameters</a></li>
 </ul>
 
 
@@ -263,9 +319,12 @@ $(function() {
 <li>Z&#160;:&#160;<a class="el" href="struct_encoder.html#a5a8eb607e6c3f820a971b163abc936d5">Encoder</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -55,6 +59,23 @@ $(function() {
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_m_e_a_s_u_r_e_m_e_n_t_s_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -76,11 +97,6 @@ $(function() { codefold.init(0); });
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">MEASUREMENTS.h</div></div>
 </div><!--header-->
@@ -88,91 +104,99 @@ $(function() { codefold.init(0); });
 <a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* USER CODE BEGIN Header */</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">/* USER CODE END Header */</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/* Define current and voltage gains/offsets */</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2150fcc444ac69220b2a1d990e4df5c7">   20</a></span><span class="preprocessor">#define CURRENT_SLOPE  54.4217687f  </span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aa4c5585f0614881f8b9a56ce287ed2f7">   21</a></span><span class="preprocessor">#define CURRENT_OFFSET 1.70068027211f </span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aec92a06aa87b2439d7af214a35dff20a">   22</a></span><span class="preprocessor">#define VOLTAGE_SLOPE  263.435f  </span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a0e190e318cba64e487ce9f09fca3963f">   23</a></span><span class="preprocessor">#define VOLTAGE_OFFSET 0.02083f </span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#ifndef MEASUREMENTS_H</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#define MEASUREMENTS_H</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a7bb08756ebf843e3844978bbe8f11291">tempLUT_inverter</a>[];</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aa97b8afb20d81911cab5168cd09df60e">tempLUT_motor</a>[];</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">extern</span> <span class="keyword">volatile</span> uint32_t <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a77106815c0fcbe0eba3efdf7afc74141">rawADC_left</a>[4]; </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> <span class="keyword">volatile</span> uint32_t <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a470ce3152b4d75fad3e25910c8a2ea34">rawADC_right</a>[4]; </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> <span class="keyword">volatile</span> uint32_t <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a67959fa70231e3281e6af1d01c67ef40">rawADC_temp</a>[4]; </div>
-<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="struct_encoder.html">   41</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct_encoder.html#a48f5a6b346491762f3f7a32882f31bed">   42</a></span>    uint16_t <a class="code hl_variable" href="struct_encoder.html#a48f5a6b346491762f3f7a32882f31bed">A</a>;                  </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="struct_encoder.html#ae783bd90764c8455228772c025c064e4">   43</a></span>    uint16_t <a class="code hl_variable" href="struct_encoder.html#ae783bd90764c8455228772c025c064e4">B</a>;                  </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct_encoder.html#a5a8eb607e6c3f820a971b163abc936d5">   44</a></span>    uint16_t <a class="code hl_variable" href="struct_encoder.html#a5a8eb607e6c3f820a971b163abc936d5">Z</a>;                  </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct_encoder.html#a45938c516b24d04e3bae20b3ae8c2d08">   45</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_encoder.html#a45938c516b24d04e3bae20b3ae8c2d08">we</a>;                    </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct_encoder.html#affa9013ea1e246c1f69bba53632a967b">   46</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_encoder.html#affa9013ea1e246c1f69bba53632a967b">theta_e</a>;               </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_encoder.html#a81b668fe449f8b496072376c71fa2866">   47</a></span>    uint8_t <a class="code hl_variable" href="struct_encoder.html#a81b668fe449f8b496072376c71fa2866">direction_meas</a>;      </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>} <a class="code hl_struct" href="struct_encoder.html">Encoder</a>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifndef MEASUREMENTS_H</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#define MEASUREMENTS_H</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/* Define current and voltage gains/offsets */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2150fcc444ac69220b2a1d990e4df5c7">   24</a></span><span class="preprocessor">#define CURRENT_SLOPE  54.4217687f  </span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aa4c5585f0614881f8b9a56ce287ed2f7">   25</a></span><span class="preprocessor">#define CURRENT_OFFSET 1.70068027211f </span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aec92a06aa87b2439d7af214a35dff20a">   26</a></span><span class="preprocessor">#define VOLTAGE_SLOPE  263.435f  </span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a0e190e318cba64e487ce9f09fca3963f">   27</a></span><span class="preprocessor">#define VOLTAGE_OFFSET 0.02083f </span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a4dfa6fc576123af2c78a1f3d13d26fd1">tempInverterLUT</a>[];</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#afb617dfdbeab0dab534ac143440501fb">tempMotorLUT</a>[];</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> <span class="keyword">volatile</span> uint32_t <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a77106815c0fcbe0eba3efdf7afc74141">rawADC_left</a>[4]; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> <span class="keyword">volatile</span> uint32_t <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a470ce3152b4d75fad3e25910c8a2ea34">rawADC_right</a>[4]; </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">extern</span> <span class="keyword">volatile</span> uint32_t <a class="code hl_variable" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a67959fa70231e3281e6af1d01c67ef40">rawADC_temp</a>[4]; </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct_encoder.html">   42</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="struct_encoder.html#a48f5a6b346491762f3f7a32882f31bed">   43</a></span>    uint16_t <a class="code hl_variable" href="struct_encoder.html#a48f5a6b346491762f3f7a32882f31bed">A</a>;                  </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct_encoder.html#ae783bd90764c8455228772c025c064e4">   44</a></span>    uint16_t <a class="code hl_variable" href="struct_encoder.html#ae783bd90764c8455228772c025c064e4">B</a>;                  </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct_encoder.html#a5a8eb607e6c3f820a971b163abc936d5">   45</a></span>    uint16_t <a class="code hl_variable" href="struct_encoder.html#a5a8eb607e6c3f820a971b163abc936d5">Z</a>;                  </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="struct_encoder.html#a45938c516b24d04e3bae20b3ae8c2d08">   46</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_encoder.html#a45938c516b24d04e3bae20b3ae8c2d08">we</a>;                    </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="struct_encoder.html#affa9013ea1e246c1f69bba53632a967b">   47</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_encoder.html#affa9013ea1e246c1f69bba53632a967b">theta_e</a>;               </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="struct_encoder.html#a47f02ef71d97b242663572202fe64f90">   48</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_encoder.html#a47f02ef71d97b242663572202fe64f90">sinTheta_e</a>;            </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="struct_encoder.html#ac6881e0192309ae82ce5b4e9ac4dc714">   49</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_encoder.html#ac6881e0192309ae82ce5b4e9ac4dc714">cosTheta_e</a>;            </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="struct_encoder.html#ab68fc2f847c9a5e38d2339d378e294c1">   50</a></span>    uint8_t <a class="code hl_variable" href="struct_encoder.html#ab68fc2f847c9a5e38d2339d378e294c1">directionMeas</a>;      </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>} <a class="code hl_struct" href="struct_encoder.html">Encoder</a>;</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="struct_analog.html">   53</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="struct_analog.html#a7b367da12b961437c2059d6da0595a14">   54</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_analog.html#a7b367da12b961437c2059d6da0595a14">ia</a>;         </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="struct_analog.html#aa2e5a869148258735d37540db788c66c">   55</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_analog.html#aa2e5a869148258735d37540db788c66c">ib</a>;         </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="struct_analog.html#a9e556245df4e7b1be25fbb5e2075d50a">   56</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_analog.html#a9e556245df4e7b1be25fbb5e2075d50a">ic</a>;         </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="struct_analog.html#a8e83e7c3f440822ab3af5f71c6bee348">   57</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_analog.html#a8e83e7c3f440822ab3af5f71c6bee348">vDC</a>;        </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>} <a class="code hl_struct" href="struct_analog.html">Analog</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="struct_analog.html">   56</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="struct_analog.html#a7b367da12b961437c2059d6da0595a14">   57</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_analog.html#a7b367da12b961437c2059d6da0595a14">ia</a>;         </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="struct_analog.html#aa2e5a869148258735d37540db788c66c">   58</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_analog.html#aa2e5a869148258735d37540db788c66c">ib</a>;         </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="struct_analog.html#a9e556245df4e7b1be25fbb5e2075d50a">   59</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_analog.html#a9e556245df4e7b1be25fbb5e2075d50a">ic</a>;         </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="struct_analog.html#a8e83e7c3f440822ab3af5f71c6bee348">   60</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_analog.html#a8e83e7c3f440822ab3af5f71c6bee348">vDC</a>;        </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>} <a class="code hl_struct" href="struct_analog.html">Analog</a>;</div>
 </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="foldopen" id="foldopen00063" data-start="{" data-end="};">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="struct_feedback.html">   63</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="struct_feedback.html#aba9357ae5dd0ef451a25dc0b9a1d5684">   64</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_feedback.html#aba9357ae5dd0ef451a25dc0b9a1d5684">id_meas</a>;      </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="struct_feedback.html#ab8f3225cf816659420ce027c3de5d2e7">   65</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_feedback.html#ab8f3225cf816659420ce027c3de5d2e7">iq_meas</a>;      </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="struct_feedback.html#a7e4ae436265fab61d86e430a8b13191d">   66</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_feedback.html#a7e4ae436265fab61d86e430a8b13191d">torque_calc</a>;  </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="struct_feedback.html#a36cc750b6ad8640f7dde3a9db5c72757">   67</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_feedback.html#a36cc750b6ad8640f7dde3a9db5c72757">speed_meas</a>;   </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>} <a class="code hl_struct" href="struct_feedback.html">Feedback</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="struct_feedback.html">   66</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="struct_feedback.html#ad4e628fe9fa9c7d9ab0f0a1b0f826ee7">   67</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_feedback.html#ad4e628fe9fa9c7d9ab0f0a1b0f826ee7">idMeas</a>;      </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="struct_feedback.html#a3c7d6939406c8a0ba89c96cbf49db5db">   68</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_feedback.html#a3c7d6939406c8a0ba89c96cbf49db5db">iqMeas</a>;      </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="struct_feedback.html#a7cf0ca173060ec36197dd701fc1688ea">   69</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_feedback.html#a7cf0ca173060ec36197dd701fc1688ea">torqueCalc</a>;  </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="struct_feedback.html#a2583c34bc441014f4cd3b6f6cc4f5ac4">   70</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_feedback.html#a2583c34bc441014f4cd3b6f6cc4f5ac4">speedMeas</a>;   </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>} <a class="code hl_struct" href="struct_feedback.html">Feedback</a>;</div>
 </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">/* Define function prototypes */</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>uint8_t <a class="code hl_function" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#ac153d66d16b01226fa3b412f4b1de896">get_currents_voltage</a>(<span class="keyword">volatile</span> uint32_t ADC_raw[], <span class="keyword">volatile</span> <a class="code hl_struct" href="struct_analog.html">Analog</a>* analog);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keywordtype">float</span> <a class="code hl_function" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a35344a31c9b0c99423ee9e3f5287a5b2">get_linear</a>(uint32_t bits, <span class="keywordtype">float</span> slope, <span class="keywordtype">float</span> offset);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> <a class="code hl_function" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2423babe4d4595dbf43343e6a2e998e1">get_idiq</a>(<span class="keywordtype">float</span> ia, <span class="keywordtype">float</span> ib, <span class="keywordtype">float</span> ic, <span class="keywordtype">float</span> theta_e, <span class="keywordtype">float</span> *id_meas, <span class="keywordtype">float</span> *iq_meas);</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keywordtype">float</span> <a class="code hl_function" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2ca7064e54ee37e91151caeeeb31e129">get_temperature</a>(uint32_t bits, <span class="keyword">const</span> <span class="keywordtype">float</span> tempLUT[]);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#endif </span><span class="comment">/* MEASUREMENTS_H */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a2423babe4d4595dbf43343e6a2e998e1"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2423babe4d4595dbf43343e6a2e998e1">get_idiq</a></div><div class="ttdeci">void get_idiq(float ia, float ib, float ic, float theta_e, float *id_meas, float *iq_meas)</div><div class="ttdoc">Computes d-q currents from current measurements and electrical angle.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:106</div></div>
-<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a2ca7064e54ee37e91151caeeeb31e129"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2ca7064e54ee37e91151caeeeb31e129">get_temperature</a></div><div class="ttdeci">float get_temperature(uint32_t bits, const float tempLUT[])</div><div class="ttdoc">Retrieves temperature from a lookup table based on ADC bits.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:129</div></div>
-<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a35344a31c9b0c99423ee9e3f5287a5b2"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a35344a31c9b0c99423ee9e3f5287a5b2">get_linear</a></div><div class="ttdeci">float get_linear(uint32_t bits, float slope, float offset)</div><div class="ttdoc">Convert ADC reading to physical measurement with linear response.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:83</div></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>uint8_t <a class="code hl_function" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#acb612a58453d95f2d3ae5d9ce1ebaf6f">get_currents_voltage</a>(<span class="keyword">volatile</span> uint32_t ADC_raw[], <span class="keyword">volatile</span> <a class="code hl_struct" href="struct_analog.html">Analog</a>* analog, <span class="keyword">volatile</span> <a class="code hl_struct" href="struct_feedback.html">Feedback</a>* feedback, <span class="keywordtype">float</span> sinTheta_e, <span class="keywordtype">float</span> cosTheta_e);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keywordtype">float</span> <a class="code hl_function" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a35344a31c9b0c99423ee9e3f5287a5b2">get_linear</a>(uint32_t bits, <span class="keywordtype">float</span> slope, <span class="keywordtype">float</span> offset);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">void</span> <a class="code hl_function" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#af5e40ee9d1ed5e3661139df852b9fba8">get_idiq</a>(<span class="keywordtype">float</span> ia, <span class="keywordtype">float</span> ib, <span class="keywordtype">float</span> ic, <span class="keywordtype">float</span> sinTheta_e, <span class="keywordtype">float</span> cosTheta_e, <span class="keywordtype">float</span> *idMeas, <span class="keywordtype">float</span> *iqMeas);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="keywordtype">float</span> <a class="code hl_function" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2ca7064e54ee37e91151caeeeb31e129">get_temperature</a>(uint32_t bits, <span class="keyword">const</span> <span class="keywordtype">float</span> tempLUT[]);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#endif </span><span class="comment">/* MEASUREMENTS_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a2ca7064e54ee37e91151caeeeb31e129"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2ca7064e54ee37e91151caeeeb31e129">get_temperature</a></div><div class="ttdeci">float get_temperature(uint32_t bits, const float tempLUT[])</div><div class="ttdoc">Retrieves temperature from a lookup table based on ADC bits.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:143</div></div>
+<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a35344a31c9b0c99423ee9e3f5287a5b2"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a35344a31c9b0c99423ee9e3f5287a5b2">get_linear</a></div><div class="ttdeci">float get_linear(uint32_t bits, float slope, float offset)</div><div class="ttdoc">Convert ADC reading to physical measurement with linear response.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:96</div></div>
 <div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a470ce3152b4d75fad3e25910c8a2ea34"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a470ce3152b4d75fad3e25910c8a2ea34">rawADC_right</a></div><div class="ttdeci">volatile uint32_t rawADC_right[4]</div><div class="ttdoc">Raw ADC data for the right inverter.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:44</div></div>
+<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a4dfa6fc576123af2c78a1f3d13d26fd1"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a4dfa6fc576123af2c78a1f3d13d26fd1">tempInverterLUT</a></div><div class="ttdeci">const float tempInverterLUT[]</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:27</div></div>
 <div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a67959fa70231e3281e6af1d01c67ef40"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a67959fa70231e3281e6af1d01c67ef40">rawADC_temp</a></div><div class="ttdeci">volatile uint32_t rawADC_temp[4]</div><div class="ttdoc">Raw ADC data for the temperatures.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:51</div></div>
 <div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a77106815c0fcbe0eba3efdf7afc74141"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a77106815c0fcbe0eba3efdf7afc74141">rawADC_left</a></div><div class="ttdeci">volatile uint32_t rawADC_left[4]</div><div class="ttdoc">Raw ADC data for the left inverter.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:37</div></div>
-<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_a7bb08756ebf843e3844978bbe8f11291"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a7bb08756ebf843e3844978bbe8f11291">tempLUT_inverter</a></div><div class="ttdeci">const float tempLUT_inverter[]</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:27</div></div>
-<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_aa97b8afb20d81911cab5168cd09df60e"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aa97b8afb20d81911cab5168cd09df60e">tempLUT_motor</a></div><div class="ttdeci">const float tempLUT_motor[]</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:30</div></div>
-<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_ac153d66d16b01226fa3b412f4b1de896"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#ac153d66d16b01226fa3b412f4b1de896">get_currents_voltage</a></div><div class="ttdeci">uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog *analog)</div><div class="ttdoc">Get electrical ADC measurements.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:59</div></div>
-<div class="ttc" id="astruct_analog_html"><div class="ttname"><a href="struct_analog.html">Analog</a></div><div class="ttdoc">Structure for ADC measurements in units.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:53</div></div>
-<div class="ttc" id="astruct_analog_html_a7b367da12b961437c2059d6da0595a14"><div class="ttname"><a href="struct_analog.html#a7b367da12b961437c2059d6da0595a14">Analog::ia</a></div><div class="ttdeci">float ia</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:54</div></div>
-<div class="ttc" id="astruct_analog_html_a8e83e7c3f440822ab3af5f71c6bee348"><div class="ttname"><a href="struct_analog.html#a8e83e7c3f440822ab3af5f71c6bee348">Analog::vDC</a></div><div class="ttdeci">float vDC</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:57</div></div>
-<div class="ttc" id="astruct_analog_html_a9e556245df4e7b1be25fbb5e2075d50a"><div class="ttname"><a href="struct_analog.html#a9e556245df4e7b1be25fbb5e2075d50a">Analog::ic</a></div><div class="ttdeci">float ic</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:56</div></div>
-<div class="ttc" id="astruct_analog_html_aa2e5a869148258735d37540db788c66c"><div class="ttname"><a href="struct_analog.html#aa2e5a869148258735d37540db788c66c">Analog::ib</a></div><div class="ttdeci">float ib</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:55</div></div>
-<div class="ttc" id="astruct_encoder_html"><div class="ttname"><a href="struct_encoder.html">Encoder</a></div><div class="ttdoc">Structure for encoder reading.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:41</div></div>
-<div class="ttc" id="astruct_encoder_html_a45938c516b24d04e3bae20b3ae8c2d08"><div class="ttname"><a href="struct_encoder.html#a45938c516b24d04e3bae20b3ae8c2d08">Encoder::we</a></div><div class="ttdeci">float we</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:45</div></div>
-<div class="ttc" id="astruct_encoder_html_a48f5a6b346491762f3f7a32882f31bed"><div class="ttname"><a href="struct_encoder.html#a48f5a6b346491762f3f7a32882f31bed">Encoder::A</a></div><div class="ttdeci">uint16_t A</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:42</div></div>
-<div class="ttc" id="astruct_encoder_html_a5a8eb607e6c3f820a971b163abc936d5"><div class="ttname"><a href="struct_encoder.html#a5a8eb607e6c3f820a971b163abc936d5">Encoder::Z</a></div><div class="ttdeci">uint16_t Z</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:44</div></div>
-<div class="ttc" id="astruct_encoder_html_a81b668fe449f8b496072376c71fa2866"><div class="ttname"><a href="struct_encoder.html#a81b668fe449f8b496072376c71fa2866">Encoder::direction_meas</a></div><div class="ttdeci">uint8_t direction_meas</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:47</div></div>
-<div class="ttc" id="astruct_encoder_html_ae783bd90764c8455228772c025c064e4"><div class="ttname"><a href="struct_encoder.html#ae783bd90764c8455228772c025c064e4">Encoder::B</a></div><div class="ttdeci">uint16_t B</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:43</div></div>
-<div class="ttc" id="astruct_encoder_html_affa9013ea1e246c1f69bba53632a967b"><div class="ttname"><a href="struct_encoder.html#affa9013ea1e246c1f69bba53632a967b">Encoder::theta_e</a></div><div class="ttdeci">float theta_e</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:46</div></div>
-<div class="ttc" id="astruct_feedback_html"><div class="ttname"><a href="struct_feedback.html">Feedback</a></div><div class="ttdoc">Structure for feedback values.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:63</div></div>
-<div class="ttc" id="astruct_feedback_html_a36cc750b6ad8640f7dde3a9db5c72757"><div class="ttname"><a href="struct_feedback.html#a36cc750b6ad8640f7dde3a9db5c72757">Feedback::speed_meas</a></div><div class="ttdeci">float speed_meas</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:67</div></div>
-<div class="ttc" id="astruct_feedback_html_a7e4ae436265fab61d86e430a8b13191d"><div class="ttname"><a href="struct_feedback.html#a7e4ae436265fab61d86e430a8b13191d">Feedback::torque_calc</a></div><div class="ttdeci">float torque_calc</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:66</div></div>
-<div class="ttc" id="astruct_feedback_html_ab8f3225cf816659420ce027c3de5d2e7"><div class="ttname"><a href="struct_feedback.html#ab8f3225cf816659420ce027c3de5d2e7">Feedback::iq_meas</a></div><div class="ttdeci">float iq_meas</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:65</div></div>
-<div class="ttc" id="astruct_feedback_html_aba9357ae5dd0ef451a25dc0b9a1d5684"><div class="ttname"><a href="struct_feedback.html#aba9357ae5dd0ef451a25dc0b9a1d5684">Feedback::id_meas</a></div><div class="ttdeci">float id_meas</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:64</div></div>
+<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_acb612a58453d95f2d3ae5d9ce1ebaf6f"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#acb612a58453d95f2d3ae5d9ce1ebaf6f">get_currents_voltage</a></div><div class="ttdeci">uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog *analog, volatile Feedback *feedback, float sinTheta_e, float cosTheta_e)</div><div class="ttdoc">Get electrical ADC measurements.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:62</div></div>
+<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_af5e40ee9d1ed5e3661139df852b9fba8"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#af5e40ee9d1ed5e3661139df852b9fba8">get_idiq</a></div><div class="ttdeci">void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *idMeas, float *iqMeas)</div><div class="ttdoc">Computes d-q currents from current measurements and electrical angle.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:120</div></div>
+<div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html_afb617dfdbeab0dab534ac143440501fb"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#afb617dfdbeab0dab534ac143440501fb">tempMotorLUT</a></div><div class="ttdeci">const float tempMotorLUT[]</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.c:30</div></div>
+<div class="ttc" id="astruct_analog_html"><div class="ttname"><a href="struct_analog.html">Analog</a></div><div class="ttdoc">Structure for ADC measurements in units.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:56</div></div>
+<div class="ttc" id="astruct_analog_html_a7b367da12b961437c2059d6da0595a14"><div class="ttname"><a href="struct_analog.html#a7b367da12b961437c2059d6da0595a14">Analog::ia</a></div><div class="ttdeci">float ia</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:57</div></div>
+<div class="ttc" id="astruct_analog_html_a8e83e7c3f440822ab3af5f71c6bee348"><div class="ttname"><a href="struct_analog.html#a8e83e7c3f440822ab3af5f71c6bee348">Analog::vDC</a></div><div class="ttdeci">float vDC</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:60</div></div>
+<div class="ttc" id="astruct_analog_html_a9e556245df4e7b1be25fbb5e2075d50a"><div class="ttname"><a href="struct_analog.html#a9e556245df4e7b1be25fbb5e2075d50a">Analog::ic</a></div><div class="ttdeci">float ic</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:59</div></div>
+<div class="ttc" id="astruct_analog_html_aa2e5a869148258735d37540db788c66c"><div class="ttname"><a href="struct_analog.html#aa2e5a869148258735d37540db788c66c">Analog::ib</a></div><div class="ttdeci">float ib</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:58</div></div>
+<div class="ttc" id="astruct_encoder_html"><div class="ttname"><a href="struct_encoder.html">Encoder</a></div><div class="ttdoc">Structure for encoder reading.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:42</div></div>
+<div class="ttc" id="astruct_encoder_html_a45938c516b24d04e3bae20b3ae8c2d08"><div class="ttname"><a href="struct_encoder.html#a45938c516b24d04e3bae20b3ae8c2d08">Encoder::we</a></div><div class="ttdeci">float we</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:46</div></div>
+<div class="ttc" id="astruct_encoder_html_a47f02ef71d97b242663572202fe64f90"><div class="ttname"><a href="struct_encoder.html#a47f02ef71d97b242663572202fe64f90">Encoder::sinTheta_e</a></div><div class="ttdeci">float sinTheta_e</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:48</div></div>
+<div class="ttc" id="astruct_encoder_html_a48f5a6b346491762f3f7a32882f31bed"><div class="ttname"><a href="struct_encoder.html#a48f5a6b346491762f3f7a32882f31bed">Encoder::A</a></div><div class="ttdeci">uint16_t A</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:43</div></div>
+<div class="ttc" id="astruct_encoder_html_a5a8eb607e6c3f820a971b163abc936d5"><div class="ttname"><a href="struct_encoder.html#a5a8eb607e6c3f820a971b163abc936d5">Encoder::Z</a></div><div class="ttdeci">uint16_t Z</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:45</div></div>
+<div class="ttc" id="astruct_encoder_html_ab68fc2f847c9a5e38d2339d378e294c1"><div class="ttname"><a href="struct_encoder.html#ab68fc2f847c9a5e38d2339d378e294c1">Encoder::directionMeas</a></div><div class="ttdeci">uint8_t directionMeas</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:50</div></div>
+<div class="ttc" id="astruct_encoder_html_ac6881e0192309ae82ce5b4e9ac4dc714"><div class="ttname"><a href="struct_encoder.html#ac6881e0192309ae82ce5b4e9ac4dc714">Encoder::cosTheta_e</a></div><div class="ttdeci">float cosTheta_e</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:49</div></div>
+<div class="ttc" id="astruct_encoder_html_ae783bd90764c8455228772c025c064e4"><div class="ttname"><a href="struct_encoder.html#ae783bd90764c8455228772c025c064e4">Encoder::B</a></div><div class="ttdeci">uint16_t B</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:44</div></div>
+<div class="ttc" id="astruct_encoder_html_affa9013ea1e246c1f69bba53632a967b"><div class="ttname"><a href="struct_encoder.html#affa9013ea1e246c1f69bba53632a967b">Encoder::theta_e</a></div><div class="ttdeci">float theta_e</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:47</div></div>
+<div class="ttc" id="astruct_feedback_html"><div class="ttname"><a href="struct_feedback.html">Feedback</a></div><div class="ttdoc">Structure for feedback values.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:66</div></div>
+<div class="ttc" id="astruct_feedback_html_a2583c34bc441014f4cd3b6f6cc4f5ac4"><div class="ttname"><a href="struct_feedback.html#a2583c34bc441014f4cd3b6f6cc4f5ac4">Feedback::speedMeas</a></div><div class="ttdeci">float speedMeas</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:70</div></div>
+<div class="ttc" id="astruct_feedback_html_a3c7d6939406c8a0ba89c96cbf49db5db"><div class="ttname"><a href="struct_feedback.html#a3c7d6939406c8a0ba89c96cbf49db5db">Feedback::iqMeas</a></div><div class="ttdeci">float iqMeas</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:68</div></div>
+<div class="ttc" id="astruct_feedback_html_a7cf0ca173060ec36197dd701fc1688ea"><div class="ttname"><a href="struct_feedback.html#a7cf0ca173060ec36197dd701fc1688ea">Feedback::torqueCalc</a></div><div class="ttdeci">float torqueCalc</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:69</div></div>
+<div class="ttc" id="astruct_feedback_html_ad4e628fe9fa9c7d9ab0f0a1b0f826ee7"><div class="ttname"><a href="struct_feedback.html#ad4e628fe9fa9c7d9ab0f0a1b0f826ee7">Feedback::idMeas</a></div><div class="ttdeci">float idMeas</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:67</div></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li><li class="navelem"><a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html">MEASUREMENTS.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

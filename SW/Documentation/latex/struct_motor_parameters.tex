@@ -1,0 +1,121 @@
+\doxysection{Motor\+Parameters Struct Reference}
+\hypertarget{struct_motor_parameters}{}\label{struct_motor_parameters}\index{MotorParameters@{MotorParameters}}
+
+
+Structure to hold motor parameters.  
+
+
+
+
+{\ttfamily \#include $<$MOTOR.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_a07bad721e5354a6283503711b07129c9}{Ld}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_a96dd5df1bbd8d28342602132e5ed628b}{Lq}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_aca721ce2e7dddc5d3091a18d715dd409}{Rs}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_acac4a565486bad0b88b62387d8a5d891}{lambda}}
+\item 
+int \mbox{\hyperlink{struct_motor_parameters_abd6dcb9676af8cd7922ef29864fa03eb}{pp}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_a7c20f6b5c2b8c830d450944735b761b3}{J}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_a83fc1af92e29717b4513d121b0c72c7d}{b}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_acab6d1fef9697fa064ebe6f10cdd7ec9}{torque\+\_\+max}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_aa2f8997a0bbb31cf092fcd15801add2a}{d\+Torque\+\_\+max}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_a316b2fe5d1f410ba6f5f343830110d2d}{speed\+\_\+max\+\_\+\+RPM}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_ae0b158be47384d1cbf1bfb3d1ec9f88b}{i\+Phase\+\_\+pk\+\_\+max}}
+\item 
+float \mbox{\hyperlink{struct_motor_parameters_a7c16493fa7f251e317f1a8f30355e04c}{v\+DC\+\_\+max}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to hold motor parameters. 
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct_motor_parameters_a83fc1af92e29717b4513d121b0c72c7d}\label{struct_motor_parameters_a83fc1af92e29717b4513d121b0c72c7d} 
+\index{MotorParameters@{MotorParameters}!b@{b}}
+\index{b@{b}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily float b}
+
+Viscous friction in N·m·s \Hypertarget{struct_motor_parameters_aa2f8997a0bbb31cf092fcd15801add2a}\label{struct_motor_parameters_aa2f8997a0bbb31cf092fcd15801add2a} 
+\index{MotorParameters@{MotorParameters}!dTorque\_max@{dTorque\_max}}
+\index{dTorque\_max@{dTorque\_max}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{dTorque\_max}{dTorque\_max}}
+{\footnotesize\ttfamily float d\+Torque\+\_\+max}
+
+Maximum torque increment in N·m/s \Hypertarget{struct_motor_parameters_ae0b158be47384d1cbf1bfb3d1ec9f88b}\label{struct_motor_parameters_ae0b158be47384d1cbf1bfb3d1ec9f88b} 
+\index{MotorParameters@{MotorParameters}!iPhase\_pk\_max@{iPhase\_pk\_max}}
+\index{iPhase\_pk\_max@{iPhase\_pk\_max}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{iPhase\_pk\_max}{iPhase\_pk\_max}}
+{\footnotesize\ttfamily float i\+Phase\+\_\+pk\+\_\+max}
+
+Maximum phase current (peak value, or RMS\texorpdfstring{$\ast$}{*}sqrt2) \Hypertarget{struct_motor_parameters_a7c20f6b5c2b8c830d450944735b761b3}\label{struct_motor_parameters_a7c20f6b5c2b8c830d450944735b761b3} 
+\index{MotorParameters@{MotorParameters}!J@{J}}
+\index{J@{J}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{J}{J}}
+{\footnotesize\ttfamily float J}
+
+Rotational inertia in N·m·s\texorpdfstring{$^\wedge$}{\string^}2 \Hypertarget{struct_motor_parameters_acac4a565486bad0b88b62387d8a5d891}\label{struct_motor_parameters_acac4a565486bad0b88b62387d8a5d891} 
+\index{MotorParameters@{MotorParameters}!lambda@{lambda}}
+\index{lambda@{lambda}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{lambda}{lambda}}
+{\footnotesize\ttfamily float lambda}
+
+Magnet flux linkage measured V\+\_\+pk\+\_\+ph-\/n · s (phase-\/neutral peak voltage divided by electrical speed in rad/s) \Hypertarget{struct_motor_parameters_a07bad721e5354a6283503711b07129c9}\label{struct_motor_parameters_a07bad721e5354a6283503711b07129c9} 
+\index{MotorParameters@{MotorParameters}!Ld@{Ld}}
+\index{Ld@{Ld}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{Ld}{Ld}}
+{\footnotesize\ttfamily float Ld}
+
+D-\/axis inductance in Henries \Hypertarget{struct_motor_parameters_a96dd5df1bbd8d28342602132e5ed628b}\label{struct_motor_parameters_a96dd5df1bbd8d28342602132e5ed628b} 
+\index{MotorParameters@{MotorParameters}!Lq@{Lq}}
+\index{Lq@{Lq}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{Lq}{Lq}}
+{\footnotesize\ttfamily float Lq}
+
+Q-\/axis inductance in Henries \Hypertarget{struct_motor_parameters_abd6dcb9676af8cd7922ef29864fa03eb}\label{struct_motor_parameters_abd6dcb9676af8cd7922ef29864fa03eb} 
+\index{MotorParameters@{MotorParameters}!pp@{pp}}
+\index{pp@{pp}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{pp}{pp}}
+{\footnotesize\ttfamily int pp}
+
+Pole pairs (total number of poles divided by 2) \Hypertarget{struct_motor_parameters_aca721ce2e7dddc5d3091a18d715dd409}\label{struct_motor_parameters_aca721ce2e7dddc5d3091a18d715dd409} 
+\index{MotorParameters@{MotorParameters}!Rs@{Rs}}
+\index{Rs@{Rs}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{Rs}{Rs}}
+{\footnotesize\ttfamily float Rs}
+
+Stator resistance in Ohms \Hypertarget{struct_motor_parameters_a316b2fe5d1f410ba6f5f343830110d2d}\label{struct_motor_parameters_a316b2fe5d1f410ba6f5f343830110d2d} 
+\index{MotorParameters@{MotorParameters}!speed\_max\_RPM@{speed\_max\_RPM}}
+\index{speed\_max\_RPM@{speed\_max\_RPM}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{speed\_max\_RPM}{speed\_max\_RPM}}
+{\footnotesize\ttfamily float speed\+\_\+max\+\_\+\+RPM}
+
+Maximum speed in RPM \Hypertarget{struct_motor_parameters_acab6d1fef9697fa064ebe6f10cdd7ec9}\label{struct_motor_parameters_acab6d1fef9697fa064ebe6f10cdd7ec9} 
+\index{MotorParameters@{MotorParameters}!torque\_max@{torque\_max}}
+\index{torque\_max@{torque\_max}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{torque\_max}{torque\_max}}
+{\footnotesize\ttfamily float torque\+\_\+max}
+
+Maximum torque in N·m \Hypertarget{struct_motor_parameters_a7c16493fa7f251e317f1a8f30355e04c}\label{struct_motor_parameters_a7c16493fa7f251e317f1a8f30355e04c} 
+\index{MotorParameters@{MotorParameters}!vDC\_max@{vDC\_max}}
+\index{vDC\_max@{vDC\_max}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{vDC\_max}{vDC\_max}}
+{\footnotesize\ttfamily float v\+DC\+\_\+max}
+
+Maximum DC bus voltage in volts 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\mbox{\hyperlink{_m_o_t_o_r_8h}{MOTOR.\+h}}\end{DoxyCompactItemize}

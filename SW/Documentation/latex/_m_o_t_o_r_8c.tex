@@ -6,20 +6,26 @@ Source file for motor parameters.
 
 
 {\ttfamily \#include "{}MOTOR.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
 Include dependency graph for MOTOR.\+c\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=204pt]{_m_o_t_o_r_8c__incl}
+\includegraphics[width=207pt]{_m_o_t_o_r_8c__incl}
 \end{center}
 \end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_m_o_t_o_r_8c_aac2006b5fcd23b70efa190f9239e50a1}{check\+\_\+motor\+\_\+parameters}} (\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor, float Ts)
+\begin{DoxyCompactList}\small\item\em Perform a parameter check and correct possible errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{structmotor_parameters}{motor\+Parameters}} \mbox{\hyperlink{_m_o_t_o_r_8c_a4fa98d506fa863cdc613759ac4c792c3}{motor\+Left}}
+\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \mbox{\hyperlink{_m_o_t_o_r_8c_ac1fb3830c20e54f8980f91b3b8b19a48}{motor\+\_\+left}}
 \begin{DoxyCompactList}\small\item\em Left motor parameters. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{structmotor_parameters}{motor\+Parameters}} \mbox{\hyperlink{_m_o_t_o_r_8c_a5693708b21d81cb56d875119aa1c2f0e}{motor\+Right}}
+\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \mbox{\hyperlink{_m_o_t_o_r_8c_aa30800b62b841d0b0b3cac4df1841afa}{motor\+\_\+right}}
 \begin{DoxyCompactList}\small\item\em Right motor parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -33,27 +39,59 @@ Copyright (c) 2024 David Redondo (@dweggg on Git\+Hub). All rights reserved.
 
 This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
 
+\doxysubsection{Function Documentation}
+\Hypertarget{_m_o_t_o_r_8c_aac2006b5fcd23b70efa190f9239e50a1}\label{_m_o_t_o_r_8c_aac2006b5fcd23b70efa190f9239e50a1} 
+\index{MOTOR.c@{MOTOR.c}!check\_motor\_parameters@{check\_motor\_parameters}}
+\index{check\_motor\_parameters@{check\_motor\_parameters}!MOTOR.c@{MOTOR.c}}
+\doxysubsubsection{\texorpdfstring{check\_motor\_parameters()}{check\_motor\_parameters()}}
+{\footnotesize\ttfamily int check\+\_\+motor\+\_\+parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}}]{motor,  }\item[{float}]{Ts }\end{DoxyParamCaption})}
+
+
+
+Perform a parameter check and correct possible errors. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em motor} & Pointer to the \doxylink{struct_motor_parameters}{Motor\+Parameters} struct. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em OK} & 0 if an error occurred, 1 if successful. \\
+\hline
+\end{DoxyRetVals}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_m_o_t_o_r_8c_aac2006b5fcd23b70efa190f9239e50a1_icgraph}
+\end{center}
+\end{figure}
+
+
 \doxysubsection{Variable Documentation}
-\Hypertarget{_m_o_t_o_r_8c_a4fa98d506fa863cdc613759ac4c792c3}\label{_m_o_t_o_r_8c_a4fa98d506fa863cdc613759ac4c792c3} 
-\index{MOTOR.c@{MOTOR.c}!motorLeft@{motorLeft}}
-\index{motorLeft@{motorLeft}!MOTOR.c@{MOTOR.c}}
-\doxysubsubsection{\texorpdfstring{motorLeft}{motorLeft}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structmotor_parameters}{motor\+Parameters}} motor\+Left}
+\Hypertarget{_m_o_t_o_r_8c_ac1fb3830c20e54f8980f91b3b8b19a48}\label{_m_o_t_o_r_8c_ac1fb3830c20e54f8980f91b3b8b19a48} 
+\index{MOTOR.c@{MOTOR.c}!motor\_left@{motor\_left}}
+\index{motor\_left@{motor\_left}!MOTOR.c@{MOTOR.c}}
+\doxysubsubsection{\texorpdfstring{motor\_left}{motor\_left}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} motor\+\_\+left}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\ \{}
-\DoxyCodeLine{\ \ \ \ .Ld\ =\ 0.00291,}
-\DoxyCodeLine{\ \ \ \ .Lq\ =\ 0.00295,}
-\DoxyCodeLine{\ \ \ \ .Rs\ =\ 1.95,}
-\DoxyCodeLine{\ \ \ \ .lambda\ =\ 0.13391,}
+\DoxyCodeLine{\ \ \ \ .Ld\ =\ 0.00291F,}
+\DoxyCodeLine{\ \ \ \ .Lq\ =\ 0.00295F,}
+\DoxyCodeLine{\ \ \ \ .Rs\ =\ 1.95F,}
+\DoxyCodeLine{\ \ \ \ .lambda\ =\ 0.13391F,}
 \DoxyCodeLine{\ \ \ \ .pp\ =\ 4,}
-\DoxyCodeLine{\ \ \ \ .J\ =\ 0.01,}
-\DoxyCodeLine{\ \ \ \ .b\ =\ 0.001,}
-\DoxyCodeLine{\ \ \ \ .torque\_max\ =\ 10.0,}
-\DoxyCodeLine{\ \ \ \ .speed\_max\_RPM\ =\ 8500.0,}
-\DoxyCodeLine{\ \ \ \ .iPhase\_pk\_max\ =\ 60.0,}
-\DoxyCodeLine{\ \ \ \ .vDC\_max\ =\ 450.0}
+\DoxyCodeLine{\ \ \ \ .J\ =\ 0.00093F,}
+\DoxyCodeLine{\ \ \ \ .b\ =\ 0.632653F,}
+\DoxyCodeLine{\ \ \ \ .torque\_max\ =\ 10.0F,}
+\DoxyCodeLine{\ \ \ \ .dTorque\_max\ =\ 1.0F,}
+\DoxyCodeLine{\ \ \ \ .speed\_max\_RPM\ =\ 8500.0F,}
+\DoxyCodeLine{\ \ \ \ .iPhase\_pk\_max\ =\ 60.0F,}
+\DoxyCodeLine{\ \ \ \ .vDC\_max\ =\ 450.0F}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
@@ -61,26 +99,27 @@ This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+A
 
 Left motor parameters. 
 
-\Hypertarget{_m_o_t_o_r_8c_a5693708b21d81cb56d875119aa1c2f0e}\label{_m_o_t_o_r_8c_a5693708b21d81cb56d875119aa1c2f0e} 
-\index{MOTOR.c@{MOTOR.c}!motorRight@{motorRight}}
-\index{motorRight@{motorRight}!MOTOR.c@{MOTOR.c}}
-\doxysubsubsection{\texorpdfstring{motorRight}{motorRight}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structmotor_parameters}{motor\+Parameters}} motor\+Right}
+\Hypertarget{_m_o_t_o_r_8c_aa30800b62b841d0b0b3cac4df1841afa}\label{_m_o_t_o_r_8c_aa30800b62b841d0b0b3cac4df1841afa} 
+\index{MOTOR.c@{MOTOR.c}!motor\_right@{motor\_right}}
+\index{motor\_right@{motor\_right}!MOTOR.c@{MOTOR.c}}
+\doxysubsubsection{\texorpdfstring{motor\_right}{motor\_right}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} motor\+\_\+right}
 
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\ \{}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .Ld\ =\ 0.00291,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .Lq\ =\ 0.00295,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .Rs\ =\ 1.95,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .lambda\ =\ 0.13391,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .Ld\ =\ 0.00291F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .Lq\ =\ 0.00295F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .Rs\ =\ 1.95F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .lambda\ =\ 0.13391F,}
 \DoxyCodeLine{\ \ \ \ \ \ \ \ .pp\ =\ 4,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .J\ =\ 0.01,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .b\ =\ 0.001,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .torque\_max\ =\ 10.0,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .speed\_max\_RPM\ =\ 8500.0,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .iPhase\_pk\_max\ =\ 60.0,}
-\DoxyCodeLine{\ \ \ \ \ \ \ \ .vDC\_max\ =\ 450.0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .J\ =\ 0.00093F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .b\ =\ 0.632653F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .torque\_max\ =\ 10.0F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .dTorque\_max\ =\ 1.0F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .speed\_max\_RPM\ =\ 8500.0F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .iPhase\_pk\_max\ =\ 60.0F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .vDC\_max\ =\ 450.0F}
 \DoxyCodeLine{\ \ \ \ \}}
 
 \end{DoxyCode}

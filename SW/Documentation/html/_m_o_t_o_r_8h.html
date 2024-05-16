@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -50,6 +54,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('_m_o_t_o_r_8h.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -71,14 +92,11 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">MOTOR.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -90,9 +108,38 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_m_o_t_o_r_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_m_o_t_o_r_8hdep" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_m_o_t_o_r_8hdep" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_m_o_t_o_r_8hdep">
-<area shape="rect" title="Header file for motor parameters." alt="" coords="5,5,171,64"/>
-<area shape="rect" href="_m_o_t_o_r_8c.html" title="Source file for motor parameters." alt="" coords="5,112,171,171"/>
-<area shape="poly" title=" " alt="" coords="91,80,91,112,85,112,85,80"/>
+<area shape="rect" title="Header file for motor parameters." alt="" coords="715,5,880,64"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="593,219,759,277"/>
+<area shape="poly" title=" " alt="" coords="738,76,719,93,704,113,692,139,684,167,678,219,673,218,679,166,687,137,699,111,715,90,734,72"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="713,112,882,171"/>
+<area shape="poly" title=" " alt="" coords="800,80,800,112,795,112,795,80"/>
+<area shape="rect" href="_m_o_t_o_r_8c.html" title="Source file for motor parameters." alt="" coords="905,112,1071,171"/>
+<area shape="poly" title=" " alt="" coords="864,69,937,109,935,114,861,74"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for control logic." alt="" coords="173,325,339,384"/>
+<area shape="poly" title=" " alt="" coords="579,274,358,328,340,333,338,328,357,323,578,269"/>
+<area shape="rect" href="_t_a_s_k_s__20us_8c.html" title="This file contains functions executed every 20us in each PWM timer interruption." alt="" coords="195,432,365,491"/>
+<area shape="poly" title=" " alt="" coords="579,265,490,288,445,305,403,328,386,341,376,354,353,386,309,433,305,430,349,382,372,350,382,337,400,323,443,300,488,283,577,260"/>
+<area shape="rect" href="_f_s_m_8h.html" title="Header for the inverter Finite State Machine." alt="" coords="413,325,579,384"/>
+<area shape="poly" title=" " alt="" coords="615,288,546,327,544,323,613,283"/>
+<area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="579,432,744,491"/>
+<area shape="poly" title=" " alt="" coords="655,293,644,326,641,353,643,381,654,431,649,432,637,382,636,353,639,325,650,291"/>
+<area shape="rect" href="_c_a_n__e-_tech_8c.html" title="This file contains functions to handle CAN communication with the car." alt="" coords="653,325,819,384"/>
+<area shape="poly" title=" " alt="" coords="702,289,722,324,717,326,698,292"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html" title="This file provides code for the inverter struct." alt="" coords="843,325,1008,384"/>
+<area shape="poly" title=" " alt="" coords="759,281,858,322,856,327,757,286"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html" title="This file contains functions to execute tasks every 1ms." alt="" coords="1032,325,1198,384"/>
+<area shape="poly" title=" " alt="" coords="774,275,899,299,1021,323,1032,326,1031,331,1019,328,898,304,773,281"/>
+<area shape="rect" href="tim_8c.html" title="This file provides code for the configuration of the TIM instances." alt="" coords="1221,325,1387,384"/>
+<area shape="poly" title=" " alt="" coords="774,275,897,293,993,299,1089,305,1210,323,1222,325,1221,331,1209,328,1089,310,993,304,896,298,773,280"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8c.html" title="This file provides code for the control loop." alt="" coords="5,432,171,491"/>
+<area shape="poly" title=" " alt="" coords="199,395,135,434,132,429,196,390"/>
+<area shape="poly" title=" " alt="" coords="269,399,276,431,271,432,263,400"/>
+<area shape="rect" href="_f_s_m_8c.html" title="This file provides code for the inverter Finite State Machine." alt="" coords="389,432,555,491"/>
+<area shape="poly" title=" " alt="" coords="489,400,481,432,476,431,483,399"/>
+<area shape="poly" title=" " alt="" coords="555,390,618,429,615,434,552,394"/>
+<area shape="poly" title=" " alt="" coords="755,183,711,220,707,216,751,179"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html" title="Source file for torque reference handling." alt="" coords="782,219,954,277"/>
+<area shape="poly" title=" " alt="" coords="827,182,851,217,847,220,823,185"/>
 </map>
 </div>
 </div>
@@ -100,19 +147,135 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmotor_parameters.html">motorParameters</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to hold motor parameters.  <a href="structmotor_parameters.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_motor_parameters.html">MotorParameters</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to hold motor parameters.  <a href="struct_motor_parameters.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aac2006b5fcd23b70efa190f9239e50a1" id="r_aac2006b5fcd23b70efa190f9239e50a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac2006b5fcd23b70efa190f9239e50a1">check_motor_parameters</a> (<a class="el" href="struct_motor_parameters.html">MotorParameters</a> *motor, float Ts)</td></tr>
+<tr class="memdesc:aac2006b5fcd23b70efa190f9239e50a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a parameter check and correct possible errors.  <br /></td></tr>
+<tr class="separator:aac2006b5fcd23b70efa190f9239e50a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:ac1fb3830c20e54f8980f91b3b8b19a48" id="r_ac1fb3830c20e54f8980f91b3b8b19a48"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_motor_parameters.html">MotorParameters</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1fb3830c20e54f8980f91b3b8b19a48">motor_left</a></td></tr>
+<tr class="memdesc:ac1fb3830c20e54f8980f91b3b8b19a48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Left motor parameters.  <br /></td></tr>
+<tr class="separator:ac1fb3830c20e54f8980f91b3b8b19a48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa30800b62b841d0b0b3cac4df1841afa" id="r_aa30800b62b841d0b0b3cac4df1841afa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_motor_parameters.html">MotorParameters</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa30800b62b841d0b0b3cac4df1841afa">motor_right</a></td></tr>
+<tr class="memdesc:aa30800b62b841d0b0b3cac4df1841afa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Right motor parameters.  <br /></td></tr>
+<tr class="separator:aa30800b62b841d0b0b3cac4df1841afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Header file for motor parameters. </p>
 <dl class="section attention"><dt>Attention</dt><dd></dd></dl>
 <p>Copyright (c) 2024 David Redondo (@dweggg on GitHub). All rights reserved.</p>
 <p>This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. For more information, see: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</a> </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="aac2006b5fcd23b70efa190f9239e50a1" name="aac2006b5fcd23b70efa190f9239e50a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac2006b5fcd23b70efa190f9239e50a1">&#9670;&#160;</a></span>check_motor_parameters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int check_motor_parameters </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_motor_parameters.html">MotorParameters</a> *</td>          <td class="paramname"><span class="paramname"><em>motor</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>Ts</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a parameter check and correct possible errors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">motor</td><td>Pointer to the <a class="el" href="struct_motor_parameters.html" title="Structure to hold motor parameters.">MotorParameters</a> struct. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">OK</td><td>0 if an error occurred, 1 if successful. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1_icgraph.png" border="0" usemap="#a_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1_icgraph" alt=""/></div>
+<map name="a_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1_icgraph" id="a_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1_icgraph">
+<area shape="rect" title="Perform a parameter check and correct possible errors." alt="" coords="267,5,435,32"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html#a49edd9d49792ef1249641249d3259f87" title="Initialize the inverter." alt="" coords="103,5,219,32"/>
+<area shape="poly" title=" " alt="" coords="251,21,219,21,219,16,251,16"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="ac1fb3830c20e54f8980f91b3b8b19a48" name="ac1fb3830c20e54f8980f91b3b8b19a48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1fb3830c20e54f8980f91b3b8b19a48">&#9670;&#160;</a></span>motor_left</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_motor_parameters.html">MotorParameters</a> motor_left</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Left motor parameters. </p>
+
+</div>
+</div>
+<a id="aa30800b62b841d0b0b3cac4df1841afa" name="aa30800b62b841d0b0b3cac4df1841afa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa30800b62b841d0b0b3cac4df1841afa">&#9670;&#160;</a></span>motor_right</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_motor_parameters.html">MotorParameters</a> motor_right</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Right motor parameters. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li><li class="navelem"><a class="el" href="_m_o_t_o_r_8h.html">MOTOR.h</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

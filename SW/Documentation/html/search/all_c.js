@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['lambda_0',['lambda',['../structmotor_parameters.html#acac4a565486bad0b88b62387d8a5d891',1,'motorParameters']]],
-  ['ld_1',['Ld',['../structmotor_parameters.html#a07bad721e5354a6283503711b07129c9',1,'motorParameters']]],
+  ['lambda_0',['lambda',['../struct_motor_parameters.html#acac4a565486bad0b88b62387d8a5d891',1,'MotorParameters']]],
+  ['ld_1',['Ld',['../struct_motor_parameters.html#a07bad721e5354a6283503711b07129c9',1,'MotorParameters']]],
   ['led_2',['LED',['../struct_l_e_d.html',1,'']]],
   ['led_3',['led',['../struct_inverter_struct.html#ae6ddb8a94132877213fb3b58d9f25f97',1,'InverterStruct']]],
   ['led_5ferr_5fgpio_5fport_4',['LED_ERR_GPIO_Port',['../main_8h.html#a1e3af8f5ba56354b9a278d70f313221a',1,'main.h']]],
@@ -18,10 +18,8 @@ var searchData=
   ['led_5fright_5fpin_15',['LED_RIGHT_Pin',['../main_8h.html#a004aa8634a8d0bb7cd42dacd5a833912',1,'main.h']]],
   ['lederror_16',['ledError',['../_p_c_b___i_o_8h.html#a911ebfc5de443a53e3882ff327266616',1,'ledError:&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a911ebfc5de443a53e3882ff327266616',1,'ledError:&#160;PCB_IO.c']]],
   ['ledmode_17',['LEDMode',['../_p_c_b___i_o_8h.html#a57effb96f46e458675a2653d4c543ca2',1,'PCB_IO.h']]],
-  ['limit_5ftorque_5fto_5fprevent_5foverspeed_18',['limit_torque_to_prevent_overspeed',['../_r_e_f_e_r_e_n_c_e_8h.html#a4250eb8409c403d07add674c6d2e80c7',1,'limit_torque_to_prevent_overspeed(float speed_max, float speed_meas, float torque_ref_pre, volatile pi_struct *loop_speed):&#160;REFERENCE.c'],['../_r_e_f_e_r_e_n_c_e_8c.html#a4250eb8409c403d07add674c6d2e80c7',1,'limit_torque_to_prevent_overspeed(float speed_max, float speed_meas, float torque_ref_pre, volatile pi_struct *loop_speed):&#160;REFERENCE.c']]],
-  ['log_19',['log',['../structdatalog__struct.html#aba3acc8cf586fde40a40dce79d3cd95b',1,'datalog_struct']]],
-  ['lq_20',['Lq',['../structmotor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b',1,'motorParameters']]],
-  ['lse_5fstartup_5ftimeout_21',['LSE_STARTUP_TIMEOUT',['../stm32f7xx__hal__conf_8h.html#a85e6fc812dc26f7161a04be2568a5462',1,'stm32f7xx_hal_conf.h']]],
-  ['lse_5fvalue_22',['LSE_VALUE',['../stm32f7xx__hal__conf_8h.html#a7bbb9d19e5189a6ccd0fb6fa6177d20d',1,'stm32f7xx_hal_conf.h']]],
-  ['lsi_5fvalue_23',['LSI_VALUE',['../stm32f7xx__hal__conf_8h.html#a4872023e65449c0506aac3ea6bec99e9',1,'stm32f7xx_hal_conf.h']]]
+  ['lengthbits_18',['lengthBits',['../structsignal.html#a1702990dd39dfa0b7bd671fdd45b2a7c',1,'signal']]],
+  ['limit_5ftorque_5fto_5fprevent_5foverspeed_19',['limit_torque_to_prevent_overspeed',['../_r_e_f_e_r_e_n_c_e_8h.html#ae99c985c51ea3f09df6b9283e20b4375',1,'limit_torque_to_prevent_overspeed(float speedMax, float speedMeas, float torqueRefIn, volatile pi_struct *loopSpeed):&#160;REFERENCE.c'],['../_r_e_f_e_r_e_n_c_e_8c.html#a0da21f1ac59fa2f2ff67acfd930147ed',1,'limit_torque_to_prevent_overspeed(float speedMaxRPM, float speedMeas, float torqueRefIn, volatile pi_struct *loopSpeed):&#160;REFERENCE.c']]],
+  ['log_20',['log',['../structdatalog__struct.html#aba3acc8cf586fde40a40dce79d3cd95b',1,'datalog_struct']]],
+  ['lq_21',['Lq',['../struct_motor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b',1,'MotorParameters']]]
 ];

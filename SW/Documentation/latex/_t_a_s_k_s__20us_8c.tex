@@ -7,6 +7,7 @@ This file contains functions executed every 20us in each PWM timer interruption.
 
 {\ttfamily \#include "{}CONTROL.\+h"{}}\newline
 {\ttfamily \#include "{}INVERTER.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
 Include dependency graph for TASKS\+\_\+20us.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -27,13 +28,19 @@ void \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a1dc62194539b83b444ddf4658a8e1f62}{tas
 \item 
 float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a1f2b3f8239fe7b32931b5ccb0613f8d1}{vd\+\_\+left}} = 0.\+0F
 \item 
-float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_ac990a58377b2c4496f157cd43ca215ac}{vq\+\_\+left}} = 100.\+0F
+float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_ac990a58377b2c4496f157cd43ca215ac}{vq\+\_\+left}} = 7.\+5F
 \item 
-float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a6a6bfeb277826868bf71f2a3a914c712}{v\+DC\+\_\+left}} = 300.\+0F
+float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a6a6bfeb277826868bf71f2a3a914c712}{v\+DC\+\_\+left}} = 15.\+0F
 \item 
-float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_abe64f3d8173a781972d45d6c592ce177}{freq\+\_\+left}} = 50.\+0F
+float \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a4497f9492ddec5b5db380c2528b2cb74}{torque\+Ref\+In\+\_\+left}} = 0.\+0F
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_t_a_s_k_s__20us_8c_adb83807c9a27c654eb3a3b18e37971c2}{start\+\_\+ticks}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a554682ec22cc0a84efbdac9fcaa3cd6f}{elapsed\+\_\+ticks}} = 0
 \item 
 \mbox{\hyperlink{structangle__struct}{angle\+\_\+struct}} \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a33748c6dd95f9c76db83760d8719fc26}{angle\+\_\+left}}
+\item 
+\mbox{\hyperlink{structrampa__struct}{rampa\+\_\+struct}} \mbox{\hyperlink{_t_a_s_k_s__20us_8c_a5a5a78126ab31a6fc4e9307abd055a5c}{freq\+Ramp\+\_\+left}}
 \end{DoxyCompactItemize}
 
 
@@ -96,16 +103,42 @@ This function is called by the TIM8 trigger handler every TS.
 {\bfseries Initial value\+:}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{=\ \{}
-\DoxyCodeLine{\ \ \ \ .freq\ =\ 0.2F,}
+\DoxyCodeLine{\ \ \ \ .freq\ =\ 0.0F,}
 \DoxyCodeLine{\ \ \ \ .Ts\ =\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaade3232ef08cf18b4f3a20a0a2c6fb6}{TS}},}
 \DoxyCodeLine{\}}
 
 \end{DoxyCode}
-\Hypertarget{_t_a_s_k_s__20us_8c_abe64f3d8173a781972d45d6c592ce177}\label{_t_a_s_k_s__20us_8c_abe64f3d8173a781972d45d6c592ce177} 
-\index{TASKS\_20us.c@{TASKS\_20us.c}!freq\_left@{freq\_left}}
-\index{freq\_left@{freq\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
-\doxysubsubsection{\texorpdfstring{freq\_left}{freq\_left}}
-{\footnotesize\ttfamily float freq\+\_\+left = 50.\+0F}
+\Hypertarget{_t_a_s_k_s__20us_8c_a554682ec22cc0a84efbdac9fcaa3cd6f}\label{_t_a_s_k_s__20us_8c_a554682ec22cc0a84efbdac9fcaa3cd6f} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!elapsed\_ticks@{elapsed\_ticks}}
+\index{elapsed\_ticks@{elapsed\_ticks}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{elapsed\_ticks}{elapsed\_ticks}}
+{\footnotesize\ttfamily uint32\+\_\+t elapsed\+\_\+ticks = 0}
+
+\Hypertarget{_t_a_s_k_s__20us_8c_a5a5a78126ab31a6fc4e9307abd055a5c}\label{_t_a_s_k_s__20us_8c_a5a5a78126ab31a6fc4e9307abd055a5c} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!freqRamp\_left@{freqRamp\_left}}
+\index{freqRamp\_left@{freqRamp\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{freqRamp\_left}{freqRamp\_left}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structrampa__struct}{rampa\+\_\+struct}} freq\+Ramp\+\_\+left}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .in\ =\ 5.0F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .Incr\ =\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaade3232ef08cf18b4f3a20a0a2c6fb6}{TS}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{_t_a_s_k_s__20us_8c_adb83807c9a27c654eb3a3b18e37971c2}\label{_t_a_s_k_s__20us_8c_adb83807c9a27c654eb3a3b18e37971c2} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!start\_ticks@{start\_ticks}}
+\index{start\_ticks@{start\_ticks}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{start\_ticks}{start\_ticks}}
+{\footnotesize\ttfamily uint32\+\_\+t start\+\_\+ticks = 0}
+
+\Hypertarget{_t_a_s_k_s__20us_8c_a4497f9492ddec5b5db380c2528b2cb74}\label{_t_a_s_k_s__20us_8c_a4497f9492ddec5b5db380c2528b2cb74} 
+\index{TASKS\_20us.c@{TASKS\_20us.c}!torqueRefIn\_left@{torqueRefIn\_left}}
+\index{torqueRefIn\_left@{torqueRefIn\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
+\doxysubsubsection{\texorpdfstring{torqueRefIn\_left}{torqueRefIn\_left}}
+{\footnotesize\ttfamily float torque\+Ref\+In\+\_\+left = 0.\+0F}
 
 \Hypertarget{_t_a_s_k_s__20us_8c_a1f2b3f8239fe7b32931b5ccb0613f8d1}\label{_t_a_s_k_s__20us_8c_a1f2b3f8239fe7b32931b5ccb0613f8d1} 
 \index{TASKS\_20us.c@{TASKS\_20us.c}!vd\_left@{vd\_left}}
@@ -117,11 +150,11 @@ This function is called by the TIM8 trigger handler every TS.
 \index{TASKS\_20us.c@{TASKS\_20us.c}!vDC\_left@{vDC\_left}}
 \index{vDC\_left@{vDC\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
 \doxysubsubsection{\texorpdfstring{vDC\_left}{vDC\_left}}
-{\footnotesize\ttfamily float v\+DC\+\_\+left = 300.\+0F}
+{\footnotesize\ttfamily float v\+DC\+\_\+left = 15.\+0F}
 
 \Hypertarget{_t_a_s_k_s__20us_8c_ac990a58377b2c4496f157cd43ca215ac}\label{_t_a_s_k_s__20us_8c_ac990a58377b2c4496f157cd43ca215ac} 
 \index{TASKS\_20us.c@{TASKS\_20us.c}!vq\_left@{vq\_left}}
 \index{vq\_left@{vq\_left}!TASKS\_20us.c@{TASKS\_20us.c}}
 \doxysubsubsection{\texorpdfstring{vq\_left}{vq\_left}}
-{\footnotesize\ttfamily float vq\+\_\+left = 100.\+0F}
+{\footnotesize\ttfamily float vq\+\_\+left = 7.\+5F}
 

@@ -40,13 +40,23 @@ ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_
 \item 
 \mbox{\hyperlink{struct_feedback}{Feedback}} \mbox{\hyperlink{struct_inverter_struct_a20a30b84d36e84b3d0e6ca4db56f723c}{feedback}}
 \item 
+\mbox{\hyperlink{struct_reference}{Reference}} \mbox{\hyperlink{struct_inverter_struct_a5a963265d9630f699ae4106f34002ac5}{reference}}
+\item 
 \mbox{\hyperlink{struct_duties}{Duties}} \mbox{\hyperlink{struct_inverter_struct_a88998233bb1ff2e5bc086febe6789332}{duties}}
 \item 
 int8\+\_\+t \mbox{\hyperlink{struct_inverter_struct_a64137967141ad97b940c16a035615d09}{direction}}
 \item 
-float \mbox{\hyperlink{struct_inverter_struct_a4beef132716905853cd6ae37080c4c5d}{temp\+\_\+inverter}}
+float \mbox{\hyperlink{struct_inverter_struct_a9732bacc0a7fa9b2fcc3b08fc85b071f}{temp\+Inverter}}
 \item 
-float \mbox{\hyperlink{struct_inverter_struct_abb60d2beeef6a3b479773078b9ed98d2}{temp\+\_\+motor}}
+float \mbox{\hyperlink{struct_inverter_struct_ac6c9938ffe4a3de041c4d27c141d35d7}{temp\+Motor}}
+\item 
+\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_inverter_struct_aeb5a73cc5e210677ca154e796186787f}{motor}}
+\item 
+\mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \mbox{\hyperlink{struct_inverter_struct_a76141940d12e361a3b7f33840274133a}{id\+Loop}}
+\item 
+\mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \mbox{\hyperlink{struct_inverter_struct_aabc1539fbf53f8a59763438070b3f124}{iq\+Loop}}
+\item 
+\mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \mbox{\hyperlink{struct_inverter_struct_aaed477d964d824fd09123df9e8b16b50}{speed\+Loop}}
 \end{DoxyCompactItemize}
 
 
@@ -108,29 +118,59 @@ Handle of the ADC peripheral for current phase currents and DC voltage sensing \
 \doxysubsubsection{\texorpdfstring{htim}{htim}}
 {\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def\texorpdfstring{$\ast$}{*} htim}
 
-Handle of the timer peripheral for PWM output \Hypertarget{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97}\label{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97} 
+Handle of the timer peripheral for PWM output \Hypertarget{struct_inverter_struct_a76141940d12e361a3b7f33840274133a}\label{struct_inverter_struct_a76141940d12e361a3b7f33840274133a} 
+\index{InverterStruct@{InverterStruct}!idLoop@{idLoop}}
+\index{idLoop@{idLoop}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{idLoop}{idLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} id\+Loop}
+
+PI controller for d-\/axis current \Hypertarget{struct_inverter_struct_aabc1539fbf53f8a59763438070b3f124}\label{struct_inverter_struct_aabc1539fbf53f8a59763438070b3f124} 
+\index{InverterStruct@{InverterStruct}!iqLoop@{iqLoop}}
+\index{iqLoop@{iqLoop}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{iqLoop}{iqLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} iq\+Loop}
+
+PI controller for q-\/axis current \Hypertarget{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97}\label{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97} 
 \index{InverterStruct@{InverterStruct}!led@{led}}
 \index{led@{led}!InverterStruct@{InverterStruct}}
 \doxysubsubsection{\texorpdfstring{led}{led}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_l_e_d}{LED}}\texorpdfstring{$\ast$}{*} led}
 
-Pointer to \doxylink{struct_l_e_d}{LED} control structure \Hypertarget{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650}\label{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650} 
+Pointer to \doxylink{struct_l_e_d}{LED} control structure \Hypertarget{struct_inverter_struct_aeb5a73cc5e210677ca154e796186787f}\label{struct_inverter_struct_aeb5a73cc5e210677ca154e796186787f} 
+\index{InverterStruct@{InverterStruct}!motor@{motor}}
+\index{motor@{motor}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{motor}{motor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}}\texorpdfstring{$\ast$}{*} motor}
+
+Motor parameters struct \Hypertarget{struct_inverter_struct_a5a963265d9630f699ae4106f34002ac5}\label{struct_inverter_struct_a5a963265d9630f699ae4106f34002ac5} 
+\index{InverterStruct@{InverterStruct}!reference@{reference}}
+\index{reference@{reference}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{reference}{reference}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_reference}{Reference}} reference}
+
+Structure for referece currents and torque \Hypertarget{struct_inverter_struct_aaed477d964d824fd09123df9e8b16b50}\label{struct_inverter_struct_aaed477d964d824fd09123df9e8b16b50} 
+\index{InverterStruct@{InverterStruct}!speedLoop@{speedLoop}}
+\index{speedLoop@{speedLoop}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{speedLoop}{speedLoop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} speed\+Loop}
+
+PI controller for motor speed \Hypertarget{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650}\label{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650} 
 \index{InverterStruct@{InverterStruct}!state@{state}}
 \index{state@{state}!InverterStruct@{InverterStruct}}
 \doxysubsubsection{\texorpdfstring{state}{state}}
 {\footnotesize\ttfamily \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311}{Inverter\+State}} state}
 
-Current state of inverter operation \Hypertarget{struct_inverter_struct_a4beef132716905853cd6ae37080c4c5d}\label{struct_inverter_struct_a4beef132716905853cd6ae37080c4c5d} 
-\index{InverterStruct@{InverterStruct}!temp\_inverter@{temp\_inverter}}
-\index{temp\_inverter@{temp\_inverter}!InverterStruct@{InverterStruct}}
-\doxysubsubsection{\texorpdfstring{temp\_inverter}{temp\_inverter}}
-{\footnotesize\ttfamily float temp\+\_\+inverter}
+Current state of inverter operation \Hypertarget{struct_inverter_struct_a9732bacc0a7fa9b2fcc3b08fc85b071f}\label{struct_inverter_struct_a9732bacc0a7fa9b2fcc3b08fc85b071f} 
+\index{InverterStruct@{InverterStruct}!tempInverter@{tempInverter}}
+\index{tempInverter@{tempInverter}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{tempInverter}{tempInverter}}
+{\footnotesize\ttfamily float temp\+Inverter}
 
-Semiconductor temperature in degC \Hypertarget{struct_inverter_struct_abb60d2beeef6a3b479773078b9ed98d2}\label{struct_inverter_struct_abb60d2beeef6a3b479773078b9ed98d2} 
-\index{InverterStruct@{InverterStruct}!temp\_motor@{temp\_motor}}
-\index{temp\_motor@{temp\_motor}!InverterStruct@{InverterStruct}}
-\doxysubsubsection{\texorpdfstring{temp\_motor}{temp\_motor}}
-{\footnotesize\ttfamily float temp\+\_\+motor}
+Semiconductor temperature in degC \Hypertarget{struct_inverter_struct_ac6c9938ffe4a3de041c4d27c141d35d7}\label{struct_inverter_struct_ac6c9938ffe4a3de041c4d27c141d35d7} 
+\index{InverterStruct@{InverterStruct}!tempMotor@{tempMotor}}
+\index{tempMotor@{tempMotor}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{tempMotor}{tempMotor}}
+{\footnotesize\ttfamily float temp\+Motor}
 
 Motor temperature in degC 
 

@@ -44,101 +44,99 @@
 \DoxyCodeLine{00057\ \textcolor{comment}{/*\ USER\ CODE\ END\ EFP\ */}}
 \DoxyCodeLine{00058\ }
 \DoxyCodeLine{00059\ \textcolor{comment}{/*\ Private\ defines\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/*/}}
-\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ TS\ 0.00002}}
-\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ DT\ 0.00000015}}
-\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ Tinv\_L\_Pin\ GPIO\_PIN\_0}}
-\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ Tinv\_L\_GPIO\_Port\ GPIOC}}
-\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ Tinv\_R\_Pin\ GPIO\_PIN\_1}}
-\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ Tinv\_R\_GPIO\_Port\ GPIOC}}
-\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ Tmot\_L\_Pin\ GPIO\_PIN\_2}}
-\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ Tmot\_L\_GPIO\_Port\ GPIOC}}
-\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ Tmot\_R\_Pin\ GPIO\_PIN\_3}}
-\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ Tmot\_R\_GPIO\_Port\ GPIOC}}
-\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ ia\_L\_Pin\ GPIO\_PIN\_0}}
-\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ ia\_L\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ ib\_L\_Pin\ GPIO\_PIN\_1}}
-\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ ib\_L\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ ic\_L\_Pin\ GPIO\_PIN\_2}}
-\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ ic\_L\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ VDC\_L\_Pin\ GPIO\_PIN\_3}}
-\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ VDC\_L\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ DAC\_Pin\ GPIO\_PIN\_4}}
-\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ DAC\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ PWM1\_R\_Pin\ GPIO\_PIN\_5}}
-\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ PWM1\_R\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ ia\_R\_Pin\ GPIO\_PIN\_6}}
-\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ ia\_R\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ ib\_R\_Pin\ GPIO\_PIN\_7}}
-\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ ib\_R\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ SC\_det\_Pin\ GPIO\_PIN\_4}}
-\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ SC\_det\_GPIO\_Port\ GPIOC}}
-\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ ic\_R\_Pin\ GPIO\_PIN\_0}}
-\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ ic\_R\_GPIO\_Port\ GPIOB}}
-\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ VDC\_R\_Pin\ GPIO\_PIN\_1}}
-\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ VDC\_R\_GPIO\_Port\ GPIOB}}
-\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ ENABLE\_R\_Pin\ GPIO\_PIN\_2}}
-\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ ENABLE\_R\_GPIO\_Port\ GPIOB}}
-\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ ENABLE\_L\_Pin\ GPIO\_PIN\_7}}
-\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ ENABLE\_L\_GPIO\_Port\ GPIOE}}
-\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ PWM1\_L\_Pin\ GPIO\_PIN\_8}}
-\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ PWM1\_L\_GPIO\_Port\ GPIOE}}
-\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ PWM2\_L\_Pin\ GPIO\_PIN\_9}}
-\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ PWM2\_L\_GPIO\_Port\ GPIOE}}
-\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ PWM3\_L\_Pin\ GPIO\_PIN\_10}}
-\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ PWM3\_L\_GPIO\_Port\ GPIOE}}
-\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ PWM4\_L\_Pin\ GPIO\_PIN\_11}}
-\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ PWM4\_L\_GPIO\_Port\ GPIOE}}
-\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ PWM5\_L\_Pin\ GPIO\_PIN\_12}}
-\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ PWM5\_L\_GPIO\_Port\ GPIOE}}
-\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ PWM6\_L\_Pin\ GPIO\_PIN\_13}}
-\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ PWM6\_L\_GPIO\_Port\ GPIOE}}
-\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ WRN\_L\_Pin\ GPIO\_PIN\_14}}
-\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ WRN\_L\_GPIO\_Port\ GPIOE}}
-\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ WRN\_R\_Pin\ GPIO\_PIN\_15}}
-\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ WRN\_R\_GPIO\_Port\ GPIOE}}
-\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ B\_R\_Pin\ GPIO\_PIN\_10}}
-\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ B\_R\_GPIO\_Port\ GPIOB}}
-\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ Z\_R\_Pin\ GPIO\_PIN\_11}}
-\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ Z\_R\_GPIO\_Port\ GPIOB}}
-\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ PWM3\_R\_Pin\ GPIO\_PIN\_14}}
-\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ PWM3\_R\_GPIO\_Port\ GPIOB}}
-\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ PWM5\_R\_Pin\ GPIO\_PIN\_15}}
-\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ PWM5\_R\_GPIO\_Port\ GPIOB}}
-\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ A\_L\_Pin\ GPIO\_PIN\_12}}
-\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ A\_L\_GPIO\_Port\ GPIOD}}
-\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ B\_L\_Pin\ GPIO\_PIN\_14}}
-\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ B\_L\_GPIO\_Port\ GPIOD}}
-\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ Z\_L\_Pin\ GPIO\_PIN\_15}}
-\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ Z\_L\_GPIO\_Port\ GPIOD}}
-\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ PWM2\_R\_Pin\ GPIO\_PIN\_6}}
-\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ PWM2\_R\_GPIO\_Port\ GPIOC}}
-\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ PWM4\_R\_Pin\ GPIO\_PIN\_7}}
-\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ PWM4\_R\_GPIO\_Port\ GPIOC}}
-\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ PWM6\_R\_Pin\ GPIO\_PIN\_8}}
-\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ PWM6\_R\_GPIO\_Port\ GPIOC}}
-\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ TRIP\_R\_Pin\ GPIO\_PIN\_9}}
-\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ TRIP\_R\_GPIO\_Port\ GPIOC}}
-\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ TRIP\_L\_Pin\ GPIO\_PIN\_8}}
-\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ TRIP\_L\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ A\_R\_Pin\ GPIO\_PIN\_15}}
-\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ A\_R\_GPIO\_Port\ GPIOA}}
-\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ DIR\_Pin\ GPIO\_PIN\_3}}
-\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ DIR\_GPIO\_Port\ GPIOD}}
-\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ LED\_LEFT\_Pin\ GPIO\_PIN\_4}}
-\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ LED\_LEFT\_GPIO\_Port\ GPIOD}}
-\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ LED\_RIGHT\_Pin\ GPIO\_PIN\_5}}
-\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ LED\_RIGHT\_GPIO\_Port\ GPIOD}}
-\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#define\ LED\_ERR\_Pin\ GPIO\_PIN\_6}}
-\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#define\ LED\_ERR\_GPIO\_Port\ GPIOD}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ Tinv\_L\_Pin\ GPIO\_PIN\_0}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ Tinv\_L\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ Tinv\_R\_Pin\ GPIO\_PIN\_1}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ Tinv\_R\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ Tmot\_L\_Pin\ GPIO\_PIN\_2}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ Tmot\_L\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ Tmot\_R\_Pin\ GPIO\_PIN\_3}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ Tmot\_R\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ ia\_L\_Pin\ GPIO\_PIN\_0}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ ia\_L\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ ib\_L\_Pin\ GPIO\_PIN\_1}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ ib\_L\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ ic\_L\_Pin\ GPIO\_PIN\_2}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ ic\_L\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ VDC\_L\_Pin\ GPIO\_PIN\_3}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ VDC\_L\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ DAC\_Pin\ GPIO\_PIN\_4}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ DAC\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ PWM1\_R\_Pin\ GPIO\_PIN\_5}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ PWM1\_R\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ ia\_R\_Pin\ GPIO\_PIN\_6}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ ia\_R\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#define\ ib\_R\_Pin\ GPIO\_PIN\_7}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ ib\_R\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#define\ SC\_det\_Pin\ GPIO\_PIN\_4}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ SC\_det\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#define\ ic\_R\_Pin\ GPIO\_PIN\_0}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ ic\_R\_GPIO\_Port\ GPIOB}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ VDC\_R\_Pin\ GPIO\_PIN\_1}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ VDC\_R\_GPIO\_Port\ GPIOB}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ ENABLE\_R\_Pin\ GPIO\_PIN\_2}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#define\ ENABLE\_R\_GPIO\_Port\ GPIOB}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ ENABLE\_L\_Pin\ GPIO\_PIN\_7}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ ENABLE\_L\_GPIO\_Port\ GPIOE}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ PWM1\_L\_Pin\ GPIO\_PIN\_8}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ PWM1\_L\_GPIO\_Port\ GPIOE}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ PWM2\_L\_Pin\ GPIO\_PIN\_9}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ PWM2\_L\_GPIO\_Port\ GPIOE}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#define\ PWM3\_L\_Pin\ GPIO\_PIN\_10}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ PWM3\_L\_GPIO\_Port\ GPIOE}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ PWM4\_L\_Pin\ GPIO\_PIN\_11}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#define\ PWM4\_L\_GPIO\_Port\ GPIOE}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ PWM5\_L\_Pin\ GPIO\_PIN\_12}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ PWM5\_L\_GPIO\_Port\ GPIOE}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ PWM6\_L\_Pin\ GPIO\_PIN\_13}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ PWM6\_L\_GPIO\_Port\ GPIOE}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ WRN\_L\_Pin\ GPIO\_PIN\_14}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#define\ WRN\_L\_GPIO\_Port\ GPIOE}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ WRN\_R\_Pin\ GPIO\_PIN\_15}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ WRN\_R\_GPIO\_Port\ GPIOE}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ B\_R\_Pin\ GPIO\_PIN\_10}}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#define\ B\_R\_GPIO\_Port\ GPIOB}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#define\ Z\_R\_Pin\ GPIO\_PIN\_11}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ Z\_R\_GPIO\_Port\ GPIOB}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ PWM3\_R\_Pin\ GPIO\_PIN\_14}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ PWM3\_R\_GPIO\_Port\ GPIOB}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ PWM5\_R\_Pin\ GPIO\_PIN\_15}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ PWM5\_R\_GPIO\_Port\ GPIOB}}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#define\ A\_L\_Pin\ GPIO\_PIN\_12}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#define\ A\_L\_GPIO\_Port\ GPIOD}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ B\_L\_Pin\ GPIO\_PIN\_14}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ B\_L\_GPIO\_Port\ GPIOD}}
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#define\ Z\_L\_Pin\ GPIO\_PIN\_15}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#define\ Z\_L\_GPIO\_Port\ GPIOD}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#define\ PWM2\_R\_Pin\ GPIO\_PIN\_6}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#define\ PWM2\_R\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{00126\ \textcolor{preprocessor}{\#define\ PWM4\_R\_Pin\ GPIO\_PIN\_7}}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#define\ PWM4\_R\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#define\ PWM6\_R\_Pin\ GPIO\_PIN\_8}}
+\DoxyCodeLine{00129\ \textcolor{preprocessor}{\#define\ PWM6\_R\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#define\ TRIP\_R\_Pin\ GPIO\_PIN\_9}}
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#define\ TRIP\_R\_GPIO\_Port\ GPIOC}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#define\ TRIP\_L\_Pin\ GPIO\_PIN\_8}}
+\DoxyCodeLine{00133\ \textcolor{preprocessor}{\#define\ TRIP\_L\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ A\_R\_Pin\ GPIO\_PIN\_15}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#define\ A\_R\_GPIO\_Port\ GPIOA}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ DIR\_Pin\ GPIO\_PIN\_3}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#define\ DIR\_GPIO\_Port\ GPIOD}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ LED\_LEFT\_Pin\ GPIO\_PIN\_4}}
+\DoxyCodeLine{00139\ \textcolor{preprocessor}{\#define\ LED\_LEFT\_GPIO\_Port\ GPIOD}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#define\ LED\_RIGHT\_Pin\ GPIO\_PIN\_5}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ LED\_RIGHT\_GPIO\_Port\ GPIOD}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#define\ LED\_ERR\_Pin\ GPIO\_PIN\_6}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ LED\_ERR\_GPIO\_Port\ GPIOD}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Private\ defines\ */}}
 \DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Private\ defines\ */}}
+\DoxyCodeLine{00147\ \textcolor{comment}{/*\ USER\ CODE\ END\ Private\ defines\ */}}
 \DoxyCodeLine{00148\ }
-\DoxyCodeLine{00149\ \textcolor{comment}{/*\ USER\ CODE\ END\ Private\ defines\ */}}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
-\DoxyCodeLine{00152\ \}}
-\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_MAIN\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00150\ \}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_MAIN\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

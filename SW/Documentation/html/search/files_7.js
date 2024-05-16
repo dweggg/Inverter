@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['pcb_5fio_2ec_0',['PCB_IO.c',['../_p_c_b___i_o_8c.html',1,'']]],
-  ['pcb_5fio_2eh_1',['PCB_IO.h',['../_p_c_b___i_o_8h.html',1,'']]],
-  ['pergamod_2ec_2',['PergaMOD.c',['../_perga_m_o_d_8c.html',1,'']]],
-  ['pergamod_2eh_3',['PergaMOD.h',['../_perga_m_o_d_8h.html',1,'']]],
-  ['pwm_2ec_4',['PWM.c',['../_p_w_m_8c.html',1,'']]],
-  ['pwm_2eh_5',['PWM.h',['../_p_w_m_8h.html',1,'']]]
+  ['tasks_5f1ms_2ec_0',['TASKS_1ms.c',['../_t_a_s_k_s__1ms_8c.html',1,'']]],
+  ['tasks_5f1ms_2eh_1',['TASKS_1ms.h',['../_t_a_s_k_s__1ms_8h.html',1,'']]],
+  ['tasks_5f20us_2ec_2',['TASKS_20us.c',['../_t_a_s_k_s__20us_8c.html',1,'']]],
+  ['tasks_5f20us_2eh_3',['TASKS_20us.h',['../_t_a_s_k_s__20us_8h.html',1,'']]],
+  ['tim_2ec_4',['tim.c',['../tim_8c.html',1,'']]]
 ];

@@ -9,10 +9,12 @@
 \DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ CONTROL\_H}}
 \DoxyCodeLine{00022\ }
 \DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_p_w_m_8h}{PWM.h}}"{}}\ \textcolor{comment}{//\ duties\ struct}}
-\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h}{INVERTER.h}}"{}}\ \textcolor{comment}{//\ TS\ \&\ Inverter\ struct}}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_aac5a290ef4e712f9ed13c9bec1a1dcbb}{calc\_duties}}(\textcolor{keywordtype}{float}\ vd,\ \textcolor{keywordtype}{float}\ vq,\ \textcolor{keywordtype}{float}\ vDC,\ \textcolor{keywordtype}{float}\ theta\_e,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_duties}{Duties}}\ *duties);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CONTROL\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_a8f219eb3c0f9cc2e68149504b730a47c}{calc\_current\_loop}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_aaffe76ea3a271728f3cb3d0b97ffe2e4}{calc\_duties}}(\textcolor{keywordtype}{float}\ vd,\ \textcolor{keywordtype}{float}\ vq,\ \textcolor{keywordtype}{float}\ vDC,\ \textcolor{keywordtype}{float}\ sinTheta\_e,\ \textcolor{keywordtype}{float}\ cosTheta\_e,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_duties}{Duties}}\ *duties);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CONTROL\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

@@ -1,5 +1,28 @@
 var searchData=
 [
-  ['j_0',['J',['../structmotor_parameters.html#a7c20f6b5c2b8c830d450944735b761b3',1,'motorParameters']]],
-  ['j_1',['j',['../structdatalog__struct.html#a538d097420e725c4dad63c3caa9e55bd',1,'datalog_struct']]]
+  ['i_0',['i',['../structdatalog__struct.html#a78f7a37dba921e0b0347b960fb40bc51',1,'datalog_struct']]],
+  ['ia_1',['ia',['../struct_analog.html#a7b367da12b961437c2059d6da0595a14',1,'Analog']]],
+  ['iactual_5frl_2',['Iactual_RL',['../_c_a_n1db_8h.html#aee9bfb26cce14606b2ef5e3558d18d44',1,'CAN1db.h']]],
+  ['iactual_5frr_3',['Iactual_RR',['../_c_a_n1db_8h.html#aa3b8b78b6e6edf7740c47c6aa5246906',1,'CAN1db.h']]],
+  ['ib_4',['ib',['../struct_analog.html#aa2e5a869148258735d37540db788c66c',1,'Analog']]],
+  ['ic_5',['ic',['../struct_analog.html#a9e556245df4e7b1be25fbb5e2075d50a',1,'Analog']]],
+  ['icmd_5frl_6',['Icmd_RL',['../_c_a_n1db_8h.html#aa500a2cbd5b3b26594096393ac137f07',1,'CAN1db.h']]],
+  ['icmd_5frr_7',['Icmd_RR',['../_c_a_n1db_8h.html#a03a66c04a599e0341befa0d5b8e38cb6',1,'CAN1db.h']]],
+  ['id_8',['ID',['../struct_c_a_n_message_info.html#a0364849925d3c762ce722e963712b123',1,'CANMessageInfo::ID'],['../_c_a_n1db_8h.html#a0364849925d3c762ce722e963712b123',1,'ID:&#160;CAN1db.h']]],
+  ['ide_9',['IDE',['../struct_c_a_n_message_info.html#a374853775ad7fb1713c183fecf6aa487',1,'CANMessageInfo::IDE'],['../_c_a_n1db_8h.html#a374853775ad7fb1713c183fecf6aa487',1,'IDE:&#160;CAN1db.h']]],
+  ['idloop_10',['idLoop',['../struct_inverter_struct.html#a76141940d12e361a3b7f33840274133a',1,'InverterStruct']]],
+  ['idmeas_11',['idMeas',['../struct_feedback.html#ad4e628fe9fa9c7d9ab0f0a1b0f826ee7',1,'Feedback']]],
+  ['idref_12',['idRef',['../struct_reference.html#a5896cad66e973075ed4fb7f0ad07965c',1,'Reference']]],
+  ['in_13',['in',['../structrampa__struct.html#ae7d18e86426895053287f7804575536b',1,'rampa_struct::in'],['../structrampa__dual__struct.html#ae7d18e86426895053287f7804575536b',1,'rampa_dual_struct::in'],['../structavg__struct__10.html#aa08a0d16672cd94c2599061cae435a2f',1,'avg_struct_10::in'],['../structfiltre_l_p__struct.html#ae7d18e86426895053287f7804575536b',1,'filtreLP_struct::in']]],
+  ['in_14',['In',['../structstep__struct.html#a42110e0d8fa1f4f88cfba5704c1fe3a1',1,'step_struct']]],
+  ['incr_15',['Incr',['../structrampa__struct.html#a6da850aeb21ef46921710fca35d342ce',1,'rampa_struct::Incr'],['../structrampa__dual__struct.html#a6da850aeb21ef46921710fca35d342ce',1,'rampa_dual_struct::Incr']]],
+  ['init_16',['init',['../structpi__struct.html#afd461a800544d52e7c3899da989ffe44',1,'pi_struct::init'],['../structfiltre_l_p__struct.html#afd461a800544d52e7c3899da989ffe44',1,'filtreLP_struct::init']]],
+  ['inverter_5fleft_17',['inverter_left',['../_i_n_v_e_r_t_e_r_8h.html#a9d4c83ba0ff9eff71fe732ddac1dc208',1,'inverter_left:&#160;INVERTER.c'],['../_i_n_v_e_r_t_e_r_8c.html#a9d4c83ba0ff9eff71fe732ddac1dc208',1,'inverter_left:&#160;INVERTER.c']]],
+  ['inverter_5fright_18',['inverter_right',['../_i_n_v_e_r_t_e_r_8h.html#a9a1270f4b4f50328b300e5fb98dee476',1,'inverter_right:&#160;INVERTER.c'],['../_i_n_v_e_r_t_e_r_8c.html#a9a1270f4b4f50328b300e5fb98dee476',1,'inverter_right:&#160;INVERTER.c']]],
+  ['iphase_5fpk_5fmax_19',['iPhase_pk_max',['../struct_motor_parameters.html#ae0b158be47384d1cbf1bfb3d1ec9f88b',1,'MotorParameters']]],
+  ['iq_5frl_20',['Iq_RL',['../_c_a_n1db_8h.html#a59b579d5214bcdf687ae46f6dd0fa1f7',1,'CAN1db.h']]],
+  ['iq_5frr_21',['Iq_RR',['../_c_a_n1db_8h.html#a62983e59df768f98aa0e7048ff7c7789',1,'CAN1db.h']]],
+  ['iqloop_22',['iqLoop',['../struct_inverter_struct.html#aabc1539fbf53f8a59763438070b3f124',1,'InverterStruct']]],
+  ['iqmeas_23',['iqMeas',['../struct_feedback.html#a3c7d6939406c8a0ba89c96cbf49db5db',1,'Feedback']]],
+  ['iqref_24',['iqRef',['../struct_reference.html#ada1dbfeb5f056dc31bd0f044f5129754',1,'Reference']]]
 ];

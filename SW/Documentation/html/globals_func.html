@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -51,6 +55,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('globals_func.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -76,25 +96,7 @@ $(function() {
 <div class="textblock">Here is a list of all functions with links to the files they belong to:</div>
 
 <h3><a id="index__5F" name="index__5F"></a>- _ -</h3><ul>
-<li>__attribute__()&#160;:&#160;<a class="el" href="syscalls_8c.html#af9aace1b44b73111e15aa39f06f43456">syscalls.c</a></li>
-<li>__io_getchar()&#160;:&#160;<a class="el" href="syscalls_8c.html#ad0122671640a3af49792ddaa59e8294e">syscalls.c</a></li>
-<li>__io_putchar()&#160;:&#160;<a class="el" href="syscalls_8c.html#aa53ed4b191897a1bfc205aa1da005d24">syscalls.c</a></li>
-<li>_close()&#160;:&#160;<a class="el" href="syscalls_8c.html#a5aab5e2acfd600e3667dc915a2bbc7cb">syscalls.c</a></li>
-<li>_execve()&#160;:&#160;<a class="el" href="syscalls_8c.html#ad2a07db8fdf26151eb98ba5711fad8c5">syscalls.c</a></li>
-<li>_exit()&#160;:&#160;<a class="el" href="syscalls_8c.html#abc96bd69b58b2deaddb484478d911c1b">syscalls.c</a></li>
-<li>_fork()&#160;:&#160;<a class="el" href="syscalls_8c.html#a6cb6331c9d166180903d5fb78b9c9dd7">syscalls.c</a></li>
-<li>_fstat()&#160;:&#160;<a class="el" href="syscalls_8c.html#a41eef54307912a82d20e71c3d47315aa">syscalls.c</a></li>
-<li>_getpid()&#160;:&#160;<a class="el" href="syscalls_8c.html#a945e539df8e0f66d3c73c533fe1968ee">syscalls.c</a></li>
-<li>_isatty()&#160;:&#160;<a class="el" href="syscalls_8c.html#ad3134a3dc296622b8d1c5456e481505b">syscalls.c</a></li>
-<li>_kill()&#160;:&#160;<a class="el" href="syscalls_8c.html#a062a5101199c3128edd5170f2575bb10">syscalls.c</a></li>
-<li>_link()&#160;:&#160;<a class="el" href="syscalls_8c.html#a31da4cd5328defa76a9e2246992aba12">syscalls.c</a></li>
-<li>_lseek()&#160;:&#160;<a class="el" href="syscalls_8c.html#a7a61311bdf1cb025fc07dc2bdae22ce4">syscalls.c</a></li>
-<li>_open()&#160;:&#160;<a class="el" href="syscalls_8c.html#a270c9113047edd8d64186710ad76062b">syscalls.c</a></li>
-<li>_sbrk()&#160;:&#160;<a class="el" href="sysmem_8c.html#a68125648bcce70b6bb3aa0be50e99700">sysmem.c</a></li>
-<li>_stat()&#160;:&#160;<a class="el" href="syscalls_8c.html#a4711e961db985ed2c850a8be6597af50">syscalls.c</a></li>
-<li>_times()&#160;:&#160;<a class="el" href="syscalls_8c.html#aaf727ebf57cd64d6c58b23e6ee4a4a69">syscalls.c</a></li>
-<li>_unlink()&#160;:&#160;<a class="el" href="syscalls_8c.html#a70b2f211d665cded5637065aa2bb89dc">syscalls.c</a></li>
-<li>_wait()&#160;:&#160;<a class="el" href="syscalls_8c.html#aeef0c3372d04caa1bcc99fed2ab6ec72">syscalls.c</a></li>
+<li>__attribute__()&#160;:&#160;<a class="el" href="_c_a_n1db_8h.html#a5cc5a29441018be950f2fd9ede0345a2">CAN1db.h</a></li>
 </ul>
 
 
@@ -110,8 +112,10 @@ $(function() {
 
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>calc_duties()&#160;:&#160;<a class="el" href="_c_o_n_t_r_o_l_8h.html#aac5a290ef4e712f9ed13c9bec1a1dcbb">CONTROL.h</a>, <a class="el" href="_c_o_n_t_r_o_l_8c.html#aac5a290ef4e712f9ed13c9bec1a1dcbb">CONTROL.c</a></li>
+<li>calc_current_loop()&#160;:&#160;<a class="el" href="_c_o_n_t_r_o_l_8h.html#a8f219eb3c0f9cc2e68149504b730a47c">CONTROL.h</a>, <a class="el" href="_c_o_n_t_r_o_l_8c.html#a8f219eb3c0f9cc2e68149504b730a47c">CONTROL.c</a></li>
+<li>calc_duties()&#160;:&#160;<a class="el" href="_c_o_n_t_r_o_l_8h.html#aaffe76ea3a271728f3cb3d0b97ffe2e4">CONTROL.h</a>, <a class="el" href="_c_o_n_t_r_o_l_8c.html#aaffe76ea3a271728f3cb3d0b97ffe2e4">CONTROL.c</a></li>
 <li>CAN1_RX0_IRQHandler()&#160;:&#160;<a class="el" href="stm32f7xx__it_8h.html#a4dcf621094d563287c456f7aa751e86b">stm32f7xx_it.h</a>, <a class="el" href="stm32f7xx__it_8c.html#a4dcf621094d563287c456f7aa751e86b">stm32f7xx_it.c</a></li>
+<li>check_motor_parameters()&#160;:&#160;<a class="el" href="_m_o_t_o_r_8h.html#aac2006b5fcd23b70efa190f9239e50a1">MOTOR.h</a>, <a class="el" href="_m_o_t_o_r_8c.html#aac2006b5fcd23b70efa190f9239e50a1">MOTOR.c</a></li>
 <li>clarke3F_calc()&#160;:&#160;<a class="el" href="group___transformation___functions.html#ga467621f0bad48eddfbb75a5a460c371f">PergaMOD.h</a>, <a class="el" href="group___transformation___functions.html#ga467621f0bad48eddfbb75a5a460c371f">PergaMOD.c</a></li>
 </ul>
 
@@ -140,64 +144,52 @@ $(function() {
 
 
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
-<li>get_currents_voltage()&#160;:&#160;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#ac153d66d16b01226fa3b412f4b1de896">MEASUREMENTS.h</a>, <a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#ac153d66d16b01226fa3b412f4b1de896">MEASUREMENTS.c</a></li>
-<li>get_idiq()&#160;:&#160;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2423babe4d4595dbf43343e6a2e998e1">MEASUREMENTS.h</a>, <a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a2423babe4d4595dbf43343e6a2e998e1">MEASUREMENTS.c</a></li>
+<li>get_currents_voltage()&#160;:&#160;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#acb612a58453d95f2d3ae5d9ce1ebaf6f">MEASUREMENTS.h</a>, <a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#acb612a58453d95f2d3ae5d9ce1ebaf6f">MEASUREMENTS.c</a></li>
+<li>get_idiq()&#160;:&#160;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#af5e40ee9d1ed5e3661139df852b9fba8">MEASUREMENTS.h</a>, <a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#af5e40ee9d1ed5e3661139df852b9fba8">MEASUREMENTS.c</a></li>
 <li>get_linear()&#160;:&#160;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a35344a31c9b0c99423ee9e3f5287a5b2">MEASUREMENTS.h</a>, <a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a35344a31c9b0c99423ee9e3f5287a5b2">MEASUREMENTS.c</a></li>
 <li>get_temperature()&#160;:&#160;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a2ca7064e54ee37e91151caeeeb31e129">MEASUREMENTS.h</a>, <a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a2ca7064e54ee37e91151caeeeb31e129">MEASUREMENTS.c</a></li>
 </ul>
 
 
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>HAL_ADC_MspDeInit()&#160;:&#160;<a class="el" href="adc_8c.html#a3f61f2c2af0f122f81a87af8ad7b4360">adc.c</a></li>
-<li>HAL_ADC_MspInit()&#160;:&#160;<a class="el" href="adc_8c.html#ac3139540667c403c5dfd37a99c610b1c">adc.c</a></li>
 <li>HAL_CAN_MspDeInit()&#160;:&#160;<a class="el" href="can_8c.html#a4b39e42353b2781bc75d83c018640b67">can.c</a></li>
 <li>HAL_CAN_MspInit()&#160;:&#160;<a class="el" href="can_8c.html#a2778ce7f3a2de42769b6de9fec4cedb9">can.c</a></li>
-<li>HAL_DAC_MspDeInit()&#160;:&#160;<a class="el" href="dac_8c.html#a13b8fa4f908f78040536cc8cfc99231e">dac.c</a></li>
-<li>HAL_DAC_MspInit()&#160;:&#160;<a class="el" href="dac_8c.html#a8e4797900d3cb9171a484f2b955aba87">dac.c</a></li>
-<li>HAL_I2C_MspDeInit()&#160;:&#160;<a class="el" href="i2c_8c.html#adaa17249f3d5001ad363c736df31c593">i2c.c</a></li>
-<li>HAL_I2C_MspInit()&#160;:&#160;<a class="el" href="i2c_8c.html#a08b1eb7b7be5b94395127e2a33b1b67e">i2c.c</a></li>
-<li>HAL_MspInit()&#160;:&#160;<a class="el" href="stm32f7xx__hal__msp_8c.html#ae4fb8e66865c87d0ebab74a726a6891f">stm32f7xx_hal_msp.c</a></li>
 <li>HAL_TIM_Base_MspDeInit()&#160;:&#160;<a class="el" href="tim_8c.html#adee8ed7d3ebb3a217c27ac10af86ce2f">tim.c</a></li>
 <li>HAL_TIM_Base_MspInit()&#160;:&#160;<a class="el" href="tim_8c.html#a59716af159bfbbb6023b31354fb23af8">tim.c</a></li>
 <li>HAL_TIM_IC_MspDeInit()&#160;:&#160;<a class="el" href="tim_8c.html#a701032abe2709bc890df9474d3294861">tim.c</a></li>
 <li>HAL_TIM_IC_MspInit()&#160;:&#160;<a class="el" href="tim_8c.html#a13619a751dea657d9faa32b690b2f80e">tim.c</a></li>
-<li>HAL_TIM_MspPostInit()&#160;:&#160;<a class="el" href="tim_8h.html#ae70bce6c39d0b570a7523b86738cec4b">tim.h</a>, <a class="el" href="tim_8c.html#a708f19bbc41b292fccf38f2d9796c46a">tim.c</a></li>
+<li>HAL_TIM_MspPostInit()&#160;:&#160;<a class="el" href="tim_8c.html#a708f19bbc41b292fccf38f2d9796c46a">tim.c</a></li>
+<li>handle_CAN()&#160;:&#160;<a class="el" href="_c_a_n__e-_tech_8h.html#a344219c7f86a488bcb222a4b675ee586">CAN_e-Tech.h</a>, <a class="el" href="_c_a_n__e-_tech_8c.html#a344219c7f86a488bcb222a4b675ee586">CAN_e-Tech.c</a></li>
 <li>handle_direction()&#160;:&#160;<a class="el" href="_p_c_b___i_o_8h.html#afec13170cd54a3dc4f50bae3cb8f386e">PCB_IO.h</a>, <a class="el" href="_p_c_b___i_o_8c.html#afec13170cd54a3dc4f50bae3cb8f386e">PCB_IO.c</a></li>
 <li>handle_LED()&#160;:&#160;<a class="el" href="_p_c_b___i_o_8h.html#a6736efa24340a6743e5d41dab343c15b">PCB_IO.h</a>, <a class="el" href="_p_c_b___i_o_8c.html#a6736efa24340a6743e5d41dab343c15b">PCB_IO.c</a></li>
+<li>handle_torqueRef()&#160;:&#160;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html#a1988c289dd46fd505e0f9de30044fed0">REFERENCE.h</a>, <a class="el" href="_r_e_f_e_r_e_n_c_e_8c.html#a1988c289dd46fd505e0f9de30044fed0">REFERENCE.c</a></li>
 <li>HardFault_Handler()&#160;:&#160;<a class="el" href="stm32f7xx__it_8h.html#a2bffc10d5bd4106753b7c30e86903bea">stm32f7xx_it.h</a>, <a class="el" href="stm32f7xx__it_8c.html#a2bffc10d5bd4106753b7c30e86903bea">stm32f7xx_it.c</a></li>
 </ul>
 
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
 <li>iclarke3F_calc()&#160;:&#160;<a class="el" href="group___transformation___functions.html#ga2b0f376e5a1df52bf340375e6e92cabf">PergaMOD.h</a>, <a class="el" href="group___transformation___functions.html#ga2b0f376e5a1df52bf340375e6e92cabf">PergaMOD.c</a></li>
-<li>initialise_monitor_handles()&#160;:&#160;<a class="el" href="syscalls_8c.html#a25c7f100d498300fff65568c2fcfe639">syscalls.c</a></li>
-<li>initialize_inverter()&#160;:&#160;<a class="el" href="_i_n_v_e_r_t_e_r_8h.html#ab166dd27a896ec83c7677462360eeba7">INVERTER.h</a>, <a class="el" href="_i_n_v_e_r_t_e_r_8c.html#ab166dd27a896ec83c7677462360eeba7">INVERTER.c</a></li>
+<li>init_control_loops()&#160;:&#160;<a class="el" href="_i_n_v_e_r_t_e_r_8h.html#aaf9fa53152a16edd10ae319f35703a1a">INVERTER.h</a>, <a class="el" href="_i_n_v_e_r_t_e_r_8c.html#aaf9fa53152a16edd10ae319f35703a1a">INVERTER.c</a></li>
+<li>initialize_inverter()&#160;:&#160;<a class="el" href="_i_n_v_e_r_t_e_r_8h.html#a49edd9d49792ef1249641249d3259f87">INVERTER.h</a>, <a class="el" href="_i_n_v_e_r_t_e_r_8c.html#a49edd9d49792ef1249641249d3259f87">INVERTER.c</a></li>
+<li>initialize_torque_ramp()&#160;:&#160;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html#a6a55a30eeb0846ae5cd9e212b23d5ced">REFERENCE.h</a>, <a class="el" href="_r_e_f_e_r_e_n_c_e_8c.html#a6a55a30eeb0846ae5cd9e212b23d5ced">REFERENCE.c</a></li>
 <li>irot_calc()&#160;:&#160;<a class="el" href="group___transformation___functions.html#ga9ec9411a108959be4eda9241a127596a">PergaMOD.h</a>, <a class="el" href="group___transformation___functions.html#ga9ec9411a108959be4eda9241a127596a">PergaMOD.c</a></li>
 </ul>
 
 
 <h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>limit_torque_to_prevent_overspeed()&#160;:&#160;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html#a4250eb8409c403d07add674c6d2e80c7">REFERENCE.h</a>, <a class="el" href="_r_e_f_e_r_e_n_c_e_8c.html#a4250eb8409c403d07add674c6d2e80c7">REFERENCE.c</a></li>
+<li>limit_torque_to_prevent_overspeed()&#160;:&#160;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html#ae99c985c51ea3f09df6b9283e20b4375">REFERENCE.h</a>, <a class="el" href="_r_e_f_e_r_e_n_c_e_8c.html#a0da21f1ac59fa2f2ff67acfd930147ed">REFERENCE.c</a></li>
 </ul>
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
 <li>main()&#160;:&#160;<a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main.c</a></li>
 <li>MemManage_Handler()&#160;:&#160;<a class="el" href="stm32f7xx__it_8h.html#a3150f74512510287a942624aa9b44cc5">stm32f7xx_it.h</a>, <a class="el" href="stm32f7xx__it_8c.html#a3150f74512510287a942624aa9b44cc5">stm32f7xx_it.c</a></li>
-<li>MX_ADC1_Init()&#160;:&#160;<a class="el" href="adc_8h.html#acccd58aa70215a6b184ad242312ffd0c">adc.h</a>, <a class="el" href="adc_8c.html#acccd58aa70215a6b184ad242312ffd0c">adc.c</a></li>
-<li>MX_ADC2_Init()&#160;:&#160;<a class="el" href="adc_8h.html#a101e2e3433dfe72bbbd0ae3a84489263">adc.h</a>, <a class="el" href="adc_8c.html#a101e2e3433dfe72bbbd0ae3a84489263">adc.c</a></li>
-<li>MX_ADC3_Init()&#160;:&#160;<a class="el" href="adc_8h.html#ac633a37a9db8b1f45a5f70f973cf05c4">adc.h</a>, <a class="el" href="adc_8c.html#ac633a37a9db8b1f45a5f70f973cf05c4">adc.c</a></li>
-<li>MX_CAN1_Init()&#160;:&#160;<a class="el" href="can_8h.html#a030a62a0956ab83394eb8354a0e97902">can.h</a>, <a class="el" href="can_8c.html#a030a62a0956ab83394eb8354a0e97902">can.c</a></li>
-<li>MX_DAC_Init()&#160;:&#160;<a class="el" href="dac_8h.html#adac6621f933c065bc075ac0af3cbbb54">dac.h</a>, <a class="el" href="dac_8c.html#adac6621f933c065bc075ac0af3cbbb54">dac.c</a></li>
-<li>MX_DMA_Init()&#160;:&#160;<a class="el" href="dma_8h.html#a323249dac769f9855c10b4ec9446b707">dma.h</a>, <a class="el" href="dma_8c.html#a323249dac769f9855c10b4ec9446b707">dma.c</a></li>
-<li>MX_GPIO_Init()&#160;:&#160;<a class="el" href="gpio_8h.html#ac724e431d2af879252de35615be2bdea">gpio.h</a>, <a class="el" href="gpio_8c.html#ac724e431d2af879252de35615be2bdea">gpio.c</a></li>
-<li>MX_I2C1_Init()&#160;:&#160;<a class="el" href="i2c_8h.html#ada6e763cfa4108a8d24cd27b75f2f489">i2c.h</a>, <a class="el" href="i2c_8c.html#ada6e763cfa4108a8d24cd27b75f2f489">i2c.c</a></li>
-<li>MX_TIM1_Init()&#160;:&#160;<a class="el" href="tim_8h.html#ad1f9d42690163f73f73e5b820c81ca14">tim.h</a>, <a class="el" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14">tim.c</a></li>
-<li>MX_TIM2_Init()&#160;:&#160;<a class="el" href="tim_8h.html#a4b8ff887fd3fdf26605e35927e4ff202">tim.h</a>, <a class="el" href="tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202">tim.c</a></li>
-<li>MX_TIM4_Init()&#160;:&#160;<a class="el" href="tim_8h.html#aef1e0b132b1af1c923cc420a57180c67">tim.h</a>, <a class="el" href="tim_8c.html#aef1e0b132b1af1c923cc420a57180c67">tim.c</a></li>
-<li>MX_TIM6_Init()&#160;:&#160;<a class="el" href="tim_8h.html#abbf5454212cb039fb90d523b2473af91">tim.h</a>, <a class="el" href="tim_8c.html#abbf5454212cb039fb90d523b2473af91">tim.c</a></li>
-<li>MX_TIM8_Init()&#160;:&#160;<a class="el" href="tim_8h.html#a265aef7a46164094e791259bf59d9cb4">tim.h</a>, <a class="el" href="tim_8c.html#a265aef7a46164094e791259bf59d9cb4">tim.c</a></li>
-<li>MX_USB_OTG_FS_USB_Init()&#160;:&#160;<a class="el" href="usb__otg_8h.html#a2c1fefbd974e77089e285e3a73a94b47">usb_otg.h</a>, <a class="el" href="usb__otg_8c.html#a2c1fefbd974e77089e285e3a73a94b47">usb_otg.c</a></li>
+<li>MX_CAN1_Init()&#160;:&#160;<a class="el" href="can_8c.html#a030a62a0956ab83394eb8354a0e97902">can.c</a></li>
+<li>MX_TIM1_Init()&#160;:&#160;<a class="el" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14">tim.c</a></li>
+<li>MX_TIM2_Init()&#160;:&#160;<a class="el" href="tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202">tim.c</a></li>
+<li>MX_TIM4_Init()&#160;:&#160;<a class="el" href="tim_8c.html#aef1e0b132b1af1c923cc420a57180c67">tim.c</a></li>
+<li>MX_TIM6_Init()&#160;:&#160;<a class="el" href="tim_8c.html#abbf5454212cb039fb90d523b2473af91">tim.c</a></li>
+<li>MX_TIM8_Init()&#160;:&#160;<a class="el" href="tim_8c.html#a265aef7a46164094e791259bf59d9cb4">tim.c</a></li>
 </ul>
 
 
@@ -224,14 +216,13 @@ $(function() {
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>saturate_symmetric()&#160;:&#160;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html#adcef1f154971c0514781a7738dad6db7">REFERENCE.h</a>, <a class="el" href="_r_e_f_e_r_e_n_c_e_8c.html#adcef1f154971c0514781a7738dad6db7">REFERENCE.c</a></li>
-<li>set_torque_direction()&#160;:&#160;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html#a238eebcf74235b4455217edd8f1aa77b">REFERENCE.h</a>, <a class="el" href="_r_e_f_e_r_e_n_c_e_8c.html#a238eebcf74235b4455217edd8f1aa77b">REFERENCE.c</a></li>
+<li>saturate_symmetric()&#160;:&#160;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html#a0f5d51160e9eb91ad3ffba1c5905eed6">REFERENCE.h</a>, <a class="el" href="_r_e_f_e_r_e_n_c_e_8c.html#a0f5d51160e9eb91ad3ffba1c5905eed6">REFERENCE.c</a></li>
+<li>send_CAN_message()&#160;:&#160;<a class="el" href="_c_a_n__e-_tech_8h.html#a338a1edd038abc0fd507ad984eb4acfa">CAN_e-Tech.h</a>, <a class="el" href="_c_a_n__e-_tech_8c.html#a338a1edd038abc0fd507ad984eb4acfa">CAN_e-Tech.c</a></li>
+<li>set_torque_direction()&#160;:&#160;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html#ada50e1c9a8c6b63f1af050122397719a">REFERENCE.h</a>, <a class="el" href="_r_e_f_e_r_e_n_c_e_8c.html#ab120f5abe0a9a818f3926bc3a859abd6">REFERENCE.c</a></li>
 <li>step_calc()&#160;:&#160;<a class="el" href="group___miscellaneous___functions.html#gaf6846d0a6709be95c2bd9dc7a7339f70">PergaMOD.h</a>, <a class="el" href="group___miscellaneous___functions.html#gaf6846d0a6709be95c2bd9dc7a7339f70">PergaMOD.c</a></li>
 <li>SVC_Handler()&#160;:&#160;<a class="el" href="stm32f7xx__it_8h.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce">stm32f7xx_it.h</a>, <a class="el" href="stm32f7xx__it_8c.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce">stm32f7xx_it.c</a></li>
 <li>svpwm_calc()&#160;:&#160;<a class="el" href="group___utility___functions.html#ga6777e0c2b1e067acf6b99284625ec422">PergaMOD.h</a>, <a class="el" href="group___utility___functions.html#ga6777e0c2b1e067acf6b99284625ec422">PergaMOD.c</a></li>
 <li>SystemClock_Config()&#160;:&#160;<a class="el" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">main.c</a></li>
-<li>SystemCoreClockUpdate()&#160;:&#160;<a class="el" href="group___s_t_m32_f7xx___system___private___functions.html#gae0c36a9591fe6e9c45ecb21a794f0f0f">system_stm32f7xx.c</a></li>
-<li>SystemInit()&#160;:&#160;<a class="el" href="group___s_t_m32_f7xx___system___private___functions.html#ga93f514700ccf00d08dbdcff7f1224eb2">system_stm32f7xx.c</a></li>
 <li>SysTick_Handler()&#160;:&#160;<a class="el" href="stm32f7xx__it_8h.html#ab5e09814056d617c521549e542639b7e">stm32f7xx_it.h</a>, <a class="el" href="stm32f7xx__it_8c.html#ab5e09814056d617c521549e542639b7e">stm32f7xx_it.c</a></li>
 </ul>
 
@@ -250,9 +241,12 @@ $(function() {
 <li>UsageFault_Handler()&#160;:&#160;<a class="el" href="stm32f7xx__it_8h.html#a1d98923de2ed6b7309b66f9ba2971647">stm32f7xx_it.h</a>, <a class="el" href="stm32f7xx__it_8c.html#a1d98923de2ed6b7309b66f9ba2971647">stm32f7xx_it.c</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

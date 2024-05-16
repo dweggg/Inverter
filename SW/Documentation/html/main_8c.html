@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -50,6 +54,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('main_8c.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -71,11 +92,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_976d189952ed482f71b400b0b237ed7f.html">Src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
@@ -86,14 +102,14 @@ $(function() {
 <p>: Main program body  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="adc_8h_source.html">adc.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="can_8h_source.html">can.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="dac_8h_source.html">dac.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="dma_8h_source.html">dma.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="i2c_8h_source.html">i2c.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="tim_8h_source.html">tim.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="usb__otg_8h_source.html">usb_otg.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="gpio_8h_source.html">gpio.h</a>&quot;</code><br />
+<code>#include &quot;adc.h&quot;</code><br />
+<code>#include &quot;can.h&quot;</code><br />
+<code>#include &quot;dac.h&quot;</code><br />
+<code>#include &quot;dma.h&quot;</code><br />
+<code>#include &quot;i2c.h&quot;</code><br />
+<code>#include &quot;tim.h&quot;</code><br />
+<code>#include &quot;usb_otg.h&quot;</code><br />
+<code>#include &quot;gpio.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_f_s_m_8h_source.html">FSM.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_i_n_v_e_r_t_e_r_8h_source.html">INVERTER.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -101,56 +117,51 @@ Include dependency graph for main.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2main_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2main_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2main_8c">
-<area shape="rect" title=": Main program body" alt="" coords="279,5,444,64"/>
-<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="293,187,353,213"/>
-<area shape="poly" title=" " alt="" coords="279,45,203,54,123,68,55,88,30,100,13,114,8,125,13,137,30,150,56,162,128,179,208,189,278,194,277,199,207,194,127,184,55,167,27,155,9,140,3,125,9,110,27,95,53,83,122,62,202,48,278,40"/>
-<area shape="rect" href="adc_8h.html" title="This file contains all the function prototypes for the adc.c file." alt="" coords="23,112,76,139"/>
-<area shape="poly" title=" " alt="" coords="279,61,92,114,90,109,278,56"/>
-<area shape="rect" href="can_8h.html" title="This file contains all the function prototypes for the can.c file." alt="" coords="100,112,154,139"/>
-<area shape="poly" title=" " alt="" coords="286,67,169,111,167,106,285,62"/>
-<area shape="rect" href="dac_8h.html" title="This file contains all the function prototypes for the dac.c file." alt="" coords="178,112,231,139"/>
-<area shape="poly" title=" " alt="" coords="312,67,241,106,239,102,309,62"/>
-<area shape="rect" href="dma_8h.html" title="This file contains all the function prototypes for the dma.c file." alt="" coords="256,112,313,139"/>
-<area shape="poly" title=" " alt="" coords="339,66,307,102,303,98,335,63"/>
-<area shape="rect" href="i2c_8h.html" title="This file contains all the function prototypes for the i2c.c file." alt="" coords="337,112,386,139"/>
-<area shape="poly" title=" " alt="" coords="364,64,364,96,359,96,359,64"/>
-<area shape="rect" href="tim_8h.html" title="This file contains all the function prototypes for the tim.c file." alt="" coords="410,112,460,139"/>
-<area shape="poly" title=" " alt="" coords="387,63,417,98,413,101,383,66"/>
-<area shape="rect" href="usb__otg_8h.html" title="This file contains all the function prototypes for the usb_otg.c file." alt="" coords="484,112,562,139"/>
-<area shape="poly" title=" " alt="" coords="415,62,488,102,486,107,413,67"/>
-<area shape="rect" href="gpio_8h.html" title="This file contains all the function prototypes for the gpio.c file." alt="" coords="587,112,643,139"/>
-<area shape="poly" title=" " alt="" coords="445,62,573,107,571,112,443,67"/>
-<area shape="rect" href="_f_s_m_8h.html" title="Header for the inverter Finite State Machine." alt="" coords="667,112,728,139"/>
-<area shape="poly" title=" " alt="" coords="445,54,653,109,652,114,444,60"/>
-<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="649,187,746,213"/>
-<area shape="poly" title=" " alt="" coords="445,38,528,46,617,60,694,81,723,94,742,110,749,127,746,145,724,178,720,175,741,143,744,128,738,114,720,99,692,86,616,65,528,51,445,43"/>
-<area shape="rect" title=" " alt="" coords="473,336,589,363"/>
-<area shape="poly" title=" " alt="" coords="342,212,502,325,499,329,339,216"/>
-<area shape="poly" title=" " alt="" coords="77,133,89,136,278,185,277,190,88,141,76,138"/>
-<area shape="poly" title=" " alt="" coords="155,134,279,180,278,185,153,139"/>
-<area shape="poly" title=" " alt="" coords="226,137,291,176,288,181,224,141"/>
-<area shape="poly" title=" " alt="" coords="293,138,312,172,307,174,289,140"/>
-<area shape="poly" title=" " alt="" coords="357,140,339,174,334,172,353,138"/>
-<area shape="poly" title=" " alt="" coords="417,141,357,180,354,176,414,137"/>
-<area shape="poly" title=" " alt="" coords="489,142,369,185,367,180,487,137"/>
-<area shape="poly" title=" " alt="" coords="587,138,574,141,369,191,367,186,573,136,586,133"/>
-<area shape="poly" title=" " alt="" coords="700,139,700,171,695,171,695,139"/>
-<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="491,261,571,288"/>
-<area shape="poly" title=" " alt="" coords="670,216,575,257,573,252,668,211"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="620,336,762,363"/>
-<area shape="poly" title=" " alt="" coords="700,214,695,321,690,320,694,214"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="743,261,855,288"/>
-<area shape="poly" title=" " alt="" coords="717,212,770,250,767,254,714,216"/>
-<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="594,261,660,288"/>
-<area shape="poly" title=" " alt="" coords="687,216,652,252,648,248,683,212"/>
-<area shape="poly" title=" " alt="" coords="534,289,534,320,528,320,528,289"/>
-<area shape="rect" title=" " alt="" coords="767,411,831,437"/>
-<area shape="poly" title=" " alt="" coords="711,361,769,399,766,404,708,365"/>
-<area shape="poly" title=" " alt="" coords="802,289,802,395,796,395,796,289"/>
-<area shape="rect" href="_perga_m_o_d_8h.html" title=" " alt="" coords="836,336,932,363"/>
-<area shape="poly" title=" " alt="" coords="816,287,860,324,857,328,812,291"/>
-<area shape="poly" title=" " alt="" coords="871,365,827,403,823,399,868,361"/>
-<area shape="poly" title=" " alt="" coords="612,291,561,329,558,324,609,286"/>
+<area shape="rect" title=": Main program body" alt="" coords="283,5,449,64"/>
+<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="193,187,253,213"/>
+<area shape="poly" title=" " alt="" coords="283,45,207,54,127,68,59,88,34,100,17,114,9,132,13,147,28,160,52,170,115,185,178,193,177,198,114,191,50,175,25,164,8,150,3,132,13,110,31,95,57,83,126,62,206,48,283,40"/>
+<area shape="rect" title=" " alt="" coords="27,112,81,139"/>
+<area shape="poly" title=" " alt="" coords="283,61,96,114,95,109,282,56"/>
+<area shape="rect" title=" " alt="" coords="105,112,158,139"/>
+<area shape="poly" title=" " alt="" coords="291,67,173,111,171,106,289,62"/>
+<area shape="rect" title=" " alt="" coords="182,112,235,139"/>
+<area shape="poly" title=" " alt="" coords="316,67,246,106,243,102,314,62"/>
+<area shape="rect" title=" " alt="" coords="260,112,317,139"/>
+<area shape="poly" title=" " alt="" coords="343,66,312,102,308,98,339,63"/>
+<area shape="rect" title=" " alt="" coords="341,112,391,139"/>
+<area shape="poly" title=" " alt="" coords="369,64,369,96,363,96,363,64"/>
+<area shape="rect" title=" " alt="" coords="414,112,464,139"/>
+<area shape="poly" title=" " alt="" coords="392,63,421,98,417,101,388,66"/>
+<area shape="rect" title=" " alt="" coords="488,112,566,139"/>
+<area shape="poly" title=" " alt="" coords="420,62,493,102,490,107,417,67"/>
+<area shape="rect" title=" " alt="" coords="591,112,647,139"/>
+<area shape="poly" title=" " alt="" coords="449,62,577,107,576,112,447,67"/>
+<area shape="rect" href="_f_s_m_8h.html" title="Header for the inverter Finite State Machine." alt="" coords="672,112,732,139"/>
+<area shape="poly" title=" " alt="" coords="450,54,657,109,656,114,448,60"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="654,187,750,213"/>
+<area shape="poly" title=" " alt="" coords="450,38,533,46,621,60,698,81,727,94,747,110,754,127,750,145,729,178,724,175,745,143,748,128,742,114,724,99,696,86,620,65,532,51,449,43"/>
+<area shape="rect" title=" " alt="" coords="349,336,465,363"/>
+<area shape="poly" title=" " alt="" coords="241,212,381,324,378,328,237,216"/>
+<area shape="poly" title=" " alt="" coords="705,139,705,171,699,171,699,139"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="430,261,510,288"/>
+<area shape="poly" title=" " alt="" coords="662,216,525,259,523,254,661,211"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="489,336,632,363"/>
+<area shape="poly" title=" " alt="" coords="693,216,625,290,587,327,584,323,621,286,689,212"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="694,261,806,288"/>
+<area shape="poly" title=" " alt="" coords="713,212,736,247,731,250,708,215"/>
+<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="826,336,906,363"/>
+<area shape="poly" title=" " alt="" coords="740,212,781,231,820,259,843,290,859,321,854,323,838,292,816,263,778,235,738,216"/>
+<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="545,261,611,288"/>
+<area shape="poly" title=" " alt="" coords="682,216,614,256,611,251,679,212"/>
+<area shape="poly" title=" " alt="" coords="461,290,430,326,426,322,457,287"/>
+<area shape="rect" title=" " alt="" coords="636,411,701,437"/>
+<area shape="poly" title=" " alt="" coords="581,361,638,399,636,404,578,365"/>
+<area shape="poly" title=" " alt="" coords="737,290,716,311,696,337,684,367,676,396,671,394,679,365,692,335,712,308,733,286"/>
+<area shape="rect" href="_perga_m_o_d_8h.html" title=" " alt="" coords="706,336,802,363"/>
+<area shape="poly" title=" " alt="" coords="753,288,755,320,750,321,748,289"/>
+<area shape="poly" title=" " alt="" coords="772,286,834,325,831,330,769,291"/>
+<area shape="poly" title=" " alt="" coords="741,365,696,403,693,399,737,361"/>
+<area shape="poly" title=" " alt="" coords="549,291,452,332,450,327,547,286"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -199,48 +210,29 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c_a1730ffe1e560465665eb47d9264826f9_icgraph.png" border="0" usemap="#amain_8c_a1730ffe1e560465665eb47d9264826f9_icgraph" alt=""/></div>
 <map name="amain_8c_a1730ffe1e560465665eb47d9264826f9_icgraph" id="amain_8c_a1730ffe1e560465665eb47d9264826f9_icgraph">
-<area shape="rect" title="This function is executed in case of error occurrence." alt="" coords="293,335,393,361"/>
-<area shape="rect" href="adc_8c.html#ac3139540667c403c5dfd37a99c610b1c" title=" " alt="" coords="109,5,239,32"/>
-<area shape="poly" title=" " alt="" coords="338,319,332,262,317,189,305,151,289,113,268,77,243,46,228,35,231,30,247,42,273,74,294,110,310,149,322,188,337,261,343,318"/>
-<area shape="rect" href="i2c_8c.html#a08b1eb7b7be5b94395127e2a33b1b67e" title=" " alt="" coords="113,56,235,83"/>
-<area shape="poly" title=" " alt="" coords="336,320,327,272,311,212,283,150,265,122,243,97,227,85,230,81,247,93,269,119,288,148,316,210,333,271,341,319"/>
-<area shape="rect" href="adc_8c.html#acccd58aa70215a6b184ad242312ffd0c" title=" " alt="" coords="122,107,226,133"/>
-<area shape="poly" title=" " alt="" coords="333,320,322,281,304,235,278,188,243,147,225,136,228,131,247,143,282,185,308,233,327,280,338,319"/>
-<area shape="rect" href="adc_8c.html#a101e2e3433dfe72bbbd0ae3a84489263" title=" " alt="" coords="122,157,226,184"/>
-<area shape="poly" title=" " alt="" coords="329,322,296,259,272,227,243,198,225,187,227,182,247,194,276,223,300,257,333,319"/>
-<area shape="rect" href="adc_8c.html#ac633a37a9db8b1f45a5f70f973cf05c4" title=" " alt="" coords="122,208,226,235"/>
-<area shape="poly" title=" " alt="" coords="321,324,287,286,244,249,222,238,224,233,246,244,291,282,325,320"/>
-<area shape="rect" href="can_8c.html#a030a62a0956ab83394eb8354a0e97902" title=" " alt="" coords="122,259,226,285"/>
-<area shape="poly" title=" " alt="" coords="303,329,244,300,216,288,218,283,246,295,306,324"/>
-<area shape="rect" href="dac_8c.html#adac6621f933c065bc075ac0af3cbbb54" title=" " alt="" coords="125,309,223,336"/>
-<area shape="poly" title=" " alt="" coords="277,341,222,333,223,327,278,336"/>
-<area shape="rect" href="i2c_8c.html#ada6e763cfa4108a8d24cd27b75f2f489" title=" " alt="" coords="126,360,222,387"/>
-<area shape="poly" title=" " alt="" coords="278,360,223,369,222,364,277,355"/>
-<area shape="rect" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14" title=" " alt="" coords="125,411,223,437"/>
-<area shape="poly" title=" " alt="" coords="306,372,246,401,218,413,216,408,244,396,303,367"/>
-<area shape="rect" href="tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202" title=" " alt="" coords="125,461,223,488"/>
-<area shape="poly" title=" " alt="" coords="325,376,291,414,246,452,224,463,222,458,244,447,287,410,321,372"/>
-<area shape="rect" href="tim_8c.html#aef1e0b132b1af1c923cc420a57180c67" title=" " alt="" coords="125,512,223,539"/>
-<area shape="poly" title=" " alt="" coords="333,377,300,439,276,473,247,502,225,515,222,510,243,498,272,469,296,437,329,374"/>
-<area shape="rect" href="tim_8c.html#abbf5454212cb039fb90d523b2473af91" title=" " alt="" coords="125,563,223,589"/>
-<area shape="poly" title=" " alt="" coords="338,377,327,416,308,463,282,511,247,553,225,566,222,562,243,549,278,508,304,461,322,415,333,376"/>
-<area shape="rect" href="tim_8c.html#a265aef7a46164094e791259bf59d9cb4" title=" " alt="" coords="125,613,223,640"/>
-<area shape="poly" title=" " alt="" coords="341,377,333,425,316,486,288,548,269,577,247,603,225,618,222,613,243,599,265,574,283,546,311,484,327,424,336,376"/>
-<area shape="rect" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="System Clock Configuration." alt="" coords="103,664,245,691"/>
-<area shape="poly" title=" " alt="" coords="343,378,337,435,322,508,310,547,294,586,273,622,247,654,231,666,228,661,243,650,268,619,289,583,305,545,317,507,332,434,338,377"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,385,55,412"/>
-<area shape="poly" title=" " alt="" coords="110,142,105,147,83,176,66,208,54,242,45,277,36,340,34,385,28,385,30,340,40,276,48,241,61,206,78,173,101,144,107,138"/>
-<area shape="poly" title=" " alt="" coords="110,193,105,198,86,220,72,245,51,298,40,348,35,385,30,384,34,347,46,296,67,242,82,217,101,194,107,189"/>
-<area shape="poly" title=" " alt="" coords="110,244,105,249,77,282,57,320,37,386,32,384,52,318,73,279,101,245,107,240"/>
-<area shape="poly" title=" " alt="" coords="111,295,104,299,83,320,65,343,40,386,35,384,60,341,79,316,101,295,108,291"/>
-<area shape="poly" title=" " alt="" coords="116,345,104,350,50,387,47,383,101,346,113,340"/>
-<area shape="poly" title=" " alt="" coords="111,387,56,397,55,392,110,382"/>
-<area shape="poly" title=" " alt="" coords="109,415,55,406,56,400,110,410"/>
-<area shape="poly" title=" " alt="" coords="113,457,101,452,47,415,50,410,104,447,116,453"/>
-<area shape="poly" title=" " alt="" coords="109,508,101,502,79,481,60,457,35,414,40,411,65,454,83,477,104,498,112,503"/>
-<area shape="poly" title=" " alt="" coords="109,559,101,553,73,518,52,479,32,413,37,412,57,477,77,515,105,549,112,555"/>
-<area shape="poly" title=" " alt="" coords="110,611,101,603,82,581,67,555,46,501,34,450,30,413,35,412,40,449,51,499,72,553,86,577,105,599,113,606"/>
-<area shape="poly" title=" " alt="" coords="104,657,101,654,78,624,61,592,48,557,40,522,30,458,28,412,34,412,36,457,45,521,54,555,66,589,83,622,105,650,107,653"/>
+<area shape="rect" title="This function is executed in case of error occurrence." alt="" coords="293,157,393,184"/>
+<area shape="rect" href="can_8c.html#a030a62a0956ab83394eb8354a0e97902" title=" " alt="" coords="122,5,226,32"/>
+<area shape="poly" title=" " alt="" coords="325,145,292,95,269,69,243,46,223,35,226,30,247,42,273,65,296,91,330,142"/>
+<area shape="rect" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14" title=" " alt="" coords="125,56,223,83"/>
+<area shape="poly" title=" " alt="" coords="314,149,282,122,244,97,219,86,221,81,246,92,285,118,318,145"/>
+<area shape="rect" href="tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202" title=" " alt="" coords="125,107,223,133"/>
+<area shape="poly" title=" " alt="" coords="281,155,220,136,222,131,282,150"/>
+<area shape="rect" href="tim_8c.html#aef1e0b132b1af1c923cc420a57180c67" title=" " alt="" coords="125,157,223,184"/>
+<area shape="poly" title=" " alt="" coords="278,173,223,173,223,168,278,168"/>
+<area shape="rect" href="tim_8c.html#abbf5454212cb039fb90d523b2473af91" title=" " alt="" coords="125,208,223,235"/>
+<area shape="poly" title=" " alt="" coords="282,191,222,210,220,205,281,186"/>
+<area shape="rect" href="tim_8c.html#a265aef7a46164094e791259bf59d9cb4" title=" " alt="" coords="125,259,223,285"/>
+<area shape="poly" title=" " alt="" coords="318,197,285,223,246,249,221,261,219,256,244,244,282,219,314,193"/>
+<area shape="rect" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="System Clock Configuration." alt="" coords="103,309,245,336"/>
+<area shape="poly" title=" " alt="" coords="330,199,296,250,273,276,247,300,226,311,223,306,243,295,269,273,292,247,325,196"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,157,55,184"/>
+<area shape="poly" title=" " alt="" coords="110,42,104,46,80,73,61,104,38,158,33,156,56,101,76,70,101,42,106,38"/>
+<area shape="poly" title=" " alt="" coords="112,92,104,97,69,128,43,159,39,155,65,124,101,93,110,87"/>
+<area shape="poly" title=" " alt="" coords="120,142,56,165,54,160,119,137"/>
+<area shape="poly" title=" " alt="" coords="109,173,55,173,55,168,109,168"/>
+<area shape="poly" title=" " alt="" coords="119,205,54,182,56,177,120,200"/>
+<area shape="poly" title=" " alt="" coords="110,254,101,249,65,217,39,186,43,183,69,214,104,245,112,249"/>
+<area shape="poly" title=" " alt="" coords="106,304,101,299,76,272,56,240,33,186,38,184,61,238,80,269,104,295,110,299"/>
 </map>
 </div>
 
@@ -273,57 +265,42 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph.png" border="0" usemap="#amain_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" alt=""/></div>
 <map name="amain_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph" id="amain_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph">
-<area shape="rect" title="The application entry point." alt="" coords="5,411,55,437"/>
-<area shape="rect" href="_f_s_m_8c.html#aabf63db5799eb65540501de6b63724e1" title="Run the Finite State Machine (FSM) for inverter operation control." alt="" coords="147,5,248,32"/>
-<area shape="poly" title=" " alt="" coords="29,410,35,335,47,224,68,115,83,72,101,42,115,31,131,23,133,28,118,35,105,46,88,74,73,117,52,225,40,335,35,410"/>
-<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html#ab166dd27a896ec83c7677462360eeba7" title="Initialize the inverter." alt="" coords="139,56,256,83"/>
-<area shape="poly" title=" " alt="" coords="30,410,37,343,50,248,71,155,85,118,101,93,123,77,126,82,105,97,89,121,76,157,55,249,42,344,35,410"/>
-<area shape="rect" href="adc_8c.html#acccd58aa70215a6b184ad242312ffd0c" title=" " alt="" coords="145,157,250,184"/>
-<area shape="poly" title=" " alt="" coords="29,410,31,369,41,310,63,248,79,219,101,194,129,177,132,182,104,198,84,222,68,251,46,312,37,369,34,411"/>
-<area shape="rect" href="adc_8c.html#a101e2e3433dfe72bbbd0ae3a84489263" title=" " alt="" coords="145,208,250,235"/>
-<area shape="poly" title=" " alt="" coords="30,410,36,376,48,332,69,285,83,264,101,245,129,228,132,233,104,249,87,267,73,288,53,334,41,377,35,411"/>
-<area shape="rect" href="adc_8c.html#ac633a37a9db8b1f45a5f70f973cf05c4" title=" " alt="" coords="145,259,250,285"/>
-<area shape="poly" title=" " alt="" coords="33,409,55,354,75,322,101,295,129,280,131,285,104,299,79,326,60,356,38,411"/>
-<area shape="rect" href="can_8c.html#a030a62a0956ab83394eb8354a0e97902" title=" " alt="" coords="145,309,250,336"/>
-<area shape="poly" title=" " alt="" coords="38,409,64,377,101,346,129,333,131,338,104,350,68,381,42,412"/>
-<area shape="rect" href="dac_8c.html#adac6621f933c065bc075ac0af3cbbb54" title=" " alt="" coords="149,360,246,387"/>
-<area shape="poly" title=" " alt="" coords="54,413,102,396,133,387,135,392,103,401,56,418"/>
-<area shape="rect" href="dma_8c.html#a323249dac769f9855c10b4ec9446b707" title=" " alt="" coords="148,715,247,741"/>
-<area shape="poly" title=" " alt="" coords="36,437,59,574,79,651,91,681,105,701,118,711,134,718,132,723,115,716,101,704,87,683,74,653,53,575,30,438"/>
-<area shape="rect" href="gpio_8c.html#ac724e431d2af879252de35615be2bdea" title=" " alt="" coords="146,765,249,792"/>
-<area shape="poly" title=" " alt="" coords="35,438,42,504,55,599,76,691,89,727,105,752,117,761,132,769,130,773,114,766,101,755,85,730,71,693,50,600,37,505,30,438"/>
-<area shape="rect" href="i2c_8c.html#ada6e763cfa4108a8d24cd27b75f2f489" title=" " alt="" coords="149,411,246,437"/>
-<area shape="poly" title=" " alt="" coords="55,421,133,421,133,427,55,427"/>
-<area shape="rect" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14" title=" " alt="" coords="148,664,247,691"/>
-<area shape="poly" title=" " alt="" coords="34,437,37,479,46,536,68,597,84,626,104,650,118,660,134,667,132,672,115,665,101,654,79,629,63,600,41,538,31,479,29,438"/>
-<area shape="rect" href="tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202" title=" " alt="" coords="148,461,247,488"/>
-<area shape="poly" title=" " alt="" coords="56,430,103,447,134,456,132,461,102,452,54,435"/>
-<area shape="rect" href="tim_8c.html#aef1e0b132b1af1c923cc420a57180c67" title=" " alt="" coords="148,512,247,539"/>
-<area shape="poly" title=" " alt="" coords="42,436,68,467,104,498,135,511,132,516,101,502,64,471,38,439"/>
-<area shape="rect" href="tim_8c.html#abbf5454212cb039fb90d523b2473af91" title=" " alt="" coords="148,563,247,589"/>
-<area shape="poly" title=" " alt="" coords="38,437,60,492,79,522,104,549,134,564,132,569,101,553,75,526,55,494,33,439"/>
-<area shape="rect" href="tim_8c.html#a265aef7a46164094e791259bf59d9cb4" title=" " alt="" coords="148,613,247,640"/>
-<area shape="poly" title=" " alt="" coords="35,437,41,471,53,514,73,560,87,581,104,599,134,616,132,620,101,603,83,584,69,563,48,516,36,472,30,438"/>
-<area shape="rect" href="usb__otg_8c.html#a2c1fefbd974e77089e285e3a73a94b47" title=" " alt="" coords="103,816,292,843"/>
-<area shape="poly" title=" " alt="" coords="35,438,40,513,52,623,73,731,88,774,105,802,107,805,103,808,101,806,83,776,68,733,47,624,35,513,29,438"/>
-<area shape="rect" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="System Clock Configuration." alt="" coords="126,107,269,133"/>
-<area shape="poly" title=" " alt="" coords="30,410,53,273,74,195,87,165,101,144,111,135,114,139,105,147,91,167,79,197,59,274,36,411"/>
-<area shape="rect" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9" title="This function is executed in case of error occurrence." alt="" coords="365,385,465,412"/>
-<area shape="poly" title=" " alt="" coords="251,175,273,182,294,194,335,235,367,283,391,330,407,370,402,372,387,332,363,285,331,238,290,198,271,187,249,180"/>
-<area shape="poly" title=" " alt="" coords="251,227,273,234,293,244,329,273,359,307,402,370,397,373,355,310,325,277,291,249,271,239,249,232"/>
-<area shape="poly" title=" " alt="" coords="251,279,293,295,349,332,392,372,389,376,345,336,291,300,249,284"/>
-<area shape="poly" title=" " alt="" coords="251,333,293,345,371,376,369,381,291,351,249,338"/>
-<area shape="poly" title=" " alt="" coords="247,376,350,388,349,394,246,382"/>
-<area shape="poly" title=" " alt="" coords="246,416,349,404,350,409,246,421"/>
-<area shape="poly" title=" " alt="" coords="246,670,270,662,290,650,315,625,337,597,370,536,393,475,406,426,411,428,398,477,375,538,341,600,319,629,294,654,272,667,248,675"/>
-<area shape="rect" href="tim_8c.html#a708f19bbc41b292fccf38f2d9796c46a" title=" " alt="" coords="340,639,490,665"/>
-<area shape="poly" title=" " alt="" coords="247,669,324,660,325,665,247,674"/>
-<area shape="poly" title=" " alt="" coords="246,460,291,447,369,416,371,421,293,452,248,465"/>
-<area shape="poly" title=" " alt="" coords="246,514,291,498,345,461,389,422,392,426,349,465,293,502,248,519"/>
-<area shape="poly" title=" " alt="" coords="246,566,269,559,291,548,325,520,355,487,397,424,402,427,359,490,329,524,293,553,271,564,248,571"/>
-<area shape="poly" title=" " alt="" coords="246,618,269,611,290,599,331,559,363,512,387,465,402,426,407,428,391,467,367,515,335,563,294,603,271,616,248,623"/>
-<area shape="poly" title=" " alt="" coords="247,630,325,639,324,644,247,635"/>
-<area shape="poly" title=" " alt="" coords="270,129,294,143,319,168,341,197,375,260,398,321,411,370,406,371,393,322,370,262,337,200,315,172,290,147,267,134"/>
+<area shape="rect" title="The application entry point." alt="" coords="5,208,55,235"/>
+<area shape="rect" href="_f_s_m_8c.html#aabf63db5799eb65540501de6b63724e1" title="Run the Finite State Machine (FSM) for inverter operation control." alt="" coords="124,5,224,32"/>
+<area shape="poly" title=" " alt="" coords="30,207,36,174,49,130,70,83,101,42,109,36,112,40,105,46,74,86,54,132,42,175,36,208"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html#a49edd9d49792ef1249641249d3259f87" title="Initialize the inverter." alt="" coords="116,56,232,83"/>
+<area shape="poly" title=" " alt="" coords="33,206,56,152,76,120,101,93,106,88,110,93,104,97,80,123,61,154,38,208"/>
+<area shape="rect" href="can_8c.html#a030a62a0956ab83394eb8354a0e97902" title=" " alt="" coords="122,208,226,235"/>
+<area shape="poly" title=" " alt="" coords="55,219,106,219,106,224,55,224"/>
+<area shape="rect" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14" title=" " alt="" coords="125,411,223,437"/>
+<area shape="poly" title=" " alt="" coords="36,234,42,267,54,311,74,357,105,397,113,403,109,408,101,401,70,359,49,312,36,268,30,235"/>
+<area shape="rect" href="tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202" title=" " alt="" coords="125,259,223,285"/>
+<area shape="poly" title=" " alt="" coords="56,227,121,251,119,256,54,232"/>
+<area shape="rect" href="tim_8c.html#aef1e0b132b1af1c923cc420a57180c67" title=" " alt="" coords="125,309,223,336"/>
+<area shape="poly" title=" " alt="" coords="43,233,69,264,104,295,112,300,110,305,101,299,65,268,39,237"/>
+<area shape="rect" href="tim_8c.html#abbf5454212cb039fb90d523b2473af91" title=" " alt="" coords="125,107,223,133"/>
+<area shape="poly" title=" " alt="" coords="39,206,65,175,101,143,110,138,112,143,104,147,69,178,43,209"/>
+<area shape="rect" href="tim_8c.html#a265aef7a46164094e791259bf59d9cb4" title=" " alt="" coords="125,360,223,387"/>
+<area shape="poly" title=" " alt="" coords="38,234,61,288,80,319,104,346,112,352,109,356,101,350,76,322,56,291,33,236"/>
+<area shape="rect" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="System Clock Configuration." alt="" coords="103,157,245,184"/>
+<area shape="poly" title=" " alt="" coords="54,210,119,187,121,192,56,215"/>
+<area shape="rect" href="_m_o_t_o_r_8c.html#aac2006b5fcd23b70efa190f9239e50a1" title="Perform a parameter check and correct possible errors." alt="" coords="293,31,461,57"/>
+<area shape="poly" title=" " alt="" coords="232,59,277,54,278,59,232,65"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html#aaf9fa53152a16edd10ae319f35703a1a" title="Initializes the PI controllers." alt="" coords="316,81,438,108"/>
+<area shape="poly" title=" " alt="" coords="232,74,301,83,301,88,232,79"/>
+<area shape="rect" href="group___proportional.html#ga7d78cf2a5a20ee07e1311e01d20c3d3f" title="Initializes the PI controller." alt="" coords="509,81,565,108"/>
+<area shape="poly" title=" " alt="" coords="439,92,494,92,494,97,439,97"/>
+<area shape="rect" href="main_8c.html#a1730ffe1e560465665eb47d9264826f9" title="This function is executed in case of error occurrence." alt="" coords="327,259,427,285"/>
+<area shape="poly" title=" " alt="" coords="227,232,312,253,311,258,226,237"/>
+<area shape="poly" title=" " alt="" coords="221,408,244,396,276,373,306,346,353,296,357,299,310,350,279,377,246,401,223,412"/>
+<area shape="rect" href="tim_8c.html#a708f19bbc41b292fccf38f2d9796c46a" title=" " alt="" coords="302,385,452,412"/>
+<area shape="poly" title=" " alt="" coords="223,415,286,407,287,413,224,421"/>
+<area shape="poly" title=" " alt="" coords="223,269,311,269,311,275,223,275"/>
+<area shape="poly" title=" " alt="" coords="223,308,311,286,313,291,224,313"/>
+<area shape="poly" title=" " alt="" coords="223,132,246,143,279,167,310,194,357,245,353,248,306,198,276,171,244,148,221,136"/>
+<area shape="poly" title=" " alt="" coords="216,357,244,346,295,319,341,292,343,296,298,323,246,350,218,362"/>
+<area shape="poly" title=" " alt="" coords="224,377,287,385,286,390,223,382"/>
+<area shape="poly" title=" " alt="" coords="218,182,246,194,298,221,343,248,341,252,295,225,244,198,216,187"/>
 </map>
 </div>
 
@@ -379,9 +356,13 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_976d189952ed482f71b400b0b237ed7f.html">Src</a></li><li class="navelem"><a class="el" href="main_8c.html">main.c</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

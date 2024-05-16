@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -50,6 +54,23 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('struct_encoder.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -71,7 +92,6 @@ $(function() {
 </div>
 </div>
 
-</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
@@ -96,8 +116,12 @@ Data Fields</h2></td></tr>
 <tr class="separator:a45938c516b24d04e3bae20b3ae8c2d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affa9013ea1e246c1f69bba53632a967b" id="r_affa9013ea1e246c1f69bba53632a967b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affa9013ea1e246c1f69bba53632a967b">theta_e</a></td></tr>
 <tr class="separator:affa9013ea1e246c1f69bba53632a967b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81b668fe449f8b496072376c71fa2866" id="r_a81b668fe449f8b496072376c71fa2866"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81b668fe449f8b496072376c71fa2866">direction_meas</a></td></tr>
-<tr class="separator:a81b668fe449f8b496072376c71fa2866"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47f02ef71d97b242663572202fe64f90" id="r_a47f02ef71d97b242663572202fe64f90"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47f02ef71d97b242663572202fe64f90">sinTheta_e</a></td></tr>
+<tr class="separator:a47f02ef71d97b242663572202fe64f90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6881e0192309ae82ce5b4e9ac4dc714" id="r_ac6881e0192309ae82ce5b4e9ac4dc714"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6881e0192309ae82ce5b4e9ac4dc714">cosTheta_e</a></td></tr>
+<tr class="separator:ac6881e0192309ae82ce5b4e9ac4dc714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab68fc2f847c9a5e38d2339d378e294c1" id="r_ab68fc2f847c9a5e38d2339d378e294c1"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab68fc2f847c9a5e38d2339d378e294c1">directionMeas</a></td></tr>
+<tr class="separator:ab68fc2f847c9a5e38d2339d378e294c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure for encoder reading. </p>
@@ -132,18 +156,48 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a81b668fe449f8b496072376c71fa2866" name="a81b668fe449f8b496072376c71fa2866"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81b668fe449f8b496072376c71fa2866">&#9670;&#160;</a></span>direction_meas</h2>
+<a id="ac6881e0192309ae82ce5b4e9ac4dc714" name="ac6881e0192309ae82ce5b4e9ac4dc714"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6881e0192309ae82ce5b4e9ac4dc714">&#9670;&#160;</a></span>cosTheta_e</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t direction_meas</td>
+          <td class="memname">float cosTheta_e</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Electrical rotor position cosine </p>
+
+</div>
+</div>
+<a id="ab68fc2f847c9a5e38d2339d378e294c1" name="ab68fc2f847c9a5e38d2339d378e294c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab68fc2f847c9a5e38d2339d378e294c1">&#9670;&#160;</a></span>directionMeas</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t directionMeas</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Measured direction </p>
+
+</div>
+</div>
+<a id="a47f02ef71d97b242663572202fe64f90" name="a47f02ef71d97b242663572202fe64f90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47f02ef71d97b242663572202fe64f90">&#9670;&#160;</a></span>sinTheta_e</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float sinTheta_e</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Electrical rotor position sine </p>
 
 </div>
 </div>
@@ -196,9 +250,13 @@ Data Fields</h2></td></tr>
 <li>C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h_source.html">MEASUREMENTS.h</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="struct_encoder.html">Encoder</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

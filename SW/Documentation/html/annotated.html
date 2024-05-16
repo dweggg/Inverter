@@ -10,6 +10,10 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -51,6 +55,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('annotated.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -81,31 +101,38 @@ $(function() {
 <tr id="row_0_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_analog.html" target="_self">Analog</a></td><td class="desc">Structure for ADC measurements in units </td></tr>
 <tr id="row_1_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structangle__struct.html" target="_self">angle_struct</a></td><td class="desc">Generates an angle based on a fixed frequency </td></tr>
 <tr id="row_2_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structavg__struct__10.html" target="_self">avg_struct_10</a></td><td class="desc">Moving average filter for 10 samples </td></tr>
-<tr id="row_3_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structclarke3_f__struct.html" target="_self">clarke3F_struct</a></td><td class="desc">Clarke transformation for three-phase systems </td></tr>
-<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structdatalog__struct.html" target="_self">datalog_struct</a></td><td class="desc"></td></tr>
-<tr id="row_5_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_duties.html" target="_self">Duties</a></td><td class="desc">Structure to hold PWM configuration parameters </td></tr>
-<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_encoder.html" target="_self">Encoder</a></td><td class="desc">Structure for encoder reading </td></tr>
-<tr id="row_7_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_feedback.html" target="_self">Feedback</a></td><td class="desc">Structure for feedback values </td></tr>
-<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structfiltre_l_p__struct.html" target="_self">filtreLP_struct</a></td><td class="desc">First-order low-pass filter </td></tr>
-<tr id="row_9_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structiclarke3_f__struct.html" target="_self">iclarke3F_struct</a></td><td class="desc">Inverse Clarke transformation for three-phase systems </td></tr>
-<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_inverter_struct.html" target="_self">InverterStruct</a></td><td class="desc">Inverter structure </td></tr>
-<tr id="row_11_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structirot__struct.html" target="_self">irot_struct</a></td><td class="desc">Inverse rotation (counterclockwise) </td></tr>
-<tr id="row_12_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_l_e_d.html" target="_self">LED</a></td><td class="desc"><a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> structure </td></tr>
-<tr id="row_13_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structmotor_parameters.html" target="_self">motorParameters</a></td><td class="desc">Structure to hold motor parameters </td></tr>
-<tr id="row_14_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structpi__aw__struct.html" target="_self">pi_aw_struct</a></td><td class="desc">PI Controller with internal saturation, anti-windup, and feedforward </td></tr>
-<tr id="row_15_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structpi__struct.html" target="_self">pi_struct</a></td><td class="desc">PI Controller with external saturation and feedforward </td></tr>
-<tr id="row_16_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structrampa__dual__struct.html" target="_self">rampa_dual_struct</a></td><td class="desc">Dual-ramp generator </td></tr>
-<tr id="row_17_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structrampa__struct.html" target="_self">rampa_struct</a></td><td class="desc">Single-ramp generator </td></tr>
-<tr id="row_18_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_r_m_s__struct.html" target="_self">RMS_struct</a></td><td class="desc">Root Mean Square (RMS) calculation </td></tr>
-<tr id="row_19_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structrot__struct.html" target="_self">rot_struct</a></td><td class="desc">Rotates the DQ axis in the opposite direction (clockwise) </td></tr>
-<tr id="row_20_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structstep__struct.html" target="_self">step_struct</a></td><td class="desc">Step function generator </td></tr>
-<tr id="row_21_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structsvpwm__struct.html" target="_self">svpwm_struct</a></td><td class="desc">Space Vector Pulse Width Modulation (SVPWM) implementation </td></tr>
+<tr id="row_3_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_c_a_n_message_info.html" target="_self">CANMessageInfo</a></td><td class="desc"></td></tr>
+<tr id="row_4_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structclarke3_f__struct.html" target="_self">clarke3F_struct</a></td><td class="desc">Clarke transformation for three-phase systems </td></tr>
+<tr id="row_5_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structdatalog__struct.html" target="_self">datalog_struct</a></td><td class="desc"></td></tr>
+<tr id="row_6_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_duties.html" target="_self">Duties</a></td><td class="desc">Structure to hold PWM configuration parameters </td></tr>
+<tr id="row_7_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_encoder.html" target="_self">Encoder</a></td><td class="desc">Structure for encoder reading </td></tr>
+<tr id="row_8_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_feedback.html" target="_self">Feedback</a></td><td class="desc">Structure for feedback values </td></tr>
+<tr id="row_9_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structfiltre_l_p__struct.html" target="_self">filtreLP_struct</a></td><td class="desc">First-order low-pass filter </td></tr>
+<tr id="row_10_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structiclarke3_f__struct.html" target="_self">iclarke3F_struct</a></td><td class="desc">Inverse Clarke transformation for three-phase systems </td></tr>
+<tr id="row_11_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_inverter_struct.html" target="_self">InverterStruct</a></td><td class="desc">Inverter structure </td></tr>
+<tr id="row_12_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structirot__struct.html" target="_self">irot_struct</a></td><td class="desc">Inverse rotation (counterclockwise) </td></tr>
+<tr id="row_13_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_l_e_d.html" target="_self">LED</a></td><td class="desc"><a class="el" href="struct_l_e_d.html" title="LED structure.">LED</a> structure </td></tr>
+<tr id="row_14_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_motor_parameters.html" target="_self">MotorParameters</a></td><td class="desc">Structure to hold motor parameters </td></tr>
+<tr id="row_15_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structpi__aw__struct.html" target="_self">pi_aw_struct</a></td><td class="desc">PI Controller with internal saturation, anti-windup, and feedforward </td></tr>
+<tr id="row_16_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structpi__struct.html" target="_self">pi_struct</a></td><td class="desc">PI Controller with external saturation and feedforward </td></tr>
+<tr id="row_17_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structrampa__dual__struct.html" target="_self">rampa_dual_struct</a></td><td class="desc">Dual-ramp generator </td></tr>
+<tr id="row_18_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structrampa__struct.html" target="_self">rampa_struct</a></td><td class="desc">Single-ramp generator </td></tr>
+<tr id="row_19_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_reference.html" target="_self">Reference</a></td><td class="desc">Structure for reference values </td></tr>
+<tr id="row_20_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="struct_r_m_s__struct.html" target="_self">RMS_struct</a></td><td class="desc">Root Mean Square (RMS) calculation </td></tr>
+<tr id="row_21_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structrot__struct.html" target="_self">rot_struct</a></td><td class="desc">Rotates the DQ axis in the opposite direction (clockwise) </td></tr>
+<tr id="row_22_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structsignal.html" target="_self">signal</a></td><td class="desc"></td></tr>
+<tr id="row_23_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structsignal__positioned.html" target="_self">signal_positioned</a></td><td class="desc"></td></tr>
+<tr id="row_24_" class="even"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structstep__struct.html" target="_self">step_struct</a></td><td class="desc">Step function generator </td></tr>
+<tr id="row_25_" class="odd"><td class="entry"><span style="width:16px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">C</span></span><a class="el" href="structsvpwm__struct.html" target="_self">svpwm_struct</a></td><td class="desc">Space Vector Pulse Width Modulation (SVPWM) implementation </td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
+  </ul>
+</div>
 </body>
 </html>

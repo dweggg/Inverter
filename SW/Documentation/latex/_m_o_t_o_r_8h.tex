@@ -10,14 +10,26 @@ This graph shows which files directly or indirectly include this file\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=204pt]{_m_o_t_o_r_8h__dep__incl}
+\includegraphics[width=350pt]{_m_o_t_o_r_8h__dep__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
-struct \mbox{\hyperlink{structmotor_parameters}{motor\+Parameters}}
+struct \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}}
 \begin{DoxyCompactList}\small\item\em Structure to hold motor parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1}{check\+\_\+motor\+\_\+parameters}} (\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor, float Ts)
+\begin{DoxyCompactList}\small\item\em Perform a parameter check and correct possible errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \mbox{\hyperlink{_m_o_t_o_r_8h_ac1fb3830c20e54f8980f91b3b8b19a48}{motor\+\_\+left}}
+\begin{DoxyCompactList}\small\item\em Left motor parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \mbox{\hyperlink{_m_o_t_o_r_8h_aa30800b62b841d0b0b3cac4df1841afa}{motor\+\_\+right}}
+\begin{DoxyCompactList}\small\item\em Right motor parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -29,3 +41,56 @@ Header file for motor parameters.
 Copyright (c) 2024 David Redondo (@dweggg on Git\+Hub). All rights reserved.
 
 This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1}\label{_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1} 
+\index{MOTOR.h@{MOTOR.h}!check\_motor\_parameters@{check\_motor\_parameters}}
+\index{check\_motor\_parameters@{check\_motor\_parameters}!MOTOR.h@{MOTOR.h}}
+\doxysubsubsection{\texorpdfstring{check\_motor\_parameters()}{check\_motor\_parameters()}}
+{\footnotesize\ttfamily int check\+\_\+motor\+\_\+parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}}]{motor,  }\item[{float}]{Ts }\end{DoxyParamCaption})}
+
+
+
+Perform a parameter check and correct possible errors. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em motor} & Pointer to the \doxylink{struct_motor_parameters}{Motor\+Parameters} struct. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em OK} & 0 if an error occurred, 1 if successful. \\
+\hline
+\end{DoxyRetVals}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_m_o_t_o_r_8h_ac1fb3830c20e54f8980f91b3b8b19a48}\label{_m_o_t_o_r_8h_ac1fb3830c20e54f8980f91b3b8b19a48} 
+\index{MOTOR.h@{MOTOR.h}!motor\_left@{motor\_left}}
+\index{motor\_left@{motor\_left}!MOTOR.h@{MOTOR.h}}
+\doxysubsubsection{\texorpdfstring{motor\_left}{motor\_left}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} motor\+\_\+left\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Left motor parameters. 
+
+\Hypertarget{_m_o_t_o_r_8h_aa30800b62b841d0b0b3cac4df1841afa}\label{_m_o_t_o_r_8h_aa30800b62b841d0b0b3cac4df1841afa} 
+\index{MOTOR.h@{MOTOR.h}!motor\_right@{motor\_right}}
+\index{motor\_right@{motor\_right}!MOTOR.h@{MOTOR.h}}
+\doxysubsubsection{\texorpdfstring{motor\_right}{motor\_right}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} motor\+\_\+right\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Right motor parameters. 
+

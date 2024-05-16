@@ -1,0 +1,576 @@
+\doxysection{CAN1db.\+h}
+\hypertarget{_c_a_n1db_8h_source}{}\label{_c_a_n1db_8h_source}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN1db.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN1db.h}}
+\mbox{\hyperlink{_c_a_n1db_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ \ @formatter:off}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ \ Inverters.h}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ \ Created\ on:\ mayo\ 12,\ 2024\ 22:01:14\ ::\ Software\ Version:\ 0.5beta\ }}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ \ \ \ \ \ Author:\ Valentin\ Felsner}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ \ \ \ \ \ Copyright\ by\ IMED\ Ltd\ ::\ http://www.imed.co.nz.}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ \ \ \ \ \ This\ is\ a\ .dbc\ to\ .h\ C\ header\ converter.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ \ \ \ \ \ It\ converts\ a\ Vector\ CANdb++\ .dbc\ file\ to\ CAN\ message\ and\ signal\ structs\ to\ make\ them}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ \ \ \ \ \ more\ easily\ human\ readable\ during\ development\ and\ support\ auto-\/completion\ in\ eclipse-\/based\ IDEs.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ \ \ \ \ \ This\ software\ is\ a\ beta\ version\ and\ provided\ "{}as\ is"{}\ -\/\ neither\ IMED\ Ltd\ nor\ the\ author}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ \ \ \ \ \ take\ any\ responsibility\ for\ the\ results.\ It\ may\ be\ used\ free\ of\ charge\ but\ it\ is\ not\ permitted}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ \ \ \ \ \ to\ redistribute\ the\ software\ nor\ to\ decompile\ and/or\ modify\ the\ original\ converter\ source\ code.}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ \ \ \ \ \ Please\ send\ us\ an\ email\ to\ contact@imed.co.nz\ if\ you\ have\ any\ feature\ requests\ or\ bug\ reports,\ thank\ you.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ \ \ \ \ \ And\ if\ you\ or\ your\ business\ do\ find\ this\ software\ useful,\ come\ to\ New\ Zealand\ and\ join\ us\ for\ a\ beer\ some\ time!}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ DBC\_INVERTERS\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ DBC\_INVERTERS\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_cplusplus\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{comment}{/*\ Only\ define\ if\ not\ using\ STM\ Cube\ */}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ USE\_HAL\_DRIVER}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ CAN\_ID\_STD}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\ \ \ \ \#define\ CAN\_ID\_STD\ \ \ \ \ \ ((uint32\_t)0x00000000U)\ \ }}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ CAN\_ID\_EXT}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\ \ \ \ \#define\ CAN\_ID\_EXT\ \ \ \ \ \ ((uint32\_t)0x00000004U)\ \ }}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}stdint.h"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}can.h"{}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00041\ \textcolor{comment}{\ *\ Helper\ function\ to\ link\ a\ converter\ struct\ pointer\ to\ a\ CAN\ message\ array\ (uint\_8t[8])}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ *\ This\ converter\ struct\ acts\ like\ a\ "{}getSigVal()"{}\ function.}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ *\ Usage\ example:\ }}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ *\ DBC\_linkMsgConverter(DBC\_IMED\_HELMBUS\_MSG\_BTN\_STATUS,\ RxMessage);}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ *\ -\/>\ DBC\_IMED\_HELMBUS\_MSG\_BTN\_STATUS\ is\ a\ generated\ CANdb\ message\ struct.}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ *\ -\/>\ RxMessage\ is\ an\ uint8\_t\ array[8]\ as\ received\ or\ sent\ by\ the\ can\ peripheral.}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ *\ Now,\ the\ message\ data\ can\ be\ accessed\ like\ this:}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ *\ uint32\_t\ uid\ =\ DBC\_IMED\_HELMBUS\_MSG\_BTN\_STATUS.getSigVal-\/>Board\_UID;}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ *\ -\/>\ or\ whatever\ signals\ are\ defined\ in\ that\ message.}}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifndef\ DBC\_linkMsgConverter}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ DBC\_linkMsgConverter(dbc,\ arr)\ (dbc).getSigVal\ =\ (typeof((dbc).getSigVal))\ \&(arr)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ DBC\_setup(dbc,\ MSG)\ \ \(\backslash\)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{do\ \{\ \(\backslash\)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ (MSG).DLC\ =\ (dbc).DLC;\ \(\backslash\)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ (MSG).IDE\ =\ (dbc).IDE;\ \(\backslash\)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ (MSG).RTR\ =\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ (MSG).ExtId\ =\ (MSG).IDE\ >\ 0\ ?\ (dbc).ID\ :\ 0;\ \(\backslash\)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \ \ (MSG).StdId\ =\ (MSG).IDE\ >\ 0\ ?\ 0\ :\ (dbc).ID;\ \(\backslash\)}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\}\ while\ (0)}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ *\ \ Type\ definitions}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118}{dbc\_valueType}}\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}}\ =\ 0,\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118aea3e783830512c1a6d51e33d0dff0a7f}{dbc\_valueType\_signed}},\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118aba1df2a06d67d6869100866a347dccfe}{dbc\_valueType\_float}},\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a7b18a260836f2b7f96d4b0fa2baf0d10}{dbc\_valueType\_double}},\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a33940a992707baf70fd6c753cf341361}{dbc\_valueType\_void}}}
+\DoxyCodeLine{00077\ \}\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118}{dbc\_valueType}};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ *\ \ ValueTables}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsignal}{signal}}\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}};}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structsignal_aecc11ed10081190afa939a166627f9d4}{unit}};}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118}{dbc\_valueType}}\ \mbox{\hyperlink{structsignal_a403f75144618434595f6204cb006b8ed}{valueType}};}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{structsignal_a1702990dd39dfa0b7bd671fdd45b2a7c}{lengthBits}};}
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structsignal_a652dcaa1d83d3a739296976a19c37347}{factor}},\ \mbox{\hyperlink{structsignal_a348ad5fc33f6dc5e6e30f74951997898}{offset}},\ \mbox{\hyperlink{structsignal_ab37ee3f0c5e4985ec164e679ae217a54}{min}},\ \mbox{\hyperlink{structsignal_a9a639a62d4e16d1e3a243f6c136eab4e}{max}};}
+\DoxyCodeLine{00097\ \}\ \mbox{\hyperlink{_c_a_n1db_8h_abb233df5f61527380c12ce0ced398c46}{signal}};}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{structsignal__positioned_a5357273a366d4845a424d253da67e1a0}{position}};}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}*\ \mbox{\hyperlink{structsignal__positioned_ae9ee7710af2dfbbc0fcb6ec6fd199266}{attributes}};}
+\DoxyCodeLine{00106\ \}\ \mbox{\hyperlink{_c_a_n1db_8h_a8f216c36633c7ff47dfb4231aaa6d2a4}{signal\_positioned}};}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ push}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ ignored\ "{}-\/Wpedantic"{}}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00114\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00115\ \textcolor{comment}{\ *\ \ Signals}}
+\DoxyCodeLine{00116\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00117\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00123\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_Enable\_Inv\_R\ =\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}Enable\_Inv\_R"{}},}
+\DoxyCodeLine{00125\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}-\/"{}},}
+\DoxyCodeLine{00126\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00127\ \ \ \ \ .lengthBits\ =\ 1,}
+\DoxyCodeLine{00128\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 1.0f}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_TotalPower\ =\ \{}
+\DoxyCodeLine{00136\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}TotalPower"{}},}
+\DoxyCodeLine{00137\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}kW"{}},}
+\DoxyCodeLine{00138\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00139\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00140\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00141\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00147\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_Power\_RR\ =\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}Power\_RR"{}},}
+\DoxyCodeLine{00149\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}kW"{}},}
+\DoxyCodeLine{00150\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00151\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00152\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00153\ \};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_Power\_RL\ =\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}Power\_RL"{}},}
+\DoxyCodeLine{00161\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}kW"{}},}
+\DoxyCodeLine{00162\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00163\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00164\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00165\ \};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00171\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_TorqueReal\_RR\ =\ \{}
+\DoxyCodeLine{00172\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}TorqueReal\_RR"{}},}
+\DoxyCodeLine{00173\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}Nm"{}},}
+\DoxyCodeLine{00174\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00175\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00176\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00177\ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00183\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_TorqueReal\_RL\ =\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}TorqueReal\_RL"{}},}
+\DoxyCodeLine{00185\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}Nm"{}},}
+\DoxyCodeLine{00186\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00187\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00188\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00189\ \};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00195\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_SpeedMotor\_RR\ =\ \{}
+\DoxyCodeLine{00196\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}SpeedMotor\_RR"{}},}
+\DoxyCodeLine{00197\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}rpm"{}},}
+\DoxyCodeLine{00198\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00199\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00200\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00201\ \};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00207\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_SpeedMotor\_RL\ =\ \{}
+\DoxyCodeLine{00208\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}SpeedMotor\_RL"{}},}
+\DoxyCodeLine{00209\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}rpm"{}},}
+\DoxyCodeLine{00210\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00211\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00212\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00213\ \};}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00219\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_DCBus\_RR\ =\ \{}
+\DoxyCodeLine{00220\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}DCBus\_RR"{}},}
+\DoxyCodeLine{00221\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}V"{}},}
+\DoxyCodeLine{00222\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00223\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00224\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00225\ \};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00231\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_DCBus\_RL\ =\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}DCBus\_RL"{}},}
+\DoxyCodeLine{00233\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}V"{}},}
+\DoxyCodeLine{00234\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00235\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00236\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00237\ \};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00243\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_Iq\_RR\ =\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}Iq\_RR"{}},}
+\DoxyCodeLine{00245\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}A"{}},}
+\DoxyCodeLine{00246\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00247\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00248\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00249\ \};}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00255\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_Icmd\_RR\ =\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}Icmd\_RR"{}},}
+\DoxyCodeLine{00257\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}A"{}},}
+\DoxyCodeLine{00258\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00259\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00260\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00261\ \};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00267\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_Iactual\_RR\ =\ \{}
+\DoxyCodeLine{00268\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}Iactual\_RR"{}},}
+\DoxyCodeLine{00269\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}A"{}},}
+\DoxyCodeLine{00270\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00271\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00272\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00273\ \};}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00279\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_Iq\_RL\ =\ \{}
+\DoxyCodeLine{00280\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}Iq\_RL"{}},}
+\DoxyCodeLine{00281\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}A"{}},}
+\DoxyCodeLine{00282\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00283\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00284\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00285\ \};}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00291\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_Icmd\_RL\ =\ \{}
+\DoxyCodeLine{00292\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}Icmd\_RL"{}},}
+\DoxyCodeLine{00293\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}A"{}},}
+\DoxyCodeLine{00294\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00295\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00296\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00297\ \};}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00303\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_Iactual\_RL\ =\ \{}
+\DoxyCodeLine{00304\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}Iactual\_RL"{}},}
+\DoxyCodeLine{00305\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}A"{}},}
+\DoxyCodeLine{00306\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00307\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00308\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00309\ \};}
+\DoxyCodeLine{00310\ }
+\DoxyCodeLine{00315\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_TempMotor\_RR\ =\ \{}
+\DoxyCodeLine{00316\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}TempMotor\_RR"{}},}
+\DoxyCodeLine{00317\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}ºC"{}},}
+\DoxyCodeLine{00318\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00319\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00320\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00321\ \};}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00327\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_TempMotor\_RL\ =\ \{}
+\DoxyCodeLine{00328\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}TempMotor\_RL"{}},}
+\DoxyCodeLine{00329\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}ºC"{}},}
+\DoxyCodeLine{00330\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00331\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00332\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00333\ \};}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00339\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_TempIGBT\_RR\ =\ \{}
+\DoxyCodeLine{00340\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}TempIGBT\_RR"{}},}
+\DoxyCodeLine{00341\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}ºC"{}},}
+\DoxyCodeLine{00342\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00343\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00344\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00345\ \};}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00351\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal}{signal}}\ DBC\_INVERTERS\_SIG\_TempIGBT\_RL\ =\ \{}
+\DoxyCodeLine{00352\ \ \ \ \ .\mbox{\hyperlink{structsignal_a8f8f80d37794cde9472343e4487ba3eb}{name}}\ =\ \textcolor{stringliteral}{"{}TempIGBT\_RL"{}},}
+\DoxyCodeLine{00353\ \ \ \ \ .unit\ =\ \textcolor{stringliteral}{"{}ºC"{}},}
+\DoxyCodeLine{00354\ \ \ \ \ .valueType\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\_valueType\_unsigned}},}
+\DoxyCodeLine{00355\ \ \ \ \ .lengthBits\ =\ 16,}
+\DoxyCodeLine{00356\ \ \ \ \ .factor\ =\ 1.0f,\ .offset\ =\ 0.0f,\ .min\ =\ 0.0f,\ .max\ =\ 65535.0f}
+\DoxyCodeLine{00357\ \};}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00360\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00361\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00362\ \textcolor{comment}{\ *\ \ \ \ \ \ \ \ \ \ \ \ \ \ Messages}}
+\DoxyCodeLine{00363\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00364\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00370\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }DBC\_INVERTERS\_MSG\_AP\_ETAS\_EnableInv\ \{}
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ ID;}
+\DoxyCodeLine{00372\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IDE;}
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DLC;}
+\DoxyCodeLine{00374\ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ Enable\_Inv\_R;}
+\DoxyCodeLine{00376\ \ \ \ \ \}\ getSig;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \textcolor{keyword}{struct\ }\_\_attribute\_\_((packed))\ DBC\_INVERTERS\_MSG\_AP\_ETAS\_EnableInv\_getSigVal\ \{}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ uint8\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a5e4823ad9162872fa5ef16250cb3c529}{Enable\_Inv\_R}}\ \ \ \ :\ 1;}
+\DoxyCodeLine{00379\ \ \ \ \ \}\ *getSigVal;}
+\DoxyCodeLine{00380\ \}\ DBC\_INVERTERS\_MSG\_AP\_ETAS\_EnableInv\ \_\_attribute\_\_((unused))\ =\ \{}
+\DoxyCodeLine{00381\ \ \ \ \ .ID\ =\ 0xB1,}
+\DoxyCodeLine{00382\ \ \ \ \ .IDE\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\_ID\_STD}},}
+\DoxyCodeLine{00383\ \ \ \ \ .DLC\ =\ 8,}
+\DoxyCodeLine{00384\ \ \ \ \ .getSig\ \ =\ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ .Enable\_Inv\_R\ =\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 0,}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_Enable\_Inv\_R}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00389\ \ \ \ \ \},}
+\DoxyCodeLine{00390\ \ \ \ \ .getSigVal\ =\ 0}
+\DoxyCodeLine{00391\ \};}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ }
+\DoxyCodeLine{00398\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }DBC\_INVERTERS\_MSG\_TBD\_Inv\_R\_Power\ \{}
+\DoxyCodeLine{00399\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ ID;}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IDE;}
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DLC;}
+\DoxyCodeLine{00402\ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ TotalPower;}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ Power\_RL;}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ Power\_RR;}
+\DoxyCodeLine{00406\ \ \ \ \ \}\ getSig;}
+\DoxyCodeLine{00407\ \ \ \ \ \ \textcolor{keyword}{struct\ }\_\_attribute\_\_((packed))\ DBC\_INVERTERS\_MSG\_TBD\_Inv\_R\_Power\_getSigVal\ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a01dee6792f2e7143f2abdac493f1a39a}{TotalPower}}\ \ \ :\ 16;}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_aa4a9d2d9a590e4f77134c149d67f0069}{Power\_RL}}\ \ \ :\ 16;}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a2afd314e0fd7a164e6adafb0956a22fe}{Power\_RR}}\ \ \ :\ 16;}
+\DoxyCodeLine{00411\ \ \ \ \ \}\ *getSigVal;}
+\DoxyCodeLine{00412\ \}\ DBC\_INVERTERS\_MSG\_TBD\_Inv\_R\_Power\ \_\_attribute\_\_((unused))\ =\ \{}
+\DoxyCodeLine{00413\ \ \ \ \ .ID\ =\ 0xB4,}
+\DoxyCodeLine{00414\ \ \ \ \ .IDE\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\_ID\_STD}},}
+\DoxyCodeLine{00415\ \ \ \ \ .DLC\ =\ 6,}
+\DoxyCodeLine{00416\ \ \ \ \ .getSig\ \ =\ \{}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ .TotalPower\ =\ \{}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 7,}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_TotalPower}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ .Power\_RL\ =\ \{}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 23,}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_Power\_RL}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ .Power\_RR\ =\ \{}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 39,}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_Power\_RR}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00429\ \ \ \ \ \},}
+\DoxyCodeLine{00430\ \ \ \ \ .getSigVal\ =\ 0}
+\DoxyCodeLine{00431\ \};}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00438\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }DBC\_INVERTERS\_MSG\_TBD\_Inv\_R\_Torque\ \{}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ ID;}
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IDE;}
+\DoxyCodeLine{00441\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DLC;}
+\DoxyCodeLine{00442\ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ TorqueReal\_RL;}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ TorqueReal\_RR;}
+\DoxyCodeLine{00445\ \ \ \ \ \}\ getSig;}
+\DoxyCodeLine{00446\ \ \ \ \ \ \textcolor{keyword}{struct\ }\_\_attribute\_\_((packed))\ DBC\_INVERTERS\_MSG\_TBD\_Inv\_R\_Torque\_getSigVal\ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_aea4ad7609604cc49d9ff0622596b9c25}{TorqueReal\_RL}}\ :\ 16;}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a8db1b9630eb14a773775037482095ca0}{TorqueReal\_RR}}\ :\ 16;}
+\DoxyCodeLine{00449\ \ \ \ \ \}\ *getSigVal;}
+\DoxyCodeLine{00450\ \}\ DBC\_INVERTERS\_MSG\_TBD\_Inv\_R\_Torque\ \_\_attribute\_\_((unused))\ =\ \{}
+\DoxyCodeLine{00451\ \ \ \ \ .ID\ =\ 0xC7,}
+\DoxyCodeLine{00452\ \ \ \ \ .IDE\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\_ID\_STD}},}
+\DoxyCodeLine{00453\ \ \ \ \ .DLC\ =\ 4,}
+\DoxyCodeLine{00454\ \ \ \ \ .getSig\ \ =\ \{}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ .TorqueReal\_RL\ =\ \{}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 7,}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_TorqueReal\_RL}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ .TorqueReal\_RR\ =\ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 23,}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_TorqueReal\_RR}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00463\ \ \ \ \ \},}
+\DoxyCodeLine{00464\ \ \ \ \ .getSigVal\ =\ 0}
+\DoxyCodeLine{00465\ \};}
+\DoxyCodeLine{00466\ }
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00472\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_Error\ \{}
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ ID;}
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IDE;}
+\DoxyCodeLine{00475\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DLC;}
+\DoxyCodeLine{00476\ \}\ DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_Error\ \_\_attribute\_\_((unused))\ =\ \{}
+\DoxyCodeLine{00477\ \ \ \ \ .ID\ =\ 0xB0,}
+\DoxyCodeLine{00478\ \ \ \ \ .IDE\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\_ID\_STD}},}
+\DoxyCodeLine{00479\ \ \ \ \ .DLC\ =\ 8}
+\DoxyCodeLine{00480\ \};}
+\DoxyCodeLine{00481\ }
+\DoxyCodeLine{00482\ }
+\DoxyCodeLine{00487\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_Speed\ \{}
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ ID;}
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IDE;}
+\DoxyCodeLine{00490\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DLC;}
+\DoxyCodeLine{00491\ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ SpeedMotor\_RL;}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ SpeedMotor\_RR;}
+\DoxyCodeLine{00494\ \ \ \ \ \}\ getSig;}
+\DoxyCodeLine{00495\ \ \ \ \ \ \textcolor{keyword}{struct\ }\_\_attribute\_\_((packed))\ DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_Speed\_getSigVal\ \{}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a4092876a72de13f93fba9354b28e57a8}{SpeedMotor\_RL}}\ :\ 16;}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a241024bb09ba17dec5c2fbe6c9e61ad7}{SpeedMotor\_RR}}\ :\ 16;}
+\DoxyCodeLine{00498\ \ \ \ \ \}\ *getSigVal;}
+\DoxyCodeLine{00499\ \}\ DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_Speed\ \_\_attribute\_\_((unused))\ =\ \{}
+\DoxyCodeLine{00500\ \ \ \ \ .ID\ =\ 0xB5,}
+\DoxyCodeLine{00501\ \ \ \ \ .IDE\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\_ID\_STD}},}
+\DoxyCodeLine{00502\ \ \ \ \ .DLC\ =\ 4,}
+\DoxyCodeLine{00503\ \ \ \ \ .getSig\ \ =\ \{}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ .SpeedMotor\_RL\ =\ \{}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 7,}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_SpeedMotor\_RL}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ .SpeedMotor\_RR\ =\ \{}
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 23,}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_SpeedMotor\_RR}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00512\ \ \ \ \ \},}
+\DoxyCodeLine{00513\ \ \ \ \ .getSigVal\ =\ 0}
+\DoxyCodeLine{00514\ \};}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00516\ }
+\DoxyCodeLine{00521\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_DCBus\ \{}
+\DoxyCodeLine{00522\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ ID;}
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IDE;}
+\DoxyCodeLine{00524\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DLC;}
+\DoxyCodeLine{00525\ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ DCBus\_RL;}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ DCBus\_RR;}
+\DoxyCodeLine{00528\ \ \ \ \ \}\ getSig;}
+\DoxyCodeLine{00529\ \ \ \ \ \ \textcolor{keyword}{struct\ }\_\_attribute\_\_((packed))\ DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_DCBus\_getSigVal\ \{}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a2b8ae9568e039972c440921576753f4f}{DCBus\_RL}}\ \ \ :\ 16;}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_ae41ad487a8080221486ba945210a8b7f}{DCBus\_RR}}\ \ \ :\ 16;}
+\DoxyCodeLine{00532\ \ \ \ \ \}\ *getSigVal;}
+\DoxyCodeLine{00533\ \}\ DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_DCBus\ \_\_attribute\_\_((unused))\ =\ \{}
+\DoxyCodeLine{00534\ \ \ \ \ .ID\ =\ 0xB3,}
+\DoxyCodeLine{00535\ \ \ \ \ .IDE\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\_ID\_STD}},}
+\DoxyCodeLine{00536\ \ \ \ \ .DLC\ =\ 4,}
+\DoxyCodeLine{00537\ \ \ \ \ .getSig\ \ =\ \{}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ .DCBus\_RL\ =\ \{}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 7,}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_DCBus\_RL}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ .DCBus\_RR\ =\ \{}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 23,}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_DCBus\_RR}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00546\ \ \ \ \ \},}
+\DoxyCodeLine{00547\ \ \ \ \ .getSigVal\ =\ 0}
+\DoxyCodeLine{00548\ \};}
+\DoxyCodeLine{00549\ }
+\DoxyCodeLine{00550\ }
+\DoxyCodeLine{00555\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }DBC\_INVERTERS\_MSG\_MEAS\_Inv\_R\_Currents\_R\ \{}
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ ID;}
+\DoxyCodeLine{00557\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IDE;}
+\DoxyCodeLine{00558\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DLC;}
+\DoxyCodeLine{00559\ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ Iactual\_RR;}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ Icmd\_RR;}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ Iq\_RR;}
+\DoxyCodeLine{00563\ \ \ \ \ \}\ getSig;}
+\DoxyCodeLine{00564\ \ \ \ \ \ \textcolor{keyword}{struct\ }\_\_attribute\_\_((packed))\ DBC\_INVERTERS\_MSG\_MEAS\_Inv\_R\_Currents\_R\_getSigVal\ \{}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_aa3b8b78b6e6edf7740c47c6aa5246906}{Iactual\_RR}}\ \ \ :\ 16;}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a03a66c04a599e0341befa0d5b8e38cb6}{Icmd\_RR}}\ :\ 16;}
+\DoxyCodeLine{00567\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a62983e59df768f98aa0e7048ff7c7789}{Iq\_RR}}\ :\ 16;}
+\DoxyCodeLine{00568\ \ \ \ \ \}\ *getSigVal;}
+\DoxyCodeLine{00569\ \}\ DBC\_INVERTERS\_MSG\_MEAS\_Inv\_R\_Currents\_R\ \_\_attribute\_\_((unused))\ =\ \{}
+\DoxyCodeLine{00570\ \ \ \ \ .ID\ =\ 0xC9,}
+\DoxyCodeLine{00571\ \ \ \ \ .IDE\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\_ID\_STD}},}
+\DoxyCodeLine{00572\ \ \ \ \ .DLC\ =\ 6,}
+\DoxyCodeLine{00573\ \ \ \ \ .getSig\ \ =\ \{}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ .Iactual\_RR\ =\ \{}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 7,}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_Iactual\_RR}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ .Icmd\_RR\ =\ \{}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 23,}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_Icmd\_RR}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ .Iq\_RR\ =\ \{}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 39,}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_Iq\_RR}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00586\ \ \ \ \ \},}
+\DoxyCodeLine{00587\ \ \ \ \ .getSigVal\ =\ 0}
+\DoxyCodeLine{00588\ \};}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00595\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }DBC\_INVERTERS\_MSG\_MEAS\_Inv\_R\_Currents\_L\ \{}
+\DoxyCodeLine{00596\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ ID;}
+\DoxyCodeLine{00597\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IDE;}
+\DoxyCodeLine{00598\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DLC;}
+\DoxyCodeLine{00599\ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ Iactual\_RL;}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ Icmd\_RL;}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ Iq\_RL;}
+\DoxyCodeLine{00603\ \ \ \ \ \}\ getSig;}
+\DoxyCodeLine{00604\ \ \ \ \ \ \textcolor{keyword}{struct\ }\_\_attribute\_\_((packed))\ DBC\_INVERTERS\_MSG\_MEAS\_Inv\_R\_Currents\_L\_getSigVal\ \{}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_aee9bfb26cce14606b2ef5e3558d18d44}{Iactual\_RL}}\ \ \ :\ 16;}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_aa500a2cbd5b3b26594096393ac137f07}{Icmd\_RL}}\ :\ 16;}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a59b579d5214bcdf687ae46f6dd0fa1f7}{Iq\_RL}}\ :\ 16;}
+\DoxyCodeLine{00608\ \ \ \ \ \}\ *getSigVal;}
+\DoxyCodeLine{00609\ \}\ DBC\_INVERTERS\_MSG\_MEAS\_Inv\_R\_Currents\_L\ \_\_attribute\_\_((unused))\ =\ \{}
+\DoxyCodeLine{00610\ \ \ \ \ .ID\ =\ 0xC8,}
+\DoxyCodeLine{00611\ \ \ \ \ .IDE\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\_ID\_STD}},}
+\DoxyCodeLine{00612\ \ \ \ \ .DLC\ =\ 6,}
+\DoxyCodeLine{00613\ \ \ \ \ .getSig\ \ =\ \{}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ .Iactual\_RL\ =\ \{}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 7,}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_Iactual\_RL}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ .Icmd\_RL\ =\ \{}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 23,}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_Icmd\_RL}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ .Iq\_RL\ =\ \{}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 39,}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_Iq\_RL}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00626\ \ \ \ \ \},}
+\DoxyCodeLine{00627\ \ \ \ \ .getSigVal\ =\ 0}
+\DoxyCodeLine{00628\ \};}
+\DoxyCodeLine{00629\ }
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00635\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_Temperatures\ \{}
+\DoxyCodeLine{00636\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ ID;}
+\DoxyCodeLine{00637\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ IDE;}
+\DoxyCodeLine{00638\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ DLC;}
+\DoxyCodeLine{00639\ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ TempIGBT\_RL;}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ TempIGBT\_RR;}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ TempMotor\_RL;}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ TempMotor\_RR;}
+\DoxyCodeLine{00644\ \ \ \ \ \}\ getSig;}
+\DoxyCodeLine{00645\ \ \ \ \ \ \textcolor{keyword}{struct\ }\_\_attribute\_\_((packed))\ DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_Temperatures\_getSigVal\ \{}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a1efc3179cc6e78bde99d5e53d9405c38}{TempIGBT\_RL}}\ :\ 16;}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a9779d38782280a21a912ac17834ed1e5}{TempIGBT\_RR}}\ :\ 16;}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_ae0abd99994452d0bb911bb516e1d2e74}{TempMotor\_RL}}\ \ \ :\ 16;}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ uint16\_t\ \mbox{\hyperlink{_c_a_n1db_8h_a21202690a41c2f58b486f91e559eed6b}{TempMotor\_RR}}\ \ \ :\ 16;}
+\DoxyCodeLine{00650\ \ \ \ \ \}\ *getSigVal;}
+\DoxyCodeLine{00651\ \}\ DBC\_INVERTERS\_MSG\_AP\_Inv\_R\_Temperatures\ \_\_attribute\_\_((unused))\ =\ \{}
+\DoxyCodeLine{00652\ \ \ \ \ .ID\ =\ 0xB2,}
+\DoxyCodeLine{00653\ \ \ \ \ .IDE\ =\ \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\_ID\_STD}},}
+\DoxyCodeLine{00654\ \ \ \ \ .DLC\ =\ 8,}
+\DoxyCodeLine{00655\ \ \ \ \ .getSig\ \ =\ \{}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ .TempIGBT\_RL\ =\ \{}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 7,}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_TempIGBT\_RL}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ .TempIGBT\_RR\ =\ \{}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 23,}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_TempIGBT\_RR}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ .TempMotor\_RL\ =\ \{}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 39,}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_TempMotor\_RL}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ .TempMotor\_RR\ =\ \{}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \ \ \ \ .position\ =\ 55,}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \ \ \ \ .attributes\ =\ \&DBC\_INVERTERS\_SIG\_TempMotor\_RR}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00672\ \ \ \ \ \},}
+\DoxyCodeLine{00673\ \ \ \ \ .getSigVal\ =\ 0}
+\DoxyCodeLine{00674\ \};}
+\DoxyCodeLine{00675\ }
+\DoxyCodeLine{00676\ }
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00678\ }
+\DoxyCodeLine{00679\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00680\ \textcolor{comment}{\ *\ Nodes\ List:}}
+\DoxyCodeLine{00681\ \textcolor{comment}{\ *\ \ Inverters\_Front}}
+\DoxyCodeLine{00682\ \textcolor{comment}{\ *\ \ Inverters\_Rear}}
+\DoxyCodeLine{00683\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00684\ }
+\DoxyCodeLine{00685\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00686\ \textcolor{comment}{\ *\ Functions}}
+\DoxyCodeLine{00687\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00688\ }
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00690\ \textcolor{preprocessor}{\#pragma\ GCC\ diagnostic\ pop}}
+\DoxyCodeLine{00691\ }
+\DoxyCodeLine{00692\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00693\ \}}
+\DoxyCodeLine{00694\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00695\ }
+\DoxyCodeLine{00696\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ DBC\_INVERTERS\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00697\ \textcolor{comment}{/*\ @formatter:on\ */}}
+
+\end{DoxyCode}

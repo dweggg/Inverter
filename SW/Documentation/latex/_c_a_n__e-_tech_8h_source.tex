@@ -1,0 +1,28 @@
+\doxysection{CAN\+\_\+e-\/\+Tech.h}
+\hypertarget{_c_a_n__e-_tech_8h_source}{}\label{_c_a_n__e-_tech_8h_source}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN\_e-\/Tech.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN\_e-\/Tech.h}}
+\mbox{\hyperlink{_c_a_n__e-_tech_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{00018\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ CAN\_E\_TECH\_H}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ CAN\_E\_TECH\_H}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_c_a_n1db_8h}{CAN1db.h}}"{}}\ \textcolor{comment}{//\ needs\ the\ CAN1db\ and\ its\ types}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{extern}\ uint8\_t\ \mbox{\hyperlink{_c_a_n__e-_tech_8h_a4f0582e1cda8482a5450be15a34eb197}{enableCAN}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{struct_c_a_n_message_info_a0364849925d3c762ce722e963712b123}{ID}};}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{struct_c_a_n_message_info_a374853775ad7fb1713c183fecf6aa487}{IDE}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{struct_c_a_n_message_info_a4727282c7bbfbfe8dddae8e965a5e41f}{DLC}};}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structsignal__positioned}{signal\_positioned}}\ *\mbox{\hyperlink{struct_c_a_n_message_info_ab99f66f8b3fd2662754d745acd77f248}{getSig}};}
+\DoxyCodeLine{00032\ \}\ \mbox{\hyperlink{struct_c_a_n_message_info}{CANMessageInfo}};}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_a_n__e-_tech_8h_a344219c7f86a488bcb222a4b675ee586}{handle\_CAN}}(CAN\_HandleTypeDef\ *hcan);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00052\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_a_n__e-_tech_8h_a338a1edd038abc0fd507ad984eb4acfa}{send\_CAN\_message}}(CAN\_HandleTypeDef\ *hcan,\ \textcolor{keywordtype}{void}\ *dbc\_msg,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *data);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CAN\_E\_TECH\_H\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

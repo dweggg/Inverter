@@ -8,6 +8,7 @@ Header file for the inverter struct and extern variables.
 {\ttfamily \#include "{}PCB\+\_\+\+IO.\+h"{}}\newline
 {\ttfamily \#include "{}MEASUREMENTS.\+h"{}}\newline
 {\ttfamily \#include "{}REFERENCE.\+h"{}}\newline
+{\ttfamily \#include "{}MOTOR.\+h"{}}\newline
 {\ttfamily \#include "{}PWM.\+h"{}}\newline
 Include dependency graph for INVERTER.\+h\+:
 \nopagebreak
@@ -49,8 +50,10 @@ enum \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311}{Inv
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_ab166dd27a896ec83c7677462360eeba7}{initialize\+\_\+inverter}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}enable\+\_\+port, uint16\+\_\+t enable\+\_\+pin, TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hadc)
-\begin{DoxyCompactList}\small\item\em Initialize the inverter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87}{initialize\+\_\+inverter}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}enable\+\_\+port, uint16\+\_\+t enable\+\_\+pin, TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hadc, \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor)
+\begin{DoxyCompactList}\small\item\em Initialize the inverter. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a}{init\+\_\+control\+\_\+loops}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor)
+\begin{DoxyCompactList}\small\item\em Initializes the id-\/iq current control PI controllers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -117,11 +120,49 @@ INV\+\_\+\+STATE\+\_\+\+FAULT&Inverter fault state \\
 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_i_n_v_e_r_t_e_r_8h_ab166dd27a896ec83c7677462360eeba7}\label{_i_n_v_e_r_t_e_r_8h_ab166dd27a896ec83c7677462360eeba7} 
+\Hypertarget{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a}\label{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a} 
+\index{INVERTER.h@{INVERTER.h}!init\_control\_loops@{init\_control\_loops}}
+\index{init\_control\_loops@{init\_control\_loops}!INVERTER.h@{INVERTER.h}}
+\doxysubsubsection{\texorpdfstring{init\_control\_loops()}{init\_control\_loops()}}
+{\footnotesize\ttfamily void init\+\_\+control\+\_\+loops (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv,  }\item[{\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}}]{motor }\end{DoxyParamCaption})}
+
+
+
+Initializes the id-\/iq current control PI controllers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inv} & Pointer to the inverter structure.\\
+\hline
+\end{DoxyParams}
+Initializes the id-\/iq current control PI controllers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em inv} & Pointer to the inverter structure. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87}\label{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87} 
 \index{INVERTER.h@{INVERTER.h}!initialize\_inverter@{initialize\_inverter}}
 \index{initialize\_inverter@{initialize\_inverter}!INVERTER.h@{INVERTER.h}}
 \doxysubsubsection{\texorpdfstring{initialize\_inverter()}{initialize\_inverter()}}
-{\footnotesize\ttfamily void initialize\+\_\+inverter (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv,  }\item[{\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{enable\+\_\+port,  }\item[{uint16\+\_\+t}]{enable\+\_\+pin,  }\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim,  }\item[{ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hadc }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void initialize\+\_\+inverter (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv,  }\item[{\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{enable\+\_\+port,  }\item[{uint16\+\_\+t}]{enable\+\_\+pin,  }\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim,  }\item[{ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hadc,  }\item[{\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}}]{motor }\end{DoxyParamCaption})}
 
 
 
@@ -143,13 +184,23 @@ This function initializes the inverter structure with the specified \doxylink{st
 \hline
 \mbox{\texttt{ in}}  & {\em hadc} & ADC peripheral for the current phase current and DC voltage sensing. \\
 \hline
+\mbox{\texttt{ in}}  & {\em motor} & \doxylink{struct_motor_parameters}{Motor\+Parameters} struct. \\
+\hline
 \end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87_cgraph}
+\end{center}
+\end{figure}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=240pt]{_i_n_v_e_r_t_e_r_8h_ab166dd27a896ec83c7677462360eeba7_icgraph}
+\includegraphics[width=240pt]{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87_icgraph}
 \end{center}
 \end{figure}
 

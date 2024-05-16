@@ -12,17 +12,21 @@ Include dependency graph for REFERENCE.\+c\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=254pt]{_r_e_f_e_r_e_n_c_e_8c__incl}
+\includegraphics[width=286pt]{_r_e_f_e_r_e_n_c_e_8c__incl}
 \end{center}
 \end{figure}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_a238eebcf74235b4455217edd8f1aa77b}{set\+\_\+torque\+\_\+direction}} (float torque\+\_\+ref, int8\+\_\+t direction)
+float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_a1988c289dd46fd505e0f9de30044fed0}{handle\+\_\+torque\+Ref}} (float torque\+Ref\+In, int8\+\_\+t direction, float torque\+Max, float speed\+Max\+RPM, float speed\+Meas, volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}loop\+Speed)
+\begin{DoxyCompactList}\small\item\em Handles torque control based on the reference torque, direction, maximum torque, maximum speed, measured speed, maximum torque rate of change, speed control loop parameters, and sampling time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_a6a55a30eeb0846ae5cd9e212b23d5ced}{initialize\+\_\+torque\+\_\+ramp}} (float d\+Torque\+Max, float Ts)
+\begin{DoxyCompactList}\small\item\em Initializes torque ramp. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_ab120f5abe0a9a818f3926bc3a859abd6}{set\+\_\+torque\+\_\+direction}} (float torque\+Ref\+In, int8\+\_\+t direction)
 \begin{DoxyCompactList}\small\item\em Set torque direction based on inverter direction. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_adcef1f154971c0514781a7738dad6db7}{saturate\+\_\+symmetric}} (float ref, float max\+\_\+value)
+float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_a0f5d51160e9eb91ad3ffba1c5905eed6}{saturate\+\_\+symmetric}} (float ref, float max)
 \begin{DoxyCompactList}\small\item\em Symmetrically saturate a reference value. \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_a4250eb8409c403d07add674c6d2e80c7}{limit\+\_\+torque\+\_\+to\+\_\+prevent\+\_\+overspeed}} (float speed\+\_\+max, float speed\+\_\+meas, float torque\+\_\+ref\+\_\+pre, volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}loop\+\_\+speed)
+float \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8c_a0da21f1ac59fa2f2ff67acfd930147ed}{limit\+\_\+torque\+\_\+to\+\_\+prevent\+\_\+overspeed}} (float speed\+Max\+RPM, float speed\+Meas, float torque\+Ref\+In, volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}loop\+Speed)
 \begin{DoxyCompactList}\small\item\em Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -37,11 +41,72 @@ Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
 This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_a4250eb8409c403d07add674c6d2e80c7}\label{_r_e_f_e_r_e_n_c_e_8c_a4250eb8409c403d07add674c6d2e80c7} 
+\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_a1988c289dd46fd505e0f9de30044fed0}\label{_r_e_f_e_r_e_n_c_e_8c_a1988c289dd46fd505e0f9de30044fed0} 
+\index{REFERENCE.c@{REFERENCE.c}!handle\_torqueRef@{handle\_torqueRef}}
+\index{handle\_torqueRef@{handle\_torqueRef}!REFERENCE.c@{REFERENCE.c}}
+\doxysubsubsection{\texorpdfstring{handle\_torqueRef()}{handle\_torqueRef()}}
+{\footnotesize\ttfamily float handle\+\_\+torque\+Ref (\begin{DoxyParamCaption}\item[{float}]{torque\+Ref\+In,  }\item[{int8\+\_\+t}]{direction,  }\item[{float}]{torque\+Max,  }\item[{float}]{speed\+Max\+RPM,  }\item[{float}]{speed\+Meas,  }\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{loop\+Speed }\end{DoxyParamCaption})}
+
+
+
+Handles torque control based on the reference torque, direction, maximum torque, maximum speed, measured speed, maximum torque rate of change, speed control loop parameters, and sampling time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em torque\+Ref\+In} & Input reference torque. \\
+\hline
+{\em direction} & Direction of torque (1 for positive torque, -\/1 for negative torque). \\
+\hline
+{\em torque\+Max} & Maximum allowable torque. \\
+\hline
+{\em speed\+Max\+RPM} & Maximum allowable speed in RPM. \\
+\hline
+{\em speed\+Meas} & Measured speed. \\
+\hline
+{\em loop\+Speed} & Speed control loop parameters.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The output torque after handling direction, saturation, and rate limiting. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_r_e_f_e_r_e_n_c_e_8c_a1988c289dd46fd505e0f9de30044fed0_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_r_e_f_e_r_e_n_c_e_8c_a1988c289dd46fd505e0f9de30044fed0_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_a6a55a30eeb0846ae5cd9e212b23d5ced}\label{_r_e_f_e_r_e_n_c_e_8c_a6a55a30eeb0846ae5cd9e212b23d5ced} 
+\index{REFERENCE.c@{REFERENCE.c}!initialize\_torque\_ramp@{initialize\_torque\_ramp}}
+\index{initialize\_torque\_ramp@{initialize\_torque\_ramp}!REFERENCE.c@{REFERENCE.c}}
+\doxysubsubsection{\texorpdfstring{initialize\_torque\_ramp()}{initialize\_torque\_ramp()}}
+{\footnotesize\ttfamily void initialize\+\_\+torque\+\_\+ramp (\begin{DoxyParamCaption}\item[{float}]{d\+Torque\+Max,  }\item[{float}]{Ts }\end{DoxyParamCaption})}
+
+
+
+Initializes torque ramp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d\+Torque\+Max} & Maximum allowable rate of change of torque. \\
+\hline
+{\em Ts} & Sampling time. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_a0da21f1ac59fa2f2ff67acfd930147ed}\label{_r_e_f_e_r_e_n_c_e_8c_a0da21f1ac59fa2f2ff67acfd930147ed} 
 \index{REFERENCE.c@{REFERENCE.c}!limit\_torque\_to\_prevent\_overspeed@{limit\_torque\_to\_prevent\_overspeed}}
 \index{limit\_torque\_to\_prevent\_overspeed@{limit\_torque\_to\_prevent\_overspeed}!REFERENCE.c@{REFERENCE.c}}
 \doxysubsubsection{\texorpdfstring{limit\_torque\_to\_prevent\_overspeed()}{limit\_torque\_to\_prevent\_overspeed()}}
-{\footnotesize\ttfamily float limit\+\_\+torque\+\_\+to\+\_\+prevent\+\_\+overspeed (\begin{DoxyParamCaption}\item[{float}]{speed\+\_\+max,  }\item[{float}]{speed\+\_\+meas,  }\item[{float}]{torque\+\_\+ref\+\_\+pre,  }\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{loop\+\_\+speed }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float limit\+\_\+torque\+\_\+to\+\_\+prevent\+\_\+overspeed (\begin{DoxyParamCaption}\item[{float}]{speed\+Max\+RPM,  }\item[{float}]{speed\+Meas,  }\item[{float}]{torque\+Ref\+In,  }\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{loop\+Speed }\end{DoxyParamCaption})}
 
 
 
@@ -49,31 +114,39 @@ Speed loop acts as a torque saturation, reducing torque in order to limit the ma
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em speed\+\_\+max} & The maximum speed value in RPM. \\
+\mbox{\texttt{ in}}  & {\em speed\+Max\+RPM} & The maximum speed value in RPM. \\
 \hline
-\mbox{\texttt{ in}}  & {\em speed\+\_\+meas} & The measured speed value in RPM. \\
+\mbox{\texttt{ in}}  & {\em speed\+Meas} & The measured speed value in RPM. \\
 \hline
-\mbox{\texttt{ in}}  & {\em torque\+\_\+ref\+\_\+pre} & The torque reference value before this saturation. \\
+\mbox{\texttt{ in}}  & {\em torque\+Ref\+In} & The torque reference value before this saturation. \\
 \hline
-\mbox{\texttt{ in}}  & {\em loop\+\_\+speed} & Pointer to the speed PI controller structure. \\
+\mbox{\texttt{ in}}  & {\em loop\+Speed} & Pointer to the speed PI controller structure. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The limited torque reference value after this saturation. 
+torque\+Ref\+Out The limited torque reference value after this saturation. 
 \end{DoxyReturn}
 Here is the call graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=279pt]{_r_e_f_e_r_e_n_c_e_8c_a4250eb8409c403d07add674c6d2e80c7_cgraph}
+\includegraphics[width=279pt]{_r_e_f_e_r_e_n_c_e_8c_a0da21f1ac59fa2f2ff67acfd930147ed_cgraph}
 \end{center}
 \end{figure}
-\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_adcef1f154971c0514781a7738dad6db7}\label{_r_e_f_e_r_e_n_c_e_8c_adcef1f154971c0514781a7738dad6db7} 
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_r_e_f_e_r_e_n_c_e_8c_a0da21f1ac59fa2f2ff67acfd930147ed_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_a0f5d51160e9eb91ad3ffba1c5905eed6}\label{_r_e_f_e_r_e_n_c_e_8c_a0f5d51160e9eb91ad3ffba1c5905eed6} 
 \index{REFERENCE.c@{REFERENCE.c}!saturate\_symmetric@{saturate\_symmetric}}
 \index{saturate\_symmetric@{saturate\_symmetric}!REFERENCE.c@{REFERENCE.c}}
 \doxysubsubsection{\texorpdfstring{saturate\_symmetric()}{saturate\_symmetric()}}
-{\footnotesize\ttfamily float saturate\+\_\+symmetric (\begin{DoxyParamCaption}\item[{float}]{ref,  }\item[{float}]{max\+\_\+value }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float saturate\+\_\+symmetric (\begin{DoxyParamCaption}\item[{float}]{ref,  }\item[{float}]{max }\end{DoxyParamCaption})}
 
 
 
@@ -85,31 +158,39 @@ This function symmetrically saturates a reference value based on the maximum all
 \begin{DoxyParams}[1]{Parameters}
 \mbox{\texttt{ in}}  & {\em ref} & The reference value to saturate. \\
 \hline
-\mbox{\texttt{ in}}  & {\em max\+\_\+value} & The maximum allowed value for saturation. \\
+\mbox{\texttt{ in}}  & {\em max} & The maximum allowed value for saturation. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 The saturated reference value. 
 \end{DoxyReturn}
-\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_a238eebcf74235b4455217edd8f1aa77b}\label{_r_e_f_e_r_e_n_c_e_8c_a238eebcf74235b4455217edd8f1aa77b} 
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_r_e_f_e_r_e_n_c_e_8c_a0f5d51160e9eb91ad3ffba1c5905eed6_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_r_e_f_e_r_e_n_c_e_8c_ab120f5abe0a9a818f3926bc3a859abd6}\label{_r_e_f_e_r_e_n_c_e_8c_ab120f5abe0a9a818f3926bc3a859abd6} 
 \index{REFERENCE.c@{REFERENCE.c}!set\_torque\_direction@{set\_torque\_direction}}
 \index{set\_torque\_direction@{set\_torque\_direction}!REFERENCE.c@{REFERENCE.c}}
 \doxysubsubsection{\texorpdfstring{set\_torque\_direction()}{set\_torque\_direction()}}
-{\footnotesize\ttfamily float set\+\_\+torque\+\_\+direction (\begin{DoxyParamCaption}\item[{float}]{torque\+\_\+ref,  }\item[{int8\+\_\+t}]{direction }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily float set\+\_\+torque\+\_\+direction (\begin{DoxyParamCaption}\item[{float}]{torque\+Ref\+In,  }\item[{int8\+\_\+t}]{direction }\end{DoxyParamCaption})}
 
 
 
 Set torque direction based on inverter direction. 
 
-This function adjusts the torque reference based on the desired direction. If the motor is set to rotate counterclockwise (CCW), positive torque represents braking. If the motor is set to rotate clockwise (CW), positive torque represents traction.
+This function adjusts the torque reference based on the desired direction. If the motor is set to rotate counterclockwise (CCW), positive torque represents traction, negative is braking. If the motor is set to rotate clockwise (CW), negative torque represents traction, positive is braking.
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em torque\+\_\+ref} & The torque reference value to adjust. \\
+\mbox{\texttt{ in}}  & {\em torque\+Ref\+In} & The torque reference value to adjust. \\
 \hline
 \mbox{\texttt{ in}}  & {\em direction} & Pointer to the direction of the inverter (1 for CW, -\/1 for CCW). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The adjusted torque reference value. 
+torque\+Ref\+Out The adjusted torque reference value. 
 \end{DoxyReturn}
