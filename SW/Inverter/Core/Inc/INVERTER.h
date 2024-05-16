@@ -60,12 +60,12 @@ typedef struct {
     Reference reference;		/**< Structure for referece currents and torque*/
     Duties duties;              /**< Structure for duty cycles for phases A, B, and C */
     int8_t direction;			/**< Motor direction: 1 CW, -1 CCW, 0 stopped*/
-    float temp_inverter;		/**< Semiconductor temperature in degC*/
-    float temp_motor;			/**< Motor temperature in degC*/
+    float tempInverter;			/**< Semiconductor temperature in degC*/
+    float tempMotor;			/**< Motor temperature in degC*/
     MotorParameters *motor;		/**< Motor parameters struct*/
-    pi_struct id_pi;    		/**< PI controller for d-axis current */
-    pi_struct iq_pi;   			/**< PI controller for q-axis current */
-    pi_struct speed_pi;   			/**< PI controller for q-axis current */
+    pi_struct idLoop;    		/**< PI controller for d-axis current */
+    pi_struct iqLoop;   		/**< PI controller for q-axis current */
+    pi_struct speedLoop;   		/**< PI controller for motor speed */
 
 } InverterStruct;
 

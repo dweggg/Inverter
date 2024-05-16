@@ -29,13 +29,13 @@
  */
 void calc_current_loop(volatile InverterStruct *inv){
 
-	inv->id_pi.pi_consig = inv->reference.id_ref;  	   // Setpoint
-    inv->id_pi.pi_fdb = inv->feedback.id_meas;         // Feedback
-    pi_calc(&(inv->id_pi));                            // Calculate id PI controller output
+	inv->idLoop.pi_consig = inv->reference.idRef;  	   // Setpoint
+    inv->idLoop.pi_fdb = inv->feedback.idMeas;         // Feedback
+    pi_calc(&(inv->idLoop));                            // Calculate id PI controller output
 
-    inv->iq_pi.pi_consig = inv->reference.iq_ref;  	   // Setpoint
-    inv->iq_pi.pi_fdb = inv->feedback.iq_meas;         // Feedback
-    pi_calc(&(inv->iq_pi));                            // Calculate iq PI controller output
+    inv->iqLoop.pi_consig = inv->reference.iqRef;  	   // Setpoint
+    inv->iqLoop.pi_fdb = inv->feedback.iqMeas;         // Feedback
+    pi_calc(&(inv->iqLoop));                            // Calculate iq PI controller output
 }
 
 /**

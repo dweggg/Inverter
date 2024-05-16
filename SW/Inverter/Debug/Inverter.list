@@ -29,11 +29,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 0000002e  00000000  00000000  0000f100  2**0
                   CONTENTS, READONLY
- 13 .debug_info   0002867e  00000000  00000000  0000f12e  2**0
+ 13 .debug_info   00028679  00000000  00000000  0000f12e  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00005997  00000000  00000000  000377ac  2**0
+ 14 .debug_abbrev 0000599a  00000000  00000000  000377a7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_loclists 0000f88b  00000000  00000000  0003d143  2**0
+ 15 .debug_loclists 0000f88b  00000000  00000000  0003d141  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_aranges 000013e8  00000000  00000000  0004c9d0  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -41,11 +41,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_macro  0002c4de  00000000  00000000  0004fcda  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   0002b524  00000000  00000000  0007c1b8  2**0
+ 19 .debug_line   0002b521  00000000  00000000  0007c1b8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    0010485d  00000000  00000000  000a76dc  2**0
+ 20 .debug_str    0010485e  00000000  00000000  000a76d9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .comment      00000043  00000000  00000000  001abf39  2**0
+ 21 .comment      00000043  00000000  00000000  001abf37  2**0
                   CONTENTS, READONLY
  22 .debug_frame  00003aa8  00000000  00000000  001abf7c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -677,7 +677,7 @@ void handle_CAN(CAN_HandleTypeDef *hcan) {
  80008b0:	2bb1      	cmp	r3, #177	@ 0xb1
  80008b2:	d002      	beq.n	80008ba <handle_CAN+0x1a>
         // sending a message: move all this to the synchronism message
-        float temperatures[] = {inverter_left.temp_inverter, inverter_right.temp_inverter, inverter_left.temp_motor, inverter_right.temp_motor};
+        float temperatures[] = {inverter_left.tempInverter, inverter_right.tempInverter, inverter_left.tempMotor, inverter_right.tempMotor};
         send_CAN_message(hcan, &DBC_INVERTERS_MSG_AP_Inv_R_Temperatures, temperatures);
 
     }
@@ -695,35 +695,35 @@ void handle_CAN(CAN_HandleTypeDef *hcan) {
  */
 void calc_current_loop(volatile InverterStruct *inv){
 
-	inv->id_pi.pi_consig = inv->reference.id_ref;  	   // Setpoint
+	inv->idLoop.pi_consig = inv->reference.idRef;  	   // Setpoint
  80008c0:	6d43      	ldr	r3, [r0, #84]	@ 0x54
 void calc_current_loop(volatile InverterStruct *inv){
  80008c2:	b510      	push	{r4, lr}
  80008c4:	4604      	mov	r4, r0
-    inv->id_pi.pi_fdb = inv->feedback.id_meas;         // Feedback
-    pi_calc(&(inv->id_pi));                            // Calculate id PI controller output
+    inv->idLoop.pi_fdb = inv->feedback.idMeas;         // Feedback
+    pi_calc(&(inv->idLoop));                            // Calculate id PI controller output
  80008c6:	307c      	adds	r0, #124	@ 0x7c
-	inv->id_pi.pi_consig = inv->reference.id_ref;  	   // Setpoint
+	inv->idLoop.pi_consig = inv->reference.idRef;  	   // Setpoint
  80008c8:	f8c4 309c 	str.w	r3, [r4, #156]	@ 0x9c
-    inv->id_pi.pi_fdb = inv->feedback.id_meas;         // Feedback
+    inv->idLoop.pi_fdb = inv->feedback.idMeas;         // Feedback
  80008cc:	6c63      	ldr	r3, [r4, #68]	@ 0x44
  80008ce:	f8c4 30a0 	str.w	r3, [r4, #160]	@ 0xa0
-    pi_calc(&(inv->id_pi));                            // Calculate id PI controller output
+    pi_calc(&(inv->idLoop));                            // Calculate id PI controller output
  80008d2:	f004 ff65 	bl	80057a0 <pi_calc>
 
-    inv->iq_pi.pi_consig = inv->reference.iq_ref;  	   // Setpoint
+    inv->iqLoop.pi_consig = inv->reference.iqRef;  	   // Setpoint
  80008d6:	6da3      	ldr	r3, [r4, #88]	@ 0x58
-    inv->iq_pi.pi_fdb = inv->feedback.iq_meas;         // Feedback
-    pi_calc(&(inv->iq_pi));                            // Calculate iq PI controller output
+    inv->iqLoop.pi_fdb = inv->feedback.iqMeas;         // Feedback
+    pi_calc(&(inv->iqLoop));                            // Calculate iq PI controller output
  80008d8:	f104 00c0 	add.w	r0, r4, #192	@ 0xc0
-    inv->iq_pi.pi_consig = inv->reference.iq_ref;  	   // Setpoint
+    inv->iqLoop.pi_consig = inv->reference.iqRef;  	   // Setpoint
  80008dc:	f8c4 30e0 	str.w	r3, [r4, #224]	@ 0xe0
-    inv->iq_pi.pi_fdb = inv->feedback.iq_meas;         // Feedback
+    inv->iqLoop.pi_fdb = inv->feedback.iqMeas;         // Feedback
  80008e0:	6ca3      	ldr	r3, [r4, #72]	@ 0x48
  80008e2:	f8c4 30e4 	str.w	r3, [r4, #228]	@ 0xe4
 }
  80008e6:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
-    pi_calc(&(inv->iq_pi));                            // Calculate iq PI controller output
+    pi_calc(&(inv->iqLoop));                            // Calculate iq PI controller output
  80008ea:	f004 bf59 	b.w	80057a0 <pi_calc>
  80008ee:	bf00      	nop
 
@@ -928,85 +928,85 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     float omega_n = 3.0F / (xi * set_time); // set_time in seconds
 
     // Calculate proportional and integral gains for id controller
-    inv->id_pi.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
+    inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
  80009d4:	edd5 7a00 	vldr	s15, [r5]
-    inv->id_pi.Ki = powf(omega_n, 2) * motor->Ld;
-    pi_init(&(inv->id_pi)); // Initialize id PI controller (calculate K0, K1)
+    inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
+    pi_init(&(inv->idLoop)); // Initialize id PI controller (calculate K0, K1)
  80009d8:	f104 007c 	add.w	r0, r4, #124	@ 0x7c
-    inv->id_pi.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
+    inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
  80009dc:	ed95 7a02 	vldr	s14, [r5, #8]
  80009e0:	ed9f 9a22 	vldr	s18, [pc, #136]	@ 8000a6c <initialize_inverter+0xe4>
-    inv->id_pi.Ki = powf(omega_n, 2) * motor->Ld;
+    inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
  80009e4:	eddf 8a22 	vldr	s17, [pc, #136]	@ 8000a70 <initialize_inverter+0xe8>
-    inv->id_pi.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
+    inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
  80009e8:	ee97 7a89 	vfnms.f32	s14, s15, s18
-    inv->id_pi.Ts = TS;
+    inv->idLoop.Ts = TS;
  80009ec:	ed84 8a20 	vstr	s16, [r4, #128]	@ 0x80
-    inv->id_pi.Ki = powf(omega_n, 2) * motor->Ld;
+    inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
  80009f0:	ee67 7aa8 	vmul.f32	s15, s15, s17
-    inv->iq_pi.Ts = TS;
+    inv->iqLoop.Ts = TS;
  80009f4:	ed84 8a31 	vstr	s16, [r4, #196]	@ 0xc4
-    inv->id_pi.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
+    inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
  80009f8:	ed84 7a21 	vstr	s14, [r4, #132]	@ 0x84
-    inv->id_pi.Ki = powf(omega_n, 2) * motor->Ld;
+    inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
  80009fc:	edc4 7a22 	vstr	s15, [r4, #136]	@ 0x88
-    pi_init(&(inv->id_pi)); // Initialize id PI controller (calculate K0, K1)
+    pi_init(&(inv->idLoop)); // Initialize id PI controller (calculate K0, K1)
  8000a00:	f004 feb2 	bl	8005768 <pi_init>
 
     // Calculate proportional and integral gains for iq controller
-    inv->iq_pi.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
+    inv->iqLoop.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
  8000a04:	ed95 7a01 	vldr	s14, [r5, #4]
  8000a08:	edd5 7a02 	vldr	s15, [r5, #8]
-    inv->iq_pi.Ki = powf(omega_n, 2) * motor->Lq;
-    pi_init(&(inv->iq_pi)); // Initialize iq PI controller (calculate K0, K1)
+    inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
+    pi_init(&(inv->iqLoop)); // Initialize iq PI controller (calculate K0, K1)
  8000a0c:	f104 00c0 	add.w	r0, r4, #192	@ 0xc0
-    inv->iq_pi.Ki = powf(omega_n, 2) * motor->Lq;
+    inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
  8000a10:	ee67 8a28 	vmul.f32	s17, s14, s17
-    inv->iq_pi.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
+    inv->iqLoop.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
  8000a14:	eed7 7a09 	vfnms.f32	s15, s14, s18
  8000a18:	edc4 7a32 	vstr	s15, [r4, #200]	@ 0xc8
-    inv->iq_pi.Ki = powf(omega_n, 2) * motor->Lq;
+    inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
  8000a1c:	edc4 8a33 	vstr	s17, [r4, #204]	@ 0xcc
-    pi_init(&(inv->iq_pi)); // Initialize iq PI controller (calculate K0, K1)
+    pi_init(&(inv->iqLoop)); // Initialize iq PI controller (calculate K0, K1)
  8000a20:	f004 fea2 	bl	8005768 <pi_init>
 
 	float xi_speed = sqrtf(powf(logf(Mp_speed), 2) / (powf(PI, 2) + powf(logf(Mp_speed), 2))); // Mp is unitless
     // Calculate natural frequency (omega_n)
     float omega_n_speed = 3.0F / (xi_speed * set_time_speed); // set_time in seconds
 
-    inv->speed_pi.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
+    inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
  8000a24:	edd5 7a05 	vldr	s15, [r5, #20]
  8000a28:	ed95 7a06 	vldr	s14, [r5, #24]
-    inv->speed_pi.Ki = powf(omega_n_speed, 2) * motor->J;
+    inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
 
-    pi_init(&(inv->speed_pi)); // Initialize iq PI controller (calculate K0, K1)
+    pi_init(&(inv->speedLoop)); // Initialize iq PI controller (calculate K0, K1)
  8000a2c:	f504 7082 	add.w	r0, r4, #260	@ 0x104
-    inv->speed_pi.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
+    inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
  8000a30:	ed9f 6a10 	vldr	s12, [pc, #64]	@ 8000a74 <initialize_inverter+0xec>
-    inv->speed_pi.Ki = powf(omega_n_speed, 2) * motor->J;
+    inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
  8000a34:	eddf 6a10 	vldr	s13, [pc, #64]	@ 8000a78 <initialize_inverter+0xf0>
-    inv->speed_pi.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
+    inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
  8000a38:	ee97 7a86 	vfnms.f32	s14, s15, s12
-    inv->speed_pi.Ts = TS;
+    inv->speedLoop.Ts = TS;
  8000a3c:	ed84 8a42 	vstr	s16, [r4, #264]	@ 0x108
-    inv->speed_pi.Ki = powf(omega_n_speed, 2) * motor->J;
+    inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
  8000a40:	ee67 7aa6 	vmul.f32	s15, s15, s13
-    inv->speed_pi.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
+    inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
  8000a44:	ed84 7a43 	vstr	s14, [r4, #268]	@ 0x10c
-    inv->speed_pi.Ki = powf(omega_n_speed, 2) * motor->J;
+    inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
  8000a48:	edc4 7a44 	vstr	s15, [r4, #272]	@ 0x110
-    pi_init(&(inv->speed_pi)); // Initialize iq PI controller (calculate K0, K1)
+    pi_init(&(inv->speedLoop)); // Initialize iq PI controller (calculate K0, K1)
  8000a4c:	f004 fe8c 	bl	8005768 <pi_init>
 
-    inv->speed_pi.pi_out_max = motor->torque_max;
+    inv->speedLoop.pi_out_max = motor->torque_max;
  8000a50:	edd5 7a07 	vldr	s15, [r5, #28]
-    inv->speed_pi.pi_out_min = -(motor->torque_max);
+    inv->speedLoop.pi_out_min = -(motor->torque_max);
  8000a54:	eeb1 7a67 	vneg.f32	s14, s15
-    inv->speed_pi.pi_out_max = motor->torque_max;
+    inv->speedLoop.pi_out_max = motor->torque_max;
  8000a58:	edc4 7a4b 	vstr	s15, [r4, #300]	@ 0x12c
 }
  8000a5c:	ecbd 8b04 	vpop	{d8-d9}
-    inv->speed_pi.pi_out_min = -(motor->torque_max);
+    inv->speedLoop.pi_out_min = -(motor->torque_max);
  8000a60:	ed84 7a4c 	vstr	s14, [r4, #304]	@ 0x130
 }
  8000a64:	bd38      	pop	{r3, r4, r5, pc}
@@ -1057,7 +1057,7 @@ float get_linear(uint32_t bits, float slope, float offset) {
  8000aae:	eddf 6a1c 	vldr	s13, [pc, #112]	@ 8000b20 <get_currents_voltage+0xa4>
  8000ab2:	eeb0 7a67 	vmov.f32	s14, s15
  */
-void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *id_meas, float *iq_meas) {
+void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *idMeas, float *iqMeas) {
 
 	// Compute alpha beta using Clarke transformation
     float alpha = ia;
@@ -1085,8 +1085,8 @@ void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, 
     // float beta = (ia + 2.0F*ib) * ISQ3;
 
     // Park transformation
-    *id_meas = alpha * cosTheta_e + beta * sinTheta_e;  // d = alpha * cos(theta_e) + beta * sin(theta_e)
-    *iq_meas = beta * cosTheta_e - alpha * sinTheta_e;  // q = beta * cos(theta_e) - alpha * sin(theta_e)
+    *idMeas = alpha * cosTheta_e + beta * sinTheta_e;  // d = alpha * cos(theta_e) + beta * sin(theta_e)
+    *iqMeas = beta * cosTheta_e - alpha * sinTheta_e;  // q = beta * cos(theta_e) - alpha * sin(theta_e)
  8000aea:	ee27 5a40 	vnmul.f32	s10, s14, s0
     analog->ic = ic;
  8000aee:	edc1 7a02 	vstr	s15, [r1, #8]
@@ -1094,17 +1094,17 @@ void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, 
  8000af2:	ee66 7a03 	vmul.f32	s15, s12, s6
     analog->vDC = vDC;
  8000af6:	edc1 6a03 	vstr	s13, [r1, #12]
-    *iq_meas = beta * cosTheta_e - alpha * sinTheta_e;  // q = beta * cos(theta_e) - alpha * sin(theta_e)
+    *iqMeas = beta * cosTheta_e - alpha * sinTheta_e;  // q = beta * cos(theta_e) - alpha * sin(theta_e)
  8000afa:	eef0 6a45 	vmov.f32	s13, s10
-    *id_meas = alpha * cosTheta_e + beta * sinTheta_e;  // d = alpha * cos(theta_e) + beta * sin(theta_e)
+    *idMeas = alpha * cosTheta_e + beta * sinTheta_e;  // d = alpha * cos(theta_e) + beta * sin(theta_e)
  8000afe:	ee27 0a80 	vmul.f32	s0, s15, s0
-    *iq_meas = beta * cosTheta_e - alpha * sinTheta_e;  // q = beta * cos(theta_e) - alpha * sin(theta_e)
+    *iqMeas = beta * cosTheta_e - alpha * sinTheta_e;  // q = beta * cos(theta_e) - alpha * sin(theta_e)
  8000b02:	eee7 6aa0 	vfma.f32	s13, s15, s1
-    *id_meas = alpha * cosTheta_e + beta * sinTheta_e;  // d = alpha * cos(theta_e) + beta * sin(theta_e)
+    *idMeas = alpha * cosTheta_e + beta * sinTheta_e;  // d = alpha * cos(theta_e) + beta * sin(theta_e)
  8000b06:	eea0 0a87 	vfma.f32	s0, s1, s14
-    feedback->id_meas = id_meas;
+    feedback->idMeas = idMeas;
  8000b0a:	ed82 0a00 	vstr	s0, [r2]
-    feedback->iq_meas = iq_meas;
+    feedback->iqMeas = iqMeas;
  8000b0e:	edc2 6a01 	vstr	s13, [r2, #4]
 }
  8000b12:	4770      	bx	lr
@@ -1670,78 +1670,78 @@ void update_PWM(TIM_HandleTypeDef *htim, Duties duties) {
  8000f18:	b004      	add	sp, #16
  8000f1a:	4770      	bx	lr
 
-08000f1c <handle_torque_ref>:
- * @param speed_meas        Measured speed.
- * @param loop_speed        Speed control loop parameters.
+08000f1c <handle_torqueRef>:
+ * @param speedMeas       Measured speed.
+ * @param loopSpeed       Speed control loop parameters.
  *
  * @return The output torque after handling direction, saturation, and rate limiting.
  */
-float handle_torque_ref(float torque_ref_in, int8_t direction, float torque_max, float speed_max_RPM, float speed_meas, volatile pi_struct *loop_speed){
+float handle_torqueRef(float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile pi_struct *loopSpeed){
  8000f1c:	ee07 0a90 	vmov	s15, r0
 
 	// Handles direction (by multiplying it to the input) and saturation (the function per se)
-	float torque_ref_sat = saturate_symmetric(torque_ref_in*direction, torque_max);
+	float torqueRefSat = saturate_symmetric(torqueRefIn*direction, torqueMax);
  8000f20:	eef8 7ae7 	vcvt.f32.s32	s15, s15
-float handle_torque_ref(float torque_ref_in, int8_t direction, float torque_max, float speed_max_RPM, float speed_meas, volatile pi_struct *loop_speed){
+float handle_torqueRef(float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile pi_struct *loopSpeed){
  8000f24:	b510      	push	{r4, lr}
-	float torque_ref_sat = saturate_symmetric(torque_ref_in*direction, torque_max);
+	float torqueRefSat = saturate_symmetric(torqueRefIn*direction, torqueMax);
  8000f26:	ee27 0a80 	vmul.f32	s0, s15, s0
-float handle_torque_ref(float torque_ref_in, int8_t direction, float torque_max, float speed_max_RPM, float speed_meas, volatile pi_struct *loop_speed){
+float handle_torqueRef(float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile pi_struct *loopSpeed){
  8000f2a:	460c      	mov	r4, r1
  8000f2c:	ed2d 8b02 	vpush	{d8}
  * @param[in] ref The reference value to saturate.
- * @param[in] max_value The maximum allowed value for saturation.
+ * @param[in] max The maximum allowed value for saturation.
  * @return The saturated reference value.
  */
-float saturate_symmetric(float ref, float max_value) {
-    if (ref > max_value) {
+float saturate_symmetric(float ref, float max) {
+    if (ref > max) {
  8000f30:	eeb4 0ae0 	vcmpe.f32	s0, s1
-float handle_torque_ref(float torque_ref_in, int8_t direction, float torque_max, float speed_max_RPM, float speed_meas, volatile pi_struct *loop_speed){
+float handle_torqueRef(float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile pi_struct *loopSpeed){
  8000f34:	eeb0 8a60 	vmov.f32	s16, s1
-    if (ref > max_value) {
+    if (ref > max) {
  8000f38:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 8000f3c:	dc03      	bgt.n	8000f46 <handle_torque_ref+0x2a>
-        return max_value;
-    } else if (ref < -max_value) {
+ 8000f3c:	dc03      	bgt.n	8000f46 <handle_torqueRef+0x2a>
+        return max;
+    } else if (ref < -max) {
  8000f3e:	eeb1 8a60 	vneg.f32	s16, s1
  8000f42:	fe88 8a00 	vmaxnm.f32	s16, s16, s0
  */
-float limit_torque_to_prevent_overspeed(float speed_max, float speed_meas, float torque_ref_in, volatile pi_struct *loop_speed){
+float limit_torque_to_prevent_overspeed(float speedMaxRPM, float speedMeas, float torqueRefIn, volatile pi_struct *loopSpeed){
 
 	// Set speed reference and feedback
-	loop_speed->pi_consig = speed_max;
-	loop_speed->pi_fdb = fabsf(speed_meas); // Absolute value of speed
+	loopSpeed->pi_consig = speedMaxRPM;
+	loopSpeed->pi_fdb = fabsf(speedMeas); // Absolute value of speed
  8000f46:	eef0 1ae1 	vabs.f32	s3, s3
-	loop_speed->pi_consig = speed_max;
+	loopSpeed->pi_consig = speedMaxRPM;
  8000f4a:	ed84 1a08 	vstr	s2, [r4, #32]
 
-    pi_calc(loop_speed);
+    pi_calc(loopSpeed);
  8000f4e:	4620      	mov	r0, r4
-	loop_speed->pi_fdb = fabsf(speed_meas); // Absolute value of speed
+	loopSpeed->pi_fdb = fabsf(speedMeas); // Absolute value of speed
  8000f50:	edc4 1a09 	vstr	s3, [r4, #36]	@ 0x24
-    pi_calc(loop_speed);
+    pi_calc(loopSpeed);
  8000f54:	f004 fc24 	bl	80057a0 <pi_calc>
 
     // Calculate limited torque reference based on speed controller output
-    float max_torque = loop_speed->pi_out;
+    float max_torque = loopSpeed->pi_out;
  8000f58:	edd4 7a0c 	vldr	s15, [r4, #48]	@ 0x30
 
     // Limit torque reference within bounds
-    float torque_ref_out;
+    float torqueRefOut;
 
-    if (torque_ref_in > max_torque) {
+    if (torqueRefIn > max_torque) {
  8000f5c:	eef4 7ac8 	vcmpe.f32	s15, s16
  8000f60:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
- 8000f64:	d403      	bmi.n	8000f6e <handle_torque_ref+0x52>
-    	torque_ref_out = max_torque;
-    } else if (torque_ref_in < -max_torque) {
+ 8000f64:	d403      	bmi.n	8000f6e <handle_torqueRef+0x52>
+    	torqueRefOut = max_torque;
+    } else if (torqueRefIn < -max_torque) {
  8000f66:	eef1 7a67 	vneg.f32	s15, s15
  8000f6a:	fec7 7a88 	vmaxnm.f32	s15, s15, s16
-	torqueRamp.in = torque_ref_sat;
- 8000f6e:	4c05      	ldr	r4, [pc, #20]	@ (8000f84 <handle_torque_ref+0x68>)
+	torqueRamp.in = torqueRefSat;
+ 8000f6e:	4c05      	ldr	r4, [pc, #20]	@ (8000f84 <handle_torqueRef+0x68>)
 	rampa_calc(&torqueRamp);
  8000f70:	4620      	mov	r0, r4
-	torqueRamp.in = torque_ref_sat;
+	torqueRamp.in = torqueRefSat;
  8000f72:	edc4 7a00 	vstr	s15, [r4]
 	rampa_calc(&torqueRamp);
  8000f76:	f004 fcfb 	bl	8005970 <rampa_calc>
@@ -1780,7 +1780,7 @@ void tasks_1ms(void) {
  8000f94:	4c19      	ldr	r4, [pc, #100]	@ (8000ffc <tasks_1ms+0x74>)
 
 
-    inverter_left.temp_inverter = get_temperature(rawADC_temp[0], tempLUT_inverter);
+    inverter_left.tempInverter = get_temperature(rawADC_temp[0], tempInverterLUT);
  8000f96:	4e1a      	ldr	r6, [pc, #104]	@ (8001000 <tasks_1ms+0x78>)
     ms_counter++;
  8000f98:	6029      	str	r1, [r5, #0]
@@ -1793,7 +1793,7 @@ void tasks_1ms(void) {
     handle_LED(&ledError, ms_counter);
  8000fa6:	6829      	ldr	r1, [r5, #0]
  8000fa8:	4817      	ldr	r0, [pc, #92]	@ (8001008 <tasks_1ms+0x80>)
-    inverter_left.temp_inverter = get_temperature(rawADC_temp[0], tempLUT_inverter);
+    inverter_left.tempInverter = get_temperature(rawADC_temp[0], tempInverterLUT);
  8000faa:	4d18      	ldr	r5, [pc, #96]	@ (800100c <tasks_1ms+0x84>)
     handle_LED(&ledError, ms_counter);
  8000fac:	f7ff ff10 	bl	8000dd0 <handle_LED>
@@ -1801,32 +1801,32 @@ void tasks_1ms(void) {
  8000fb0:	4638      	mov	r0, r7
  8000fb2:	4621      	mov	r1, r4
  8000fb4:	f7ff ff50 	bl	8000e58 <handle_direction>
-    inverter_left.temp_inverter = get_temperature(rawADC_temp[0], tempLUT_inverter);
+    inverter_left.tempInverter = get_temperature(rawADC_temp[0], tempInverterLUT);
  8000fb8:	3f6c      	subs	r7, #108	@ 0x6c
  8000fba:	4629      	mov	r1, r5
  8000fbc:	6830      	ldr	r0, [r6, #0]
  8000fbe:	f7ff fdb5 	bl	8000b2c <get_temperature>
-    inverter_right.temp_inverter = get_temperature(rawADC_temp[1], tempLUT_inverter);
+    inverter_right.tempInverter = get_temperature(rawADC_temp[1], tempInverterLUT);
  8000fc2:	4629      	mov	r1, r5
-    inverter_left.temp_motor = get_temperature(rawADC_temp[2], tempLUT_motor);
+    inverter_left.tempMotor = get_temperature(rawADC_temp[2], tempMotorLUT);
  8000fc4:	4d12      	ldr	r5, [pc, #72]	@ (8001010 <tasks_1ms+0x88>)
-    inverter_left.temp_inverter = get_temperature(rawADC_temp[0], tempLUT_inverter);
+    inverter_left.tempInverter = get_temperature(rawADC_temp[0], tempInverterLUT);
  8000fc6:	ed87 0a1c 	vstr	s0, [r7, #112]	@ 0x70
-    inverter_right.temp_inverter = get_temperature(rawADC_temp[1], tempLUT_inverter);
+    inverter_right.tempInverter = get_temperature(rawADC_temp[1], tempInverterLUT);
  8000fca:	6870      	ldr	r0, [r6, #4]
  8000fcc:	f7ff fdae 	bl	8000b2c <get_temperature>
-    inverter_left.temp_motor = get_temperature(rawADC_temp[2], tempLUT_motor);
+    inverter_left.tempMotor = get_temperature(rawADC_temp[2], tempMotorLUT);
  8000fd0:	4629      	mov	r1, r5
-    inverter_right.temp_inverter = get_temperature(rawADC_temp[1], tempLUT_inverter);
+    inverter_right.tempInverter = get_temperature(rawADC_temp[1], tempInverterLUT);
  8000fd2:	ed84 0a01 	vstr	s0, [r4, #4]
-    inverter_left.temp_motor = get_temperature(rawADC_temp[2], tempLUT_motor);
+    inverter_left.tempMotor = get_temperature(rawADC_temp[2], tempMotorLUT);
  8000fd6:	68b0      	ldr	r0, [r6, #8]
  8000fd8:	f7ff fda8 	bl	8000b2c <get_temperature>
-    inverter_right.temp_motor = get_temperature(rawADC_temp[3], tempLUT_motor);
+    inverter_right.tempMotor = get_temperature(rawADC_temp[3], tempMotorLUT);
  8000fdc:	4629      	mov	r1, r5
-    inverter_left.temp_motor = get_temperature(rawADC_temp[2], tempLUT_motor);
+    inverter_left.tempMotor = get_temperature(rawADC_temp[2], tempMotorLUT);
  8000fde:	ed87 0a1d 	vstr	s0, [r7, #116]	@ 0x74
-    inverter_right.temp_motor = get_temperature(rawADC_temp[3], tempLUT_motor);
+    inverter_right.tempMotor = get_temperature(rawADC_temp[3], tempMotorLUT);
  8000fe2:	68f0      	ldr	r0, [r6, #12]
  8000fe4:	f7ff fda2 	bl	8000b2c <get_temperature>
  8000fe8:	ed84 0a02 	vstr	s0, [r4, #8]
@@ -1894,7 +1894,7 @@ void tasks_20us_left(void){
  800105a:	ed84 0a0f 	vstr	s0, [r4, #60]	@ 0x3c
 
   // actual control loop
-  inverter_left.reference.torque_ref = handle_torque_ref(torque_ref_in_left, inverter_left.direction, inverter_left.motor->torque_max, inverter_left.motor->speed_max_RPM, inverter_left.feedback.speed_meas, &inverter_left.speed_pi);
+  inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torque_max, inverter_left.motor->speed_max_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
  800105e:	f894 006c 	ldrb.w	r0, [r4, #108]	@ 0x6c
  8001062:	f504 7182 	add.w	r1, r4, #260	@ 0x104
  8001066:	6fa3      	ldr	r3, [r4, #120]	@ 0x78
@@ -1905,12 +1905,12 @@ void tasks_20us_left(void){
  8001074:	ed93 1a09 	vldr	s2, [r3, #36]	@ 0x24
  8001078:	4b1f      	ldr	r3, [pc, #124]	@ (80010f8 <tasks_20us_left+0xe4>)
  800107a:	ed93 0a00 	vldr	s0, [r3]
- 800107e:	f7ff ff4d 	bl	8000f1c <handle_torque_ref>
+ 800107e:	f7ff ff4d 	bl	8000f1c <handle_torqueRef>
 
   get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
  8001082:	f104 0244 	add.w	r2, r4, #68	@ 0x44
  8001086:	f104 0118 	add.w	r1, r4, #24
-  inverter_left.reference.torque_ref = handle_torque_ref(torque_ref_in_left, inverter_left.direction, inverter_left.motor->torque_max, inverter_left.motor->speed_max_RPM, inverter_left.feedback.speed_meas, &inverter_left.speed_pi);
+  inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torque_max, inverter_left.motor->speed_max_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
  800108a:	ed84 0a17 	vstr	s0, [r4, #92]	@ 0x5c
   get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
  800108e:	481b      	ldr	r0, [pc, #108]	@ (80010fc <tasks_20us_left+0xe8>)

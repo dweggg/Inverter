@@ -25,7 +25,7 @@ float vd_left = 0.0F;
 float vq_left = 7.5F;
 float vDC_left = 15.0F;
 
-float torque_ref_in_left = 0.0F;
+float torqueRefIn_left = 0.0F;
 
 uint32_t start_ticks = 0;
 uint32_t elapsed_ticks = 0;
@@ -60,7 +60,7 @@ void tasks_20us_left(void){
   inverter_left.encoder.cosTheta_e = cosf(inverter_left.encoder.theta_e);
 
   // actual control loop
-  inverter_left.reference.torque_ref = handle_torque_ref(torque_ref_in_left, inverter_left.direction, inverter_left.motor->torque_max, inverter_left.motor->speed_max_RPM, inverter_left.feedback.speed_meas, &inverter_left.speed_pi);
+  inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torque_max, inverter_left.motor->speed_max_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
 
   get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
   calc_current_loop(&inverter_left);

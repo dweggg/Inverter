@@ -80,8 +80,8 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
 void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor) {
 
 	// current controllers
-    inv->id_pi.Ts = TS;
-    inv->iq_pi.Ts = TS;
+    inv->idLoop.Ts = TS;
+    inv->iqLoop.Ts = TS;
 
 	float Mp = 0.05; // 5% overshoot
 	float set_time = 0.001; // 1ms set time
@@ -93,18 +93,18 @@ void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor) {
     float omega_n = 3.0F / (xi * set_time); // set_time in seconds
 
     // Calculate proportional and integral gains for id controller
-    inv->id_pi.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
-    inv->id_pi.Ki = powf(omega_n, 2) * motor->Ld;
-    pi_init(&(inv->id_pi)); // Initialize id PI controller (calculate K0, K1)
+    inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
+    inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
+    pi_init(&(inv->idLoop)); // Initialize id PI controller (calculate K0, K1)
 
     // Calculate proportional and integral gains for iq controller
-    inv->iq_pi.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
-    inv->iq_pi.Ki = powf(omega_n, 2) * motor->Lq;
-    pi_init(&(inv->iq_pi)); // Initialize iq PI controller (calculate K0, K1)
+    inv->iqLoop.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
+    inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
+    pi_init(&(inv->iqLoop)); // Initialize iq PI controller (calculate K0, K1)
 
 
     // speed controller
-    inv->speed_pi.Ts = TS;
+    inv->speedLoop.Ts = TS;
 
 	float Mp_speed = 0.05; // 5% overshoot
 	float set_time_speed = 2; // 2s set time
@@ -113,13 +113,13 @@ void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor) {
     // Calculate natural frequency (omega_n)
     float omega_n_speed = 3.0F / (xi_speed * set_time_speed); // set_time in seconds
 
-    inv->speed_pi.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
-    inv->speed_pi.Ki = powf(omega_n_speed, 2) * motor->J;
+    inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
+    inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
 
-    pi_init(&(inv->speed_pi)); // Initialize iq PI controller (calculate K0, K1)
+    pi_init(&(inv->speedLoop)); // Initialize iq PI controller (calculate K0, K1)
 
-    inv->speed_pi.pi_out_max = motor->torque_max;
-    inv->speed_pi.pi_out_min = -(motor->torque_max);
+    inv->speedLoop.pi_out_max = motor->torque_max;
+    inv->speedLoop.pi_out_min = -(motor->torque_max);
 
 
 }

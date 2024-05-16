@@ -28,8 +28,8 @@
 
 #include <stdint.h>
 
-extern const float tempLUT_inverter[];
-extern const float tempLUT_motor[];
+extern const float tempInverterLUT[];
+extern const float tempMotorLUT[];
 
 extern volatile uint32_t rawADC_left[4]; /**< External declaration of raw ADC data for the left inverter */
 extern volatile uint32_t rawADC_right[4]; /**< External declaration of raw ADC data for the right inverter */
@@ -47,7 +47,7 @@ typedef struct {
     float theta_e; 				 /**< Electrical rotor position */
     float sinTheta_e;			 /**< Electrical rotor position sine */
 	float cosTheta_e;			 /**< Electrical rotor position cosine*/
-    uint8_t direction_meas;      /**< Measured direction */
+    uint8_t directionMeas;      /**< Measured direction */
 } Encoder;
 
 /**
@@ -64,10 +64,10 @@ typedef struct {
  * @brief Structure for feedback values.
  */
 typedef struct {
-    float id_meas;      /**< Measured d-axis current in A*/
-    float iq_meas;      /**< Measured q-axis current in A*/
-    float torque_calc;  /**< Calculated torque in N·m*/
-    float speed_meas;   /**< Measured speed in RPM*/
+    float idMeas;      /**< Measured d-axis current in A*/
+    float iqMeas;      /**< Measured q-axis current in A*/
+    float torqueCalc;  /**< Calculated torque in N·m*/
+    float speedMeas;   /**< Measured speed in RPM*/
 } Feedback;
 
 /**
@@ -101,10 +101,10 @@ float get_linear(uint32_t bits, float slope, float offset);
  * @param[in] ic Phase C current in A.
  * @param[in] sinTheta_e Electrical angle sine (-1..1)
  * @param[in] cosTheta_e Electrical angle cosine (-1..1)
- * @param[out] id_meas Pointer to store the D-axis current.
- * @param[out] iq_meas Pointer to store the Q-axis current.
+ * @param[out] idMeas Pointer to store the D-axis current.
+ * @param[out] iqMeas Pointer to store the Q-axis current.
  */
-void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *id_meas, float *iq_meas);
+void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *idMeas, float *iqMeas);
 
 
 /**
