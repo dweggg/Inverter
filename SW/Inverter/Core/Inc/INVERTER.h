@@ -28,7 +28,7 @@
 
 
 
-#define TS 0.00002      /**< Switching time in seconds (20 us), inverse of the switching frequency of 50 kHz */
+#define TS 0.000025      /**< Switching time in seconds (25 us), inverse of the switching frequency of 40 kHz */
 #define DT 0.00000015   /**< Dead time in seconds (150 ns), time in which both top and bottom transistors are open */
 
 
