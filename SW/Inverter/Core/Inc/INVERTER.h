@@ -57,14 +57,17 @@ typedef struct {
     Analog analog;  			/**< Structure for phase currents and DC voltage measurements */
     Encoder encoder;            /**< Structure for encoder input */
     Feedback feedback;			/**< Structure for measured currents and calculated mechanical torque and speed */
-    Reference reference;		/**< Structure for referece currents and torque*/
+    Reference reference;		/**< Structure for referece currents and torque */
     Duties duties;              /**< Structure for duty cycles for phases A, B, and C */
-    int8_t direction;			/**< Motor direction: 1 CW, -1 CCW, 0 stopped*/
-    float tempInverter;			/**< Semiconductor temperature in degC*/
-    float tempMotor;			/**< Motor temperature in degC*/
-    MotorParameters *motor;		/**< Motor parameters struct*/
+    int8_t direction;			/**< Motor direction: 1 CW, -1 CCW, 0 stopped */
+    float tempInverter;			/**< Semiconductor temperature in degC */
+    float tempMotor;			/**< Motor temperature in degC */
+    MotorParameters *motor;		/**< Motor parameters struct */
     pi_struct idLoop;    		/**< PI controller for d-axis current */
     pi_struct iqLoop;   		/**< PI controller for q-axis current */
+    float vsMax;				/**< Maximum output voltage, should be calculated as vDC / sqrt3 in volts */
+    float vd;					/**< d-axis voltage */
+    float vq;					/**< q-axis voltage */
     pi_struct speedLoop;   		/**< PI controller for motor speed */
 
 } InverterStruct;

@@ -110,20 +110,22 @@ int main(void)
   MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
-  // Initialize inverters
-  initialize_inverter(&inverter_left, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2, &motor_left);
-  initialize_inverter(&inverter_right, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1, &motor_right);
-
+  // Initialize ADCs
   HAL_ADC_Start_DMA(&hadc2, (uint32_t *) rawADC_left,4); // Starts ADC DMA for left inverter
   HAL_ADC_Start_DMA(&hadc1, (uint32_t *) rawADC_right,4); // Starts ADC DMA for right inverter
 
   HAL_ADC_Start_DMA(&hadc3, (uint32_t *) rawADC_temp,4); // Starts ADC DMA for temperatures
 
-  // 1ms timer
+  // Initialize inverters
+  initialize_inverter(&inverter_left, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2, &motor_left);
+  initialize_inverter(&inverter_right, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1, &motor_right);
+
+  // Initialize 1ms timer
   HAL_TIM_Base_Start_IT(&htim6);
 
-
   HAL_CAN_Start(&hcan1);
+  HAL_CAN_ActivateNotification(&hcan1, CAN_IT_RX_FIFO0_MSG_PENDING);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

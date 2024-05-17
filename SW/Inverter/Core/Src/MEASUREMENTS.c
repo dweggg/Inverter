@@ -71,7 +71,9 @@ uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analo
     analog->ia = ia;
     analog->ib = ib;
     analog->ic = ic;
-    analog->vDC = vDC;
+    // analog->vDC = vDC; // does not work yet
+    analog->vDC = 100.0F;
+
 
     // Define variables to store DQ currents
     float idMeas, iqMeas;

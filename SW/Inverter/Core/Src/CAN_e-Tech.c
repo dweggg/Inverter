@@ -22,7 +22,7 @@
 #include "CAN_e-Tech.h"
 
 // Inverter vars
-uint8_t enableCAN;
+uint8_t keepAlive;
 
 /**
   * @brief Handle CAN messages.
@@ -39,12 +39,12 @@ void handle_CAN(CAN_HandleTypeDef *hcan) {
     HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rxHeader, rxData);
 
     // Example: Check if the received message ID matches a specific ID
-    if (rxHeader.StdId == DBC_INVERTERS_MSG_AP_ETAS_EnableInv.ID) {
-        enableCAN = DBC_INVERTERS_MSG_AP_ETAS_EnableInv.getSigVal->Enable_Inv_R;
+    if (rxHeader.StdId == DBC_CAN1DB_MSG_AP_ETAS_Synchronism.ID) {
+    	keepAlive++;
 
         // sending a message: move all this to the synchronism message
         float temperatures[] = {inverter_left.tempInverter, inverter_right.tempInverter, inverter_left.tempMotor, inverter_right.tempMotor};
-        send_CAN_message(hcan, &DBC_INVERTERS_MSG_AP_Inv_R_Temperatures, temperatures);
+        send_CAN_message(hcan, &DBC_CAN1DB_MSG_AP_InvRear_Temperatures, temperatures);
 
     }
 }

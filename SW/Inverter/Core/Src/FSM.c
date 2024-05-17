@@ -94,7 +94,7 @@ void handle_idle(volatile InverterStruct *inv) {
     // Transition conditions to other states:
     // - Start startup sequence based on input condition
     // - Transition to fault state based on error conditions
-    inv->led->mode = LED_MODE_OFF;
+	inv->led->mode = LED_MODE_BLINK_FAST;
     DISABLE(inv->enable_port, inv->enable_pin);
     disable_PWM(inv->htim);
 
@@ -112,7 +112,7 @@ void handle_startup(volatile InverterStruct *inv) {
     // Transition conditions to other states:
     // - Transition to running state when startup sequence completes successfully
     // - Transition to fault state based on error conditions during startup
-    inv->led->mode = LED_MODE_BLINK_FAST;
+    inv->led->mode = LED_MODE_OFF;
     DISABLE(inv->enable_port, inv->enable_pin);
     enable_PWM(inv->htim);
 

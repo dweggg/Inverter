@@ -31,6 +31,13 @@
 void calc_current_loop(volatile InverterStruct *inv);
 
 /**
+ * @brief Saturates PI output to not surpass DC voltage.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void saturate_voltage(volatile InverterStruct *inv);
+
+/**
  * @brief function.
  *
  * This function calculates the inverse Park transform and the duty cycles using SVPWM

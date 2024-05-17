@@ -63,8 +63,12 @@ void tasks_20us_left(void){
   inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torque_max, inverter_left.motor->speed_max_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
 
   get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
+
+  inverter_left.vsMax = inverter_left.analog.vDC * ISQ3; // Calculate max Vs voltage
+
   calc_current_loop(&inverter_left);
-  calc_duties(vd_left, vq_left, vDC_left,  inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e, &inverter_left.duties);
+  saturate_voltage(&inverter_left);
+  calc_duties(inverter_left.vd, inverter_left.vq, inverter_left.analog.vDC, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e, &inverter_left.duties);
 
   update_PWM(inverter_left.htim, inverter_left.duties);
 

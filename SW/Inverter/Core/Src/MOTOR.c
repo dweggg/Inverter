@@ -108,15 +108,15 @@ int check_motor_parameters(MotorParameters *motor, float Ts) {
 
     // Error 4 - Evaluate lambda
     if (motor->lambda < 0.0001F || motor->lambda > 1.0F ||
-    		motor->iPhase_pk_max < motor->lambda / motor->Ld - motor->vDC_max / sqrt(3) / motor->Ld / (motor->speed_max_RPM * motor->pp * 2.0F * M_PI / 60.0F)) {
+    		motor->iPhase_pk_max < motor->lambda / motor->Ld - motor->vDC_max / sqrt(3) / motor->Ld / (motor->speed_max_RPM * (float)motor->pp * 2.0F * M_PI / 60.0F)) {
         // Adjust parameters if out of bounds
         if (motor->lambda < 0.0001F)
         	motor->lambda = 0.0001F, OK = 0;
         else if (motor->lambda > 1.0F)
         	motor->lambda = 1.0F, OK = 0;
 
-        if (motor->iPhase_pk_max < motor->lambda / motor->Ld - motor->vDC_max / sqrt(3) / motor->Ld / (motor->speed_max_RPM * motor->pp * 2.0F * M_PI / 60.0F))
-        	motor->iPhase_pk_max = motor->lambda / motor->Ld - motor->vDC_max / sqrt(3) / motor->Ld / (motor->speed_max_RPM * motor->pp * 2.0F * M_PI / 60.0F), OK = 0;
+        if (motor->iPhase_pk_max < motor->lambda / motor->Ld - motor->vDC_max / sqrt(3) / motor->Ld / (motor->speed_max_RPM * (float)motor->pp * 2.0F * M_PI / 60.0F))
+        	motor->iPhase_pk_max = motor->lambda / motor->Ld - motor->vDC_max / sqrt(3) / motor->Ld / (motor->speed_max_RPM * (float)motor->pp * 2.0F * M_PI / 60.0F), OK = 0;
     }
 
     // Error 5 - Evaluate J, b

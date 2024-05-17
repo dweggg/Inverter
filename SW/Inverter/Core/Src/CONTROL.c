@@ -29,15 +29,43 @@
  */
 void calc_current_loop(volatile InverterStruct *inv){
 
+    inv->idLoop.pi_out_max = inv->vsMax;
+    inv->idLoop.pi_out_min = -(inv->vsMax);
+
 	inv->idLoop.pi_consig = inv->reference.idRef;  	   // Setpoint
     inv->idLoop.pi_fdb = inv->feedback.idMeas;         // Feedback
     pi_calc(&(inv->idLoop));                            // Calculate id PI controller output
 
+
+
+    inv->iqLoop.pi_out_max = inv->vsMax;
+    inv->iqLoop.pi_out_min = -(inv->vsMax);
+
     inv->iqLoop.pi_consig = inv->reference.iqRef;  	   // Setpoint
     inv->iqLoop.pi_fdb = inv->feedback.iqMeas;         // Feedback
-    pi_calc(&(inv->iqLoop));                            // Calculate iq PI controller output
+    pi_calc(&(inv->iqLoop));   // Calculate iq PI controller output
+
+
 }
 
+/**
+ * @brief Saturates PI output to not surpass DC voltage.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void saturate_voltage(volatile InverterStruct *inv){
+
+	inv->vd = inv->idLoop.pi_out;
+	inv->vq = inv->iqLoop.pi_out;
+
+	float vsRef = sqrtf(inv->vd*inv->vd + inv->vq*inv->vq);
+	float invVsRef = 1.0F/vsRef;
+	if (vsRef > inv->vsMax){
+		inv->vq = inv->vq*inv->vsMax*invVsRef;
+		inv->vd = inv->vd*inv->vsMax*invVsRef;
+	}
+
+}
 /**
  * @brief function.
  *

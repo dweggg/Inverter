@@ -81,14 +81,6 @@ typedef enum dbc_valueType {
  * ---------------------------------------------------------------------------------------------------------------------
  */
 
-typedef enum DBC_VT_TC_WARNING {
-	DBC_VT_TC_WARNING_For input string: "No" = 9999, DBC_VT_TC_WARNING_Value descriptions must not contain spaces! = 9999, DBC_VT_TC_WARNING_For input string: "TC" = 9999, DBC_VT_TC_WARNING_Value descriptions must not contain spaces! = 9999, DBC_VT_TC_WARNING_For input string: "TC_Warning" = 9999, DBC_VT_TC_WARNING_Value descriptions must not contain spaces! = 9999
-} DBC_VT_TC_WARNING;
-
-typedef enum DBC_VT_REGENERATIVE_ENABLE {
-	DBC_VT_REGENERATIVE_ENABLE_For input string: "Not" = 9999, DBC_VT_REGENERATIVE_ENABLE_Value descriptions must not contain spaces! = 9999, DBC_VT_REGENERATIVE_ENABLE_For input string: "Enabled" = 9999, DBC_VT_REGENERATIVE_ENABLE_Value descriptions must not contain spaces! = 9999, DBC_VT_REGENERATIVE_ENABLE_For input string: "Regenerative_Enable" = 9999, DBC_VT_REGENERATIVE_ENABLE_Value descriptions must not contain spaces! = 9999
-} DBC_VT_REGENERATIVE_ENABLE;
-
 typedef enum DBC_VT_SHUTDOWN_PACKAGEINTCK {
 	DBC_VT_SHUTDOWN_PACKAGEINTCK_OPENED = 0, DBC_VT_SHUTDOWN_PACKAGEINTCK_OK = 1
 } DBC_VT_SHUTDOWN_PACKAGEINTCK;
@@ -180,10 +172,6 @@ typedef enum DBC_VT_TORQUE_LOCKON {
 typedef enum DBC_VT_ENABLEDRIVE_ORDER {
 	DBC_VT_ENABLEDRIVE_ORDER_OFF = 0, DBC_VT_ENABLEDRIVE_ORDER_ON = 1
 } DBC_VT_ENABLEDRIVE_ORDER;
-
-typedef enum DBC_VT_CAR_STATE {
-	DBC_VT_CAR_STATE_INIT = 0, DBC_VT_CAR_STATE_STANDBY = 3, DBC_VT_CAR_STATE_PRECHARGE = 9, DBC_VT_CAR_STATE_LOCKED = 13, DBC_VT_CAR_STATE_OPEN = 21, DBC_VT_CAR_STATE_For input string: "PRECHARGE" = 9999, DBC_VT_CAR_STATE_Value descriptions must not contain spaces! = 9999, DBC_VT_CAR_STATE_For input string: "DONE" = 9999, DBC_VT_CAR_STATE_Value descriptions must not contain spaces! = 9999, DBC_VT_CAR_STATE_For input string: "TS" = 9999, DBC_VT_CAR_STATE_Value descriptions must not contain spaces! = 9999, DBC_VT_CAR_STATE_For input string: "RTD" = 9999, DBC_VT_CAR_STATE_Value descriptions must not contain spaces! = 9999, DBC_VT_CAR_STATE_For input string: "AIRs" = 9999, DBC_VT_CAR_STATE_Value descriptions must not contain spaces! = 9999, DBC_VT_CAR_STATE_For input string: "ENABLE" = 9999, DBC_VT_CAR_STATE_Value descriptions must not contain spaces! = 9999, DBC_VT_CAR_STATE_For input string: "Car_State" = 9999, DBC_VT_CAR_STATE_Value descriptions must not contain spaces! = 9999
-} DBC_VT_CAR_STATE;
 
 typedef enum DBC_VT_AIRS_REQUEST {
 	DBC_VT_AIRS_REQUEST_OPEN = 0, DBC_VT_AIRS_REQUEST_CLOSE = 3, DBC_VT_AIRS_REQUEST_PRECHARGE = 6
@@ -2502,95 +2490,6 @@ static struct DBC_CAN1DB_MSG_AP_ETAS_AIRsRequest {
 	},
 	.getSigVal = 0
 };
-
-
-/**
- * Name: 	MEAS_ETAS_InternalVars
- * Comment:	<<empty>>
- */
-static struct DBC_CAN1DB_MSG_MEAS_ETAS_InternalVars {
-	const uint32_t ID;
-	const uint8_t IDE;
-	const uint8_t DLC;
-	 const struct {
-		signal_positioned Car_OK;
-		signal_positioned Critical_Signal_Disconnection;
-		signal_positioned Critical_CAN_Disconnection;
-		signal_positioned CriticalDisconnection;
-		signal_positioned APPS_Implausibility;
-		signal_positioned Torque_OK;
-		signal_positioned Relay_Error;
-		signal_positioned TV_Mode;
-		signal_positioned TC_Warning;
-		signal_positioned Regenerative_Enable;
-		signal_positioned Power;
-	} getSig;
-	 struct __attribute__((packed)) DBC_CAN1DB_MSG_MEAS_ETAS_InternalVars_getSigVal {
-		uint8_t Car_OK	: 1;
-		uint8_t Critical_Signal_Disconnection	: 1;
-		uint8_t Critical_CAN_Disconnection	: 1;
-		uint8_t CriticalDisconnection	: 1;
-		uint8_t APPS_Implausibility	: 1;
-		uint8_t Torque_OK	: 1;
-		uint8_t Relay_Error	: 1;
-		uint8_t TV_Mode	: 3;
-		uint8_t TC_Warning	: 1;
-		uint8_t Regenerative_Enable	: 1;
-		int16_t Power	: 16;
-	} *getSigVal;
-} DBC_CAN1DB_MSG_MEAS_ETAS_InternalVars __attribute__((unused)) = {
-	.ID = 0xD0,
-	.IDE = CAN_ID_STD,
-	.DLC = 4,
-	.getSig  = {
-		.Car_OK = {
-			.position = 0,
-			.attributes = &DBC_CAN1DB_SIG_Car_OK
-		},
-		.Critical_Signal_Disconnection = {
-			.position = 1,
-			.attributes = &DBC_CAN1DB_SIG_Critical_Signal_Disconnection
-		},
-		.Critical_CAN_Disconnection = {
-			.position = 2,
-			.attributes = &DBC_CAN1DB_SIG_Critical_CAN_Disconnection
-		},
-		.CriticalDisconnection = {
-			.position = 3,
-			.attributes = &DBC_CAN1DB_SIG_CriticalDisconnection
-		},
-		.APPS_Implausibility = {
-			.position = 4,
-			.attributes = &DBC_CAN1DB_SIG_APPS_Implausibility
-		},
-		.Torque_OK = {
-			.position = 5,
-			.attributes = &DBC_CAN1DB_SIG_Torque_OK
-		},
-		.Relay_Error = {
-			.position = 6,
-			.attributes = &DBC_CAN1DB_SIG_Relay_Error
-		},
-		.TV_Mode = {
-			.position = 10,
-			.attributes = &DBC_CAN1DB_SIG_TV_Mode
-		},
-		.TC_Warning = {
-			.position = 11,
-			.attributes = &DBC_CAN1DB_SIG_TC_Warning
-		},
-		.Regenerative_Enable = {
-			.position = 12,
-			.attributes = &DBC_CAN1DB_SIG_Regenerative_Enable
-		},
-		.Power = {
-			.position = 23,
-			.attributes = &DBC_CAN1DB_SIG_Power
-		}
-	},
-	.getSigVal = 0
-};
-
 
 /**
  * Name: 	AP_ETAS_Synchronism

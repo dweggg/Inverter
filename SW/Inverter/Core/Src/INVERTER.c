@@ -70,6 +70,7 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     else
         inv->state = INV_STATE_FAULT;
 
+    inv->state = INV_STATE_IDLE;
 }
 
 /**

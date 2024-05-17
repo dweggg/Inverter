@@ -19,6 +19,8 @@
 #ifndef MOTOR_H
 #define MOTOR_H
 
+#include <stdint.h>
+
 /**
  * @brief Structure to hold motor parameters
  */
@@ -27,7 +29,7 @@ typedef struct {
     float Lq;               /**< Q-axis inductance in Henries */
     float Rs;               /**< Stator resistance in Ohms */
     float lambda;           /**< Magnet flux linkage measured V_pk_ph-n · s (phase-neutral peak voltage divided by electrical speed in rad/s) */
-    int pp;                 /**< Pole pairs (total number of poles divided by 2) */
+    uint8_t pp;                 /**< Pole pairs (total number of poles divided by 2) */
     float J;                /**< Rotational inertia in N·m·s^2 */
     float b;                /**< Viscous friction in N·m·s */
     float torque_max;       /**< Maximum torque in N·m */
