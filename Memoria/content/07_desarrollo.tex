@@ -2782,7 +2782,7 @@ NTC = R_0 \cdot e^{\left[-\beta \cdot \left(\frac{1}{T_0} - \frac{1}{\text{T}}\r
 
 El voltaje leído por el ADC se calcula
 \[
-V_{\text{read}} = V_{\text{CC,GD}} \cdot \left(\frac{-20 \cdot I_{\text{AIN}} \cdot (R_{\text{filt}} + NTC)}{100}\right) = 5 \text{ V} \cdot \left(\frac{-20 \cdot 200 \mu\text{ A} \cdot (10 \text{ k}\Omega + NTC)}{100}\right) \text{.}
+V_{\text{read}} = V_{\text{CC,GD}} \cdot \left(\frac{-20 \cdot I_{\text{AIN}} \cdot (R_{\text{filt}} + NTC)}{100}\right) = 5 \text{ V} \cdot \left(\frac{-20 \cdot 200 \text{ }\mu\text{A} \cdot (10 \text{ k}\Omega + NTC)}{100}\right) \text{.}
 \]
 
 El circuito también incluye protección de \textit{Miller clamp} para evitar activaciones accidentales de los MOSFETs. Aunque los \textit{gate drivers} tienen un \textit{pull-down} activo, se ha implementado un \textit{pull-down} externo con $R_{GS,HS}$ y $R_{GS,LS}$. Sin embargo, la detección de sobrecorriente no está implementada en este diseño por los motivos mencionados en un apartado anterior.
@@ -2816,23 +2816,23 @@ Una de las partes más importantes en cuanto a la seguridad eléctrica es la imp
 
 Con tal de cumplir estos requisitos se ha optado por un circuito basado en un NMOS, cuya puerta se conecta al terminal positivo del bus a través de una resistencia de valor elevado y se limita la tensión con un diodo \textit{zener}. La puerta del MOSFET está controlada por un optoacoplador de forma aislada desde el circuito de baja tensión. Mientras el bus tenga una tensión superior a 10 V y el optoacoplador esté desactivado, el MOSFET quedará cerrado, conectando el banco de resistencias a los condensadores, descargándolos.
 
-La selección de la resistencia se ha basado en minimizar el tamaño de la misma. La solución más óptima se ha encontrado en utilizar un banco de 24 resistencias SMD de 470k$\Omega$, en encapsulado 2512, que es capaz de disipar 1 W. Se conectan en paralelo para llegar al valor necesario para cumplir con el requisito de tiempo de descarga. Para el cálculo del tiempo de descarga se utiliza la siguiente expresión:
+La selección de la resistencia se ha basado en minimizar el tamaño de la misma. La solución óptima se ha encontrado en utilizar un banco de 24 resistencias SMD de 470 k$\Omega$, en encapsulado 2512, que es capaz de disipar 1 W. Se conectan en paralelo para llegar al valor necesario para cumplir con el requisito de tiempo de descarga. Para el cálculo del tiempo de descarga se utiliza la siguiente expresión:
 \begin{equation}
 	t_{\text{dis}} = R_{\text{dis}} \cdot C \cdot \ln\left(\frac{V_{\text{inicial}}}{V_{\text{final}}}\right)
 \end{equation}
 
 \[
-t_{\text{dis}} = R_{\text{dis}} \cdot C \cdot \ln\left(\frac{V_{\text{inicial}}}{V_{\text{final}}}\right) = \left(\frac{470 \text{k}\Omega}{24}\right) \cdot (100 \mu\text{F}) \cdot \ln\left(\frac{600 \text{V}}{60 \text{V}}\right) = 4.509 \text{s}
-\]
+t_{\text{dis}} = R_{\text{dis}} \cdot C \cdot \ln\left(\frac{V_{\text{inicial}}}{V_{\text{final}}}\right) = \left(\frac{470 \text{ k}\Omega}{24}\right) \cdot (100\text{ }\mu\text{F}) \cdot \ln\left(\frac{600 \text{ V}}{60 \text{ V}}\right) = 4.509 \text{ s}
+\] 
 
 La potencia disipada en cada resistencia de descarga se calcula como:
 
 \begin{equation}
-	P(R_{\text{dis}}, \text{max}) = \frac{V_{\text{max}}^2}{R_{\text{dis}}} 
+	P(R_{\text{dis}}, \text{máx}) = \frac{V_{\text{máx}}^2}{R_{\text{dis}}} 
 \end{equation}
 
 \[
-P(R_{\text{dis}}, \text{max}) = \frac{V_{\text{max}}^2}{R_{\text{dis}}} = \frac{600\text{ V}^2}{470 \text{k}\Omega} = 0.766 \text{W} < 1 \text{W}
+P(R_{\text{dis}}, \text{máx}) = \frac{V_{\text{máx}}^2}{R_{\text{dis}}} = \frac{600\text{ V}^2}{470 \text{ k}\Omega} = 0.766 \text{ W} < 1 \text{ W}
 \]
 
 \textbf{Medida de corriente}
@@ -2864,22 +2864,23 @@ Dado que el sensor tiene un rango de medida de $\pm$150 A y está alimentado a 5
 	\caption{Circuito de medida y detección de tensión DC.}
 \end{figure}
 
-El monitoreo de la tensión es una tarea crítica en el sistema, ya que no solo es esencial para el control del motor, sino también para la detección y alerta de niveles altos de tensión. Para ambos propósitos, se emplea un divisor de tensión utilizando una serie de resistencias. A continuación se presentan los cálculos del divisor de tensión:
+El sensado de la tensión es una tarea crítica en el sistema, ya que no solo es esencial para el control del motor, sino también para la detección y alerta de niveles altos de tensión. Para ambos propósitos, se emplea un divisor de tensión utilizando una serie de resistencias. 
 
 \[ V_{DC,div} = \left(TS^+ - TS^-\right) \cdot \left( \frac{4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} \right) \]
 
-Sustituyendo los valores de 600 V y 60 V para TS+ y TS-, respectivamente:
+Sustituyendo los valores de 600 V y 60 V para TS+ y TS-, respectivamente,
 \[ V_{DC,div} = \frac{600 \text{ V} \cdot 4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} = 6.833 \text{ V} \]
-\[ V_{DC,div} = \frac{60 \text{ V} \cdot 4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} = 683 \text{ mV} \]
+\[ V_{DC,div} = \frac{60 \text{ V} \cdot 4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} = 683 \text{ mV .} \]
 
-El valor de potencia disipada en las resistencias de 68k$\Omega$ se calcula como:
-\[ P_{R68k} = I_{R68k}^2 \cdot R68k = \left( \frac{V_{DC,div}}{R68k} \right)^2 \cdot R68k = 144 \text{ mW} \]
-Se elige un paquete 1206 para las resistencias de 68k$\Omega$, que es capaz de disipar por lo menos 250 mW.
+El valor de potencia disipada en las resistencias de 68 k$\Omega$ se calcula 
+\[ P_{R68k} = I_{\text{R68k}}^2 \cdot 68\text{ k}\Omega = \left( \frac{V_{\text{DC,div}}}{68\text{ k}\Omega} \right)^2 \cdot 68 \text{ k}\Omega = 144 \text{ mW.} \]
+
+Se elige un encapsulado 1206 para las resistencias de 68 k$\Omega$, que es capaz de disipar por lo menos 250 mW.
 
 El amplificador aislado ISO224 se utiliza para medir la tensión en el bus de continua. Según la hoja de datos, la salida se calcula como un tercio del voltaje de entrada del divisor de tensión:
-\[ (V_{DC,sns+} - V_{DC,sns-}) = \frac{1}{3} \cdot V_{DC,div} = \frac{1}{3} \cdot \left( (TS^+ - TS^-) \cdot \frac{4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} \right) \]
-\[ (V_{DC,sns+} - V_{DC,sns-}) = \frac{1}{3} \cdot 0.011388 \cdot (TS^+ - TS^-) \]
-\[ (V_{DC,sns+} - V_{DC,sns-}) = \frac{1}{3} \cdot 0.011388 \cdot 600 \text{ V} = 2.278 \text{ V} \]
+\[ (V_{\text{DC,sns+}} - V_{\text{DC,sns-}}) = \frac{1}{3} \cdot V_{\text{DC,div}} = \frac{1}{3} \cdot \left( (TS^+ - TS^-) \cdot \frac{4.7 \text{ k}\Omega}{4.7 \text{ k}\Omega + 6 \cdot 68 \text{ k}\Omega} \right) \]
+\[ (V_{\text{DC,sns+}} - V_{\text{DC,sns-}}) = \frac{1}{3} \cdot 0.011388 \cdot (TS^+ - TS^-) \]
+\[ (V_{\text{DC,sns+}} - V_{\text{DC,sns-}}) = \frac{1}{3} \cdot 0.011388 \cdot 600 \text{ V} = 2.278 \text{ V} \]
 
 El amplificador aislado ISO224 es una elección eficaz para esta aplicación, ya que permite medir de manera precisa la diferencia de potencial entre los terminales, proporcionando un voltaje de salida proporcional a la tensión medida y cuadrando con el rango de adquisición del ADC. Adicionalmente, la salida es diferencial, lo que permite mayor inmunidad frente a interferencias al ser enrutada hasta la placa de control. En ella se deberá incluir un amplificador diferencial o similar para llevar la lectura al ADC.
 
@@ -3015,7 +3016,7 @@ Finalmente, se logra que el esquemático y el programa CubeMX muestren la misma 
 
 \textbf{Alimentación}
 
-Ya que se propone alimentar la placa directamente desde el sistema de baja tensión del vehículo, se debe implementar un tratamiento de esta alimentación. Se incluye protección contra descargas electrostáticas, polaridad inversa y sobrecorriente. Se implementa un DC-DC de Recom de 15 W para generar el bus principal de 5 V, sin embargo, dado a problemas de disponibilidad y ensamblaje no se ha podido probar. Además, se incluye alimentación del conector USB, y ambos buses de 5 V se pasan por un filtro Pi con frecuencia de corte $f_c = \frac{1}{2 \pi \sqrt{C \cdot L}} = \frac{1}{2 \pi \sqrt{10\mu\text{F} \cdot 47\mu\text{H}}} = 7.34 \text{kHz}$ para evitar acoples de ruido en la alimentación. También se puede observar un regulador lineal fijo de 3.3 V para proporcionar una tensión estable al MCU, y un pequeño LED indicativo de que la alimentación está activa.
+Ya que se propone alimentar la placa directamente desde el sistema de baja tensión del vehículo, se debe implementar un tratamiento de esta alimentación. Se incluye protección contra descargas electrostáticas, polaridad inversa y sobrecorriente. Se implementa un DC-DC de Recom de 15 W para generar el bus principal de 5 V, sin embargo, dado a problemas de disponibilidad y ensamblaje no se ha podido probar. Además, se incluye alimentación del conector USB, y ambos buses de 5 V se pasan por un filtro Pi con frecuencia de corte $f_c = \frac{1}{2 \pi \sqrt{C \cdot L}} = \frac{1}{2 \pi \sqrt{10\text{ }\mu\text{F} \cdot 47\text{ }\mu\text{H}}} = 7.34 \text{ kHz}$ para evitar acoples de ruido en la alimentación. También se puede observar un regulador lineal fijo de 3.3 V para proporcionar una tensión estable al MCU, y un pequeño LED indicativo de que la alimentación está activa.
 
 \begin{figure}[H]
 	\centering
@@ -3088,14 +3089,14 @@ Para que el ADC del MCU reciba correctamente todas las señales analógicas, se 
 
 Como se ha visto en el apartado de la placa de potencia, se utilizan sensores referenciados a 5 V, y por tanto, sus señales podrían exceder el rango de 3.3 V del ADC. Por ello se implementa un simple divisor de tensión. La combinación de resistencias se puede ajustar para aumentar el rango de medición a costa de una menor resolución. 
 
-El \textit{offset} de la corriente en bits se calcula como:
-\[ \text{\textit{offset}}_i = \left(\frac{10 \text{ k}\Omega}{3.3\text{ k}\Omega+10\text{ k}\Omega}\right) \cdot 2.5 \text{ V} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 2333 \text{ bits} \]
+El \textit{offset} de la corriente en bits se calcula
+\[ \text{\textit{offset}}_i = \left(\frac{10 \text{ k}\Omega}{3.3\text{ k}\Omega+10\text{ k}\Omega}\right) \cdot 2.5 \text{ V} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 2333 \text{ bits,} \]
 
-La ganancia de la medida de corriente en amperios por bit se calcula como:
-\[ \text{\textit{gain}}_i = \frac{\left(\frac{10\text{ k}\Omega}{3.3\text{ k}\Omega+10\text{ k}\Omega}\right)}{12.5 \text{ mV/A} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)} = 0.0484609962 \text{ A/bit} \]
+y la ganancia de la medida de corriente
+\[ \text{\textit{gain}}_i = \frac{\left(\frac{10\text{ k}\Omega}{3.3\text{ k}\Omega+10\text{ k}\Omega}\right)}{12.5 \text{ mV/A} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)} = 0.0484609962 \text{ A/bit.} \]
 
-La corriente máxima que se puede medir es:
-\[ \pm 0.0484609962 \text{ A/bit} \cdot \frac{2^{12} \text{ bits}}{2} = \pm 99 \text{ A} \]
+La corriente máxima que se puede medir es
+\[ \pm 0.0484609962 \text{ A/bit} \cdot \frac{2^{12} \text{ bits}}{2} = \pm 99 \text{ A.} \]
 
 \textit{Tensión de Bus}
 
@@ -3105,24 +3106,25 @@ Puesto que el modelo escogido presentaría una pequeña zona muerta, se debe añ
 
 No existen referencias de tensión de tan poco nivel, así que se usa un divisor resistivo de valores bajos, a sabiendas de que esta decisión causa error en la medida. 
 
-El \textit{offset} de la medida de tensión se calcula como:
-\[ \text{\textit{offset}}_V = V_{ref} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 129 \text{ bits} \]
+El \textit{offset} de la medida de tensión se calcula
+\[ \text{\textit{offset}}_V = V_{ref} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 129 \text{ bits,} \]
 
-La ganancia de la medida de tensión en voltios por bit se calcula como:
-\[ \text{\textit{gain}}_V = \frac{1}{\left(\frac{1}{3} \cdot 0.011388 \text{ V/V} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)\right)} = 0.212240269 \text{ V/bit} \]
+y la ganancia de la medida de tensión en voltios por bit se calcula
+\[ \text{\textit{gain}}_V = \frac{1}{\left(\frac{1}{3} \cdot 0.011388 \text{ V/V} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)\right)} = 0.212240269 \text{ V/bit.} \]
 
-La tensión máxima que se puede medir es:
+La tensión máxima que se puede medir es
 \[ 0.212240269 \text{ V/bit} \cdot 2^{12} \text{ bits} = 869.34 \text{ V} \]
 
 \textit{Temperaturas de los semiconductores}
 
 Sería poco práctico leer las tres temperaturas de cada inversor ya que ocuparían muchos pines del MCU. Por ello, se añaden unas pequeñas resistencias, dos de las cuales no se montan, lo cual permite escoger una de las tres medidas de temperatura. Las temperaturas de los inversores deben calcularse con una \textit{lookup table} para ahorrar tiempo de computación. Como se ha visto, la señal que sale del UC21710 es una señal pulsada que puede leerse directamente como una entrada PWM o pasar a través de un filtro RC en la placa de potencia para convertirla en una señal analógica. Esta placa pretende leerla con el ADC.
 
-La lectura en sí misma está en la parte de alta tensión de la placa de potencia y se conecta al pin AIN de UC21710. Basándose en el voltaje leído, se calcula el ciclo de trabajo (D) de la salida analógica aislada de UC21710 utilizando la siguiente relación: 
-\[ D = -20 \cdot V_{AIN} + 100 \]
+La lectura en sí misma está en la parte de alta tensión de la placa de potencia y se conecta al pin AIN de UC21710. Basándose en el voltaje leído, se calcula el ciclo de trabajo (D) de la salida analógica aislada de UC21710 utilizando la relación
 
-Si se filtra, el voltaje en leído por el ADC del MCU se calcula como:
-\[ V_{Tinv} = VCC_{GD} \cdot \frac{D}{100} = 5V \cdot \left(-20 \cdot V_{AIN} + 100\right)/100 \]
+\[ D = -20 \cdot V_{AIN} + 100 .\]
+
+Si se filtra, el voltaje en leído por el ADC del MCU se calcula
+\[ V_{Tinv} = VCC_{GD} \cdot \frac{D}{100} = 5V \cdot \left(-20 \cdot V_{AIN} + 100\right)/100 .\]
 
 
 \textbf{Extras}

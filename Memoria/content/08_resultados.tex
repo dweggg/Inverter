@@ -5,66 +5,6 @@ La validación del sistema es una etapa crítica en el proceso de desarrollo de 
 
 Dada la naturaleza multifacética del convertidor, que abarca desde aspectos eléctricos y electrónicos hasta aspectos de control y software, es esencial planificar una estrategia de validación exhaustiva y efectiva. En este sentido, se ha adoptado un enfoque metodológico basado en el modelo en V, que permite validar los subsistemas desde los más específicos hasta los más generales, siguiendo un flujo lógico y sistemático. 
 
-\subsection{Modelo en V}
-
-El modelo en V es un enfoque de desarrollo y validación que organiza las etapas del proyecto en forma de una 'V' invertida, donde cada etapa de desarrollo tiene una contraparte de validación. Esto asegura que la validación se considere desde el principio del proyecto y que cada fase de desarrollo tenga su correspondiente prueba o verificación asociada.
-
-\begin{figure}[H]
-	\centering
-	\begin{tikzpicture}[node distance=2cm]
-		
-		% Nodes
-		\node (requisitos) [block] {Requisitos del Sistema};
-		\node (diseno_sistema) [block, below of=requisitos, xshift=1cm, yshift=-0.5cm] {Diseño del Sistema};
-		\node (diseno_detallado) [block, below of=diseno_sistema, xshift=1cm, yshift=-0.5cm] {Diseño Detallado};
-		\node (implementacion) [block, below of=diseno_detallado, xshift=1cm, yshift=-0.5cm] {Implementación};
-		\node (pruebas_unitarias) [block, right of=implementacion, xshift=5cm, yshift=0cm] {Pruebas Unitarias};
-		\node (pruebas_integracion) [block, above of=pruebas_unitarias, xshift=1cm, yshift=0.5cm] {Pruebas de Integración};
-		\node (pruebas_sistema) [block, above of=pruebas_integracion, xshift=1cm, yshift=0.5cm] {Pruebas de Sistema};
-		\node (pruebas_aceptacion) [block, above of=pruebas_sistema, xshift=1cm, yshift=0.5cm] {Pruebas de Aceptación};
-		
-		% Arrows
-		\draw [arrow] (requisitos) -- (diseno_sistema);
-		\draw [arrow] (diseno_sistema) -- (diseno_detallado);
-		\draw [arrow] (diseno_detallado) -- (implementacion);
-		\draw [arrow] (implementacion) -- (pruebas_unitarias);
-		\draw [arrow] (pruebas_unitarias) -- (pruebas_integracion);
-		\draw [arrow] (pruebas_integracion) -- (pruebas_sistema);
-		\draw [arrow] (pruebas_sistema) -- (pruebas_aceptacion);
-		
-		% Additional arrows for test design
-		\draw [arrow] (requisitos.east) -- ++(4cm,0) |- node[anchor=south]{Plan de Pruebas} (pruebas_aceptacion.west);
-		\draw [arrow] (diseno_sistema.east) -- ++(3.25cm,0) |- node[anchor=south]{Plan de Pruebas} (pruebas_sistema.west);
-		\draw [arrow] (diseno_detallado.east) -- ++(2.5cm,0) |- node[anchor=south]{Plan de Pruebas} (pruebas_integracion.west);
-		\draw [arrow] (implementacion.east) -- ++(1.75cm,0) |- node[anchor=south]{Plan de Pruebas} (pruebas_unitarias.west);
-	\end{tikzpicture}
-	\caption{Modelo en V para el desarrollo y validación de sistemas.}
-\end{figure}
-
-En el modelo en V, las etapas de desarrollo se encuentran en el lado izquierdo de la 'V', comenzando desde los requisitos del sistema hasta la implementación y codificación. Por otro lado, las etapas de validación se encuentran en el lado derecho de la 'V', comenzando desde las pruebas unitarias y de integración hasta las pruebas de sistema y aceptación.
-
-A continuación, se detallan las diferentes etapas del modelo en V:
-
-\begin{itemize}
-	\item \textbf{Requisitos del Sistema:} En esta etapa se definen y documentan todos los requisitos del sistema, que sirven como la base para el diseño y desarrollo del convertidor. Estos requisitos incluyen características eléctricas, interfaces, restricciones mecánicas, etc.
-	
-	\item \textbf{Diseño del Sistema:} Aquí se traducen los requisitos del sistema en un diseño detallado del convertidor. Se definen las arquitecturas de \textit{hardware} y \textit{software}, así como los diagramas de bloques y especificaciones técnicas. También se escogen los componentes más importantes.
-	
-	\item \textbf{Diseño Detallado:} En esta etapa se realiza un diseño profundo de cada parte y subsistema del convertidor. Se diseñan los esquemas eléctricos y circuitos impresos, se escriben los algoritmos de control y se crean listas de materiales para preparar el ensamblado.
-	
-	\item \textbf{Implementación:} Aquí se lleva a cabo la implementación física del diseño. Se fabrican los circuitos impresos, se programa el \textit{firmware} y se ensamblan las piezas.
-	
-	\item \textbf{Pruebas Unitarias:} En esta etapa se realizan pruebas individuales en cada componente o subcircuito o módulo del convertidor para verificar su funcionamiento según lo especificado. Se asegura que cada unidad funcione correctamente antes de la integración.
-	
-	\item \textbf{Pruebas de Integración:} Se combinan los subcircuitos individuales para formar subsistemas y se verifican las interfaces entre ellos. Se asegura que los subsistemas funcionen correctamente juntos y se detectan posibles problemas de compatibilidad.
-	
-	\item \textbf{Pruebas de Sistema:} Aquí se evalúa el sistema completo en su conjunto. Se realizan pruebas de funcionamiento global.
-	
-	\item \textbf{Pruebas de Aceptación:} Finalmente, se llevan a cabo las pruebas finales en las que se evalúan los requisitos marcados inicialmente.
-\end{itemize}
-
-El modelo en V proporciona una estructura clara y sistemática para el desarrollo y validación del convertidor, asegurando que cada etapa tenga su correspondiente prueba de validación y que los resultados sean coherentes con los objetivos del proyecto. Sin embargo, es necesario ser pragmático y eficaz con la validación, puesto que tiende a llevar más tiempo del necesario si se sigue una metodología de forma estricta. Por ello, a lo largo de todo el proceso de diseño y de verificación se ha tomado la libertad de usar el modelo en V para aquello para lo que es útil.
-
 En este capítulo se desarrolla la parte derecha de la 'V', diseñando y ejecutando las pruebas a varios niveles. La estrategia de validación se divide en tres grandes bloques: validación de \textit{hardware}, validación de \textit{software} e integración. Cada bloque tiene sus propios desafíos y requisitos específicos, pero todos contribuyen al objetivo final de asegurar el funcionamiento correcto y confiable del convertidor.
 
 \subsection{Validación de \textit{Hardware}}
