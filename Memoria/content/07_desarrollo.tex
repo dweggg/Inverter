@@ -2104,11 +2104,11 @@ P_{\text{cond},D} = I_{\text{SD}}\cdot V_\text{f}\text{.}
 Sin embargo, estas expresiones se corresponden con las pérdidas instantáneas y no son útiles a la hora de dimensionar el convertidor. Para ello son necesarias las pérdidas promediadas, pero tienen una expresión analítica muy compleja, ya que dependen de la estrategia de modulación, el índice de modulación instantáneo, el factor de potencia instantáneo, etc. Para el inversor se utiliza SVPWM, pero el cálculo de pérdidas tiene demasiados parámetros instantáneos. Muchas referencias asemejan las pérdidas en SVPWM a las de una modulación PWM sinusoidal (SPWM), con lo que las pérdidas se simplifican.
 
 \begin{equation}
-P_{\text{cond,MOSFET}} \approx I_{\text{RMS}} V_{Q0} \left(\frac{1}{\pi\sqrt{2}} + \frac{m\cdot cos(\phi)}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_Q \left(\frac{1}{4} + \frac{2\cdot m}{3\pi\cdot cos(\phi)}\right)
+P_{\text{cond,MOSFET}} \approx I_{\text{RMS}} V_{\text{Q0}} \left(\frac{1}{\pi\sqrt{2}} + \frac{m\cdot cos(\phi)}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_\text{Q} \left(\frac{1}{4} + \frac{2\cdot m}{3\pi\cdot cos(\phi)}\right)
 \end{equation}
 
 \begin{equation}
-P_{\text{cond},D} \approx I_{\text{RMS}} V_{D0} \left(\frac{1}{\pi\sqrt{2}} - \frac{m\cdot cos(\phi)}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_D \left(\frac{1}{4} - \frac{2\cdot m}{3\pi\cdot cos(\phi)}\right)
+P_{\text{cond,D}} \approx I_{\text{RMS}} V_{\text{D0}} \left(\frac{1}{\pi\sqrt{2}} - \frac{m\cdot cos(\phi)}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_\text{D} \left(\frac{1}{4} - \frac{2\cdot m}{3\pi\cdot cos(\phi)}\right)
 \end{equation}
 
 Como se puede apreciar, aunque son más compactas que otras en la bibliografía, estas expresiones son difíciles de abordar, puesto que casi todos los parámetros son instantáneos. Por ello, se ha usado PLECS para estimar las pérdidas de conducción debido a que facilita la simulación detallada de los semiconductores y permite obtener las pérdidas de forma diseccionada por cada dispositivo y tipo de pérdida. PLECS utiliza modelos detallados de los dispositivos, considerando sus características de conmutación y conducción reales.
@@ -2127,28 +2127,28 @@ Para sacarle el máximo partido, se ha obtenido un perfil de pérdidas a máxima
 Se puede ver como las pérdidas de conducción son más significativas que las de conmutación, y varían significativamente. Las zonas de par constante (de 1,05 s a 1,4 s por ejemplo), muestran unas pérdidas casi constantes con la corriente, pero crecen debido a la temperatura. Se anota para una comparación posterior que las pérdidas de conmutación de los MOSFETs están entre 150 y 200 W. Al entrar en la zona de límite de tensión (de 1,4 s a 1,45 s), se observa un pico que se corresponde con la zona de potencia constante, que en esta simulación es la potencia máxima. Para obtener un valor constante de pérdidas con el que diseñar la refrigeración, se parte de este valor de pico (450 W aproximadamente) y se trata de la misma manera que la relación de potencia media respecto a la potencia pico calculada en la sección de requisitos.
 
 \[
-\frac{P_{RMS}}{P_{pico}} = \frac{35 kW}{80 kW} = 0.4375 \approx 0.5
+\frac{P_{\text{RMS}}}{P_{\text{pico}}} = \frac{35\text{ kW}}{80\text{ kW}} = 0.4375 \approx 0.5
 \]
 
-Con este razonamiento, se da un valor de pérdidas de conducción máximas de un inversor de $450 \text{W} \cdot 0.5 = 225 \text{W}$. Como hay dos inversores anclados a la misma \textit{coldplate}, las pérdidas de conducción que debe disipar es de $225 \text{W} \cdot 2 = 450 \text{W}$. Es importante recordar que estas pérdidas son para el semiconductor de Wolfspeed. Dado que las pérdidas de conducción son proporcionales a $R_{DS, on}$, se pueden aproximar las pérdidas de conducción del semiconductor de Leapers.
+Con este razonamiento, se da un valor de pérdidas de conducción máximas de un inversor de $450 \text{W} \cdot 0.5 = 225 \text{ W}$. Como hay dos inversores anclados a la misma \textit{coldplate}, las pérdidas de conducción que debe disipar es de $225 \text{ W} \cdot 2 = 450 \text{ W}$. Es importante recordar que estas pérdidas son para el semiconductor de Wolfspeed. Dado que las pérdidas de conducción son proporcionales a $R_{\text{DS, on}}$, se pueden aproximar las pérdidas de conducción del semiconductor de Leapers.
 \[
-P_{\text{cond,Wolfspeed}} = 450 \text{W}
+P_{\text{cond,Wolfspeed}} = 450 \text{ W}
 \]
 
 \[
-P_{\text{cond,Leapers}} \approx P_{\text{cond,Wolfspeed}} \cdot \frac{R_{DS, on, Leapers}}{R_{DS, on, Wolfspeed}} = 450 \text{W} \cdot \frac{5.5 \text{m}\Omega}{16 \text{m}\Omega} \approx 155 \text{W}
+P_{\text{cond,Leapers}} \approx P_{\text{cond,Wolfspeed}} \cdot \frac{R_{\text{DS, on, Leapers}}}{R_{\text{DS, on, Wolfspeed}}} = 450 \text{ W} \cdot \frac{5.5 \text{ m}\Omega}{16 \text{ m}\Omega} \approx 155 \text{ W}
 \]
 
 
 \textbf{Pérdidas de conmutación}
 
-El cálculo de las pérdidas de conmutación es más fácil de determinar de forma analítica, aunque depende del circuito de \textit{gate driver} y de sus parásitos. Si no se tienen en cuenta estos dos factores, se pueden calcular utilizando los valores de \(E_{on}\) y \(E_{off}\), que representan la energía necesaria para encender o apagar el dispositivo respectivamente. Cuando las hojas de datos de los semiconductores proporcionan los valores \(E_{on}\) y \(E_{off}\), las pérdidas de conmutación pueden calcularse de forma directa. Estas pérdidas están influenciadas por la tensión de conmutación, la corriente de conmutación, la temperatura de la unión y la resistencia de puerta. La fórmula comúnmente utilizada para calcular las pérdidas es:
+El cálculo de las pérdidas de conmutación es más fácil de determinar de forma analítica, aunque depende del circuito de \textit{gate driver} y de sus parásitos. Si no se tienen en cuenta estos dos factores, se pueden calcular utilizando los valores de \(E_{on}\) y \(E_{off}\), que representan la energía necesaria para encender o apagar el dispositivo respectivamente. Cuando las hojas de datos de los semiconductores proporcionan los valores \(E_{on}\) y \(E_{off}\), las pérdidas de conmutación pueden calcularse de forma directa. Estas pérdidas están influenciadas por la tensión de conmutación, la corriente de conmutación, la temperatura de la unión y la resistencia de puerta. La fórmula comúnmente utilizada para calcular las pérdidas es
 
 \begin{equation}
-E_{conm}(t) = (E_{on} + E_{off}) \left( \frac{I_{Q,env}(t)}{I_{test}} \right)^{K_i} \left( \frac{V_{DC}}{V_{test}} \right)^{K_v}
+E_{\text{conm}}(t) = (E_{\text{on}} + E_{\text{off}}) \left( \frac{I_{\text{Q,env}}(t)}{I_{\text{test}}} \right)^{K_i} \left( \frac{V_{\text{DC}}}{V_{\text{test}}} \right)^{K_v} \text{,}
 \end{equation}
 
-Donde \(I_{Q,env}(t)\) es la corriente de conmutación en cada instante de tiempo, \(I_{test}\) y \(V_{test}\) son los valores de prueba, y \(K_i\) y \(K_v\) son coeficientes de ajuste que normalmente son igual a 1. La justificación se puede encontrar en los gráficos proporcionados en las hojas de datos de ambos semiconductores, donde la relación de las energías de encendido y apagado con la corriente son aproximadamente lineales.
+donde \(I_{\text{Q,env}}(t)\) es la corriente de conmutación en cada instante de tiempo, \(I_{\text{test}}\) y \(V_{\text{test}}\) son los valores de prueba, y \(K_i\) y \(K_v\) son coeficientes de ajuste que normalmente son igual a 1. La justificación se puede encontrar en los gráficos proporcionados en las hojas de datos de ambos semiconductores, donde la relación de las energías de encendido y apagado con la corriente son aproximadamente lineales.
 
 \begin{figure}[H]
 	\centering
@@ -2169,16 +2169,16 @@ Donde \(I_{Q,env}(t)\) es la corriente de conmutación en cada instante de tiemp
 Si la corriente es continua,
 
 \begin{equation}
-P_{conm} \approx (E_{on} + E_{off}) f_{\text{conm}} \frac{I_{out}}{I_{test}} \frac{V_{DC}}{V_{test}} \text{ .}
+P_{\text{conm}} \approx (E_{\text{on}} + E_{\text{off}}) f_{\text{conm}} \frac{I_{\text{out}}}{I_{\text{test}}} \frac{V_{\text{DC}}}{V_{\text{test}}} \text{.}
 \end{equation}
 
-Y si la corriente es una sinusoide semi-rectificada con un valor de pico de \(\sqrt{2} I_{rms}\) (como en el caso del SVPWM), 
+Y si la corriente es una sinusoide semi-rectificada con un valor de pico de \(\sqrt{2} I_{\text{RMS}}\) (como en el caso del SVPWM), 
 
 \begin{equation}
-P_{conm} \approx (E_{on} + E_{off}) f_{\text{conm}} \frac{\sqrt{2} I_{RMS}}{\pi I_{test}} \frac{V_{DC}}{V_{test}}\text{ .}
+P_{\text{conm}} \approx (E_{\text{on}} + E_{\text{off}}) f_{\text{conm}} \frac{\sqrt{2} I_{\text{RMS}}}{\pi I_{\text{test}}} \frac{V_{\text{DC}}}{V_{\text{test}}}\text{.}
 \end{equation}
 
-Para obtener los valores de $E_{on}$ y $E_{off}$ se pueden usar los gráficos que aparecen en las hojas de datos, ya que principalmente dependen de la resistencia de puerta que se escoja.
+Para obtener los valores de $E_{\text{on}}$ y $E_{\text{off}}$ se pueden usar los gráficos que aparecen en las hojas de datos, ya que principalmente dependen de la resistencia de puerta que se escoja.
 
 \begin{figure}[H]
 	\centering
@@ -2199,9 +2199,9 @@ Para obtener los valores de $E_{on}$ y $E_{off}$ se pueden usar los gráficos qu
 Se escogerán los valores más grandes de resistencia de puerta para hacer este cálculo, pues un valor más grande produce menos sobrepico de tensión en la conmutación, pero aumenta las pérdidas. Sustituyendo por los valores del convertidor en diseño,
 
 \begin{itemize}
-	\item Generales: \(f_{\text{conm}} = 40 \text{ kHz}\), \(I_{\text{RMS}} = 80 \text{ A}\), \(V_{DC} = 600 \text{ V}\)
-	\item Leapers: \(E_{\text{on}} = 5.8 \text{ mJ}\), \(E_{\text{off}} = 3.7 \text{ mJ}\), \(V_{\text{test}} = 600 \text{V}\), \(I_{\text{test}} = 150 \text{A}\)
-	\item Wolfspeed: \(E_{\text{on}} = 1.8 \text{ mJ}\), \(E_{\text{off}} = 0.9 \text{mJ}\), \(V_{\text{test}} = 600 \text{V}\), \(I_{\text{test}} = 80 \text{A}\)
+	\item Generales: \(f_{\text{conm}} = 40 \text{ kHz}\), \(I_{\text{RMS}} = 80 \text{ A}\), \(V_{\text{DC}} = 600 \text{ V}\)
+	\item Leapers: \(E_{\text{on}} = 5.8 \text{ mJ}\), \(E_{\text{off}} = 3.7 \text{ mJ}\), \(V_{\text{test}} = 600 \text{ V}\), \(I_{\text{test}} = 150 \text{ A}\)
+	\item Wolfspeed: \(E_{\text{on}} = 1.8 \text{ mJ}\), \(E_{\text{off}} = 0.9 \text{ mJ}\), \(V_{\text{test}} = 600 \text{ V}\), \(I_{\text{test}} = 80 \text{ A}\)
 \end{itemize}
 
 Sustituyendo para los dispositivos Leapers,
