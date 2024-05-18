@@ -3170,11 +3170,128 @@ Después de diseñar todos los circuitos, emplazado todos los componentes y enru
 \section{\textit{Firmware}}
 
 \subsection{Desarrollo del \textit{firmware}}
+El \textit{firmware} de un proyecto como este no se puede desarrollar al estilo \textit{maker} de manera informal o improvisada. Requiere un enfoque metodológico y estructurado para garantizar la estabilidad, la eficiencia y la fiabilidad del sistema en su conjunto. Es fundamental seguir prácticas de desarrollo de \textit{software} bien establecidas, como el diseño modular, la documentación detallada del código y la gestión adecuada de versiones. Además, el cumplimiento de estándares de codificación y la realización de análisis estáticos son pasos críticos para garantizar la calidad y la seguridad del \textit{firmware}. Este enfoque profesional y riguroso es esencial para crear una base de código ampliable, portable y eficiente.
 
 \subsubsection{Objetivos del \textit{firmware}}
-\subsubsection{Lenguaje de programación}
-\subsubsection{Plataforma de desarrollo}
+El desarrollo del \textit{firmware} para el inversor tiene como objetivo principal garantizar un control preciso y eficiente de los motores PMSM en el contexto de la Formula Student. Los objetivos específicos del \textit{firmware} son los siguientes:
+
+\begin{itemize}
+	\item Integrar correctamente el \textit{firmware} con el \textit{hardware} del inversor, asegurando una interacción fluida y eficaz entre los diferentes componentes del sistema.
+	\item Implementar un control vectorial (FOC) que permita el control independiente de los dos motores conectados al inversor.
+	\item Implementar funciones de protección y seguridad que garanticen el funcionamiento seguro del sistema y prevengan posibles fallos o daños.
+\end{itemize}
+
 \subsubsection{Herramientas utilizadas}
+
+\textbf{Análisis estático: Cppcheck}
+
+Cppcheck es una herramienta de análisis estático de código C/C++ que se utiliza para detectar errores y problemas potenciales en el código. Realiza un escaneo exhaustivo del código para identificar posibles problemas como fugas de memoria, uso incorrecto de punteros, variables no inicializadas y otros errores comunes de programación. La integración de Cppcheck en el flujo de trabajo de desarrollo ayuda a identificar y corregir estos problemas en una etapa temprana del proceso de desarrollo, lo que contribuye a mejorar la calidad y fiabilidad del \textit{firmware}.
+
+\textbf{Documentación del código: Doxygen}
+
+Doxygen es una herramienta de generación de documentación que se utiliza para crear documentación automática a partir del mismo código. Permite documentar el código usando comentarios especiales incrustados en el código mismo, utilizando una sintaxis sencilla y clara. Doxygen procesa estos comentarios para generar documentación en varios formatos, incluyendo HTML (como una pequeña web), y PDF (para una documentación más tradicional). Esta documentación incluye detalles sobre la estructura del código, la descripción de las funciones y variables, así como relaciones y dependencias entre diferentes partes del código. La generación automática de documentación con Doxygen facilita la comprensión y el mantenimiento del código, y proporciona una referencia útil para futuros desarrolladores.
+
+\subsubsection{Plataforma de desarrollo}
+Para el desarrollo del \textit{firmware}, se emplea STM32CubeIDE de STMicroelectronics, una plataforma de desarrollo integrado (IDE) basada en Eclipse y diseñada específicamente para trabajar con microcontroladores STM32. CubeIDE proporciona un entorno de desarrollo completo que incluye un editor de código, un compilador, un depurador y otras herramientas útiles para la programación de microcontroladores STM32. Además, integra STM32CubeMX, que facilita la configuración de periféricos y la generación de código inicial mediante una interfaz gráfica intuitiva.
+
+El uso de CubeIDE simplifica el proceso de desarrollo de \textit{firmware} para microcontroladores STM32, ofreciendo características como autocompletado de código, resaltado de sintaxis, depuración paso a paso y visualización de variables en tiempo real.
+
+\subsubsection{Lenguaje de programación}
+
+El lenguaje de programación seleccionado para desarrollar el \textit{firmware} de este proyecto es C. Esta elección se basa en varias consideraciones relacionadas con la naturaleza de la aplicación embebida en un microcontrolador STM32.
+
+En primer lugar, el lenguaje C es ampliamente compatible y soportado por la mayoría de los microcontroladores, incluidos los STM32. La vasta cantidad de recursos, bibliotecas y herramientas disponibles para el desarrollo en C facilita la implementación de funcionalidades complejas y la integración con el hardware específico del microcontrolador.
+
+Además, el lenguaje C es altamente eficiente en términos de uso de recursos de memoria y velocidad de ejecución, lo cual es crucial en aplicaciones embebidas donde se deben cumplir estrictas restricciones de recursos.
+
+\subsubsection{Estilo de programación}
+
+Para mantener un código claro y coherente, se seguirán las siguientes convenciones de nomenclatura y estilo de programación:
+
+\begin{enumerate}
+	\item \textbf{Convenciones de nomenclatura para variables/estructuras/enumeraciones:}
+	\begin{itemize}
+		\item Se utilizará \texttt{camelCase} para los nombres de variables y la declaración de estructuras/enumeraciones.
+		\item Se utilizará \texttt{PascalCase} para la definición de estructuras/enumeraciones.
+		\item Se emplearán nombres descriptivos que indiquen claramente el propósito de la variable.
+		\item Se agregarán extensiones \texttt{\_left} y \texttt{\_right} a las variables que representen componentes del inversor izquierdo y derecho, respectivamente.
+		\item Se evitará añadir más extensiones con guión bajo.
+		\item Las constantes se nombrarán en MAYÚSCULAS.
+	\end{itemize}
+	\textbf{Ejemplo:}
+	\begin{itemize}
+		\item Para el \textit{offset} y el \textit{slope} del ADC:
+		{\small\begin{verbatim}
+			#define CURRENT_SLOPE  54.4217687f /**< [A/V] (10/(4.7+10)) * ( 1 / (12.5 mV / A)) */
+			#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
+		\end{verbatim}}
+		\item Para la referencia de par:
+		\begin{verbatim}
+			torqueRef_left
+			torqueRef_right
+		\end{verbatim}
+		\item Para la definición y declaración de la estructura \texttt{Encoder}:
+		\begin{verbatim}
+			typedef struct {} Encoder; // Definición de la estructura Encoder
+			Encoder encoder_left; // Declaración de una estructura Encoder
+		\end{verbatim}
+		
+	\end{itemize}
+	\item \textbf{Convenciones de nomenclatura para funciones:}
+	\begin{itemize}
+		\item Se utilizará \texttt{snake\_case} para los nombres de funciones.
+		\item Se emplearán nombres descriptivos que indiquen claramente el propósito de la función, incluso si parecen demasiado largos.
+	\end{itemize}
+	\textbf{Ejemplo:}
+	\begin{itemize}
+		\item \texttt{initialize\_inverter()}
+		\item \texttt{limit\_torque\_to\_prevent\_overspeed()}
+		\item \texttt{tasks\_1ms()}
+	\end{itemize}
+	\item \textbf{Convenciones de nomenclatura para archivos:}
+	\begin{itemize}
+		\item Los pares de archivos .c/.h desarrollados se nombrarán en MAYÚSCULAS, facilitando su distinción de los archivos generados automáticamente.
+	\end{itemize}
+	\textbf{Ejemplo:}
+	\begin{itemize}
+		\item \texttt{MEASUREMENTS.c/.h} -> Desarrollado
+		\item \texttt{adc.c/.h} -> Generado automáticamente
+	\end{itemize}
+	\item \textbf{Convenciones para Abreviaturas:}
+	\begin{itemize}
+		\item Se utilizarán abreviaciones comunes solo cuando sean ampliamente entendidas dentro del contexto del proyecto.
+		\item Se evitarán abreviaciones ambiguas o poco claras.
+	\end{itemize}
+	\textbf{Ejemplo:}
+	\begin{itemize}
+		\item \texttt{ADC} (Convertidor Analógico-Digital)
+		\item \texttt{FSM} (Máquina de Estados Finitos)
+		\item \texttt{LUT} (Tabla de Búsqueda)
+	\end{itemize}
+	\item \textbf{Comentarios:}
+	\begin{itemize}
+		\item Cada archivo y función debe ir precedido por un comentario estilo Doxygen que explique claramente su propósito.
+	\end{itemize}
+	\textbf{Ejemplo:}
+	{\small\begin{verbatim}		
+/**
+* @brief Computes d-q currents from current measurements and electrical angle.
+*
+* This function computes the d-q currents from phase currents (ABC), theta_e, and stores
+* the results in the provided pointers.
+*
+* @param[in] ia Phase A current in A.
+* @param[in] ib Phase B current in A.
+* @param[in] ic Phase C current in A.
+* @param[in] theta_e Electrical rotor position in radians.
+* @param[out] idMeas Pointer to store the D-axis current.
+* @param[out] iqMeas Pointer to store the Q-axis current.
+*/
+void get_idiq(float ia, float ib, float ic, float theta_e, float *idMeas, float *iqMeas);
+	\end{verbatim}}
+\end{enumerate}
+
+
 
 \subsection{Arquitectura del \textit{firmware}}
 
@@ -3193,7 +3310,6 @@ Después de diseñar todos los circuitos, emplazado todos los componentes y enru
 \subsubsection{Algoritmos de control}
 
 
-\subsection{Documentación del \textit{firmware}}
 
-\subsubsection{Documentación del código}
-\subsubsection{Análisis estático}
+
+
