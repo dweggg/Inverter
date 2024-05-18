@@ -1,0 +1,2 @@
+handle_CAN global:[DBC_CAN1DB_MSG_AP_ETAS_Synchronism,DBC_CAN1DB_MSG_AP_InvRear_Temperatures,inverter_left,inverter_right,keepAlive] call:[HAL_CAN_GetRxMessage,send_CAN_message] noreturn:[send_CAN_message]
+send_CAN_message call:[HAL_CAN_AddTxMessage] noreturn:[HAL_CAN_AddTxMessage]

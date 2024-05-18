@@ -1,3 +1,5 @@
+handle_torqueRef global:[torqueRamp] call:[limit_torque_to_prevent_overspeed,rampa_calc,saturate_symmetric]
+initialize_torque_ramp global:[torqueRamp]
 set_torque_direction
 saturate_symmetric
-limit_torque_to_prevent_overspeed call:[fabsf,pi_calc,pi_init]
+limit_torque_to_prevent_overspeed call:[fabsf,pi_calc]

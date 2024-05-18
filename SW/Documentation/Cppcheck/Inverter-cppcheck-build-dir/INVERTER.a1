@@ -1,26 +1,50 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="5218080850366260971">
+<analyzerinfo hash="16579472149516967422">
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="28" column="0"/>
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="29" column="0"/>
         </error>
         <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PergaMOD.h" line="23" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="24" column="0"/>
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MOTOR.h" line="22" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="25" column="0"/>
         </error>
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
         </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\INVERTER.c" line="21" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;motor&apos; can be declared as pointer to const" verbose="Parameter &apos;motor&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\INVERTER.c" line="81" column="72" info="Parameter &apos;motor&apos; can be declared as pointer to const"/>
+            <symbol>motor</symbol>
+        </error>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/INVERTER.h:76:6" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c" line="53" col="5" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/INVERTER.h:91:6" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c" line="55" col="5" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/INVERTER.h:99:6" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c" line="84" col="5" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/INVERTER.h:99:6" my-argnr="2" my-argname="motor" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c" line="97" col="44" value="0"/>
+  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/INVERTER.h:99:6" my-argnr="2" my-argname="motor" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/INVERTER.c" line="97" col="44" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="initialize_inverter" lineNumber="51"/>
+    <functiondecl functionName="initialize_inverter" lineNumber="53"/>
+    <functiondecl functionName="init_control_loops" lineNumber="81"/>
     <functioncall functionName="HAL_TIM_Base_Start_IT"/>
+    <functioncall functionName="INV_STATE_FAULT"/>
+    <functioncall functionName="INV_STATE_IDLE"/>
     <functioncall functionName="INV_STATE_STARTUP"/>
+    <functioncall functionName="check_motor_parameters"/>
+    <functioncall functionName="init_control_loops"/>
+    <functioncall functionName="logf"/>
+    <functioncall functionName="pi_init"/>
+    <functioncall functionName="powf"/>
+    <functioncall functionName="sqrtf"/>
   </FileInfo>
 </analyzerinfo>

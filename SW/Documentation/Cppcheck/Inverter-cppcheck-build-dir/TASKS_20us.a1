@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="13992176925341845023">
+<analyzerinfo hash="3786944145649736017">
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
         </error>
@@ -7,22 +7,35 @@
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="28" column="0"/>
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="29" column="0"/>
         </error>
         <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PergaMOD.h" line="23" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="24" column="0"/>
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MOTOR.h" line="22" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="25" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\TASKS_20us.c" line="22" column="0"/>
         </error>
   <FileInfo check="ctu">
-<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PergaMOD.h:219:6" call-funcname="angle_calc" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_20us.c" line="42" col="13" call-argexpr="&amp;angle_left" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:77:9" call-funcname="get_currents_voltage" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_20us.c" line="46" col="23" call-argexpr="rawADC_left" call-argvaluetype="7" call-argvalue="16"/>  </FileInfo>
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PergaMOD.h:275:6" call-funcname="rampa_calc" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_20us.c" line="53" col="13" call-argexpr="&amp;freqRamp_left" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PergaMOD.h:219:6" call-funcname="angle_calc" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_20us.c" line="55" col="13" call-argexpr="&amp;angle_left" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:82:9" call-funcname="get_currents_voltage" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_20us.c" line="65" col="23" call-argexpr="rawADC_left" call-argvaluetype="7" call-argvalue="16"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CONTROL.h:31:6" call-funcname="calc_current_loop" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_20us.c" line="69" col="20" call-argexpr="&amp;inverter_left" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CONTROL.h:38:6" call-funcname="saturate_voltage" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS_20us.c" line="70" col="19" call-argexpr="&amp;inverter_left" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="tasks_20us_left" lineNumber="39"/>
-    <functiondecl functionName="tasks_20us_right" lineNumber="60"/>
+    <functiondecl functionName="tasks_20us_left" lineNumber="49"/>
+    <functiondecl functionName="tasks_20us_right" lineNumber="86"/>
+    <functioncall functionName="VAL"/>
     <functioncall functionName="angle_calc"/>
+    <functioncall functionName="calc_current_loop"/>
     <functioncall functionName="calc_duties"/>
+    <functioncall functionName="cosf"/>
     <functioncall functionName="get_currents_voltage"/>
+    <functioncall functionName="handle_torqueRef"/>
+    <functioncall functionName="rampa_calc"/>
+    <functioncall functionName="saturate_voltage"/>
+    <functioncall functionName="sinf"/>
     <functioncall functionName="update_PWM"/>
   </FileInfo>
 </analyzerinfo>

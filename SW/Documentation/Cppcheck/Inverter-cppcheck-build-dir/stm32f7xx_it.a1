@@ -1,29 +1,35 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="2386834013951977814">
+<analyzerinfo hash="234971906653369554">
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\main.h" line="30" column="0"/>
         </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\CAN1db.h" line="36" column="0"/>
+        </error>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="NMI_Handler" lineNumber="78"/>
-    <functiondecl functionName="HardFault_Handler" lineNumber="93"/>
-    <functiondecl functionName="MemManage_Handler" lineNumber="108"/>
-    <functiondecl functionName="BusFault_Handler" lineNumber="123"/>
-    <functiondecl functionName="UsageFault_Handler" lineNumber="138"/>
-    <functiondecl functionName="SVC_Handler" lineNumber="153"/>
-    <functiondecl functionName="DebugMon_Handler" lineNumber="166"/>
-    <functiondecl functionName="PendSV_Handler" lineNumber="179"/>
-    <functiondecl functionName="SysTick_Handler" lineNumber="192"/>
-    <functiondecl functionName="CAN1_RX0_IRQHandler" lineNumber="213"/>
-    <functiondecl functionName="TIM1_UP_TIM10_IRQHandler" lineNumber="227"/>
-    <functiondecl functionName="TIM6_DAC_IRQHandler" lineNumber="241"/>
-    <functiondecl functionName="DMA2_Stream0_IRQHandler" lineNumber="256"/>
-    <functiondecl functionName="DMA2_Stream1_IRQHandler" lineNumber="270"/>
-    <functiondecl functionName="DMA2_Stream2_IRQHandler" lineNumber="284"/>
+    <functiondecl functionName="NMI_Handler" lineNumber="79"/>
+    <functiondecl functionName="HardFault_Handler" lineNumber="94"/>
+    <functiondecl functionName="MemManage_Handler" lineNumber="109"/>
+    <functiondecl functionName="BusFault_Handler" lineNumber="124"/>
+    <functiondecl functionName="UsageFault_Handler" lineNumber="139"/>
+    <functiondecl functionName="SVC_Handler" lineNumber="154"/>
+    <functiondecl functionName="DebugMon_Handler" lineNumber="167"/>
+    <functiondecl functionName="PendSV_Handler" lineNumber="180"/>
+    <functiondecl functionName="SysTick_Handler" lineNumber="193"/>
+    <functiondecl functionName="CAN1_RX0_IRQHandler" lineNumber="214"/>
+    <functiondecl functionName="TIM1_UP_TIM10_IRQHandler" lineNumber="228"/>
+    <functiondecl functionName="TIM6_DAC_IRQHandler" lineNumber="244"/>
+    <functiondecl functionName="DMA2_Stream0_IRQHandler" lineNumber="259"/>
+    <functiondecl functionName="DMA2_Stream1_IRQHandler" lineNumber="273"/>
+    <functiondecl functionName="DMA2_Stream2_IRQHandler" lineNumber="287"/>
     <functioncall functionName="HAL_CAN_IRQHandler"/>
     <functioncall functionName="HAL_DAC_IRQHandler"/>
     <functioncall functionName="HAL_DMA_IRQHandler"/>
     <functioncall functionName="HAL_IncTick"/>
     <functioncall functionName="HAL_TIM_IRQHandler"/>
+    <functioncall functionName="dbc_valueType_signed"/>
+    <functioncall functionName="dbc_valueType_unsigned"/>
+    <functioncall functionName="handle_CAN"/>
     <functioncall functionName="tasks_1ms"/>
     <functioncall functionName="tasks_20us_left"/>
   </FileInfo>

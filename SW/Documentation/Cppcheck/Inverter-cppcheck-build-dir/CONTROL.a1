@@ -1,32 +1,39 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="13398165100782385509">
+<analyzerinfo hash="8729458501429900097">
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
-        </error>
-        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\CONTROL.c" line="22" column="0"/>
-        </error>
-        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PergaMOD.h" line="23" column="0"/>
         </error>
         <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="28" column="0"/>
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="29" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PergaMOD.h" line="23" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="24" column="0"/>
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MOTOR.h" line="22" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="25" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\CONTROL.c" line="22" column="0"/>
         </error>
   <FileInfo check="ctu">
-<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PergaMOD.h:238:6" call-funcname="svpwm_calc" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c" line="50" col="13" call-argexpr="&amp;svpwm" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PergaMOD.h:238:6" call-funcname="svpwm_calc" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c" line="94" col="13" call-argexpr="&amp;svpwm" call-argvaluetype="7" call-argvalue="0"/>  </FileInfo>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CONTROL.h:37:6" my-argnr="5" my-argname="duties" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c" line="53" col="3" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CONTROL.h:31:6" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c" line="32" col="5" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CONTROL.h:38:6" my-argnr="1" my-argname="inv" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c" line="58" col="2" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CONTROL.h:52:6" my-argnr="6" my-argname="duties" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CONTROL.c" line="97" col="3" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="calc_duties" lineNumber="37"/>
-    <functioncall functionName="cosf"/>
-    <functioncall functionName="sinf"/>
+    <functiondecl functionName="calc_current_loop" lineNumber="30"/>
+    <functiondecl functionName="saturate_voltage" lineNumber="56"/>
+    <functiondecl functionName="calc_duties" lineNumber="81"/>
+    <functioncall functionName="pi_calc"/>
+    <functioncall functionName="sqrtf"/>
     <functioncall functionName="svpwm_calc"/>
   </FileInfo>
 </analyzerinfo>

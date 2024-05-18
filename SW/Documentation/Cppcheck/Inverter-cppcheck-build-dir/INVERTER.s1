@@ -1,1 +1,2 @@
-initialize_inverter call:[HAL_TIM_Base_Start_IT] noreturn:[HAL_TIM_Base_Start_IT]
+initialize_inverter call:[HAL_TIM_Base_Start_IT,check_motor_parameters,init_control_loops] noreturn:[init_control_loops]
+init_control_loops call:[logf,pi_init,powf,sqrtf]

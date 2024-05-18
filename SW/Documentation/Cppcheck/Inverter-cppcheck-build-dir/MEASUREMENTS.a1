@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="11314847576089795033">
+<analyzerinfo hash="17461819578005211036">
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="28" column="0"/>
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="29" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\MEASUREMENTS.c" line="20" column="0"/>
@@ -10,32 +10,38 @@
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PergaMOD.h" line="23" column="0"/>
         </error>
         <error id="constParameter" severity="style" msg="Parameter &apos;ADC_raw&apos; can be declared as const array" verbose="Parameter &apos;ADC_raw&apos; can be declared as const array" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\MEASUREMENTS.c" line="59" column="48" info="Parameter &apos;ADC_raw&apos; can be declared as const array"/>
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\MEASUREMENTS.c" line="62" column="48" info="Parameter &apos;ADC_raw&apos; can be declared as const array"/>
             <symbol>ADC_raw</symbol>
         </error>
+        <error id="unreadVariable" severity="style" msg="Variable &apos;vDC&apos; is assigned a value that is never used." verbose="Variable &apos;vDC&apos; is assigned a value that is never used." cwe="563" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\MEASUREMENTS.c" line="68" column="15"/>
+            <symbol>vDC</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:107:6" call-funcname="get_idiq" call-argnr="6" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="82" col="13" call-argexpr="&amp;idMeas" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:107:6" call-funcname="get_idiq" call-argnr="6" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="82" col="13" call-argexpr="idMeas" call-argvaluetype="4" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:107:6" call-funcname="get_idiq" call-argnr="7" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="82" col="13" call-argexpr="&amp;iqMeas" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:107:6" call-funcname="get_idiq" call-argnr="7" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="82" col="13" call-argexpr="iqMeas" call-argvaluetype="4" call-argvalue="0"/>  </FileInfo>
   <FileInfo check="Bounds checking">
     <array-index>
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:77:9" my-argnr="1" my-argname="ADC_raw" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="62" col="27" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:82:9" my-argnr="1" my-argname="ADC_raw" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="65" col="27" value="0"/>
     </array-index>
   </FileInfo>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:77:9" my-argnr="1" my-argname="ADC_raw" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="62" col="27" value="0"/>
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:77:9" my-argnr="2" my-argname="analog" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="68" col="5" value="0"/>
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:101:6" my-argnr="5" my-argname="id_meas" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="114" col="6" value="0"/>
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:101:6" my-argnr="6" my-argname="iq_meas" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="115" col="6" value="0"/>
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:114:7" my-argnr="2" my-argname="tempLUT" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="130" col="12" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:82:9" my-argnr="1" my-argname="ADC_raw" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="65" col="27" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:82:9" my-argnr="2" my-argname="analog" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="71" col="5" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:82:9" my-argnr="3" my-argname="feedback" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="85" col="5" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:107:6" my-argnr="6" my-argname="idMeas" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="130" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:107:6" my-argnr="7" my-argname="iqMeas" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="131" col="6" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:120:7" my-argnr="2" my-argname="tempLUT" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="146" col="12" value="0"/>
   </FileInfo>
   <FileInfo check="Uninitialized variables">
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:77:9" my-argnr="1" my-argname="ADC_raw" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="62" col="27" value="0"/>
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:114:7" my-argnr="2" my-argname="tempLUT" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="130" col="12" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:82:9" my-argnr="1" my-argname="ADC_raw" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="65" col="27" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/MEASUREMENTS.h:120:7" my-argnr="2" my-argname="tempLUT" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/MEASUREMENTS.c" line="146" col="12" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="get_currents_voltage" lineNumber="59"/>
-    <functiondecl functionName="get_linear" lineNumber="83"/>
-    <functiondecl functionName="get_idiq" lineNumber="106"/>
-    <functiondecl functionName="get_temperature" lineNumber="129"/>
-    <functioncall functionName="cos"/>
+    <functiondecl functionName="get_currents_voltage" lineNumber="62"/>
+    <functiondecl functionName="get_linear" lineNumber="98"/>
+    <functiondecl functionName="get_idiq" lineNumber="122"/>
+    <functiondecl functionName="get_temperature" lineNumber="145"/>
+    <functioncall functionName="get_idiq"/>
     <functioncall functionName="get_linear"/>
-    <functioncall functionName="sin"/>
   </FileInfo>
 </analyzerinfo>

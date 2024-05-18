@@ -3186,10 +3186,23 @@ El desarrollo del \textit{firmware} para el inversor tiene como objetivo princip
 \textbf{Análisis estático: Cppcheck}
 
 Cppcheck es una herramienta de análisis estático de código C/C++ que se utiliza para detectar errores y problemas potenciales en el código. Realiza un escaneo exhaustivo del código para identificar posibles problemas como fugas de memoria, uso incorrecto de punteros, variables no inicializadas y otros errores comunes de programación. La integración de Cppcheck en el flujo de trabajo de desarrollo ayuda a identificar y corregir estos problemas en una etapa temprana del proceso de desarrollo, lo que contribuye a mejorar la calidad y fiabilidad del \textit{firmware}.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cppCheck}
+	\caption{Cppcheck detectando un potencial problema.}
+\end{figure}
 
 \textbf{Documentación del código: Doxygen}
 
 Doxygen es una herramienta de generación de documentación que se utiliza para crear documentación automática a partir del mismo código. Permite documentar el código usando comentarios especiales incrustados en el código mismo, utilizando una sintaxis sencilla y clara. Doxygen procesa estos comentarios para generar documentación en varios formatos, incluyendo HTML (como una pequeña web), y PDF (para una documentación más tradicional). Esta documentación incluye detalles sobre la estructura del código, la descripción de las funciones y variables, así como relaciones y dependencias entre diferentes partes del código. La generación automática de documentación con Doxygen facilita la comprensión y el mantenimiento del código, y proporciona una referencia útil para futuros desarrolladores.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/doxyhtml}
+	\caption{Documentación del código en formato HTML generada automáticamente por Doxygen.}
+	\label{fig:doxyhtml}
+\end{figure}
+
 
 \subsubsection{Plataforma de desarrollo}
 Para el desarrollo del \textit{firmware}, se emplea STM32CubeIDE de STMicroelectronics, una plataforma de desarrollo integrado (IDE) basada en Eclipse y diseñada específicamente para trabajar con microcontroladores STM32. CubeIDE proporciona un entorno de desarrollo completo que incluye un editor de código, un compilador, un depurador y otras herramientas útiles para la programación de microcontroladores STM32. Además, integra STM32CubeMX, que facilita la configuración de periféricos y la generación de código inicial mediante una interfaz gráfica intuitiva.

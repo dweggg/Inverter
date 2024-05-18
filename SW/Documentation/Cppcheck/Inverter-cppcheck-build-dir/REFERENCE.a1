@@ -1,23 +1,33 @@
 <?xml version="1.0"?>
-<analyzerinfo hash="10815271219564925368">
+<analyzerinfo hash="15120948248037803682">
         <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PergaMOD.h" line="23" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
-            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="24" column="0"/>
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MOTOR.h" line="22" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="25" column="0"/>
         </error>
         <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;math.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
             <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\REFERENCE.c" line="21" column="0"/>
         </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/PergaMOD.h:275:6" call-funcname="rampa_calc" call-argnr="1" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/REFERENCE.c" line="47" col="12" call-argexpr="&amp;torqueRamp" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/REFERENCE.h:95:7" call-funcname="limit_torque_to_prevent_overspeed" call-argnr="4" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/REFERENCE.c" line="44" col="18" my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/REFERENCE.h:50:7" my-argnr="6"/>
+  </FileInfo>
   <FileInfo check="Null pointer">
-    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/REFERENCE.h:60:7" my-argnr="4" my-argname="loop_speed" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/REFERENCE.c" line="80" col="2" value="0"/>
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/REFERENCE.h:95:7" my-argnr="4" my-argname="loopSpeed" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/REFERENCE.c" line="122" col="2" value="0"/>
   </FileInfo>
   <FileInfo check="CheckUnusedFunctions">
-    <functiondecl functionName="set_torque_direction" lineNumber="33"/>
-    <functiondecl functionName="saturate_symmetric" lineNumber="58"/>
-    <functiondecl functionName="limit_torque_to_prevent_overspeed" lineNumber="78"/>
+    <functiondecl functionName="handle_torqueRef" lineNumber="38"/>
+    <functiondecl functionName="initialize_torque_ramp" lineNumber="59"/>
+    <functiondecl functionName="set_torque_direction" lineNumber="74"/>
+    <functiondecl functionName="saturate_symmetric" lineNumber="99"/>
+    <functiondecl functionName="limit_torque_to_prevent_overspeed" lineNumber="119"/>
     <functioncall functionName="fabsf"/>
+    <functioncall functionName="limit_torque_to_prevent_overspeed"/>
     <functioncall functionName="pi_calc"/>
-    <functioncall functionName="pi_init"/>
+    <functioncall functionName="rampa_calc"/>
+    <functioncall functionName="saturate_symmetric"/>
   </FileInfo>
 </analyzerinfo>

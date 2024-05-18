@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="1110857216412307089">
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\main.h" line="30" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PCB_IO.h" line="24" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MEASUREMENTS.h" line="29" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PergaMOD.h" line="23" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\MOTOR.h" line="22" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;stdint.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\REFERENCE.h" line="25" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stm32f7xx_hal.h&quot; not found." verbose="Include file: &quot;stm32f7xx_hal.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\PWM.h" line="23" column="0"/>
+        </error>
+        <error id="missingInclude" severity="information" msg="Include file: &quot;stdint.h&quot; not found." verbose="Include file: &quot;stdint.h&quot; not found.">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Inc\CAN1db.h" line="36" column="0"/>
+        </error>
+        <error id="constVariable" severity="style" msg="Variable &apos;temperatures&apos; can be declared as const array" verbose="Variable &apos;temperatures&apos; can be declared as const array" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CAN_e-Tech.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\CAN_e-Tech.c" line="46" column="15" info="Variable &apos;temperatures&apos; can be declared as const array"/>
+            <symbol>temperatures</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;dbc_msg&apos; can be declared as pointer to const" verbose="Parameter &apos;dbc_msg&apos; can be declared as pointer to const" cwe="398" file0="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CAN_e-Tech.c">
+            <location file="C:\Users\dwegg\Desktop\Inverter\SW\Inverter\Core\Src\CAN_e-Tech.c" line="61" column="54" info="Parameter &apos;dbc_msg&apos; can be declared as pointer to const"/>
+            <symbol>dbc_msg</symbol>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN_e-Tech.h:52:6" call-funcname="send_CAN_message" call-argnr="2" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CAN_e-Tech.c" line="47" col="25" call-argexpr="&amp;DBC_CAN1DB_MSG_AP_InvRear_Temperatures" call-argvaluetype="7" call-argvalue="0"/><function-call call-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN_e-Tech.h:52:6" call-funcname="send_CAN_message" call-argnr="3" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CAN_e-Tech.c" line="47" col="25" call-argexpr="temperatures" call-argvaluetype="7" call-argvalue="16"/>  </FileInfo>
+  <FileInfo check="Uninitialized variables">
+    <unsafe-usage my-id="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN_e-Tech.h:52:6" my-argnr="2" my-argname="dbc_msg" file="C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/CAN_e-Tech.c" line="63" col="37" value="0"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="handle_CAN" lineNumber="34"/>
+    <functiondecl functionName="send_CAN_message" lineNumber="61"/>
+    <functioncall functionName="CAN_RTR_DATA"/>
+    <functioncall functionName="CAN_RX_FIFO0"/>
+    <functioncall functionName="HAL_CAN_AddTxMessage"/>
+    <functioncall functionName="HAL_CAN_GetRxMessage"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="dbc_valueType_signed"/>
+    <functioncall functionName="dbc_valueType_unsigned"/>
+    <functioncall functionName="send_CAN_message"/>
+  </FileInfo>
+</analyzerinfo>
