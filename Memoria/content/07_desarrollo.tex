@@ -1725,7 +1725,7 @@ Como se puede observar, se ha optado por consignar un escalón de par del 90\% d
 Destaca la claridad con la que esta simulación permite apreciar las trayectorias de control en la figura (c), que muestra la consigna y el valor medido de $i_d$ e $i_q$.
 
 
-
+\newpage
 \section{\textit{Hardware}}
 
 \subsection{Requisitos y pre-concepto}
@@ -2265,8 +2265,6 @@ El siguiente gráfico presenta una comparación detallada de las pérdidas de co
 	\centering
 	\begin{tabular}{|c|p{3.5cm}|p{3.5cm}|p{3.5cm}|}
 		\hline
-		\multicolumn{4}{|c|}{\textbf{Pérdidas en Semiconductores}} \\
-		\hline
 		\textbf{Fabricante} & \textbf{Pérdidas de conducción (W)} & \textbf{Pérdidas de conmutación (W)} & \textbf{Pérdidas totales (W)} \\
 		\hline
 		Leapers & 155 & 1095 & 1250 \\
@@ -2304,11 +2302,11 @@ A continuación se presenta una comparación entre las opciones comunes para ref
 Para el sistema de refrigeración de los semiconductores se ha optado por un sistema de refrigeración líquida consistente en una \textit{coldplate}, una bomba y un radiador. Esta elección se basa en varios factores clave que se detallan a continuación:
 
 \begin{itemize}
-	\item \textbf{Mantenimiento de Temperatura:} A diferencia de una refrigeración por aire, una \textit{coldplate} permite mantener una interfaz de temperatura fija para los semiconductores. Esto es crucial para garantizar un funcionamiento estable y confiable de los componentes, especialmente en aplicaciones de alta potencia como la que se está diseñando.
+	\item \textbf{Mantenimiento de la temperatura:} A diferencia de una refrigeración por aire, una \textit{coldplate} permite mantener una interfaz de temperatura fija para los semiconductores. Esto es crucial para garantizar un funcionamiento estable y confiable de los componentes, especialmente en aplicaciones de alta potencia como la que se está diseñando.
 	
-	\item \textbf{Experiencia Previa:} El equipo tiene experiencia previa en sistemas de refrigeración líquida, lo que facilita la implementación y mantenimiento de este tipo de sistemas.
+	\item \textbf{Experiencia previa:} El equipo tiene experiencia previa en sistemas de refrigeración líquida, lo que facilita la implementación y mantenimiento de este tipo de sistemas.
 	
-	\item \textbf{Eficiencia Compacta:} La refrigeración líquida, especialmente con agua, permite un diseño más compacto en comparación con otras opciones. Un disipador haría mucho más voluminoso el convertidor, mientras que la refrigeración líquida permite una distribución más libre de los componentes por el monoplaza. Por ejemplo, se puede situar el radiador en una zona donde tenga mucho contacto con el aire exterior, y conectarlo mediante mangueras a la bomba y a la \textit{coldplate}.
+	\item \textbf{Flexibilidad del \textit{packaging}:} La refrigeración líquida, especialmente con agua, permite un diseño más compacto en comparación con otras opciones. Un disipador haría mucho más voluminoso el convertidor, mientras que la refrigeración líquida permite una distribución más libre de los componentes por el monoplaza. Por ejemplo, se puede situar el radiador en una zona donde tenga mucho contacto con el aire exterior, y conectarlo mediante mangueras a la bomba y a la \textit{coldplate}.
 	
 	
 \end{itemize}
@@ -2320,7 +2318,7 @@ Se ha elegido agua como el fluido de refrigeración por varias razones:
 \begin{itemize}
 	\item \textbf{Norma T7.2.2:} Según la norma T7.2.2 \cite{FSG}, los sistemas de refrigeración solo pueden utilizar agua, aire u aceite como refrigerante. Con lo cual, no es posible utilizar líquidos refrigerantes específicos.
 	
-	\item \textbf{Propiedades Térmicas:} El agua tiene una alta capacidad calorífica y conductividad térmica, lo que la hace eficaz para disipar el calor generado por los semiconductores. El aceite tiene peor conductividad térmica, y su amplio rango de temperaturas no es útil para la aplicación.
+	\item \textbf{Propiedades térmicas:} El agua tiene una alta capacidad calorífica y conductividad térmica, lo que la hace eficaz para disipar el calor generado por los semiconductores. El aceite tiene peor conductividad térmica, y su amplio rango de temperaturas no es útil para la aplicación.
 	
 	\item \textbf{Seguridad:} El agua es un fluido seguro y no inflamable, lo que reduce los riesgos de seguridad en caso de fugas o accidentes. Además, es un fluido fácilmente disponible y de bajo costo en comparación con otros refrigerantes. Si se usa agua destilada, el riesgo de corrosión es más bajo, y los sistemas electrónicos no serán tan susceptibles a posibles fugas.
 	
@@ -2415,7 +2413,7 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 	I_{supply, min} = f_{\text{conm}}\cdot Q_G = 40 \text{ kHz} \cdot 520 \text{ nC} = 20.8 \text{ mA}
 	\]
 	
-	Con esta corriente se puede calcular la potencia necesaria de la fuente:
+	se puede calcular la potencia necesaria de la fuente.
 	
 	\begin{equation}
 		P_{supply, min} = \Delta V_{GS}\cdot I_{supply, min} 	
@@ -2575,7 +2573,7 @@ Estos conectores permiten una flexibilidad de integración muy grande, puesto qu
 La unidad de procesamiento del convertidor es una de las piezas clave, pues será la encargada de gestionar lecturas analógicas, alarmas, comunicaciones, y por supuesto, ejecutar el control. Por ello su selección debe ser meticulosamente estudiada. En primer lugar se seleccionan unos requisitos:
 
 \begin{itemize}
-	\item \textbf{Velocidad de reloj mayor a 200 MHz}: En base a la experiencia del autor con otros inversores, el cálculo de todos los PIs, filtros, transformadas y trayectorias de control puede tomar hasta 2500 ciclos de reloj. Por lo tanto, dado que hay que ejecutar dos lazos de control para los dos motores, $\frac{2000 \cdot 2}{200 \text{ MHz}} = 25 \mu\text{ s} \leftrightarrow 40 \text{ kHz}$, 200 MHz es la mínima velocidad para poder conmutar a 40 kHz.
+	\item \textbf{Velocidad de reloj mayor a 200 MHz}: En base a la experiencia del autor con otros inversores, el cálculo de todos los PIs, filtros, transformadas y trayectorias de control puede tomar hasta 2500 ciclos de reloj. Por lo tanto, dado que hay que ejecutar dos lazos de control para los dos motores, $\frac{2000 \cdot 2}{200 \text{ MHz}} = 25 \text{ }\mu\text{s} \leftrightarrow 40 \text{ kHz}$, 200 MHz es la mínima velocidad para poder conmutar a 40 kHz.
 	\item \textbf{Unidad de punto flotante}: Para evitar trabajar en coma fija, lo cual puede causar muchos problemas de integración y añade una capa de complejidad innecesaria, se pone como requisito que el MCU soporte el uso de \textit{float} de forma nativa.
 	\item \textbf{Dos \textit{timers} avanzados}: Son necesarios dos \textit{timers}, uno para cada inversor, con características como la salida PWM bipolar con varios canales, configuración sencilla del tiempo muerto, etc.
 	\item \textbf{Lecturas analógicas}: Se necesitan al menos un par de ADCs de 12 bits suficientemente rápidos con múltiples canales cada uno, con tal de poder capturar las corrientes de fase y las tensiones de bus adecuadamente.
@@ -2832,7 +2830,7 @@ La potencia disipada en cada resistencia de descarga se calcula como:
 \end{equation}
 
 \[
-P(R_{\text{dis}}, \text{máx}) = \frac{V_{\text{máx}}^2}{R_{\text{dis}}} = \frac{600\text{ V}^2}{470 \text{ k}\Omega} = 0.766 \text{ W} < 1 \text{ W}
+P(R_{\text{dis}}, \text{máx}) = \frac{V_{\text{máx}}^2}{R_{\text{dis}}} = \frac{(600\text{ V})^2}{470 \text{ k}\Omega} = 0.766 \text{ W} < 1 \text{ W}
 \]
 
 \textbf{Medida de corriente}
@@ -3166,7 +3164,7 @@ Después de diseñar todos los circuitos, emplazado todos los componentes y enru
 	\caption{Ensamblaje de la placa de control con las dos placas de potencia.}
 \end{figure}
 
-
+\newpage
 \section{\textit{Firmware}}
 
 \subsection{Desarrollo del \textit{firmware}}
@@ -3207,13 +3205,22 @@ Doxygen es una herramienta de generación de documentación que se utiliza para 
 \subsubsection{Plataforma de desarrollo}
 Para el desarrollo del \textit{firmware}, se emplea STM32CubeIDE de STMicroelectronics, una plataforma de desarrollo integrado (IDE) basada en Eclipse y diseñada específicamente para trabajar con microcontroladores STM32. CubeIDE proporciona un entorno de desarrollo completo que incluye un editor de código, un compilador, un depurador y otras herramientas útiles para la programación de microcontroladores STM32. Además, integra STM32CubeMX, que facilita la configuración de periféricos y la generación de código inicial mediante una interfaz gráfica intuitiva.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cubeide_code}
+	\caption{STM32CubeIDE en la perspectiva de código.}
+\end{figure}
+
+
 El uso de CubeIDE simplifica el proceso de desarrollo de \textit{firmware} para microcontroladores STM32, ofreciendo características como autocompletado de código, resaltado de sintaxis, depuración paso a paso y visualización de variables en tiempo real.
+
+
 
 \subsubsection{Lenguaje de programación}
 
 El lenguaje de programación seleccionado para desarrollar el \textit{firmware} de este proyecto es C. Esta elección se basa en varias consideraciones relacionadas con la naturaleza de la aplicación embebida en un microcontrolador STM32.
 
-En primer lugar, el lenguaje C es ampliamente compatible y soportado por la mayoría de los microcontroladores, incluidos los STM32. La vasta cantidad de recursos, bibliotecas y herramientas disponibles para el desarrollo en C facilita la implementación de funcionalidades complejas y la integración con el hardware específico del microcontrolador.
+En primer lugar, el lenguaje C es ampliamente compatible y soportado por la mayoría de los microcontroladores, incluidos los STM32. La vasta cantidad de recursos, bibliotecas y herramientas disponibles para el desarrollo en C facilita la implementación de funcionalidades complejas y la integración con el \textit{hardware} específico del microcontrolador.
 
 Además, el lenguaje C es altamente eficiente en términos de uso de recursos de memoria y velocidad de ejecución, lo cual es crucial en aplicaciones embebidas donde se deben cumplir estrictas restricciones de recursos.
 
@@ -3267,8 +3274,8 @@ Para mantener un código claro y coherente, se seguirán las siguientes convenci
 	\end{itemize}
 	\textbf{Ejemplo:}
 	\begin{itemize}
-		\item \texttt{MEASUREMENTS.c/.h} -> Desarrollado
-		\item \texttt{adc.c/.h} -> Generado automáticamente
+		\item \texttt{MEASUREMENTS.c/.h} $\rightarrow$ Desarrollado
+		\item \texttt{adc.c/.h} $\rightarrow$ Generado automáticamente
 	\end{itemize}
 	\item \textbf{Convenciones para Abreviaturas:}
 	\begin{itemize}
