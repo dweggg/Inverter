@@ -1,8 +1,10 @@
 \chapter{Metodología}
 
-La metodología seguida para el desarrollo de este proyecto se ha estructurado en base al modelo en V, que es un enfoque de gestión de proyectos ampliamente utilizado en el campo de la ingeniería. Este modelo se caracteriza por definir un proceso que va desde las etapas tempranas de especificación y conceptualización hasta las fases finales de pruebas y validación. A continuación, se detallan las distintas etapas de la metodología, su duración aproximada y cómo se superponen y relacionan entre sí.
+En este capítulo se detalla la metodología seguida para el desarrollo del proyecto. Se incluyen las etapas del modelo en V y se describe el uso de un repositorio de GitHub para gestionar el proyecto.
 
-\vspace{20pt}
+
+\section{Modelo en V}
+El modelo en V es un enfoque de gestión de proyectos ampliamente utilizado en ingeniería. Este modelo guía el proceso desde las etapas tempranas de especificación hasta las fases finales de pruebas y validación. Las etapas del modelo en V son las siguientes:
 
 \begin{enumerate}
 \item \textbf{Definición de requisitos}
@@ -17,28 +19,56 @@ La siguiente etapa es el diseño del modelo en continuo y el desarrollo del cont
 
 Al acabar la etapa anterior, se trabaja en la discretización del modelo y la simulación de la conmutación de los interruptores de potencia en PLECS. Aquí se tiene en cuenta la naturaleza discreta de la electrónica de potencia y se simula el comportamiento del inversor en el dominio del tiempo discreto. Además, esta simulación incorpora también el modelo térmico, con lo que se pueden extraer las pérdidas del inversor. Esta fase dura alrededor de 2 semanas, pues gran parte de lo ya modelado se puede reutilizar para el nuevo modelo discreto.
 
-\item \textbf{Diseño del \textit{Hardware}}
+\item \textbf{Diseño del \textit{hardware}}
 
-Con el diseño del control y la simulación de la conmutación como base, se procede al diseño del \textit{hardware}. Esto implica seleccionar componentes, diseñar esquemáticos y PCB y diseñar los tests de validación de \textit{hardware}. La duración estimada para esta etapa es de 3 a 4 meses, y se solapa parcialmente con el diseño del \textit{software}.
+Con el diseño del control y la simulación de la conmutación como base, se procede al diseño del \textit{hardware}. Esto implica seleccionar componentes, diseñar esquemáticos y PCB y diseñar los tests de validación de \textit{hardware}. La duración estimada para esta etapa es de 3 a 4 meses, y se solapa parcialmente con el diseño del \textit{firmware}.
 
-\item \textbf{Diseño del \textit{Software}}
+\item \textbf{Diseño del \textit{firmware}}
 
 Simultáneamente con el diseño del \textit{hardware}, se trabaja en el desarrollo del \textit{software}. Esto incluye programar el microcontrolador que controlará el inversor y la implementación del algoritmo de control. Se utilizará una placa de evaluación antes de tener la placa de control propia con tal de acelerar el desarrollo. La duración estimada para esta fase es de aproximadamente 4 meses.
 
-\item \textbf{Validación del \textit{Hardware}}
+\item \textbf{Validación del \textit{hardware}}
 
 Una vez que el \textit{hardware} se está construyendo, se procede a la validación con los tests diseñados anteriormente. La duración estimada para esta etapa es de aproximadamente 3 a 4 meses y se superpone con el desarrollo del \textit{software}.
 
-\item \textbf{Validación del \textit{Software}}
+\item \textbf{Validación del \textit{firmware}}
 
-La validación del \textit{software} se realiza una vez que el \textit{hardware} está validado. Aquí, se llevan a cabo pruebas exhaustivas para garantizar que el inversor funcione según lo previsto y que los modelos de simulación se ajusten a la realidad. La duración estimada para esta etapa es de 2 meses.
+La validación del \textit{firmware} se realiza una vez que el \textit{hardware} está validado. Aquí, se llevan a cabo pruebas exhaustivas para garantizar que el inversor funcione según lo previsto y que los modelos de simulación se ajusten a la realidad. La duración estimada para esta etapa es de 2 meses.
 
 \item \textbf{Documentación y preparación para la implementación}
 
-La fase final del proyecto se enfoca en la documentación, la creación de manuales de uso y mantenimiento y la preparación para su implementación en los monoplazas del equipo de Formula Student. Además, se construirá una maqueta del empaquetado del inversor, donde se busque una buena integración mecánica con el monoplaza. La duración estimada para esta etapa es de aproximadamente 1 mes. 
+La fase final del proyecto se enfoca en la documentación, la creación de manuales de uso y mantenimiento y la preparación para su implementación en los monoplazas de e-Tech Racing. La duración estimada para esta etapa es de aproximadamente 1 mes. 
 
 \end{enumerate}
 
-Es importante destacar que las etapas de diseño del hardware y del software pueden superponerse y solaparse con otras etapas, lo que permite un desarrollo más ágil y eficiente del proyecto. La superposición de estas etapas es esencial para cumplir con los plazos y garantizar que el proyecto avance de manera constante. El trabajo se ha realizado en el marco de un año académico, de septiembre a junio, aunque la definición de requisitos y los primeros pasos del modelo continuo se realizaron antes del comienzo del trabajo.
+Es importante destacar que las etapas de diseño del \textit{hardware} y del \textit{firmware} pueden superponerse y solaparse con otras etapas, lo que permite un desarrollo más ágil y eficiente del proyecto. La superposición de estas etapas es esencial para cumplir con los plazos y garantizar que el proyecto avance de manera constante. El trabajo se ha realizado en el marco de un año académico, de septiembre a junio, aunque la definición de requisitos y los primeros pasos del modelo continuo se realizaron antes del comienzo del trabajo.
+
+\section{Gestión del Proyecto con Git}
+\subsection{Introducción a Git}
+Git es un sistema de control de versiones distribuido, diseñado para rastrear cambios en archivos y coordinar el trabajo entre múltiples personas en proyectos de desarrollo de \textit{software}. Utiliza un enfoque descentralizado, lo que significa que cada desarrollador tiene una copia completa del historial de cambios del proyecto. Git facilita el trabajo colaborativo, la gestión de cambios y la integración continua en proyectos de cualquier tamaño.
+
+\subsection{Funcionamiento de Git}
+Git trabaja mediante la creación de instantáneas (\textit{commits}) de los archivos en un repositorio. Cada vez que se realiza un cambio significativo en los archivos del proyecto, se crea un nuevo \textit{commit} que contiene una instantánea del estado de esos archivos en ese momento. Estos \textit{commits} se organizan en ramas (\textit{branches}), que permiten trabajar en paralelo en diferentes características o correcciones de errores sin afectar al código principal. Las ramas se fusionan (\textit{merge}) cuando el trabajo está completo y se quiere incorporar al código principal. En este proyecto solo se ha usado una rama puesto que solo hay un desarrollador.
+
+\subsection{Por qué utilizar un sistema de control de versiones}
+El uso de un sistema de control de versiones como Git proporciona numerosos beneficios para el desarrollo de proyectos de ingeniería, incluyendo:
+
+\begin{itemize}
+	\item \textbf{Historial de cambios:} Permite mantener un registro detallado de todas las modificaciones realizadas en el código y otros archivos del proyecto, lo que facilita la identificación de errores y el seguimiento del progreso del desarrollo.
+	\item \textbf{Colaboración:} Facilita el trabajo en equipo al permitir que múltiples desarrolladores trabajen simultáneamente en diferentes aspectos del proyecto, sin temor a sobrescribir los cambios de los demás.
+	\item \textbf{Seguridad:} Proporciona una copia de seguridad del código en caso de pérdida o corrupción de los archivos locales.
+	\item \textbf{Experimentación:} Permite probar nuevas ideas y características en ramas separadas sin afectar al código principal.
+\end{itemize}
+
+\subsection{Uso de Git en el proyecto}
+En el desarrollo de este proyecto, Git se utilizó para gestionar no solo el \textit{firmware}, sino también las simulaciones, la documentación y el diseño del \textit{hardware}. Cada aspecto del proyecto se organizó en una carpeta del mismo repositorio de Git, lo que permitió un seguimiento preciso de los cambios.
+
+\subsection{GitHub}
+GitHub es una plataforma de alojamiento de código que utiliza Git como sistema de control de versiones. Ofrece funciones adicionales como seguimiento de problemas, gestión de proyectos y revisión de código. En este proyecto, se utilizó GitHub para alojar el repositorio de Git.
+
+\subsection{Automatización de la documentación y \textit{releases}}
+Una de las ventajas de utilizar Git y GitHub es la capacidad de automatizar tareas como la generación de documentación y la creación de \textit{releases}. En este proyecto, se generó automáticamente una \textit{wiki} utilizando los contenidos de esta memoria, lo cual facilitó la creación y el mantenimiento de documentación actualizada.
+
+Además, se realizaron \textit{releases} de \textit{hardware} mediante el etiquetado de versiones en Git. Cada vez que se solicitaban PCBs, se creaba una nueva \textit{release} que incluía los archivos de fabricación de las PCBs, una lista detallada de los cambios realizados desde la última versión, y se iban actualizando las \textit{release notes} con los errores que se iban encontrando.
 
 

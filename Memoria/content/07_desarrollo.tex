@@ -10,7 +10,7 @@ Los motores síncronos de imanes permanentes (PMSM) están hechos de hierro, cob
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/MVIMG_20220302_114007.jpg}
-	\caption{Motor síncrono de imanes permanentes desmontado, de manera que se pueden ver los empilados del rotor y el estator, los imanes y el bobinado.}
+	\caption{Motor síncrono de imanes permanentes desmontado, de manera que se pueden ver los empilados del rotor y el estátor, los imanes y el bobinado.}
 \end{figure}
 
 
@@ -546,7 +546,7 @@ Se puede ver que la transformada es simplemente una rotación a lo largo de uno 
 
 En esta sección, se convertirá el modelo trifásico inicial del PMSM en un modelo continuo en el marco de referencia $d - q$. Antes, se omitieron las ecuaciones del modelo trifásico, pero utilizando estas y aplicando las transformadas de Clarke y Park, se obtienen las ecuaciones que se derivarán en esta sección.
 
-El enfoque general es utilizar la transformada de amplitud constante, lo que lleva a estas ecuaciones para las tensiones y corrientes del estator 
+El enfoque general es utilizar la transformada de amplitud constante, lo que lleva a estas ecuaciones para las tensiones y corrientes del estátor 
 
 \begin{equation}
 	\begin{bmatrix}
@@ -671,7 +671,7 @@ donde
     \item \(i_d\) y \(i_q\) son las corrientes en los ejes d y q respectivamente.
     \item \(L_d\) y \(L_q\) son las inductancias en los ejes d y q respectivamente.
     \item \(\omega_e\) es la velocidad eléctrica, que es la velocidad mecánica multiplicada por el número de pares de polos del PMSM (\(\omega_e = \omega_m \cdot pp = \omega_m \cdot \frac{n}{2}\)).
-    \item \(\lambda_m\) es el flujo magnético generado por los imanes permanentes. La magnitud del flujo magnético generado afecta directamente la magnitud de la tensión inducida en las fases del estator. Este parámetro se puede transformar fácilmente en \(k_E\), que es la relación entre la velocidad mecánica del rotor y la tensión generada en las 3 fases.
+    \item \(\lambda_m\) es el flujo magnético generado por los imanes permanentes. La magnitud del flujo magnético generado afecta directamente la magnitud de la tensión inducida en las fases del estátor. Este parámetro se puede transformar fácilmente en \(k_E\), que es la relación entre la velocidad mecánica del rotor y la tensión generada en las 3 fases.
 \end{itemize}
 
 
@@ -701,7 +701,7 @@ T_{em} = \frac{3}{2}\frac{n}{2}\cdot((L_d - L_q) i_q i_d + \lambda_m i_q) \text{
 \label{eq_tq_dq} 
 \end{equation}
 
-También se puede establecer un límite de voltaje, porque el PMSM generalmente se controla con un inversor de fuente de voltaje (VSI) modulado por SVPWM y la tensión de salida $V_s$ está limitada a \(\frac{V_{DC}}{\sqrt{3}}\). En esta ecuación, no se considera la caída de tensión por la resistencia del estator \(R_s\), ya que haría que las ecuaciones fueran muy densas y el efecto de esta caída de voltaje es despreciable a altas velocidades. Por ello,
+También se puede establecer un límite de voltaje, porque el PMSM generalmente se controla con un inversor de fuente de voltaje (VSI) modulado por SVPWM y la tensión de salida $V_s$ está limitada a \(\frac{V_{DC}}{\sqrt{3}}\). En esta ecuación, no se considera la caída de tensión por la resistencia del estátor \(R_s\), ya que haría que las ecuaciones fueran muy densas y el efecto de esta caída de voltaje es despreciable a altas velocidades. Por ello,
 
 \begin{equation}
 V_s = \sqrt{v_d^2 + v_q^2} \leq \frac{V_{DC}}{\sqrt{3}}
@@ -740,12 +740,12 @@ Las primeras curvas estudiadas son las de par-velocidad y potencia-velocidad. De
         height=8cm,
         x label style={at={(axis description cs:-0.1,0.5)},anchor=north},
         y label style={at={(axis description cs:0.5,-0.1)},rotate=90,anchor=south},
-        xlabel={$\omega_m$},
-        ylabel={$T_{em}$},
+        xlabel={$\omega_\text{m}$},
+        ylabel={$T_{\text{em}}$},
         ytick={-26, 26},
         xtick={-2000,-1000,1000,2000},
-        yticklabels={$-T_{em,max}$, $T_{em,max}$},
-        xticklabels={$-\omega_{m,max}$, $-\omega_{m,nom}$, $\omega_{m,nom}$,$\omega_{m,max}$},
+        yticklabels={$-T_{\text{em,máx}}$, $T_{\text{em,máx}}$},
+        xticklabels={$-\omega_{\text{m,máx}}$, $-\omega_{\text{m,nom}}$, $\omega_{\text{m,nom}}$,$\omega_{\text{m,máx}}$},
         grid=none,  
         ymin=-40,
         ymax=40,
@@ -773,21 +773,21 @@ Las primeras curvas estudiadas son las de par-velocidad y potencia-velocidad. De
 \end{figure}
 
 
-La curva es una función por tramos, que toma \(T_{em,max}\), \(\omega_{m,max}\) y \(P_{m,max}\) como sus parámetros.
+La curva es una función por tramos, que toma \(T_{\text{em,máx}}\), \(\omega_{\text{m,máx}}\) y \(P_{\text{m,máx}}\) como sus parámetros.
 
-La curva es constante desde \(\omega_m = 0\) hasta \(\omega_m = \omega_{m,nom} = \frac{P_{m,max}}{T_{em,max}}\), donde su valor es \(T_{em,max}\). Esta porción es lo que se conoce como la zona de par constante. Desde \(\omega_m = \omega_{m,nom}\) hasta \(\omega_m = \omega_{m,max}\), \(T_{em}\) se define como \(T_{em} = \frac{P_{m,max}}{\omega_m}\), lo que da una curva de tipo \(y=\frac{a}{x}\). Esto se llama la zona de potencia constante.
+La curva es constante desde \(\omega_\text{m} = 0\) hasta \(\omega_\text{m} = \omega_{\text{m,nom}} = \frac{P_{\text{m,máx}}}{T_{\text{em,máx}}}\), donde su valor es \(T_{\text{em,máx}}\). Esta porción es lo que se conoce como la zona de par constante. Desde \(\omega_\text{m} = \omega_{\text{m,nom}}\) hasta \(\omega_\text{m} = \omega_{\text{m,máx}}\), \(T_{\text{em}}\) se define como \(T_{\text{em}} = \frac{P_{\text{m,máx}}}{\omega_\text{m}}\), lo que da una curva de tipo \(y=\frac{a}{x}\). Esto se llama la zona de potencia constante.
 
 \[
-T_{em} = 
+T_{\text{em}} = 
 \begin{cases}
-  T_{em,max} & -\omega_{m,nom} < \omega_m < \omega_{m,nom} \\
-  -T_{em,max} & -\omega_{m,nom} < \omega_m < \omega_{m,nom} \\
-  \frac{P_{m,max}}{\omega_m} & \omega_{m,nom}\leq \omega_m\leq \omega_{m,max} (T_{em,max}),-\omega_{m,max}\leq \omega_m\leq -\omega_{m,nom} (-T_{em,max})\\
-  -\frac{P_{m,max}}{\omega_m} & \omega_{m,nom}\leq \omega_m\leq \omega_{m,max} (-T_{em,max}),-\omega_{m,max}\leq \omega_m\leq -\omega_{m,nom} (T_{em,max})
+  T_{\text{em,máx}} & -\omega_{\text{m,nom}} < \omega_\text{m} < \omega_{\text{m,nom}} \\
+  -T_{\text{em,máx}} & -\omega_{\text{m,nom}} < \omega_\text{m} < \omega_{\text{m,nom}} \\
+  \frac{P_{\text{m,máx}}}{\omega_\text{m}} & \omega_{\text{m,nom}}\leq \omega_\text{m}\leq \omega_{\text{m,máx}} (T_{\text{em,máx}}),-\omega_{\text{m,máx}}\leq \omega_\text{m}\leq -\omega_{\text{m,nom}} (-T_{\text{em,máx}})\\
+  -\frac{P_{\text{m,máx}}}{\omega_\text{m}} & \omega_{\text{m,nom}}\leq \omega_\text{m}\leq \omega_{\text{m,máx}} (-T_{\text{em,máx}}),-\omega_{\text{m,máx}}\leq \omega_\text{m}\leq -\omega_{\text{m,nom}} (T_{\text{em,máx}})
 \end{cases}
 \]
 
-Además \(P_m\) aumentará linealmente con \(\omega_m\) hasta \(\omega_{m,nom}\), ya que \(P_m = T_{em} \cdot \omega_m\). Desde \(\omega_{m,nom}\) hasta \(\omega_{m,max}\), \(P_m\) es una recta de valor \(P_{m,max}\).
+Además \(P_\text{m}\) aumentará linealmente con \(\omega_\text{m}\) hasta \(\omega_{\text{m,nom}}\), ya que \(P_\text{m} = T_{\text{em}} \cdot \omega_\text{m}\). Desde \(\omega_{\text{m,nom}}\) hasta \(\omega_{\text{m,máx}}\), \(P_\text{m}\) es una recta de valor \(P_{\text{m,máx}}\).
 
 \begin{figure}[H]
 	\centering
@@ -799,12 +799,12 @@ Además \(P_m\) aumentará linealmente con \(\omega_m\) hasta \(\omega_{m,nom}\)
 			height=8cm,
 			x label style={at={(axis description cs:-0.1,0.5)},anchor=north},
 			y label style={at={(axis description cs:0.5,-0.1)},rotate=90,anchor=south},
-			xlabel={$\omega_m$},
-			ylabel={$P_{em}$},
+			xlabel={$\omega_\text{m}$},
+			ylabel={$P_{\text{m}}$},
 			ytick={-26, 26},
 			xtick={-2000,-1000,1000,2000},
-			yticklabels={$-P_{m,max}$, $P_{m,max}$},
-			xticklabels={$-\omega_{m,max}$, $-\omega_{m,nom}$, $\omega_{m,nom}$,$\omega_{m,max}$},
+			yticklabels={$-P_{\text{m,máx}}$, $P_{\text{m,máx}}$},
+			xticklabels={$-\omega_{\text{m,máx}}$, $-\omega_{\text{m,nom}}$, $\omega_{\text{m,nom}}$,$\omega_{\text{m,máx}}$},
 			grid=none,  
 			ymin=-40,
 			ymax=40,
@@ -847,7 +847,7 @@ Y el ángulo:
 \gamma = \arctan\left(\frac{i_q}{i_d}\right)
 \end{equation}
 
-Se puede observar que la corriente máxima puede expresarse más fácilmente como $I_s$, independientemente del ángulo $\gamma$ (no debe confundirse con el $\gamma$ de la transformada de Clarke). Por lo tanto, se puede representar $I_s = I_{s,\text{max}} , \forall \gamma \in [0,2\pi]$
+Se puede observar que la corriente máxima puede expresarse más fácilmente como $I_s$, independientemente del ángulo $\gamma$ (no debe confundirse con el $\gamma$ de la transformada de Clarke). Por lo tanto, se puede representar $I_s = I_{s,\text{máx}} , \forall \gamma \in [0,2\pi]$
 
 \begin{figure}[H]
 	\centering
@@ -873,7 +873,7 @@ Se puede observar que la corriente máxima puede expresarse más fácilmente com
 			
 			% Límite de corriente Is_max
 			\draw [red, thick] (0.4,0.693) arc (60:300:0.8);
-			\draw [red, -stealth](0,0) -- (-0.56568542494,0.56568542494) node at (-1,0.56568542494) {$I_s = I_{s,\text{max}}$};
+			\draw [red, -stealth](0,0) -- (-0.56568542494,0.56568542494) node at (-1,0.56568542494) {$I_s = I_{s,\text{máx}}$};
 			\draw [white, thick] (axis cs: 0.2, 0) arc (0:180:0.2);
 			\draw [red, thick] (axis cs: 0.2, 0) arc (0:135:0.2);
 			\node [red] at (axis cs: 0.25, 0.28) {$\gamma = \frac{3\pi}{4}$};
@@ -888,7 +888,7 @@ Se puede observar que la corriente máxima puede expresarse más fácilmente com
 
 
 
-Resulta ser un círculo, lo cual tiene sentido, ya que es un vector de magnitud constante. Además, el vector de corriente $I_s\angle \gamma = I_{s,\text{max}} \angle{\frac{3\pi}{4}}$ se representa para facilitar su comprensión.
+Resulta ser un círculo, lo cual tiene sentido, ya que es un vector de magnitud constante. Además, el vector de corriente $I_s\angle \gamma = I_{s,\text{máx}} \angle{\frac{3\pi}{4}}$ se representa para facilitar su comprensión.
 
 
 \subsubsection{TH (Hipérbolas de par)}
@@ -987,13 +987,13 @@ Tomando la ecuación de voltaje \ref{eq_vle_dq}, se puede demostrar que es una e
 
     \end{axis}
     \end{tikzpicture}
-  \caption{Elipses de límite de voltaje con $I_{sc} > I_{s,max}$.}
+  \caption{Elipses de límite de voltaje con $I_{sc} > I_{s,\text{máx}}$.}
 \end{figure}
 
 
 Al representar estas elipses, normalmente se anotan los valores de velocidad en RPM mecánicas, ya que es mucho más fácil hacerse una idea de los límites del motor junto al resto de curvas (\(\omega_m [\text{RPM}] = \frac{1}{pp} \omega_e \text{ }\left[\frac{\text{rad}}{s}\right] \cdot \frac{60}{2\pi}\)).
 
-Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses está ubicado exactamente en \((i_d, i_q)=(-I_{sc}, 0) = \left(-\frac{\lambda_m}{L_d},0\right)\). En el gráfico anterior, el foco está fuera del círculo de límite de corriente, pero no siempre es el caso. Si \(I_{sc} \leq I_{s,max}\), teóricamente el motor puede alcanzar una velocidad infinita, ya que las elipses colapsan en un solo punto. 
+Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses está ubicado exactamente en \((i_d, i_q)=(-I_{sc}, 0) = \left(-\frac{\lambda_m}{L_d},0\right)\). En el gráfico anterior, el foco está fuera del círculo de límite de corriente, pero no siempre es el caso. Si \(I_{\text{sc}} \leq I_{s,\text{máx}}\), teóricamente el motor puede alcanzar una velocidad infinita, ya que las elipses colapsan en un solo punto. 
 
 
 
@@ -1028,7 +1028,7 @@ Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses
 
     \end{axis}
     \end{tikzpicture}
-  \caption{Elipses de límite de voltaje con $I_{sc} \leq I_{s,max}$.}
+  \caption{Elipses de límite de voltaje con $I_{sc} \leq I_{s,\text{máx}}$.}
 \end{figure}
 
 
@@ -1117,9 +1117,9 @@ El resultado de graficar esta expresión sobre el plano \((i_d, i_q)\) deja a la
 \end{figure}
 
 
-\subsubsection{CTC (Curva de Torque Constante)}
+\subsubsection{CTC (Curva de Par Constante)}
 
-Como se puede observar, las hipérbolas de torque definen una trayectoria la cual permite mantener un par constante. Recordando las elipses de tensión, para un mismo valor de $V_s$ las elipses se contraen hacia el foco a medida que la velocidad aumenta. Esto significa que siguiendo la curva de torque constante de derecha a izquierda se puede mantener el par aumentando la velocidad. Usando la expresión \ref{eq_tq_pol} se puede obtener directamente 
+Como se puede observar, las hipérbolas de par definen una trayectoria la cual permite mantener un par constante. Recordando las elipses de tensión, para un mismo valor de $V_s$ las elipses se contraen hacia el foco a medida que la velocidad aumenta. Esto significa que siguiendo la curva de par constante de derecha a izquierda se puede mantener el par aumentando la velocidad. Usando la expresión \ref{eq_tq_pol} se puede obtener directamente 
 \begin{equation*}
 	T_{em} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot I_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot I_s\cdot \sin(\gamma))
 \end{equation*}
@@ -1181,7 +1181,7 @@ Donde $\delta$ es el ángulo del vector de tensión $V_s$, de la misma manera qu
 T_{em} = \frac{3}{2}pp\cdot((L_d - L_q) i_q i_d + \lambda_m i_q) \text{.}
 \end{equation*}
 
-Se aíslan $i_d$ e $i_q$ de \ref{eq_vd} y \ref{eq_vq}, negligiendo la caída de tensión resistiva del estator, 
+Se aíslan $i_d$ e $i_q$ de \ref{eq_vd} y \ref{eq_vq}, negligiendo la caída de tensión resistiva del estátor, 
 \begin{equation}
 i_d = \frac{v_q}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d}; i_q = -\frac{v_d}{\omega_e \cdot L_q}
 \end{equation}
@@ -1214,7 +1214,7 @@ I_{s,MTPV} = \frac{\lambda_m}{L_d} ( \frac{-(2 - \frac{L_q}{L_d}) \cos(\gamma)}{
 
 
 
-Cabe destacar que esta trayectoria solamente se puede ejecutar si se cumple la condición de que $I_{sc} \leq I_{s,max}$.
+Cabe destacar que esta trayectoria solamente se puede ejecutar si se cumple la condición de que $I_{sc} \leq I_{s,\text{máx}}$.
 
 
 \begin{figure}[H]
@@ -1257,7 +1257,7 @@ Cabe destacar que esta trayectoria solamente se puede ejecutar si se cumple la c
 Por último, se presentan los límites eléctricos del motor y del convertidor. El límite de corriente consiste simplemente en saturar la magnitud de la corriente de manera que no sobrepase el valor máximo establecido. La trayectoria sería sencillamente seguir el círculo de corriente anteriormente presentado (CLC), con la siguiente expresión:
 
 \[
-I_{s,\text{CLC}} = I_{s,\text{max}} , \forall \gamma \in [0,2\pi]
+I_{s,\text{CLC}} = I_{s,\text{máx}} , \forall \gamma \in [0,2\pi]
 \]
 
 
@@ -1354,7 +1354,7 @@ Sustituyendo por los términos conocidos y simplificando,
 Además, el inversor es capaz de sintetizar un máximo de $V_s = \frac{V_{DC}}{\sqrt{3}}$ utilizando SVPWM, por lo tanto, se debe saturar la consigna de tensión a ese valor. Adicionalmente, por seguridad, se multiplica por un factor de seguridad $K_{FW} \in (0,1)$.
 
 \begin{equation}
-	V_{s,\text{max}} \leq \frac{V_{DC}}{\sqrt{3}}\cdot K_{FW}
+	V_{s,\text{máx}} \leq \frac{V_{DC}}{\sqrt{3}}\cdot K_{FW}
 \end{equation}
 
 \subsection{Diseño y simulación del control}
@@ -1451,10 +1451,10 @@ Para las simulaciones se han implementado los siguientes parámetros de motor, y
 	$L_d$ & 188.7 & $\mu$H & Inductancia en el eje d \\
 	$L_q$ & 283.1 & $\mu$H & Inductancia en el eje q \\
 	$R_s$ & 150 & m$\Omega$ & Resistencia de fase del estator \\
-	$\omega_{\text{m,max}}$ & 20000 & RPM & Velocidad angular máxima del motor \\
-	$T_{\text{em,max}}$ & 26 & N·m & Par máximo del motor \\
+	$\omega_{\text{m,máx}}$ & 20000 & RPM & Velocidad angular máxima del motor \\
+	$T_{\text{em,máx}}$ & 26 & N·m & Par máximo del motor \\
 	$V_{\text{bat}}$ & 540 & V & Voltaje de la batería DC \\
-	$I_{\text{s,max}}$ & 108 & A & Corriente máxima en los ejes d-q \\
+	$I_{\text{s,máx}}$ & 108 & A & Corriente máxima en los ejes d-q \\
 	\hline
 \end{tabular}
 
@@ -1522,7 +1522,7 @@ Para comprobar el funcionamiento y la estabilidad del control, se realiza una si
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/wm_Tem_plot.png}
-        \caption{Velocidad mecánica ($\omega_{m}$) vs Torque electromagnético ($T_{em}$).}
+        \caption{Velocidad mecánica ($\omega_{m}$) vs Par electromagnético ($T_{em}$).}
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/wm_plot.png}
@@ -1737,7 +1737,7 @@ La norma \textit{\textbf{EV2.2.1}} dicta que la potencia en la salida de la bate
 
 La prueba donde se espera utilizar esta potencia máxima es la \textit{Acceleration}, donde se podría requerir de los 80 kW durante un máximo de 10 segundos, siendo esta una aproximación muy conservadora. Por lo tanto, la potencia máxima queda como
 
-\(P_{\text{out, max, tot}} = 80 \text{ kW} (2 \cdot 40 \text{ kW}) \text{(10 s máx.)}\)
+\(P_{\text{out, máx, tot}} = 80 \text{ kW} (2 \cdot 40 \text{ kW}) \text{(10 s máx.)}\)
 
 
 Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a máximos de 80 kW:
@@ -1776,7 +1776,7 @@ A continuación se muestra el cálculo del valor RMS de la potencia requerida, b
 
 Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo, en concreto un \(\frac{23.2 \text{kW}}{80 \text{kW}} = 29\%\). Por lo tanto, se dimensiona el inversor considerando una potencia media de 35 kW, es decir, 17.5 kW por motor. Esta cifra proporciona un margen de seguridad de 11.8 kW respecto a la simulación, lo que permite algo de juego en el reparto de potencia entre ambos motores. De esta manera, la potencia constante queda como:
 
-\(P_{out, const, tot} = 35 \text{kW} (2 \cdot 17.5 \text{kW})\)
+\(P_{\text{out, const, tot}} = 35 \text{kW} (2 \cdot 17.5 \text{kW})\)
 
 Cabe destacar que se está calculando la potencia aparente del convertidor, ya que la potencia activa y la reactiva se reparten en función del factor de potencia, que no es constante y depende de la planta mecánica y la situación del motor. La potencia activa es la que usa el motor para acelerar o frenar, y la reactiva la consume o suministra el bus de condensadores. Otra nota es que la simulación es poco realista puesto que utiliza picos de potencia máxima, cuando en realidad, en la prueba de la \textit{Endurance} se suele limitar el valor de estos picos con tal de extender la autonomía.
 
@@ -1784,47 +1784,47 @@ Además, existe la norma \textit{\textbf{EV4.1.1} The maximum permitted voltage 
 
 Ya que la estrategia de modulación es SVPWM y la tensión máxima es de 600 V, la tensión alterna fase-neutro de un motor se expresa como:
 
-\(V_{ph-n, pico, 600 V,DC} = \frac{V_{DC}}{\sqrt{3}} = \frac{600 \text{V}}{\sqrt{3}} = 346 \text{ V}\)
+\(V_{\text{ph-n, pico, 600 V,DC}} = \frac{V_{\text{DC}}}{\sqrt{3}} = \frac{600 \text{ V}}{\sqrt{3}} = 346 \text{ V}\)
 
-\(V_{ph-n, RMS, 600 V,DC} = \frac{V_{ph-n, pico}}{\sqrt{2}} = \frac{346 \text{V}}{\sqrt{2}} = 245 \text{ V}\)
+\(V_{\text{ph-n, RMS, 600 V,DC}} = \frac{V_{\text{ph-n, pico}}}{\sqrt{2}} = \frac{346 \text{ V}}{\sqrt{2}} = 245 \text{ V}\)
 
 Sin embargo, la batería no estará constantemente a 600 V,DC, por lo que para poder entregar la potencia de 40 kW pico por inversor en un rango de tensiones adecuado se debería calcular la corriente con una tensión menor. Se escoge 450 V,DC como tensión mínima a partir de la cual se puede entregar la potencia máxima de 40 kW por inversor. Entonces, la corriente de fase de un motor queda:
 
-\(V_{ph-n, pico, 450 V,DC} = \frac{V_{DC}}{\sqrt{3}} = \frac{450 \text{V}}{\sqrt{3}} = 261 \text{ V}\)
+\(V_{\text{ph-n, pico, 450 V,DC}} = \frac{V_{\text{DC}}}{\sqrt{3}} = \frac{450 \text{ V}}{\sqrt{3}} = 261 \text{ V}\)
 
-\(V_{ph-n, RMS, 450 V,DC} = \frac{V_{ph-n, pico}}{\sqrt{2}} = \frac{261 \text{V}}{\sqrt{2}} = 184 \text{ V}\)
+\(V_{\text{ph-n, RMS, 450 V,DC}} = \frac{V_{\text{ph-n, pico}}}{\sqrt{2}} = \frac{261 \text{ V}}{\sqrt{2}} = 184 \text{ V}\)
 
 
-\(I_{ph, RMS, max} = \frac{P_{out, max}}{3\cdot V_{ph-n, RMS, 450 V,DC}} = \frac{40 \text{ kW}}{3\cdot184 \text{ V}} = 72 \text{ A}\)
+\(I_{\text{ph, RMS, máx}} = \frac{P_{\text{out, máx}}}{3\cdot V_{\text{ph-n, RMS, 450 V,DC}}} = \frac{40 \text{ kW}}{3\cdot184 \text{ V}} = 72 \text{ A}\)
 
-\(I_{ph, pico, max} = I_{ph, RMS, max}\cdot\sqrt{2} = 72\text{A} \cdot\sqrt{2} = 102 \text{ A}\)
+\(I_{\text{ph, pico, máx}} = I_{\text{ph, RMS, máx}}\cdot\sqrt{2} = 72\text{A} \cdot\sqrt{2} = 102 \text{ A}\)
 
 De la misma manera que con la potencia, se puede obtener el valor de corriente constante a una tensión menor, ya que el resultado será más restrictivo:
 
-\(I_{ph, RMS, const} = \frac{P_{out, const}}{3\cdot V_{ph-n, RMS, 450 V,DC}} = \frac{17.5 \text{ kW}}{3\cdot184 \text{ V}} = 32 \text{ A}\)
+\(I_{\text{ph, RMS, const}} = \frac{P_{\text{out, const}}}{3\cdot V_{\text{ph-n, RMS, 450 V,DC}}} = \frac{17.5 \text{ kW}}{3\cdot184 \text{ V}} = 32 \text{ A}\)
 
-\(I_{ph, pico, const} = I_{ph, RMS, const}\cdot\sqrt{2} = 32 \text{A}\cdot\sqrt{2} = 45 \text{ A}\)
+\(I_{\text{ph, pico, const}} = I_{\text{ph, RMS, const}}\cdot\sqrt{2} = 32 \text{ A}\cdot\sqrt{2} = 45 \text{ A}\)
 
 
 Iterando el cálculo de potencia, se puede ver que si se dimensiona a estas corrientes, las potencias máxima y constante calculadas a 600 V,DC son considerablemente mayores:
 
-\(P_{out, max} = 3\cdot V_{ph-n, RMS, 600 V,DC}\cdot I_{ph, RMS, max} = 3\cdot245 \text{ V}\cdot 72 \text{ A} = 53 \text{ kW}\)
+\(P_{\text{out, máx}} = 3\cdot V_{\text{ph-n, RMS, 600 V,DC}}\cdot I_{\text{ph, RMS, máx}} = 3\cdot245 \text{ V}\cdot 72 \text{ A} = 53 \text{ kW}\)
 
-\(P_{out, const} = 3\cdot V_{ph-n, RMS, 600 V,DC}\cdot I_{ph, RMS, const} = 3\cdot245 \text{ V}\cdot 32 \text{ A} = 23.5 \text{ kW}\)
+\(P_{\text{out, const}} = 3\cdot V_{\text{ph-n, RMS, 600 V,DC}}\cdot I_{\text{ph, RMS, const}} = 3\cdot245 \text{ V}\cdot 32 \text{ A} = 23.5 \text{ kW}\)
 
-\(P_{out, max, tot} = 2\cdot P_{out, max} = 2\cdot53 \text{ kW} = 106 \text{ kW}\)
+\(P_{\text{out, máx, tot}} = 2\cdot P_{\text{out, máx}} = 2\cdot53 \text{ kW} = 106 \text{ kW}\)
 
-\(P_{out, const, tot} = 2\cdot P_{out, const} = 2\cdot23.5 \text{ kW} = 47 \text{ kW}\)
+\(P_{\text{out, const, tot}} = 2\cdot P_{\text{out, const}} = 2\cdot23.5 \text{ kW} = 47 \text{ kW}\)
 
 
 \subsubsection{Velocidad}
 Puesto que se va a controlar un motor con posibilidad de operación en debilitamiento de campo, es necesario conocer la frecuencia eléctrica máxima que se va a tener que poder sintetizar. Este requisito va a dimensionar la velocidad de los lazos de control, y en última instancia, la frecuencia de conmutación. El motor en estudio tiene 3 pares de polos y una velocidad angular mecánica máxima de 20000 RPM. Por lo tanto, la frecuencia eléctrica máxima que se debe sintetizar se calcula de la siguiente manera:
 
-\(f_{e,max} = \frac{pp\cdot \omega_{\text{m, max, RPM}}}{60} = \frac{3\cdot 20000}{60} = 1000 \text{ Hz}\)
+\(f_{\text{e,máx}} = \frac{pp\cdot \omega_{\text{m, máx, RPM}}}{60} = \frac{3\cdot 20000}{60} = 1000 \text{ Hz}\)
 
 Dejando un poco de margen para la compatibilidad con motores de más polos, se escoge una frecuencia máxima de 1200 Hz. Para sintetizar esta frecuencia eléctrica con poca distorsión armónica, se debe escoger una frecuencia de conmutación al menos 30 veces superior, para tener como mínimo 30 pulsos por periodo a estas frecuencias.
 
-\(f_{\text{conm}} > 30\cdot f_{e,max} = 30\cdot1200 \text{ Hz} = 36 \text{ kHz} \rightarrow f_{\text{conm}} = 40 \text{ kHz}\)
+\(f_{\text{conm}} > 30\cdot f_{\text{e,máx}} = 30\cdot1200 \text{ Hz} = 36 \text{ kHz} \rightarrow f_{\text{conm}} = 40 \text{ kHz}\)
 
 Se debe considerar también que con una frecuencia de conmutación mayor, las pérdidas de conmutación serán más grandes, pero el tamaño del bus de condensadores será más pequeño. Además, el lazo de control debe ir a 40 kHz, con lo que el microcontrolador que lo implemente debe ser capaz de ejecutar todos los cálculos en menos de $\frac{1}{40 \text{kHz}} = 25 \mu\text{s}$.
 
@@ -2047,7 +2047,7 @@ Las ventajas inherentes del SiC, como su rendimiento superior o su resistencia a
 
 En el diseño del inversor de tracción, se optó por módulos \textit{half-bridge} debido a su idoneidad para el rango de potencias y tensiones del convertidor. Dos modelos de semiconductores se consideraron para su integración: el DFS05HF12EYR1 de Leapers Semiconductor y el CAB016M12FM3 de Wolfspeed.
 
-Ambos modelos cumplen estrictamente con los requisitos de la aplicación, con un voltaje de ruptura (\(V_{\text{DS,breakdown}}\)) de 1200V y una corriente máxima (\(I_{\text{DS,max}}\)) que excede los 80 A,RMS. La elección de dos modelos distintos se basa en la intención de realizar pruebas comparativas para verificar las diferencias entre ambos.
+Ambos modelos cumplen estrictamente con los requisitos de la aplicación, con un voltaje de ruptura (\(V_{\text{DS,breakdown}}\)) de 1200V y una corriente máxima (\(I_{\text{DS,máx}}\)) que excede los 80 A,RMS. La elección de dos modelos distintos se basa en la intención de realizar pruebas comparativas para verificar las diferencias entre ambos.
 
 El DFS05HF12EYR1 ofrece especificaciones muy buenas en su datasheet, aunque Leapers Semiconductors no lleva muchos años en la industria y no han logrado crear la confianza que otras empresas han conseguido con su experiencia. Por otro lado, el CAB016M12FM3, de la reconocida marca Wolfspeed (antiguamente CREE), aporta la confiabilidad asociada a una empresa con amplia experiencia en el campo.
 
