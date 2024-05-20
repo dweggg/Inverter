@@ -21,7 +21,11 @@ Include dependency graph for INVERTER.\+c\+:
 void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_a49edd9d49792ef1249641249d3259f87}{initialize\+\_\+inverter}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}enable\+\_\+port, uint16\+\_\+t enable\+\_\+pin, TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hadc, \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor)
 \begin{DoxyCompactList}\small\item\em Initialize the inverter. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_aaf9fa53152a16edd10ae319f35703a1a}{init\+\_\+control\+\_\+loops}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor)
-\begin{DoxyCompactList}\small\item\em Initializes the PI controllers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initializes the PI controllers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_afe3274e9c519c01c68e15f0e72d38cd6}{enable\+\_\+control\+\_\+loops}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv)
+\begin{DoxyCompactList}\small\item\em Enables the PI controllers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_a0bd71b47a4afa4ce63d04a6b0dbccd9e}{disable\+\_\+control\+\_\+loops}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv)
+\begin{DoxyCompactList}\small\item\em Disables the PI controllers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -42,6 +46,36 @@ Copyright (c) 2024 David Redondo (@dweggg on Git\+Hub). All rights reserved.
 This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{_i_n_v_e_r_t_e_r_8c_a0bd71b47a4afa4ce63d04a6b0dbccd9e}\label{_i_n_v_e_r_t_e_r_8c_a0bd71b47a4afa4ce63d04a6b0dbccd9e} 
+\index{INVERTER.c@{INVERTER.c}!disable\_control\_loops@{disable\_control\_loops}}
+\index{disable\_control\_loops@{disable\_control\_loops}!INVERTER.c@{INVERTER.c}}
+\doxysubsubsection{\texorpdfstring{disable\_control\_loops()}{disable\_control\_loops()}}
+{\footnotesize\ttfamily void disable\+\_\+control\+\_\+loops (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv }\end{DoxyParamCaption})}
+
+
+
+Disables the PI controllers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inv} & Pointer to the inverter structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_i_n_v_e_r_t_e_r_8c_afe3274e9c519c01c68e15f0e72d38cd6}\label{_i_n_v_e_r_t_e_r_8c_afe3274e9c519c01c68e15f0e72d38cd6} 
+\index{INVERTER.c@{INVERTER.c}!enable\_control\_loops@{enable\_control\_loops}}
+\index{enable\_control\_loops@{enable\_control\_loops}!INVERTER.c@{INVERTER.c}}
+\doxysubsubsection{\texorpdfstring{enable\_control\_loops()}{enable\_control\_loops()}}
+{\footnotesize\ttfamily void enable\+\_\+control\+\_\+loops (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv }\end{DoxyParamCaption})}
+
+
+
+Enables the PI controllers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inv} & Pointer to the inverter structure. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_i_n_v_e_r_t_e_r_8c_aaf9fa53152a16edd10ae319f35703a1a}\label{_i_n_v_e_r_t_e_r_8c_aaf9fa53152a16edd10ae319f35703a1a} 
 \index{INVERTER.c@{INVERTER.c}!init\_control\_loops@{init\_control\_loops}}
 \index{init\_control\_loops@{init\_control\_loops}!INVERTER.c@{INVERTER.c}}
@@ -59,14 +93,6 @@ Initializes the id-\/iq current control PI controllers.
 {\em inv} & Pointer to the inverter structure. \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=249pt]{_i_n_v_e_r_t_e_r_8c_aaf9fa53152a16edd10ae319f35703a1a_cgraph}
-\end{center}
-\end{figure}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -109,7 +135,7 @@ Here is the call graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{_i_n_v_e_r_t_e_r_8c_a49edd9d49792ef1249641249d3259f87_cgraph}
+\includegraphics[width=330pt]{_i_n_v_e_r_t_e_r_8c_a49edd9d49792ef1249641249d3259f87_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:

@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -54,23 +50,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('main_8h.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,6 +71,11 @@ $(function(){initNavTree('main_8h.html',''); initResizable(); });
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
@@ -1517,42 +1501,20 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8h_a1730ffe1e560465665eb47d9264826f9_icgraph.png" border="0" usemap="#amain_8h_a1730ffe1e560465665eb47d9264826f9_icgraph" alt=""/></div>
 <map name="amain_8h_a1730ffe1e560465665eb47d9264826f9_icgraph" id="amain_8h_a1730ffe1e560465665eb47d9264826f9_icgraph">
-<area shape="rect" title="This function is executed in case of error occurrence." alt="" coords="293,157,393,184"/>
-<area shape="rect" href="can_8c.html#a030a62a0956ab83394eb8354a0e97902" title=" " alt="" coords="122,5,226,32"/>
-<area shape="poly" title=" " alt="" coords="325,145,292,95,269,69,243,46,223,35,226,30,247,42,273,65,296,91,330,142"/>
-<area shape="rect" href="tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14" title=" " alt="" coords="125,56,223,83"/>
-<area shape="poly" title=" " alt="" coords="314,149,282,122,244,97,219,86,221,81,246,92,285,118,318,145"/>
-<area shape="rect" href="tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202" title=" " alt="" coords="125,107,223,133"/>
-<area shape="poly" title=" " alt="" coords="281,155,220,136,222,131,282,150"/>
-<area shape="rect" href="tim_8c.html#aef1e0b132b1af1c923cc420a57180c67" title=" " alt="" coords="125,157,223,184"/>
-<area shape="poly" title=" " alt="" coords="278,173,223,173,223,168,278,168"/>
-<area shape="rect" href="tim_8c.html#abbf5454212cb039fb90d523b2473af91" title=" " alt="" coords="125,208,223,235"/>
-<area shape="poly" title=" " alt="" coords="282,191,222,210,220,205,281,186"/>
-<area shape="rect" href="tim_8c.html#a265aef7a46164094e791259bf59d9cb4" title=" " alt="" coords="125,259,223,285"/>
-<area shape="poly" title=" " alt="" coords="318,197,285,223,246,249,221,261,219,256,244,244,282,219,314,193"/>
-<area shape="rect" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="System Clock Configuration." alt="" coords="103,309,245,336"/>
-<area shape="poly" title=" " alt="" coords="330,199,296,250,273,276,247,300,226,311,223,306,243,295,269,273,292,247,325,196"/>
-<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,157,55,184"/>
-<area shape="poly" title=" " alt="" coords="110,42,104,46,80,73,61,104,38,158,33,156,56,101,76,70,101,42,106,38"/>
-<area shape="poly" title=" " alt="" coords="112,92,104,97,69,128,43,159,39,155,65,124,101,93,110,87"/>
-<area shape="poly" title=" " alt="" coords="120,142,56,165,54,160,119,137"/>
-<area shape="poly" title=" " alt="" coords="109,173,55,173,55,168,109,168"/>
-<area shape="poly" title=" " alt="" coords="119,205,54,182,56,177,120,200"/>
-<area shape="poly" title=" " alt="" coords="110,254,101,249,65,217,39,186,43,183,69,214,104,245,112,249"/>
-<area shape="poly" title=" " alt="" coords="106,304,101,299,76,272,56,240,33,186,38,184,61,238,80,269,104,295,110,299"/>
+<area shape="rect" title="This function is executed in case of error occurrence." alt="" coords="293,5,393,32"/>
+<area shape="rect" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920" title="System Clock Configuration." alt="" coords="103,5,245,32"/>
+<area shape="poly" title=" " alt="" coords="278,21,246,21,246,16,278,16"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,55,32"/>
+<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
 
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li><li class="navelem"><a class="el" href="main_8h.html">main.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

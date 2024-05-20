@@ -1,7 +1,0 @@
-var searchData=
-[
-  ['rampa_5fcalc_0',['rampa_calc',['../group___signal___processing___functions.html#gabebbba661473bad366efd03e7d641d6c',1,'rampa_calc(volatile rampa_struct *v) __attribute__((section(&quot;.ccmram&quot;))):&#160;PergaMOD.c'],['../group___signal___processing___functions.html#gabebbba661473bad366efd03e7d641d6c',1,'rampa_calc(volatile rampa_struct *v):&#160;PergaMOD.c']]],
-  ['rampa_5fdual_5fcalc_1',['rampa_dual_calc',['../group___signal___processing___functions.html#ga3aa851ac283ae23f368d723a902adf5e',1,'rampa_dual_calc(volatile rampa_dual_struct *v) __attribute__((section(&quot;.ccmram&quot;))):&#160;PergaMOD.c'],['../group___signal___processing___functions.html#ga3aa851ac283ae23f368d723a902adf5e',1,'rampa_dual_calc(volatile rampa_dual_struct *v):&#160;PergaMOD.c']]],
-  ['rms_5fcalc_2',['RMS_calc',['../group___signal___processing___functions.html#ga67e0dc51870eb4743e252c8e6512070a',1,'RMS_calc(volatile RMS_struct *v) __attribute__((section(&quot;.ccmram&quot;))):&#160;PergaMOD.c'],['../group___signal___processing___functions.html#ga67e0dc51870eb4743e252c8e6512070a',1,'RMS_calc(volatile RMS_struct *v):&#160;PergaMOD.c']]],
-  ['rot_5fcalc_3',['rot_calc',['../group___transformation___functions.html#ga3a266e18ea629facbeb442439d066ce4',1,'rot_calc(volatile rot_struct *v) __attribute__((section(&quot;.ccmram&quot;))):&#160;PergaMOD.c'],['../group___transformation___functions.html#ga3a266e18ea629facbeb442439d066ce4',1,'rot_calc(volatile rot_struct *v):&#160;PergaMOD.c']]]
-];

@@ -8,25 +8,27 @@
 \DoxyCodeLine{00019\ \textcolor{preprocessor}{\#ifndef\ MOTOR\_H}}
 \DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ MOTOR\_H}}
 \DoxyCodeLine{00021\ }
-\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a07bad721e5354a6283503711b07129c9}{Ld}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a96dd5df1bbd8d28342602132e5ed628b}{Lq}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_aca721ce2e7dddc5d3091a18d715dd409}{Rs}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_acac4a565486bad0b88b62387d8a5d891}{lambda}};\ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_motor_parameters_abd6dcb9676af8cd7922ef29864fa03eb}{pp}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a7c20f6b5c2b8c830d450944735b761b3}{J}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a83fc1af92e29717b4513d121b0c72c7d}{b}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_acab6d1fef9697fa064ebe6f10cdd7ec9}{torque\_max}};\ \ \ \ \ \ \ }
-\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_aa2f8997a0bbb31cf092fcd15801add2a}{dTorque\_max}};\ \ \ \ \ \ \ }
-\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a316b2fe5d1f410ba6f5f343830110d2d}{speed\_max\_RPM}};\ \ \ \ }
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_ae0b158be47384d1cbf1bfb3d1ec9f88b}{iPhase\_pk\_max}};\ \ \ \ }
-\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a7c16493fa7f251e317f1a8f30355e04c}{vDC\_max}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00039\ \}\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ \mbox{\hyperlink{_m_o_t_o_r_8h_ac1fb3830c20e54f8980f91b3b8b19a48}{motor\_left}};}
-\DoxyCodeLine{00042\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ \mbox{\hyperlink{_m_o_t_o_r_8h_aa30800b62b841d0b0b3cac4df1841afa}{motor\_right}};}
-\DoxyCodeLine{00043\ }
-\DoxyCodeLine{00049\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1}{check\_motor\_parameters}}(\mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ *motor,\ \textcolor{keywordtype}{float}\ Ts);}
-\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MOTOR\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a07bad721e5354a6283503711b07129c9}{Ld}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a96dd5df1bbd8d28342602132e5ed628b}{Lq}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_aca721ce2e7dddc5d3091a18d715dd409}{Rs}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_acac4a565486bad0b88b62387d8a5d891}{lambda}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_motor_parameters_ae576d3710ccfeaba09b1572231889381}{pp}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a7c20f6b5c2b8c830d450944735b761b3}{J}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a83fc1af92e29717b4513d121b0c72c7d}{b}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a930c61ca01d801c9bcb08d94c598417b}{torqueMax}};\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a5c9696209f668d008b3820d6506a55c1}{dTorqueMax}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_abd0d87888e0c00f0042a65cb7c33c26e}{speedMax\_RPM}};\ \ \ \ \ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_a8a4f4574b814374b46399cf778070f26}{iMax}};\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_motor_parameters_aa270d11ee753ddb99f629f6fa4e33c60}{vDCMax}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \}\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ \mbox{\hyperlink{_m_o_t_o_r_8h_ac1fb3830c20e54f8980f91b3b8b19a48}{motor\_left}};}
+\DoxyCodeLine{00044\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ \mbox{\hyperlink{_m_o_t_o_r_8h_aa30800b62b841d0b0b3cac4df1841afa}{motor\_right}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1}{check\_motor\_parameters}}(\mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ *motor,\ \textcolor{keywordtype}{float}\ Ts);}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MOTOR\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['offset_0',['offset',['../structsignal.html#a348ad5fc33f6dc5e6e30f74951997898',1,'signal']]],
-  ['out_1',['out',['../structrampa__struct.html#af5a45dbcaa926b186e6f71d08212acc3',1,'rampa_struct::out'],['../structrampa__dual__struct.html#af5a45dbcaa926b186e6f71d08212acc3',1,'rampa_dual_struct::out'],['../structavg__struct__10.html#af5a45dbcaa926b186e6f71d08212acc3',1,'avg_struct_10::out'],['../structfiltre_l_p__struct.html#af5a45dbcaa926b186e6f71d08212acc3',1,'filtreLP_struct::out']]],
-  ['out_2',['Out',['../structstep__struct.html#a6bd2ff5633bb0078948e3f9f54bd083c',1,'step_struct']]],
-  ['out_5frms_3',['Out_RMS',['../struct_r_m_s__struct.html#ad33e1262448a6f7f78f9dc8b88375d54',1,'RMS_struct']]]
+  ['sintheta_5fe_0',['sinTheta_e',['../struct_encoder.html#a47f02ef71d97b242663572202fe64f90',1,'Encoder']]],
+  ['speedloop_1',['speedLoop',['../struct_inverter_struct.html#aaed477d964d824fd09123df9e8b16b50',1,'InverterStruct']]],
+  ['speedmax_5frpm_2',['speedMax_RPM',['../struct_motor_parameters.html#abd0d87888e0c00f0042a65cb7c33c26e',1,'MotorParameters']]],
+  ['speedmeas_3',['speedMeas',['../struct_feedback.html#a2583c34bc441014f4cd3b6f6cc4f5ac4',1,'Feedback']]],
+  ['start_5fticks_4',['start_ticks',['../_t_a_s_k_s__20us_8c.html#adb83807c9a27c654eb3a3b18e37971c2',1,'TASKS_20us.c']]],
+  ['state_5',['state',['../struct_inverter_struct.html#a90233d4d22b0a532c6c36114e0ce7650',1,'InverterStruct']]]
 ];

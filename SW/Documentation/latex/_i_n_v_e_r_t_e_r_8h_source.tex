@@ -16,7 +16,7 @@
 \DoxyCodeLine{00028\ }
 \DoxyCodeLine{00029\ }
 \DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ TS\ 0.00002\ \ \ \ \ \ }}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ TS\ 0.000025\ \ \ \ \ \ }}
 \DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ DT\ 0.00000015\ \ \ }}
 \DoxyCodeLine{00040\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
 \DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311a5a425be53774c4b4e59e440ab2369e8e}{INV\_STATE\_IDLE}},\ \ \ \ }
@@ -41,18 +41,25 @@
 \DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_inverter_struct_a9732bacc0a7fa9b2fcc3b08fc85b071f}{tempInverter}};\ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_inverter_struct_ac6c9938ffe4a3de041c4d27c141d35d7}{tempMotor}};\ \ \ \ \ \ \ \ \ \ \ }
 \DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ *\mbox{\hyperlink{struct_inverter_struct_aeb5a73cc5e210677ca154e796186787f}{motor}};\ \ \ \ \ }
-\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{structpi__struct}{pi\_struct}}\ \mbox{\hyperlink{struct_inverter_struct_a76141940d12e361a3b7f33840274133a}{idLoop}};\ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{structpi__struct}{pi\_struct}}\ \mbox{\hyperlink{struct_inverter_struct_aabc1539fbf53f8a59763438070b3f124}{iqLoop}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{structpi__struct}{pi\_struct}}\ \mbox{\hyperlink{struct_inverter_struct_aaed477d964d824fd09123df9e8b16b50}{speedLoop}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00070\ \}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}};}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a9d4c83ba0ff9eff71fe732ddac1dc208}{inverter\_left}};\ }
-\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a9a1270f4b4f50328b300e5fb98dee476}{inverter\_right}};\ }
-\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87}{initialize\_inverter}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv,\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ *led,\ GPIO\_TypeDef\ *enable\_port,\ uint16\_t\ enable\_pin,\ TIM\_HandleTypeDef\ *htim,\ ADC\_HandleTypeDef\ *hadc,\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ *motor);}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a}{init\_control\_loops}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv,\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ *motor);}
-\DoxyCodeLine{00097\ }
-\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INVERTER\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00066\ \ \ \ \ pi\_struct\ \mbox{\hyperlink{struct_inverter_struct_a76141940d12e361a3b7f33840274133a}{idLoop}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ pi\_struct\ \mbox{\hyperlink{struct_inverter_struct_aabc1539fbf53f8a59763438070b3f124}{iqLoop}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_inverter_struct_a092256bf59fcad9f8bc08c673bbda893}{vsMax}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_inverter_struct_af09339aff96c13024b0fce571e32cc98}{vd}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_inverter_struct_a0327ece0f0d05b72e02fa9dc3e44bebb}{vq}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00071\ \ \ \ \ pi\_struct\ \mbox{\hyperlink{struct_inverter_struct_aaed477d964d824fd09123df9e8b16b50}{speedLoop}};\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a9d4c83ba0ff9eff71fe732ddac1dc208}{inverter\_left}};\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a9a1270f4b4f50328b300e5fb98dee476}{inverter\_right}};\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87}{initialize\_inverter}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv,\ \mbox{\hyperlink{struct_l_e_d}{LED}}\ *led,\ GPIO\_TypeDef\ *enable\_port,\ uint16\_t\ enable\_pin,\ TIM\_HandleTypeDef\ *htim,\ ADC\_HandleTypeDef\ *hadc,\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ *motor);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a}{init\_control\_loops}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv,\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ *motor);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_afe3274e9c519c01c68e15f0e72d38cd6}{enable\_control\_loops}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a0bd71b47a4afa4ce63d04a6b0dbccd9e}{disable\_control\_loops}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ INVERTER\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

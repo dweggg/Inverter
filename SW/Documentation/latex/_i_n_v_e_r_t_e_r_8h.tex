@@ -34,7 +34,7 @@ struct \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaade3232ef08cf18b4f3a20a0a2c6fb6}{TS}}~0.\+00002
+\#define \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaade3232ef08cf18b4f3a20a0a2c6fb6}{TS}}~0.\+000025
 \item 
 \#define \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a943f07034774ef1261d62cd0d3d1fec9}{DT}}~0.\+00000015
 \end{DoxyCompactItemize}
@@ -53,7 +53,11 @@ enum \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311}{Inv
 void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87}{initialize\+\_\+inverter}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}enable\+\_\+port, uint16\+\_\+t enable\+\_\+pin, TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hadc, \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor)
 \begin{DoxyCompactList}\small\item\em Initialize the inverter. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a}{init\+\_\+control\+\_\+loops}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor)
-\begin{DoxyCompactList}\small\item\em Initializes the id-\/iq current control PI controllers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Initializes the id-\/iq current control PI controllers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_afe3274e9c519c01c68e15f0e72d38cd6}{enable\+\_\+control\+\_\+loops}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv)
+\begin{DoxyCompactList}\small\item\em Enables the PI controllers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_a0bd71b47a4afa4ce63d04a6b0dbccd9e}{disable\+\_\+control\+\_\+loops}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv)
+\begin{DoxyCompactList}\small\item\em Disables the PI controllers. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -84,9 +88,9 @@ Dead time in seconds (150 ns), time in which both top and bottom transistors are
 \index{INVERTER.h@{INVERTER.h}!TS@{TS}}
 \index{TS@{TS}!INVERTER.h@{INVERTER.h}}
 \doxysubsubsection{\texorpdfstring{TS}{TS}}
-{\footnotesize\ttfamily \#define TS~0.\+00002}
+{\footnotesize\ttfamily \#define TS~0.\+000025}
 
-Switching time in seconds (20 us), inverse of the switching frequency of 50 k\+Hz 
+Switching time in seconds (25 us), inverse of the switching frequency of 40 k\+Hz 
 
 \doxysubsection{Enumeration Type Documentation}
 \Hypertarget{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311}\label{_i_n_v_e_r_t_e_r_8h_a3dfb1164df31bf0c9b6476f888fd5311} 
@@ -120,6 +124,36 @@ INV\+\_\+\+STATE\+\_\+\+FAULT&Inverter fault state \\
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{_i_n_v_e_r_t_e_r_8h_a0bd71b47a4afa4ce63d04a6b0dbccd9e}\label{_i_n_v_e_r_t_e_r_8h_a0bd71b47a4afa4ce63d04a6b0dbccd9e} 
+\index{INVERTER.h@{INVERTER.h}!disable\_control\_loops@{disable\_control\_loops}}
+\index{disable\_control\_loops@{disable\_control\_loops}!INVERTER.h@{INVERTER.h}}
+\doxysubsubsection{\texorpdfstring{disable\_control\_loops()}{disable\_control\_loops()}}
+{\footnotesize\ttfamily void disable\+\_\+control\+\_\+loops (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv }\end{DoxyParamCaption})}
+
+
+
+Disables the PI controllers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inv} & Pointer to the inverter structure. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{_i_n_v_e_r_t_e_r_8h_afe3274e9c519c01c68e15f0e72d38cd6}\label{_i_n_v_e_r_t_e_r_8h_afe3274e9c519c01c68e15f0e72d38cd6} 
+\index{INVERTER.h@{INVERTER.h}!enable\_control\_loops@{enable\_control\_loops}}
+\index{enable\_control\_loops@{enable\_control\_loops}!INVERTER.h@{INVERTER.h}}
+\doxysubsubsection{\texorpdfstring{enable\_control\_loops()}{enable\_control\_loops()}}
+{\footnotesize\ttfamily void enable\+\_\+control\+\_\+loops (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv }\end{DoxyParamCaption})}
+
+
+
+Enables the PI controllers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inv} & Pointer to the inverter structure. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a}\label{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a} 
 \index{INVERTER.h@{INVERTER.h}!init\_control\_loops@{init\_control\_loops}}
 \index{init\_control\_loops@{init\_control\_loops}!INVERTER.h@{INVERTER.h}}
@@ -142,14 +176,6 @@ Initializes the id-\/iq current control PI controllers.
 {\em inv} & Pointer to the inverter structure. \\
 \hline
 \end{DoxyParams}
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=249pt]{_i_n_v_e_r_t_e_r_8h_aaf9fa53152a16edd10ae319f35703a1a_cgraph}
-\end{center}
-\end{figure}
 Here is the caller graph for this function\+:
 \nopagebreak
 \begin{figure}[H]
@@ -192,7 +218,7 @@ Here is the call graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87_cgraph}
+\includegraphics[width=330pt]{_i_n_v_e_r_t_e_r_8h_a49edd9d49792ef1249641249d3259f87_cgraph}
 \end{center}
 \end{figure}
 Here is the caller graph for this function\+:

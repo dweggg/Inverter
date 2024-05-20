@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['calc_0',['calc',['../structpi__aw__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'pi_aw_struct::calc'],['../structpi__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'pi_struct::calc'],['../structclarke3_f__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'clarke3F_struct::calc'],['../structiclarke3_f__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'iclarke3F_struct::calc'],['../structrot__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'rot_struct::calc'],['../structirot__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'irot_struct::calc'],['../structangle__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'angle_struct::calc'],['../structsvpwm__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'svpwm_struct::calc'],['../structrampa__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'rampa_struct::calc'],['../structrampa__dual__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'rampa_dual_struct::calc'],['../structdatalog__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'datalog_struct::calc'],['../structfiltre_l_p__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'filtreLP_struct::calc'],['../structstep__struct.html#aa2e607744fefe17f425d4f666a7b7411',1,'step_struct::calc']]],
-  ['cosfi_1',['cosFi',['../structrot__struct.html#a883fa6b46bf62e4b726b078ab0df3789',1,'rot_struct::cosFi'],['../structirot__struct.html#a883fa6b46bf62e4b726b078ab0df3789',1,'irot_struct::cosFi']]],
-  ['costheta_5fe_2',['cosTheta_e',['../struct_encoder.html#ac6881e0192309ae82ce5b4e9ac4dc714',1,'Encoder']]],
-  ['counter_3',['Counter',['../structstep__struct.html#abef4248412159e665620f746a9d7d3f8',1,'step_struct']]]
+  ['costheta_5fe_0',['cosTheta_e',['../struct_encoder.html#ac6881e0192309ae82ce5b4e9ac4dc714',1,'Encoder']]]
 ];

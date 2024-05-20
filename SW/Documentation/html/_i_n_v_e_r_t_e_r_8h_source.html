@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -59,23 +55,6 @@ $(function() {
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('_i_n_v_e_r_t_e_r_8h_source.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -97,6 +76,11 @@ $(function(){initNavTree('_i_n_v_e_r_t_e_r_8h_source.html',''); initResizable();
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">INVERTER.h</div></div>
 </div><!--header-->
@@ -115,7 +99,7 @@ $(function(){initNavTree('_i_n_v_e_r_t_e_r_8h_source.html',''); initResizable();
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="_i_n_v_e_r_t_e_r_8h.html#aaade3232ef08cf18b4f3a20a0a2c6fb6">   31</a></span><span class="preprocessor">#define TS 0.00002      </span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="_i_n_v_e_r_t_e_r_8h.html#aaade3232ef08cf18b4f3a20a0a2c6fb6">   31</a></span><span class="preprocessor">#define TS 0.000025      </span></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="_i_n_v_e_r_t_e_r_8h.html#a943f07034774ef1261d62cd0d3d1fec9">   32</a></span><span class="preprocessor">#define DT 0.00000015   </span></div>
 <div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="_i_n_v_e_r_t_e_r_8h.html#a3dfb1164df31bf0c9b6476f888fd5311">   40</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
@@ -143,20 +127,28 @@ $(function(){initNavTree('_i_n_v_e_r_t_e_r_8h_source.html',''); initResizable();
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#a9732bacc0a7fa9b2fcc3b08fc85b071f">   63</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_inverter_struct.html#a9732bacc0a7fa9b2fcc3b08fc85b071f">tempInverter</a>;         </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#ac6c9938ffe4a3de041c4d27c141d35d7">   64</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_inverter_struct.html#ac6c9938ffe4a3de041c4d27c141d35d7">tempMotor</a>;            </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#aeb5a73cc5e210677ca154e796186787f">   65</a></span>    <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> *<a class="code hl_variable" href="struct_inverter_struct.html#aeb5a73cc5e210677ca154e796186787f">motor</a>;     </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#a76141940d12e361a3b7f33840274133a">   66</a></span>    <a class="code hl_struct" href="structpi__struct.html">pi_struct</a> <a class="code hl_variable" href="struct_inverter_struct.html#a76141940d12e361a3b7f33840274133a">idLoop</a>;           </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#aabc1539fbf53f8a59763438070b3f124">   67</a></span>    <a class="code hl_struct" href="structpi__struct.html">pi_struct</a> <a class="code hl_variable" href="struct_inverter_struct.html#aabc1539fbf53f8a59763438070b3f124">iqLoop</a>;           </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#aaed477d964d824fd09123df9e8b16b50">   68</a></span>    <a class="code hl_struct" href="structpi__struct.html">pi_struct</a> <a class="code hl_variable" href="struct_inverter_struct.html#aaed477d964d824fd09123df9e8b16b50">speedLoop</a>;        </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>} <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#a76141940d12e361a3b7f33840274133a">   66</a></span>    pi_struct <a class="code hl_variable" href="struct_inverter_struct.html#a76141940d12e361a3b7f33840274133a">idLoop</a>;           </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#aabc1539fbf53f8a59763438070b3f124">   67</a></span>    pi_struct <a class="code hl_variable" href="struct_inverter_struct.html#aabc1539fbf53f8a59763438070b3f124">iqLoop</a>;           </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#a092256bf59fcad9f8bc08c673bbda893">   68</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_inverter_struct.html#a092256bf59fcad9f8bc08c673bbda893">vsMax</a>;                </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#af09339aff96c13024b0fce571e32cc98">   69</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_inverter_struct.html#af09339aff96c13024b0fce571e32cc98">vd</a>;                   </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#a0327ece0f0d05b72e02fa9dc3e44bebb">   70</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_inverter_struct.html#a0327ece0f0d05b72e02fa9dc3e44bebb">vq</a>;                   </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="struct_inverter_struct.html#aaed477d964d824fd09123df9e8b16b50">   71</a></span>    pi_struct <a class="code hl_variable" href="struct_inverter_struct.html#aaed477d964d824fd09123df9e8b16b50">speedLoop</a>;        </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>} <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a>;</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> <a class="code hl_variable" href="_i_n_v_e_r_t_e_r_8h.html#a9d4c83ba0ff9eff71fe732ddac1dc208">inverter_left</a>; </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> <a class="code hl_variable" href="_i_n_v_e_r_t_e_r_8h.html#a9a1270f4b4f50328b300e5fb98dee476">inverter_right</a>; </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">void</span> <a class="code hl_function" href="_i_n_v_e_r_t_e_r_8h.html#a49edd9d49792ef1249641249d3259f87">initialize_inverter</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> *inv, <a class="code hl_struct" href="struct_l_e_d.html">LED</a> *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> *motor);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> <a class="code hl_function" href="_i_n_v_e_r_t_e_r_8h.html#aaf9fa53152a16edd10ae319f35703a1a">init_control_loops</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> *inv, <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> *motor);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">#endif </span><span class="comment">/* INVERTER_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> <a class="code hl_variable" href="_i_n_v_e_r_t_e_r_8h.html#a9d4c83ba0ff9eff71fe732ddac1dc208">inverter_left</a>; </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword">extern</span> <span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> <a class="code hl_variable" href="_i_n_v_e_r_t_e_r_8h.html#a9a1270f4b4f50328b300e5fb98dee476">inverter_right</a>; </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keywordtype">void</span> <a class="code hl_function" href="_i_n_v_e_r_t_e_r_8h.html#a49edd9d49792ef1249641249d3259f87">initialize_inverter</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> *inv, <a class="code hl_struct" href="struct_l_e_d.html">LED</a> *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> *motor);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keywordtype">void</span> <a class="code hl_function" href="_i_n_v_e_r_t_e_r_8h.html#aaf9fa53152a16edd10ae319f35703a1a">init_control_loops</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> *inv, <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> *motor);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keywordtype">void</span> <a class="code hl_function" href="_i_n_v_e_r_t_e_r_8h.html#afe3274e9c519c01c68e15f0e72d38cd6">enable_control_loops</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> *inv);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">void</span> <a class="code hl_function" href="_i_n_v_e_r_t_e_r_8h.html#a0bd71b47a4afa4ce63d04a6b0dbccd9e">disable_control_loops</a>(<span class="keyword">volatile</span> <a class="code hl_struct" href="struct_inverter_struct.html">InverterStruct</a> *inv);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="preprocessor">#endif </span><span class="comment">/* INVERTER_H */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_a0bd71b47a4afa4ce63d04a6b0dbccd9e"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#a0bd71b47a4afa4ce63d04a6b0dbccd9e">disable_control_loops</a></div><div class="ttdeci">void disable_control_loops(volatile InverterStruct *inv)</div><div class="ttdoc">Disables the PI controllers.</div><div class="ttdef"><b>Definition</b> INVERTER.c:145</div></div>
 <div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_a3dfb1164df31bf0c9b6476f888fd5311"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#a3dfb1164df31bf0c9b6476f888fd5311">InverterState</a></div><div class="ttdeci">InverterState</div><div class="ttdoc">Enumeration of inverter operation states.</div><div class="ttdef"><b>Definition</b> INVERTER.h:40</div></div>
 <div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_a3dfb1164df31bf0c9b6476f888fd5311a3bffb8c0f8030eb6d38dac2a9b1e4edd"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#a3dfb1164df31bf0c9b6476f888fd5311a3bffb8c0f8030eb6d38dac2a9b1e4edd">INV_STATE_STARTUP</a></div><div class="ttdeci">@ INV_STATE_STARTUP</div><div class="ttdef"><b>Definition</b> INVERTER.h:42</div></div>
 <div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_a3dfb1164df31bf0c9b6476f888fd5311a4c6e89e99f6d2b3f6ff649c27cc73bc9"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#a3dfb1164df31bf0c9b6476f888fd5311a4c6e89e99f6d2b3f6ff649c27cc73bc9">INV_STATE_FAULT</a></div><div class="ttdeci">@ INV_STATE_FAULT</div><div class="ttdef"><b>Definition</b> INVERTER.h:44</div></div>
@@ -165,7 +157,8 @@ $(function(){initNavTree('_i_n_v_e_r_t_e_r_8h_source.html',''); initResizable();
 <div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_a49edd9d49792ef1249641249d3259f87"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#a49edd9d49792ef1249641249d3259f87">initialize_inverter</a></div><div class="ttdeci">void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, MotorParameters *motor)</div><div class="ttdoc">Initialize the inverter.</div><div class="ttdef"><b>Definition</b> INVERTER.c:53</div></div>
 <div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_a9a1270f4b4f50328b300e5fb98dee476"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#a9a1270f4b4f50328b300e5fb98dee476">inverter_right</a></div><div class="ttdeci">volatile InverterStruct inverter_right</div><div class="ttdoc">Right inverter structure.</div><div class="ttdef"><b>Definition</b> INVERTER.c:38</div></div>
 <div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_a9d4c83ba0ff9eff71fe732ddac1dc208"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#a9d4c83ba0ff9eff71fe732ddac1dc208">inverter_left</a></div><div class="ttdeci">volatile InverterStruct inverter_left</div><div class="ttdoc">Left inverter structure.</div><div class="ttdef"><b>Definition</b> INVERTER.c:31</div></div>
-<div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_aaf9fa53152a16edd10ae319f35703a1a"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#aaf9fa53152a16edd10ae319f35703a1a">init_control_loops</a></div><div class="ttdeci">void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor)</div><div class="ttdoc">Initializes the id-iq current control PI controllers.</div><div class="ttdef"><b>Definition</b> INVERTER.c:80</div></div>
+<div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_aaf9fa53152a16edd10ae319f35703a1a"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#aaf9fa53152a16edd10ae319f35703a1a">init_control_loops</a></div><div class="ttdeci">void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor)</div><div class="ttdoc">Initializes the id-iq current control PI controllers.</div><div class="ttdef"><b>Definition</b> INVERTER.c:81</div></div>
+<div class="ttc" id="a_i_n_v_e_r_t_e_r_8h_html_afe3274e9c519c01c68e15f0e72d38cd6"><div class="ttname"><a href="_i_n_v_e_r_t_e_r_8h.html#afe3274e9c519c01c68e15f0e72d38cd6">enable_control_loops</a></div><div class="ttdeci">void enable_control_loops(volatile InverterStruct *inv)</div><div class="ttdoc">Enables the PI controllers.</div><div class="ttdef"><b>Definition</b> INVERTER.c:133</div></div>
 <div class="ttc" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8h_html"><div class="ttname"><a href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html">MEASUREMENTS.h</a></div><div class="ttdoc">Header file for handling measurements.</div></div>
 <div class="ttc" id="a_m_o_t_o_r_8h_html"><div class="ttname"><a href="_m_o_t_o_r_8h.html">MOTOR.h</a></div><div class="ttdoc">Header file for motor parameters.</div></div>
 <div class="ttc" id="a_p_c_b___i_o_8h_html"><div class="ttname"><a href="_p_c_b___i_o_8h.html">PCB_IO.h</a></div><div class="ttdoc">Header file for handling GPIOs.</div></div>
@@ -176,6 +169,8 @@ $(function(){initNavTree('_i_n_v_e_r_t_e_r_8h_source.html',''); initResizable();
 <div class="ttc" id="astruct_encoder_html"><div class="ttname"><a href="struct_encoder.html">Encoder</a></div><div class="ttdoc">Structure for encoder reading.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:42</div></div>
 <div class="ttc" id="astruct_feedback_html"><div class="ttname"><a href="struct_feedback.html">Feedback</a></div><div class="ttdoc">Structure for feedback values.</div><div class="ttdef"><b>Definition</b> MEASUREMENTS.h:66</div></div>
 <div class="ttc" id="astruct_inverter_struct_html"><div class="ttname"><a href="struct_inverter_struct.html">InverterStruct</a></div><div class="ttdoc">Inverter structure.</div><div class="ttdef"><b>Definition</b> INVERTER.h:50</div></div>
+<div class="ttc" id="astruct_inverter_struct_html_a0327ece0f0d05b72e02fa9dc3e44bebb"><div class="ttname"><a href="struct_inverter_struct.html#a0327ece0f0d05b72e02fa9dc3e44bebb">InverterStruct::vq</a></div><div class="ttdeci">float vq</div><div class="ttdef"><b>Definition</b> INVERTER.h:70</div></div>
+<div class="ttc" id="astruct_inverter_struct_html_a092256bf59fcad9f8bc08c673bbda893"><div class="ttname"><a href="struct_inverter_struct.html#a092256bf59fcad9f8bc08c673bbda893">InverterStruct::vsMax</a></div><div class="ttdeci">float vsMax</div><div class="ttdef"><b>Definition</b> INVERTER.h:68</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_a133a3017d675be921d0d7586eec7bb7c"><div class="ttname"><a href="struct_inverter_struct.html#a133a3017d675be921d0d7586eec7bb7c">InverterStruct::encoder</a></div><div class="ttdeci">Encoder encoder</div><div class="ttdef"><b>Definition</b> INVERTER.h:58</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_a20a30b84d36e84b3d0e6ca4db56f723c"><div class="ttname"><a href="struct_inverter_struct.html#a20a30b84d36e84b3d0e6ca4db56f723c">InverterStruct::feedback</a></div><div class="ttdeci">Feedback feedback</div><div class="ttdef"><b>Definition</b> INVERTER.h:59</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_a36576b0f8a7daf14976aa2231602b0a7"><div class="ttname"><a href="struct_inverter_struct.html#a36576b0f8a7daf14976aa2231602b0a7">InverterStruct::enable_port</a></div><div class="ttdeci">GPIO_TypeDef * enable_port</div><div class="ttdef"><b>Definition</b> INVERTER.h:52</div></div>
@@ -188,24 +183,20 @@ $(function(){initNavTree('_i_n_v_e_r_t_e_r_8h_source.html',''); initResizable();
 <div class="ttc" id="astruct_inverter_struct_html_a9723ebcdadc80d0da627ff27716ae5a5"><div class="ttname"><a href="struct_inverter_struct.html#a9723ebcdadc80d0da627ff27716ae5a5">InverterStruct::analog</a></div><div class="ttdeci">Analog analog</div><div class="ttdef"><b>Definition</b> INVERTER.h:57</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_a9732bacc0a7fa9b2fcc3b08fc85b071f"><div class="ttname"><a href="struct_inverter_struct.html#a9732bacc0a7fa9b2fcc3b08fc85b071f">InverterStruct::tempInverter</a></div><div class="ttdeci">float tempInverter</div><div class="ttdef"><b>Definition</b> INVERTER.h:63</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_aabc1539fbf53f8a59763438070b3f124"><div class="ttname"><a href="struct_inverter_struct.html#aabc1539fbf53f8a59763438070b3f124">InverterStruct::iqLoop</a></div><div class="ttdeci">pi_struct iqLoop</div><div class="ttdef"><b>Definition</b> INVERTER.h:67</div></div>
-<div class="ttc" id="astruct_inverter_struct_html_aaed477d964d824fd09123df9e8b16b50"><div class="ttname"><a href="struct_inverter_struct.html#aaed477d964d824fd09123df9e8b16b50">InverterStruct::speedLoop</a></div><div class="ttdeci">pi_struct speedLoop</div><div class="ttdef"><b>Definition</b> INVERTER.h:68</div></div>
+<div class="ttc" id="astruct_inverter_struct_html_aaed477d964d824fd09123df9e8b16b50"><div class="ttname"><a href="struct_inverter_struct.html#aaed477d964d824fd09123df9e8b16b50">InverterStruct::speedLoop</a></div><div class="ttdeci">pi_struct speedLoop</div><div class="ttdef"><b>Definition</b> INVERTER.h:71</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_ab92945770bc3cbcd703dd87682c7ee6e"><div class="ttname"><a href="struct_inverter_struct.html#ab92945770bc3cbcd703dd87682c7ee6e">InverterStruct::enable_pin</a></div><div class="ttdeci">uint16_t enable_pin</div><div class="ttdef"><b>Definition</b> INVERTER.h:53</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_ac6c9938ffe4a3de041c4d27c141d35d7"><div class="ttname"><a href="struct_inverter_struct.html#ac6c9938ffe4a3de041c4d27c141d35d7">InverterStruct::tempMotor</a></div><div class="ttdeci">float tempMotor</div><div class="ttdef"><b>Definition</b> INVERTER.h:64</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_ae6ddb8a94132877213fb3b58d9f25f97"><div class="ttname"><a href="struct_inverter_struct.html#ae6ddb8a94132877213fb3b58d9f25f97">InverterStruct::led</a></div><div class="ttdeci">LED * led</div><div class="ttdef"><b>Definition</b> INVERTER.h:51</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_aeb5a73cc5e210677ca154e796186787f"><div class="ttname"><a href="struct_inverter_struct.html#aeb5a73cc5e210677ca154e796186787f">InverterStruct::motor</a></div><div class="ttdeci">MotorParameters * motor</div><div class="ttdef"><b>Definition</b> INVERTER.h:65</div></div>
+<div class="ttc" id="astruct_inverter_struct_html_af09339aff96c13024b0fce571e32cc98"><div class="ttname"><a href="struct_inverter_struct.html#af09339aff96c13024b0fce571e32cc98">InverterStruct::vd</a></div><div class="ttdeci">float vd</div><div class="ttdef"><b>Definition</b> INVERTER.h:69</div></div>
 <div class="ttc" id="astruct_inverter_struct_html_af982c0fe5d77061049c468b599100134"><div class="ttname"><a href="struct_inverter_struct.html#af982c0fe5d77061049c468b599100134">InverterStruct::hadc</a></div><div class="ttdeci">ADC_HandleTypeDef * hadc</div><div class="ttdef"><b>Definition</b> INVERTER.h:55</div></div>
 <div class="ttc" id="astruct_l_e_d_html"><div class="ttname"><a href="struct_l_e_d.html">LED</a></div><div class="ttdoc">LED structure.</div><div class="ttdef"><b>Definition</b> PCB_IO.h:48</div></div>
-<div class="ttc" id="astruct_motor_parameters_html"><div class="ttname"><a href="struct_motor_parameters.html">MotorParameters</a></div><div class="ttdoc">Structure to hold motor parameters.</div><div class="ttdef"><b>Definition</b> MOTOR.h:25</div></div>
+<div class="ttc" id="astruct_motor_parameters_html"><div class="ttname"><a href="struct_motor_parameters.html">MotorParameters</a></div><div class="ttdoc">Structure to hold motor parameters.</div><div class="ttdef"><b>Definition</b> MOTOR.h:27</div></div>
 <div class="ttc" id="astruct_reference_html"><div class="ttname"><a href="struct_reference.html">Reference</a></div><div class="ttdoc">Structure for reference values.</div><div class="ttdef"><b>Definition</b> REFERENCE.h:30</div></div>
-<div class="ttc" id="astructpi__struct_html"><div class="ttname"><a href="structpi__struct.html">pi_struct</a></div><div class="ttdoc">PI Controller with external saturation and feedforward.</div><div class="ttdef"><b>Definition</b> PergaMOD.h:79</div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li><li class="navelem"><a class="el" href="_i_n_v_e_r_t_e_r_8h.html">INVERTER.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

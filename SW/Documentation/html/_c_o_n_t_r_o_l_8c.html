@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -54,23 +50,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('_c_o_n_t_r_o_l_8c.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,6 +71,11 @@ $(function(){initNavTree('_c_o_n_t_r_o_l_8c.html',''); initResizable(); });
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_976d189952ed482f71b400b0b237ed7f.html">Src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
@@ -103,49 +87,55 @@ $(function(){initNavTree('_c_o_n_t_r_o_l_8c.html',''); initResizable(); });
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="_c_o_n_t_r_o_l_8h_source.html">CONTROL.h</a>&quot;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="_perga_m_o_d_8h_source.html">PergaMOD.h</a>&gt;</code><br />
+<code>#include &lt;PergaMOD.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for CONTROL.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="_c_o_n_t_r_o_l_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_c_o_n_t_r_o_l_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_c_o_n_t_r_o_l_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_c_o_n_t_r_o_l_8c">
-<area shape="rect" title="This file provides code for the control loop." alt="" coords="429,5,594,64"/>
-<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for control logic." alt="" coords="210,112,304,139"/>
-<area shape="poly" title=" " alt="" coords="430,67,308,109,306,104,428,62"/>
-<area shape="rect" href="_perga_m_o_d_8h.html" title=" " alt="" coords="466,336,562,363"/>
-<area shape="poly" title=" " alt="" coords="514,64,517,320,511,320,509,64"/>
-<area shape="rect" title=" " alt="" coords="549,112,610,139"/>
-<area shape="poly" title=" " alt="" coords="536,63,563,98,558,101,531,66"/>
-<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="51,261,116,288"/>
-<area shape="poly" title=" " alt="" coords="244,141,111,253,108,249,240,137"/>
-<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="209,187,305,213"/>
-<area shape="poly" title=" " alt="" coords="260,139,260,171,254,171,254,139"/>
-<area shape="rect" title=" " alt="" coords="5,336,122,363"/>
-<area shape="poly" title=" " alt="" coords="83,289,74,322,68,320,77,288"/>
-<area shape="poly" title=" " alt="" coords="228,216,129,257,127,252,226,211"/>
-<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="140,261,219,288"/>
-<area shape="poly" title=" " alt="" coords="245,216,206,253,202,249,242,212"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="146,336,288,363"/>
-<area shape="poly" title=" " alt="" coords="256,215,227,322,222,320,251,213"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="359,261,472,288"/>
-<area shape="poly" title=" " alt="" coords="286,211,375,252,373,257,283,216"/>
-<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="312,336,391,363"/>
-<area shape="poly" title=" " alt="" coords="267,212,337,321,333,324,263,215"/>
-<area shape="poly" title=" " alt="" coords="161,291,98,330,95,325,158,286"/>
-<area shape="rect" title=" " alt="" coords="397,411,461,437"/>
-<area shape="poly" title=" " alt="" coords="255,361,383,404,381,409,253,366"/>
-<area shape="poly" title=" " alt="" coords="419,288,429,395,424,395,414,289"/>
-<area shape="poly" title=" " alt="" coords="434,286,487,325,484,329,431,291"/>
-<area shape="poly" title=" " alt="" coords="406,290,375,326,371,322,402,287"/>
-<area shape="poly" title=" " alt="" coords="501,365,457,403,453,399,498,361"/>
+<area shape="rect" title="This file provides code for the control loop." alt="" coords="246,5,411,64"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for the control loop." alt="" coords="282,112,375,139"/>
+<area shape="poly" title=" " alt="" coords="331,64,331,96,326,96,326,64"/>
+<area shape="rect" title=" " alt="" coords="5,336,102,363"/>
+<area shape="poly" title=" " alt="" coords="298,66,210,151,159,206,110,263,70,324,65,321,106,260,155,202,206,148,295,62"/>
+<area shape="rect" title=" " alt="" coords="399,112,460,139"/>
+<area shape="poly" title=" " alt="" coords="363,62,405,99,402,104,359,66"/>
+<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="469,261,534,288"/>
+<area shape="poly" title=" " alt="" coords="345,137,477,249,474,253,341,141"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="280,187,376,213"/>
+<area shape="poly" title=" " alt="" coords="331,139,331,171,326,171,326,139"/>
+<area shape="rect" title=" " alt="" coords="446,336,562,363"/>
+<area shape="poly" title=" " alt="" coords="505,288,506,320,500,320,499,289"/>
+<area shape="poly" title=" " alt="" coords="359,211,458,252,456,257,357,216"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="366,261,445,288"/>
+<area shape="poly" title=" " alt="" coords="343,212,383,249,379,253,340,216"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="280,336,422,363"/>
+<area shape="poly" title=" " alt="" coords="333,213,349,320,344,321,327,214"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="120,261,232,288"/>
+<area shape="poly" title=" " alt="" coords="303,216,218,257,215,252,301,211"/>
+<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="177,336,256,363"/>
+<area shape="poly" title=" " alt="" coords="321,215,237,325,233,322,316,212"/>
+<area shape="poly" title=" " alt="" coords="424,286,477,325,474,329,421,291"/>
+<area shape="rect" title=" " alt="" coords="184,411,248,437"/>
+<area shape="poly" title=" " alt="" coords="329,366,255,405,252,400,326,361"/>
+<area shape="poly" title=" " alt="" coords="173,289,164,323,163,343,167,362,177,381,192,399,188,402,173,384,162,364,158,343,159,322,168,287"/>
+<area shape="poly" title=" " alt="" coords="156,291,90,330,87,325,153,286"/>
+<area shape="poly" title=" " alt="" coords="185,287,204,321,200,324,181,290"/>
+<area shape="poly" title=" " alt="" coords="219,363,219,395,214,395,214,363"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a13ef57486b0fdd5f0449ae38a5039e47" id="r_a13ef57486b0fdd5f0449ae38a5039e47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13ef57486b0fdd5f0449ae38a5039e47">calc_current_reference</a> (float we, float torqueRef, float vsRef, <a class="el" href="struct_motor_parameters.html">MotorParameters</a> *motor, volatile float *idRef, volatile float *iqRef)</td></tr>
+<tr class="memdesc:a13ef57486b0fdd5f0449ae38a5039e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the current references based on electrical speed, torque reference, voltage reference, motor parameters, and updates the d-axis and q-axis current references. Just MTPA for now.  <br /></td></tr>
+<tr class="separator:a13ef57486b0fdd5f0449ae38a5039e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f219eb3c0f9cc2e68149504b730a47c" id="r_a8f219eb3c0f9cc2e68149504b730a47c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f219eb3c0f9cc2e68149504b730a47c">calc_current_loop</a> (volatile <a class="el" href="struct_inverter_struct.html">InverterStruct</a> *inv)</td></tr>
-<tr class="memdesc:a8f219eb3c0f9cc2e68149504b730a47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the id-iq currents control actions.  <br /></td></tr>
+<tr class="memdesc:a8f219eb3c0f9cc2e68149504b730a47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the id-iq loops.  <br /></td></tr>
 <tr class="separator:a8f219eb3c0f9cc2e68149504b730a47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb373ce1587c58be1d83f77103483f6b" id="r_adb373ce1587c58be1d83f77103483f6b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb373ce1587c58be1d83f77103483f6b">saturate_voltage</a> (volatile <a class="el" href="struct_inverter_struct.html">InverterStruct</a> *inv)</td></tr>
+<tr class="memdesc:adb373ce1587c58be1d83f77103483f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saturates PI output to not surpass DC voltage.  <br /></td></tr>
+<tr class="separator:adb373ce1587c58be1d83f77103483f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaffe76ea3a271728f3cb3d0b97ffe2e4" id="r_aaffe76ea3a271728f3cb3d0b97ffe2e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaffe76ea3a271728f3cb3d0b97ffe2e4">calc_duties</a> (float vd, float vq, float vDC, float sinTheta_e, float cosTheta_e, volatile <a class="el" href="struct_duties.html">Duties</a> *duties)</td></tr>
 <tr class="memdesc:aaffe76ea3a271728f3cb3d0b97ffe2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">function.  <br /></td></tr>
 <tr class="separator:aaffe76ea3a271728f3cb3d0b97ffe2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,7 +161,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculates the id-iq currents control actions. </p>
+<p>Calculates the id-iq loops. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">inv</td><td>Pointer to the inverter structure. </td></tr>
@@ -179,23 +169,79 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_c_o_n_t_r_o_l_8c_a8f219eb3c0f9cc2e68149504b730a47c_cgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_a8f219eb3c0f9cc2e68149504b730a47c_cgraph" alt=""/></div>
-<map name="a_c_o_n_t_r_o_l_8c_a8f219eb3c0f9cc2e68149504b730a47c_cgraph" id="a_c_o_n_t_r_o_l_8c_a8f219eb3c0f9cc2e68149504b730a47c_cgraph">
-<area shape="rect" title="Calculates the id&#45;iq currents control actions." alt="" coords="5,5,129,32"/>
-<area shape="rect" href="group___proportional.html#ga911a13b7487ee7e538d7cfe2e276f12e" title="Calculates the output of the PI controller." alt="" coords="177,5,239,32"/>
-<area shape="poly" title=" " alt="" coords="129,16,161,16,161,21,129,21"/>
-</map>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_c_o_n_t_r_o_l_8c_a8f219eb3c0f9cc2e68149504b730a47c_icgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_a8f219eb3c0f9cc2e68149504b730a47c_icgraph" alt=""/></div>
 <map name="a_c_o_n_t_r_o_l_8c_a8f219eb3c0f9cc2e68149504b730a47c_icgraph" id="a_c_o_n_t_r_o_l_8c_a8f219eb3c0f9cc2e68149504b730a47c_icgraph">
-<area shape="rect" title="Calculates the id&#45;iq currents control actions." alt="" coords="403,5,526,32"/>
+<area shape="rect" title="Calculates the id&#45;iq loops." alt="" coords="403,5,526,32"/>
 <area shape="rect" href="_t_a_s_k_s__20us_8c.html#a9adc53eb4c963075bf9d7443c8b5c903" title="Function to be executed every TS." alt="" coords="243,5,355,32"/>
 <area shape="poly" title=" " alt="" coords="388,21,356,21,356,16,388,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#ad1fd361bc5ad89facee67c76d1ff8dc0" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,5,195,32"/>
+<area shape="poly" title=" " alt="" coords="227,21,195,21,195,16,227,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a13ef57486b0fdd5f0449ae38a5039e47" name="a13ef57486b0fdd5f0449ae38a5039e47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13ef57486b0fdd5f0449ae38a5039e47">&#9670;&#160;</a></span>calc_current_reference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void calc_current_reference </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>we</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>torqueRef</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>vsRef</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_motor_parameters.html">MotorParameters</a> *</td>          <td class="paramname"><span class="paramname"><em>motor</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile float *</td>          <td class="paramname"><span class="paramname"><em>idRef</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile float *</td>          <td class="paramname"><span class="paramname"><em>iqRef</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the current references based on electrical speed, torque reference, voltage reference, motor parameters, and updates the d-axis and q-axis current references. Just MTPA for now. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">we</td><td>Electrical speed in radians per second. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">torqueRef</td><td>Torque reference. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vsRef</td><td>Voltage reference. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">motor</td><td>Pointer to the motor parameters structure. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">idRef</td><td>Pointer to the d-axis current reference. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">iqRef</td><td>Pointer to the q-axis current reference. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_c_o_n_t_r_o_l_8c_a13ef57486b0fdd5f0449ae38a5039e47_icgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_a13ef57486b0fdd5f0449ae38a5039e47_icgraph" alt=""/></div>
+<map name="a_c_o_n_t_r_o_l_8c_a13ef57486b0fdd5f0449ae38a5039e47_icgraph" id="a_c_o_n_t_r_o_l_8c_a13ef57486b0fdd5f0449ae38a5039e47_icgraph">
+<area shape="rect" title="Calculates the current references based on electrical speed, torque reference, voltage reference,..." alt="" coords="403,5,555,32"/>
+<area shape="rect" href="_t_a_s_k_s__20us_8c.html#a9adc53eb4c963075bf9d7443c8b5c903" title="Function to be executed every TS." alt="" coords="243,5,355,32"/>
+<area shape="poly" title=" " alt="" coords="387,21,355,21,355,16,387,16"/>
 <area shape="rect" href="stm32f7xx__it_8c.html#ad1fd361bc5ad89facee67c76d1ff8dc0" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,5,195,32"/>
 <area shape="poly" title=" " alt="" coords="227,21,195,21,195,16,227,16"/>
 </map>
@@ -256,16 +302,6 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_c_o_n_t_r_o_l_8c_aaffe76ea3a271728f3cb3d0b97ffe2e4_cgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_aaffe76ea3a271728f3cb3d0b97ffe2e4_cgraph" alt=""/></div>
-<map name="a_c_o_n_t_r_o_l_8c_aaffe76ea3a271728f3cb3d0b97ffe2e4_cgraph" id="a_c_o_n_t_r_o_l_8c_aaffe76ea3a271728f3cb3d0b97ffe2e4_cgraph">
-<area shape="rect" title="function." alt="" coords="5,5,93,32"/>
-<area shape="rect" href="group___utility___functions.html#ga6777e0c2b1e067acf6b99284625ec422" title="Calculates the SVPWM outputs." alt="" coords="141,5,232,32"/>
-<area shape="poly" title=" " alt="" coords="93,16,125,16,125,21,93,21"/>
-</map>
-</div>
-<div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_c_o_n_t_r_o_l_8c_aaffe76ea3a271728f3cb3d0b97ffe2e4_icgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_aaffe76ea3a271728f3cb3d0b97ffe2e4_icgraph" alt=""/></div>
@@ -280,14 +316,47 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-</div><!-- contents -->
-</div><!-- doc-content -->
-<!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_976d189952ed482f71b400b0b237ed7f.html">Src</a></li><li class="navelem"><a class="el" href="_c_o_n_t_r_o_l_8c.html">CONTROL.c</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
+<a id="adb373ce1587c58be1d83f77103483f6b" name="adb373ce1587c58be1d83f77103483f6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb373ce1587c58be1d83f77103483f6b">&#9670;&#160;</a></span>saturate_voltage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void saturate_voltage </td>
+          <td>(</td>
+          <td class="paramtype">volatile <a class="el" href="struct_inverter_struct.html">InverterStruct</a> *</td>          <td class="paramname"><span class="paramname"><em>inv</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Saturates PI output to not surpass DC voltage. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">inv</td><td>Pointer to the inverter structure. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_c_o_n_t_r_o_l_8c_adb373ce1587c58be1d83f77103483f6b_icgraph.png" border="0" usemap="#a_c_o_n_t_r_o_l_8c_adb373ce1587c58be1d83f77103483f6b_icgraph" alt=""/></div>
+<map name="a_c_o_n_t_r_o_l_8c_adb373ce1587c58be1d83f77103483f6b_icgraph" id="a_c_o_n_t_r_o_l_8c_adb373ce1587c58be1d83f77103483f6b_icgraph">
+<area shape="rect" title="Saturates PI output to not surpass DC voltage." alt="" coords="403,5,518,32"/>
+<area shape="rect" href="_t_a_s_k_s__20us_8c.html#a9adc53eb4c963075bf9d7443c8b5c903" title="Function to be executed every TS." alt="" coords="243,5,355,32"/>
+<area shape="poly" title=" " alt="" coords="388,21,355,21,355,16,388,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#ad1fd361bc5ad89facee67c76d1ff8dc0" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,5,195,32"/>
+<area shape="poly" title=" " alt="" coords="227,21,195,21,195,16,227,16"/>
+</map>
 </div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

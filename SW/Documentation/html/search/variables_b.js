@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['lambda_0',['lambda',['../struct_motor_parameters.html#acac4a565486bad0b88b62387d8a5d891',1,'MotorParameters']]],
-  ['ld_1',['Ld',['../struct_motor_parameters.html#a07bad721e5354a6283503711b07129c9',1,'MotorParameters']]],
-  ['led_2',['led',['../struct_inverter_struct.html#ae6ddb8a94132877213fb3b58d9f25f97',1,'InverterStruct']]],
-  ['led_5fleft_3',['led_left',['../_p_c_b___i_o_8h.html#a6bec7a15732c2d17f534f00a96bbb86c',1,'led_left:&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a6bec7a15732c2d17f534f00a96bbb86c',1,'led_left:&#160;PCB_IO.c']]],
-  ['led_5fright_4',['led_right',['../_p_c_b___i_o_8h.html#a58d9f4951ca109fec7fd0340238fda36',1,'led_right:&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a58d9f4951ca109fec7fd0340238fda36',1,'led_right:&#160;PCB_IO.c']]],
-  ['lederror_5',['ledError',['../_p_c_b___i_o_8h.html#a911ebfc5de443a53e3882ff327266616',1,'ledError:&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a911ebfc5de443a53e3882ff327266616',1,'ledError:&#160;PCB_IO.c']]],
-  ['lengthbits_6',['lengthBits',['../structsignal.html#a1702990dd39dfa0b7bd671fdd45b2a7c',1,'signal']]],
-  ['log_7',['log',['../structdatalog__struct.html#aba3acc8cf586fde40a40dce79d3cd95b',1,'datalog_struct']]],
-  ['lq_8',['Lq',['../struct_motor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b',1,'MotorParameters']]]
+  ['mode_0',['mode',['../struct_l_e_d.html#a4818c083da43e1287221b9fde5f396a1',1,'LED']]],
+  ['motor_1',['motor',['../struct_inverter_struct.html#aeb5a73cc5e210677ca154e796186787f',1,'InverterStruct']]],
+  ['motor_5fleft_2',['motor_left',['../_m_o_t_o_r_8h.html#ac1fb3830c20e54f8980f91b3b8b19a48',1,'motor_left:&#160;MOTOR.c'],['../_m_o_t_o_r_8c.html#ac1fb3830c20e54f8980f91b3b8b19a48',1,'motor_left:&#160;MOTOR.c']]],
+  ['motor_5fright_3',['motor_right',['../_m_o_t_o_r_8h.html#aa30800b62b841d0b0b3cac4df1841afa',1,'motor_right:&#160;MOTOR.c'],['../_m_o_t_o_r_8c.html#aa30800b62b841d0b0b3cac4df1841afa',1,'motor_right:&#160;MOTOR.c']]]
 ];

@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['enable_5fpwm_0',['enable_PWM',['../_p_w_m_8h.html#afabeff529f42849e8c08263c002f3dd9',1,'enable_PWM(TIM_HandleTypeDef *htim):&#160;PWM.c'],['../_p_w_m_8c.html#afabeff529f42849e8c08263c002f3dd9',1,'enable_PWM(TIM_HandleTypeDef *htim):&#160;PWM.c']]],
-  ['error_5fhandler_1',['Error_Handler',['../main_8h.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c'],['../main_8c.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c']]],
-  ['eval_5finv_5ffsm_2',['eval_inv_FSM',['../_f_s_m_8h.html#aabf63db5799eb65540501de6b63724e1',1,'eval_inv_FSM(volatile InverterStruct *inv):&#160;FSM.c'],['../_f_s_m_8c.html#aabf63db5799eb65540501de6b63724e1',1,'eval_inv_FSM(volatile InverterStruct *inv):&#160;FSM.c']]]
+  ['handle_5fcan_0',['handle_CAN',['../_c_a_n__e-_tech_8c.html#a344219c7f86a488bcb222a4b675ee586',1,'CAN_e-Tech.c']]],
+  ['handle_5fdirection_1',['handle_direction',['../_p_c_b___i_o_8h.html#afec13170cd54a3dc4f50bae3cb8f386e',1,'handle_direction(volatile int8_t *dir_left, volatile int8_t *dir_right):&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#afec13170cd54a3dc4f50bae3cb8f386e',1,'handle_direction(volatile int8_t *dir_left, volatile int8_t *dir_right):&#160;PCB_IO.c']]],
+  ['handle_5fled_2',['handle_LED',['../_p_c_b___i_o_8h.html#a6736efa24340a6743e5d41dab343c15b',1,'handle_LED(LED *led, uint32_t ms_counter):&#160;PCB_IO.c'],['../_p_c_b___i_o_8c.html#a6736efa24340a6743e5d41dab343c15b',1,'handle_LED(LED *led, uint32_t ms_counter):&#160;PCB_IO.c']]],
+  ['handle_5ftorqueref_3',['handle_torqueRef',['../_r_e_f_e_r_e_n_c_e_8h.html#a1988c289dd46fd505e0f9de30044fed0',1,'handle_torqueRef(float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile pi_struct *loopSpeed):&#160;REFERENCE.c'],['../_r_e_f_e_r_e_n_c_e_8c.html#a1988c289dd46fd505e0f9de30044fed0',1,'handle_torqueRef(float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile pi_struct *loopSpeed):&#160;REFERENCE.c']]],
+  ['hardfault_5fhandler_4',['HardFault_Handler',['../stm32f7xx__it_8c.html#a2bffc10d5bd4106753b7c30e86903bea',1,'stm32f7xx_it.c']]]
 ];

@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -54,23 +50,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('_p_w_m_8h.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,6 +71,11 @@ $(function(){initNavTree('_p_w_m_8h.html',''); initResizable(); });
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
@@ -118,31 +102,29 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_w_m_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_p_w_m_8hdep" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_p_w_m_8hdep" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_p_w_m_8hdep">
-<area shape="rect" title="Header file for controlling PWM output." alt="" coords="533,5,699,64"/>
-<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for control logic." alt="" coords="173,219,339,277"/>
-<area shape="poly" title=" " alt="" coords="555,75,306,220,303,216,553,70"/>
-<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="533,112,699,171"/>
-<area shape="poly" title=" " alt="" coords="619,80,619,112,613,112,613,80"/>
-<area shape="rect" href="_p_w_m_8c.html" title="This file provides functions for controlling PWM output." alt="" coords="723,112,888,171"/>
-<area shape="poly" title=" " alt="" coords="682,69,755,109,752,114,679,74"/>
+<area shape="rect" title="Header file for controlling PWM output." alt="" coords="473,5,639,64"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for the control loop." alt="" coords="173,219,339,277"/>
+<area shape="poly" title=" " alt="" coords="505,75,298,220,295,216,502,71"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="473,112,639,171"/>
+<area shape="poly" title=" " alt="" coords="559,80,559,112,553,112,553,80"/>
+<area shape="rect" href="_p_w_m_8c.html" title="This file provides functions for controlling PWM output." alt="" coords="663,112,828,171"/>
+<area shape="poly" title=" " alt="" coords="622,69,695,109,692,114,619,74"/>
 <area shape="rect" href="_c_o_n_t_r_o_l_8c.html" title="This file provides code for the control loop." alt="" coords="5,325,171,384"/>
 <area shape="poly" title=" " alt="" coords="199,288,135,327,132,323,196,283"/>
 <area shape="rect" href="_t_a_s_k_s__20us_8c.html" title="This file contains functions executed every 20us in each PWM timer interruption." alt="" coords="195,325,365,384"/>
 <area shape="poly" title=" " alt="" coords="269,292,276,324,271,326,263,293"/>
-<area shape="poly" title=" " alt="" coords="519,173,340,225,339,220,518,168"/>
-<area shape="poly" title=" " alt="" coords="519,168,460,190,403,221,387,234,376,247,353,279,309,326,305,323,349,276,372,244,383,231,400,216,457,185,517,163"/>
+<area shape="poly" title=" " alt="" coords="460,179,339,221,337,216,459,174"/>
+<area shape="poly" title=" " alt="" coords="471,180,436,199,403,221,376,248,353,279,309,326,305,323,349,276,372,245,400,217,433,194,468,175"/>
 <area shape="rect" href="_f_s_m_8h.html" title="Header for the inverter Finite State Machine." alt="" coords="413,219,579,277"/>
-<area shape="poly" title=" " alt="" coords="573,183,530,220,527,216,570,179"/>
+<area shape="poly" title=" " alt="" coords="534,185,515,220,510,217,530,183"/>
 <area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="579,325,744,384"/>
-<area shape="poly" title=" " alt="" coords="626,186,644,277,656,324,651,326,639,278,621,187"/>
+<area shape="poly" title=" " alt="" coords="579,183,649,324,645,326,574,185"/>
 <area shape="rect" href="_c_a_n__e-_tech_8c.html" title="This file contains functions to handle CAN communication with the car." alt="" coords="653,219,819,277"/>
-<area shape="poly" title=" " alt="" coords="662,179,705,216,702,220,659,183"/>
+<area shape="poly" title=" " alt="" coords="619,176,688,216,686,221,617,181"/>
 <area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html" title="This file provides code for the inverter struct." alt="" coords="843,219,1008,277"/>
-<area shape="poly" title=" " alt="" coords="715,173,843,216,842,221,713,178"/>
+<area shape="poly" title=" " alt="" coords="654,169,831,216,843,219,842,225,830,221,653,174"/>
 <area shape="rect" href="_t_a_s_k_s__1ms_8c.html" title="This file contains functions to execute tasks every 1ms." alt="" coords="1032,219,1198,277"/>
-<area shape="poly" title=" " alt="" coords="714,169,801,184,869,192,936,200,1021,216,1032,219,1031,224,1019,221,935,206,868,197,800,189,713,174"/>
-<area shape="rect" href="tim_8c.html" title="This file provides code for the configuration of the TIM instances." alt="" coords="1221,219,1387,277"/>
-<area shape="poly" title=" " alt="" coords="714,168,789,180,853,187,963,192,1073,197,1136,204,1210,216,1222,219,1221,224,1209,221,1135,209,1072,202,963,197,853,192,788,186,713,174"/>
+<area shape="poly" title=" " alt="" coords="654,168,757,185,839,192,920,199,1021,216,1032,219,1031,224,1019,221,919,204,838,197,757,190,653,174"/>
 <area shape="rect" href="_f_s_m_8c.html" title="This file provides code for the inverter Finite State Machine." alt="" coords="389,325,555,384"/>
 <area shape="poly" title=" " alt="" coords="489,293,481,326,476,324,483,292"/>
 <area shape="poly" title=" " alt="" coords="555,283,618,323,615,327,552,288"/>
@@ -271,13 +253,9 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li><li class="navelem"><a class="el" href="_p_w_m_8h.html">PWM.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['offset_0',['offset',['../structsignal.html#a348ad5fc33f6dc5e6e30f74951997898',1,'signal']]],
-  ['out_1',['out',['../structrampa__struct.html#af5a45dbcaa926b186e6f71d08212acc3',1,'rampa_struct::out'],['../structrampa__dual__struct.html#af5a45dbcaa926b186e6f71d08212acc3',1,'rampa_dual_struct::out'],['../structavg__struct__10.html#af5a45dbcaa926b186e6f71d08212acc3',1,'avg_struct_10::out'],['../structfiltre_l_p__struct.html#af5a45dbcaa926b186e6f71d08212acc3',1,'filtreLP_struct::out']]],
-  ['out_2',['Out',['../structstep__struct.html#a6bd2ff5633bb0078948e3f9f54bd083c',1,'step_struct']]],
-  ['out_5frms_3',['Out_RMS',['../struct_r_m_s__struct.html#ad33e1262448a6f7f78f9dc8b88375d54',1,'RMS_struct']]]
+  ['rawadc_5fleft_0',['rawADC_left',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a77106815c0fcbe0eba3efdf7afc74141',1,'rawADC_left:&#160;MEASUREMENTS.c'],['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a77106815c0fcbe0eba3efdf7afc74141',1,'rawADC_left:&#160;MEASUREMENTS.c']]],
+  ['rawadc_5fright_1',['rawADC_right',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a470ce3152b4d75fad3e25910c8a2ea34',1,'rawADC_right:&#160;MEASUREMENTS.c'],['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a470ce3152b4d75fad3e25910c8a2ea34',1,'rawADC_right:&#160;MEASUREMENTS.c']]],
+  ['rawadc_5ftemp_2',['rawADC_temp',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a67959fa70231e3281e6af1d01c67ef40',1,'rawADC_temp:&#160;MEASUREMENTS.c'],['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a67959fa70231e3281e6af1d01c67ef40',1,'rawADC_temp:&#160;MEASUREMENTS.c']]],
+  ['reference_3',['Reference',['../struct_reference.html',1,'']]],
+  ['reference_4',['reference',['../struct_inverter_struct.html#a5a963265d9630f699ae4106f34002ac5',1,'InverterStruct']]],
+  ['reference_2ec_5',['REFERENCE.c',['../_r_e_f_e_r_e_n_c_e_8c.html',1,'']]],
+  ['reference_2eh_6',['REFERENCE.h',['../_r_e_f_e_r_e_n_c_e_8h.html',1,'']]],
+  ['rs_7',['Rs',['../struct_motor_parameters.html#aca721ce2e7dddc5d3091a18d715dd409',1,'MotorParameters']]]
 ];

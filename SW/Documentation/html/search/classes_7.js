@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['motorparameters_0',['MotorParameters',['../struct_motor_parameters.html',1,'']]]
+  ['reference_0',['Reference',['../struct_reference.html',1,'']]]
 ];

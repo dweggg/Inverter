@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -54,23 +50,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('struct_inverter_struct.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,6 +71,7 @@ $(function(){initNavTree('struct_inverter_struct.html',''); initResizable(); });
 </div>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
@@ -108,25 +88,23 @@ Collaboration diagram for InverterStruct:</div>
 <div class="dyncontent">
 <div class="center"><img src="struct_inverter_struct__coll__graph.png" border="0" usemap="#a_inverter_struct_coll__map" alt="Collaboration graph"/></div>
 <map name="a_inverter_struct_coll__map" id="a_inverter_struct_coll__map">
-<area shape="rect" title="Inverter structure." alt="" coords="295,128,392,155"/>
+<area shape="rect" title="Inverter structure." alt="" coords="244,96,341,123"/>
 <area shape="rect" href="struct_l_e_d.html" title="LED structure." alt="" coords="5,5,52,32"/>
-<area shape="poly" title=" " alt="" coords="44,44,66,75,97,102,132,114,184,123,294,134,294,140,183,129,131,119,94,106,62,79,40,47"/>
+<area shape="poly" title=" " alt="" coords="61,38,124,70,186,87,244,99,243,104,185,93,123,74,59,43"/>
 <area shape="rect" href="struct_analog.html" title="Structure for ADC measurements in units." alt="" coords="75,5,137,32"/>
-<area shape="poly" title=" " alt="" coords="118,45,136,75,161,102,193,118,228,129,294,138,294,143,226,134,191,123,158,106,131,79,114,48"/>
+<area shape="poly" title=" " alt="" coords="132,40,176,70,210,84,244,95,243,100,208,89,173,74,129,44"/>
 <area shape="rect" href="struct_encoder.html" title="Structure for encoder reading." alt="" coords="161,5,230,32"/>
-<area shape="poly" title=" " alt="" coords="206,45,220,75,242,102,267,118,295,128,293,133,265,123,238,106,215,78,201,48"/>
+<area shape="poly" title=" " alt="" coords="215,43,239,70,271,93,268,98,235,74,211,47"/>
 <area shape="rect" href="struct_feedback.html" title="Structure for feedback values." alt="" coords="253,5,332,32"/>
-<area shape="poly" title=" " alt="" coords="297,47,302,75,312,103,330,126,326,129,308,105,297,76,292,48"/>
+<area shape="poly" title=" " alt="" coords="295,48,295,95,290,95,290,48"/>
 <area shape="rect" href="struct_reference.html" title="Structure for reference values." alt="" coords="356,5,435,32"/>
-<area shape="poly" title=" " alt="" coords="390,48,368,105,354,129,350,126,363,103,385,46"/>
+<area shape="poly" title=" " alt="" coords="380,47,356,74,320,98,317,93,352,70,376,43"/>
 <area shape="rect" href="struct_duties.html" title="Structure to hold PWM configuration parameters." alt="" coords="459,5,518,32"/>
-<area shape="poly" title=" " alt="" coords="483,48,470,78,448,106,421,123,393,133,391,128,419,118,444,102,465,75,478,45"/>
+<area shape="poly" title=" " alt="" coords="469,46,433,74,387,93,342,104,341,99,385,88,430,70,466,42"/>
 <area shape="rect" href="struct_motor_parameters.html" title="Structure to hold motor parameters." alt="" coords="541,5,663,32"/>
-<area shape="poly" title=" " alt="" coords="586,46,558,78,521,106,489,120,455,130,393,140,392,135,454,125,487,115,518,102,554,74,582,43"/>
-<area shape="rect" href="structpi__struct.html" title="PI Controller with external saturation and feedforward." alt="" coords="686,5,758,32"/>
-<area shape="poly" title=" " alt="" coords="702,45,665,78,618,106,559,126,498,137,441,142,392,144,392,139,440,137,497,132,558,120,615,102,662,73,699,41"/>
+<area shape="poly" title=" " alt="" coords="569,42,535,59,497,75,416,95,342,106,341,101,415,89,496,69,533,55,567,37"/>
 </map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -160,11 +138,17 @@ Data Fields</h2></td></tr>
 <tr class="separator:ac6c9938ffe4a3de041c4d27c141d35d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb5a73cc5e210677ca154e796186787f" id="r_aeb5a73cc5e210677ca154e796186787f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_motor_parameters.html">MotorParameters</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb5a73cc5e210677ca154e796186787f">motor</a></td></tr>
 <tr class="separator:aeb5a73cc5e210677ca154e796186787f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76141940d12e361a3b7f33840274133a" id="r_a76141940d12e361a3b7f33840274133a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpi__struct.html">pi_struct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76141940d12e361a3b7f33840274133a">idLoop</a></td></tr>
+<tr class="memitem:a76141940d12e361a3b7f33840274133a" id="r_a76141940d12e361a3b7f33840274133a"><td class="memItemLeft" align="right" valign="top">pi_struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76141940d12e361a3b7f33840274133a">idLoop</a></td></tr>
 <tr class="separator:a76141940d12e361a3b7f33840274133a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabc1539fbf53f8a59763438070b3f124" id="r_aabc1539fbf53f8a59763438070b3f124"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpi__struct.html">pi_struct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabc1539fbf53f8a59763438070b3f124">iqLoop</a></td></tr>
+<tr class="memitem:aabc1539fbf53f8a59763438070b3f124" id="r_aabc1539fbf53f8a59763438070b3f124"><td class="memItemLeft" align="right" valign="top">pi_struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aabc1539fbf53f8a59763438070b3f124">iqLoop</a></td></tr>
 <tr class="separator:aabc1539fbf53f8a59763438070b3f124"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaed477d964d824fd09123df9e8b16b50" id="r_aaed477d964d824fd09123df9e8b16b50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpi__struct.html">pi_struct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaed477d964d824fd09123df9e8b16b50">speedLoop</a></td></tr>
+<tr class="memitem:a092256bf59fcad9f8bc08c673bbda893" id="r_a092256bf59fcad9f8bc08c673bbda893"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a092256bf59fcad9f8bc08c673bbda893">vsMax</a></td></tr>
+<tr class="separator:a092256bf59fcad9f8bc08c673bbda893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af09339aff96c13024b0fce571e32cc98" id="r_af09339aff96c13024b0fce571e32cc98"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af09339aff96c13024b0fce571e32cc98">vd</a></td></tr>
+<tr class="separator:af09339aff96c13024b0fce571e32cc98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0327ece0f0d05b72e02fa9dc3e44bebb" id="r_a0327ece0f0d05b72e02fa9dc3e44bebb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0327ece0f0d05b72e02fa9dc3e44bebb">vq</a></td></tr>
+<tr class="separator:a0327ece0f0d05b72e02fa9dc3e44bebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed477d964d824fd09123df9e8b16b50" id="r_aaed477d964d824fd09123df9e8b16b50"><td class="memItemLeft" align="right" valign="top">pi_struct&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaed477d964d824fd09123df9e8b16b50">speedLoop</a></td></tr>
 <tr class="separator:aaed477d964d824fd09123df9e8b16b50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -312,7 +296,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structpi__struct.html">pi_struct</a> idLoop</td>
+          <td class="memname">pi_struct idLoop</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -327,7 +311,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structpi__struct.html">pi_struct</a> iqLoop</td>
+          <td class="memname">pi_struct iqLoop</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -387,7 +371,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structpi__struct.html">pi_struct</a> speedLoop</td>
+          <td class="memname">pi_struct speedLoop</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -440,17 +424,58 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
+<a id="af09339aff96c13024b0fce571e32cc98" name="af09339aff96c13024b0fce571e32cc98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af09339aff96c13024b0fce571e32cc98">&#9670;&#160;</a></span>vd</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float vd</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>d-axis voltage </p>
+
+</div>
+</div>
+<a id="a0327ece0f0d05b72e02fa9dc3e44bebb" name="a0327ece0f0d05b72e02fa9dc3e44bebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0327ece0f0d05b72e02fa9dc3e44bebb">&#9670;&#160;</a></span>vq</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float vq</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>q-axis voltage </p>
+
+</div>
+</div>
+<a id="a092256bf59fcad9f8bc08c673bbda893" name="a092256bf59fcad9f8bc08c673bbda893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a092256bf59fcad9f8bc08c673bbda893">&#9670;&#160;</a></span>vsMax</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float vsMax</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum output voltage, should be calculated as vDC / sqrt3 in volts </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/<a class="el" href="_i_n_v_e_r_t_e_r_8h_source.html">INVERTER.h</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="struct_inverter_struct.html">InverterStruct</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

@@ -52,11 +52,17 @@ float \mbox{\hyperlink{struct_inverter_struct_ac6c9938ffe4a3de041c4d27c141d35d7}
 \item 
 \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct_inverter_struct_aeb5a73cc5e210677ca154e796186787f}{motor}}
 \item 
-\mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \mbox{\hyperlink{struct_inverter_struct_a76141940d12e361a3b7f33840274133a}{id\+Loop}}
+pi\+\_\+struct \mbox{\hyperlink{struct_inverter_struct_a76141940d12e361a3b7f33840274133a}{id\+Loop}}
 \item 
-\mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \mbox{\hyperlink{struct_inverter_struct_aabc1539fbf53f8a59763438070b3f124}{iq\+Loop}}
+pi\+\_\+struct \mbox{\hyperlink{struct_inverter_struct_aabc1539fbf53f8a59763438070b3f124}{iq\+Loop}}
 \item 
-\mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \mbox{\hyperlink{struct_inverter_struct_aaed477d964d824fd09123df9e8b16b50}{speed\+Loop}}
+float \mbox{\hyperlink{struct_inverter_struct_a092256bf59fcad9f8bc08c673bbda893}{vs\+Max}}
+\item 
+float \mbox{\hyperlink{struct_inverter_struct_af09339aff96c13024b0fce571e32cc98}{vd}}
+\item 
+float \mbox{\hyperlink{struct_inverter_struct_a0327ece0f0d05b72e02fa9dc3e44bebb}{vq}}
+\item 
+pi\+\_\+struct \mbox{\hyperlink{struct_inverter_struct_aaed477d964d824fd09123df9e8b16b50}{speed\+Loop}}
 \end{DoxyCompactItemize}
 
 
@@ -122,13 +128,13 @@ Handle of the timer peripheral for PWM output \Hypertarget{struct_inverter_struc
 \index{InverterStruct@{InverterStruct}!idLoop@{idLoop}}
 \index{idLoop@{idLoop}!InverterStruct@{InverterStruct}}
 \doxysubsubsection{\texorpdfstring{idLoop}{idLoop}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} id\+Loop}
+{\footnotesize\ttfamily pi\+\_\+struct id\+Loop}
 
 PI controller for d-\/axis current \Hypertarget{struct_inverter_struct_aabc1539fbf53f8a59763438070b3f124}\label{struct_inverter_struct_aabc1539fbf53f8a59763438070b3f124} 
 \index{InverterStruct@{InverterStruct}!iqLoop@{iqLoop}}
 \index{iqLoop@{iqLoop}!InverterStruct@{InverterStruct}}
 \doxysubsubsection{\texorpdfstring{iqLoop}{iqLoop}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} iq\+Loop}
+{\footnotesize\ttfamily pi\+\_\+struct iq\+Loop}
 
 PI controller for q-\/axis current \Hypertarget{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97}\label{struct_inverter_struct_ae6ddb8a94132877213fb3b58d9f25f97} 
 \index{InverterStruct@{InverterStruct}!led@{led}}
@@ -152,7 +158,7 @@ Structure for referece currents and torque \Hypertarget{struct_inverter_struct_a
 \index{InverterStruct@{InverterStruct}!speedLoop@{speedLoop}}
 \index{speedLoop@{speedLoop}!InverterStruct@{InverterStruct}}
 \doxysubsubsection{\texorpdfstring{speedLoop}{speedLoop}}
-{\footnotesize\ttfamily \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} speed\+Loop}
+{\footnotesize\ttfamily pi\+\_\+struct speed\+Loop}
 
 PI controller for motor speed \Hypertarget{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650}\label{struct_inverter_struct_a90233d4d22b0a532c6c36114e0ce7650} 
 \index{InverterStruct@{InverterStruct}!state@{state}}
@@ -172,7 +178,25 @@ Semiconductor temperature in degC \Hypertarget{struct_inverter_struct_ac6c9938ff
 \doxysubsubsection{\texorpdfstring{tempMotor}{tempMotor}}
 {\footnotesize\ttfamily float temp\+Motor}
 
-Motor temperature in degC 
+Motor temperature in degC \Hypertarget{struct_inverter_struct_af09339aff96c13024b0fce571e32cc98}\label{struct_inverter_struct_af09339aff96c13024b0fce571e32cc98} 
+\index{InverterStruct@{InverterStruct}!vd@{vd}}
+\index{vd@{vd}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{vd}{vd}}
+{\footnotesize\ttfamily float vd}
+
+d-\/axis voltage \Hypertarget{struct_inverter_struct_a0327ece0f0d05b72e02fa9dc3e44bebb}\label{struct_inverter_struct_a0327ece0f0d05b72e02fa9dc3e44bebb} 
+\index{InverterStruct@{InverterStruct}!vq@{vq}}
+\index{vq@{vq}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{vq}{vq}}
+{\footnotesize\ttfamily float vq}
+
+q-\/axis voltage \Hypertarget{struct_inverter_struct_a092256bf59fcad9f8bc08c673bbda893}\label{struct_inverter_struct_a092256bf59fcad9f8bc08c673bbda893} 
+\index{InverterStruct@{InverterStruct}!vsMax@{vsMax}}
+\index{vsMax@{vsMax}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{vsMax}{vsMax}}
+{\footnotesize\ttfamily float vs\+Max}
+
+Maximum output voltage, should be calculated as v\+DC / sqrt3 in volts 
 
 The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 

@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -54,23 +50,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('_r_e_f_e_r_e_n_c_e_8h.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,6 +71,11 @@ $(function(){initNavTree('_r_e_f_e_r_e_n_c_e_8h.html',''); initResizable(); });
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
@@ -102,7 +86,7 @@ $(function(){initNavTree('_r_e_f_e_r_e_n_c_e_8h.html',''); initResizable(); });
 
 <p>Header file for torque reference handling.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_perga_m_o_d_8h_source.html">PergaMOD.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;PergaMOD.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_m_o_t_o_r_8h_source.html">MOTOR.h</a>&quot;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -110,14 +94,14 @@ Include dependency graph for REFERENCE.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_r_e_f_e_r_e_n_c_e_8h__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_r_e_f_e_r_e_n_c_e_8h" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_r_e_f_e_r_e_n_c_e_8h" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_r_e_f_e_r_e_n_c_e_8h">
-<area shape="rect" title="Header file for torque reference handling." alt="" coords="55,5,223,64"/>
-<area shape="rect" href="_perga_m_o_d_8h.html" title=" " alt="" coords="5,112,102,139"/>
-<area shape="poly" title=" " alt="" coords="113,66,78,102,74,99,109,62"/>
-<area shape="rect" title=" " alt="" coords="64,187,128,213"/>
-<area shape="poly" title=" " alt="" coords="135,65,116,139,107,172,102,171,111,138,130,64"/>
-<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="177,112,256,139"/>
-<area shape="poly" title=" " alt="" coords="166,63,197,98,193,102,162,66"/>
-<area shape="poly" title=" " alt="" coords="63,138,83,172,79,175,59,141"/>
+<area shape="rect" title="Header file for torque reference handling." alt="" coords="81,5,250,64"/>
+<area shape="rect" title=" " alt="" coords="5,112,102,139"/>
+<area shape="poly" title=" " alt="" coords="131,66,83,104,80,100,128,62"/>
+<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="126,112,205,139"/>
+<area shape="poly" title=" " alt="" coords="168,64,168,96,163,96,163,64"/>
+<area shape="rect" title=" " alt="" coords="172,187,236,213"/>
+<area shape="poly" title=" " alt="" coords="193,63,208,86,220,111,223,143,217,172,212,171,217,143,215,113,204,88,189,66"/>
+<area shape="poly" title=" " alt="" coords="175,138,193,172,188,174,170,140"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -125,27 +109,25 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_r_e_f_e_r_e_n_c_e_8h__dep__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_r_e_f_e_r_e_n_c_e_8hdep" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_r_e_f_e_r_e_n_c_e_8hdep" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_inc_2_r_e_f_e_r_e_n_c_e_8hdep">
-<area shape="rect" title="Header file for torque reference handling." alt="" coords="688,5,856,64"/>
-<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="593,112,759,171"/>
-<area shape="poly" title=" " alt="" coords="737,77,704,113,700,110,734,74"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html" title="Source file for torque reference handling." alt="" coords="782,112,954,171"/>
-<area shape="poly" title=" " alt="" coords="810,74,844,110,840,113,807,77"/>
-<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for control logic." alt="" coords="173,219,339,277"/>
-<area shape="poly" title=" " alt="" coords="579,168,358,221,340,226,338,221,357,216,578,162"/>
+<area shape="rect" title="Header file for torque reference handling." alt="" coords="628,5,796,64"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="533,112,699,171"/>
+<area shape="poly" title=" " alt="" coords="677,77,644,113,640,110,674,74"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html" title="Source file for torque reference handling." alt="" coords="722,112,894,171"/>
+<area shape="poly" title=" " alt="" coords="750,74,784,110,780,113,747,77"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8h.html" title="Header file for the control loop." alt="" coords="173,219,339,277"/>
+<area shape="poly" title=" " alt="" coords="519,173,340,225,339,220,518,168"/>
 <area shape="rect" href="_t_a_s_k_s__20us_8c.html" title="This file contains functions executed every 20us in each PWM timer interruption." alt="" coords="195,325,365,384"/>
-<area shape="poly" title=" " alt="" coords="579,158,490,181,445,198,403,221,386,234,376,247,353,279,309,326,305,323,349,276,372,244,382,230,400,216,443,194,488,176,577,153"/>
+<area shape="poly" title=" " alt="" coords="519,168,460,190,403,221,387,234,376,247,353,279,309,326,305,323,349,276,372,244,383,231,400,216,457,185,517,163"/>
 <area shape="rect" href="_f_s_m_8h.html" title="Header for the inverter Finite State Machine." alt="" coords="413,219,579,277"/>
-<area shape="poly" title=" " alt="" coords="615,181,546,221,544,216,613,176"/>
+<area shape="poly" title=" " alt="" coords="573,183,530,220,527,216,570,179"/>
 <area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="579,325,744,384"/>
-<area shape="poly" title=" " alt="" coords="655,186,644,219,641,247,643,275,654,324,649,325,637,275,636,247,639,218,650,184"/>
+<area shape="poly" title=" " alt="" coords="626,186,644,277,656,324,651,326,639,278,621,187"/>
 <area shape="rect" href="_c_a_n__e-_tech_8c.html" title="This file contains functions to handle CAN communication with the car." alt="" coords="653,219,819,277"/>
-<area shape="poly" title=" " alt="" coords="702,183,722,217,717,220,698,185"/>
+<area shape="poly" title=" " alt="" coords="662,179,705,216,702,220,659,183"/>
 <area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html" title="This file provides code for the inverter struct." alt="" coords="843,219,1008,277"/>
-<area shape="poly" title=" " alt="" coords="759,174,858,216,856,221,757,179"/>
+<area shape="poly" title=" " alt="" coords="715,173,843,216,842,221,713,178"/>
 <area shape="rect" href="_t_a_s_k_s__1ms_8c.html" title="This file contains functions to execute tasks every 1ms." alt="" coords="1032,219,1198,277"/>
-<area shape="poly" title=" " alt="" coords="774,169,899,192,1021,216,1032,219,1031,224,1019,221,898,198,773,174"/>
-<area shape="rect" href="tim_8c.html" title="This file provides code for the configuration of the TIM instances." alt="" coords="1221,219,1387,277"/>
-<area shape="poly" title=" " alt="" coords="774,168,897,186,993,192,1089,198,1210,216,1222,219,1221,224,1209,221,1089,203,993,197,896,191,773,174"/>
+<area shape="poly" title=" " alt="" coords="714,169,801,184,869,192,936,200,1021,216,1032,219,1031,224,1019,221,935,206,868,197,800,189,713,174"/>
 <area shape="rect" href="_c_o_n_t_r_o_l_8c.html" title="This file provides code for the control loop." alt="" coords="5,325,171,384"/>
 <area shape="poly" title=" " alt="" coords="199,288,135,327,132,323,196,283"/>
 <area shape="poly" title=" " alt="" coords="269,292,276,324,271,326,263,293"/>
@@ -165,19 +147,16 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1988c289dd46fd505e0f9de30044fed0" id="r_a1988c289dd46fd505e0f9de30044fed0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1988c289dd46fd505e0f9de30044fed0">handle_torqueRef</a> (float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile <a class="el" href="structpi__struct.html">pi_struct</a> *loopSpeed)</td></tr>
+<tr class="memitem:a1988c289dd46fd505e0f9de30044fed0" id="r_a1988c289dd46fd505e0f9de30044fed0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1988c289dd46fd505e0f9de30044fed0">handle_torqueRef</a> (float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile pi_struct *loopSpeed)</td></tr>
 <tr class="memdesc:a1988c289dd46fd505e0f9de30044fed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles torque control based on the reference torque, direction, maximum torque, maximum speed, measured speed, maximum torque rate of change, speed control loop parameters, and sampling time.  <br /></td></tr>
 <tr class="separator:a1988c289dd46fd505e0f9de30044fed0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a55a30eeb0846ae5cd9e212b23d5ced" id="r_a6a55a30eeb0846ae5cd9e212b23d5ced"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a55a30eeb0846ae5cd9e212b23d5ced">initialize_torque_ramp</a> (float dTorqueMax, float Ts)</td></tr>
-<tr class="memdesc:a6a55a30eeb0846ae5cd9e212b23d5ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes torque ramp.  <br /></td></tr>
-<tr class="separator:a6a55a30eeb0846ae5cd9e212b23d5ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada50e1c9a8c6b63f1af050122397719a" id="r_ada50e1c9a8c6b63f1af050122397719a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada50e1c9a8c6b63f1af050122397719a">set_torque_direction</a> (float torqueRef, int8_t direction)</td></tr>
 <tr class="memdesc:ada50e1c9a8c6b63f1af050122397719a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set torque direction based on inverter direction.  <br /></td></tr>
 <tr class="separator:ada50e1c9a8c6b63f1af050122397719a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f5d51160e9eb91ad3ffba1c5905eed6" id="r_a0f5d51160e9eb91ad3ffba1c5905eed6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f5d51160e9eb91ad3ffba1c5905eed6">saturate_symmetric</a> (float ref, float max)</td></tr>
 <tr class="memdesc:a0f5d51160e9eb91ad3ffba1c5905eed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Symmetrically saturate a reference value.  <br /></td></tr>
 <tr class="separator:a0f5d51160e9eb91ad3ffba1c5905eed6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae99c985c51ea3f09df6b9283e20b4375" id="r_ae99c985c51ea3f09df6b9283e20b4375"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae99c985c51ea3f09df6b9283e20b4375">limit_torque_to_prevent_overspeed</a> (float speedMax, float speedMeas, float torqueRefIn, volatile <a class="el" href="structpi__struct.html">pi_struct</a> *loopSpeed)</td></tr>
+<tr class="memitem:ae99c985c51ea3f09df6b9283e20b4375" id="r_ae99c985c51ea3f09df6b9283e20b4375"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae99c985c51ea3f09df6b9283e20b4375">limit_torque_to_prevent_overspeed</a> (float speedMax, float speedMeas, float torqueRefIn, volatile pi_struct *loopSpeed)</td></tr>
 <tr class="memdesc:ae99c985c51ea3f09df6b9283e20b4375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed.  <br /></td></tr>
 <tr class="separator:ae99c985c51ea3f09df6b9283e20b4375"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -221,7 +200,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">volatile <a class="el" href="structpi__struct.html">pi_struct</a> *</td>          <td class="paramname"><span class="paramname"><em>loopSpeed</em></span>&#160;)</td>
+          <td class="paramtype">volatile pi_struct *</td>          <td class="paramname"><span class="paramname"><em>loopSpeed</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -244,15 +223,11 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_r_e_f_e_r_e_n_c_e_8h_a1988c289dd46fd505e0f9de30044fed0_cgraph.png" border="0" usemap="#a_r_e_f_e_r_e_n_c_e_8h_a1988c289dd46fd505e0f9de30044fed0_cgraph" alt=""/></div>
 <map name="a_r_e_f_e_r_e_n_c_e_8h_a1988c289dd46fd505e0f9de30044fed0_cgraph" id="a_r_e_f_e_r_e_n_c_e_8h_a1988c289dd46fd505e0f9de30044fed0_cgraph">
-<area shape="rect" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="5,72,127,99"/>
+<area shape="rect" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="5,43,127,69"/>
 <area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a0da21f1ac59fa2f2ff67acfd930147ed" title="Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed." alt="" coords="175,5,329,48"/>
-<area shape="poly" title=" " alt="" coords="110,69,167,51,169,56,112,74"/>
-<area shape="rect" href="group___signal___processing___functions.html#gabebbba661473bad366efd03e7d641d6c" title="Calculates the output of the single ramp generator." alt="" coords="208,72,296,99"/>
-<area shape="poly" title=" " alt="" coords="127,83,192,83,192,88,127,88"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a0f5d51160e9eb91ad3ffba1c5905eed6" title="Symmetrically saturate a reference value." alt="" coords="184,123,320,149"/>
-<area shape="poly" title=" " alt="" coords="119,97,187,116,185,121,117,102"/>
-<area shape="rect" href="group___proportional.html#ga911a13b7487ee7e538d7cfe2e276f12e" title="Calculates the output of the PI controller." alt="" coords="377,13,439,40"/>
-<area shape="poly" title=" " alt="" coords="330,24,362,24,362,29,330,29"/>
+<area shape="poly" title=" " alt="" coords="127,44,159,39,160,44,128,49"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a0f5d51160e9eb91ad3ffba1c5905eed6" title="Symmetrically saturate a reference value." alt="" coords="184,72,320,99"/>
+<area shape="poly" title=" " alt="" coords="128,63,169,70,168,75,127,68"/>
 </map>
 </div>
 <div class="dynheader">
@@ -267,36 +242,6 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="227,21,195,21,195,16,227,16"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a6a55a30eeb0846ae5cd9e212b23d5ced" name="a6a55a30eeb0846ae5cd9e212b23d5ced"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a55a30eeb0846ae5cd9e212b23d5ced">&#9670;&#160;</a></span>initialize_torque_ramp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void initialize_torque_ramp </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dTorqueMax</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>Ts</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Initializes torque ramp. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dTorqueMax</td><td>Maximum allowable rate of change of torque. </td></tr>
-    <tr><td class="paramname">Ts</td><td>Sampling time. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
@@ -324,7 +269,7 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">volatile <a class="el" href="structpi__struct.html">pi_struct</a> *</td>          <td class="paramname"><span class="paramname"><em>loopSpeed</em></span>&#160;)</td>
+          <td class="paramtype">volatile pi_struct *</td>          <td class="paramname"><span class="paramname"><em>loopSpeed</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -350,16 +295,6 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>torqueRefOut The limited torque reference value after this saturation. </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="_r_e_f_e_r_e_n_c_e_8h_ae99c985c51ea3f09df6b9283e20b4375_cgraph.png" border="0" usemap="#a_r_e_f_e_r_e_n_c_e_8h_ae99c985c51ea3f09df6b9283e20b4375_cgraph" alt=""/></div>
-<map name="a_r_e_f_e_r_e_n_c_e_8h_ae99c985c51ea3f09df6b9283e20b4375_cgraph" id="a_r_e_f_e_r_e_n_c_e_8h_ae99c985c51ea3f09df6b9283e20b4375_cgraph">
-<area shape="rect" title="Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed." alt="" coords="5,5,160,48"/>
-<area shape="rect" href="group___proportional.html#ga911a13b7487ee7e538d7cfe2e276f12e" title="Calculates the output of the PI controller." alt="" coords="208,13,270,40"/>
-<area shape="poly" title=" " alt="" coords="160,24,192,24,192,29,160,29"/>
-</map>
-</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -465,13 +400,9 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li><li class="navelem"><a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html">REFERENCE.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

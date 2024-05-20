@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -54,23 +50,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('_c_a_n__e-_tech_8c.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -92,6 +71,11 @@ $(function(){initNavTree('_c_a_n__e-_tech_8c.html',''); initResizable(); });
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_976d189952ed482f71b400b0b237ed7f.html">Src</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
@@ -104,43 +88,39 @@ $(function(){initNavTree('_c_a_n__e-_tech_8c.html',''); initResizable(); });
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;can.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_i_n_v_e_r_t_e_r_8h_source.html">INVERTER.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_c_a_n__e-_tech_8h_source.html">CAN_e-Tech.h</a>&quot;</code><br />
+<code>#include &quot;CAN_e-Tech.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for CAN_e-Tech.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="_c_a_n__e-_tech_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_c_a_n__e-_tech_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_c_a_n__e-_tech_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_c_a_n__e-_tech_8c">
-<area shape="rect" title="This file contains functions to handle CAN communication with the car." alt="" coords="29,5,195,64"/>
-<area shape="rect" title=" " alt="" coords="5,261,59,288"/>
-<area shape="poly" title=" " alt="" coords="83,66,65,88,50,113,40,148,34,183,33,246,27,246,29,183,35,146,46,111,60,85,79,63"/>
-<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="285,112,382,139"/>
-<area shape="poly" title=" " alt="" coords="185,62,289,103,287,108,183,67"/>
-<area shape="rect" href="_c_a_n__e-_tech_8h.html" title="Header file for handling CAN communication with the car." alt="" coords="59,112,165,139"/>
-<area shape="poly" title=" " alt="" coords="115,64,115,96,109,96,109,64"/>
-<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="163,187,242,213"/>
-<area shape="poly" title=" " alt="" coords="312,142,240,181,238,176,309,137"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="593,261,735,288"/>
-<area shape="poly" title=" " alt="" coords="382,135,454,155,532,184,589,216,637,249,634,254,587,221,530,189,452,160,381,140"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="407,187,519,213"/>
-<area shape="poly" title=" " alt="" coords="357,137,428,176,425,181,355,142"/>
-<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="318,261,397,288"/>
-<area shape="poly" title=" " alt="" coords="338,139,347,186,356,246,351,246,341,187,333,140"/>
-<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="266,187,331,213"/>
-<area shape="poly" title=" " alt="" coords="330,140,314,174,309,171,325,138"/>
-<area shape="rect" title=" " alt="" coords="155,261,272,288"/>
-<area shape="poly" title=" " alt="" coords="207,213,212,246,207,246,202,214"/>
-<area shape="rect" title=" " alt="" coords="445,336,510,363"/>
-<area shape="poly" title=" " alt="" coords="632,291,525,332,523,327,631,286"/>
-<area shape="poly" title=" " alt="" coords="464,214,461,247,463,288,470,320,465,322,457,288,456,247,458,214"/>
-<area shape="rect" href="_perga_m_o_d_8h.html" title=" " alt="" coords="472,261,568,288"/>
-<area shape="poly" title=" " alt="" coords="475,212,503,247,499,251,471,216"/>
-<area shape="poly" title=" " alt="" coords="446,216,390,254,387,250,443,212"/>
-<area shape="poly" title=" " alt="" coords="515,290,495,324,490,321,510,287"/>
-<area shape="poly" title=" " alt="" coords="286,216,241,253,238,249,282,212"/>
-<area shape="rect" href="_c_a_n1db_8h.html" title=" " alt="" coords="59,187,139,213"/>
-<area shape="poly" title=" " alt="" coords="112,140,106,172,101,171,107,139"/>
-<area shape="poly" title=" " alt="" coords="89,216,56,252,52,248,85,212"/>
-<area shape="poly" title=" " alt="" coords="104,213,117,250,128,270,144,286,166,297,196,307,273,324,430,342,429,347,272,329,194,313,163,302,141,290,124,273,112,252,99,215"/>
+<area shape="rect" title="This file contains functions to handle CAN communication with the car." alt="" coords="148,5,313,64"/>
+<area shape="rect" title=" " alt="" coords="105,112,158,139"/>
+<area shape="poly" title=" " alt="" coords="200,66,158,103,155,100,197,62"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="182,112,278,139"/>
+<area shape="poly" title=" " alt="" coords="233,64,233,96,228,96,228,64"/>
+<area shape="rect" title=" " alt="" coords="303,112,408,139"/>
+<area shape="poly" title=" " alt="" coords="272,62,327,101,324,105,269,67"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="24,187,103,213"/>
+<area shape="poly" title=" " alt="" coords="202,142,108,183,105,178,200,137"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="146,261,288,288"/>
+<area shape="poly" title=" " alt="" coords="232,139,222,246,217,246,226,139"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="294,187,406,213"/>
+<area shape="poly" title=" " alt="" coords="252,137,318,176,315,181,250,141"/>
+<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="483,261,562,288"/>
+<area shape="poly" title=" " alt="" coords="280,134,348,154,419,184,465,216,502,249,498,253,462,220,417,189,346,159,278,139"/>
+<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="127,187,192,213"/>
+<area shape="poly" title=" " alt="" coords="220,141,184,177,180,174,216,137"/>
+<area shape="rect" title=" " alt="" coords="5,261,122,288"/>
+<area shape="poly" title=" " alt="" coords="66,214,66,246,61,246,61,214"/>
+<area shape="rect" title=" " alt="" coords="293,336,357,363"/>
+<area shape="poly" title=" " alt="" coords="237,286,295,325,292,329,234,291"/>
+<area shape="poly" title=" " alt="" coords="351,214,332,321,327,320,345,213"/>
+<area shape="rect" title=" " alt="" coords="362,261,458,288"/>
+<area shape="poly" title=" " alt="" coords="363,212,392,248,388,251,359,216"/>
+<area shape="poly" title=" " alt="" coords="381,211,479,252,477,257,379,216"/>
+<area shape="poly" title=" " alt="" coords="489,291,372,333,371,328,487,286"/>
+<area shape="poly" title=" " alt="" coords="144,216,94,254,91,250,141,212"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -150,13 +130,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:a344219c7f86a488bcb222a4b675ee586"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle CAN messages.  <br /></td></tr>
 <tr class="separator:a344219c7f86a488bcb222a4b675ee586"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a338a1edd038abc0fd507ad984eb4acfa" id="r_a338a1edd038abc0fd507ad984eb4acfa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a338a1edd038abc0fd507ad984eb4acfa">send_CAN_message</a> (CAN_HandleTypeDef *hcan, void *dbc_msg, const float *data)</td></tr>
-<tr class="memdesc:a338a1edd038abc0fd507ad984eb4acfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a CAN message using <a class="el" href="_c_a_n1db_8h.html">CAN1db.h</a> information.  <br /></td></tr>
+<tr class="memdesc:a338a1edd038abc0fd507ad984eb4acfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a CAN message using CAN1db.h information.  <br /></td></tr>
 <tr class="separator:a338a1edd038abc0fd507ad984eb4acfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a4f0582e1cda8482a5450be15a34eb197" id="r_a4f0582e1cda8482a5450be15a34eb197"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f0582e1cda8482a5450be15a34eb197">enableCAN</a></td></tr>
-<tr class="separator:a4f0582e1cda8482a5450be15a34eb197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a081828825d72fd868da68da6f61cad69" id="r_a081828825d72fd868da68da6f61cad69"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a081828825d72fd868da68da6f61cad69">keepAlive</a></td></tr>
+<tr class="separator:a081828825d72fd868da68da6f61cad69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file contains functions to handle CAN communication with the car. </p>
@@ -234,12 +214,12 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Send a CAN message using <a class="el" href="_c_a_n1db_8h.html">CAN1db.h</a> information. </p>
-<p>This function prepares and sends a CAN message using information from <a class="el" href="_c_a_n1db_8h.html">CAN1db.h</a>.</p>
+<p>Send a CAN message using CAN1db.h information. </p>
+<p>This function prepares and sends a CAN message using information from CAN1db.h.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">hcan</td><td>Pointer to the CAN handle structure. </td></tr>
-    <tr><td class="paramname">dbc_msg</td><td>Pointer to the structure containing CAN message information from <a class="el" href="_c_a_n1db_8h.html">CAN1db.h</a>. </td></tr>
+    <tr><td class="paramname">dbc_msg</td><td>Pointer to the structure containing CAN message information from CAN1db.h. </td></tr>
     <tr><td class="paramname">data</td><td>Pointer to the array of float data to be sent. </td></tr>
   </table>
   </dd>
@@ -260,14 +240,14 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
-<a id="a4f0582e1cda8482a5450be15a34eb197" name="a4f0582e1cda8482a5450be15a34eb197"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f0582e1cda8482a5450be15a34eb197">&#9670;&#160;</a></span>enableCAN</h2>
+<a id="a081828825d72fd868da68da6f61cad69" name="a081828825d72fd868da68da6f61cad69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a081828825d72fd868da68da6f61cad69">&#9670;&#160;</a></span>keepAlive</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t enableCAN</td>
+          <td class="memname">uint8_t keepAlive</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -275,13 +255,9 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_976d189952ed482f71b400b0b237ed7f.html">Src</a></li><li class="navelem"><a class="el" href="_c_a_n__e-_tech_8c.html">CAN_e-Tech.c</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

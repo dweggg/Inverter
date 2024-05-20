@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['memmanage_5fhandler_1',['MemManage_Handler',['../stm32f7xx__it_8h.html#a3150f74512510287a942624aa9b44cc5',1,'MemManage_Handler(void):&#160;stm32f7xx_it.c'],['../stm32f7xx__it_8c.html#a3150f74512510287a942624aa9b44cc5',1,'MemManage_Handler(void):&#160;stm32f7xx_it.c']]],
-  ['mx_5fcan1_5finit_2',['MX_CAN1_Init',['../can_8c.html#a030a62a0956ab83394eb8354a0e97902',1,'can.c']]],
-  ['mx_5ftim1_5finit_3',['MX_TIM1_Init',['../tim_8c.html#ad1f9d42690163f73f73e5b820c81ca14',1,'tim.c']]],
-  ['mx_5ftim2_5finit_4',['MX_TIM2_Init',['../tim_8c.html#a4b8ff887fd3fdf26605e35927e4ff202',1,'tim.c']]],
-  ['mx_5ftim4_5finit_5',['MX_TIM4_Init',['../tim_8c.html#aef1e0b132b1af1c923cc420a57180c67',1,'tim.c']]],
-  ['mx_5ftim6_5finit_6',['MX_TIM6_Init',['../tim_8c.html#abbf5454212cb039fb90d523b2473af91',1,'tim.c']]],
-  ['mx_5ftim8_5finit_7',['MX_TIM8_Init',['../tim_8c.html#a265aef7a46164094e791259bf59d9cb4',1,'tim.c']]]
+  ['saturate_5fsymmetric_0',['saturate_symmetric',['../_r_e_f_e_r_e_n_c_e_8h.html#a0f5d51160e9eb91ad3ffba1c5905eed6',1,'saturate_symmetric(float ref, float max):&#160;REFERENCE.c'],['../_r_e_f_e_r_e_n_c_e_8c.html#a0f5d51160e9eb91ad3ffba1c5905eed6',1,'saturate_symmetric(float ref, float max):&#160;REFERENCE.c']]],
+  ['saturate_5fvoltage_1',['saturate_voltage',['../_c_o_n_t_r_o_l_8h.html#adb373ce1587c58be1d83f77103483f6b',1,'saturate_voltage(volatile InverterStruct *inv):&#160;CONTROL.c'],['../_c_o_n_t_r_o_l_8c.html#adb373ce1587c58be1d83f77103483f6b',1,'saturate_voltage(volatile InverterStruct *inv):&#160;CONTROL.c']]],
+  ['send_5fcan_5fmessage_2',['send_CAN_message',['../_c_a_n__e-_tech_8c.html#a338a1edd038abc0fd507ad984eb4acfa',1,'CAN_e-Tech.c']]],
+  ['set_5ftorque_5fdirection_3',['set_torque_direction',['../_r_e_f_e_r_e_n_c_e_8h.html#ada50e1c9a8c6b63f1af050122397719a',1,'set_torque_direction(float torqueRef, int8_t direction):&#160;REFERENCE.c'],['../_r_e_f_e_r_e_n_c_e_8c.html#ab120f5abe0a9a818f3926bc3a859abd6',1,'set_torque_direction(float torqueRefIn, int8_t direction):&#160;REFERENCE.c']]],
+  ['svc_5fhandler_4',['SVC_Handler',['../stm32f7xx__it_8c.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce',1,'stm32f7xx_it.c']]],
+  ['systemclock_5fconfig_5',['SystemClock_Config',['../main_8c.html#a70af21c671abfcc773614a9a4f63d920',1,'main.c']]],
+  ['systick_5fhandler_6',['SysTick_Handler',['../stm32f7xx__it_8c.html#ab5e09814056d617c521549e542639b7e',1,'stm32f7xx_it.c']]]
 ];

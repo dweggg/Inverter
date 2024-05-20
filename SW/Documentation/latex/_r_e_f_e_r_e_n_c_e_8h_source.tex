@@ -8,7 +8,7 @@
 \DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ REFERENCE\_H}}
 \DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ REFERENCE\_H}}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_perga_m_o_d_8h}{PergaMOD.h}}"{}}\ \textcolor{comment}{//\ ramp,\ pi\ struct}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}PergaMOD.h"{}}\ \textcolor{comment}{//\ ramp,\ pi\ struct}}
 \DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_o_t_o_r_8h}{MOTOR.h}}"{}}\ \textcolor{comment}{//\ motor\ struct}}
 \DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
 \DoxyCodeLine{00026\ }
@@ -19,17 +19,15 @@
 \DoxyCodeLine{00034\ \}\ \mbox{\hyperlink{struct_reference}{Reference}};}
 \DoxyCodeLine{00035\ }
 \DoxyCodeLine{00036\ }
-\DoxyCodeLine{00050\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a1988c289dd46fd505e0f9de30044fed0}{handle\_torqueRef}}(\textcolor{keywordtype}{float}\ torqueRefIn,\ int8\_t\ direction,\ \textcolor{keywordtype}{float}\ torqueMax,\ \textcolor{keywordtype}{float}\ speedMaxRPM,\ \textcolor{keywordtype}{float}\ speedMeas,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{structpi__struct}{pi\_struct}}\ *loopSpeed);}
+\DoxyCodeLine{00050\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a1988c289dd46fd505e0f9de30044fed0}{handle\_torqueRef}}(\textcolor{keywordtype}{float}\ torqueRefIn,\ int8\_t\ direction,\ \textcolor{keywordtype}{float}\ torqueMax,\ \textcolor{keywordtype}{float}\ speedMaxRPM,\ \textcolor{keywordtype}{float}\ speedMeas,\ \textcolor{keyword}{volatile}\ pi\_struct\ *loopSpeed);}
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00058\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a6a55a30eeb0846ae5cd9e212b23d5ced}{initialize\_torque\_ramp}}(\textcolor{keywordtype}{float}\ dTorqueMax,\ \textcolor{keywordtype}{float}\ Ts);}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00060\ }
-\DoxyCodeLine{00072\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ada50e1c9a8c6b63f1af050122397719a}{set\_torque\_direction}}(\textcolor{keywordtype}{float}\ torqueRef,\ int8\_t\ direction);}
-\DoxyCodeLine{00073\ }
-\DoxyCodeLine{00085\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a0f5d51160e9eb91ad3ffba1c5905eed6}{saturate\_symmetric}}(\textcolor{keywordtype}{float}\ ref,\ \textcolor{keywordtype}{float}\ max);}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00095\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ae99c985c51ea3f09df6b9283e20b4375}{limit\_torque\_to\_prevent\_overspeed}}(\textcolor{keywordtype}{float}\ speedMax,\ \textcolor{keywordtype}{float}\ speedMeas,\ \textcolor{keywordtype}{float}\ torqueRefIn,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{structpi__struct}{pi\_struct}}\ *loopSpeed);}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ REFERENCE\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ada50e1c9a8c6b63f1af050122397719a}{set\_torque\_direction}}(\textcolor{keywordtype}{float}\ torqueRef,\ int8\_t\ direction);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a0f5d51160e9eb91ad3ffba1c5905eed6}{saturate\_symmetric}}(\textcolor{keywordtype}{float}\ ref,\ \textcolor{keywordtype}{float}\ max);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00087\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ae99c985c51ea3f09df6b9283e20b4375}{limit\_torque\_to\_prevent\_overspeed}}(\textcolor{keywordtype}{float}\ speedMax,\ \textcolor{keywordtype}{float}\ speedMeas,\ \textcolor{keywordtype}{float}\ torqueRefIn,\ \textcolor{keyword}{volatile}\ pi\_struct\ *loopSpeed);}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ REFERENCE\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -59,23 +55,6 @@ $(function() {
 $(function() { codefold.init(0); });
 /* @license-end */
 </script>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('_m_o_t_o_r_8h_source.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -97,6 +76,11 @@ $(function(){initNavTree('_m_o_t_o_r_8h_source.html',''); initResizable(); });
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">MOTOR.h</div></div>
 </div><!--header-->
@@ -107,52 +91,50 @@ $(function(){initNavTree('_m_o_t_o_r_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#ifndef MOTOR_H</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define MOTOR_H</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="foldopen" id="foldopen00025" data-start="{" data-end="};">
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html">   25</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a07bad721e5354a6283503711b07129c9">   26</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a07bad721e5354a6283503711b07129c9">Ld</a>;               </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b">   27</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b">Lq</a>;               </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#aca721ce2e7dddc5d3091a18d715dd409">   28</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#aca721ce2e7dddc5d3091a18d715dd409">Rs</a>;               </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#acac4a565486bad0b88b62387d8a5d891">   29</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#acac4a565486bad0b88b62387d8a5d891">lambda</a>;           </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#abd6dcb9676af8cd7922ef29864fa03eb">   30</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_motor_parameters.html#abd6dcb9676af8cd7922ef29864fa03eb">pp</a>;                 </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a7c20f6b5c2b8c830d450944735b761b3">   31</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a7c20f6b5c2b8c830d450944735b761b3">J</a>;                </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a83fc1af92e29717b4513d121b0c72c7d">   32</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a83fc1af92e29717b4513d121b0c72c7d">b</a>;                </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#acab6d1fef9697fa064ebe6f10cdd7ec9">   33</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#acab6d1fef9697fa064ebe6f10cdd7ec9">torque_max</a>;       </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#aa2f8997a0bbb31cf092fcd15801add2a">   34</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#aa2f8997a0bbb31cf092fcd15801add2a">dTorque_max</a>;      </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a316b2fe5d1f410ba6f5f343830110d2d">   35</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a316b2fe5d1f410ba6f5f343830110d2d">speed_max_RPM</a>;    </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#ae0b158be47384d1cbf1bfb3d1ec9f88b">   36</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#ae0b158be47384d1cbf1bfb3d1ec9f88b">iPhase_pk_max</a>;    </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a7c16493fa7f251e317f1a8f30355e04c">   37</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a7c16493fa7f251e317f1a8f30355e04c">vDC_max</a>;          </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="};">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html">   27</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a07bad721e5354a6283503711b07129c9">   28</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a07bad721e5354a6283503711b07129c9">Ld</a>;               </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b">   29</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b">Lq</a>;               </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#aca721ce2e7dddc5d3091a18d715dd409">   30</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#aca721ce2e7dddc5d3091a18d715dd409">Rs</a>;               </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#acac4a565486bad0b88b62387d8a5d891">   31</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#acac4a565486bad0b88b62387d8a5d891">lambda</a>;           </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#ae576d3710ccfeaba09b1572231889381">   32</a></span>    uint8_t <a class="code hl_variable" href="struct_motor_parameters.html#ae576d3710ccfeaba09b1572231889381">pp</a>;             </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a7c20f6b5c2b8c830d450944735b761b3">   33</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a7c20f6b5c2b8c830d450944735b761b3">J</a>;                </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a83fc1af92e29717b4513d121b0c72c7d">   34</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a83fc1af92e29717b4513d121b0c72c7d">b</a>;                </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a930c61ca01d801c9bcb08d94c598417b">   35</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a930c61ca01d801c9bcb08d94c598417b">torqueMax</a>;        </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a5c9696209f668d008b3820d6506a55c1">   36</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a5c9696209f668d008b3820d6506a55c1">dTorqueMax</a>;         </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#abd0d87888e0c00f0042a65cb7c33c26e">   37</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#abd0d87888e0c00f0042a65cb7c33c26e">speedMax_RPM</a>;     </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#a8a4f4574b814374b46399cf778070f26">   38</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#a8a4f4574b814374b46399cf778070f26">iMax</a>;             </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct_motor_parameters.html#aa270d11ee753ddb99f629f6fa4e33c60">   39</a></span>    <span class="keywordtype">float</span> <a class="code hl_variable" href="struct_motor_parameters.html#aa270d11ee753ddb99f629f6fa4e33c60">vDCMax</a>;           </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>} <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a>;</div>
 </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> <a class="code hl_variable" href="_m_o_t_o_r_8h.html#ac1fb3830c20e54f8980f91b3b8b19a48">motor_left</a>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> <a class="code hl_variable" href="_m_o_t_o_r_8h.html#aa30800b62b841d0b0b3cac4df1841afa">motor_right</a>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keywordtype">int</span> <a class="code hl_function" href="_m_o_t_o_r_8h.html#aac2006b5fcd23b70efa190f9239e50a1">check_motor_parameters</a>(<a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> *motor, <span class="keywordtype">float</span> Ts);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif </span><span class="comment">/* MOTOR_H */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> <a class="code hl_variable" href="_m_o_t_o_r_8h.html#ac1fb3830c20e54f8980f91b3b8b19a48">motor_left</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">extern</span> <a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> <a class="code hl_variable" href="_m_o_t_o_r_8h.html#aa30800b62b841d0b0b3cac4df1841afa">motor_right</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keywordtype">int</span> <a class="code hl_function" href="_m_o_t_o_r_8h.html#aac2006b5fcd23b70efa190f9239e50a1">check_motor_parameters</a>(<a class="code hl_struct" href="struct_motor_parameters.html">MotorParameters</a> *motor, <span class="keywordtype">float</span> Ts);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif </span><span class="comment">/* MOTOR_H */</span><span class="preprocessor"></span></div>
 <div class="ttc" id="a_m_o_t_o_r_8h_html_aa30800b62b841d0b0b3cac4df1841afa"><div class="ttname"><a href="_m_o_t_o_r_8h.html#aa30800b62b841d0b0b3cac4df1841afa">motor_right</a></div><div class="ttdeci">MotorParameters motor_right</div><div class="ttdoc">Right motor parameters.</div><div class="ttdef"><b>Definition</b> MOTOR.c:44</div></div>
 <div class="ttc" id="a_m_o_t_o_r_8h_html_aac2006b5fcd23b70efa190f9239e50a1"><div class="ttname"><a href="_m_o_t_o_r_8h.html#aac2006b5fcd23b70efa190f9239e50a1">check_motor_parameters</a></div><div class="ttdeci">int check_motor_parameters(MotorParameters *motor, float Ts)</div><div class="ttdoc">Perform a parameter check and correct possible errors.</div><div class="ttdef"><b>Definition</b> MOTOR.c:65</div></div>
 <div class="ttc" id="a_m_o_t_o_r_8h_html_ac1fb3830c20e54f8980f91b3b8b19a48"><div class="ttname"><a href="_m_o_t_o_r_8h.html#ac1fb3830c20e54f8980f91b3b8b19a48">motor_left</a></div><div class="ttdeci">MotorParameters motor_left</div><div class="ttdoc">Left motor parameters.</div><div class="ttdef"><b>Definition</b> MOTOR.c:26</div></div>
-<div class="ttc" id="astruct_motor_parameters_html"><div class="ttname"><a href="struct_motor_parameters.html">MotorParameters</a></div><div class="ttdoc">Structure to hold motor parameters.</div><div class="ttdef"><b>Definition</b> MOTOR.h:25</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_a07bad721e5354a6283503711b07129c9"><div class="ttname"><a href="struct_motor_parameters.html#a07bad721e5354a6283503711b07129c9">MotorParameters::Ld</a></div><div class="ttdeci">float Ld</div><div class="ttdef"><b>Definition</b> MOTOR.h:26</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_a316b2fe5d1f410ba6f5f343830110d2d"><div class="ttname"><a href="struct_motor_parameters.html#a316b2fe5d1f410ba6f5f343830110d2d">MotorParameters::speed_max_RPM</a></div><div class="ttdeci">float speed_max_RPM</div><div class="ttdef"><b>Definition</b> MOTOR.h:35</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_a7c16493fa7f251e317f1a8f30355e04c"><div class="ttname"><a href="struct_motor_parameters.html#a7c16493fa7f251e317f1a8f30355e04c">MotorParameters::vDC_max</a></div><div class="ttdeci">float vDC_max</div><div class="ttdef"><b>Definition</b> MOTOR.h:37</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_a7c20f6b5c2b8c830d450944735b761b3"><div class="ttname"><a href="struct_motor_parameters.html#a7c20f6b5c2b8c830d450944735b761b3">MotorParameters::J</a></div><div class="ttdeci">float J</div><div class="ttdef"><b>Definition</b> MOTOR.h:31</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_a83fc1af92e29717b4513d121b0c72c7d"><div class="ttname"><a href="struct_motor_parameters.html#a83fc1af92e29717b4513d121b0c72c7d">MotorParameters::b</a></div><div class="ttdeci">float b</div><div class="ttdef"><b>Definition</b> MOTOR.h:32</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_a96dd5df1bbd8d28342602132e5ed628b"><div class="ttname"><a href="struct_motor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b">MotorParameters::Lq</a></div><div class="ttdeci">float Lq</div><div class="ttdef"><b>Definition</b> MOTOR.h:27</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_aa2f8997a0bbb31cf092fcd15801add2a"><div class="ttname"><a href="struct_motor_parameters.html#aa2f8997a0bbb31cf092fcd15801add2a">MotorParameters::dTorque_max</a></div><div class="ttdeci">float dTorque_max</div><div class="ttdef"><b>Definition</b> MOTOR.h:34</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_abd6dcb9676af8cd7922ef29864fa03eb"><div class="ttname"><a href="struct_motor_parameters.html#abd6dcb9676af8cd7922ef29864fa03eb">MotorParameters::pp</a></div><div class="ttdeci">int pp</div><div class="ttdef"><b>Definition</b> MOTOR.h:30</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_aca721ce2e7dddc5d3091a18d715dd409"><div class="ttname"><a href="struct_motor_parameters.html#aca721ce2e7dddc5d3091a18d715dd409">MotorParameters::Rs</a></div><div class="ttdeci">float Rs</div><div class="ttdef"><b>Definition</b> MOTOR.h:28</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_acab6d1fef9697fa064ebe6f10cdd7ec9"><div class="ttname"><a href="struct_motor_parameters.html#acab6d1fef9697fa064ebe6f10cdd7ec9">MotorParameters::torque_max</a></div><div class="ttdeci">float torque_max</div><div class="ttdef"><b>Definition</b> MOTOR.h:33</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_acac4a565486bad0b88b62387d8a5d891"><div class="ttname"><a href="struct_motor_parameters.html#acac4a565486bad0b88b62387d8a5d891">MotorParameters::lambda</a></div><div class="ttdeci">float lambda</div><div class="ttdef"><b>Definition</b> MOTOR.h:29</div></div>
-<div class="ttc" id="astruct_motor_parameters_html_ae0b158be47384d1cbf1bfb3d1ec9f88b"><div class="ttname"><a href="struct_motor_parameters.html#ae0b158be47384d1cbf1bfb3d1ec9f88b">MotorParameters::iPhase_pk_max</a></div><div class="ttdeci">float iPhase_pk_max</div><div class="ttdef"><b>Definition</b> MOTOR.h:36</div></div>
+<div class="ttc" id="astruct_motor_parameters_html"><div class="ttname"><a href="struct_motor_parameters.html">MotorParameters</a></div><div class="ttdoc">Structure to hold motor parameters.</div><div class="ttdef"><b>Definition</b> MOTOR.h:27</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_a07bad721e5354a6283503711b07129c9"><div class="ttname"><a href="struct_motor_parameters.html#a07bad721e5354a6283503711b07129c9">MotorParameters::Ld</a></div><div class="ttdeci">float Ld</div><div class="ttdef"><b>Definition</b> MOTOR.h:28</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_a5c9696209f668d008b3820d6506a55c1"><div class="ttname"><a href="struct_motor_parameters.html#a5c9696209f668d008b3820d6506a55c1">MotorParameters::dTorqueMax</a></div><div class="ttdeci">float dTorqueMax</div><div class="ttdef"><b>Definition</b> MOTOR.h:36</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_a7c20f6b5c2b8c830d450944735b761b3"><div class="ttname"><a href="struct_motor_parameters.html#a7c20f6b5c2b8c830d450944735b761b3">MotorParameters::J</a></div><div class="ttdeci">float J</div><div class="ttdef"><b>Definition</b> MOTOR.h:33</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_a83fc1af92e29717b4513d121b0c72c7d"><div class="ttname"><a href="struct_motor_parameters.html#a83fc1af92e29717b4513d121b0c72c7d">MotorParameters::b</a></div><div class="ttdeci">float b</div><div class="ttdef"><b>Definition</b> MOTOR.h:34</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_a8a4f4574b814374b46399cf778070f26"><div class="ttname"><a href="struct_motor_parameters.html#a8a4f4574b814374b46399cf778070f26">MotorParameters::iMax</a></div><div class="ttdeci">float iMax</div><div class="ttdef"><b>Definition</b> MOTOR.h:38</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_a930c61ca01d801c9bcb08d94c598417b"><div class="ttname"><a href="struct_motor_parameters.html#a930c61ca01d801c9bcb08d94c598417b">MotorParameters::torqueMax</a></div><div class="ttdeci">float torqueMax</div><div class="ttdef"><b>Definition</b> MOTOR.h:35</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_a96dd5df1bbd8d28342602132e5ed628b"><div class="ttname"><a href="struct_motor_parameters.html#a96dd5df1bbd8d28342602132e5ed628b">MotorParameters::Lq</a></div><div class="ttdeci">float Lq</div><div class="ttdef"><b>Definition</b> MOTOR.h:29</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_aa270d11ee753ddb99f629f6fa4e33c60"><div class="ttname"><a href="struct_motor_parameters.html#aa270d11ee753ddb99f629f6fa4e33c60">MotorParameters::vDCMax</a></div><div class="ttdeci">float vDCMax</div><div class="ttdef"><b>Definition</b> MOTOR.h:39</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_abd0d87888e0c00f0042a65cb7c33c26e"><div class="ttname"><a href="struct_motor_parameters.html#abd0d87888e0c00f0042a65cb7c33c26e">MotorParameters::speedMax_RPM</a></div><div class="ttdeci">float speedMax_RPM</div><div class="ttdef"><b>Definition</b> MOTOR.h:37</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_aca721ce2e7dddc5d3091a18d715dd409"><div class="ttname"><a href="struct_motor_parameters.html#aca721ce2e7dddc5d3091a18d715dd409">MotorParameters::Rs</a></div><div class="ttdeci">float Rs</div><div class="ttdef"><b>Definition</b> MOTOR.h:30</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_acac4a565486bad0b88b62387d8a5d891"><div class="ttname"><a href="struct_motor_parameters.html#acac4a565486bad0b88b62387d8a5d891">MotorParameters::lambda</a></div><div class="ttdeci">float lambda</div><div class="ttdef"><b>Definition</b> MOTOR.h:31</div></div>
+<div class="ttc" id="astruct_motor_parameters_html_ae576d3710ccfeaba09b1572231889381"><div class="ttname"><a href="struct_motor_parameters.html#ae576d3710ccfeaba09b1572231889381">MotorParameters::pp</a></div><div class="ttdeci">uint8_t pp</div><div class="ttdef"><b>Definition</b> MOTOR.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_7ecc280c3b468d194a15a98ac8e61e8f.html">Inverter</a></li><li class="navelem"><a class="el" href="dir_904378c2499758a818e8491389721fc9.html">Core</a></li><li class="navelem"><a class="el" href="dir_60f92c8503fad02244e120c779074e49.html">Inc</a></li><li class="navelem"><a class="el" href="_m_o_t_o_r_8h.html">MOTOR.h</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

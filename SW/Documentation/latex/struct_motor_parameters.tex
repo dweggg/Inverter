@@ -20,21 +20,21 @@ float \mbox{\hyperlink{struct_motor_parameters_aca721ce2e7dddc5d3091a18d715dd409
 \item 
 float \mbox{\hyperlink{struct_motor_parameters_acac4a565486bad0b88b62387d8a5d891}{lambda}}
 \item 
-int \mbox{\hyperlink{struct_motor_parameters_abd6dcb9676af8cd7922ef29864fa03eb}{pp}}
+uint8\+\_\+t \mbox{\hyperlink{struct_motor_parameters_ae576d3710ccfeaba09b1572231889381}{pp}}
 \item 
 float \mbox{\hyperlink{struct_motor_parameters_a7c20f6b5c2b8c830d450944735b761b3}{J}}
 \item 
 float \mbox{\hyperlink{struct_motor_parameters_a83fc1af92e29717b4513d121b0c72c7d}{b}}
 \item 
-float \mbox{\hyperlink{struct_motor_parameters_acab6d1fef9697fa064ebe6f10cdd7ec9}{torque\+\_\+max}}
+float \mbox{\hyperlink{struct_motor_parameters_a930c61ca01d801c9bcb08d94c598417b}{torque\+Max}}
 \item 
-float \mbox{\hyperlink{struct_motor_parameters_aa2f8997a0bbb31cf092fcd15801add2a}{d\+Torque\+\_\+max}}
+float \mbox{\hyperlink{struct_motor_parameters_a5c9696209f668d008b3820d6506a55c1}{d\+Torque\+Max}}
 \item 
-float \mbox{\hyperlink{struct_motor_parameters_a316b2fe5d1f410ba6f5f343830110d2d}{speed\+\_\+max\+\_\+\+RPM}}
+float \mbox{\hyperlink{struct_motor_parameters_abd0d87888e0c00f0042a65cb7c33c26e}{speed\+Max\+\_\+\+RPM}}
 \item 
-float \mbox{\hyperlink{struct_motor_parameters_ae0b158be47384d1cbf1bfb3d1ec9f88b}{i\+Phase\+\_\+pk\+\_\+max}}
+float \mbox{\hyperlink{struct_motor_parameters_a8a4f4574b814374b46399cf778070f26}{i\+Max}}
 \item 
-float \mbox{\hyperlink{struct_motor_parameters_a7c16493fa7f251e317f1a8f30355e04c}{v\+DC\+\_\+max}}
+float \mbox{\hyperlink{struct_motor_parameters_aa270d11ee753ddb99f629f6fa4e33c60}{v\+DCMax}}
 \end{DoxyCompactItemize}
 
 
@@ -48,17 +48,17 @@ Structure to hold motor parameters.
 \doxysubsubsection{\texorpdfstring{b}{b}}
 {\footnotesize\ttfamily float b}
 
-Viscous friction in N·m·s \Hypertarget{struct_motor_parameters_aa2f8997a0bbb31cf092fcd15801add2a}\label{struct_motor_parameters_aa2f8997a0bbb31cf092fcd15801add2a} 
-\index{MotorParameters@{MotorParameters}!dTorque\_max@{dTorque\_max}}
-\index{dTorque\_max@{dTorque\_max}!MotorParameters@{MotorParameters}}
-\doxysubsubsection{\texorpdfstring{dTorque\_max}{dTorque\_max}}
-{\footnotesize\ttfamily float d\+Torque\+\_\+max}
+Viscous friction in N·m·s \Hypertarget{struct_motor_parameters_a5c9696209f668d008b3820d6506a55c1}\label{struct_motor_parameters_a5c9696209f668d008b3820d6506a55c1} 
+\index{MotorParameters@{MotorParameters}!dTorqueMax@{dTorqueMax}}
+\index{dTorqueMax@{dTorqueMax}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{dTorqueMax}{dTorqueMax}}
+{\footnotesize\ttfamily float d\+Torque\+Max}
 
-Maximum torque increment in N·m/s \Hypertarget{struct_motor_parameters_ae0b158be47384d1cbf1bfb3d1ec9f88b}\label{struct_motor_parameters_ae0b158be47384d1cbf1bfb3d1ec9f88b} 
-\index{MotorParameters@{MotorParameters}!iPhase\_pk\_max@{iPhase\_pk\_max}}
-\index{iPhase\_pk\_max@{iPhase\_pk\_max}!MotorParameters@{MotorParameters}}
-\doxysubsubsection{\texorpdfstring{iPhase\_pk\_max}{iPhase\_pk\_max}}
-{\footnotesize\ttfamily float i\+Phase\+\_\+pk\+\_\+max}
+Maximum torque increment in N·m/s \Hypertarget{struct_motor_parameters_a8a4f4574b814374b46399cf778070f26}\label{struct_motor_parameters_a8a4f4574b814374b46399cf778070f26} 
+\index{MotorParameters@{MotorParameters}!iMax@{iMax}}
+\index{iMax@{iMax}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{iMax}{iMax}}
+{\footnotesize\ttfamily float i\+Max}
 
 Maximum phase current (peak value, or RMS\texorpdfstring{$\ast$}{*}sqrt2) \Hypertarget{struct_motor_parameters_a7c20f6b5c2b8c830d450944735b761b3}\label{struct_motor_parameters_a7c20f6b5c2b8c830d450944735b761b3} 
 \index{MotorParameters@{MotorParameters}!J@{J}}
@@ -84,11 +84,11 @@ D-\/axis inductance in Henries \Hypertarget{struct_motor_parameters_a96dd5df1bbd
 \doxysubsubsection{\texorpdfstring{Lq}{Lq}}
 {\footnotesize\ttfamily float Lq}
 
-Q-\/axis inductance in Henries \Hypertarget{struct_motor_parameters_abd6dcb9676af8cd7922ef29864fa03eb}\label{struct_motor_parameters_abd6dcb9676af8cd7922ef29864fa03eb} 
+Q-\/axis inductance in Henries \Hypertarget{struct_motor_parameters_ae576d3710ccfeaba09b1572231889381}\label{struct_motor_parameters_ae576d3710ccfeaba09b1572231889381} 
 \index{MotorParameters@{MotorParameters}!pp@{pp}}
 \index{pp@{pp}!MotorParameters@{MotorParameters}}
 \doxysubsubsection{\texorpdfstring{pp}{pp}}
-{\footnotesize\ttfamily int pp}
+{\footnotesize\ttfamily uint8\+\_\+t pp}
 
 Pole pairs (total number of poles divided by 2) \Hypertarget{struct_motor_parameters_aca721ce2e7dddc5d3091a18d715dd409}\label{struct_motor_parameters_aca721ce2e7dddc5d3091a18d715dd409} 
 \index{MotorParameters@{MotorParameters}!Rs@{Rs}}
@@ -96,23 +96,23 @@ Pole pairs (total number of poles divided by 2) \Hypertarget{struct_motor_parame
 \doxysubsubsection{\texorpdfstring{Rs}{Rs}}
 {\footnotesize\ttfamily float Rs}
 
-Stator resistance in Ohms \Hypertarget{struct_motor_parameters_a316b2fe5d1f410ba6f5f343830110d2d}\label{struct_motor_parameters_a316b2fe5d1f410ba6f5f343830110d2d} 
-\index{MotorParameters@{MotorParameters}!speed\_max\_RPM@{speed\_max\_RPM}}
-\index{speed\_max\_RPM@{speed\_max\_RPM}!MotorParameters@{MotorParameters}}
-\doxysubsubsection{\texorpdfstring{speed\_max\_RPM}{speed\_max\_RPM}}
-{\footnotesize\ttfamily float speed\+\_\+max\+\_\+\+RPM}
+Stator resistance in Ohms \Hypertarget{struct_motor_parameters_abd0d87888e0c00f0042a65cb7c33c26e}\label{struct_motor_parameters_abd0d87888e0c00f0042a65cb7c33c26e} 
+\index{MotorParameters@{MotorParameters}!speedMax\_RPM@{speedMax\_RPM}}
+\index{speedMax\_RPM@{speedMax\_RPM}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{speedMax\_RPM}{speedMax\_RPM}}
+{\footnotesize\ttfamily float speed\+Max\+\_\+\+RPM}
 
-Maximum speed in RPM \Hypertarget{struct_motor_parameters_acab6d1fef9697fa064ebe6f10cdd7ec9}\label{struct_motor_parameters_acab6d1fef9697fa064ebe6f10cdd7ec9} 
-\index{MotorParameters@{MotorParameters}!torque\_max@{torque\_max}}
-\index{torque\_max@{torque\_max}!MotorParameters@{MotorParameters}}
-\doxysubsubsection{\texorpdfstring{torque\_max}{torque\_max}}
-{\footnotesize\ttfamily float torque\+\_\+max}
+Maximum speed in RPM \Hypertarget{struct_motor_parameters_a930c61ca01d801c9bcb08d94c598417b}\label{struct_motor_parameters_a930c61ca01d801c9bcb08d94c598417b} 
+\index{MotorParameters@{MotorParameters}!torqueMax@{torqueMax}}
+\index{torqueMax@{torqueMax}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{torqueMax}{torqueMax}}
+{\footnotesize\ttfamily float torque\+Max}
 
-Maximum torque in N·m \Hypertarget{struct_motor_parameters_a7c16493fa7f251e317f1a8f30355e04c}\label{struct_motor_parameters_a7c16493fa7f251e317f1a8f30355e04c} 
-\index{MotorParameters@{MotorParameters}!vDC\_max@{vDC\_max}}
-\index{vDC\_max@{vDC\_max}!MotorParameters@{MotorParameters}}
-\doxysubsubsection{\texorpdfstring{vDC\_max}{vDC\_max}}
-{\footnotesize\ttfamily float v\+DC\+\_\+max}
+Maximum torque in N·m \Hypertarget{struct_motor_parameters_aa270d11ee753ddb99f629f6fa4e33c60}\label{struct_motor_parameters_aa270d11ee753ddb99f629f6fa4e33c60} 
+\index{MotorParameters@{MotorParameters}!vDCMax@{vDCMax}}
+\index{vDCMax@{vDCMax}!MotorParameters@{MotorParameters}}
+\doxysubsubsection{\texorpdfstring{vDCMax}{vDCMax}}
+{\footnotesize\ttfamily float v\+DCMax}
 
 Maximum DC bus voltage in volts 
 

@@ -10,10 +10,6 @@
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <script type="text/javascript" src="cookie.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
@@ -55,22 +51,6 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('globals_h.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -96,36 +76,23 @@ $(function(){initNavTree('globals_h.html',''); initResizable(); });
 <div class="textblock">Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:</div>
 
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>HAL_CAN_MspDeInit()&#160;:&#160;<a class="el" href="can_8c.html#a4b39e42353b2781bc75d83c018640b67">can.c</a></li>
-<li>HAL_CAN_MspInit()&#160;:&#160;<a class="el" href="can_8c.html#a2778ce7f3a2de42769b6de9fec4cedb9">can.c</a></li>
-<li>HAL_TIM_Base_MspDeInit()&#160;:&#160;<a class="el" href="tim_8c.html#adee8ed7d3ebb3a217c27ac10af86ce2f">tim.c</a></li>
-<li>HAL_TIM_Base_MspInit()&#160;:&#160;<a class="el" href="tim_8c.html#a59716af159bfbbb6023b31354fb23af8">tim.c</a></li>
-<li>HAL_TIM_IC_MspDeInit()&#160;:&#160;<a class="el" href="tim_8c.html#a701032abe2709bc890df9474d3294861">tim.c</a></li>
-<li>HAL_TIM_IC_MspInit()&#160;:&#160;<a class="el" href="tim_8c.html#a13619a751dea657d9faa32b690b2f80e">tim.c</a></li>
-<li>HAL_TIM_MspPostInit()&#160;:&#160;<a class="el" href="tim_8c.html#a708f19bbc41b292fccf38f2d9796c46a">tim.c</a></li>
-<li>handle_CAN()&#160;:&#160;<a class="el" href="_c_a_n__e-_tech_8h.html#a344219c7f86a488bcb222a4b675ee586">CAN_e-Tech.h</a>, <a class="el" href="_c_a_n__e-_tech_8c.html#a344219c7f86a488bcb222a4b675ee586">CAN_e-Tech.c</a></li>
+<li>handle_CAN()&#160;:&#160;<a class="el" href="_c_a_n__e-_tech_8c.html#a344219c7f86a488bcb222a4b675ee586">CAN_e-Tech.c</a></li>
 <li>handle_direction()&#160;:&#160;<a class="el" href="_p_c_b___i_o_8h.html#afec13170cd54a3dc4f50bae3cb8f386e">PCB_IO.h</a>, <a class="el" href="_p_c_b___i_o_8c.html#afec13170cd54a3dc4f50bae3cb8f386e">PCB_IO.c</a></li>
 <li>handle_LED()&#160;:&#160;<a class="el" href="_p_c_b___i_o_8h.html#a6736efa24340a6743e5d41dab343c15b">PCB_IO.h</a>, <a class="el" href="_p_c_b___i_o_8c.html#a6736efa24340a6743e5d41dab343c15b">PCB_IO.c</a></li>
 <li>handle_torqueRef()&#160;:&#160;<a class="el" href="_r_e_f_e_r_e_n_c_e_8h.html#a1988c289dd46fd505e0f9de30044fed0">REFERENCE.h</a>, <a class="el" href="_r_e_f_e_r_e_n_c_e_8c.html#a1988c289dd46fd505e0f9de30044fed0">REFERENCE.c</a></li>
-<li>HardFault_Handler()&#160;:&#160;<a class="el" href="stm32f7xx__it_8h.html#a2bffc10d5bd4106753b7c30e86903bea">stm32f7xx_it.h</a>, <a class="el" href="stm32f7xx__it_8c.html#a2bffc10d5bd4106753b7c30e86903bea">stm32f7xx_it.c</a></li>
-<li>hcan1&#160;:&#160;<a class="el" href="can_8c.html#a1618d731d18d69e906e8a357b7cd3c8d">can.c</a>, <a class="el" href="stm32f7xx__it_8c.html#a1618d731d18d69e906e8a357b7cd3c8d">stm32f7xx_it.c</a></li>
+<li>HardFault_Handler()&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#a2bffc10d5bd4106753b7c30e86903bea">stm32f7xx_it.c</a></li>
+<li>hcan1&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#a1618d731d18d69e906e8a357b7cd3c8d">stm32f7xx_it.c</a></li>
 <li>hdac&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#a40a0d1383beda58531dfda6218720e45">stm32f7xx_it.c</a></li>
 <li>hdma_adc1&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#a1c126854bb1813d31ab4776b21dcc51f">stm32f7xx_it.c</a></li>
 <li>hdma_adc2&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#ad99dd74cc50b61cf07680c1adaf80337">stm32f7xx_it.c</a></li>
 <li>hdma_adc3&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#a348c49f75bc918736d17997ac3f02e82">stm32f7xx_it.c</a></li>
-<li>htim1&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#a25fc663547539bc49fecc0011bd76ab5">stm32f7xx_it.c</a>, <a class="el" href="tim_8c.html#a25fc663547539bc49fecc0011bd76ab5">tim.c</a></li>
-<li>htim2&#160;:&#160;<a class="el" href="tim_8c.html#a2c80fd5510e2990a59a5c90d745c716c">tim.c</a></li>
-<li>htim4&#160;:&#160;<a class="el" href="tim_8c.html#a85788cec5a97ee377e4ee2e74f026484">tim.c</a></li>
-<li>htim6&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#a1564492831a79fa18466467c3420c3c3">stm32f7xx_it.c</a>, <a class="el" href="tim_8c.html#a1564492831a79fa18466467c3420c3c3">tim.c</a></li>
-<li>htim8&#160;:&#160;<a class="el" href="tim_8c.html#a5faa27108379f799afb6984010bf0384">tim.c</a></li>
+<li>htim1&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#a25fc663547539bc49fecc0011bd76ab5">stm32f7xx_it.c</a></li>
+<li>htim6&#160;:&#160;<a class="el" href="stm32f7xx__it_8c.html#a1564492831a79fa18466467c3420c3c3">stm32f7xx_it.c</a></li>
 </ul>
 </div><!-- contents -->
-</div><!-- doc-content -->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
 </body>
 </html>

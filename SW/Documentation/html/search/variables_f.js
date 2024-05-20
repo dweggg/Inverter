@@ -1,20 +1,12 @@
 var searchData=
 [
-  ['pi_5fconsig_0',['pi_consig',['../structpi__aw__struct.html#a7bd784d892e05d7b08fbb7284bfb7945',1,'pi_aw_struct::pi_consig'],['../structpi__struct.html#a7bd784d892e05d7b08fbb7284bfb7945',1,'pi_struct::pi_consig']]],
-  ['pi_5ffdb_1',['pi_fdb',['../structpi__aw__struct.html#a1fff0ec006714e34b8320143dd6e5926',1,'pi_aw_struct::pi_fdb'],['../structpi__struct.html#a1fff0ec006714e34b8320143dd6e5926',1,'pi_struct::pi_fdb']]],
-  ['pi_5fffw_2',['pi_ffw',['../structpi__aw__struct.html#a34e8c28a21eef4dcab50c5646d888d47',1,'pi_aw_struct::pi_ffw'],['../structpi__struct.html#a34e8c28a21eef4dcab50c5646d888d47',1,'pi_struct::pi_ffw']]],
-  ['pi_5fint_3',['pi_int',['../structpi__aw__struct.html#a71f26437df8f125fbea97dc0f0bf0184',1,'pi_aw_struct']]],
-  ['pi_5fout_4',['pi_out',['../structpi__aw__struct.html#a276577ad33c35df831f53f8ad9a9c084',1,'pi_aw_struct::pi_out'],['../structpi__struct.html#a276577ad33c35df831f53f8ad9a9c084',1,'pi_struct::pi_out']]],
-  ['pi_5fout_5fmax_5',['pi_out_max',['../structpi__aw__struct.html#a9e452af61f2565ec1ea9f588ba05bab8',1,'pi_aw_struct::pi_out_max'],['../structpi__struct.html#a9e452af61f2565ec1ea9f588ba05bab8',1,'pi_struct::pi_out_max']]],
-  ['pi_5fout_5fmin_6',['pi_out_min',['../structpi__aw__struct.html#af59186c1e2e1d4839ffd24ace57bf0c9',1,'pi_aw_struct::pi_out_min'],['../structpi__struct.html#af59186c1e2e1d4839ffd24ace57bf0c9',1,'pi_struct::pi_out_min']]],
-  ['pi_5fout_5fpostsat_7',['pi_out_postsat',['../structpi__aw__struct.html#ae5c130007df2497e0d55659aa4f40803',1,'pi_aw_struct']]],
-  ['pi_5fout_5fpresat_8',['pi_out_presat',['../structpi__aw__struct.html#adbbdb52a2ed9dad1d0e806acf7877cb6',1,'pi_aw_struct']]],
-  ['pin_9',['pin',['../struct_l_e_d.html#a4144813adfa4dfe7e7cbeea17d1b06eb',1,'LED']]],
-  ['port_10',['port',['../struct_l_e_d.html#a82241972e0292c7de95ea1e293e11be3',1,'LED']]],
-  ['position_11',['position',['../structsignal__positioned.html#a5357273a366d4845a424d253da67e1a0',1,'signal_positioned']]],
-  ['power_5frl_12',['Power_RL',['../_c_a_n1db_8h.html#aa4a9d2d9a590e4f77134c149d67f0069',1,'CAN1db.h']]],
-  ['power_5frr_13',['Power_RR',['../_c_a_n1db_8h.html#a2afd314e0fd7a164e6adafb0956a22fe',1,'CAN1db.h']]],
-  ['pp_14',['pp',['../struct_motor_parameters.html#abd6dcb9676af8cd7922ef29864fa03eb',1,'MotorParameters']]],
-  ['prescaler_15',['prescaler',['../structdatalog__struct.html#aed7c15ebb12ef4b8e90c0c0e79d414a7',1,'datalog_struct']]],
-  ['pulses_16',['Pulses',['../structstep__struct.html#a5c0f85874c673b4f82dad202861079be',1,'step_struct']]]
+  ['tempinverter_0',['tempInverter',['../struct_inverter_struct.html#a9732bacc0a7fa9b2fcc3b08fc85b071f',1,'InverterStruct']]],
+  ['tempinverterlut_1',['tempInverterLUT',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a4dfa6fc576123af2c78a1f3d13d26fd1',1,'tempInverterLUT:&#160;MEASUREMENTS.c'],['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a4dfa6fc576123af2c78a1f3d13d26fd1',1,'tempInverterLUT:&#160;MEASUREMENTS.c']]],
+  ['tempmotor_2',['tempMotor',['../struct_inverter_struct.html#ac6c9938ffe4a3de041c4d27c141d35d7',1,'InverterStruct']]],
+  ['tempmotorlut_3',['tempMotorLUT',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#afb617dfdbeab0dab534ac143440501fb',1,'tempMotorLUT:&#160;MEASUREMENTS.c'],['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#afb617dfdbeab0dab534ac143440501fb',1,'tempMotorLUT:&#160;MEASUREMENTS.c']]],
+  ['theta_5fe_4',['theta_e',['../struct_encoder.html#affa9013ea1e246c1f69bba53632a967b',1,'Encoder']]],
+  ['torquecalc_5',['torqueCalc',['../struct_feedback.html#a7cf0ca173060ec36197dd701fc1688ea',1,'Feedback']]],
+  ['torquemax_6',['torqueMax',['../struct_motor_parameters.html#a930c61ca01d801c9bcb08d94c598417b',1,'MotorParameters']]],
+  ['torqueref_7',['torqueRef',['../struct_reference.html#a0ec2edb27428865626d5581b8af17d9e',1,'Reference']]],
+  ['torquerefin_5fleft_8',['torqueRefIn_left',['../_t_a_s_k_s__20us_8c.html#a4497f9492ddec5b5db380c2528b2cb74',1,'TASKS_20us.c']]]
 ];
