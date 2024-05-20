@@ -23,7 +23,7 @@
 #include <PergaMOD.h> // control functions
 
 /**
- * @brief Calculates the current references [out] based on electrical speed, torque reference, voltage reference,
+ * @brief Calculates the current references based on electrical speed, torque reference, voltage reference,
  *        motor parameters, and updates the d-axis and q-axis current references. Just MTPA for now.
  *
  * @param[in] we         Electrical speed in radians per second.
