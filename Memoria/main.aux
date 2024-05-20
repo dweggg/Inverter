@@ -258,13 +258,41 @@
 \@writefile{toc}{\contentsline {subsubsection}{Configuración del MCU}{118}{subsubsection*.180}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Manejo de interrupciones}{118}{subsubsection*.181}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{Algoritmos de control}{118}{subsubsection*.182}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Resultados}{119}{chapter.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Resultados y validación}{119}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Validación}{119}{section.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Validación de \textit  {hardware}}{119}{subsection.5.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Validación de \textit  {firmware}}{119}{subsection.5.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.3}Integración}{119}{subsection.5.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Introducción}{119}{section.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Validación de \textit  {hardware}}{119}{section.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Pre-inspección de la placa de potencia}{119}{subsection.5.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Extracción de una muestra de la PCB.}}{120}{figure.caption.183}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Micrografía de una vía de la placa de potencia. Se pueden apreciar los grosores de cobre en las 4 capas y en la vía.}}{120}{figure.caption.184}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Primer contacto con la placa de potencia}{121}{subsection.5.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Alimentación del \textit  {gate driver}}{121}{subsubsection*.185}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces LDO \textit  {dead-bugged} con resina para evitar daños con las siguientes pruebas.}}{121}{figure.caption.186}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Curva de rendimiento del DC-DC aislado.}}{122}{figure.caption.187}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Variación de la tensión de salida en función de la carga.}}{122}{figure.caption.188}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Funcionalidad del \textit  {gate driver}}{123}{subsubsection*.189}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Medición de temperatura ambiente. Se puede ver la señal de salida sin filtrar (PWM) y filtrada.}}{123}{figure.caption.190}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Sensado de corriente}{123}{subsubsection*.191}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Descarga}{124}{subsubsection*.192}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Descarga pasiva a 24 V con 20 $\mu $F.}}{124}{figure.caption.193}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Descarga activa a 24 V con 20 $\mu $F. Se puede ver como a 10 V (la tensión del zener) se desactiva la descarga activa.}}{125}{figure.caption.194}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Sensado de voltaje}{125}{subsubsection*.195}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Resumen de errores encontrados y revisión de la PCB}{126}{subsubsection*.196}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Conmutación de una rama como DC-DC síncrono}{127}{subsection.5.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Pruebas térmicas y de alta tensión}{127}{subsection.5.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.5}Validación de la placa de control}{127}{subsection.5.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Validación de \textit  {firmware}}{127}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Verificación de los periféricos}{127}{subsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Conmutación de las tres ramas}{127}{subsection.5.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Lazo abierto de tensión con carga R-L}{127}{subsection.5.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Lazo abierto de tensión con un motor}{127}{subsection.5.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Lazo cerrado de corriente con carga R-L}{127}{subsection.5.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}Adquisición de la posición del motor}{127}{subsection.5.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.7}Lazo cerrado de corriente con un motor}{127}{subsection.5.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.8}Trayectorias de control}{127}{subsection.5.3.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.9}Control dual}{127}{subsection.5.3.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Integración}{127}{section.5.4}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {A}Apéndices}{1}{appendix.Alph1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -278,4 +306,4 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {B}Bibliograf\'{\i }a}{273}{appendix.Alph2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\gdef \@abspage@last{394}
+\gdef \@abspage@last{402}
