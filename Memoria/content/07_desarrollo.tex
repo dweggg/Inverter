@@ -2596,6 +2596,21 @@ Teniendo en cuenta estos requisitos, se ha evaluado una variedad de familias y m
 
 El STM32F777VI cumple con todos los requisitos establecidos y proporciona capacidades adicionales que pueden ser beneficiosas para el desarrollo y la operación del convertidor. Además, es el mismo microcontrolador que se usa en el resto de ECUs del monoplaza, conviertiéndose en la elección más cómoda para el futuro desarrollo.
 
+
+\subsubsection{\textit{Software} de CAD electrónico}
+
+El diseño de las PCBs se realizó utilizando el \textit{software} Altium Designer, una herramienta ampliamente utilizada en la industria para diseños electrónicos. Altium Designer ofrece una amplia gama de funcionalidades que facilitan el proceso de diseño, desde la creación de esquemáticos hasta la disposición de componentes y el enrutado de pistas.
+
+\begin{itemize}
+	\item \textbf{Creación de esquemáticos:} Altium Designer proporciona un entorno intuitivo para crear el esquemático del circuito. Primero se crean los componentes usando la información de la hoja de datos para hacer un buen \textit{footprint} y símbolo, y después se incluyen los símbolos de los componentes en el esquemático y se realizan las conexiones eléctricas.
+	\item \textbf{Diseño de PCB:} Una vez completado el esquemático, Altium Designer facilita la transferencia de diseño a la PCB. Los componentes del esquemático quedan vinculados y de forma muy sencilla se importan los cambios del esquemático a la PCB. Posteriormente se realizan las conexiones eléctricas en la PCB en un proceso conocido como enrutado.
+	
+	\item \textbf{Verificación de reglas:} Altium Designer permite definir y verificar reglas de diseño para garantizar que el PCB cumpla con las restricciones de los fabricantes. Esto incluye reglas de espaciado, de colisiones, etc.
+	
+	\item \textbf{Generación de archivos de fabricación:} Una vez completado el diseño de la PCB, Altium Designer facilita la generación de archivos necesarios para la fabricación, como los archivos \textit{Gerber}, la lista de materiales (BOM) o el archivo de taladros. Además, permite exportar un modelo 3D de la PCB con todos los componentes, lo cual facilita mucho la integración mecánica.
+	
+\end{itemize}
+
 \subsection{PCB de potencia}
 
 Esta PCB es una placa de 4 capas que integra componentes de potencia y circuitos de adquisición para el control de un solo motor eléctrico. Se requieren de dos de estas PCBs para montar el convertidor al completo.
@@ -3157,12 +3172,88 @@ Después de diseñar todos los circuitos, emplazado todos los componentes y enru
 	
 \end{figure}
 
+\subsection{Ensamblaje del convertidor}
+
+El ensamblaje del convertidor se realizó siguiendo un proceso meticuloso para garantizar la correcta integración de todos los componentes del mismo. Se utilizó un enfoque basado en diseño asistido por computadora (CAD) para planificar y visualizar el montaje antes de la construcción física. Durante el diseño de las PCBs se fue comprobando mediante CAD que no existían colisiones y que el convertidor se podía montar, atendiendo a razones como el acceso de herramientas.
+
+\subsubsection{Diseño en CAD}
+
+Se utilizó Solidworks para crear un modelo tridimensional detallado del convertidor. Se empezó por importar los archivos de ambas PCBs generados por Altium.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{fig/invControl3}
+	\includegraphics[width=0.7\linewidth]{fig/assembly1}
 	\caption{Ensamblaje de la placa de control con las dos placas de potencia.}
 \end{figure}
+
+A este ensamblaje se le añadieron unas pletinas para conectar entre sí los buses de continua, ya que van conectados a la misma batería. Además, se planteó un concepto de \textit{coldplate} atendiendo únicamente a las restricciones mecánicas. Este pre-diseño no fue estudiado ni simulado, simplemente marca una primera referencia para desarrollar la \textit{coldplate} en el futuro. También se incluyó la tornillería necesaria para el montaje.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/assembly2}
+	\caption{Ensamblaje con las pletinas, concepto de \textit{coldplate} y tornillería.}
+\end{figure}
+
+\subsubsection{Ensamblaje real}
+
+Como se discutirá en el capítulo de resultados, el convertidor fue montado poco a poco para validar sección a sección. Se soldaron los componentes manualmente con un lápiz de soldadura e hilo de estaño. Ocasionalmente se usó una pistola de calor para extraer componentes con conexiones con mucha masa térmica.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/assembly3}
+	\caption{Soldadura manual con hilo de estaño.}
+\end{figure}
+
+Se montó una PCB de control y dos de potencia. Aprovechando que se dispone de los dos semiconductores seleccionados, se montó una placa de potencia con cada uno. A parte de los semiconductores, a penas hay que cambiar el valor de un par de resistencias.
+
+Para montar los componentes \textit{press-fit} se usó un tornillo de banco y un utillaje que permita apretar los componentes. Cabe destacar que se priorizó el montaje de los componentes con este tipo de conexión puesto que al realizar el proceso se generan flexiones en la placa que podrían dañar componentes como los condensadores cerámicos.
+
+El caso de los conectores de potencia fue sencillo puesto que no son muchos pines y se pudo insertar fácilmente usando herramientas comunes. Para los semiconductores sin embargo, se tuvo que imprimir un utillaje personalizado para evitar colisiones con otros componentes.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/assembly4}
+	\caption{Placa lista para el montaje de un componente \textit{press-fit} con un utillaje personalizado.}
+\end{figure}
+
+!!!!!! TORNILLO DE BANCO
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/assembly5}
+	\caption{Resultado de la inserción del componente.}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/assembly8}
+	\caption{Cara trasera de la PCB de potencia (variante Wolfspeed) montada.}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/assembly9}
+	\caption{PCB de control montada.}
+\end{figure}
+
+
+Tras montar todos los componentes de todas las placas se procedió a ensamblarlas. A fecha de cuando se tomaron las siguientes imágenes no se dispuso de las pletinas.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/assembly6}
+	\caption{Placa de control y placa de potencia (variante Wolfspeed).}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.5\linewidth]{fig/assembly7}
+	\caption{Vista en la que se aprecian ambas placas de potencia con sus respectivos semiconductores, dejando el espacio para una \textit{coldplate}.}
+\end{figure}
+
 
 \newpage
 \section{\textit{Firmware}}
