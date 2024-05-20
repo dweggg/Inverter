@@ -23,7 +23,58 @@
 #include <PergaMOD.h> // control functions
 
 /**
- * @brief Calculates the id-iq currents control actions.
+ * @brief Calculates the current references [out] based on electrical speed, torque reference, voltage reference,
+ *        motor parameters, and updates the d-axis and q-axis current references. Just MTPA for now.
+ *
+ * @param[in] we         Electrical speed in radians per second.
+ * @param[in] torqueRef  Torque reference.
+ * @param[in] vsRef      Voltage reference.
+ * @param[in] motor      Pointer to the motor parameters structure.
+ * @param[out] idRef     Pointer to the d-axis current reference.
+ * @param[out] iqRef     Pointer to the q-axis current reference.
+ */
+void calc_current_reference(float we, float torqueRef, float vsRef, MotorParameters *motor, volatile float * idRef, volatile float * iqRef){
+
+  static float gammaRef = M_PI_2;
+  static float isRef = 0.0F;
+
+  float isRefCTC;
+  float gammaRefMTPA;
+  
+  // CTC
+  if (gammaRef == M_PI_2 || torqueRef == 0.0F || motor->Ld == motor->Lq) {
+    isRefCTC = 2.0F * torqueRef / (3.0F*(float)motor->pp*motor->lambda);
+  } else {
+
+    isRefCTC = (motor->lambda/motor->Ld) * (sqrtf(sinf(gammaRef)*sinf(gammaRef) + (2.0F * sinf(2.0*gammaRef) * ((motor->Ld-motor->Lq)/motor->Ld)*torqueRef*2.0*motor->Ld)/(3.0F*(float)motor->pp*motor->lambda*motor->lambda))-sinf(gammaRef))/(sinf(2.0*gammaRef) * (motor->Ld-motor->Lq)/motor->Ld);
+
+  }
+
+
+  // isRef = min(isRefCTC .... iMax)
+  isRef = ((isRefCTC) < (motor->iMax) ? (isRefCTC) : (motor->iMax));
+
+  // MTPA
+  if (isRef == 0.0F  || motor->Ld == motor->Lq) {
+    gammaRefMTPA = M_PI_2;
+  } else {
+
+    gammaRefMTPA = M_PI_2 + asinf((motor->lambda - sqrtf(8.0F*(motor->Ld-motor->Lq)*(motor->Ld-motor->Lq)*isRef*isRef + (motor->lambda)*(motor->lambda)))/(4.0F * isRef *(motor->Ld-motor->Lq)));
+
+  }
+
+  gammaRef = gammaRefMTPA;
+
+  // polar to cartesian
+  *idRef = isRef * cosf(gammaRef);
+  *iqRef = isRef * sinf(gammaRef);
+  
+}
+
+
+
+/**
+ * @brief Calculates the id-iq loops.
  *
  * @param inv Pointer to the inverter structure.
  */
@@ -33,7 +84,7 @@ void calc_current_loop(volatile InverterStruct *inv){
     inv->idLoop.pi_out_min = -(inv->vsMax);
 
     // inv->idLoop.pi_ffw[0] = - (inv->feedback.iqMeas * inv->motor->Lq * inv->encoder.we); // Feedforward
-	inv->idLoop.pi_consig = inv->reference.idRef;  	   // Setpoint
+    inv->idLoop.pi_consig = inv->reference.idRef;  	   // Setpoint
     inv->idLoop.pi_fdb = inv->feedback.idMeas;         // Feedback
 
     pi_calc(&(inv->idLoop));                            // Calculate id PI controller output

@@ -49,14 +49,6 @@ typedef struct {
  */
 float handle_torqueRef(float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile pi_struct *loopSpeed);
 
-/**
- * @brief Initializes torque ramp
- *
- * @param dTorqueMax       Maximum allowable rate of change of torque.
- * @param Ts                Sampling time.
- */
-void initialize_torque_ramp(float dTorqueMax, float Ts);
-
 
 /**
  * @brief Set torque direction based on inverter direction.

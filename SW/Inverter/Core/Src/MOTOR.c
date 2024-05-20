@@ -25,36 +25,36 @@
  */
 MotorParameters motor_left = {
     .Ld = 0.00291F,
-    .Lq = 0.00295F,
+    .Lq = 0.00291F,
     .Rs = 1.95F,
     .lambda = 0.13391F,
     .pp = 4,
     .J = 0.00093F,
     .b = 0.632653F,
-    .torque_max = 10.0F,
-    .dTorque_max = 1.0F,
-    .speed_max_RPM = 8500.0F,
-    .iPhase_pk_max = 60.0F,
-    .vDC_max = 450.0F
+    .torqueMax = 10.0F,
+    .dTorqueMax = 1.0F,
+    .speedMax_RPM = 8500.0F,
+    .iMax = 60.0F,
+    .vDCMax = 450.0F
 };
 
 /**
  * @brief Right motor parameters
  */
 MotorParameters motor_right = {
-	    .Ld = 0.00291F,
-	    .Lq = 0.00295F,
-	    .Rs = 1.95F,
-	    .lambda = 0.13391F,
-	    .pp = 4,
-	    .J = 0.00093F,
-	    .b = 0.632653F,
-	    .torque_max = 10.0F,
-	    .dTorque_max = 1.0F,
-	    .speed_max_RPM = 8500.0F,
-	    .iPhase_pk_max = 60.0F,
-	    .vDC_max = 450.0F
-	};
+    .Ld = 0.00291F,
+    .Lq = 0.00291F,
+    .Rs = 1.95F,
+    .lambda = 0.13391F,
+    .pp = 4,
+    .J = 0.00093F,
+    .b = 0.632653F,
+    .torqueMax = 10.0F,
+    .dTorqueMax = 1.0F,
+    .speedMax_RPM = 8500.0F,
+    .iMax = 60.0F,
+    .vDCMax = 450.0F
+};
 
 
 /**
@@ -108,15 +108,15 @@ int check_motor_parameters(MotorParameters *motor, float Ts) {
 
     // Error 4 - Evaluate lambda
     if (motor->lambda < 0.0001F || motor->lambda > 1.0F ||
-    		motor->iPhase_pk_max < motor->lambda / motor->Ld - motor->vDC_max / sqrt(3) / motor->Ld / (motor->speed_max_RPM * (float)motor->pp * 2.0F * M_PI / 60.0F)) {
+    		motor->iMax < motor->lambda / motor->Ld - motor->vDCMax / sqrt(3) / motor->Ld / (motor->speedMax_RPM * (float)motor->pp * 2.0F * M_PI / 60.0F)) {
         // Adjust parameters if out of bounds
         if (motor->lambda < 0.0001F)
         	motor->lambda = 0.0001F, OK = 0;
         else if (motor->lambda > 1.0F)
         	motor->lambda = 1.0F, OK = 0;
 
-        if (motor->iPhase_pk_max < motor->lambda / motor->Ld - motor->vDC_max / sqrt(3) / motor->Ld / (motor->speed_max_RPM * (float)motor->pp * 2.0F * M_PI / 60.0F))
-        	motor->iPhase_pk_max = motor->lambda / motor->Ld - motor->vDC_max / sqrt(3) / motor->Ld / (motor->speed_max_RPM * (float)motor->pp * 2.0F * M_PI / 60.0F), OK = 0;
+        if (motor->iMax < motor->lambda / motor->Ld - motor->vDCMax / sqrt(3) / motor->Ld / (motor->speedMax_RPM * (float)motor->pp * 2.0F * M_PI / 60.0F))
+        	motor->iMax = motor->lambda / motor->Ld - motor->vDCMax / sqrt(3) / motor->Ld / (motor->speedMax_RPM * (float)motor->pp * 2.0F * M_PI / 60.0F), OK = 0;
     }
 
     // Error 5 - Evaluate J, b

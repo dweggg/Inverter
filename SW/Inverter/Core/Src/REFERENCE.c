@@ -20,7 +20,6 @@
 #include "REFERENCE.h"
 #include <math.h>
 
-static rampa_struct torqueRamp;
 
 /**
  * @brief Handles torque control based on the reference torque, direction, maximum torque, maximum speed, measured speed,
@@ -41,25 +40,11 @@ float handle_torqueRef(float torqueRefIn, int8_t direction, float torqueMax, flo
 	float torqueRefSat = saturate_symmetric(torqueRefIn*direction, torqueMax);
 
 	// Saturate torque again with speed loop
-	torqueRefSat =  limit_torque_to_prevent_overspeed(speedMaxRPM, speedMeas, torqueRefSat, loopSpeed);
-
-	torqueRamp.in = torqueRefSat;
-	rampa_calc(&torqueRamp);
-	float torqueRefOut = torqueRamp.out;
+	float torqueRefOut =  limit_torque_to_prevent_overspeed(speedMaxRPM, speedMeas, torqueRefSat, loopSpeed);
 
 	return torqueRefOut;
 }
 
-/**
- * @brief Initializes torque ramp
- *
- * @param dTorqueMax       Maximum allowable rate of change of torque.
- * @param Ts                Sampling time.
- */
-void initialize_torque_ramp(float dTorqueMax, float Ts) {
-    torqueRamp.Incr = dTorqueMax * Ts;
-    torqueRamp.enable = 1;
-}
 /**
  * @brief Set torque direction based on inverter direction.
  *

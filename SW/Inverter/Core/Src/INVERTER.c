@@ -119,8 +119,8 @@ void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor) {
 
     pi_init(&(inv->speedLoop)); // Initialize iq PI controller (calculate K0, K1)
 
-    inv->speedLoop.pi_out_max = motor->torque_max;
-    inv->speedLoop.pi_out_min = -(motor->torque_max);
+    inv->speedLoop.pi_out_max = motor->torqueMax;
+    inv->speedLoop.pi_out_min = -(motor->torqueMax);
 
 
 }
@@ -134,6 +134,7 @@ void enable_control_loops(volatile InverterStruct *inv){
 	inv->idLoop.enable = 1;
 	inv->iqLoop.enable = 1;
 	inv->speedLoop.enable = 1;
+
 }
 
 /**

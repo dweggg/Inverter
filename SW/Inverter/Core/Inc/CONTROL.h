@@ -24,7 +24,20 @@
 #include "INVERTER.h" // TS & Inverter struct
 
 /**
- * @brief Calculates the id-iq currents control actions.
+ * @brief Calculates the current references [out] based on electrical speed, torque reference, voltage reference,
+ *        motor parameters, and updates the d-axis and q-axis current references. Just MTPA for now.
+ *
+ * @param[in] we         Electrical speed in radians per second.
+ * @param[in] torqueRef  Torque reference.
+ * @param[in] vsRef      Voltage reference.
+ * @param[in] motor      Pointer to the motor parameters structure.
+ * @param[out] idRef     Pointer to the d-axis current reference.
+ * @param[out] iqRef     Pointer to the q-axis current reference.
+ */
+void calc_current_reference(float we, float torqueRef, float vsRef, MotorParameters *motor, volatile float * idRef, volatile float * iqRef);
+
+/**
+ * @brief Calculates the id-iq loops.
  *
  * @param inv Pointer to the inverter structure.
  */
