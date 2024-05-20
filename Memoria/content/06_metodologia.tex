@@ -12,13 +12,13 @@ El modelo en V es un enfoque de desarrollo y validación que organiza las etapas
 		
 		% Nodes
 		\node (requisitos) [block] {Requisitos del Sistema};
-		\node (diseno_sistema) [block, below of=requisitos, xshift=1cm, yshift=-0.5cm] {Diseño del Sistema};
-		\node (diseno_detallado) [block, below of=diseno_sistema, xshift=1cm, yshift=-0.5cm] {Diseño Detallado};
-		\node (implementacion) [block, below of=diseno_detallado, xshift=1cm, yshift=-0.5cm] {Implementación};
+		\node (diseno_sistema) [block, below of=requisitos, xshift=0.7cm, yshift=-0.5cm] {Diseño del Sistema};
+		\node (diseno_detallado) [block, below of=diseno_sistema, xshift=0.7cm, yshift=-0.5cm] {Diseño Detallado};
+		\node (implementacion) [block, below of=diseno_detallado, xshift=0.7cm, yshift=-0.5cm] {Implementación};
 		\node (pruebas_unitarias) [block, right of=implementacion, xshift=5cm, yshift=0cm] {Pruebas Unitarias};
-		\node (pruebas_integracion) [block, above of=pruebas_unitarias, xshift=1cm, yshift=0.5cm] {Pruebas de Integración};
-		\node (pruebas_sistema) [block, above of=pruebas_integracion, xshift=1cm, yshift=0.5cm] {Pruebas de Sistema};
-		\node (pruebas_aceptacion) [block, above of=pruebas_sistema, xshift=1cm, yshift=0.5cm] {Pruebas de Aceptación};
+		\node (pruebas_integracion) [block, above of=pruebas_unitarias, xshift=0.7cm, yshift=0.5cm] {Pruebas de Integración};
+		\node (pruebas_sistema) [block, above of=pruebas_integracion, xshift=0.7cm, yshift=0.5cm] {Pruebas de Sistema};
+		\node (pruebas_aceptacion) [block, above of=pruebas_sistema, xshift=0.7cm, yshift=0.5cm] {Pruebas de Aceptación};
 		
 		% Arrows
 		\draw [arrow] (requisitos) -- (diseno_sistema);

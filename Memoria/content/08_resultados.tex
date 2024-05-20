@@ -145,6 +145,12 @@ Para verificar el sensado de voltaje, se llevaron a cabo las siguientes pruebas:
 	\item \textbf{Sensado de voltaje}: Se aplicaron 13V entre \textit{TS+} y \textit{TS-}. Se capturó el valor entre \textit{VDC\_sns+} y \textit{VDC\_sns-}. Se esperaba que la diferencia de potencial fuera de 0.0495 V. La medición obtenida fue de 0.05 V, dentro del rango aceptable.
 \end{itemize}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/vSensePCB}
+	\caption{Circuitos evaluados.}
+\end{figure}
+
 
 \subsubsection{Resumen de errores encontrados y revisión de la PCB}
 
@@ -174,8 +180,236 @@ Para realizar el resto de pruebas se pidieron nuevas placas, con las siguientes 
 \end{itemize}
 
 \subsection{Conmutación de una rama como DC-DC síncrono}
+
+Con todos los subcircuitos validados, el siguiente paso fue analizar la conmutación. Se utilizó una sola rama de las tres, creando una topología de \textit{buck} síncrono. Se ensayó con una carga R-L de 7 $\Omega$ y 1 mH. Lo que se pretende evaluar con estas pruebas es el correcto funcionamiento del circuito de \textit{driving} y el \textit{overshoot} entre \textit{drain} y \textit{source} de los MOSFETs.
+
+\begin{figure}[H]
 	
+	\centering
+	\begin{circuitikz}
+		% Upper MOSFETs
+		\draw (0,0) node[nigfete,anchor=D,bodydiode] (M1) {};
+
+		
+		% Lower MOSFETs
+		\draw (0,-2) node[nigfete,anchor=D,bodydiode] (M4) {};
+
+		% Connections
+		\draw (M1.S) -- (M4.D);
+		
+		% Battery
+		\draw (M1.D)  |-  ++(-4,0) to[battery, l=$V_{\text{DC}}$] ++(0,-3.5)  |-  (M4.S);
+		\draw (M1.D)  |-  ++(-1.5,0) to[capacitor] ++(0,-3.5)  |-  (M4.S);
+		
+		\draw (M1.S)  |-  ++(2,0) node[right, font=\tiny] {};
+		
+		\draw (M4.S)  |-  ++(6,0) node[right, font=\tiny] {};
+		% Inductor and resistor connected to cable A
+		\draw (M1.S) ++(2,0) to[L, l=$L$] ++(2,0);
+		\draw (M1.S) ++(4,0) to[R, l=$R$] ++(2,0);
+		
+		\draw (6,-1.55)  |-  ++(0,-2) node[right, font=\tiny] {};
+	\end{circuitikz}
+	\caption{Topología de \textit{buck} síncrono.}
+	
+\end{figure}
+	
+
+!!!!!!!!! FOTO RL y setup completo
+
+Se conectó la placa de potencia con una placa de evaluación ya que en este punto todavía no se había fabricado la placa de control. De esta manera, se generó una pareja de señales PWM complementarias a 10 kHz y 50\% de ciclo de trabajo con 500 ns de tiempo muerto. 
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/nucleoHalfBridge}
+	\caption{Placa de evaluación Nucleo conectada a la placa de potencia.}
+\end{figure}
+
+Usando una fuente de tensión regulable, se pudo controlar la tensión de entrada, y dado que se fija el ciclo de trabajo al 50\%, y que la carga es fija, se pudo variar la tensión de salida modificando la tensión de entrada. Conectando y desconectando la carga, se pudo probar la conmutación tanto en vacío como con algo de corriente.
+
+
+En primer lugar, sin tensión en el bus de continua, se verificó que las señales en la puerta de los transistores eran adecuadas en cuanto a niveles de tensión, frecuencia y polaridad.
+
+!!!!!!!!!! GATE-SOURCE
+
+
+Posteriormente, se hizo una primera prueba con 10 V de entrada, y se observó un \textit{overshoot} muy grande.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/overshootInicial1}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0 A de salida.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/overshootInicial2}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0.7 A de salida.}
+\end{figure}
+
+Dado que este \textit{overshoot} es aproximadamente lineal con la corriente de salida y la tensión de entrada, se creó un modelo lineal para predecir el \textit{overshoot} a las especificaciones máximas del convertidor. Para ello se tomó un dato más a 20 V de entrada y sin carga. El resultado del modelo lineal se muestra a continuación.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Modelo} & $Overshoot = a \cdot V_{\text{DC,in}} + b \cdot I_{\text{out}} + c$ \\
+		\hline
+		\textbf{Coeficientes} & \\
+		\hline
+		$a$ & $1.5$ \\
+		$b$ & $6.6667$ \\
+		$c$ & $3.9721 \times 10^{-15}$ \\
+		\hline
+		\textbf{Datos medidos y predicción} & \\
+		\hline
+		\textit{Overshoot} medido & Predicción de \textit{overshoot} \\
+		\hline
+		$15$ Vp & $15$ Vp \\
+		$30$ Vp & $30$ Vp \\
+		$20$ Vp & $20$ Vp \\
+		\hline
+		Predicción de \textit{overshoot} a $600$ V y $80$ A & {\color{red}\textbf{$1433$ Vp}} \\
+		\hline
+	\end{tabular}
+	\caption{Resumen de resultados del modelo de \textit{overshoot}.}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/overshootInicial3}
+	\caption{Modelo lineal (plano) junto a los datos tomados (puntos azules).}
+\end{figure}
+
+La predicción de 1433 Vp es muy preocupante, ya que en primer lugar, los semiconductores serían los primeros en dañarse, y además, tensiones tan altas podrían provocar rupturas dieléctricas. Por tanto, es necesario reducir este \textit{overshoot}. La solución consiste en incorporar desacoplos de la conmutación entre los terminales positivo y negativo, lo más cerca posible de cada módulo \textit{half-bridge}. Interesa tener el máximo de capacidad con una resistencia serie equivalente muy baja, con lo que se descartan los condensadores electrolíticos. Se escogieron condensadores cerámicos puesto que tienen una densidad de capacidad bastante grande, mucho más alta que los condensadores de película. Sin embargo, los cerámicos tienen una pérdida de capacidad por \textit{DC bias} muy agresiva, es decir, la capacidad real es mucho baja  cuando se sube la tensión a la que se somete el condensador. Por suerte, existen gamas de condensadores pensados para estas aplicaciones que ofrecen un \textit{derating} por \textit{DC bias} bastante bajo. En este caso se escogieron los 2220Y1K00104KZT de la gama Hiteca de Knowles Syfer.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/hiteca}
+	\caption{Comparativa de la pérdida de capacidad de un condensador con aislante X7R estándar vs. el aislante usado en la gama Hiteca de Knowles Syfer.}
+\end{figure}
+
+Estos condensadores son muy caros, ya que no solo el aislante es mucho mejor, sino que pueden aguantar hasta 1 kV e integran una capacidad de 100 nF en un encapsulado 2220. Se instalarán dos condensadores en cada módulo de potencia. Para esta aplicación, tan solo se perdería un 25\% de la capacidad, es decir, a 600 V no se tendrán 200 nF si no 150 nF, que ya es bastante. El \textit{rework} quedó de la siguiente manera:
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/reworkOvershoot}
+	\caption{Instalación de los condensadores de desacoplo usando los pines de los módulos de potencia.}
+\end{figure}
+
+Se volvieron a realizar las pruebas con 10 V de entrada, y se observó una reducción muy drástica del \textit{overshoot}, verificando que es una solución adecuada.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/overshootFinal1}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0 A de salida.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/overshootFinal2}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0.7 A de salida.}
+\end{figure}
+
+Se creó un nuevo modelo lineal para realizar la predicción de \textit{overshoot} a las especificaciones máximas, y en este caso, se tomaron muchos más puntos, siendo la fuente de alimentación con la que se ensayó el factor limitante para no poder tomar más.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Modelo} & $Overshoot = a \cdot V_{\text{DC,in}} + b \cdot I_{\text{out}} + c$ \\
+		\hline
+		\textbf{Coeficientes} & \\
+		\hline
+		$a$ & $1.1463$ \\
+		$b$ & $0.42886$ \\
+		$c$ & $-1.3001$ \\
+		\hline
+		\textbf{Datos medidos y predicción} & \\
+		\hline
+		\textit{Overshoot} medido & Predicción de \textit{overshoot} \\
+		\hline
+		$10.8$ Vp & $10.1626$ Vp \\
+		$11.1$ Vp & $10.4843$ Vp \\
+		$21.3$ Vp & $21.6254$ Vp \\
+		$21.5$ Vp & $22.2687$ Vp \\
+		$31.7$ Vp & $33.0882$ Vp \\
+		$32.3$ Vp & $34.0531$ Vp \\
+		$45.9$ Vp & $44.551$ Vp \\
+		$46.9$ Vp & $45.8375$ Vp \\
+		$92.6$ Vp & $92.7608$ Vp \\
+		$102.5$ Vp & $101.8648$ Vp \\
+		$104.9$ Vp & $104.5238$ Vp \\
+		$135.6$ Vp & $136.2532$ Vp \\
+		$172$ Vp & $170.6415$ Vp \\
+		$205$ Vp & $205.0298$ Vp \\
+		$227$ Vp & $227.9553$ Vp \\
+		\hline
+		Predicción de \textit{overshoot} at $600$ V $80$ A & {\color{red}\textbf{$720.775$ Vp}} \\
+		\hline
+	\end{tabular}
+	\caption{Resumen de resultados del modelo de \textit{overshoot}.}
+\end{table}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/overshootFinal3}
+	\caption{Modelo lineal (plano) junto a los datos tomados (puntos azules).}
+\end{figure}
+
+
 \subsection{Pruebas térmicas y de alta tensión}
+
+La última prueba que se hizo a la placa de potencia fue una serie de ensayos de descarga, a cada vez más tensión. El objetivo de este test es asegurar que no existe ruptura dieléctrica y que las resistencias de descarga son capaces de aguantar la tensión máxima permanentemente.
+
+Para realizar estos ensayos fue necesario usar dos autotransformadores aislados, uno conectado a la red normal y otro a una red trifásica. Se rectificó la salida de cada uno con un puente de diodos (uno trifásico y uno monofásico), y se conectaron los dos rectificadores en serie para obtener una tensión continua de hasta 800 V. Se usaron un par de contactores, uno para realizar la precarga del bus de continua y otro para conectarlo directamente al rectificador.
+
+Para evaluar las temperaturas se dispuso de una cámara térmica, que permitió distinguir con claridad qué partes de la PCB se calentaban más. Para capturar la tensión se usó una sonda diferencial de 1400 V.
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/setupDischarge1}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}[b]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{fig/setupDischarge2}
+	\end{subfigure}
+	\caption{Vistas del \textit{setup} para las pruebas de descarga.}
+
+\end{figure}
+
+
+Los ensayos se realizaron de la siguiente forma: 
+
+\begin{enumerate}
+	\item Se precarga el bus de continua con una resistencia de externa.
+	\item Se mantiene hasta lograr el estado estacionario térmico, evaluado con una cámara térmica. En este punto, la descarga activa está desactivada y se evalúa la descarga pasiva.
+	\item Se conecta la descarga activa pero se deja el contactor conectado de manera que el bus no se descarga. Se espera hasta alcanzar el estado estacionario térmico.
+	\item Se abren los contactores y se descarga el bus.
+\end{enumerate}
+
+A continuación se muestra el ensayo más exigente, una descarga a 600 V.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/dischargeGuapo}
+	\caption{Descarga de 600 V a 60 V con 100 $\mu$F de capacidad en el bus de continua, en un tiempo de 4.5 segundos.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/dischargeGuapisimo}
+	\caption{Captura de la cámara térmica tras alcanzar el estado estacionario a 600 V.}
+\end{figure}
+
+
+
+Se puede observar un pico de temperatura de 100 $^{\circ}$C, y la temperatura ambiente era de 25 $^{\circ}$C aproximadamente. Cada resistencia disipa $\frac{600 \text{ V}^2}{470 \text{ k}\Omega} = 0.766 \text{ W}$, lo cual se correspondería con una resistencia térmica de aproximadamente $ \frac{100 \text{ }^{\circ}\text{C} - 25 \text{ }^{\circ}\text{C}}{0.766 \text{ W}} \approx 100 \text{ K/W}$. Este valor es muy razonable para una resistencia SMD sin \textit{pad} térmico ni mucha consideración en el \textit{layout}.
 
 \subsection{Validación de la placa de control}
 
