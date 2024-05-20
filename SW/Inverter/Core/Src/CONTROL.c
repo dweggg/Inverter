@@ -32,8 +32,10 @@ void calc_current_loop(volatile InverterStruct *inv){
     inv->idLoop.pi_out_max = inv->vsMax;
     inv->idLoop.pi_out_min = -(inv->vsMax);
 
+    // inv->idLoop.pi_ffw[0] = - (inv->feedback.iqMeas * inv->motor->Lq * inv->encoder.we); // Feedforward
 	inv->idLoop.pi_consig = inv->reference.idRef;  	   // Setpoint
     inv->idLoop.pi_fdb = inv->feedback.idMeas;         // Feedback
+
     pi_calc(&(inv->idLoop));                            // Calculate id PI controller output
 
 
@@ -41,8 +43,11 @@ void calc_current_loop(volatile InverterStruct *inv){
     inv->iqLoop.pi_out_max = inv->vsMax;
     inv->iqLoop.pi_out_min = -(inv->vsMax);
 
+
+    // inv->iqLoop.pi_ffw[0] =  (inv->feedback.idMeas * inv->motor->Ld + inv->motor->lambda) * inv->encoder.we; // Feedforward
     inv->iqLoop.pi_consig = inv->reference.iqRef;  	   // Setpoint
     inv->iqLoop.pi_fdb = inv->feedback.iqMeas;         // Feedback
+
     pi_calc(&(inv->iqLoop));   // Calculate iq PI controller output
 
 

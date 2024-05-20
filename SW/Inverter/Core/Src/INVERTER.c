@@ -124,3 +124,25 @@ void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor) {
 
 
 }
+
+/**
+ * @brief Enables the PI controllers.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void enable_control_loops(volatile InverterStruct *inv){
+	inv->idLoop.enable = 1;
+	inv->iqLoop.enable = 1;
+	inv->speedLoop.enable = 1;
+}
+
+/**
+ * @brief Disables the PI controllers.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void disable_control_loops(volatile InverterStruct *inv){
+	inv->idLoop.enable = 0;
+	inv->iqLoop.enable = 0;
+	inv->speedLoop.enable = 0;
+}

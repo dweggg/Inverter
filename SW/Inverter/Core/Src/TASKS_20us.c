@@ -38,7 +38,7 @@ angle_struct angle_left = {
 
 rampa_struct freqRamp_left = {
 		.in = 5.0F,
-		.Incr = TS,
+		.Incr = TS*1000,
 };
 
 /**
@@ -64,7 +64,7 @@ void tasks_20us_left(void){
 
   get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
 
-  inverter_left.vsMax = inverter_left.analog.vDC * ISQ3; // Calculate max Vs voltage
+  inverter_left.vsMax = 0.9F * inverter_left.analog.vDC * ISQ3; // Calculate max Vs voltage, 90% of DC/sqrt3
 
   calc_current_loop(&inverter_left);
   saturate_voltage(&inverter_left);

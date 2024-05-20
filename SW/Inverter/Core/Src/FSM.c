@@ -97,6 +97,7 @@ void handle_idle(volatile InverterStruct *inv) {
 	inv->led->mode = LED_MODE_BLINK_FAST;
     DISABLE(inv->enable_port, inv->enable_pin);
     disable_PWM(inv->htim);
+    disable_control_loops(inv);
 
 }
 
@@ -115,6 +116,7 @@ void handle_startup(volatile InverterStruct *inv) {
     inv->led->mode = LED_MODE_OFF;
     DISABLE(inv->enable_port, inv->enable_pin);
     enable_PWM(inv->htim);
+    disable_control_loops(inv);
 
 }
 
@@ -134,7 +136,7 @@ void handle_running(volatile InverterStruct *inv) {
     inv->led->mode = LED_MODE_ON;
     ENABLE(inv->enable_port, inv->enable_pin);
     enable_PWM(inv->htim);
-
+    enable_control_loops(inv);
 }
 
 /**
@@ -153,4 +155,6 @@ void handle_fault(volatile InverterStruct *inv) {
     inv->led->mode = LED_MODE_BLINK_SLOW;
     DISABLE(inv->enable_port, inv->enable_pin);
     disable_PWM(inv->htim);
+    disable_control_loops(inv);
+
 }

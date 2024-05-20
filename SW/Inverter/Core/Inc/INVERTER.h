@@ -98,4 +98,18 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
  */
 void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor);
 
+/**
+ * @brief Enables the PI controllers.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void enable_control_loops(volatile InverterStruct *inv);
+
+/**
+ * @brief Disables the PI controllers.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void disable_control_loops(volatile InverterStruct *inv);
+
 #endif /* INVERTER_H */
