@@ -24,51 +24,48 @@
 
 /**
  * @brief Calculates the current references based on electrical speed, torque reference, voltage reference,
- *        motor parameters, and updates the d-axis and q-axis current references. Just MTPA for now.
- *
- * @param[in] we         Electrical speed in radians per second.
- * @param[in] torqueRef  Torque reference.
- * @param[in] vsRef      Voltage reference.
- * @param[in] motor      Pointer to the motor parameters structure.
- * @param[out] idRef     Pointer to the d-axis current reference.
- * @param[out] iqRef     Pointer to the q-axis current reference.
+ *        motor parameters, and updates the d-axis and q-axis current references.
+ * 
+ * @param we         [in] Electrical speed in radians per second.
+ * @param torqueRef  [in] Torque reference.
+ * @param vsRef      [in] Voltage reference.
+ * @param motor      [in] Pointer to the motor parameters structure.
+ * @param idRef      [out] Pointer to the d-axis current reference.
+ * @param iqRef      [out] Pointer to the q-axis current reference.
  */
-void calc_current_reference(float we, float torqueRef, float vsRef, MotorParameters *motor, volatile float * idRef, volatile float * iqRef){
+void calc_current_reference(float we, float torqueRef, float vsRef, MotorParameters * motor, volatile float * idRef, volatile float * iqRef){
 
-  static float gammaRef = M_PI_2;
-  static float isRef = 0.0F;
+    static float gammaRef = M_PI_2;
+    static float isRef = 0.0F;
 
-  float isRefCTC;
-  float gammaRefMTPA;
-  
-  // CTC
-  if (gammaRef == M_PI_2 || torqueRef == 0.0F || motor->Ld == motor->Lq) {
-    isRefCTC = 2.0F * torqueRef / (3.0F*(float)motor->pp*motor->lambda);
-  } else {
+    float isRefCTC;
+    float gammaRefMTPA;
 
-    isRefCTC = (motor->lambda/motor->Ld) * (sqrtf(sinf(gammaRef)*sinf(gammaRef) + (2.0F * sinf(2.0*gammaRef) * ((motor->Ld-motor->Lq)/motor->Ld)*torqueRef*2.0*motor->Ld)/(3.0F*(float)motor->pp*motor->lambda*motor->lambda))-sinf(gammaRef))/(sinf(2.0*gammaRef) * (motor->Ld-motor->Lq)/motor->Ld);
+    // CTC
+    if (gammaRef == M_PI_2 || torqueRef == 0.0F || motor->Ld == motor->Lq) {
+        isRefCTC = 2.0F * torqueRef * motor->constants.invThreePpLambda;
+    } else {
+        float sinGammaRef = sinf(gammaRef);
+        float sin2GammaRef = sinf(2.0F * gammaRef);
+        float temp = motor->constants.fourTimesOneMinusXi * torqueRef * motor->constants.invTorqueBase;
+        isRefCTC = motor->constants.isc * (sqrtf(sinGammaRef * sinGammaRef + sin2GammaRef * temp) - sinGammaRef) / (sin2GammaRef * motor->constants.oneMinusXi);
+    }
 
-  }
+    // isRef = min(isRefCTC .... iMax)
+    isRef = (isRefCTC < motor->iMax) ? isRefCTC : motor->iMax;
 
+    // MTPA
+    if (isRef == 0.0F || motor->Ld == motor->Lq) {
+        gammaRefMTPA = M_PI_2;
+    } else {
+        gammaRefMTPA = M_PI_2 + asinf((motor->lambda - sqrtf(motor->constants.eightTimesOneMinusXiSquared * isRef * isRef + motor->lambda * motor->lambda)) / (motor->constants.fourTimesOneMinusXi * isRef));
+    }
 
-  // isRef = min(isRefCTC .... iMax)
-  isRef = ((isRefCTC) < (motor->iMax) ? (isRefCTC) : (motor->iMax));
+    gammaRef = gammaRefMTPA;
 
-  // MTPA
-  if (isRef == 0.0F  || motor->Ld == motor->Lq) {
-    gammaRefMTPA = M_PI_2;
-  } else {
-
-    gammaRefMTPA = M_PI_2 + asinf((motor->lambda - sqrtf(8.0F*(motor->Ld-motor->Lq)*(motor->Ld-motor->Lq)*isRef*isRef + (motor->lambda)*(motor->lambda)))/(4.0F * isRef *(motor->Ld-motor->Lq)));
-
-  }
-
-  gammaRef = gammaRefMTPA;
-
-  // polar to cartesian
-  *idRef = isRef * cosf(gammaRef);
-  *iqRef = isRef * sinf(gammaRef);
-  
+    // Polar to Cartesian
+    *idRef = isRef * cosf(gammaRef);
+    *iqRef = isRef * sinf(gammaRef);
 }
 
 

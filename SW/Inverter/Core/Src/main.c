@@ -111,14 +111,11 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // Initialize ADCs
-  HAL_ADC_Start_DMA(&hadc2, (uint32_t *) rawADC_left,4); // Starts ADC DMA for left inverter
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t *) rawADC_right,4); // Starts ADC DMA for right inverter
-
   HAL_ADC_Start_DMA(&hadc3, (uint32_t *) rawADC_temp,4); // Starts ADC DMA for temperatures
 
   // Initialize inverters
-  initialize_inverter(&inverter_left, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2, &motor_left);
-  initialize_inverter(&inverter_right, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1, &motor_right);
+  initialize_inverter(&inverter_left, &led_left, ENABLE_L_GPIO_Port, ENABLE_L_Pin, &htim1, &hadc2, &motor_left, rawADC_left);
+  initialize_inverter(&inverter_right, &led_right, ENABLE_R_GPIO_Port, ENABLE_R_Pin, &htim8, &hadc1, &motor_right, rawADC_right);
 
   // Initialize 1ms timer
   HAL_TIM_Base_Start_IT(&htim6);

@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 
 #include "INVERTER.h"
+#include "stm32f7xx_hal.h"
 #include <math.h>
 
 
@@ -50,8 +51,8 @@ volatile InverterStruct inverter_right = {0};
  * @param[in] hadc ADC peripheral for the current phase current and DC voltage sensing.
  * @param[in] motor MotorParameters struct.
  */
-void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, MotorParameters *motor) {
-    // Initialize inverter structure
+void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, MotorParameters *motor, volatile uint32_t *rawADC){
+	// Initialize inverter structure
     inv->state = INV_STATE_STARTUP;
     inv->led = led;
     inv->enable_pin = enable_pin;
@@ -63,14 +64,23 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     inv->duties.Dc = 0.5;
     inv->motor = motor;
 
+    HAL_ADC_Start_DMA(hadc, (uint32_t *) rawADC, 4);
+    HAL_Delay(10);
+
     HAL_TIM_Base_Start_IT(inv->htim);
+    HAL_Delay(200);
 
-    if(check_motor_parameters(motor, TS))
+    calibrate_offsets(rawADC_left, inv->analog.currentOffsets, 10000);
+
+
+    if(check_motor_parameters(motor, TS)){
+        precalculate_motor_constants(motor);
     	init_control_loops(inv, motor);
-    else
-        inv->state = INV_STATE_FAULT;
+        inv->state = INV_STATE_IDLE;
 
-    inv->state = INV_STATE_IDLE;
+    } else{
+        inv->state = INV_STATE_FAULT;
+    }
 }
 
 /**

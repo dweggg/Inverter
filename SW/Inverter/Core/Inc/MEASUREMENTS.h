@@ -21,8 +21,9 @@
 #define MEASUREMENTS_H
 
 /* Define current and voltage gains/offsets */
-#define CURRENT_SLOPE  54.4217687f  /**< [A/V] (10/(4.7+10)) * ( 1 / (12.5 mV / A)) */
-#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
+#define CURRENT_SLOPE  117.57704f  /**< [A/V] ((4.7+10)/10) * (1 / (12.5 mV / A)) */
+#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V (not actually used, self calibration at start)*/
+
 #define VOLTAGE_SLOPE  263.435f  /**< [V/V] 1/(1/3 * 0.011388) V */
 #define VOLTAGE_OFFSET 0.02083f /**< [V] (100/(4700+100) * 5 V */
 
@@ -50,15 +51,18 @@ typedef struct {
     uint8_t directionMeas;      /**< Measured direction */
 } Encoder;
 
+
 /**
  * @brief Structure for ADC measurements in units.
  */
 typedef struct {
-    float ia;         /**< Phase A current in A*/
-    float ib;         /**< Phase B current in A*/
-    float ic;         /**< Phase C current in A*/
-    float vDC;        /**< DC link voltage in V*/
+    float ia;         			/**< Phase A current in A*/
+    float ib;         			/**< Phase B current in A*/
+    float ic;         			/**< Phase C current in A*/
+    float vDC;        			/**< DC link voltage in V*/
+    float currentOffsets[3];	/**< Offsets for the current measurements*/
 } Analog;
+
 
 /**
  * @brief Structure for feedback values.
@@ -69,6 +73,7 @@ typedef struct {
     float torqueCalc;  /**< Calculated torque in N·m*/
     float speedMeas;   /**< Measured speed in RPM*/
 } Feedback;
+
 
 /**
   * @brief  Get electrical ADC measurements.
@@ -81,6 +86,7 @@ typedef struct {
   */
 uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float sinTheta_e, float cosTheta_e);
 
+
 /**
   * @brief  Convert ADC reading to physical measurement with linear response.
   * @param[in]  bits The ADC reading.
@@ -89,6 +95,7 @@ uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analo
   * @retval measurement The physical measurement.
   */
 float get_linear(uint32_t bits, float slope, float offset);
+
 
 /**
  * @brief Computes d-q currents from current measurements and electrical angle.
@@ -118,4 +125,20 @@ void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, 
  * @return Temperature corresponding to the provided ADC bits.
  */
 float get_temperature(uint32_t bits, const float tempLUT[]);
+
+
+/**
+ * @brief Calibrate the current sensor offsets.
+ *
+ * This function calculates the average offset for each current sensor channel
+ * by reading the ADC values when no current is flowing. The calculated offsets
+ * are used to correct the sensor readings.
+ *
+ * @param[in] ADC_raw Buffer containing the raw ADC values for the channels.
+ * @param[out] current_offsets Array to store the calculated offsets for each current channel.
+ * @param[in] num_samples Number of samples to average for the offset calculation.
+ */
+void calibrate_offsets(volatile uint32_t ADC_raw[], volatile float currentOffsets[], int numSamples);
+
+
 #endif /* MEASUREMENTS_H */

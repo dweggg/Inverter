@@ -21,9 +21,8 @@
 #include "INVERTER.h"
 #include <math.h>
 
-float vd_left = 0.0F;
-float vq_left = 7.5F;
-float vDC_left = 15.0F;
+float idRef_left = 0.0F;
+float iqRef_left = 0.0F;
 
 float torqueRefIn_left = 0.0F;
 
@@ -73,6 +72,9 @@ void tasks_20us_left(void){
   // FOC
   calc_current_reference(inverter_left.encoder.we, inverter_left.reference.torqueRef, inverter_left.vsMax, inverter_left.motor, &inverter_left.reference.idRef, &inverter_left.reference.iqRef);
 
+
+  inverter_left.reference.idRef = idRef_left;
+  inverter_left.reference.iqRef = iqRef_left;
   // PIs and duty calc
   calc_current_loop(&inverter_left);
   saturate_voltage(&inverter_left);

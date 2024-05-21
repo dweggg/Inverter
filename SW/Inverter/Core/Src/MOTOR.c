@@ -24,9 +24,9 @@
  * @brief Left motor parameters
  */
 MotorParameters motor_left = {
-    .Ld = 0.00291F,
-    .Lq = 0.00291F,
-    .Rs = 1.95F,
+    .Ld = 0.001F,
+    .Lq = 0.001F,
+    .Rs = 0.5F,
     .lambda = 0.13391F,
     .pp = 4,
     .J = 0.00093F,
@@ -56,6 +56,32 @@ MotorParameters motor_right = {
     .vDCMax = 450.0F
 };
 
+/**
+ * @brief Precomputes the constants for a motor and updates the MotorParameters structure
+ * 
+ * @param motor  [in, out] Pointer to the motor parameters structure
+ */
+void precalculate_motor_constants(MotorParameters * motor) {
+    motor->constants.threePpLambda = 3.0F * motor->pp * motor->lambda;
+    motor->constants.threePpLdMinusLq = 3.0F * motor->pp * (motor->Ld - motor->Lq);
+    motor->constants.invThreePpLambda = 1.0F / (3.0F * motor->pp * motor->lambda);
+    motor->constants.isc = motor->lambda / motor->Ld;
+    motor->constants.torqueBase = 3.0F * motor->pp * (motor->lambda * motor->lambda) / motor->Ld;
+    motor->constants.invTorqueBase = 1.0F / motor->constants.torqueBase;
+    motor->constants.xi = motor->Lq / motor->Ld;
+    motor->constants.xiSquared = motor->constants.xi * motor->constants.xi;
+    motor->constants.oneMinusXi = 1.0F - motor->constants.xi;
+    motor->constants.twoMinusXi = 2.0F - motor->constants.xi;
+    motor->constants.fourTimesOneMinusXi = 4.0F * motor->constants.oneMinusXi;
+    motor->constants.eightTimesOneMinusXiSquared = 8.0F * motor->constants.oneMinusXi * motor->constants.oneMinusXi;
+    motor->constants.twoMinusXiSquared = motor->constants.twoMinusXi * motor->constants.twoMinusXi;
+    motor->constants.twoTimesOneMinusXiOnePlusXiSquared = 2.0F * motor->constants.oneMinusXi * (1.0F + motor->constants.xiSquared);
+    motor->constants.twoTimesOneMinusXiXiSquared = 2.0F * motor->constants.oneMinusXi * motor->constants.xiSquared;
+    motor->constants.fourTimesOneMinusXiOnePlusXiSquared = 4.0F * motor->constants.oneMinusXi * (1.0F + motor->constants.xiSquared);
+    motor->constants.fourTimesOneMinusXiXiSquared = 4.0F * motor->constants.oneMinusXi * motor->constants.xiSquared;
+    motor->constants.lambdaDivLqMinusLd = motor->lambda / (motor->Lq - motor->Ld);
+    motor->constants.betaMinusIsc = motor->constants.lambdaDivLqMinusLd - motor->constants.isc;
+}
 
 /**
   * @brief Perform a parameter check and correct possible errors.
