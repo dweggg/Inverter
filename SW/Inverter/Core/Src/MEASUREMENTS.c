@@ -150,11 +150,11 @@ float get_temperature(uint32_t bits, const float tempLUT[]){
  * by reading the ADC values when no current is flowing. The calculated offsets
  * are used to correct the sensor readings.
  *
- * @param[in] ADC_raw Buffer containing the raw ADC values for the channels.
- * @param[out] current_offsets Array to store the calculated offsets for each current channel.
- * @param[in] num_samples Number of samples to average for the offset calculation.
+ * @param[in] rawADC Buffer containing the raw ADC values for the channels.
+ * @param[out] currentOffsets Array to store the calculated offsets for each current channel.
+ * @param[in] numSamples Number of samples to average for the offset calculation.
  */
-void calibrate_offsets(volatile uint32_t ADC_raw[], volatile float currentOffsets[], int numSamples) {
+void calibrate_offsets(volatile uint32_t rawADC[], volatile float currentOffsets[], uint32_t numSamples) {
     uint32_t sumADC[3] = {0}; // Summing ADC values for IA, IB, IC
 
     // Take multiple samples to calculate the average offset
@@ -162,9 +162,9 @@ void calibrate_offsets(volatile uint32_t ADC_raw[], volatile float currentOffset
         // ADC_raw is updated by the DMA, so no need to start the ADC conversion here
 
         // Accumulate the ADC readings
-    	sumADC[0] += ADC_raw[0];
-    	sumADC[1] += ADC_raw[1];
-    	sumADC[2] += ADC_raw[2];
+    	sumADC[0] += rawADC[0];
+    	sumADC[1] += rawADC[1];
+    	sumADC[2] += rawADC[2];
 
     }
 

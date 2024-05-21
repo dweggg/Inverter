@@ -64,13 +64,13 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     inv->duties.Dc = 0.5;
     inv->motor = motor;
 
-    HAL_ADC_Start_DMA(hadc, (uint32_t *) rawADC, 4);
-    HAL_Delay(10);
 
     HAL_TIM_Base_Start_IT(inv->htim);
-    HAL_Delay(200);
 
-    calibrate_offsets(rawADC_left, inv->analog.currentOffsets, 10000);
+    HAL_ADC_Start_DMA(hadc, (uint32_t *) rawADC, 4);
+
+    HAL_Delay(100);
+    calibrate_offsets(rawADC_left, inv->analog.currentOffsets, 50000);
 
 
     if(check_motor_parameters(motor, TS)){

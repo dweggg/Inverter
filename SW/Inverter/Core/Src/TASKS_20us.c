@@ -59,7 +59,6 @@ void tasks_20us_left(void){
   inverter_left.encoder.cosTheta_e = cosf(inverter_left.encoder.theta_e);
 
 
-
   // Actual control loop
 
   // ADC
