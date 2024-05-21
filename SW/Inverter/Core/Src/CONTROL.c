@@ -38,8 +38,19 @@ void calc_current_reference(float we, float torqueRef, float vsRef, MotorParamet
     static float gammaRef = M_PI_2;
     static float isRef = 0.0F;
 
+    static int8_t signTorqueRef = 1;
+
     float isRefCTC;
     float gammaRefMTPA;
+
+	if (torqueRef >= 0){
+		signTorqueRef = 1;
+	} else {
+		signTorqueRef = -1;
+	}
+
+	torqueRef = fabs(torqueRef);
+
 
     // CTC
     if (gammaRef == M_PI_2 || torqueRef == 0.0F || motor->Ld == motor->Lq) {
@@ -61,7 +72,7 @@ void calc_current_reference(float we, float torqueRef, float vsRef, MotorParamet
         gammaRefMTPA = M_PI_2 + asinf((motor->lambda - sqrtf(motor->constants.eightTimesOneMinusXiSquared * isRef * isRef + motor->lambda * motor->lambda)) / (motor->constants.fourTimesOneMinusXi * isRef));
     }
 
-    gammaRef = gammaRefMTPA;
+    gammaRef = gammaRefMTPA*signTorqueRef;
 
     // Polar to Cartesian
     *idRef = isRef * cosf(gammaRef);

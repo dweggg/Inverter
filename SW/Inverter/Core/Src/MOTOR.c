@@ -24,18 +24,18 @@
  * @brief Left motor parameters
  */
 MotorParameters motor_left = {
-    .Ld = 0.001F,
-    .Lq = 0.001F,
-    .Rs = 0.5F,
-    .lambda = 0.13391F,
-    .pp = 4,
-    .J = 0.00093F,
-    .b = 0.632653F,
-    .torqueMax = 10.0F,
-    .dTorqueMax = 1.0F,
-    .speedMax_RPM = 8500.0F,
-    .iMax = 60.0F,
-    .vDCMax = 450.0F
+	.Ld = 0.00291F,
+	.Lq = 0.00291F,
+	.Rs = 1.95F,
+	.lambda = 0.13391F,
+	.pp = 4,
+	.J = 0.00093F,
+	.b = 0.632653F,
+	.torqueMax = 10.0F,
+	.dTorqueMax = 1.0F,
+	.speedMax_RPM = 8500.0F,
+	.iMax = 60.0F,
+	.vDCMax = 450.0F
 };
 
 /**

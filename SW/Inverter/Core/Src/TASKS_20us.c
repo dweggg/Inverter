@@ -72,9 +72,6 @@ void tasks_20us_left(void){
   // FOC
   calc_current_reference(inverter_left.encoder.we, inverter_left.reference.torqueRef, inverter_left.vsMax, inverter_left.motor, &inverter_left.reference.idRef, &inverter_left.reference.iqRef);
 
-
-  inverter_left.reference.idRef = idRef_left;
-  inverter_left.reference.iqRef = iqRef_left;
   // PIs and duty calc
   calc_current_loop(&inverter_left);
   saturate_voltage(&inverter_left);
