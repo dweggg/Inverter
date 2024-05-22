@@ -80,25 +80,67 @@ Al acabar la etapa anterior, se trabaja en la discretización del modelo y la si
 
 \item \textbf{Desarrollo del \textit{hardware}}
 
-Con el diseño del control y la simulación de la conmutación como base, se procede al diseño del \textit{hardware}. Esto implica seleccionar componentes, diseñar esquemáticos y PCB y diseñar los tests de validación de \textit{hardware}. La duración estimada para esta etapa es de 3 a 4 meses, y se solapa parcialmente con el diseño del \textit{firmware}.
+Con el diseño del control y la simulación de la conmutación como base, se procede al diseño del \textit{hardware}. Esto implica seleccionar componentes, diseñar esquemáticos y PCBs y planificar su validación. La duración estimada para esta etapa es de 3 a 4 meses, y se solapa parcialmente con el diseño del \textit{firmware}.
 
 \item \textbf{Desarrollo del \textit{firmware}}
 
-Simultáneamente con el diseño del \textit{hardware}, se trabaja en el desarrollo del \textit{software}. Esto incluye programar el microcontrolador que controlará el inversor y la implementación del algoritmo de control. Se utilizará una placa de evaluación antes de tener la placa de control propia con tal de acelerar el desarrollo. La duración estimada para esta fase es de aproximadamente 4 meses.
+Simultáneamente con el diseño del \textit{hardware}, se trabaja en el desarrollo del \textit{firmware}. Esto incluye programar el microcontrolador que controlará el inversor y la implementación del algoritmo de control. Se utilizará una placa de evaluación antes de tener la placa de control propia con tal de acelerar el desarrollo. La duración estimada para esta fase es de aproximadamente 4 meses.
 
 \item \textbf{Validación del \textit{hardware}}
 
-Una vez que el \textit{hardware} se está construyendo, se procede a la validación con los tests diseñados anteriormente. La duración estimada para esta etapa es de aproximadamente 3 a 4 meses y se superpone con el desarrollo del \textit{software}.
+Una vez que el \textit{hardware} se está construyendo, se procede a la validación con las pruebas planeadas anteriormente. La duración estimada para esta etapa es de aproximadamente 3 a 4 meses y se superpone con el desarrollo del \textit{firmware}.
 
 \item \textbf{Validación del \textit{firmware}}
 
-La validación del \textit{firmware} se realiza una vez que el \textit{hardware} está validado, y mayoritariamente, mientras se desarrolla el \textit{firmware}. Aquí, se llevan a cabo pruebas unitarias para garantizar que cada módulo de código funcione según lo previsto y ver que las simulaciones y cálculos previos se ajusten a la realidad. La duración estimada para esta etapa es de 2 meses.
+La validación del \textit{firmware} se realiza una vez que el \textit{hardware} está validado, y mayoritariamente, se puede realizar durante el mismo desarrollo del código. Aquí, se llevan a cabo pruebas unitarias para garantizar que cada módulo funcione según lo previsto y ver que las simulaciones y cálculos previos se ajusten a la realidad. La duración estimada para esta etapa es de 2 meses.
 
 \item \textbf{Documentación y preparación para la implementación}
 
 La fase final del proyecto se enfoca en la documentación y la preparación para su implementación en los monoplazas de e-Tech Racing. La duración estimada para esta etapa es de aproximadamente un par de semanas. 
 
 \end{enumerate}
+
+\newpage
+
+\begin{landscape}
+	\begin{figure}[H]
+		\centering
+		\begin{ganttchart}[
+			hgrid,
+			vgrid,
+			y unit chart=0.7cm,
+			x unit=1.5cm,
+			time slot format=isodate-yearmonth,
+			time slot unit=month,
+			today=2024-06,
+			today rule/.style={
+				draw=blue,
+				dash pattern=on 3.5pt off 4.5pt,
+				line width=1.5pt
+			},
+			bar/.append style={fill=blue!30},
+			bar label font=\footnotesize,
+			group label font=\footnotesize,
+			milestone label font=\footnotesize,
+			milestone/.append style={fill=red, rounded corners=2pt},
+    		newline shortcut=true,
+			]{2023-09}{2024-06}
+			\gantttitlecalendar{year, month=shortname} \\ % abreviar nombres de meses
+			\ganttbar{Modelo continuo y simulación del control}{2023-09}{2023-10} \\
+			\ganttbar{Discretización del modelo y simulación de la conmutación}{2023-10}{2023-11} \\
+			\ganttbar{Desarrollo del \textit{hardware}}{2023-10}{2024-01} \\
+			\ganttbar{Desarrollo del \textit{firmware}}{2024-01}{2024-06} \\
+			\ganttbar{Validación del \textit{hardware}}{2024-02}{2024-05} \\
+			\ganttbar{Validación del \textit{firmware}}{2024-05}{2024-06} \\
+			\ganttbar{Documentación y preparación para la implementación}{2024-06}{2024-06} \\
+			
+			\ganttmilestone{Trabajo finalizado}{2024-06}
+			\end{ganttchart}
+			\caption{Diagrama de Gantt para el proyecto}	
+	\end{figure}
+\end{landscape}
+	
+\newpage
 
 Es importante destacar que las etapas de diseño del \textit{hardware} y del \textit{firmware} pueden superponerse y solaparse con otras etapas, lo que permite un desarrollo más ágil y eficiente del proyecto. La superposición de estas etapas es esencial para cumplir con los plazos y garantizar que el proyecto avance de manera constante. El trabajo se ha realizado en el marco de un año académico, de septiembre a junio, aunque la definición de requisitos y los primeros pasos del modelo continuo se realizaron antes del comienzo del trabajo.
 

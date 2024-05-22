@@ -28,7 +28,7 @@ Se validó el grosor de cobre en las vías para aportar confianza a la hora de m
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/copperVia}
-	\caption{Micrografía de una vía de la placa de potencia. Se pueden apreciar los grosores de cobre en las 4 capas y en la vía.}
+	\caption{Micrografía de una vía de la placa de potencia. Se pueden apreciar el grosor de cobre de las capas y de la vía.}
 \end{figure}
 
 Se pudo comprobar que el grosor de las capas era correcto (70 micras), y que el de las vías estaba dentro de la tolerancia establecida (de 25 a 50 micras).
@@ -81,9 +81,9 @@ Después de verificar el funcionamiento del LDO se probaron los DC-DCs aislados.
 Para validar la funcionalidad básica del \textit{gate driver}, se montó un módulo de potencia y los dos \textit{gate drivers} necesarios para controlar los dos MOSFETs.
 
 \begin{itemize}
-	\item \textbf{\textit{OK} y \textit{TRIP}}: Se poblaron los componentes necesarios y se alimentó la placa desde el lado de LV. Se midieron los nodos TRIP y OK. Ambas señales tenían un valor de 5V, confirmando su correcto funcionamiento sin errores. Posteriormente se forzaron fallas en el lado del semiconductor y ambas bajaron a 0V.
-	\item \textbf{Dispositivos apagados en reposo}: Se montaron las resistencias de puerta y se verificó el estado de ambos MOSFETs midiendo la resistencia entre \textit{drain} y \textit{source}. Ambos dispositivos se encontraban en estado \textit{OFF}, confirmando que no se encendían.
-	\item \textbf{\textit{Enable} no enciende los dispositivos}: Se introdujo una señal de 3.3V el nodo ENABLE. De nuevo, ambos dispositivos se encontraban en estado \textit{OFF}, lo cual es el resultado esperado, ya que ambas señales de PWM estaba en estado bajo, es decir, consignando que los MOSFETs estuvieran abiertos.
+	\item \textbf{\textit{OK} y \textit{TRIP}}: Se poblaron los componentes necesarios y se alimentó la placa desde el lado de \textit{LV}. Se midieron los nodos \textit{TRIP} y \textit{OK}. Ambas señales tenían un valor de 5 V, confirmando su correcto funcionamiento sin errores. Posteriormente se forzaron fallas en el lado del semiconductor y ambas bajaron a 0 V.
+	\item \textbf{MOSFETs apagados en reposo}: Se montaron las resistencias de puerta y se verificó el estado de ambos MOSFETs midiendo la resistencia entre \textit{drain} y \textit{source}. Ambos dispositivos se encontraban en estado \textit{OFF}, confirmando que no se encendían.
+	\item \textbf{\textit{ENABLE} no enciende los dispositivos}: Se introdujo una señal de 3.3 V el nodo \textit{ENABLE}, simulando la acción del microcontrolador. De nuevo, ambos dispositivos se encontraban en estado \textit{OFF}, lo cual es el resultado esperado, ya que ambas señales PWM estaban en estado bajo, es decir, consignando que los MOSFETs estuvieran abiertos.
 	\item \textbf{Medición de temperatura}: Se verificó la capacidad del \textit{gate driver} de tomar una medida analógica, en concreto, de la NTC interna del semiconductor. Se contrastaron las medidas obtenidas con los cálculos previos, arrojando resultados satisfactorios.
 	
 	\begin{figure}[H]
@@ -244,36 +244,38 @@ Posteriormente, se hizo una primera prueba con 10 V de entrada, y se observó un
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/overshootInicial2}
-	\caption{\textit{Overshoot} observado con 10 V de entrada y 0.7 A de salida.}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0,75 A de salida.}
 \end{figure}
 
 Dado que este \textit{overshoot} es aproximadamente lineal con la corriente de salida y la tensión de entrada, se creó un modelo lineal para predecir el \textit{overshoot} a las especificaciones máximas del convertidor. Para ello se tomó un dato más a 20 V de entrada y sin carga. El resultado del modelo lineal se muestra a continuación.
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|}
+	\begin{tabular}{|c|c|c|c|}
 		\hline
-		\textbf{Modelo} & $Overshoot = a \cdot V_{\text{DC,in}} + b \cdot I_{\text{out}} + c$ \\
+		\multicolumn{2}{|c|}{\textbf{Modelo}} & \multicolumn{2}{|c|}{$Overshoot = a \cdot V_{\text{DC,in}} + b \cdot I_{\text{out}} + c$} \\
 		\hline
-		\textbf{Coeficientes} & \\
+		\multicolumn{4}{|c|}{\textbf{Coeficientes}} \\
 		\hline
-		$a$ & $1.5$ \\
-		$b$ & $6.6667$ \\
-		$c$ & $3.9721 \times 10^{-15}$ \\
+		\multicolumn{2}{|c|}{$a$} & \multicolumn{2}{c|}{$1.5$} \\
+		\multicolumn{2}{|c|}{$b$} & \multicolumn{2}{c|}{$6.6667$} \\
+		\multicolumn{2}{|c|}{$c$} & \multicolumn{2}{c|}{$3.9721 \cdot 10^{-15}$} \\
 		\hline
-		\textbf{Datos medidos y predicción} & \\
+		\multicolumn{4}{|c|}{\textbf{Datos medidos y predicción}} \\
 		\hline
-		\textit{Overshoot} medido & Predicción de \textit{overshoot} \\
+		{$V_{\text{DC,in}}$} & $I_{\text{out}}$ & \textit{Overshoot} medido & Predicción de \textit{overshoot}\\
 		\hline
-		$15$ Vp & $15$ Vp \\
-		$30$ Vp & $30$ Vp \\
-		$20$ Vp & $20$ Vp \\
+		{$10$ V} & $0$ A & $15$ Vp & $15$ Vp\\
+		{$20$ V} & $0$ A & $30$ Vp & $30$ Vp\\
+		{$10$ V} & $0.75$ A & $20$ Vp & $20$ Vp \\
 		\hline
-		Predicción de \textit{overshoot} a $600$ V y $80$ A & {\color{red}\textbf{$1433$ Vp}} \\
+		\multicolumn{4}{|c|}{Predicción de \textit{overshoot} a $600$ V y $80$ A: {\color{red}\textbf{$1433$ Vp}}} \\
 		\hline
 	\end{tabular}
 	\caption{Resumen de resultados del modelo de \textit{overshoot}.}
 \end{table}
+
+
 
 \begin{figure}[H]
 	\centering
@@ -309,48 +311,49 @@ Se volvieron a realizar las pruebas con 10 V de entrada, y se observó una reduc
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/overshootFinal2}
-	\caption{\textit{Overshoot} observado con 10 V de entrada y 0.7 A de salida.}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0,75 A de salida.}
 \end{figure}
 
 Se creó un nuevo modelo lineal para realizar la predicción de \textit{overshoot} a las especificaciones máximas, y en este caso, se tomaron muchos más puntos, siendo la fuente de alimentación con la que se ensayó el factor limitante para no poder tomar más.
 
 \begin{table}[H]
 	\centering
-	\begin{tabular}{|c|c|}
+	\begin{tabular}{|c|c|c|c|}
 		\hline
-		\textbf{Modelo} & $Overshoot = a \cdot V_{\text{DC,in}} + b \cdot I_{\text{out}} + c$ \\
+		\multicolumn{2}{|c|}{\textbf{Modelo}} & \multicolumn{2}{|c|}{$Overshoot = a \cdot V_{\text{DC,in}} + b \cdot I_{\text{out}} + c$} \\
 		\hline
-		\textbf{Coeficientes} & \\
+		\multicolumn{4}{|c|}{\textbf{Coeficientes}} \\
 		\hline
-		$a$ & $1.1463$ \\
-		$b$ & $0.42886$ \\
-		$c$ & $-1.3001$ \\
+		\multicolumn{2}{|c|}{$a$} & \multicolumn{2}{c|}{$1.1463$} \\
+		\multicolumn{2}{|c|}{$b$} & \multicolumn{2}{c|}{$0.42886$} \\
+		\multicolumn{2}{|c|}{$c$} & \multicolumn{2}{c|}{$-1.3001$} \\
 		\hline
-		\textbf{Datos medidos y predicción} & \\
+		\multicolumn{4}{|c|}{\textbf{Datos medidos y predicción}} \\
 		\hline
-		\textit{Overshoot} medido & Predicción de \textit{overshoot} \\
+		$V_{\text{DC,in}}$ & $I_{\text{out}}$ & \textit{Overshoot} medido & Predicción de \textit{overshoot} \\
 		\hline
-		$10.8$ Vp & $10.1626$ Vp \\
-		$11.1$ Vp & $10.4843$ Vp \\
-		$21.3$ Vp & $21.6254$ Vp \\
-		$21.5$ Vp & $22.2687$ Vp \\
-		$31.7$ Vp & $33.0882$ Vp \\
-		$32.3$ Vp & $34.0531$ Vp \\
-		$45.9$ Vp & $44.551$ Vp \\
-		$46.9$ Vp & $45.8375$ Vp \\
-		$92.6$ Vp & $92.7608$ Vp \\
-		$102.5$ Vp & $101.8648$ Vp \\
-		$104.9$ Vp & $104.5238$ Vp \\
-		$135.6$ Vp & $136.2532$ Vp \\
-		$172$ Vp & $170.6415$ Vp \\
-		$205$ Vp & $205.0298$ Vp \\
-		$227$ Vp & $227.9553$ Vp \\
+		$10$ V & $0$ A & $10.8$ Vp & $10.1626$ Vp \\
+		$10$ V & $0.75$ A & $11.1$ Vp & $10.4843$ Vp \\
+		$20$ V & $0$ A & $21.3$ Vp & $21.6254$ Vp \\
+		$20$ V & $1.5$ A & $21.5$ Vp & $22.2687$ Vp \\
+		$30$ V & $0$ A & $31.7$ Vp & $33.0882$ Vp \\
+		$30$ V & $2.25$ A & $32.3$ Vp & $34.0531$ Vp \\
+		$40$ V & $0$ A & $45.9$ Vp & $44.551$ Vp \\
+		$40$ V & $3$ A & $46.9$ Vp & $45.8375$ Vp \\
+		$80$ V & $5.5$ A & $92.6$ Vp & $92.7608$ Vp \\
+		$90$ V & $0$ A & $102.5$ Vp & $101.8648$ Vp \\
+		$90$ V & $6.2$ A & $104.9$ Vp & $104.5238$ Vp \\
+		$120$ V & $0$ A & $135.6$ Vp & $136.2532$ Vp \\
+		$150$ V & $0$ A & $172$ Vp & $170.6415$ Vp \\
+		$180$ V & $0$ A & $205$ Vp & $205.0298$ Vp \\
+		$200$ V & $0$ A & $227$ Vp & $227.9553$ Vp \\
 		\hline
-		Predicción de \textit{overshoot} at $600$ V $80$ A & {\color{red}\textbf{$720.775$ Vp}} \\
+		\multicolumn{4}{|c|}{Predicción de \textit{overshoot} a $600$ V y $80$ A: {\color{red}\textbf{$720.775$ Vp}}} \\
 		\hline
 	\end{tabular}
 	\caption{Resumen de resultados del modelo de \textit{overshoot}.}
 \end{table}
+
 
 
 \begin{figure}[H]
@@ -398,7 +401,7 @@ A continuación se muestra el ensayo más exigente, una descarga a 600 V.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/dischargeGuapo}
-	\caption{Descarga de 600 V a 60 V con 100 $\mu$F de capacidad en el bus de continua, en un tiempo de 4.5 segundos.}
+	\caption{Descarga de 600 V a 60 V con 100 $\mu$F de capacidad en el bus de continua, en un tiempo de 4,5 segundos.}
 \end{figure}
 
 \begin{figure}[H]
@@ -409,7 +412,7 @@ A continuación se muestra el ensayo más exigente, una descarga a 600 V.
 
 
 
-Se puede observar un pico de temperatura de 100 $^{\circ}$C, y la temperatura ambiente era de 25 $^{\circ}$C aproximadamente. Cada resistencia disipa $\frac{600 \text{ V}^2}{470 \text{ k}\Omega} = 0.766 \text{ W}$, lo cual se correspondería con una resistencia térmica de aproximadamente $ \frac{100 \text{ }^{\circ}\text{C} - 25 \text{ }^{\circ}\text{C}}{0.766 \text{ W}} \approx 100 \text{ K/W}$. Este valor es muy razonable para una resistencia SMD sin \textit{pad} térmico ni mucha consideración en el \textit{layout}.
+Se puede observar un pico de temperatura de 100 $^{\circ}$C, y la temperatura ambiente era de 25 $^{\circ}$C aproximadamente. Cada resistencia disipa $\frac{(600 \text{ V})^2}{470 \text{ k}\Omega} = 0.766 \text{ W}$, lo cual se correspondería con una resistencia térmica de aproximadamente $ \frac{100 \text{ }^{\circ}\text{C} - 25 \text{ }^{\circ}\text{C}}{0.766 \text{ W}} \approx 100 \text{ K/W}$. Este valor es muy razonable para una resistencia SMD sin \textit{pad} térmico ni mucha consideración en el \textit{layout}.
 
 \subsection{Validación de la placa de control}
 
