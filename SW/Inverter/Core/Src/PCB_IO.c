@@ -74,15 +74,28 @@ void handle_LED(LED *led, uint32_t ms_counter) {
  * @param dir_right Pointer to the direction parameter in the right inverter structure.
  */
 void handle_direction(volatile int8_t *dir_left, volatile int8_t *dir_right){
-	// Read the state of the DIR switch
-    GPIO_PinState dirState = HAL_GPIO_ReadPin(DIR_GPIO_Port, DIR_Pin);
-
     // Update the directions of the inverters based on the DIR switch state
-    if (dirState == GPIO_PIN_SET) {
+    if (DIR_STATE() == GPIO_PIN_SET) {
     	*dir_left = 1;  // CW
     	*dir_right = -1;  // CCW
     } else {
     	*dir_left = -1;  // CCW
     	*dir_right = 1;  // CW
     }
+}
+
+/**
+ * @brief Handles the direction of the motors and enables/disables the inverters.
+ *
+ * This function reads the state of the shutdown chain (SC or SDC) and enables/disables
+ * the inverters based on that and an external software enable bool.
+ *
+ * @param[in] enableSW_left The software enable state for the left inverter.
+ * @param[in] enableSW_right The software enable state for the right inverter.
+ * @param[out] enable_left Output parameter for the left inverter's enable state.
+ * @param[out] enable_right Output parameter for the right inverter's enable state.
+ */
+void enable_inverters(volatile bool enableSW_left, volatile bool enableSW_right, volatile bool *enable_left, volatile bool *enable_right){
+    *enable_left = (SC_DET_STATE() == GPIO_PIN_SET) && enableSW_left;
+    *enable_right = (SC_DET_STATE() == GPIO_PIN_SET) && enableSW_right;
 }

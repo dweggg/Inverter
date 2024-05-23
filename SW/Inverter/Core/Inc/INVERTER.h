@@ -26,6 +26,7 @@
 #include "MOTOR.h" // motor struct
 #include "PWM.h" // duties struct
 
+#include <stdbool.h>
 
 
 #define TS 0.000025      /**< Switching time in seconds (25 us), inverse of the switching frequency of 40 kHz */
@@ -43,6 +44,24 @@ typedef enum {
     INV_STATE_RUNNING, /**< Inverter running state */
     INV_STATE_FAULT    /**< Inverter fault state */
 } InverterState;
+
+/**
+ * @brief Enumeration of inverter error states.
+ */
+typedef enum {
+    NONE = 0,
+    POWER_FAULT = (1 << 0),           /**< Power fault error bit */
+    OVERTEMPERATURE_INV = (1 << 1),   /**< Inverter overtemperature error bit */
+    OVERVOLTAGE = (1 << 2),           /**< Overvoltage error bit */
+    OVERCURRENT = (1 << 3),           /**< Overcurrent error bit */
+    OVERSPEED = (1 << 4),             /**< Overspeed error bit */
+    UNDERVOLTAGE = (1 << 5),          /**< Undervoltage error bit */
+    CONTROL_FAULT = (1 << 6),         /**< Control fault error bit */
+    WARNING = (1 << 7),               /**< Warning error bit */
+    OVERTEMPERATURE_MOT = (1 << 8),   /**< Motor overtemperature error bit */
+    FEEDBACK_FAULT = (1 << 9)         /**< Feedback fault error bit */
+} InverterError;
+
 
 /**
  * @brief Inverter structure.
@@ -69,6 +88,9 @@ typedef struct {
     float vd;					/**< d-axis voltage */
     float vq;					/**< q-axis voltage */
     pi_struct speedLoop;   		/**< PI controller for motor speed */
+    InverterError errors;       /**< Error field storing error bits, using InverterError enum */
+    bool enable;                /**< Enable bit for transitioning states */
+    bool enableSW;              /**< External enable order (needs HW enable to set inv.enable to 1, and if the FAULT state is entered, enableSW must be set to 0 to transition to the IDLE state)  */
 
 } InverterStruct;
 
@@ -110,5 +132,36 @@ void enable_control_loops(volatile InverterStruct *inv);
  * @param inv Pointer to the inverter structure.
  */
 void disable_control_loops(volatile InverterStruct *inv);
+
+/**
+ * @brief Sets an error in the inverter's error field.
+ * 
+ * This function sets the specified error bit in the inverter's error field.
+ * 
+ * @param[out] inv Pointer to the InverterStruct structure.
+ * @param[in] error The error to be set. This should be one of the values from the InverterError enumeration.
+ */
+void set_error(InverterStruct *inv, InverterError error);
+
+/**
+ * @brief Clears an error in the inverter's error field.
+ * 
+ * This function clears the specified error bit in the inverter's error field.
+ * 
+ * @param[out] inv Pointer to the InverterStruct structure.
+ * @param[in] error The error to be cleared. This should be one of the values from the InverterError enumeration.
+ */
+void clear_error(InverterStruct *inv, InverterError error);
+
+/**
+ * @brief Checks if an error is set in the inverter's error field.
+ * 
+ * This function checks if the specified error bit is set in the inverter's error field.
+ * 
+ * @param[in] inv Pointer to the InverterStruct structure.
+ * @param[in] error The error to be checked. This should be one of the values from the InverterError enumeration.
+ * @return true if the specified error is set, false otherwise.
+ */
+bool is_error_set(InverterStruct *inv, InverterError error);
 
 #endif /* INVERTER_H */

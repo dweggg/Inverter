@@ -20,15 +20,6 @@
 #include "FSM.h"
 
 /**
- * @brief FSM state handler for the idle state.
- *
- * This function handles the actions and transitions for the idle state of the inverter.
- *
- * @param inv Pointer to the inverter structure.
- */
-static void handle_idle(volatile InverterStruct *inv);
-
-/**
  * @brief FSM state handler for the startup state.
  *
  * This function handles the actions and transitions for the startup state of the inverter.
@@ -36,6 +27,15 @@ static void handle_idle(volatile InverterStruct *inv);
  * @param inv Pointer to the inverter structure.
  */
 static void handle_startup(volatile InverterStruct *inv);
+
+/**
+ * @brief FSM state handler for the idle state.
+ *
+ * This function handles the actions and transitions for the idle state of the inverter.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+static void handle_idle(volatile InverterStruct *inv);
 
 /**
  * @brief FSM state handler for the running state.
@@ -64,11 +64,11 @@ static void handle_fault(volatile InverterStruct *inv);
  */
 void eval_inv_FSM(volatile InverterStruct *inv) {
     switch (inv->state) {
-        case INV_STATE_IDLE:
-        	handle_idle(inv);
-            break;
         case INV_STATE_STARTUP:
         	handle_startup(inv);
+            break;
+        case INV_STATE_IDLE:
+        	handle_idle(inv);
             break;
         case INV_STATE_RUNNING:
         	handle_running(inv);
@@ -80,6 +80,32 @@ void eval_inv_FSM(volatile InverterStruct *inv) {
             // Invalid state, handle error
             break;
     }
+}
+
+
+/**
+ * @brief FSM state handler for the startup state.
+ *
+ * This function handles the actions and transitions for the startup state of the inverter.
+ *
+ * @param inv Pointer to the inverter structure.
+ */
+void handle_startup(volatile InverterStruct *inv) {
+    // Perform actions required in startup state
+    // Transition conditions to other states:
+    // - Transition to running state when startup sequence completes successfully
+    // - Transition to fault state based on error conditions during startup
+    inv->led->mode = LED_MODE_OFF;
+    DISABLE(inv->enable_port, inv->enable_pin);
+    enable_PWM(inv->htim);
+    disable_control_loops(inv);
+
+    if (inv->errors != NONE) {
+        inv->state = INV_STATE_FAULT;
+    }
+
+    // transition to IDLE when everything is done
+    inv->state = INV_STATE_IDLE;
 }
 
 /**
@@ -99,24 +125,11 @@ void handle_idle(volatile InverterStruct *inv) {
     disable_PWM(inv->htim);
     disable_control_loops(inv);
 
-}
-
-/**
- * @brief FSM state handler for the startup state.
- *
- * This function handles the actions and transitions for the startup state of the inverter.
- *
- * @param inv Pointer to the inverter structure.
- */
-void handle_startup(volatile InverterStruct *inv) {
-    // Perform actions required in startup state
-    // Transition conditions to other states:
-    // - Transition to running state when startup sequence completes successfully
-    // - Transition to fault state based on error conditions during startup
-    inv->led->mode = LED_MODE_OFF;
-    DISABLE(inv->enable_port, inv->enable_pin);
-    enable_PWM(inv->htim);
-    disable_control_loops(inv);
+    if (inv->errors != NONE) {
+        inv->state = INV_STATE_FAULT;
+    } else if (inv->enable) {
+        inv->state = INV_STATE_RUNNING;
+    }
 
 }
 
@@ -137,6 +150,12 @@ void handle_running(volatile InverterStruct *inv) {
     ENABLE(inv->enable_port, inv->enable_pin);
     enable_PWM(inv->htim);
     enable_control_loops(inv);
+
+    if (inv->errors != NONE) {
+        inv->state = INV_STATE_FAULT;
+    } else if (inv->enable == 0) {
+        inv->state = INV_STATE_IDLE; // go to IDLE if enable is not set
+    }
 }
 
 /**
@@ -156,5 +175,9 @@ void handle_fault(volatile InverterStruct *inv) {
     DISABLE(inv->enable_port, inv->enable_pin);
     disable_PWM(inv->htim);
     disable_control_loops(inv);
+
+    if (inv->errors == NONE && inv->enable == 0) {
+        inv->state = INV_STATE_IDLE;
+    }
 
 }

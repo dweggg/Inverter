@@ -22,6 +22,8 @@
 #define PCB_IO_H
 
 #include "stm32f7xx_hal.h"
+#include "main.h" // pin names/ports
+#include <stdbool.h>
 
 // Read SC_det and DIR GPIOs
 #define SC_DET_STATE()              (HAL_GPIO_ReadPin(SC_det_GPIO_Port, SC_det_Pin))
@@ -79,5 +81,19 @@ void handle_LED(LED *led, uint32_t ms_counter);
  * @param dir_right Pointer to the direction parameter in the right inverter structure.
  */
 void handle_direction(volatile int8_t *dir_left, volatile int8_t *dir_right);
+
+/**
+ * @brief Handles the direction of the motors and enables/disables the inverters.
+ *
+ * This function reads the state of the shutdown chain (SC or SDC) and enables/disables
+ * the inverters based on that and an external software enable bool.
+ *
+ * @param[in] enableSW_left The software enable state for the left inverter.
+ * @param[in] enableSW_right The software enable state for the right inverter.
+ * @param[out] enable_left Output parameter for the left inverter's enable state.
+ * @param[out] enable_right Output parameter for the right inverter's enable state.
+ */
+void enable_inverters(volatile bool enableSW_left, volatile bool enableSW_right, volatile bool *enable_left, volatile bool *enable_right);
+
 
 #endif /* PCB_IO_H */

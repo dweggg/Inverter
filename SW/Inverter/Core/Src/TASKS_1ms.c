@@ -45,8 +45,12 @@ void tasks_1ms(void) {
     handle_direction(&inverter_left.direction, &inverter_right.direction);
 
 
+    enable_inverters(inverter_left.enableSW, inverter_right.enableSW, &inverter_left.enable, &inverter_right.enable);
+
+
     inverter_left.tempInverter = get_temperature(rawADC_temp[0], tempInverterLUT);
     inverter_right.tempInverter = get_temperature(rawADC_temp[1], tempInverterLUT);
     inverter_left.tempMotor = get_temperature(rawADC_temp[2], tempMotorLUT);
     inverter_right.tempMotor = get_temperature(rawADC_temp[3], tempMotorLUT);
+
 }
