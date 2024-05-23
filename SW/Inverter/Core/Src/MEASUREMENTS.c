@@ -33,21 +33,21 @@ const float tempMotorLUT[] = {-2.45, -2.44, -2.44, -2.43, -2.42, -2.42, -2.41, -
  *
  * External declaration of raw ADC data for the left inverter.
  */
-volatile uint32_t rawADC_left[4] = {0};
+volatile uint16_t rawADC_left[4] = {0};
 
 /**
  * @brief Raw ADC data for the right inverter.
  *
  * External declaration of raw ADC data for the right inverter.
  */
-volatile uint32_t rawADC_right[4] = {0};
+volatile uint16_t rawADC_right[4] = {0};
 
 /**
  * @brief Raw ADC data for the temperatures.
  *
  * External declaration of raw ADC data for the temperature readings.
  */
-volatile uint32_t rawADC_temp[4] = {0};
+volatile uint16_t rawADC_temp[4] = {0};
 
 /**
   * @brief  Get electrical ADC measurements.
@@ -58,13 +58,13 @@ volatile uint32_t rawADC_temp[4] = {0};
   * @param[in] cosTheta_e Electrical angle cosine (-1..1)
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float sinTheta_e, float cosTheta_e){
+uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float sinTheta_e, float cosTheta_e){
 
     // Calculate currents and voltage
     float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, analog->currentOffsets[0]);
     float ib = get_linear(ADC_raw[1], CURRENT_SLOPE, analog->currentOffsets[1]);
     float ic = get_linear(ADC_raw[2], CURRENT_SLOPE, analog->currentOffsets[2]);
-    float vDC = get_linear(ADC_raw[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
+//	float vDC = get_linear(ADC_raw[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
 
     // Store the measurements
     analog->ia = ia;
@@ -120,7 +120,7 @@ void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, 
 
 	// Compute alpha beta using Clarke transformation
     float alpha = ia;
-    float beta = (ib - ic) * ISQ3;
+    float beta = (ia - 2.0F*(ia+ic)) * ISQ3;
     // float beta = (ia + 2.0F*ib) * ISQ3;
 
     // Park transformation
@@ -154,23 +154,24 @@ float get_temperature(uint32_t bits, const float tempLUT[]){
  * @param[out] currentOffsets Array to store the calculated offsets for each current channel.
  * @param[in] numSamples Number of samples to average for the offset calculation.
  */
-void calibrate_offsets(volatile uint32_t rawADC[], volatile float currentOffsets[], uint32_t numSamples) {
+void calibrate_offsets(volatile uint16_t rawADC[], volatile float currentOffsets[], uint32_t numSamples) {
     uint32_t sumADC[3] = {0}; // Summing ADC values for IA, IB, IC
 
     // Take multiple samples to calculate the average offset
     for (int i = 0; i < numSamples; ++i) {
         // ADC_raw is updated by the DMA, so no need to start the ADC conversion here
 
-        // Accumulate the ADC readings
-    	sumADC[0] += rawADC[0];
-    	sumADC[1] += rawADC[1];
-    	sumADC[2] += rawADC[2];
-
+    	if (i > numSamples / 2.0F){
+			// Accumulate the ADC readings
+			sumADC[0] += rawADC[0];
+			sumADC[1] += rawADC[1];
+			sumADC[2] += rawADC[2];
+    	}
     }
 
     // Calculate average offset
-    currentOffsets[0] = (float)sumADC[0] / numSamples * 0.0008058608f; // Assuming 12-bit ADC
-    currentOffsets[1] = (float)sumADC[1] / numSamples * 0.0008058608f;
-    currentOffsets[2] = (float)sumADC[2] / numSamples * 0.0008058608f;
+    currentOffsets[0] = 2 * (float)sumADC[0] / numSamples * 0.0008058608f; // Assuming 12-bit ADC
+    currentOffsets[1] = 2 * (float)sumADC[1] / numSamples * 0.0008058608f;
+    currentOffsets[2] = 2 * (float)sumADC[2] / numSamples * 0.0008058608f;
 }
 

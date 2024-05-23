@@ -27,14 +27,23 @@
 #define VOLTAGE_SLOPE  263.435f  /**< [V/V] 1/(1/3 * 0.011388) V */
 #define VOLTAGE_OFFSET 0.02083f /**< [V] (100/(4700+100) * 5 V */
 
+
+/* Define fault thresholds */
+#define OVERTEMPERATURE_INV_TH 60.0f /**< [degC] Threshold for inverter overtemperature fault */
+#define OVERVOLTAGE_TH 600.0f /**< [V] Threshold for overvoltage fault */
+#define OVERCURRENT_TH 100.0f /**< [A] Threshold for instantaneous overcurrent fault */
+#define OVERSPEED_TH 20000.0f /**< [RPM] Threshold for motor overspeed fault */
+#define UNDERVOLTAGE_TH 10.0f /**< [V] Threshold for undervoltage fault */
+#define OVERTEMPERATURE_MOT_TH 90.0f /**< [degC] Threshold for motor overtemperature fault */
+
 #include <stdint.h>
 
 extern const float tempInverterLUT[];
 extern const float tempMotorLUT[];
 
-extern volatile uint32_t rawADC_left[4]; /**< External declaration of raw ADC data for the left inverter */
-extern volatile uint32_t rawADC_right[4]; /**< External declaration of raw ADC data for the right inverter */
-extern volatile uint32_t rawADC_temp[4]; /**< External declaration of raw ADC data for the temperatures*/
+extern volatile uint16_t rawADC_left[4]; /**< External declaration of raw ADC data for the left inverter */
+extern volatile uint16_t rawADC_right[4]; /**< External declaration of raw ADC data for the right inverter */
+extern volatile uint16_t rawADC_temp[4]; /**< External declaration of raw ADC data for the temperatures*/
 
 
 /**
@@ -47,7 +56,7 @@ typedef struct {
     float we;       			 /**< Electrical angular velocity */
     float theta_e; 				 /**< Electrical rotor position */
     float sinTheta_e;			 /**< Electrical rotor position sine */
-	float cosTheta_e;			 /**< Electrical rotor position cosine*/
+	  float cosTheta_e;			 /**< Electrical rotor position cosine*/
     uint8_t directionMeas;      /**< Measured direction */
 } Encoder;
 
@@ -84,8 +93,7 @@ typedef struct {
   * @param[in] cosTheta_e Electrical angle cosine (-1..1)
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_currents_voltage(volatile uint32_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float sinTheta_e, float cosTheta_e);
-
+uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float sinTheta_e, float cosTheta_e);
 
 /**
   * @brief  Convert ADC reading to physical measurement with linear response.
@@ -138,7 +146,7 @@ float get_temperature(uint32_t bits, const float tempLUT[]);
  * @param[out] currentOffsets Array to store the calculated offsets for each current channel.
  * @param[in] numSamples Number of samples to average for the offset calculation.
  */
-void calibrate_offsets(volatile uint32_t rawADC[], volatile float currentOffsets[], uint32_t numSamples);
+void calibrate_offsets(volatile uint16_t rawADC[], volatile float currentOffsets[], uint32_t numSamples);
 
 
 #endif /* MEASUREMENTS_H */

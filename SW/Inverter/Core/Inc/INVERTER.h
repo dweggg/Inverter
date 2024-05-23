@@ -110,7 +110,7 @@ extern volatile InverterStruct inverter_right; /**< External declaration of the 
  * @param[in] hadc ADC peripheral for the current phase current and DC voltage sensing.
  * @param[in] motor MotorParameters struct.
  */
-void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, MotorParameters *motor, volatile uint32_t *rawADC);
+void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, MotorParameters *motor, volatile uint16_t *rawADC);
 
 /**
  * @brief Initializes the id-iq current control PI controllers.

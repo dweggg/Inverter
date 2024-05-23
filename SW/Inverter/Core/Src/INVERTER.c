@@ -51,7 +51,7 @@ volatile InverterStruct inverter_right = {0};
  * @param[in] hadc ADC peripheral for the current phase current and DC voltage sensing.
  * @param[in] motor MotorParameters struct.
  */
-void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, MotorParameters *motor, volatile uint32_t *rawADC){
+void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, MotorParameters *motor, volatile uint16_t *rawADC){
 	// Initialize inverter structure
     inv->state = INV_STATE_STARTUP;
     inv->led = led;
@@ -64,13 +64,13 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     inv->duties.Dc = 0.5;
     inv->motor = motor;
 
+    HAL_ADC_Start_DMA(hadc, (uint32_t *) rawADC, 4);
 
     HAL_TIM_Base_Start_IT(inv->htim);
 
-    HAL_ADC_Start_DMA(hadc, (uint32_t *) rawADC, 4);
+    HAL_Delay(1);
 
-    HAL_Delay(100);
-    calibrate_offsets(rawADC_left, inv->analog.currentOffsets, 50000);
+    calibrate_offsets(rawADC, inv->analog.currentOffsets, 500000);
 
 
     if(check_motor_parameters(motor, TS)){
@@ -94,8 +94,8 @@ void init_control_loops(volatile InverterStruct *inv, MotorParameters *motor) {
     inv->idLoop.Ts = TS;
     inv->iqLoop.Ts = TS;
 
-	float Mp = 0.05; // 5% overshoot
-	float set_time = 0.001; // 1ms set time
+	float Mp = 0.01; // 5% overshoot
+	float set_time = 0.01; // 10ms set time
 
     // Calculate damping ratio (xi)
     float xi = sqrtf(powf(logf(Mp), 2) / (powf(PI, 2) + powf(logf(Mp), 2))); // Mp is unitless

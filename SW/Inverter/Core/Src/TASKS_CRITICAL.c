@@ -1,8 +1,8 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    TASKS_20us.c
-  * @brief   This file contains functions executed every 20us in each PWM timer interruption.
+  * @file    TASKS_CRITICAL.c
+  * @brief   This file contains functions executed in each PWM timer interruption.
   ******************************************************************************
   * @attention
   *
@@ -45,7 +45,7 @@ rampa_struct freqRamp_left = {
  *
  * This function is called by the TIM1 trigger handler every TS.
  */
-void tasks_20us_left(void){
+void tasks_critical_left(void){
   start_ticks = SysTick->VAL;
 
   // encoder simulation
@@ -89,5 +89,5 @@ void tasks_20us_left(void){
  *
  * This function is called by the TIM8 trigger handler every TS.
  */
-void tasks_20us_right(void){
+void tasks_critical_right(void){
 }

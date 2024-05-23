@@ -1,5 +1,6 @@
-Core/Src/TASKS_20us.o: ../Core/Src/TASKS_20us.c ../Core/Inc/CONTROL.h \
- ../Core/Inc/PWM.h ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
+Core/Src/TASKS_CRITICAL.o: ../Core/Src/TASKS_CRITICAL.c \
+ ../Core/Inc/CONTROL.h ../Core/Inc/PWM.h \
+ ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h \

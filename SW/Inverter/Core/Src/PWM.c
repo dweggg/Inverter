@@ -27,20 +27,13 @@
  * @param htim Pointer to the TIM_HandleTypeDef structure.
  */
 void enable_PWM(TIM_HandleTypeDef *htim) {
+    // Enable the main output (MOE)
+    __HAL_TIM_MOE_ENABLE(htim);
 
-//	Reset the counter
-//	htim->Instance->CNT=0;
-	htim->Instance->CCMR1 = 0x6868; // Set Channel 1 and Channel 2 Output Compare mode to PWM Mode
-
-//	htim1.Instance->CCER = 0x888;
-	htim->Instance->CCER = 0x10555;
-
-//	Enable Main Output
-	htim->Instance->BDTR |=(1<<15);
-
-//	Enable Counter
-	htim->Instance->CR1 |=1;
-
+    // Enable the outputs for all 3 channels
+    htim->Instance->CCER |= (TIM_CCER_CC1E | TIM_CCER_CC1NE |
+                             TIM_CCER_CC2E | TIM_CCER_CC2NE |
+                             TIM_CCER_CC3E | TIM_CCER_CC3NE);
 }
 
 /**
@@ -51,17 +44,10 @@ void enable_PWM(TIM_HandleTypeDef *htim) {
  * @param htim Pointer to the TIM_HandleTypeDef structure.
  */
 void disable_PWM(TIM_HandleTypeDef *htim) {
-
-	//Disable outputs and select the polarity of each output
-	htim->Instance->CNT=0;
-
-
-	htim->Instance->CCER = 0xCCC;
-	//	htim1.Instance->CCER |= 0x555;
-
-		//Disable Main Output
-	htim->Instance->BDTR &= 0xFFFF7FFF;
-	//	htim1.Instance->BDTR &=(0<<15);
+    // Disable the outputs for all 3 channels
+    htim->Instance->CCER &= ~(TIM_CCER_CC1E | TIM_CCER_CC1NE |
+                              TIM_CCER_CC2E | TIM_CCER_CC2NE |
+                              TIM_CCER_CC3E | TIM_CCER_CC3NE);
 }
 
 

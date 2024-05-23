@@ -1,8 +1,8 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    TASKS_20us.h
-  * @brief   Header file for functions related to tasks executed every 20us in each PWM timer interruption.
+  * @file    TASKS_CRITICAL.h
+  * @brief   Header file for functions related to tasks executed in each PWM timer interruption.
   ******************************************************************************
   * @attention
   *
@@ -22,11 +22,11 @@
  *
  * This function is called by the TIM1 trigger out handler every TS.
  */
-void tasks_20us_left();
+void tasks_critical_left();
 
 /**
  * @brief Function to be executed every TS.
  *
  * This function is called by the TIM8 trigger out handler every TS.
  */
-void tasks_20us_right();
+void tasks_critical_right();
