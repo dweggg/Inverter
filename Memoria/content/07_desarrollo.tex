@@ -2594,7 +2594,7 @@ Este tipo de sensor generalmente consta de tres canales: A, B y Z. Los canales A
 	\begin{tikzpicture}[x=0.5cm,y=1cm]
 		
 		% Ejes y etiquetas
-		\draw[-] (-1,-3) -- (24,-3) node[right] {Tiempo};
+		\draw[-] (-1,-3) -- (24,-3) node[right] {Ángulo};
 		\draw[-] (0,-3) -- (0,5) node[above] {Señales};
 		
 		% Señales
@@ -3123,7 +3123,7 @@ Para implementar comunicación CAN es necesario incorporar un \textit{transceive
 
 Este bloque se implementa por duplicado, un bloque por cada motor que se controla. Contiene los componentes necesarios para leer su posición y temperatura.
 
-Ya que se requiere de leer la posición con un \textit{encoder} incremental, se equipan los componentes necesarios para ello. En primer lugar, se sabe que el modelo de \textit{encoder} en concreto tiene tres canales diferenciales, con lo que se usa el LM339, un comparador cuádruple con salida HiZ/GND para obtener la lectura desde una interrupción externa en el MCU. Cabe destacar que esta configuración de \textit{hardware} hace compatible este inversor con sensores de efecto \textit{Hall} para la lectura de posición, aunque no se desarrollará el código que los interprete.
+Ya que se requiere de leer la posición con un \textit{encoder} incremental, se equipan los componentes necesarios para ello. Se usa el LM339, un comparador cuádruple con salida HiZ/GND para obtener la lectura desde una interrupción externa en el MCU. Cabe destacar que esta configuración de \textit{hardware} hace compatible este inversor con sensores de efecto Hall para la lectura de posición, aunque no se desarrollará el código que los interprete.
 
 \begin{figure}[H]
 	\centering
@@ -3182,10 +3182,10 @@ Puesto que el modelo escogido presentaría una pequeña zona muerta, se debe añ
 No existen referencias de tensión de tan poco nivel, así que se usa un divisor resistivo de valores bajos, a sabiendas de que esta decisión causa error en la medida. 
 
 El \textit{offset} de la medida de tensión se calcula
-\[ \text{\textit{offset}}_V = V_{ref} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 129 \text{ bits,} \]
+\[ \text{\textit{offset}}_v = V_{ref} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 129 \text{ bits,} \]
 
 y la ganancia de la medida de tensión en voltios por bit se calcula
-\[ \text{\textit{gain}}_V = \frac{1}{\left(\frac{1}{3} \cdot 0.011388 \text{ V/V} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)\right)} = 0.212240269 \text{ V/bit.} \]
+\[ \text{\textit{gain}}_v = \frac{1}{\left(\frac{1}{3} \cdot 0.011388 \text{ V/V} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)\right)} = 0.212240269 \text{ V/bit.} \]
 
 La tensión máxima que se puede medir es
 \[ 0.212240269 \text{ V/bit} \cdot 2^{12} \text{ bits} = 869.34 \text{ V} \]
@@ -3475,16 +3475,144 @@ void get_idiq(float ia, float ib, float ic, float theta_e, float *idMeas, float 
 \end{enumerate}
 
 
-
 \subsection{Arquitectura del \textit{firmware}}
 
-\subsubsection{Estructura del \textit{firmware}}
-\subsubsection{Módulo A}
-\subsubsection{Módulo B}
-\subsubsection{Módulo C}
-\subsubsection{Módulo D}
-\subsubsection{Módulo E}
+Para abordar fácilmente el manejo de los dos inversores de forma independiente, se han escrito varios módulos de código que se van reutilizando para evitar repetir código.
 
+\subsubsection{\texttt{INVERTER.c/.h}}
+
+El archivo \texttt{INVERTER.c} y su correspondiente encabezado \texttt{INVERTER.h} constituyen la implementación y la interfaz de la estructura de datos y las funciones asociadas a un inversor.
+
+La principal funcionalidad de estos archivos es proporcionar una interfaz cohesiva y modular para la gestión de los inversores. La estructura \texttt{InverterStruct} definida en \texttt{INVERTER.h} encapsula todos los elementos necesarios para el funcionamiento del inversor, incluyendo periféricos, estados de operación, estructuras de datos para mediciones y referencias, lazos de control, entre otros. Esta encapsulación permite una gestión eficiente y organizada de la complejidad asociada al control de los inversores.
+
+Un aspecto destacado de la implementación es la escritura de código modular y reutilizable, por ejemplo, las funciones se implementan de manera independiente de la configuración específica del \textit{hardware} del inversor. Se generan dos estructuras globales \texttt{InverterStruct} independientes, \texttt{inverter\_left} e \texttt{inverter\_right}, para controlar cada uno de los inversores de forma independiente. Esta estrategia permite un control simultáneo de ambos inversores sin repetir ni una línea de código.
+
+\subsubsection{\texttt{MOTOR.c/.h}}
+
+El archivo \texttt{MOTOR.c} y su correspondiente encabezado \texttt{MOTOR.h} constituyen la implementación y la interfaz de las funciones y estructuras asociadas a los parámetros y constantes del motor.
+
+La funcionalidad principal de estos archivos es proporcionar una interfaz modular para la gestión de los parámetros del motor. La estructura \texttt{MotorParameters}, definida en \texttt{MOTOR.h}, encapsula todos los parámetros de un motor eléctrico.
+
+Un aspecto importante de la implementación es la inclusión de una estructura adicional, \texttt{MotorConstants}, dentro de \texttt{MotorParameters}, que almacena las constantes precalculadas relacionadas con el motor. Estas constantes se calculan en la función \texttt{precalculate\_motor\_constants()} y se utilizan en el cálculo de trayectorias para ahorrar algo de tiempo de ejecución.
+
+Además, se proporciona una función de verificación de parámetros, \texttt{check\_motor\_parameters()}, que evalúa los valores de los parámetros del motor y realiza ajustes si se detectan errores o valores fuera de los límites especificados. Esta función garantiza que los parámetros del motor estén dentro de rangos seguros.
+
+\subsubsection{\texttt{FSM.c/.h}}
+
+El archivo \texttt{FSM.c} y su encabezado correspondiente \texttt{FSM.h} contienen la implementación y la interfaz de la Máquina de Estados Finitos (FSM) para controlar el inversor. La FSM gestiona el funcionamiento de un inversor a través de la ejecución de diferentes estados. Cada estado representa una etapa específica en el ciclo de funcionamiento del inversor y está asociado con un conjunto definido de acciones y condiciones de transición. El archivo \texttt{FSM.c} implementa funciones para gestionar cada estado. 
+
+Los cuatro estados implementados son:
+
+\begin{itemize}
+	\item \textbf{Inicio (\texttt{Startup})}: En este estado, se realizan las acciones de inicialización del inversor, como la configuración de periféricos y la detección de errores durante el arranque.
+	\item \textbf{Reposo (\texttt{Idle})}: El inversor está inactivo y espera órdenes para iniciar o detecta condiciones de error.
+	\item \textbf{Funcionamiento (\texttt{Running})}: El inversor está en pleno funcionamiento y se ejecuta el bucle de control principal.
+	\item \textbf{Error (\texttt{Fault})}: Se gestionan las acciones para detener el inversor y manejar las condiciones de error.
+\end{itemize}
+
+En cada estado, se describen las acciones realizadas y las condiciones que pueden provocar una transición a otro estado, como la detección de errores o cambios en las condiciones de funcionamiento del inversor.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=4cm,every node/.append style={fill=white}]
+		% Define the states
+		\node[state, initial] (startup) {$Startup$};
+		\node[state, right=of startup] (idle) {$Idle$};
+		\node[state, below right=2cm and 5cm of idle] (running) {$Running$};
+		\node[state, below=of startup, draw=red, text=red] (fault) {$Fault$};
+		% Draw the transitions
+		\draw[-Stealth] (startup) edge[bend left] node[pos=0.25] {1} (idle)
+		(idle) edge[loop above] node[pos=0.5, above] {Idle} (idle)
+		(idle) edge[bend left] node[pos=0.25] {enable == 1} (running)
+		(running) edge[loop below] node[pos=0.5, below] {Running} (running)
+		(running) edge[bend left] node[pos=0.25] {enable == 0} (idle)
+		(fault) edge[bend left] node[align=center, pos=0.25] {error == 0 AND\\enable == 0} (idle);
+
+		
+		% Redefine the transitions to "Fault" state in red
+		\draw[-Stealth, red] (idle) edge[bend left] node[pos=0.25, text=red] {error != 0} (fault)
+		(running) edge[bend left] node[pos=0.25, text=red] {error != 0} (fault)
+		(fault) edge[loop below] node[align=center, pos=0.5, below, text=red] {error != 0 OR\\enable == 1} (fault)
+		(startup) edge[bend right] node[pos=0.25, text=red] {error != 0} (fault);
+	\end{tikzpicture}
+	\caption{Diagrama de estados de la FSM para el control de un inversor.}
+\end{figure}
+
+
+
+\subsubsection{\texttt{MEASUREMENTS.c/.h}}
+
+Los archivos \texttt{MEASUREMENTS.c} y su encabezado correspondiente \texttt{MEASUREMENTS.h} contienen la implementación y la interfaz para manejar las mediciones en el sistema.
+
+En \texttt{MEASUREMENTS.h}, se definen algunas constantes relacionadas con ganancias y desplazamientos para corriente y voltaje, así como umbrales de falla para diversas condiciones del sistema. Además, se declaran las estructuras de datos necesarias para almacenar las mediciones de los sensores y los valores de retroalimentación.
+
+Las estructuras definidas son:
+
+\begin{itemize}
+	\item \texttt{Encoder}: Estructura para la lectura del \textit{encoder}, que almacena los valores de los canales A, B y Z, así como la velocidad angular eléctrica y la posición del rotor eléctrico.
+	\item \texttt{Analog}: Estructura para las mediciones de los sensores analógicos de cada inversor, es decir, las corrientes de fase y la tensión del bus DC.
+	\item \texttt{Feedback}: Estructura para los valores de retroalimentación, que contiene corrientes $d-q$, par calculado y velocidad medida.
+\end{itemize}
+
+En \texttt{MEASUREMENTS.c}, se implementan las funciones para manejar las mediciones, como la conversión de lecturas de ADC a medidas físicas, el cálculo de corrientes $d-q$ a partir de las mediciones de corriente de fase y el ángulo eléctrico, y la calibración de los \textit{offsets} de los sensores de corriente.
+
+\subsubsection{\texttt{REFERENCE.c/.h}}
+
+Los archivos \texttt{REFERENCE.c} y su encabezado correspondiente \texttt{REFERENCE.h} proporcionan funciones para manejar la consigna de par de cada motor. En \texttt{REFERENCE.h}, se define una estructura de datos llamada \texttt{Reference}, que contiene los valores de consigna para las corrientes $d-q$ y el par. 
+
+Las funciones principales implementadas en \texttt{REFERENCE.c} son:
+
+\begin{itemize}
+	\item \texttt{set\_torque\_direction}: Esta función ajusta la dirección del par en función de la dirección deseada del motor.
+	\item \texttt{saturate\_symmetric}: Esta función satura simétricamente un valor de referencia en función del valor máximo permitido.
+	\item \texttt{limit\_torque\_to\_prevent\_overspeed}: Esta función actúa como una saturación de par, reduciendo el par para limitar la velocidad máxima del motor.
+	
+	\item \texttt{handle\_torqueRef}: Esta función llama a las anteriores y las encadena para gestionar adecuadamente la consigna de par.
+	
+\end{itemize}
+
+\subsubsection{\texttt{PCB\_IO.c/.h}}
+
+Los archivos \texttt{PCB\_IO.c} y su encabezado correspondiente \texttt{PCB\_IO.h} actúan como capa de abstracción del \textit{hardware}. En \texttt{PCB\_IO.h}, se definen macros para leer y controlar algunos GPIOs, así como enumeraciones y estructuras para manejar LEDs y direcciones de motores.
+
+Las funciones principales implementadas en \texttt{PCB\_IO.c} son:
+
+\begin{itemize}
+	\item \texttt{handle\_LED}: Esta función maneja los modos de parpadeo de los LEDs basándose en el modo actual del LED y un contador de milisegundos.
+	\item \texttt{handle\_direction}: Esta función lee el estado del interruptor de dirección (\texttt{DIR}) y actualiza las direcciones de los motores izquierdo y derecho en función de este estado.
+	\item \texttt{enable\_inverters}: Esta función lee el estado de la cadena de \textit{shutdown} del vehículo y habilita o deshabilita los inversores en función de este estado y de una habilitación externa por \textit{software}.
+\end{itemize}
+
+\subsubsection{\texttt{CONTROL.c/.h}}
+
+Los archivos \texttt{CONTROL.c} y su encabezado correspondiente \texttt{CONTROL.h} proporcionan funciones para el lazo de control de cada inversor. Las funciones principales implementadas en \texttt{CONTROL.c} son:
+
+\begin{itemize}
+	\item \texttt{calc\_current\_reference}: Esta función calcula las consignas de corriente $d - q$ de la misma manera que en las simulaciones de control. Se implementan las trayectorias utilizando las ecuaciones analíticas de las mismas.
+	\item \texttt{calc\_current\_loop}: Esta función calcula los lazos de corriente para los ejes $d$ y $q$.
+	\item \texttt{saturate\_voltage}: Esta función satura la salida de los lazos de corriente para no exceder el voltaje máximo sintetizable.
+	\item \texttt{calc\_duties}: Esta función calcula la transformada inversa de Park y los ciclos de trabajo utilizando SVPWM.
+\end{itemize}
+
+\subsubsection{\texttt{PWM.c/.h}}
+
+Los archivos \texttt{PWM.c} y su encabezado correspondiente \texttt{PWM.h} proporcionan funciones para controlar la salida PWM. Las funciones principales implementadas en \texttt{PWM.c} son:
+
+\begin{itemize}
+	\item \texttt{enable\_PWM}: Esta función habilita la salida PWM para el \textit{timer} especificado.
+	\item \texttt{disable\_PWM}: Esta función deshabilita la salida PWM para el \textit{timer} especificado.
+	\item \texttt{update\_PWM}: Esta función actualiza los ciclos de trabajo para los canales PWM.
+\end{itemize}
+
+
+\subsubsection{\texttt{CAN\_e-Tech.c/.h}}
+
+Los archivos \texttt{CAN\_e-Tech.c} y su encabezado correspondiente \texttt{CAN\_e-Tech.h} proporcionan funciones para manejar la comunicación CAN con el vehículo. Las funciones principales implementadas en \texttt{CAN\_e-Tech.c} son:
+
+\begin{itemize}
+	\item \texttt{handle\_CAN}: Esta función implementa la lógica para manejar mensajes CAN recibidos.
+	\item \texttt{send\_CAN\_message}: Esta función prepara y envía un mensaje CAN utilizando información de \texttt{CAN1db.h}, que recoge la estructura de todos los mensajes del bus de CAN al cual estará conectado el inversor.
+\end{itemize}
 
 \subsection{Implementación del \textit{firmware}}
 
