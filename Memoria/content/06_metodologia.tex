@@ -1,9 +1,40 @@
 \chapter{Metodología}
 
-En este capítulo se detalla la metodología seguida para el desarrollo del proyecto. Se incluye una explicación rápida de la filosofía KISS, las etapas del modelo en V y se describe el uso de un repositorio de GitHub para gestionar el proyecto.
+En este capítulo se detalla la metodología seguida para el desarrollo del proyecto. Se incluye una explicación detallada de los principios que han fundamentado el desarrollo, el listado de las etapas del proyecto, y la descripción del uso de un repositorio de Git para gestionar el proyecto.
 
 \section{Filosofía}
-En este proyecto, la filosofía KISS (\textit{Keep It Simple, Stupid}) ha sido un principio fundamental que ha guiado el diseño, la implementación y la validación del inversor. La simplicidad se ha considerado como una ventaja clave en todos los aspectos del proyecto, desde la elección de componentes hasta el desarrollo del \textit{firmware}.
+
+\subsection{Priorización de la calidad sobre la compleción de objetivos}
+
+En la ejecución de este proyecto, se ha adoptado una postura estratégica que privilegia la calidad y precisión en cada fase del desarrollo por encima del cumplimiento de todos los objetivos planteados inicialmente. Esta decisión se fundamenta en la conciencia de que el trabajo actual es la primera parte de un esfuerzo continuo, y por tanto, es imperativo establecer una base sólida y bien definida que facilite futuras continuaciones y expansiones, promoviendo la visión a largo plazo del proyecto.
+
+El enfoque en la calidad se justifica por varios motivos clave:
+
+\begin{itemize}
+	\item \textbf{Sostenibilidad del proyecto:} Realizar las tareas con un enfoque riguroso y meticuloso asegura que el sistema resultante sea robusto y fiable. Un trabajo bien hecho evita la acumulación de deuda técnica, lo cual es esencial para la sostenibilidad a largo plazo del proyecto.
+	
+	\item \textbf{Facilidad de continuación:} Dejando una documentación clara se facilita significativamente el trabajo de futuros desarrolladores. Esto es especialmente crítico en proyectos extensos donde la continuidad del desarrollo depende de la facilidad con la que nuevos desarrolladores puedan entender y construir sobre el trabajo previo.
+	
+	\item \textbf{Reducción de riesgos:} Priorizar la calidad y la claridad en el trabajo reduce la probabilidad de errores y fallos que podrían surgir de soluciones apresuradas o mal implementadas. Este enfoque minimiza riesgos y garantiza que cualquier problema futuro pueda ser abordado de manera efectiva.
+	
+	\item \textbf{Fomento de buenas prácticas:} Al enfocarse en hacer las cosas bien desde el principio, se promueve una cultura de buenas prácticas de ingeniería y desarrollo.
+	
+\end{itemize}
+
+A continuación, se detallan las decisiones específicas que se han tomado para garantizar que el trabajo realizado no solo cumpla con los objetivos inmediatos, sino que también sea de la más alta calidad y preparado para futuras expansiones:
+
+\begin{itemize}
+	\item \textbf{Documentación exhaustiva:} Se ha invertido tiempo en crear una documentación detallada y clara, tanto para el \textit{hardware} (esquemáticos con notas explicativas), como para el \textit{firmware} (documentación autogenerada a partir de comentarios).
+	
+	\item \textbf{Revisión y validación minuciosa:} Cada etapa del desarrollo ha sido sometida a rigurosas revisiones y procesos de validación. Esto incluye pruebas unitarias exhaustivas, revisiones de código con personas externas al proyecto y pruebas de integración para asegurar que todos los componentes funcionen correctamente en conjunto.
+	
+	\item \textbf{Diseño modular:} El diseño del sistema ha sido cuidadosamente modularizado para permitir una fácil modificación y expansión. Cada módulo ha sido diseñado para ser independiente y cohesivo, facilitando su mantenimiento y actualización sin afectar el resto del sistema.
+	
+	\item \textbf{Código limpio y legible:} Se ha priorizado la legibilidad y claridad del código por encima de la optimización extrema. Esto no solo facilita el entendimiento y la modificación del código por parte de nuevos desarrolladores, sino que también reduce la probabilidad de errores y simplifica la depuración.
+\end{itemize}
+
+\subsection{KISS}
+La filosofía KISS (\textit{Keep It Simple, Stupid}) ha sido un principio fundamental que ha guiado el diseño, la implementación y la validación del inversor. La simplicidad se ha considerado como una ventaja clave en todos los aspectos del proyecto, desde la elección de componentes hasta el desarrollo del \textit{firmware}.
 
 Las razones por la que se cree que es necesario simplificar tanto como sea posible son las siguientes:
 \begin{itemize}
@@ -25,6 +56,7 @@ El trabajo consta de muchas partes relacionadas entre sí y se debe facilitar es
 	
 \end{itemize}
 
+
 \section{Modelo en V}
 El modelo en V es un enfoque de desarrollo y validación que organiza las etapas del proyecto en forma de una 'V' invertida, donde cada etapa de desarrollo tiene una contraparte de validación. Esto asegura que la validación se considere desde el principio del proyecto y que cada fase de desarrollo tenga su correspondiente prueba o verificación asociada.
 
@@ -33,14 +65,14 @@ El modelo en V es un enfoque de desarrollo y validación que organiza las etapas
 	\begin{tikzpicture}[node distance=2cm]
 		
 		% Nodes
-		\node (requisitos) [block] {Requisitos del Sistema};
-		\node (diseno_sistema) [block, below of=requisitos, xshift=0.7cm, yshift=-0.5cm] {Diseño del Sistema};
-		\node (diseno_detallado) [block, below of=diseno_sistema, xshift=0.7cm, yshift=-0.5cm] {Diseño Detallado};
+		\node (requisitos) [block] {Requisitos del sistema};
+		\node (diseno_sistema) [block, below of=requisitos, xshift=0.7cm, yshift=-0.5cm] {Diseño del sistema};
+		\node (diseno_detallado) [block, below of=diseno_sistema, xshift=0.7cm, yshift=-0.5cm] {Diseño detallado};
 		\node (implementacion) [block, below of=diseno_detallado, xshift=0.7cm, yshift=-0.5cm] {Implementación};
-		\node (pruebas_unitarias) [block, right of=implementacion, xshift=5cm, yshift=0cm] {Pruebas Unitarias};
-		\node (pruebas_integracion) [block, above of=pruebas_unitarias, xshift=0.7cm, yshift=0.5cm] {Pruebas de Integración};
-		\node (pruebas_sistema) [block, above of=pruebas_integracion, xshift=0.7cm, yshift=0.5cm] {Pruebas de Sistema};
-		\node (pruebas_aceptacion) [block, above of=pruebas_sistema, xshift=0.7cm, yshift=0.5cm] {Pruebas de Aceptación};
+		\node (pruebas_unitarias) [block, right of=implementacion, xshift=5cm, yshift=0cm] {Pruebas unitarias};
+		\node (pruebas_integracion) [block, above of=pruebas_unitarias, xshift=0.7cm, yshift=0.5cm] {Pruebas de integración};
+		\node (pruebas_sistema) [block, above of=pruebas_integracion, xshift=0.7cm, yshift=0.5cm] {Pruebas de sistema};
+		\node (pruebas_aceptacion) [block, above of=pruebas_sistema, xshift=0.7cm, yshift=0.5cm] {Pruebas de aceptación};
 		
 		% Arrows
 		\draw [arrow] (requisitos) -- (diseno_sistema);
@@ -52,10 +84,10 @@ El modelo en V es un enfoque de desarrollo y validación que organiza las etapas
 		\draw [arrow] (pruebas_sistema) -- (pruebas_aceptacion);
 		
 		% Additional arrows for test design
-		\draw [arrow] (requisitos.east) -- ++(3.5cm,0) |- node[anchor=south]{Plan de Pruebas} (pruebas_aceptacion.west);
-		\draw [arrow] (diseno_sistema.east) -- ++(3cm,0) |- node[anchor=south]{Plan de Pruebas} (pruebas_sistema.west);
-		\draw [arrow] (diseno_detallado.east) -- ++(2.5cm,0) |- node[anchor=south]{Plan de Pruebas} (pruebas_integracion.west);
-		\draw [arrow] (implementacion.east) -- ++(1.75cm,0) |- node[anchor=south]{Plan de Pruebas} (pruebas_unitarias.west);
+		\draw [arrow] (requisitos.east) -- ++(3.5cm,0) |- node[anchor=south]{Plan de pruebas} (pruebas_aceptacion.west);
+		\draw [arrow] (diseno_sistema.east) -- ++(3cm,0) |- node[anchor=south]{Plan de pruebas} (pruebas_sistema.west);
+		\draw [arrow] (diseno_detallado.east) -- ++(2.5cm,0) |- node[anchor=south]{Plan de pruebas} (pruebas_integracion.west);
+		\draw [arrow] (implementacion.east) -- ++(1.75cm,0) |- node[anchor=south]{Plan de pruebas} (pruebas_unitarias.west);
 	\end{tikzpicture}
 	\caption{Modelo en V para el desarrollo y validación de sistemas.}
 \end{figure}
@@ -78,11 +110,11 @@ La siguiente etapa es el diseño del modelo en continuo y el desarrollo del cont
 
 Al acabar la etapa anterior, se trabaja en la discretización del modelo y la simulación de la conmutación de los interruptores de potencia en PLECS. Aquí se tiene en cuenta la naturaleza discreta de la electrónica de potencia y se simula el comportamiento del inversor en el dominio del tiempo discreto. Además, esta simulación incorpora también el modelo térmico, con lo que se pueden extraer las pérdidas del inversor. Esta fase dura alrededor de 2 semanas, pues gran parte de lo ya modelado se puede reutilizar para el nuevo modelo discreto.
 
-\item \textbf{Desarrollo del \textit{hardware}}
+\item \textbf{Diseño del \textit{hardware}}
 
 Con el diseño del control y la simulación de la conmutación como base, se procede al diseño del \textit{hardware}. Esto implica seleccionar componentes, diseñar esquemáticos y PCBs y planificar su validación. La duración estimada para esta etapa es de 3 a 4 meses, y se solapa parcialmente con el diseño del \textit{firmware}.
 
-\item \textbf{Desarrollo del \textit{firmware}}
+\item \textbf{Diseño del \textit{firmware}}
 
 Simultáneamente con el diseño del \textit{hardware}, se trabaja en el desarrollo del \textit{firmware}. Esto incluye programar el microcontrolador que controlará el inversor y la implementación del algoritmo de control. Se utilizará una placa de evaluación antes de tener la placa de control propia con tal de acelerar el desarrollo. La duración estimada para esta fase es de aproximadamente 4 meses.
 
@@ -112,24 +144,16 @@ La fase final del proyecto se enfoca en la documentación y la preparación para
 			x unit=1.5cm,
 			time slot format=isodate-yearmonth,
 			time slot unit=month,
-			today=2024-06,
-			today rule/.style={
-				draw=blue,
-				dash pattern=on 3.5pt off 4.5pt,
-				line width=1.5pt
-			},
 			bar/.append style={fill=blue!30},
 			bar label font=\footnotesize,
 			group label font=\footnotesize,
-			milestone label font=\footnotesize,
-			milestone/.append style={fill=red, rounded corners=2pt},
     		newline shortcut=true,
 			]{2023-09}{2024-06}
 			\gantttitlecalendar{year, month=shortname} \\ % abreviar nombres de meses
 			\ganttbar{Modelo continuo y simulación del control}{2023-09}{2023-10} \\
 			\ganttbar{Discretización del modelo y simulación de la conmutación}{2023-10}{2023-11} \\
-			\ganttbar{Desarrollo del \textit{hardware}}{2023-10}{2024-01} \\
-			\ganttbar{Desarrollo del \textit{firmware}}{2024-01}{2024-06} \\
+			\ganttbar{Diseño del \textit{hardware}}{2023-10}{2024-01} \\
+			\ganttbar{Diseño del \textit{firmware}}{2024-01}{2024-06} \\
 			\ganttbar{Validación del \textit{hardware}}{2024-02}{2024-05} \\
 			\ganttbar{Validación del \textit{firmware}}{2024-05}{2024-06} \\
 			\ganttbar{Documentación y preparación para la implementación}{2024-06}{2024-06} \\

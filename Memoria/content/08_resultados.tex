@@ -31,7 +31,7 @@ Se validó el grosor de cobre en las vías para aportar confianza a la hora de m
 	\caption{Micrografía de una vía de la placa de potencia. Se pueden apreciar el grosor de cobre de las capas y de la vía.}
 \end{figure}
 
-Se pudo comprobar que el grosor de las capas era correcto (70 micras), y que el de las vías estaba dentro de la tolerancia establecida (de 25 a 50 micras).
+Se pudo comprobar que el grosor de las capas era correcto (70 \unit{\micro\meter}), y que el de las vías estaba dentro de la tolerancia establecida (de 25 a 50 \unit{\micro\meter}).
 
 \subsection{Primer contacto con la placa de potencia}
 
@@ -47,7 +47,7 @@ En primer lugar se pobló únicamente el propio LDO con los componentes necesari
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/deadbug}
-	\caption{LDO \textit{dead-bugged} con resina para evitar daños con las siguientes pruebas.}
+	\caption{LDO \textit{dead-bugged} y con resina para evitar daños con las siguientes pruebas.}
 \end{figure}
 
 \begin{itemize}
@@ -119,14 +119,14 @@ Para verificar la funcionalidad de la descarga, se realizaron las siguientes pru
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{fig/discharge1}
-		\caption{Descarga pasiva a 24 V con 20 $\mu$F.}
+		\caption{Descarga pasiva a 24 V con 20 \unit{\micro\farad}.}
 	\end{figure}
 	
 	\item \textbf{Control de la descarga}: Se aplicó un voltaje de 20V en el nodo \textit{SC\_END} y se suministraron 24 V entre \textit{TS+} y \textit{TS-}. Se esperaba que la diferencia de potencial entre \textit{TS+} y \textit{TS-} fuera de 10 V 0.35 segundos después de retirar el voltaje, que coincidió perfectamente con el cálculo previo.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{fig/discharge2}
-		\caption{Descarga activa a 24 V con 20 $\mu$F. Se puede ver como a 10 V (la tensión del zener) se desactiva la descarga activa.}
+		\caption{Descarga activa a 24 V con 20 \unit{\micro\farad}. Se puede ver como a 10 V (la tensión del zener) se desactiva la descarga activa.}
 	\end{figure}
 \end{itemize}
 	
@@ -167,7 +167,7 @@ Se encontraron los siguientes errores durante el proceso de prueba y montaje:
 	\textbf{Solución propuesta:} Montar el LDO verticalmente con conexiones flotantes cruzadas.
 \end{enumerate}
 
-Para realizar el resto de pruebas se pidieron nuevas placas, con las siguientes modificaciones:
+Para realizar el resto de pruebas se pidieron nuevas placas de potencia, con las siguientes modificaciones:
 
 \begin{itemize}
 	\item Protecciones para la alimentación de 5 V.
@@ -215,36 +215,66 @@ Con todos los subcircuitos validados, el siguiente paso fue analizar la conmutac
 \end{figure}
 	
 
-!!!!!!!!! FOTO RL y setup completo
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/RL_setup}
+	\caption{Carga R-L, fuente de alimentación y osciloscopio.}
+\end{figure}
 
-Se conectó la placa de potencia con una placa de evaluación ya que en este punto todavía no se había fabricado la placa de control. De esta manera, se generó una pareja de señales PWM complementarias a 10 kHz y 50\% de ciclo de trabajo con 500 ns de tiempo muerto. 
+
+Se conectó la placa de potencia con una placa de evaluación ya que en este punto todavía no se había fabricado la placa de control. De esta manera, se generó una pareja de señales PWM complementarias a 50 kHz y 50\% de ciclo de trabajo con 150 ns de tiempo muerto. 
 	
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/nucleoHalfBridge}
 	\caption{Placa de evaluación Nucleo conectada a la placa de potencia.}
 \end{figure}
-
 Usando una fuente de tensión regulable, se pudo controlar la tensión de entrada, y dado que se fija el ciclo de trabajo al 50\%, y que la carga es fija, se pudo variar la tensión de salida modificando la tensión de entrada. Conectando y desconectando la carga, se pudo probar la conmutación tanto en vacío como con algo de corriente.
 
 
-En primer lugar, sin tensión en el bus de continua, se verificó que las señales en la puerta de los transistores eran adecuadas en cuanto a niveles de tensión, frecuencia y polaridad.
+En primer lugar, sin tensión en el bus de continua, se verificó que tanto las señales PWM entrantes a los \textit{gate drivers} como las señales en la puerta de los transistores eran adecuadas en cuanto a niveles de tensión, frecuencia y polaridad.
 
-!!!!!!!!!! GATE-SOURCE
+	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/PWM-HSLS}
+	\caption{Señales PWM a la entrada de los \textit{gate drivers}, producidas por la placa de evaluación.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/VGS}
+	\caption{Tensión \textit{gate-source} de uno de los dos MOSFETS.}
+\end{figure}
 
 
-Posteriormente, se hizo una primera prueba con 10 V de entrada, y se observó un \textit{overshoot} muy grande.
+El siguiente paso fue verificar la tensión entre \textit{drain} y \textit{source}, y dado que se trata de una medida que tiene implicaciones con los parásitos del circuito, se usó una sonda con conexión \textit{pigtail} en la masa. El objetivo es minimizar el área entre la conexión a masa y la señal medida, ya que de esa forma se minimiza la inductancia equivalente total. Una medida con una inductancia alta falsearía el valor de \textit{overshoot}.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/pigtail1}
+	\caption{Sonda con \textit{pigtail}.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.45\linewidth]{fig/pigtail2}
+	\caption{Medición de la tensión \textit{drain - source} (fotografía tomada posteriormente al ensayo).}
+\end{figure}
+
+Para poder observar el rizado provocado por la carga inductiva se decidió bajar la frecuencia de conmutación a 10 kHz. Posteriormente, se hizo una primera prueba con 10 V de entrada, y se observó un \textit{overshoot} muy grande.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/overshootInicial1}
-	\caption{\textit{Overshoot} observado con 10 V de entrada y 0 A de salida.}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0 A de salida (en vacío).}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/overshootInicial2}
-	\caption{\textit{Overshoot} observado con 10 V de entrada y 0,75 A de salida.}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0,75 A de salida (con la carga R-L).}
 \end{figure}
 
 Dado que este \textit{overshoot} es aproximadamente lineal con la corriente de salida y la tensión de entrada, se creó un modelo lineal para predecir el \textit{overshoot} a las especificaciones máximas del convertidor. Para ello se tomó un dato más a 20 V de entrada y sin carga. El resultado del modelo lineal se muestra a continuación.
@@ -291,7 +321,7 @@ La predicción de 1433 Vp es muy preocupante, ya que en primer lugar, los semico
 	\caption{Comparativa de la pérdida de capacidad de un condensador con aislante X7R estándar vs. el aislante usado en la gama Hiteca de Knowles Syfer.}
 \end{figure}
 
-Estos condensadores son muy caros, ya que no solo el aislante es mucho mejor, sino que pueden aguantar hasta 1 kV e integran una capacidad de 100 nF en un encapsulado 2220. Se instalarán dos condensadores en cada módulo de potencia. Para esta aplicación, tan solo se perdería un 25\% de la capacidad, es decir, a 600 V no se tendrán 200 nF si no 150 nF, que ya es bastante. El \textit{rework} quedó de la siguiente manera:
+Estos condensadores son muy caros, ya que no solo el aislante es mucho mejor, sino que pueden aguantar hasta 1 kV e integran una capacidad de 100 nF en un encapsulado 2220. Se instalaron dos condensadores en cada módulo de potencia. Para esta aplicación, tan solo se perdería un 25\% de la capacidad, es decir, a 600 V no se tendrán 200 nF si no 150 nF, que ya es bastante. El \textit{rework} quedó de la siguiente manera:
 
 
 \begin{figure}[H]
@@ -305,16 +335,22 @@ Se volvieron a realizar las pruebas con 10 V de entrada, y se observó una reduc
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/overshootFinal1}
-	\caption{\textit{Overshoot} observado con 10 V de entrada y 0 A de salida.}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0 A de salida (en vacío).}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/overshootFinal2}
-	\caption{\textit{Overshoot} observado con 10 V de entrada y 0,75 A de salida.}
+	\caption{\textit{Overshoot} observado con 10 V de entrada y 0,75 A de salida (con la carga R-L).}
 \end{figure}
 
 Se creó un nuevo modelo lineal para realizar la predicción de \textit{overshoot} a las especificaciones máximas, y en este caso, se tomaron muchos más puntos, siendo la fuente de alimentación con la que se ensayó el factor limitante para no poder tomar más.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/overshootFinal4}
+	\caption{\textit{Overshoot} observado con 90 V de entrada y 6,2 A de salida (con la carga R-L).}
+\end{figure}
 
 \begin{table}[H]
 	\centering
@@ -365,9 +401,9 @@ Se creó un nuevo modelo lineal para realizar la predicción de \textit{overshoo
 
 \subsection{Pruebas térmicas y de alta tensión}
 
-La última prueba que se hizo a la placa de potencia fue una serie de ensayos de descarga, a cada vez más tensión. El objetivo de este test es asegurar que no existe ruptura dieléctrica y que las resistencias de descarga son capaces de aguantar la tensión máxima permanentemente.
+La última prueba que se hizo a la placa de potencia fue una serie de ensayos de descarga, a cada vez más tensión. El objetivo de este test es asegurar que no se produce ninguna ruptura dieléctrica y que las resistencias de descarga son capaces de aguantar la tensión máxima permanentemente.
 
-Para realizar estos ensayos fue necesario usar dos autotransformadores aislados, uno conectado a la red normal y otro a una red trifásica. Se rectificó la salida de cada uno con un puente de diodos (uno trifásico y uno monofásico), y se conectaron los dos rectificadores en serie para obtener una tensión continua de hasta 800 V. Se usaron un par de contactores, uno para realizar la precarga del bus de continua y otro para conectarlo directamente al rectificador.
+Para realizar estos ensayos fue necesario usar dos autotransformadores, uno de ellos aislado. El primero, monofásico, se conecta a la red normal, y el otro, a la red trifásica. Se rectificó la salida de cada uno con un puente de diodos (uno monofásico y uno trifásico), y se conectaron los dos rectificadores en serie para obtener una tensión continua de hasta 800 V. Se usaron un par de contactores, uno para realizar la precarga del bus de continua y otro para conectarlo directamente al rectificador.
 
 Para evaluar las temperaturas se dispuso de una cámara térmica, que permitió distinguir con claridad qué partes de la PCB se calentaban más. Para capturar la tensión se usó una sonda diferencial de 1400 V.
 
@@ -401,7 +437,7 @@ A continuación se muestra el ensayo más exigente, una descarga a 600 V.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/dischargeGuapo}
-	\caption{Descarga de 600 V a 60 V con 100 $\mu$F de capacidad en el bus de continua, en un tiempo de 4,5 segundos.}
+	\caption{Descarga de 600 V a 60 V con 100 \unit{\micro\farad} de capacidad en el bus de continua, en un tiempo de 4,5 segundos.}
 \end{figure}
 
 \begin{figure}[H]
@@ -412,7 +448,7 @@ A continuación se muestra el ensayo más exigente, una descarga a 600 V.
 
 
 
-Se puede observar un pico de temperatura de 100 $^{\circ}$C, y la temperatura ambiente era de 25 $^{\circ}$C aproximadamente. Cada resistencia disipa $\frac{(600 \text{ V})^2}{470 \text{ k}\Omega} = 0.766 \text{ W}$, lo cual se correspondería con una resistencia térmica de aproximadamente $ \frac{100 \text{ }^{\circ}\text{C} - 25 \text{ }^{\circ}\text{C}}{0.766 \text{ W}} \approx 100 \text{ K/W}$. Este valor es muy razonable para una resistencia SMD sin \textit{pad} térmico ni mucha consideración en el \textit{layout}.
+Se puede observar un pico de temperatura de 100 $^{\circ}$C, y la temperatura ambiente era de 25 $^{\circ}$C aproximadamente. Cada resistencia disipa $\frac{(600 \text{ V})^2}{470 \text{ k}\Omega} = 0.766 \text{ W}$, lo cual se correspondería con una resistencia térmica de aproximadamente $ \frac{100 \text{ }^{\circ}\text{C} - 25 \text{ }^{\circ}\text{C}}{0.766 \text{ W}} \approx 100 \text{ K/W}$. Este valor es muy razonable para una resistencia SMD sin \textit{pad} térmico ni mucha consideración en el \textit{layout}, de acuerdo con \cite{vishay_application_note}.
 
 \subsection{Validación de la placa de control}
 

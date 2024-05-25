@@ -2,7 +2,7 @@
 
 \section{Impacto ambiental}
 
-El presente proyecto tiene un impacto ambiental que se concentra principalmente en la fabricación del \textit{hardware}. A pesar de que el control y \textit{firmware} del inversor tienen un impacto ambiental prácticamente nulo, la producción y ensamblaje de los componentes electrónicos son aspectos críticos a considerar.
+El presente proyecto tiene un impacto ambiental que se concentra principalmente en la fabricación del \textit{hardware}. El control y \textit{firmware} del inversor tienen un impacto ambiental prácticamente nulo, la producción y ensamblaje de los componentes electrónicos son aspectos críticos a considerar.
 
 \subsection{Fabricación de PCBs}
 
@@ -124,7 +124,7 @@ En esta sección se rescatan los objetivos propuestos al inicio del trabajo y se
 
 \subsubsection{Adquirir conocimiento sobre control de motores eléctricos y diseño de convertidores de potencia} 
 
-En el desarrollo de este trabajo se ha abordado con rigurosidad el modelo matemático del PMSM, describiendo analíticamente sus comportamiento y diseñando un control analítico en base a estas ecuaciones. Se han tomado referencias de alta calidad para diseñar el control vectorial y se considera que el algoritmo implementado está a la orden del día. Es cierto que este algoritmo tiene algunas dificultades, como por ejemplo, la regeneración en debilitamiento de campo. Sin embargo, estos problemas no están resueltos de forma analítica por la comunidad científico-técnica, y los inversores de tracción que implementan controles más avanzados lo hacen mediante puntos de operación tabulados, en vez de analíticamente. Otro punto que es necesario remarcar es que se han obviado algunos razonamientos matemáticos y se han elidido formalismos para no sobrecomplicar el análisis. Se ha decidido hacer así para no congestionar la comprensión de lo que realmente es útil para el control de máquinas eléctricas.
+En el desarrollo de este trabajo se ha abordado con rigurosidad el modelo matemático del PMSM, describiendo analíticamente sus comportamiento y diseñando un control analítico en base a estas ecuaciones. Se han tomado referencias de alta calidad para diseñar el control vectorial y se considera que el algoritmo implementado está a la orden del día. Es necesario remarcar es que se han obviado algunos razonamientos matemáticos y se han elidido formalismos para no sobrecomplicar el análisis. Se ha decidido hacer así para no congestionar la comprensión de lo que realmente es útil para el control de máquinas eléctricas.
 
 En cuanto al diseño de convertidores de potencia, se ha profundizado considerablemente en los aspectos tanto de \textit{hardware} como de la implementación del control en tiempo real. Se ha adquirido un conocimiento amplio y detallado sobre la selección y dimensionamiento de componentes electrónicos en convertidores, así como sobre las técnicas de diseño de PCB y la integración de los diferentes módulos de un accionamiento eléctrico. Además, se ha estudiado exhaustivamente la programación de MCUs para el control en tiempo real, logrando una buena implementación de lo previamente simulado. Sin embargo, hay que tener en cuenta que no se han abordado muchos aspectos del análisis de convertidores como por ejemplo los ensayos de doble pulso, o la descomposición espectral de frecuencias o el análisis de impacto de EMIs debido a la extensión limitada del trabajo.
 
@@ -153,7 +153,7 @@ A continuación, se destacan las partes específicas del trabajo que el autor co
 
 \subsubsection{Control vectorial}
 
-Como se ha mencionado anteriormente, se es consciente de que el algoritmo propuesto no es capaz de controlar la corriente en algunas situaciones como por ejemplo la regeneración en debilitamiento de campo. Se propone esperar una solución por parte de la comunidad científico-técnica y hasta entonces, limitar la frenada regenerativa a la zona de baja fuerza contraelectromotriz. Otra estrategia sería explorar el control tabulado, con los puntos de operación pre-calculados.
+Como se ha mencionado anteriormente, se es consciente de que el algoritmo propuesto no es capaz de controlar la corriente en algunas situaciones como por ejemplo la regeneración en debilitamiento de campo. Se propone esperar una solución por parte de la comunidad científico-técnica, y hasta entonces, limitar la frenada regenerativa a la zona de baja BEMF. Otra estrategia sería explorar el control tabulado, con los puntos de operación pre-calculados.
 
 \subsubsection{\textit{Hardware}}
 
@@ -174,21 +174,33 @@ Como se ha mencionado anteriormente, se es consciente de que el algoritmo propue
 	\item D501 falló una vez, aunque la causa sigue siendo desconocida.
 	\item R501 debería tener un valor más grande.
 	\item R511 y R512 deben tener una tolerancia pequeña, y esto debe especificarse en el esquemático.
-	\item Los condensadores de 10 $\mu$F 50 V 0805 son caros y deberían reemplazarse por 10 $\mu$F 50 V 1206 o 10 $\mu$F 50 V 1210.
+	\item Los condensadores de 10 \unit{\micro\farad} 50 V 0805 son caros y deberían reemplazarse por 10 \unit{\micro\farad} 50 V 1206 o 10 \unit{\micro\farad} 50 V 1210.
 	\item Implementar la protección de desaturación aprovechando que el \textit{gate driver} escogido está habilitado para ello.
+	\item Tratar de fabricar las placas con estaño químico para asegurar una mejor conexión de los componentes \textit{press-fit}.	
 \end{itemize}
 
 \paragraph{Placa de control}
 
 \begin{itemize}
 	\item DCDC101 no se ha probado todavía.
-	\item L101 tiene una especificación de corriente muy baja. Debería aguantar al menos 3A.
+	\item L101 tiene una especificación de corriente muy baja. Debería aguantar al menos 3 A.
 	\item Q101 y el USB en general no se han probado aún.
 	\item El punto del MCU en la serigrafía podría ser confuso. Verificar la orientación con el montaje, e indicar mejor en la serigrafía.
-	\item Se debería añadir protección contra sobrevoltaje de 3.3 V a todos los pines del MCU que no sean tolerantes a 5 V.
+	\item Se debería añadir protección contra sobrevoltaje de 3,3 V a todos los pines del MCU que no sean tolerantes a 5 V.
 	\item La mayoría, si no todas, las resitencias de 15 $\Omega$ podrían ser de 0 $\Omega$ o incluso puentes de soldadura.
-	\item Los condensadores de 10 $\mu$F 50 V 0805 son caros y deberían reemplazarse por 10 $\mu$F 50 V 1206 o 10 $\mu$F 50 V 1210.
+	\item Los condensadores de 10 \unit{\micro\farad} 50 V 0805 son caros y deberían reemplazarse por 10 \unit{\micro\farad} 50 V 1206 o 10 \unit{\micro\farad} 50 V 1210.
 \end{itemize}
 
 \subsubsection{\textit{Firmware}}
-AAAAAAAAAAAAAAAAAAAAAAA
+
+El código es siempre la parte más ampliable, ya que 
+
+\begin{itemize}
+	\item DCDC101 no se ha probado todavía.
+	\item L101 tiene una especificación de corriente muy baja. Debería aguantar al menos 3 A.
+	\item Q101 y el USB en general no se han probado aún.
+	\item El punto del MCU en la serigrafía podría ser confuso. Verificar la orientación con el montaje, e indicar mejor en la serigrafía.
+	\item Se debería añadir protección contra sobrevoltaje de 3,3 V a todos los pines del MCU que no sean tolerantes a 5 V.
+	\item La mayoría, si no todas, las resitencias de 15 $\Omega$ podrían ser de 0 $\Omega$ o incluso puentes de soldadura.
+	\item Los condensadores de 10 \unit{\micro\farad} 50 V 0805 son caros y deberían reemplazarse por 10 \unit{\micro\farad} 50 V 1206 o 10 \unit{\micro\farad} 50 V 1210.
+\end{itemize}
