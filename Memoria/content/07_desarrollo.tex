@@ -897,7 +897,7 @@ En la figura \ref{i_polar} se observa como resulta ser un círculo, lo cual tien
 Si se estudia la ecuación del par \ref{eq_tq_dq}, es evidente que \(T_{\text{em}}\) es una función de \((i_d, i_q)\). El resto de parámetros son constantes, por lo que se puede establecer un valor fijo de par y deslizar alrededor de \((i_d, i_q)\) para generar una curva. La forma de la curva resultante es una hipérbola, que en su forma polar se expresa
 
 \begin{equation}
-T_{\text{em}} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot i_s\cdot \sin(\gamma) .)
+T_{\text{em}} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot i_s\cdot \sin(\gamma)) \text{ .}
 \label{eq_tq_pol}
 \end{equation}
 
@@ -944,7 +944,7 @@ T_{\text{em}} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos
 \end{figure}
 
 
-El gráfico se limita a los cuadrantes 2 y 3 por un motivo ilustrado con estas hipérbolas: solo los valores negativos de \(i_d\) contribuyen a la generación de par. Cuando \(i_d>0\), se necesita más corriente para generar la misma cantidad de par. Cuanto más alejada está la hipérbole del eje \(i_d\), más par representa en valor absoluto. Aquellas hipérbolas que quedan por encima del eje \(i_d\), es decir, \(i_q > 0\) son par positivo, mientras que si \(i_q < 0\), el par es de sentido opuesto.
+El gráfico se limita a los cuadrantes 2 y 3 por un motivo ilustrado con estas hipérbolas: solo los valores negativos de \(i_d\) contribuyen a la generación de par en un PMSM con imanes radiales. Cuando \(i_d>0\), se necesita más corriente para generar la misma cantidad de par. Cuanto más alejada está la hipérbola del eje \(i_d\), más par representa en valor absoluto. Aquellas hipérbolas que quedan por encima del eje \(i_d\), es decir, \(i_q > 0\) son par positivo, mientras que si \(i_q < 0\), el par es de sentido opuesto.
 
 \subsubsection{VLE (Elipses de Límite de Voltaje)}
 
@@ -1751,7 +1751,7 @@ La prueba donde se espera utilizar esta potencia máxima es la \textit{Accelerat
 \(P_{\text{out, máx, tot}} = 80 \text{ kW} (2 \cdot 40 \text{ kW}) \text{(10 s máx.)}\)
 
 
-Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a máximos de 80 kW:
+Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a máximos de 80 kW.
 
 \begin{figure}[H]
 	\centering
@@ -1785,9 +1785,9 @@ A continuación se muestra el cálculo del valor RMS de la potencia requerida, b
 \end{verbatim}
 
 
-Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo, en concreto un \(\frac{23.2 \text{kW}}{80 \text{kW}} = 29\%\). Por lo tanto, se dimensiona el inversor considerando una potencia media de 35 kW, es decir, 17.5 kW por motor. Esta cifra proporciona un margen de seguridad de 11.8 kW respecto a la simulación, lo que permite algo de juego en el reparto de potencia entre ambos motores. De esta manera, la potencia constante queda como:
+Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo, en concreto un \(\frac{23.2 \text{ kW}}{80 \text{ kW}} = 29\%\). Por lo tanto, se dimensiona el inversor considerando una potencia media de 35 kW, es decir, 17,5 kW por motor. Esta cifra proporciona un margen de seguridad de 11,8 kW respecto a la simulación, lo que permite algo de juego en el reparto de potencia entre ambos motores. De esta manera, la potencia constante queda como:
 
-\(P_{\text{out, const, tot}} = 35 \text{kW} (2 \cdot 17.5 \text{kW})\)
+\(P_{\text{out, const, tot}} = 35 \text{ kW} (2 \cdot 17.5 \text{ kW})\)
 
 Cabe destacar que se está calculando la potencia aparente del convertidor, ya que la potencia activa y la reactiva se reparten en función del factor de potencia, que no es constante y depende de la planta mecánica y la situación del motor. La potencia activa es la que usa el motor para acelerar o frenar, y la reactiva la consume o suministra el bus de condensadores. Otra nota es que la simulación es poco realista puesto que utiliza picos de potencia máxima, cuando en realidad, en la prueba de la \textit{Endurance} se suele limitar el valor de estos picos con tal de extender la autonomía.
 
@@ -2577,6 +2577,55 @@ Estos conectores permiten una flexibilidad de integración muy grande, puesto qu
 
 \subsection{Sensor de posición}
 
+A fecha de redacción, el sensor de posición específico a utilizar en el inversor aún no ha sido determinado. Sin embargo, se diseñará el \textit{hardware} para permitir el uso del \textit{encoder} incremental, ya que ha sido utilizado hasta ahora en el proyecto.
+
+El \textit{encoder} incremental es un dispositivo que genera pulsos eléctricos a medida que un actuador magnético gira. Este actuador se sitúa en el eje del cual se desea conocer la posición.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{fig/encoder1}
+	\caption{Actuador magnético situado en el eje de un motor.}
+\end{figure}
+
+Este tipo de sensor generalmente consta de tres canales: A, B y Z. Los canales A y B son señales cuadradas desfasadas 90 grados, mientras que el canal Z proporciona una referencia de posición conocida como pulso de índice. El \textit{encoder} incremental genera un número determinado de pulsos por cada rotación del ángulo medido, lo que se conoce como pulsos por revolución o PPR.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[x=0.5cm,y=1cm]
+		
+		% Ejes y etiquetas
+		\draw[-] (-1,-3) -- (24,-3) node[right] {Tiempo};
+		\draw[-] (0,-3) -- (0,5) node[above] {Señales};
+		
+		% Señales
+		\draw[dotted,gray] (0,0) node[left] {$Z$} -- (24,0);
+		\draw[dotted,gray] (0,1.5) node[left] {$B$} -- (24,1.5);
+		\draw[dotted,gray] (0,3) node[left] {$A$} -- (24,3);
+		\draw[dotted,gray] (0,-2) node[left] {$\theta$} -- (24,-2);
+		
+		% Pulsos A
+		\draw[thick,red] (0,4) -- (1,4) -- (1,3) -- (3,3) -- (3,4) -- (5,4) -- (5,3) -- (7,3) -- (7,4) -- (9,4) -- (9,3) -- (11,3) -- (11,4) -- (13,4) -- (13,3) -- (15,3) -- (15,4) -- (17,4) -- (17,3) -- (19,3) -- (19,4) -- (21,4) -- (21,3) -- (23,3) -- (23,4) -- (24,4);
+		
+		% Pulsos B
+		\draw[thick,blue] (0,1.5) -- (2,1.5) -- (2,2.5) -- (4,2.5) -- (4,1.5) -- (6,1.5) -- (6,2.5) -- (8,2.5) -- (8,1.5) -- (10,1.5) -- (10,2.5) -- (12,2.5) -- (12,1.5) -- (14,1.5) -- (14,2.5) -- (16,2.5) -- (16,1.5) -- (18,1.5) -- (18,2.5) -- (20,2.5) -- (20,1.5) -- (22,1.5) -- (22,2.5) -- (24,2.5) -- (24,1.5);
+		
+		% Pulsos Z
+		\draw[thick,green] (0,0) -- (3,0) -- (3,1) -- (4,1) -- (4,0) -- (19,0) -- (19,1) -- (20,1) -- (20,0) -- (24,0);
+		
+		% Diente de sierra
+		\draw[thick,black] (0,-1.2) -- (3,-1) -- (3,-2) -- (19,-1) -- (19,-2) -- (24,-1.6);
+		
+	\end{tikzpicture}
+	
+	
+	\caption{Señales de un \textit{encoder} incremental de 4 PPR junto al ángulo real ($\theta$) girando en sentido antihorario.}
+	\label{fig:encoder_incremental}
+\end{figure}
+
+
+Para estimar la velocidad, dirección y posición del motor a partir del \textit{encoder} incremental, se utilizan los pulsos de los canales A y B. La dirección del movimiento se determina mirando si A está avanzada respecto a B (sentido antihorario) o viceversa (sentido horario). La velocidad se calcula midiendo el intervalo entre pulsos y la posición se determina contando (integrando) el número de pulsos desde una posición de referencia conocida.
+
+El \textit{hardware} necesario para leer la señal del \textit{encoder} incremental puede consistir únicamente en el uso de tres comparadores analógicos. Estos comparadores se encargan de convertir las señales comúnmente diferenciales de los canales A, B y Z en señales digitales que pueden ser procesadas por el MCU del inversor. Esta interfaz también sería compatible con sensores de posición Hall, lo que brinda flexibilidad en la elección del sensor de posición para el inversor.
 
 
 \subsection{Microcontrolador}

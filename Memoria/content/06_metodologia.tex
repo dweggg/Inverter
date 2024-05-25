@@ -4,7 +4,7 @@ En este capítulo se detalla la metodología seguida para el desarrollo del proy
 
 \section{Filosofía}
 
-\subsection{Priorización de la calidad sobre la compleción de objetivos}
+\subsection{Calidad sobre objetivos}
 
 En la ejecución de este proyecto, se ha adoptado una postura estratégica que privilegia la calidad y precisión en cada fase del desarrollo por encima del cumplimiento de todos los objetivos planteados inicialmente. Esta decisión se fundamenta en la conciencia de que el trabajo actual es la primera parte de un esfuerzo continuo, y por tanto, es imperativo establecer una base sólida y bien definida que facilite futuras continuaciones y expansiones, promoviendo la visión a largo plazo del proyecto.
 
@@ -34,7 +34,7 @@ A continuación, se detallan las decisiones específicas que se han tomado para 
 \end{itemize}
 
 \subsection{KISS}
-La filosofía KISS (\textit{Keep It Simple, Stupid}) ha sido un principio fundamental que ha guiado el diseño, la implementación y la validación del inversor. La simplicidad se ha considerado como una ventaja clave en todos los aspectos del proyecto, desde la elección de componentes hasta el desarrollo del \textit{firmware}.
+La filosofía KISS (\textit{Keep It Simple, Stupid!}) \cite{KISS} ha sido un principio fundamental que ha guiado el diseño, la implementación y la validación del inversor. La simplicidad se ha considerado como una ventaja clave en todos los aspectos del proyecto, desde la elección de componentes hasta el desarrollo del \textit{firmware}.
 
 Las razones por la que se cree que es necesario simplificar tanto como sea posible son las siguientes:
 \begin{itemize}
@@ -176,7 +176,7 @@ Git es un sistema de control de versiones distribuido, diseñado para rastrear c
 Git trabaja mediante la creación de instantáneas (\textit{commits}) de los archivos en un repositorio. Cada vez que se realiza un cambio significativo en los archivos del proyecto, se crea un nuevo \textit{commit} que contiene una instantánea del estado de esos archivos en ese momento. Estos \textit{commits} se organizan en ramas (\textit{branches}), que permiten trabajar en paralelo en diferentes características o correcciones de errores sin afectar al código principal. Las ramas se fusionan (\textit{merge}) cuando el trabajo está completo y se quiere incorporar al código principal. En este proyecto solo se ha usado una rama puesto que solo hay un desarrollador.
 
 \subsection{Por qué utilizar un sistema de control de versiones}
-El uso de un sistema de control de versiones como Git proporciona numerosos beneficios para el desarrollo de proyectos de ingeniería, incluyendo:
+El uso de un sistema de control de versiones como Git proporciona numerosos beneficios para el desarrollo de proyectos de ingeniería \cite{GestionProyectos}, incluyendo:
 
 \begin{itemize}
 	\item \textbf{Historial de cambios:} Permite mantener un registro detallado de todas las modificaciones realizadas en el código y otros archivos del proyecto, lo que facilita la identificación de errores y el seguimiento del progreso del desarrollo.
@@ -192,7 +192,7 @@ En el desarrollo de este proyecto, Git se utilizó para gestionar no solo el \te
 GitHub es una plataforma de alojamiento de código que utiliza Git como sistema de control de versiones. Ofrece funciones adicionales como seguimiento de problemas, gestión de proyectos y revisión de código. En este proyecto, se utilizó GitHub para alojar el repositorio de Git.
 
 \subsection{Automatización de la documentación y \textit{releases}}
-Una de las ventajas de utilizar Git y GitHub es la capacidad de automatizar tareas como la generación de documentación y la creación de \textit{releases}. En este proyecto, se generó automáticamente una \textit{wiki} utilizando los contenidos de esta memoria, lo cual facilitó la creación y el mantenimiento de documentación actualizada.
+Una de las ventajas de utilizar Git y GitHub es la capacidad de automatizar tareas como la generación de documentación y la creación de \textit{releases}. En este proyecto, se generó automáticamente una \textit{wiki} utilizando los contenidos de esta memoria, lo cual facilitó la creación y el mantenimiento de documentación actualizada \cite{InverterWiki}.
 
 Además, se realizaron \textit{releases} de \textit{hardware} mediante el etiquetado de versiones en Git. Cada vez que se solicitaban PCBs, se creaba una nueva \textit{release} que incluía los archivos de fabricación de las PCBs, una lista detallada de los cambios realizados desde la última versión, y se iban actualizando las \textit{release notes} con los errores que se iban encontrando.
 
