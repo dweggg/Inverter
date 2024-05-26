@@ -3,24 +3,65 @@
 \section{Introducción}
 La Formula Student es una competición internacional que desafía a estudiantes de ingeniería de todo el mundo a diseñar, construir y competir con monoplazas diseñados, construidos y pilotados por los mismos estudiantes. Esta competición proporciona una plataforma excepcional para que los futuros ingenieros pongan en práctica sus conocimientos y adquieran experiencia práctica en todos los ámbitos de la ingeniería, desde la manufactura hasta la gestión de proyectos. El énfasis en la innovación, la eficiencia y la adaptabilidad aporta un valor incalculable a la formación de los jóvenes ingenieros.
 
-Dentro de los puntos clave de la Formula Student en los últimos años, se encuentra el interés creciente en la tracción eléctrica. En un mundo cada vez más preocupado por la sostenibilidad y la eficiencia energética, los motores eléctricos han surgido como una opción atractiva para la propulsión de vehículos. Este cambio de paradigma plantea la cuestión fundamental de cómo diseñar y controlar eficazmente estos sistemas eléctricos para lograr un alto rendimiento sin dejar de ser accesibles para el público general. La optimización de costes no suele ser un reto en los deportes de motor, incluida la Formula Student, pero la innovación que se lleva a cabo en estos contextos de libertad absoluta permite traer ideas de las competiciones a los vehículos de calle. En este contexto, se establece un puente fundamental entre el presente y el futuro de la movilidad sostenible, explorando los elementos técnicos que impulsan el rendimiento de los motores eléctricos y su control, contribuyendo a dar forma al panorama de la movilidad del mañana. Además, la tracción eléctrica pura no es la única rama de la industria beneficiada por ingenieros conocedores de estos sistemas. Los trenes de potencia híbridos, los generadores en centrales energéticas e incluso los sistemas de gestión de la energía en hogares pueden volverse mucho más eficientes gracias a la investigación y el conocimiento en baterías, motores eléctricos, electrónica de potencia e integración.
+Dentro de los puntos clave de la Formula Student en los últimos años, se encuentra el interés creciente en la tracción eléctrica. En un mundo cada vez más preocupado por la sostenibilidad y la eficiencia energética, los motores eléctricos han surgido como una opción atractiva para la propulsión de vehículos de potencias y autonomías cada vez más elevadas. Este cambio de paradigma plantea la cuestión fundamental de cómo diseñar y controlar eficazmente estos sistemas eléctricos para lograr un alto rendimiento sin dejar de ser accesibles para el público general. La optimización de costes no suele ser un reto en los deportes de motor, incluida la Formula Student, pero la innovación que se lleva a cabo en estos contextos de libertad absoluta permite traer ideas de las competiciones a los vehículos de calle. En este contexto, se establece un puente fundamental entre el presente y el futuro de la movilidad sostenible, explorando los elementos técnicos que impulsan el rendimiento de los motores eléctricos y su control, contribuyendo a dar forma al panorama de la movilidad del mañana. Además, la tracción eléctrica pura no es la única rama de la industria beneficiada por ingenieros conocedores de estos sistemas. Los trenes de potencia híbridos, los generadores en centrales energéticas e incluso los sistemas de gestión de la energía en hogares pueden volverse mucho más eficientes gracias a la investigación y el conocimiento en baterías, motores eléctricos, electrónica de potencia e integración.
 
 Este proyecto se sitúa en el corazón de esta revolución en los deportes de motor, donde la ingeniería se fusiona con la sostenibilidad y la competición para forjar una nueva generación de soluciones de tracción eléctrica. A través de un enfoque riguroso en el diseño y control de motores eléctricos y controladoras, este proyecto busca avanzar en el conocimiento y la aplicación de tecnologías de vanguardia, contribuyendo así a la formación de ingenieros y al desarrollo de soluciones de movilidad más ecológicas.
 
 \section{Objetivos}
-El objetivo principal de este proyecto es diseñar y prototipar un inversor trifásico dual de alto rendimiento para motores síncronos de imanes permanentes (PMSM), aplicado al entorno de la Formula Student. Los objetivos específicos son:
 
-\begin{itemize}
-	\item Adquirir \textbf{conocimiento} sobre control de motores eléctricos y diseño de convertidores de potencia.
-	\item Definir unos \textbf{requisitos} para el inversor de tracción ideal para el equipo e-Tech Racing de la UPC-EEBE.
-	\item \textbf{Diseñar} un inversor de tracción en base a esos requisitos.
-	\item Implementar un \textbf{control vectorial} que permita el control independiente de \textbf{dos motores} con un solo microcontrolador.
-	\item Evaluar y \textbf{validar} el rendimiento del inversor.
-\end{itemize}
+\subsection*{Objetivo 1}
+\setlength{\fboxsep}{10pt}
+\setlength{\fboxrule}{1pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{10pt}
+\setlength{\leftskip}{\dimexpr\fboxsep+\fboxrule}
+\setlength{\rightskip}{\dimexpr\fboxsep+\fboxrule}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		Adquirir \textbf{conocimiento} sobre control de motores eléctricos y diseño de convertidores de potencia.%
+	}%
+}
+
+En este primer objetivo se busca aprender, ya que se requiere de familiaridad con la electrónica de potencia y la teoría de control para poder abordar el proyecto. Además, se deberá profundizar en el análisis específico de los motores síncronos de imanes permanentes, con tal de implementar un lazo de control adecuado.
+
+
+\subsection*{Objetivo 2}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		Definir unos \textbf{requisitos} para el \textit{hardware} del inversor de tracción ideal para el equipo e-Tech Racing de la UPC-EEBE.%
+	}%
+}
+
+La identificación clara y precisa de los requisitos del \textit{hardware} del inversor es crucial para garantizar su adecuación a las necesidades del equipo e-Tech Racing y cumplir con la normativa de la Formula Student.
+
+\subsection*{Objetivo 3}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		\textbf{Diseñar} el \textit{hardware} del inversor basado en esos requisitos.%
+	}%
+}
+
+Se llevará a cabo un diseño detallado del \textit{hardware} del inversor, seleccionando componentes apropiados y diseñando PCBs que los integren de manera compacta.
+
+\subsection*{Objetivo 4}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		\textbf{Validar} el \textit{hardware} del inversor.%
+	}%
+}
+
+Se realizará una evaluación exhaustiva de cada parte del \textit{hardware} del inversor para asegurar su funcionalidad y cumplimiento de los requisitos.
+
+\subsection*{Objetivo 5}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		Implementar un \textbf{control vectorial} que permita el control independiente de \textbf{dos motores} con un solo microcontrolador.%
+	}%
+}
+
+Se procederá a la implementación del \textit{firmware} que controlará el \textit{hardware} del inversor, integrando el control diseñado previamente.
 
 \section{Contexto y justificación}
-
-El desarrollo de sistemas de control para motores eléctricos no es una tarea trivial y demanda un profundo conocimiento sobre electrónica de potencia, las características del motor, la teoría del control y la programación de dispositivos electrónicos.
 
 La electrónica de potencia está viviendo grandes avances para aplicaciones de todos los rangos de potencia. Los dispositivos semiconductores de carburo de silicio (SiC) están permitiendo mayores densidades de potencia en convertidores que van desde los centenares de vatios hasta alcanzar el megavatio, debido a la reducción de pérdidas y la alta conductividad térmica del material en comparación con sus equivalentes de silicio tradicional. De forma similar, los dispositivos de nitruro de galio (GaN) consiguen miniaturizar convertidores desde unos pocos vatios hasta casi el kilovatio. Otros avances en componentes, como la tecnología de condensadores de película, aceleran el proceso de miniaturización, permitiendo conseguir densidades de potencia más elevadas. Junto a estos dispositivos de nueva generación, avances en las técnicas de control y modulación permiten reducir las pérdidas y aumentar la eficiencia, reduciendo los requisitos de gestión térmica y permitiendo diseñar convertidores aún más pequeños.
 

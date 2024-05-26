@@ -3403,8 +3403,8 @@ Para mantener un código claro y coherente, se seguirán las siguientes convenci
 	\begin{itemize}
 		\item Para el \textit{offset} y el \textit{slope} del ADC:
 		{\small\begin{verbatim}
-			#define CURRENT_SLOPE  54.4217687f /**< [A/V] (10/(4.7+10)) * ( 1 / (12.5 mV / A)) */
-			#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
+				#define CURRENT_SLOPE  54.4217687f /**< [A/V] (10/(4.7+10)) * ( 1 / (12.5 mV / A)) */
+				#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
 		\end{verbatim}}
 		\item Para la referencia de par:
 		\begin{verbatim}
@@ -3457,22 +3457,23 @@ Para mantener un código claro y coherente, se seguirán las siguientes convenci
 	\end{itemize}
 	\textbf{Ejemplo:}
 	{\small\begin{verbatim}		
-/**
-* @brief Computes d-q currents from current measurements and electrical angle.
-*
-* This function computes the d-q currents from phase currents (ABC), theta_e, and stores
-* the results in the provided pointers.
-*
-* @param[in] ia Phase A current in A.
-* @param[in] ib Phase B current in A.
-* @param[in] ic Phase C current in A.
-* @param[in] theta_e Electrical rotor position in radians.
-* @param[out] idMeas Pointer to store the D-axis current.
-* @param[out] iqMeas Pointer to store the Q-axis current.
-*/
-void get_idiq(float ia, float ib, float ic, float theta_e, float *idMeas, float *iqMeas);
+			/**
+			* @brief Computes d-q currents from current measurements and electrical angle.
+			*
+			* This function computes the d-q currents from phase currents (ABC), theta_e, and stores
+			* the results in the provided pointers.
+			*
+			* @param[in] ia Phase A current in A.
+			* @param[in] ib Phase B current in A.
+			* @param[in] ic Phase C current in A.
+			* @param[in] theta_e Electrical rotor position in radians.
+			* @param[out] idMeas Pointer to store the D-axis current.
+			* @param[out] iqMeas Pointer to store the Q-axis current.
+			*/
+			void get_idiq(float ia, float ib, float ic, float theta_e, float *idMeas, float *iqMeas);
 	\end{verbatim}}
 \end{enumerate}
+
 
 
 \subsection{Arquitectura del \textit{firmware}}
