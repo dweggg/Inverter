@@ -249,7 +249,7 @@ void TIM6_DAC_IRQHandler(void)
   HAL_DAC_IRQHandler(&hdac);
   HAL_TIM_IRQHandler(&htim6);
   /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
-  tasks_1ms();
+
   /* USER CODE END TIM6_DAC_IRQn 1 */
 }
 
@@ -278,6 +278,7 @@ void DMA2_Stream1_IRQHandler(void)
   /* USER CODE END DMA2_Stream1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_adc3);
   /* USER CODE BEGIN DMA2_Stream1_IRQn 1 */
+  tasks_1ms();
 
   /* USER CODE END DMA2_Stream1_IRQn 1 */
 }

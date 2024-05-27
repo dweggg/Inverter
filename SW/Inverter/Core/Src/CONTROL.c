@@ -53,16 +53,16 @@ void calc_current_reference(MotorParameters * motor, volatile Reference * refere
 		signTorqueRef = -1;
 	}
 
-	reference->torqueRef = fabs(reference->torqueRef);
+	float torqueRef = fabs(reference->torqueRef);
 
 
     // CTC - please check equations and constant definitions thoroughly!!
-    if (gammaRef == M_PI_2 || reference->torqueRef == 0.0F || motor->Ld == motor->Lq) {
-        isRefCTC = 2.0F * reference->torqueRef * motor->constants.invThreePpLambda;
+    if (gammaRef == M_PI_2 || torqueRef == 0.0F || motor->Ld == motor->Lq) {
+        isRefCTC = 2.0F * torqueRef * motor->constants.invThreePpLambda;
     } else {
         float sinGammaRef = sinf(gammaRef);
         float sin2GammaRef = sinf(2.0F * gammaRef);
-        float torqueTerm = motor->constants.fourTimesOneMinusXi * reference->torqueRef * motor->constants.invTorqueBase;
+        float torqueTerm = motor->constants.fourTimesOneMinusXi * torqueRef * motor->constants.invTorqueBase;
         isRefCTC = motor->constants.isc * (sqrtf(sinGammaRef * sinGammaRef + sin2GammaRef * torqueTerm) - sinGammaRef) / (sin2GammaRef * motor->constants.oneMinusXi);
     }
 

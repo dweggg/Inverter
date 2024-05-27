@@ -47,12 +47,12 @@ void tasks_1ms(void) {
     // Get enableSW via CAN and enableHW from shutdown circuit GPIO reading
     enable_inverters(inverter_left.enableSW, inverter_right.enableSW, &inverter_left.enable, &inverter_right.enable);
 
+    // Get temperatures from ADC3
     read_temperatures();
 
     // Torque reference handling, without ramp
     inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torqueMax, inverter_left.motor->speedMax_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
     inverter_right.reference.torqueRef = handle_torqueRef(torqueRefIn_right, inverter_right.direction, inverter_right.motor->torqueMax, inverter_right.motor->speedMax_RPM, inverter_right.feedback.speedMeas, &inverter_right.speedLoop);
-
 
     // Current reference derating
     inverter_left.reference.isMaxRef = derate_current_reference(inverter_left.tempMotor, inverter_left.tempInverter, inverter_left.motor->iMax);
@@ -70,6 +70,10 @@ void read_temperatures(void) {
     inverter_left.tempMotor = get_temperature(rawADC_temp[2], tempMotorLUT);
     inverter_right.tempMotor = get_temperature(rawADC_temp[3], tempMotorLUT);
     
+    // TODO: Delete these lines, the motor used for testing didn't have a temperature sensor
+    inverter_left.tempMotor = 25.0F;
+    inverter_right.tempMotor = 25.0F;
+
     // Check for overtemperature faults
     handle_overtemperature_faults(&inverter_left);
     handle_overtemperature_faults(&inverter_right);

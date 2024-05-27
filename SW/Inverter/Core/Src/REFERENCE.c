@@ -39,11 +39,12 @@ float torqueRefIn_right = 0.0F;
  */
 float handle_torqueRef(float torqueRefIn, int8_t direction, float torqueMax, float speedMaxRPM, float speedMeas, volatile pi_struct *loopSpeed){
 
-	// Handles direction (by multiplying it to the input) and saturation (the function per se)
-	float torqueRefSat = saturate_symmetric(torqueRefIn*direction, torqueMax);
+	// Handle direction and saturation
+	float torqueRefOut = set_torque_direction(torqueRefIn,direction);
+	torqueRefOut = saturate_symmetric(torqueRefOut, torqueMax);
 
 	// Saturate torque again with speed loop
-	float torqueRefOut =  limit_torque_to_prevent_overspeed(speedMaxRPM, speedMeas, torqueRefSat, loopSpeed);
+	torqueRefOut =  limit_torque_to_prevent_overspeed(speedMaxRPM, speedMeas, torqueRefOut, loopSpeed);
 
 	return torqueRefOut;
 }
