@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['pcb_5fio_2ec_0',['PCB_IO.c',['../_p_c_b___i_o_8c.html',1,'']]],
-  ['pcb_5fio_2eh_1',['PCB_IO.h',['../_p_c_b___i_o_8h.html',1,'']]],
-  ['pwm_2ec_2',['PWM.c',['../_p_w_m_8c.html',1,'']]],
-  ['pwm_2eh_3',['PWM.h',['../_p_w_m_8h.html',1,'']]]
+  ['main_2ec_0',['main.c',['../main_8c.html',1,'']]],
+  ['main_2eh_1',['main.h',['../main_8h.html',1,'']]],
+  ['measurements_2ec_2',['MEASUREMENTS.c',['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html',1,'']]],
+  ['measurements_2eh_3',['MEASUREMENTS.h',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html',1,'']]],
+  ['motor_2ec_4',['MOTOR.c',['../_m_o_t_o_r_8c.html',1,'']]],
+  ['motor_2eh_5',['MOTOR.h',['../_m_o_t_o_r_8h.html',1,'']]]
 ];

@@ -1,0 +1,80 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\+TASKS\+\_\+\+CRITICAL.h File Reference}
+\hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h}{}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/TASKS\_CRITICAL.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/TASKS\_CRITICAL.h}}
+
+
+Header file for functions related to tasks executed in each PWM timer interruption.  
+
+
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=226pt]{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_a163bb54c1025d72445ce3f6a100daca1}{tasks\+\_\+critical\+\_\+left}} ()
+\begin{DoxyCompactList}\small\item\em Function to be executed every TS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_a97f8547781af1d0119b45dbcff79c246}{tasks\+\_\+critical\+\_\+right}} ()
+\begin{DoxyCompactList}\small\item\em Function to be executed every TS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for functions related to tasks executed in each PWM timer interruption. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_a163bb54c1025d72445ce3f6a100daca1}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_a163bb54c1025d72445ce3f6a100daca1} 
+\index{TASKS\_CRITICAL.h@{TASKS\_CRITICAL.h}!tasks\_critical\_left@{tasks\_critical\_left}}
+\index{tasks\_critical\_left@{tasks\_critical\_left}!TASKS\_CRITICAL.h@{TASKS\_CRITICAL.h}}
+\doxysubsubsection{\texorpdfstring{tasks\_critical\_left()}{tasks\_critical\_left()}}
+{\footnotesize\ttfamily void tasks\+\_\+critical\+\_\+left (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to be executed every TS. 
+
+This function is called by the TIM1 trigger out handler every TS.
+
+This function is called by the TIM1 trigger handler every TS. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_a163bb54c1025d72445ce3f6a100daca1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_a163bb54c1025d72445ce3f6a100daca1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_a97f8547781af1d0119b45dbcff79c246}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_a97f8547781af1d0119b45dbcff79c246} 
+\index{TASKS\_CRITICAL.h@{TASKS\_CRITICAL.h}!tasks\_critical\_right@{tasks\_critical\_right}}
+\index{tasks\_critical\_right@{tasks\_critical\_right}!TASKS\_CRITICAL.h@{TASKS\_CRITICAL.h}}
+\doxysubsubsection{\texorpdfstring{tasks\_critical\_right()}{tasks\_critical\_right()}}
+{\footnotesize\ttfamily void tasks\+\_\+critical\+\_\+right (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to be executed every TS. 
+
+This function is called by the TIM8 trigger out handler every TS.
+
+This function is called by the TIM8 trigger handler every TS. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_a97f8547781af1d0119b45dbcff79c246_icgraph}
+\end{center}
+\end{figure}

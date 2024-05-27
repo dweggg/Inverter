@@ -89,26 +89,62 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
 <code>#include &quot;stm32f7xx_it.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="_t_a_s_k_s__1ms_8h_source.html">TASKS_1ms.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_t_a_s_k_s__20us_8h_source.html">TASKS_20us.h</a>&quot;</code><br />
-<code>#include &quot;CAN_e-Tech.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8h_source.html">TASKS_CRITICAL.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_c_a_n__e-_tech_8h_source.html">CAN_e-Tech.h</a>&quot;</code><br />
+<code>#include &quot;adc.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h_source.html">MEASUREMENTS.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for stm32f7xx_it.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="stm32f7xx__it_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2stm32f7xx__it_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2stm32f7xx__it_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2stm32f7xx__it_8c">
-<area shape="rect" title="Interrupt Service Routines." alt="" coords="220,5,385,64"/>
-<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="33,112,94,139"/>
-<area shape="poly" title=" " alt="" coords="226,67,109,110,107,105,224,62"/>
-<area shape="rect" title=" " alt="" coords="118,112,225,139"/>
-<area shape="poly" title=" " alt="" coords="261,67,204,105,201,101,258,62"/>
-<area shape="rect" href="_t_a_s_k_s__1ms_8h.html" title="Header file for functions related to tasks executed every 1ms." alt="" coords="249,112,356,139"/>
-<area shape="poly" title=" " alt="" coords="305,64,305,96,300,96,300,64"/>
-<area shape="rect" href="_t_a_s_k_s__20us_8h.html" title="Header file for functions related to tasks executed every 20us in each PWM timer interruption." alt="" coords="380,112,491,139"/>
-<area shape="poly" title=" " alt="" coords="347,62,406,101,403,106,344,67"/>
-<area shape="rect" title=" " alt="" coords="515,112,620,139"/>
-<area shape="poly" title=" " alt="" coords="386,61,516,104,514,109,385,66"/>
-<area shape="rect" title=" " alt="" coords="5,187,122,213"/>
-<area shape="poly" title=" " alt="" coords="66,139,66,171,61,171,61,139"/>
+<area shape="rect" title="Interrupt Service Routines." alt="" coords="636,5,801,64"/>
+<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="547,336,607,363"/>
+<area shape="poly" title=" " alt="" coords="691,66,672,88,655,113,635,160,625,199,618,239,604,289,591,323,586,321,598,287,612,237,620,197,630,158,651,111,668,85,687,63"/>
+<area shape="rect" title=" " alt="" coords="665,112,772,139"/>
+<area shape="poly" title=" " alt="" coords="721,64,721,96,716,96,716,64"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8h.html" title="Header file for functions related to tasks executed every 1ms." alt="" coords="427,112,535,139"/>
+<area shape="poly" title=" " alt="" coords="642,67,530,109,528,104,640,62"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="279,336,422,363"/>
+<area shape="poly" title=" " alt="" coords="635,41,582,48,525,61,468,82,417,114,397,135,381,160,369,188,361,217,352,274,351,320,346,320,347,274,355,216,364,186,376,158,393,132,414,110,466,78,523,56,581,42,635,36"/>
+<area shape="rect" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8h.html" title="Header file for functions related to tasks executed in each PWM timer interruption." alt="" coords="796,112,934,139"/>
+<area shape="poly" title=" " alt="" coords="767,62,833,101,830,106,765,67"/>
+<area shape="rect" href="_c_a_n__e-_tech_8h.html" title="Header file for handling CAN communication with the car." alt="" coords="958,112,1063,139"/>
+<area shape="poly" title=" " alt="" coords="802,59,955,105,953,110,801,64"/>
+<area shape="rect" title=" " alt="" coords="1088,112,1141,139"/>
+<area shape="poly" title=" " alt="" coords="802,49,926,74,1073,109,1072,114,925,79,801,54"/>
+<area shape="rect" title=" " alt="" coords="519,411,635,437"/>
+<area shape="poly" title=" " alt="" coords="580,363,580,395,574,395,574,363"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8h.html" title="Header file for the inverter struct and extern variables." alt="" coords="392,187,488,213"/>
+<area shape="poly" title=" " alt="" coords="476,141,457,175,452,172,471,138"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="421,261,501,288"/>
+<area shape="poly" title=" " alt="" coords="446,213,456,246,450,247,441,215"/>
+<area shape="poly" title=" " alt="" coords="434,215,368,324,364,321,430,212"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="184,261,296,288"/>
+<area shape="poly" title=" " alt="" coords="406,216,290,258,288,253,404,211"/>
+<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="5,336,85,363"/>
+<area shape="poly" title=" " alt="" coords="391,209,289,227,230,243,173,264,118,295,72,328,69,324,115,290,171,259,228,238,287,222,391,204"/>
+<area shape="rect" href="_p_w_m_8h.html" title="Header file for controlling PWM output." alt="" coords="524,261,590,288"/>
+<area shape="poly" title=" " alt="" coords="461,212,525,251,522,255,459,216"/>
+<area shape="poly" title=" " alt="" coords="483,286,545,325,542,330,480,291"/>
+<area shape="poly" title=" " alt="" coords="473,287,560,396,556,400,469,290"/>
+<area shape="rect" title=" " alt="" coords="352,485,426,512"/>
+<area shape="poly" title=" " alt="" coords="463,289,456,354,447,397,433,438,411,474,407,472,428,436,441,395,450,353,458,288"/>
+<area shape="rect" title=" " alt="" coords="245,485,309,512"/>
+<area shape="poly" title=" " alt="" coords="346,364,321,412,291,473,287,470,316,409,341,362"/>
+<area shape="rect" href="_e_r_r_o_r_s_8h.html" title=" " alt="" coords="331,411,418,437"/>
+<area shape="poly" title=" " alt="" coords="357,362,368,395,363,397,352,364"/>
+<area shape="poly" title=" " alt="" coords="380,437,386,470,381,471,374,438"/>
+<area shape="poly" title=" " alt="" coords="359,440,307,478,304,474,356,436"/>
+<area shape="poly" title=" " alt="" coords="260,286,320,325,317,330,257,291"/>
+<area shape="poly" title=" " alt="" coords="244,288,275,470,270,471,239,289"/>
+<area shape="rect" title=" " alt="" coords="109,336,205,363"/>
+<area shape="poly" title=" " alt="" coords="227,291,184,328,181,324,224,287"/>
+<area shape="poly" title=" " alt="" coords="207,291,94,333,92,328,205,286"/>
+<area shape="poly" title=" " alt="" coords="66,361,246,475,243,479,63,365"/>
+<area shape="poly" title=" " alt="" coords="579,286,603,307,622,335,625,353,621,370,603,401,598,398,617,368,620,353,617,337,599,310,575,291"/>
+<area shape="rect" title=" " alt="" coords="970,187,1051,213"/>
+<area shape="poly" title=" " alt="" coords="1013,139,1013,171,1008,171,1008,139"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -268,6 +304,16 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>This function handles DMA2 stream0 global interrupt. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="stm32f7xx__it_8c_aaf6ce196dde98712e1223b99766e06c0_cgraph.png" border="0" usemap="#astm32f7xx__it_8c_aaf6ce196dde98712e1223b99766e06c0_cgraph" alt=""/></div>
+<map name="astm32f7xx__it_8c_aaf6ce196dde98712e1223b99766e06c0_cgraph" id="astm32f7xx__it_8c_aaf6ce196dde98712e1223b99766e06c0_cgraph">
+<area shape="rect" title="This function handles DMA2 stream0 global interrupt." alt="" coords="5,5,192,32"/>
+<area shape="rect" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8c.html#aa06fe71a25d3883d77165c8a409b541d" title="Function to be executed every TS." alt="" coords="240,5,370,32"/>
+<area shape="poly" title=" " alt="" coords="192,16,224,16,224,21,192,21"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -306,6 +352,36 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>This function handles DMA2 stream2 global interrupt. </p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="stm32f7xx__it_8c_a7e367d7c7b74485c4c75cdef30ad01e1_cgraph.png" border="0" usemap="#astm32f7xx__it_8c_a7e367d7c7b74485c4c75cdef30ad01e1_cgraph" alt=""/></div>
+<map name="astm32f7xx__it_8c_a7e367d7c7b74485c4c75cdef30ad01e1_cgraph" id="astm32f7xx__it_8c_a7e367d7c7b74485c4c75cdef30ad01e1_cgraph">
+<area shape="rect" title="This function handles DMA2 stream2 global interrupt." alt="" coords="5,132,192,159"/>
+<area shape="rect" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8c.html#a820aabb67a3cec7696f8acee5735247f" title="Function to be executed every TS." alt="" coords="240,132,362,159"/>
+<area shape="poly" title=" " alt="" coords="192,143,224,143,224,148,192,148"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8c.html#a8f219eb3c0f9cc2e68149504b730a47c" title="Calculates the id&#45;iq loops." alt="" coords="425,5,548,32"/>
+<area shape="poly" title=" " alt="" coords="311,130,351,87,379,63,409,42,419,36,421,41,411,46,382,67,355,91,315,133"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8c.html#a25e3a39e003be5fc1a9cd2e824b3c45f" title="Calculates the current references using a FOC algorithm. It computes the current vector for the MTPA ..." alt="" coords="410,56,562,83"/>
+<area shape="poly" title=" " alt="" coords="329,129,409,92,426,86,428,91,411,97,331,134"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8c.html#aaffe76ea3a271728f3cb3d0b97ffe2e4" title="function." alt="" coords="443,107,530,133"/>
+<area shape="poly" title=" " alt="" coords="362,134,426,125,427,131,363,140"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a1e0c627576d5f8855c1b66bbbe597e9e" title="Get electrical ADC measurements." alt="" coords="416,157,556,184"/>
+<area shape="poly" title=" " alt="" coords="363,151,401,156,400,162,362,156"/>
+<area shape="rect" href="_c_o_n_t_r_o_l_8c.html#adb373ce1587c58be1d83f77103483f6b" title="Saturates PI output to not surpass DC voltage." alt="" coords="429,208,544,235"/>
+<area shape="poly" title=" " alt="" coords="331,157,411,194,428,200,426,205,409,198,329,162"/>
+<area shape="rect" href="_p_w_m_8c.html#a9b7cfc95a135d15862e6b5619c9696fe" title="Set PWM duty cycles." alt="" coords="436,259,536,285"/>
+<area shape="poly" title=" " alt="" coords="315,157,355,200,382,224,411,244,423,250,420,255,409,249,379,228,351,204,311,161"/>
+<area shape="rect" href="_e_r_r_o_r_s_8c.html#a2639be61abcbef4da48c0b288ce97c74" title="Clears an error in the error field of a data structure." alt="" coords="610,81,693,108"/>
+<area shape="poly" title=" " alt="" coords="532,154,561,143,615,114,617,119,563,148,534,159"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#af5e40ee9d1ed5e3661139df852b9fba8" title="Computes d&#45;q currents from current measurements and electrical angle." alt="" coords="618,132,685,159"/>
+<area shape="poly" title=" " alt="" coords="557,157,603,150,604,155,557,162"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a35344a31c9b0c99423ee9e3f5287a5b2" title="Convert ADC reading to physical measurement with linear response." alt="" coords="613,183,690,209"/>
+<area shape="poly" title=" " alt="" coords="557,179,598,185,597,190,557,184"/>
+<area shape="rect" href="_e_r_r_o_r_s_8c.html#a0f0f6f855e7f3762d23ee2f3d448911e" title="Sets an error in the error field of a data structure." alt="" coords="615,233,688,260"/>
+<area shape="poly" title=" " alt="" coords="534,182,563,194,617,222,615,227,561,198,532,187"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -439,38 +515,6 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>This function handles TIM1 update interrupt and TIM10 global interrupt. </p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="stm32f7xx__it_8c_ad1fd361bc5ad89facee67c76d1ff8dc0_cgraph.png" border="0" usemap="#astm32f7xx__it_8c_ad1fd361bc5ad89facee67c76d1ff8dc0_cgraph" alt=""/></div>
-<map name="astm32f7xx__it_8c_ad1fd361bc5ad89facee67c76d1ff8dc0_cgraph" id="astm32f7xx__it_8c_ad1fd361bc5ad89facee67c76d1ff8dc0_cgraph">
-<area shape="rect" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,157,195,184"/>
-<area shape="rect" href="_t_a_s_k_s__20us_8c.html#a9adc53eb4c963075bf9d7443c8b5c903" title="Function to be executed every TS." alt="" coords="243,157,355,184"/>
-<area shape="poly" title=" " alt="" coords="195,168,227,168,227,173,195,173"/>
-<area shape="rect" href="_c_o_n_t_r_o_l_8c.html#a8f219eb3c0f9cc2e68149504b730a47c" title="Calculates the id&#45;iq loops." alt="" coords="418,5,541,32"/>
-<area shape="poly" title=" " alt="" coords="306,155,342,101,370,69,401,42,409,37,412,41,405,46,373,73,346,104,310,158"/>
-<area shape="rect" href="_c_o_n_t_r_o_l_8c.html#a13ef57486b0fdd5f0449ae38a5039e47" title="Calculates the current references based on electrical speed, torque reference, voltage reference,..." alt="" coords="403,56,555,83"/>
-<area shape="poly" title=" " alt="" coords="314,155,352,124,402,92,414,86,417,91,404,97,355,128,317,159"/>
-<area shape="rect" href="_c_o_n_t_r_o_l_8c.html#aaffe76ea3a271728f3cb3d0b97ffe2e4" title="function." alt="" coords="436,107,523,133"/>
-<area shape="poly" title=" " alt="" coords="348,154,420,134,421,139,350,159"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#acb612a58453d95f2d3ae5d9ce1ebaf6f" title="Get electrical ADC measurements." alt="" coords="409,157,549,184"/>
-<area shape="poly" title=" " alt="" coords="355,168,394,168,394,173,355,173"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a1988c289dd46fd505e0f9de30044fed0" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="419,208,540,235"/>
-<area shape="poly" title=" " alt="" coords="350,182,415,201,414,206,348,187"/>
-<area shape="rect" href="_c_o_n_t_r_o_l_8c.html#adb373ce1587c58be1d83f77103483f6b" title="Saturates PI output to not surpass DC voltage." alt="" coords="422,259,537,285"/>
-<area shape="poly" title=" " alt="" coords="317,182,355,213,404,244,417,250,414,255,402,249,352,217,314,187"/>
-<area shape="rect" href="_p_w_m_8c.html#a9b7cfc95a135d15862e6b5619c9696fe" title="Set PWM duty cycles." alt="" coords="429,309,529,336"/>
-<area shape="poly" title=" " alt="" coords="310,183,346,237,373,268,405,295,416,302,413,306,401,299,370,272,342,241,306,186"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#af5e40ee9d1ed5e3661139df852b9fba8" title="Computes d&#45;q currents from current measurements and electrical angle." alt="" coords="647,103,714,129"/>
-<area shape="poly" title=" " alt="" coords="530,154,631,126,633,132,532,159"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a35344a31c9b0c99423ee9e3f5287a5b2" title="Convert ADC reading to physical measurement with linear response." alt="" coords="642,153,719,180"/>
-<area shape="poly" title=" " alt="" coords="550,167,626,165,626,170,550,172"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a0da21f1ac59fa2f2ff67acfd930147ed" title="Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed." alt="" coords="603,204,758,247"/>
-<area shape="poly" title=" " alt="" coords="540,220,588,221,588,226,540,225"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a0f5d51160e9eb91ad3ffba1c5905eed6" title="Symmetrically saturate a reference value." alt="" coords="612,271,749,297"/>
-<area shape="poly" title=" " alt="" coords="525,233,621,263,620,268,524,238"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -495,15 +539,35 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="stm32f7xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d_cgraph.png" border="0" usemap="#astm32f7xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d_cgraph" alt=""/></div>
 <map name="astm32f7xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d_cgraph" id="astm32f7xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d_cgraph">
-<area shape="rect" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,56,162,83"/>
-<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,56,295,83"/>
-<area shape="poly" title=" " alt="" coords="162,67,194,67,194,72,162,72"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a2ca7064e54ee37e91151caeeeb31e129" title="Retrieves temperature from a lookup table based on ADC bits." alt="" coords="343,5,458,32"/>
-<area shape="poly" title=" " alt="" coords="293,53,344,35,346,40,295,58"/>
-<area shape="rect" href="_p_c_b___i_o_8c.html#afec13170cd54a3dc4f50bae3cb8f386e" title="Handles the direction of the motors." alt="" coords="343,56,458,83"/>
-<area shape="poly" title=" " alt="" coords="295,67,327,67,327,72,295,72"/>
-<area shape="rect" href="_p_c_b___i_o_8c.html#a6736efa24340a6743e5d41dab343c15b" title="LED handler function." alt="" coords="355,107,446,133"/>
-<area shape="poly" title=" " alt="" coords="295,81,346,99,344,104,293,86"/>
+<area shape="rect" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,132,162,159"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,132,295,159"/>
+<area shape="poly" title=" " alt="" coords="162,143,194,143,194,148,162,148"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#ad1767fbcd06a25a3c5d6db9c033c2a0f" title="Derate the current reference based on both motor and inverter temperatures." alt="" coords="343,5,507,32"/>
+<area shape="poly" title=" " alt="" coords="260,130,292,87,315,63,342,42,351,36,354,41,344,46,319,66,296,90,264,133"/>
+<area shape="rect" href="_p_c_b___i_o_8c.html#a01c2ef603c5fdbf3e7dd8693c7acbf95" title="Handles the direction of the motors and enables/disables the inverters." alt="" coords="368,56,482,83"/>
+<area shape="poly" title=" " alt="" coords="274,129,342,92,359,86,361,91,344,97,276,134"/>
+<area shape="rect" href="_p_c_b___i_o_8c.html#afec13170cd54a3dc4f50bae3cb8f386e" title="Handles the direction of the motors." alt="" coords="368,107,483,133"/>
+<area shape="poly" title=" " alt="" coords="295,136,352,128,353,133,296,142"/>
+<area shape="rect" href="_p_c_b___i_o_8c.html#a6736efa24340a6743e5d41dab343c15b" title="LED handler function." alt="" coords="380,157,471,184"/>
+<area shape="poly" title=" " alt="" coords="296,149,365,159,364,164,295,154"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a1988c289dd46fd505e0f9de30044fed0" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="365,208,486,235"/>
+<area shape="poly" title=" " alt="" coords="276,157,344,194,361,200,359,205,342,198,274,162"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#aa5fcd710eb07dd2c092bad70b7e2bab1" title="Function to read temperatures and handle overtemperature faults." alt="" coords="361,259,490,285"/>
+<area shape="poly" title=" " alt="" coords="264,158,296,201,319,224,344,244,354,250,351,254,342,249,315,228,292,204,260,161"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#ab28157c98105fc7d3bbb3dc65e7d5eda" title="Calculate derated current based on temperature thresholds. It implements a simple linear derating fro..." alt="" coords="555,5,726,32"/>
+<area shape="poly" title=" " alt="" coords="508,16,540,16,540,21,508,21"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a0da21f1ac59fa2f2ff67acfd930147ed" title="Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed." alt="" coords="563,141,718,184"/>
+<area shape="poly" title=" " alt="" coords="476,205,548,185,549,190,478,210"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a0f5d51160e9eb91ad3ffba1c5905eed6" title="Symmetrically saturate a reference value." alt="" coords="572,208,709,235"/>
+<area shape="poly" title=" " alt="" coords="486,219,557,219,557,224,486,224"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a2ca7064e54ee37e91151caeeeb31e129" title="Retrieves temperature from a lookup table based on ADC bits." alt="" coords="583,259,698,285"/>
+<area shape="poly" title=" " alt="" coords="490,269,567,269,567,275,490,275"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#a3125d15d3bd844ba6e4824432f3261fa" title="Function to handle overtemperature faults." alt="" coords="561,309,720,352"/>
+<area shape="poly" title=" " alt="" coords="478,283,547,302,545,308,476,288"/>
+<area shape="rect" href="_e_r_r_o_r_s_8c.html#a2639be61abcbef4da48c0b288ce97c74" title="Clears an error in the error field of a data structure." alt="" coords="774,292,856,319"/>
+<area shape="poly" title=" " alt="" coords="720,316,758,311,759,316,721,322"/>
+<area shape="rect" href="_e_r_r_o_r_s_8c.html#a0f0f6f855e7f3762d23ee2f3d448911e" title="Sets an error in the error field of a data structure." alt="" coords="779,343,851,369"/>
+<area shape="poly" title=" " alt="" coords="721,340,764,346,763,351,720,345"/>
 </map>
 </div>
 

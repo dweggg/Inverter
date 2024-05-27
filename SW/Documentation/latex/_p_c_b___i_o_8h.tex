@@ -6,12 +6,13 @@ Header file for handling GPIOs.
 
 
 {\ttfamily \#include "{}stm32f7xx\+\_\+hal.\+h"{}}\newline
-Include dependency graph for PCB\+\_\+\+IO.\+h\+:
-\nopagebreak
+{\ttfamily \#include "{}main.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for PCB\+\_\+\+IO.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=204pt]{_p_c_b___i_o_8h__incl}
+\includegraphics[width=247pt]{_p_c_b___i_o_8h__incl}
 \end{center}
 \end{figure}
 This graph shows which files directly or indirectly include this file\+:
@@ -55,7 +56,9 @@ enum \mbox{\hyperlink{_p_c_b___i_o_8h_a57effb96f46e458675a2653d4c543ca2}{LEDMode
 void \mbox{\hyperlink{_p_c_b___i_o_8h_a6736efa24340a6743e5d41dab343c15b}{handle\+\_\+\+LED}} (\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, uint32\+\_\+t ms\+\_\+counter)
 \begin{DoxyCompactList}\small\item\em \doxylink{struct_l_e_d}{LED} handler function. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_p_c_b___i_o_8h_afec13170cd54a3dc4f50bae3cb8f386e}{handle\+\_\+direction}} (volatile int8\+\_\+t \texorpdfstring{$\ast$}{*}dir\+\_\+left, volatile int8\+\_\+t \texorpdfstring{$\ast$}{*}dir\+\_\+right)
-\begin{DoxyCompactList}\small\item\em Handles the direction of the motors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Handles the direction of the motors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_p_c_b___i_o_8h_a01c2ef603c5fdbf3e7dd8693c7acbf95}{enable\+\_\+inverters}} (volatile bool enable\+SW\+\_\+left, volatile bool enable\+SW\+\_\+right, volatile bool \texorpdfstring{$\ast$}{*}enable\+\_\+left, volatile bool \texorpdfstring{$\ast$}{*}enable\+\_\+right)
+\begin{DoxyCompactList}\small\item\em Handles the direction of the motors and enables/disables the inverters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -138,6 +141,36 @@ LED\+\_\+\+MODE\+\_\+\+OFF&\doxylink{struct_l_e_d}{LED} off mode \\
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{_p_c_b___i_o_8h_a01c2ef603c5fdbf3e7dd8693c7acbf95}\label{_p_c_b___i_o_8h_a01c2ef603c5fdbf3e7dd8693c7acbf95} 
+\index{PCB\_IO.h@{PCB\_IO.h}!enable\_inverters@{enable\_inverters}}
+\index{enable\_inverters@{enable\_inverters}!PCB\_IO.h@{PCB\_IO.h}}
+\doxysubsubsection{\texorpdfstring{enable\_inverters()}{enable\_inverters()}}
+{\footnotesize\ttfamily void enable\+\_\+inverters (\begin{DoxyParamCaption}\item[{volatile bool}]{enable\+SW\+\_\+left,  }\item[{volatile bool}]{enable\+SW\+\_\+right,  }\item[{volatile bool \texorpdfstring{$\ast$}{*}}]{enable\+\_\+left,  }\item[{volatile bool \texorpdfstring{$\ast$}{*}}]{enable\+\_\+right }\end{DoxyParamCaption})}
+
+
+
+Handles the direction of the motors and enables/disables the inverters. 
+
+This function reads the state of the shutdown chain (SC or SDC) and enables/disables the inverters based on that and an external software enable bool.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em enable\+SW\+\_\+left} & The software enable state for the left inverter. \\
+\hline
+\mbox{\texttt{ in}}  & {\em enable\+SW\+\_\+right} & The software enable state for the right inverter. \\
+\hline
+\mbox{\texttt{ out}}  & {\em enable\+\_\+left} & Output parameter for the left inverter\textquotesingle{}s enable state. \\
+\hline
+\mbox{\texttt{ out}}  & {\em enable\+\_\+right} & Output parameter for the right inverter\textquotesingle{}s enable state. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_p_c_b___i_o_8h_a01c2ef603c5fdbf3e7dd8693c7acbf95_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{_p_c_b___i_o_8h_afec13170cd54a3dc4f50bae3cb8f386e}\label{_p_c_b___i_o_8h_afec13170cd54a3dc4f50bae3cb8f386e} 
 \index{PCB\_IO.h@{PCB\_IO.h}!handle\_direction@{handle\_direction}}
 \index{handle\_direction@{handle\_direction}!PCB\_IO.h@{PCB\_IO.h}}
@@ -157,8 +190,7 @@ This function reads the state of the DIR switch and updates the directions of bo
 {\em dir\+\_\+right} & Pointer to the direction parameter in the right inverter structure. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -193,8 +225,7 @@ This function handles the \doxylink{struct_l_e_d}{LED} blinking modes based on t
 {\em ms\+\_\+counter} & Current millisecond counter. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

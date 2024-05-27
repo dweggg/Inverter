@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['reference_0',['Reference',['../struct_reference.html',1,'']]]
+  ['motorconstants_0',['MotorConstants',['../struct_motor_constants.html',1,'']]],
+  ['motorparameters_1',['MotorParameters',['../struct_motor_parameters.html',1,'']]]
 ];

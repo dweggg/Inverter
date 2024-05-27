@@ -11,14 +11,14 @@
 \DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_p_w_m_8h}{PWM.h}}"{}}\ \textcolor{comment}{//\ duties\ struct}}
 \DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h}{INVERTER.h}}"{}}\ \textcolor{comment}{//\ TS\ \&\ Inverter\ struct}}
 \DoxyCodeLine{00025\ }
-\DoxyCodeLine{00037\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_a13ef57486b0fdd5f0449ae38a5039e47}{calc\_current\_reference}}(\textcolor{keywordtype}{float}\ we,\ \textcolor{keywordtype}{float}\ torqueRef,\ \textcolor{keywordtype}{float}\ vsRef,\ \mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ *motor,\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{float}\ *\ idRef,\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{float}\ *\ iqRef);}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_a8f219eb3c0f9cc2e68149504b730a47c}{calc\_current\_loop}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv);}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_adb373ce1587c58be1d83f77103483f6b}{saturate\_voltage}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv);}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_aaffe76ea3a271728f3cb3d0b97ffe2e4}{calc\_duties}}(\textcolor{keywordtype}{float}\ vd,\ \textcolor{keywordtype}{float}\ vq,\ \textcolor{keywordtype}{float}\ vDC,\ \textcolor{keywordtype}{float}\ sinTheta\_e,\ \textcolor{keywordtype}{float}\ cosTheta\_e,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_duties}{Duties}}\ *duties);}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CONTROL\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_a25e3a39e003be5fc1a9cd2e824b3c45f}{calc\_current\_reference}}(\mbox{\hyperlink{struct_motor_parameters}{MotorParameters}}\ *\ motor,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_reference}{Reference}}\ *\ reference);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00048\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_a8f219eb3c0f9cc2e68149504b730a47c}{calc\_current\_loop}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_adb373ce1587c58be1d83f77103483f6b}{saturate\_voltage}}(\textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_inverter_struct}{InverterStruct}}\ *inv);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_c_o_n_t_r_o_l_8h_aaffe76ea3a271728f3cb3d0b97ffe2e4}{calc\_duties}}(\textcolor{keywordtype}{float}\ vd,\ \textcolor{keywordtype}{float}\ vq,\ \textcolor{keywordtype}{float}\ vDC,\ \textcolor{keywordtype}{float}\ sinTheta\_e,\ \textcolor{keywordtype}{float}\ cosTheta\_e,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_duties}{Duties}}\ *duties);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CONTROL\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

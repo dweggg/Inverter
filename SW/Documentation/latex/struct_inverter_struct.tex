@@ -63,6 +63,12 @@ float \mbox{\hyperlink{struct_inverter_struct_af09339aff96c13024b0fce571e32cc98}
 float \mbox{\hyperlink{struct_inverter_struct_a0327ece0f0d05b72e02fa9dc3e44bebb}{vq}}
 \item 
 pi\+\_\+struct \mbox{\hyperlink{struct_inverter_struct_aaed477d964d824fd09123df9e8b16b50}{speed\+Loop}}
+\item 
+\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} \mbox{\hyperlink{struct_inverter_struct_a3618d73feaeca70d98b4b65ff5ca8981}{errors}}
+\item 
+bool \mbox{\hyperlink{struct_inverter_struct_ac842b6c1dcb3b1f11b611620199dc55c}{enable}}
+\item 
+bool \mbox{\hyperlink{struct_inverter_struct_ab36df009f93d86010cb0f2f86850950d}{enable\+SW}}
 \end{DoxyCompactItemize}
 
 
@@ -88,7 +94,13 @@ Motor direction\+: 1 CW, -\/1 CCW, 0 stopped \Hypertarget{struct_inverter_struct
 \doxysubsubsection{\texorpdfstring{duties}{duties}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_duties}{Duties}} duties}
 
-Structure for duty cycles for phases A, B, and C \Hypertarget{struct_inverter_struct_ab92945770bc3cbcd703dd87682c7ee6e}\label{struct_inverter_struct_ab92945770bc3cbcd703dd87682c7ee6e} 
+Structure for duty cycles for phases A, B, and C \Hypertarget{struct_inverter_struct_ac842b6c1dcb3b1f11b611620199dc55c}\label{struct_inverter_struct_ac842b6c1dcb3b1f11b611620199dc55c} 
+\index{InverterStruct@{InverterStruct}!enable@{enable}}
+\index{enable@{enable}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{enable}{enable}}
+{\footnotesize\ttfamily bool enable}
+
+Enable bit for transitioning states \Hypertarget{struct_inverter_struct_ab92945770bc3cbcd703dd87682c7ee6e}\label{struct_inverter_struct_ab92945770bc3cbcd703dd87682c7ee6e} 
 \index{InverterStruct@{InverterStruct}!enable\_pin@{enable\_pin}}
 \index{enable\_pin@{enable\_pin}!InverterStruct@{InverterStruct}}
 \doxysubsubsection{\texorpdfstring{enable\_pin}{enable\_pin}}
@@ -100,13 +112,26 @@ Pin number for enabling/disabling the inverter \Hypertarget{struct_inverter_stru
 \doxysubsubsection{\texorpdfstring{enable\_port}{enable\_port}}
 {\footnotesize\ttfamily GPIO\+\_\+\+Type\+Def\texorpdfstring{$\ast$}{*} enable\+\_\+port}
 
-Pointer to GPIO port for enabling/disabling the inverter \Hypertarget{struct_inverter_struct_a133a3017d675be921d0d7586eec7bb7c}\label{struct_inverter_struct_a133a3017d675be921d0d7586eec7bb7c} 
+Pointer to GPIO port for enabling/disabling the inverter \Hypertarget{struct_inverter_struct_ab36df009f93d86010cb0f2f86850950d}\label{struct_inverter_struct_ab36df009f93d86010cb0f2f86850950d} 
+\index{InverterStruct@{InverterStruct}!enableSW@{enableSW}}
+\index{enableSW@{enableSW}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{enableSW}{enableSW}}
+{\footnotesize\ttfamily bool enable\+SW}
+
+External enable order (needs HW enable to set inv.\+enable to 1, and if the FAULT state is entered, enable\+SW must be set to 0 to transition to the IDLE state) ~\newline
+ \Hypertarget{struct_inverter_struct_a133a3017d675be921d0d7586eec7bb7c}\label{struct_inverter_struct_a133a3017d675be921d0d7586eec7bb7c} 
 \index{InverterStruct@{InverterStruct}!encoder@{encoder}}
 \index{encoder@{encoder}!InverterStruct@{InverterStruct}}
 \doxysubsubsection{\texorpdfstring{encoder}{encoder}}
 {\footnotesize\ttfamily \mbox{\hyperlink{struct_encoder}{Encoder}} encoder}
 
-Structure for encoder input \Hypertarget{struct_inverter_struct_a20a30b84d36e84b3d0e6ca4db56f723c}\label{struct_inverter_struct_a20a30b84d36e84b3d0e6ca4db56f723c} 
+Structure for encoder input \Hypertarget{struct_inverter_struct_a3618d73feaeca70d98b4b65ff5ca8981}\label{struct_inverter_struct_a3618d73feaeca70d98b4b65ff5ca8981} 
+\index{InverterStruct@{InverterStruct}!errors@{errors}}
+\index{errors@{errors}!InverterStruct@{InverterStruct}}
+\doxysubsubsection{\texorpdfstring{errors}{errors}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} errors}
+
+Error field storing error bits, using Inverter\+Error enum \Hypertarget{struct_inverter_struct_a20a30b84d36e84b3d0e6ca4db56f723c}\label{struct_inverter_struct_a20a30b84d36e84b3d0e6ca4db56f723c} 
 \index{InverterStruct@{InverterStruct}!feedback@{feedback}}
 \index{feedback@{feedback}!InverterStruct@{InverterStruct}}
 \doxysubsubsection{\texorpdfstring{feedback}{feedback}}

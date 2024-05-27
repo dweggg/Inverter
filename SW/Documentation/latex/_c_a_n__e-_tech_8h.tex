@@ -1,0 +1,121 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\+CAN\+\_\+e-\/\+Tech.h File Reference}
+\hypertarget{_c_a_n__e-_tech_8h}{}\label{_c_a_n__e-_tech_8h}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN\_e-\/Tech.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN\_e-\/Tech.h}}
+
+
+Header file for handling CAN communication with the car.  
+
+
+{\ttfamily \#include "{}CAN1db.\+h"{}}\newline
+Include dependency graph for CAN\+\_\+e-\/\+Tech.h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{_c_a_n__e-_tech_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{_c_a_n__e-_tech_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_a_n_message_info}{CANMessage\+Info}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_c_a_n__e-_tech_8h_a344219c7f86a488bcb222a4b675ee586}{handle\+\_\+\+CAN}} (CAN\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hcan)
+\begin{DoxyCompactList}\small\item\em Handle CAN messages. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_c_a_n__e-_tech_8h_a338a1edd038abc0fd507ad984eb4acfa}{send\+\_\+\+CAN\+\_\+message}} (CAN\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hcan, void \texorpdfstring{$\ast$}{*}dbc\+\_\+msg, const float \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Send a CAN message using CAN1db.\+h information. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{_c_a_n__e-_tech_8h_a4f0582e1cda8482a5450be15a34eb197}{enable\+CAN}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for handling CAN communication with the car. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_c_a_n__e-_tech_8h_a344219c7f86a488bcb222a4b675ee586}\label{_c_a_n__e-_tech_8h_a344219c7f86a488bcb222a4b675ee586} 
+\index{CAN\_e-\/Tech.h@{CAN\_e-\/Tech.h}!handle\_CAN@{handle\_CAN}}
+\index{handle\_CAN@{handle\_CAN}!CAN\_e-\/Tech.h@{CAN\_e-\/Tech.h}}
+\doxysubsubsection{\texorpdfstring{handle\_CAN()}{handle\_CAN()}}
+{\footnotesize\ttfamily void handle\+\_\+\+CAN (\begin{DoxyParamCaption}\item[{CAN\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hcan }\end{DoxyParamCaption})}
+
+
+
+Handle CAN messages. 
+
+This function implements the logic to handle received CAN messages.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hcan} & Pointer to the CAN handle structure. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{_c_a_n__e-_tech_8h_a344219c7f86a488bcb222a4b675ee586_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=305pt]{_c_a_n__e-_tech_8h_a344219c7f86a488bcb222a4b675ee586_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_c_a_n__e-_tech_8h_a338a1edd038abc0fd507ad984eb4acfa}\label{_c_a_n__e-_tech_8h_a338a1edd038abc0fd507ad984eb4acfa} 
+\index{CAN\_e-\/Tech.h@{CAN\_e-\/Tech.h}!send\_CAN\_message@{send\_CAN\_message}}
+\index{send\_CAN\_message@{send\_CAN\_message}!CAN\_e-\/Tech.h@{CAN\_e-\/Tech.h}}
+\doxysubsubsection{\texorpdfstring{send\_CAN\_message()}{send\_CAN\_message()}}
+{\footnotesize\ttfamily void send\+\_\+\+CAN\+\_\+message (\begin{DoxyParamCaption}\item[{CAN\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hcan,  }\item[{void \texorpdfstring{$\ast$}{*}}]{dbc\+\_\+msg,  }\item[{const float \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Send a CAN message using CAN1db.\+h information. 
+
+This function prepares and sends a CAN message using information from CAN1db.\+h.
+
+
+\begin{DoxyParams}{Parameters}
+{\em hcan} & Pointer to the CAN handle structure. \\
+\hline
+{\em dbc\+\_\+msg} & Pointer to the structure containing CAN message information from CAN1db.\+h. \\
+\hline
+{\em data} & Pointer to the array of float data to be sent. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_c_a_n__e-_tech_8h_a338a1edd038abc0fd507ad984eb4acfa_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_c_a_n__e-_tech_8h_a4f0582e1cda8482a5450be15a34eb197}\label{_c_a_n__e-_tech_8h_a4f0582e1cda8482a5450be15a34eb197} 
+\index{CAN\_e-\/Tech.h@{CAN\_e-\/Tech.h}!enableCAN@{enableCAN}}
+\index{enableCAN@{enableCAN}!CAN\_e-\/Tech.h@{CAN\_e-\/Tech.h}}
+\doxysubsubsection{\texorpdfstring{enableCAN}{enableCAN}}
+{\footnotesize\ttfamily uint8\+\_\+t enable\+CAN\hspace{0.3cm}{\ttfamily [extern]}}
+

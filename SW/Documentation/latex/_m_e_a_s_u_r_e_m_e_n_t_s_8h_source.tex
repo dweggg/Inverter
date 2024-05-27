@@ -9,52 +9,64 @@
 \DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ MEASUREMENTS\_H}}
 \DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ MEASUREMENTS\_H}}
 \DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \textcolor{comment}{/*\ Define\ current\ and\ voltage\ gains/offsets\ */}}
-\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ CURRENT\_SLOPE\ \ 54.4217687f\ \ }}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ CURRENT\_OFFSET\ 1.70068027211f\ }}
-\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ VOLTAGE\_SLOPE\ \ 263.435f\ \ }}
-\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ VOLTAGE\_OFFSET\ 0.02083f\ }}
-\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a4dfa6fc576123af2c78a1f3d13d26fd1}{tempInverterLUT}}[];}
-\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_afb617dfdbeab0dab534ac143440501fb}{tempMotorLUT}}[];}
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint32\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a77106815c0fcbe0eba3efdf7afc74141}{rawADC\_left}}[4];\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint32\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a470ce3152b4d75fad3e25910c8a2ea34}{rawADC\_right}}[4];\ }
-\DoxyCodeLine{00036\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint32\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a67959fa70231e3281e6af1d01c67ef40}{rawADC\_temp}}[4];\ }
-\DoxyCodeLine{00042\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00043\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_encoder_a48f5a6b346491762f3f7a32882f31bed}{A}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00044\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_encoder_ae783bd90764c8455228772c025c064e4}{B}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00045\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_encoder_a5a8eb607e6c3f820a971b163abc936d5}{Z}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_a45938c516b24d04e3bae20b3ae8c2d08}{we}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_affa9013ea1e246c1f69bba53632a967b}{theta\_e}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_a47f02ef71d97b242663572202fe64f90}{sinTheta\_e}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_ac6881e0192309ae82ce5b4e9ac4dc714}{cosTheta\_e}};\ \ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00050\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_encoder_ab68fc2f847c9a5e38d2339d378e294c1}{directionMeas}};\ \ \ \ \ \ }
-\DoxyCodeLine{00051\ \}\ \mbox{\hyperlink{struct_encoder}{Encoder}};}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00056\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_analog_a7b367da12b961437c2059d6da0595a14}{ia}};\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_analog_aa2e5a869148258735d37540db788c66c}{ib}};\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_analog_a9e556245df4e7b1be25fbb5e2075d50a}{ic}};\ \ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_analog_a8e83e7c3f440822ab3af5f71c6bee348}{vDC}};\ \ \ \ \ \ \ \ }
-\DoxyCodeLine{00061\ \}\ \mbox{\hyperlink{struct_analog}{Analog}};}
-\DoxyCodeLine{00062\ }
-\DoxyCodeLine{00066\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_feedback_ad4e628fe9fa9c7d9ab0f0a1b0f826ee7}{idMeas}};\ \ \ \ \ \ }
-\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_feedback_a3c7d6939406c8a0ba89c96cbf49db5db}{iqMeas}};\ \ \ \ \ \ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_feedback_a7cf0ca173060ec36197dd701fc1688ea}{torqueCalc}};\ \ }
-\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_feedback_a2583c34bc441014f4cd3b6f6cc4f5ac4}{speedMeas}};\ \ \ }
-\DoxyCodeLine{00071\ \}\ \mbox{\hyperlink{struct_feedback}{Feedback}};}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00082\ uint8\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_acb612a58453d95f2d3ae5d9ce1ebaf6f}{get\_currents\_voltage}}(\textcolor{keyword}{volatile}\ uint32\_t\ ADC\_raw[],\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_analog}{Analog}}*\ analog,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_feedback}{Feedback}}*\ feedback,\ \textcolor{keywordtype}{float}\ sinTheta\_e,\ \textcolor{keywordtype}{float}\ cosTheta\_e);}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00091\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a35344a31c9b0c99423ee9e3f5287a5b2}{get\_linear}}(uint32\_t\ bits,\ \textcolor{keywordtype}{float}\ slope,\ \textcolor{keywordtype}{float}\ offset);}
-\DoxyCodeLine{00092\ }
-\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_af5e40ee9d1ed5e3661139df852b9fba8}{get\_idiq}}(\textcolor{keywordtype}{float}\ ia,\ \textcolor{keywordtype}{float}\ ib,\ \textcolor{keywordtype}{float}\ ic,\ \textcolor{keywordtype}{float}\ sinTheta\_e,\ \textcolor{keywordtype}{float}\ cosTheta\_e,\ \textcolor{keywordtype}{float}\ *idMeas,\ \textcolor{keywordtype}{float}\ *iqMeas);}
-\DoxyCodeLine{00108\ }
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00120\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a2ca7064e54ee37e91151caeeeb31e129}{get\_temperature}}(uint32\_t\ bits,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ tempLUT[]);}
-\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MEASUREMENTS\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_e_r_r_o_r_s_8h}{ERRORS.h}}"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{/*\ Define\ current\ and\ voltage\ gains/offsets\ */}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#define\ CURRENT\_SLOPE\ \ 117.57704f\ \ }}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ CURRENT\_OFFSET\ 1.70068027211f\ }}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ VOLTAGE\_SLOPE\ \ 263.435f\ \ }}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ VOLTAGE\_OFFSET\ 0.02083f\ }}
+\DoxyCodeLine{00033\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a4dfa6fc576123af2c78a1f3d13d26fd1}{tempInverterLUT}}[];}
+\DoxyCodeLine{00034\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_afb617dfdbeab0dab534ac143440501fb}{tempMotorLUT}}[];}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint16\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1125c65f0dc3d61557308fed4dc5b0dc}{rawADC\_left}}[4];\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint16\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a42783afa976b4525dbbe48f07ec0c3ce}{rawADC\_right}}[4];\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ uint16\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_afcbf1abf5943597f0a4e4cfb69e940c6}{rawADC\_temp}}[4];\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00045\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_encoder_a48f5a6b346491762f3f7a32882f31bed}{A}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_encoder_ae783bd90764c8455228772c025c064e4}{B}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ uint16\_t\ \mbox{\hyperlink{struct_encoder_a5a8eb607e6c3f820a971b163abc936d5}{Z}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_a45938c516b24d04e3bae20b3ae8c2d08}{we}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_affa9013ea1e246c1f69bba53632a967b}{theta\_e}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_a47f02ef71d97b242663572202fe64f90}{sinTheta\_e}};\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_encoder_ac6881e0192309ae82ce5b4e9ac4dc714}{cosTheta\_e}};\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{struct_encoder_ab68fc2f847c9a5e38d2339d378e294c1}{directionMeas}};\ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \}\ \mbox{\hyperlink{struct_encoder}{Encoder}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_analog_a7b367da12b961437c2059d6da0595a14}{ia}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_analog_aa2e5a869148258735d37540db788c66c}{ib}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_analog_a9e556245df4e7b1be25fbb5e2075d50a}{ic}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_analog_a8e83e7c3f440822ab3af5f71c6bee348}{vDC}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keywordtype}{float}\ currentOffsets[3];\ \ \ \ }
+\DoxyCodeLine{00065\ \}\ \mbox{\hyperlink{struct_analog}{Analog}};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_feedback_ad4e628fe9fa9c7d9ab0f0a1b0f826ee7}{idMeas}};\ \ \ \ \ \ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_feedback_a3c7d6939406c8a0ba89c96cbf49db5db}{iqMeas}};\ \ \ \ \ \ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_feedback_a7cf0ca173060ec36197dd701fc1688ea}{torqueCalc}};\ \ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_feedback_a2583c34bc441014f4cd3b6f6cc4f5ac4}{speedMeas}};\ \ \ }
+\DoxyCodeLine{00076\ \}\ \mbox{\hyperlink{struct_feedback}{Feedback}};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00089\ uint8\_t\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1e0c627576d5f8855c1b66bbbe597e9e}{get\_currents\_voltage}}(\textcolor{keyword}{volatile}\ uint16\_t\ ADC\_raw[],\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_analog}{Analog}}*\ analog,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{struct_feedback}{Feedback}}*\ feedback,\ \textcolor{keyword}{volatile}\ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{InverterError}}\ *errors,\ \textcolor{keywordtype}{float}\ sinTheta\_e,\ \textcolor{keywordtype}{float}\ cosTheta\_e);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00098\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a35344a31c9b0c99423ee9e3f5287a5b2}{get\_linear}}(uint32\_t\ bits,\ \textcolor{keywordtype}{float}\ slope,\ \textcolor{keywordtype}{float}\ offset);}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_af5e40ee9d1ed5e3661139df852b9fba8}{get\_idiq}}(\textcolor{keywordtype}{float}\ ia,\ \textcolor{keywordtype}{float}\ ib,\ \textcolor{keywordtype}{float}\ ic,\ \textcolor{keywordtype}{float}\ sinTheta\_e,\ \textcolor{keywordtype}{float}\ cosTheta\_e,\ \textcolor{keywordtype}{float}\ *idMeas,\ \textcolor{keywordtype}{float}\ *iqMeas);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a2ca7064e54ee37e91151caeeeb31e129}{get\_temperature}}(uint32\_t\ bits,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ tempLUT[]);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00142\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a0b5411fd73aa9225ea6261ea0233f920}{calibrate\_offsets}}(\textcolor{keyword}{volatile}\ uint16\_t\ rawADC[],\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{float}\ currentOffsets[],\ uint32\_t\ numSamples);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ MEASUREMENTS\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

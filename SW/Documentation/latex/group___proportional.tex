@@ -1,0 +1,142 @@
+\doxysection{-\/ Integral Controllers}
+\hypertarget{group___proportional}{}\label{group___proportional}\index{-\/ Integral Controllers@{-\/ Integral Controllers}}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpi__aw__struct}{pi\+\_\+aw\+\_\+struct}}
+\begin{DoxyCompactList}\small\item\em PI Controller with internal saturation, anti-\/windup, and feedforward. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}}
+\begin{DoxyCompactList}\small\item\em PI Controller with external saturation and feedforward. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{group___proportional_ga972a3c6a01a8a6a0c2ad415ca9af43cc}{pi\+\_\+aw\+\_\+calc}} (volatile \mbox{\hyperlink{structpi__aw__struct}{pi\+\_\+aw\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \+\_\+\+\_\+attribute\+\_\+\+\_\+((section("{}.ccmram"{})))
+\begin{DoxyCompactList}\small\item\em Initializes the PI controller with anti-\/windup. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___proportional_ga7d78cf2a5a20ee07e1311e01d20c3d3f}{pi\+\_\+init}} (volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \+\_\+\+\_\+attribute\+\_\+\+\_\+((section("{}.ccmram"{})))
+\begin{DoxyCompactList}\small\item\em Initializes the PI controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___proportional_ga911a13b7487ee7e538d7cfe2e276f12e}{pi\+\_\+calc}} (volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}v) \+\_\+\+\_\+attribute\+\_\+\+\_\+((section("{}.ccmram"{})))
+\begin{DoxyCompactList}\small\item\em Calculates the output of the PI controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{group___proportional_ga13d559c9758c61f2cab20c44beaac68c}{pi\+\_\+extsat\+\_\+calc}} (volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}v)
+\begin{DoxyCompactList}\small\item\em Calculates the output of the PI controller with external saturation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{group___proportional_ga972a3c6a01a8a6a0c2ad415ca9af43cc}\label{group___proportional_ga972a3c6a01a8a6a0c2ad415ca9af43cc} 
+\index{-\/ Integral Controllers@{-\/ Integral Controllers}!pi\_aw\_calc@{pi\_aw\_calc}}
+\index{pi\_aw\_calc@{pi\_aw\_calc}!-\/ Integral Controllers@{-\/ Integral Controllers}}
+\doxysubsubsection{\texorpdfstring{pi\_aw\_calc()}{pi\_aw\_calc()}}
+{\footnotesize\ttfamily void pi\+\_\+aw\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structpi__aw__struct}{pi\+\_\+aw\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Initializes the PI controller with anti-\/windup. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the PI controller structure.\\
+\hline
+\end{DoxyParams}
+Initializes the PI controller with anti-\/windup.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the PI control structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function computes the PI control action with anti-\/windup. 
+\end{DoxyNote}
+\Hypertarget{group___proportional_ga911a13b7487ee7e538d7cfe2e276f12e}\label{group___proportional_ga911a13b7487ee7e538d7cfe2e276f12e} 
+\index{-\/ Integral Controllers@{-\/ Integral Controllers}!pi\_calc@{pi\_calc}}
+\index{pi\_calc@{pi\_calc}!-\/ Integral Controllers@{-\/ Integral Controllers}}
+\doxysubsubsection{\texorpdfstring{pi\_calc()}{pi\_calc()}}
+{\footnotesize\ttfamily void pi\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Calculates the output of the PI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the PI controller structure.\\
+\hline
+\end{DoxyParams}
+Calculates the output of the PI controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the PI structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function computes the PI control action with feedforward and saturation. 
+\end{DoxyNote}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___proportional_ga911a13b7487ee7e538d7cfe2e276f12e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{group___proportional_ga13d559c9758c61f2cab20c44beaac68c}\label{group___proportional_ga13d559c9758c61f2cab20c44beaac68c} 
+\index{-\/ Integral Controllers@{-\/ Integral Controllers}!pi\_extsat\_calc@{pi\_extsat\_calc}}
+\index{pi\_extsat\_calc@{pi\_extsat\_calc}!-\/ Integral Controllers@{-\/ Integral Controllers}}
+\doxysubsubsection{\texorpdfstring{pi\_extsat\_calc()}{pi\_extsat\_calc()}}
+{\footnotesize\ttfamily void pi\+\_\+extsat\+\_\+calc (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Calculates the output of the PI controller with external saturation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the PI controller structure.\\
+\hline
+\end{DoxyParams}
+Calculates the output of the PI controller with external saturation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the PI structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function computes the PI control action without saturation for external saturation. 
+\end{DoxyNote}
+\Hypertarget{group___proportional_ga7d78cf2a5a20ee07e1311e01d20c3d3f}\label{group___proportional_ga7d78cf2a5a20ee07e1311e01d20c3d3f} 
+\index{-\/ Integral Controllers@{-\/ Integral Controllers}!pi\_init@{pi\_init}}
+\index{pi\_init@{pi\_init}!-\/ Integral Controllers@{-\/ Integral Controllers}}
+\doxysubsubsection{\texorpdfstring{pi\_init()}{pi\_init()}}
+{\footnotesize\ttfamily void pi\+\_\+init (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structpi__struct}{pi\+\_\+struct}} \texorpdfstring{$\ast$}{*}}]{v }\end{DoxyParamCaption})}
+
+
+
+Initializes the PI controller. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the PI controller structure.\\
+\hline
+\end{DoxyParams}
+Initializes the PI controller.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Pointer to the PI structure.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+This function initializes the constants used in the PI controller. 
+\end{DoxyNote}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{group___proportional_ga7d78cf2a5a20ee07e1311e01d20c3d3f_icgraph}
+\end{center}
+\end{figure}

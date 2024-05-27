@@ -1,15 +1,12 @@
 var searchData=
 [
-  ['ia_0',['ia',['../struct_analog.html#a7b367da12b961437c2059d6da0595a14',1,'Analog']]],
-  ['ib_1',['ib',['../struct_analog.html#aa2e5a869148258735d37540db788c66c',1,'Analog']]],
-  ['ic_2',['ic',['../struct_analog.html#a9e556245df4e7b1be25fbb5e2075d50a',1,'Analog']]],
-  ['idloop_3',['idLoop',['../struct_inverter_struct.html#a76141940d12e361a3b7f33840274133a',1,'InverterStruct']]],
-  ['idmeas_4',['idMeas',['../struct_feedback.html#ad4e628fe9fa9c7d9ab0f0a1b0f826ee7',1,'Feedback']]],
-  ['idref_5',['idRef',['../struct_reference.html#a5896cad66e973075ed4fb7f0ad07965c',1,'Reference']]],
-  ['imax_6',['iMax',['../struct_motor_parameters.html#a8a4f4574b814374b46399cf778070f26',1,'MotorParameters']]],
-  ['inverter_5fleft_7',['inverter_left',['../_i_n_v_e_r_t_e_r_8h.html#a9d4c83ba0ff9eff71fe732ddac1dc208',1,'inverter_left:&#160;INVERTER.c'],['../_i_n_v_e_r_t_e_r_8c.html#a9d4c83ba0ff9eff71fe732ddac1dc208',1,'inverter_left:&#160;INVERTER.c']]],
-  ['inverter_5fright_8',['inverter_right',['../_i_n_v_e_r_t_e_r_8h.html#a9a1270f4b4f50328b300e5fb98dee476',1,'inverter_right:&#160;INVERTER.c'],['../_i_n_v_e_r_t_e_r_8c.html#a9a1270f4b4f50328b300e5fb98dee476',1,'inverter_right:&#160;INVERTER.c']]],
-  ['iqloop_9',['iqLoop',['../struct_inverter_struct.html#aabc1539fbf53f8a59763438070b3f124',1,'InverterStruct']]],
-  ['iqmeas_10',['iqMeas',['../struct_feedback.html#a3c7d6939406c8a0ba89c96cbf49db5db',1,'Feedback']]],
-  ['iqref_11',['iqRef',['../struct_reference.html#ada1dbfeb5f056dc31bd0f044f5129754',1,'Reference']]]
+  ['hadc_0',['hadc',['../struct_inverter_struct.html#af982c0fe5d77061049c468b599100134',1,'InverterStruct']]],
+  ['hcan1_1',['hcan1',['../stm32f7xx__it_8c.html#a1618d731d18d69e906e8a357b7cd3c8d',1,'stm32f7xx_it.c']]],
+  ['hdac_2',['hdac',['../stm32f7xx__it_8c.html#a40a0d1383beda58531dfda6218720e45',1,'stm32f7xx_it.c']]],
+  ['hdma_5fadc1_3',['hdma_adc1',['../stm32f7xx__it_8c.html#a1c126854bb1813d31ab4776b21dcc51f',1,'stm32f7xx_it.c']]],
+  ['hdma_5fadc2_4',['hdma_adc2',['../stm32f7xx__it_8c.html#ad99dd74cc50b61cf07680c1adaf80337',1,'stm32f7xx_it.c']]],
+  ['hdma_5fadc3_5',['hdma_adc3',['../stm32f7xx__it_8c.html#a348c49f75bc918736d17997ac3f02e82',1,'stm32f7xx_it.c']]],
+  ['htim_6',['htim',['../struct_inverter_struct.html#a5dc7d1c65997ccaed48a93a3f4ffc486',1,'InverterStruct']]],
+  ['htim1_7',['htim1',['../stm32f7xx__it_8c.html#a25fc663547539bc49fecc0011bd76ab5',1,'stm32f7xx_it.c']]],
+  ['htim6_8',['htim6',['../stm32f7xx__it_8c.html#a1564492831a79fa18466467c3420c3c3',1,'stm32f7xx_it.c']]]
 ];

@@ -7,8 +7,8 @@ This file contains functions to execute tasks every 1ms.
 
 {\ttfamily \#include "{}TASKS\+\_\+1ms.\+h"{}}\newline
 {\ttfamily \#include "{}PCB\+\_\+\+IO.\+h"{}}\newline
-{\ttfamily \#include "{}INVERTER.\+h"{}}\newline
 {\ttfamily \#include "{}MEASUREMENTS.\+h"{}}\newline
+{\ttfamily \#include "{}REFERENCE.\+h"{}}\newline
 Include dependency graph for TASKS\+\_\+1ms.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -21,7 +21,11 @@ Include dependency graph for TASKS\+\_\+1ms.\+c\+:
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{_t_a_s_k_s__1ms_8c_afb9caded33eef2ec19467eff02dfaaac}{tasks\+\_\+1ms}} (void)
-\begin{DoxyCompactList}\small\item\em Function to be executed every 1ms. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Function to be executed every 1ms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_a_s_k_s__1ms_8c_aa5fcd710eb07dd2c092bad70b7e2bab1}{read\+\_\+temperatures}} (void)
+\begin{DoxyCompactList}\small\item\em Function to read temperatures and handle overtemperature faults. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_a_s_k_s__1ms_8c_a3125d15d3bd844ba6e4824432f3261fa}{handle\+\_\+overtemperature\+\_\+faults}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv)
+\begin{DoxyCompactList}\small\item\em Function to handle overtemperature faults. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -35,6 +39,59 @@ Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
 This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{_t_a_s_k_s__1ms_8c_a3125d15d3bd844ba6e4824432f3261fa}\label{_t_a_s_k_s__1ms_8c_a3125d15d3bd844ba6e4824432f3261fa} 
+\index{TASKS\_1ms.c@{TASKS\_1ms.c}!handle\_overtemperature\_faults@{handle\_overtemperature\_faults}}
+\index{handle\_overtemperature\_faults@{handle\_overtemperature\_faults}!TASKS\_1ms.c@{TASKS\_1ms.c}}
+\doxysubsubsection{\texorpdfstring{handle\_overtemperature\_faults()}{handle\_overtemperature\_faults()}}
+{\footnotesize\ttfamily void handle\+\_\+overtemperature\+\_\+faults (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv }\end{DoxyParamCaption})}
+
+
+
+Function to handle overtemperature faults. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in,out}}  & {\em inv} & Pointer to the \doxylink{struct_inverter_struct}{Inverter\+Struct} structure. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=297pt]{_t_a_s_k_s__1ms_8c_a3125d15d3bd844ba6e4824432f3261fa_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s__1ms_8c_a3125d15d3bd844ba6e4824432f3261fa_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_t_a_s_k_s__1ms_8c_aa5fcd710eb07dd2c092bad70b7e2bab1}\label{_t_a_s_k_s__1ms_8c_aa5fcd710eb07dd2c092bad70b7e2bab1} 
+\index{TASKS\_1ms.c@{TASKS\_1ms.c}!read\_temperatures@{read\_temperatures}}
+\index{read\_temperatures@{read\_temperatures}!TASKS\_1ms.c@{TASKS\_1ms.c}}
+\doxysubsubsection{\texorpdfstring{read\_temperatures()}{read\_temperatures()}}
+{\footnotesize\ttfamily void read\+\_\+temperatures (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to read temperatures and handle overtemperature faults. 
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s__1ms_8c_aa5fcd710eb07dd2c092bad70b7e2bab1_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s__1ms_8c_aa5fcd710eb07dd2c092bad70b7e2bab1_icgraph}
+\end{center}
+\end{figure}
 \Hypertarget{_t_a_s_k_s__1ms_8c_afb9caded33eef2ec19467eff02dfaaac}\label{_t_a_s_k_s__1ms_8c_afb9caded33eef2ec19467eff02dfaaac} 
 \index{TASKS\_1ms.c@{TASKS\_1ms.c}!tasks\_1ms@{tasks\_1ms}}
 \index{tasks\_1ms@{tasks\_1ms}!TASKS\_1ms.c@{TASKS\_1ms.c}}
@@ -50,11 +107,10 @@ This function is called by the TIM6 IRQ handler every millisecond. It increments
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=267pt]{_t_a_s_k_s__1ms_8c_afb9caded33eef2ec19467eff02dfaaac_cgraph}
+\includegraphics[width=350pt]{_t_a_s_k_s__1ms_8c_afb9caded33eef2ec19467eff02dfaaac_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['feedback_0',['Feedback',['../struct_feedback.html',1,'']]]
+  ['encoder_0',['Encoder',['../struct_encoder.html',1,'']]]
 ];

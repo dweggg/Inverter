@@ -1,4 +1,20 @@
 var searchData=
 [
-  ['we_0',['we',['../struct_encoder.html#a45938c516b24d04e3bae20b3ae8c2d08',1,'Encoder']]]
+  ['tempinverter_0',['tempInverter',['../struct_inverter_struct.html#a9732bacc0a7fa9b2fcc3b08fc85b071f',1,'InverterStruct']]],
+  ['tempinverterlut_1',['tempInverterLUT',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a4dfa6fc576123af2c78a1f3d13d26fd1',1,'tempInverterLUT:&#160;MEASUREMENTS.c'],['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a4dfa6fc576123af2c78a1f3d13d26fd1',1,'tempInverterLUT:&#160;MEASUREMENTS.c']]],
+  ['tempmotor_2',['tempMotor',['../struct_inverter_struct.html#ac6c9938ffe4a3de041c4d27c141d35d7',1,'InverterStruct']]],
+  ['tempmotorlut_3',['tempMotorLUT',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#afb617dfdbeab0dab534ac143440501fb',1,'tempMotorLUT:&#160;MEASUREMENTS.c'],['../_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#afb617dfdbeab0dab534ac143440501fb',1,'tempMotorLUT:&#160;MEASUREMENTS.c']]],
+  ['theta_5fe_4',['theta_e',['../struct_encoder.html#affa9013ea1e246c1f69bba53632a967b',1,'Encoder']]],
+  ['threepplambda_5',['threePpLambda',['../struct_motor_constants.html#aa423a9b16feaf9d8d4e0041d79c3839f',1,'MotorConstants']]],
+  ['threeppldminuslq_6',['threePpLdMinusLq',['../struct_motor_constants.html#a7c3d4f71c66bd8a5fb53b9f6f0b4bb84',1,'MotorConstants']]],
+  ['torquebase_7',['torqueBase',['../struct_motor_constants.html#a79aa030d8154c7bece1437d0ac7c4cd7',1,'MotorConstants']]],
+  ['torquecalc_8',['torqueCalc',['../struct_feedback.html#a7cf0ca173060ec36197dd701fc1688ea',1,'Feedback']]],
+  ['torquemax_9',['torqueMax',['../struct_motor_parameters.html#a930c61ca01d801c9bcb08d94c598417b',1,'MotorParameters']]],
+  ['torqueref_10',['torqueRef',['../struct_reference.html#a0ec2edb27428865626d5581b8af17d9e',1,'Reference']]],
+  ['torquerefin_5fleft_11',['torqueRefIn_left',['../_r_e_f_e_r_e_n_c_e_8h.html#a4497f9492ddec5b5db380c2528b2cb74',1,'torqueRefIn_left:&#160;REFERENCE.c'],['../_r_e_f_e_r_e_n_c_e_8c.html#a4497f9492ddec5b5db380c2528b2cb74',1,'torqueRefIn_left:&#160;REFERENCE.c']]],
+  ['torquerefin_5fright_12',['torqueRefIn_right',['../_r_e_f_e_r_e_n_c_e_8h.html#ad5e47b5d0477a6ed28fb07be19874289',1,'torqueRefIn_right:&#160;REFERENCE.c'],['../_r_e_f_e_r_e_n_c_e_8c.html#ad5e47b5d0477a6ed28fb07be19874289',1,'torqueRefIn_right:&#160;REFERENCE.c']]],
+  ['twominusxi_13',['twoMinusXi',['../struct_motor_constants.html#a4576150b399b549aa1b78ec8d9b012b1',1,'MotorConstants']]],
+  ['twominusxisquared_14',['twoMinusXiSquared',['../struct_motor_constants.html#a38e0f87b73dbdcc5b1fd1edf5960def3',1,'MotorConstants']]],
+  ['twotimesoneminusxioneplusxisquared_15',['twoTimesOneMinusXiOnePlusXiSquared',['../struct_motor_constants.html#ae9c948e4c84e538023bda47eed6e0c2b',1,'MotorConstants']]],
+  ['twotimesoneminusxixisquared_16',['twoTimesOneMinusXiXiSquared',['../struct_motor_constants.html#a2b3b34251c3effec3ad5b96692bfa0ca',1,'MotorConstants']]]
 ];

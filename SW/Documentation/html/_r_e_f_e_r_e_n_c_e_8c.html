@@ -78,7 +78,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">REFERENCE.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -92,18 +93,26 @@ Include dependency graph for REFERENCE.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="_r_e_f_e_r_e_n_c_e_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_r_e_f_e_r_e_n_c_e_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_r_e_f_e_r_e_n_c_e_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_r_e_f_e_r_e_n_c_e_8c">
-<area shape="rect" title="Source file for torque reference handling." alt="" coords="135,5,306,64"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="109,112,222,139"/>
-<area shape="poly" title=" " alt="" coords="205,66,184,100,179,97,200,63"/>
-<area shape="rect" title=" " alt="" coords="246,112,307,139"/>
-<area shape="poly" title=" " alt="" coords="240,63,262,97,258,100,236,66"/>
+<area shape="rect" title="Source file for torque reference handling." alt="" coords="133,5,305,64"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8h.html" title="Header file for torque reference handling." alt="" coords="108,112,220,139"/>
+<area shape="poly" title=" " alt="" coords="204,66,182,100,178,97,199,63"/>
+<area shape="rect" title=" " alt="" coords="244,112,306,139"/>
+<area shape="poly" title=" " alt="" coords="239,63,261,97,256,100,235,66"/>
 <area shape="rect" title=" " alt="" coords="5,187,102,213"/>
-<area shape="poly" title=" " alt="" coords="147,141,87,180,84,176,145,137"/>
-<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="126,187,205,213"/>
-<area shape="poly" title=" " alt="" coords="168,139,168,171,163,171,163,139"/>
-<area shape="rect" title=" " alt="" coords="172,261,236,288"/>
-<area shape="poly" title=" " alt="" coords="183,137,203,158,220,186,224,218,218,247,212,246,218,217,215,188,199,161,179,141"/>
-<area shape="poly" title=" " alt="" coords="175,213,193,246,188,249,170,215"/>
+<area shape="poly" title=" " alt="" coords="146,141,87,180,84,176,143,137"/>
+<area shape="rect" href="_m_o_t_o_r_8h.html" title="Header file for motor parameters." alt="" coords="73,261,152,288"/>
+<area shape="poly" title=" " alt="" coords="162,140,124,248,119,246,157,138"/>
+<area shape="rect" title=" " alt="" coords="177,336,242,363"/>
+<area shape="poly" title=" " alt="" coords="169,139,207,320,201,321,164,140"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8h.html" title="Header file for handling measurements." alt="" coords="226,187,369,213"/>
+<area shape="poly" title=" " alt="" coords="189,137,262,177,260,181,186,142"/>
+<area shape="poly" title=" " alt="" coords="131,286,182,325,179,329,128,291"/>
+<area shape="poly" title=" " alt="" coords="292,215,227,324,222,321,288,212"/>
+<area shape="rect" href="_e_r_r_o_r_s_8h.html" title=" " alt="" coords="278,261,365,288"/>
+<area shape="poly" title=" " alt="" coords="304,213,315,246,310,247,299,215"/>
+<area shape="poly" title=" " alt="" coords="303,291,243,330,240,325,301,286"/>
+<area shape="rect" title=" " alt="" coords="284,336,359,363"/>
+<area shape="poly" title=" " alt="" coords="324,289,324,320,319,320,319,289"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -121,6 +130,19 @@ Functions</h2></td></tr>
 <tr class="memitem:a0da21f1ac59fa2f2ff67acfd930147ed" id="r_a0da21f1ac59fa2f2ff67acfd930147ed"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0da21f1ac59fa2f2ff67acfd930147ed">limit_torque_to_prevent_overspeed</a> (float speedMaxRPM, float speedMeas, float torqueRefIn, volatile pi_struct *loopSpeed)</td></tr>
 <tr class="memdesc:a0da21f1ac59fa2f2ff67acfd930147ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed.  <br /></td></tr>
 <tr class="separator:a0da21f1ac59fa2f2ff67acfd930147ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab28157c98105fc7d3bbb3dc65e7d5eda" id="r_ab28157c98105fc7d3bbb3dc65e7d5eda"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab28157c98105fc7d3bbb3dc65e7d5eda">calculate_derated_current</a> (float temperature, float tempStart, float tempMax, float iMax)</td></tr>
+<tr class="memdesc:ab28157c98105fc7d3bbb3dc65e7d5eda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate derated current based on temperature thresholds. It implements a simple linear derating from tempStart to tempMax.  <br /></td></tr>
+<tr class="separator:ab28157c98105fc7d3bbb3dc65e7d5eda"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1767fbcd06a25a3c5d6db9c033c2a0f" id="r_ad1767fbcd06a25a3c5d6db9c033c2a0f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1767fbcd06a25a3c5d6db9c033c2a0f">derate_current_reference</a> (float tempMotor, float tempInverter, float iMax)</td></tr>
+<tr class="memdesc:ad1767fbcd06a25a3c5d6db9c033c2a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derate the current reference based on both motor and inverter temperatures.  <br /></td></tr>
+<tr class="separator:ad1767fbcd06a25a3c5d6db9c033c2a0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4497f9492ddec5b5db380c2528b2cb74" id="r_a4497f9492ddec5b5db380c2528b2cb74"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4497f9492ddec5b5db380c2528b2cb74">torqueRefIn_left</a> = 0.0F</td></tr>
+<tr class="separator:a4497f9492ddec5b5db380c2528b2cb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5e47b5d0477a6ed28fb07be19874289" id="r_ad5e47b5d0477a6ed28fb07be19874289"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5e47b5d0477a6ed28fb07be19874289">torqueRefIn_right</a> = 0.0F</td></tr>
+<tr class="separator:ad5e47b5d0477a6ed28fb07be19874289"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Source file for torque reference handling. </p>
@@ -128,6 +150,122 @@ Functions</h2></td></tr>
 <p>Copyright (c) 2024 David Redondo (@dweggg in GitHub). All rights reserved.</p>
 <p>This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. For more information, see: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</a> </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="ab28157c98105fc7d3bbb3dc65e7d5eda" name="ab28157c98105fc7d3bbb3dc65e7d5eda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab28157c98105fc7d3bbb3dc65e7d5eda">&#9670;&#160;</a></span>calculate_derated_current()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float calculate_derated_current </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>temperature</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tempStart</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tempMax</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>iMax</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculate derated current based on temperature thresholds. It implements a simple linear derating from tempStart to tempMax. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">temperature</td><td>The current temperature. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tempStart</td><td>The temperature at which derating starts. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tempMax</td><td>The temperature at which the current is fully derated to 0. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iMax</td><td>The maximum current.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The derated current. </dd></dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_r_e_f_e_r_e_n_c_e_8c_ab28157c98105fc7d3bbb3dc65e7d5eda_icgraph.png" border="0" usemap="#a_r_e_f_e_r_e_n_c_e_8c_ab28157c98105fc7d3bbb3dc65e7d5eda_icgraph" alt=""/></div>
+<map name="a_r_e_f_e_r_e_n_c_e_8c_ab28157c98105fc7d3bbb3dc65e7d5eda_icgraph" id="a_r_e_f_e_r_e_n_c_e_8c_ab28157c98105fc7d3bbb3dc65e7d5eda_icgraph">
+<area shape="rect" title="Calculate derated current based on temperature thresholds. It implements a simple linear derating fro..." alt="" coords="555,5,726,32"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#ad1767fbcd06a25a3c5d6db9c033c2a0f" title="Derate the current reference based on both motor and inverter temperatures." alt="" coords="343,5,507,32"/>
+<area shape="poly" title=" " alt="" coords="540,21,508,21,508,16,540,16"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,5,295,32"/>
+<area shape="poly" title=" " alt="" coords="328,21,295,21,295,16,328,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#a0839a45f331c4c067939b9c4533bbf4d" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,5,162,32"/>
+<area shape="poly" title=" " alt="" coords="194,21,162,21,162,16,194,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad1767fbcd06a25a3c5d6db9c033c2a0f" name="ad1767fbcd06a25a3c5d6db9c033c2a0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1767fbcd06a25a3c5d6db9c033c2a0f">&#9670;&#160;</a></span>derate_current_reference()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float derate_current_reference </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tempMotor</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tempInverter</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>iMax</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Derate the current reference based on both motor and inverter temperatures. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">tempMotor</td><td>The motor temperature. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tempInverter</td><td>The inverter temperature. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">iMax</td><td>The maximum current.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The derated current reference. </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_r_e_f_e_r_e_n_c_e_8c_ad1767fbcd06a25a3c5d6db9c033c2a0f_cgraph.png" border="0" usemap="#a_r_e_f_e_r_e_n_c_e_8c_ad1767fbcd06a25a3c5d6db9c033c2a0f_cgraph" alt=""/></div>
+<map name="a_r_e_f_e_r_e_n_c_e_8c_ad1767fbcd06a25a3c5d6db9c033c2a0f_cgraph" id="a_r_e_f_e_r_e_n_c_e_8c_ad1767fbcd06a25a3c5d6db9c033c2a0f_cgraph">
+<area shape="rect" title="Derate the current reference based on both motor and inverter temperatures." alt="" coords="5,5,170,32"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#ab28157c98105fc7d3bbb3dc65e7d5eda" title="Calculate derated current based on temperature thresholds. It implements a simple linear derating fro..." alt="" coords="218,5,388,32"/>
+<area shape="poly" title=" " alt="" coords="170,16,202,16,202,21,170,21"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_r_e_f_e_r_e_n_c_e_8c_ad1767fbcd06a25a3c5d6db9c033c2a0f_icgraph.png" border="0" usemap="#a_r_e_f_e_r_e_n_c_e_8c_ad1767fbcd06a25a3c5d6db9c033c2a0f_icgraph" alt=""/></div>
+<map name="a_r_e_f_e_r_e_n_c_e_8c_ad1767fbcd06a25a3c5d6db9c033c2a0f_icgraph" id="a_r_e_f_e_r_e_n_c_e_8c_ad1767fbcd06a25a3c5d6db9c033c2a0f_icgraph">
+<area shape="rect" title="Derate the current reference based on both motor and inverter temperatures." alt="" coords="343,5,507,32"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,5,295,32"/>
+<area shape="poly" title=" " alt="" coords="328,21,295,21,295,16,328,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#a0839a45f331c4c067939b9c4533bbf4d" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,5,162,32"/>
+<area shape="poly" title=" " alt="" coords="194,21,162,21,162,16,194,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a1988c289dd46fd505e0f9de30044fed0" name="a1988c289dd46fd505e0f9de30044fed0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1988c289dd46fd505e0f9de30044fed0">&#9670;&#160;</a></span>handle_torqueRef()</h2>
 
@@ -197,11 +335,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_r_e_f_e_r_e_n_c_e_8c_a1988c289dd46fd505e0f9de30044fed0_icgraph.png" border="0" usemap="#a_r_e_f_e_r_e_n_c_e_8c_a1988c289dd46fd505e0f9de30044fed0_icgraph" alt=""/></div>
 <map name="a_r_e_f_e_r_e_n_c_e_8c_a1988c289dd46fd505e0f9de30044fed0_icgraph" id="a_r_e_f_e_r_e_n_c_e_8c_a1988c289dd46fd505e0f9de30044fed0_icgraph">
-<area shape="rect" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="403,5,524,32"/>
-<area shape="rect" href="_t_a_s_k_s__20us_8c.html#a9adc53eb4c963075bf9d7443c8b5c903" title="Function to be executed every TS." alt="" coords="243,5,355,32"/>
-<area shape="poly" title=" " alt="" coords="387,21,356,21,356,16,387,16"/>
-<area shape="rect" href="stm32f7xx__it_8c.html#ad1fd361bc5ad89facee67c76d1ff8dc0" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,5,195,32"/>
-<area shape="poly" title=" " alt="" coords="227,21,195,21,195,16,227,16"/>
+<area shape="rect" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="343,5,464,32"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,5,295,32"/>
+<area shape="poly" title=" " alt="" coords="328,21,295,21,295,16,328,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#a0839a45f331c4c067939b9c4533bbf4d" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,5,162,32"/>
+<area shape="poly" title=" " alt="" coords="194,21,162,21,162,16,194,16"/>
 </map>
 </div>
 
@@ -252,13 +390,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_r_e_f_e_r_e_n_c_e_8c_a0da21f1ac59fa2f2ff67acfd930147ed_icgraph.png" border="0" usemap="#a_r_e_f_e_r_e_n_c_e_8c_a0da21f1ac59fa2f2ff67acfd930147ed_icgraph" alt=""/></div>
 <map name="a_r_e_f_e_r_e_n_c_e_8c_a0da21f1ac59fa2f2ff67acfd930147ed_icgraph" id="a_r_e_f_e_r_e_n_c_e_8c_a0da21f1ac59fa2f2ff67acfd930147ed_icgraph">
-<area shape="rect" title="Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed." alt="" coords="572,5,727,48"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a1988c289dd46fd505e0f9de30044fed0" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="403,13,524,40"/>
-<area shape="poly" title=" " alt="" coords="557,29,525,29,525,24,557,24"/>
-<area shape="rect" href="_t_a_s_k_s__20us_8c.html#a9adc53eb4c963075bf9d7443c8b5c903" title="Function to be executed every TS." alt="" coords="243,13,355,40"/>
-<area shape="poly" title=" " alt="" coords="387,29,356,29,356,24,387,24"/>
-<area shape="rect" href="stm32f7xx__it_8c.html#ad1fd361bc5ad89facee67c76d1ff8dc0" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,13,195,40"/>
-<area shape="poly" title=" " alt="" coords="227,29,195,29,195,24,227,24"/>
+<area shape="rect" title="Speed loop acts as a torque saturation, reducing torque in order to limit the maximum speed." alt="" coords="512,5,667,48"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a1988c289dd46fd505e0f9de30044fed0" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="343,13,464,40"/>
+<area shape="poly" title=" " alt="" coords="497,29,465,29,465,24,497,24"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,13,295,40"/>
+<area shape="poly" title=" " alt="" coords="328,29,295,29,295,24,328,24"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#a0839a45f331c4c067939b9c4533bbf4d" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,13,162,40"/>
+<area shape="poly" title=" " alt="" coords="194,29,162,29,162,24,194,24"/>
 </map>
 </div>
 
@@ -298,13 +436,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_r_e_f_e_r_e_n_c_e_8c_a0f5d51160e9eb91ad3ffba1c5905eed6_icgraph.png" border="0" usemap="#a_r_e_f_e_r_e_n_c_e_8c_a0f5d51160e9eb91ad3ffba1c5905eed6_icgraph" alt=""/></div>
 <map name="a_r_e_f_e_r_e_n_c_e_8c_a0f5d51160e9eb91ad3ffba1c5905eed6_icgraph" id="a_r_e_f_e_r_e_n_c_e_8c_a0f5d51160e9eb91ad3ffba1c5905eed6_icgraph">
-<area shape="rect" title="Symmetrically saturate a reference value." alt="" coords="572,5,709,32"/>
-<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a1988c289dd46fd505e0f9de30044fed0" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="403,5,524,32"/>
-<area shape="poly" title=" " alt="" coords="557,21,525,21,525,16,557,16"/>
-<area shape="rect" href="_t_a_s_k_s__20us_8c.html#a9adc53eb4c963075bf9d7443c8b5c903" title="Function to be executed every TS." alt="" coords="243,5,355,32"/>
-<area shape="poly" title=" " alt="" coords="387,21,356,21,356,16,387,16"/>
-<area shape="rect" href="stm32f7xx__it_8c.html#ad1fd361bc5ad89facee67c76d1ff8dc0" title="This function handles TIM1 update interrupt and TIM10 global interrupt." alt="" coords="5,5,195,32"/>
-<area shape="poly" title=" " alt="" coords="227,21,195,21,195,16,227,16"/>
+<area shape="rect" title="Symmetrically saturate a reference value." alt="" coords="512,5,649,32"/>
+<area shape="rect" href="_r_e_f_e_r_e_n_c_e_8c.html#a1988c289dd46fd505e0f9de30044fed0" title="Handles torque control based on the reference torque, direction, maximum torque, maximum speed,..." alt="" coords="343,5,464,32"/>
+<area shape="poly" title=" " alt="" coords="497,21,465,21,465,16,497,16"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,5,295,32"/>
+<area shape="poly" title=" " alt="" coords="328,21,295,21,295,16,328,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#a0839a45f331c4c067939b9c4533bbf4d" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,5,162,32"/>
+<area shape="poly" title=" " alt="" coords="194,21,162,21,162,16,194,16"/>
 </map>
 </div>
 
@@ -339,6 +477,35 @@ Here is the caller graph for this function:</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>torqueRefOut The adjusted torque reference value. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a4497f9492ddec5b5db380c2528b2cb74" name="a4497f9492ddec5b5db380c2528b2cb74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4497f9492ddec5b5db380c2528b2cb74">&#9670;&#160;</a></span>torqueRefIn_left</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float torqueRefIn_left = 0.0F</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad5e47b5d0477a6ed28fb07be19874289" name="ad5e47b5d0477a6ed28fb07be19874289"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5e47b5d0477a6ed28fb07be19874289">&#9670;&#160;</a></span>torqueRefIn_right</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float torqueRefIn_right = 0.0F</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

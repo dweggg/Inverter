@@ -105,6 +105,9 @@ Include dependency graph for MOTOR.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a36a9b4ae42496f3d3030e25e8763d0ff" id="r_a36a9b4ae42496f3d3030e25e8763d0ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a36a9b4ae42496f3d3030e25e8763d0ff">precalculate_motor_constants</a> (<a class="el" href="struct_motor_parameters.html">MotorParameters</a> *motor)</td></tr>
+<tr class="memdesc:a36a9b4ae42496f3d3030e25e8763d0ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Precomputes the constants for a motor and updates the <a class="el" href="struct_motor_parameters.html" title="Structure to hold motor parameters.">MotorParameters</a> structure.  <br /></td></tr>
+<tr class="separator:a36a9b4ae42496f3d3030e25e8763d0ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac2006b5fcd23b70efa190f9239e50a1" id="r_aac2006b5fcd23b70efa190f9239e50a1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac2006b5fcd23b70efa190f9239e50a1">check_motor_parameters</a> (<a class="el" href="struct_motor_parameters.html">MotorParameters</a> *motor, float Ts)</td></tr>
 <tr class="memdesc:aac2006b5fcd23b70efa190f9239e50a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a parameter check and correct possible errors.  <br /></td></tr>
 <tr class="separator:aac2006b5fcd23b70efa190f9239e50a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -162,10 +165,47 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="_m_o_t_o_r_8c_aac2006b5fcd23b70efa190f9239e50a1_icgraph.png" border="0" usemap="#a_m_o_t_o_r_8c_aac2006b5fcd23b70efa190f9239e50a1_icgraph" alt=""/></div>
 <map name="a_m_o_t_o_r_8c_aac2006b5fcd23b70efa190f9239e50a1_icgraph" id="a_m_o_t_o_r_8c_aac2006b5fcd23b70efa190f9239e50a1_icgraph">
 <area shape="rect" title="Perform a parameter check and correct possible errors." alt="" coords="267,5,435,32"/>
-<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html#a49edd9d49792ef1249641249d3259f87" title="Initialize the inverter." alt="" coords="103,5,219,32"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html#ac0938302bc5b498825f02779e027da1b" title="Initialize the inverter." alt="" coords="103,5,219,32"/>
 <area shape="poly" title=" " alt="" coords="251,21,219,21,219,16,251,16"/>
 <area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,5,55,32"/>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a36a9b4ae42496f3d3030e25e8763d0ff" name="a36a9b4ae42496f3d3030e25e8763d0ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36a9b4ae42496f3d3030e25e8763d0ff">&#9670;&#160;</a></span>precalculate_motor_constants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void precalculate_motor_constants </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_motor_parameters.html">MotorParameters</a> *</td>          <td class="paramname"><span class="paramname"><em>motor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Precomputes the constants for a motor and updates the <a class="el" href="struct_motor_parameters.html" title="Structure to hold motor parameters.">MotorParameters</a> structure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>[in, out] Pointer to the motor parameters structure </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_m_o_t_o_r_8c_a36a9b4ae42496f3d3030e25e8763d0ff_icgraph.png" border="0" usemap="#a_m_o_t_o_r_8c_a36a9b4ae42496f3d3030e25e8763d0ff_icgraph" alt=""/></div>
+<map name="a_m_o_t_o_r_8c_a36a9b4ae42496f3d3030e25e8763d0ff_icgraph" id="a_m_o_t_o_r_8c_a36a9b4ae42496f3d3030e25e8763d0ff_icgraph">
+<area shape="rect" title="Precomputes the constants for a motor and updates the MotorParameters structure." alt="" coords="267,5,398,48"/>
+<area shape="rect" href="_i_n_v_e_r_t_e_r_8c.html#ac0938302bc5b498825f02779e027da1b" title="Initialize the inverter." alt="" coords="103,13,219,40"/>
+<area shape="poly" title=" " alt="" coords="251,29,219,29,219,24,251,24"/>
+<area shape="rect" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point." alt="" coords="5,13,55,40"/>
+<area shape="poly" title=" " alt="" coords="87,29,55,29,55,24,87,24"/>
 </map>
 </div>
 

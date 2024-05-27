@@ -1,0 +1,37 @@
+\doxysection{ERRORS.\+h}
+\hypertarget{_e_r_r_o_r_s_8h_source}{}\label{_e_r_r_o_r_s_8h_source}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/ERRORS.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/ERRORS.h}}
+\mbox{\hyperlink{_e_r_r_o_r_s_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ USER\ CODE\ BEGIN\ Header\ */}}
+\DoxyCodeLine{00018\ \textcolor{comment}{/*\ USER\ CODE\ END\ Header\ */}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}}\ =\ 0,}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bab9c7efeaf975d92508814de65ddeba59}{POWER\_FAULT}}\ =\ (1\ <<\ 0),\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba0d872f638247750099f114a97a893482}{OVERTEMPERATURE\_INV}}\ =\ (1\ <<\ 1),\ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba6c80a02737f7d62e91b164b2cda009f0}{OVERVOLTAGE}}\ =\ (1\ <<\ 2),\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba6c8601cf997fdac12c0b173d3ae9fe49}{OVERCURRENT}}\ =\ (1\ <<\ 3),\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34baa661f8452078d21bf9bad522ad73fd5b}{OVERSPEED}}\ =\ (1\ <<\ 4),\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac794a3057ab13508cd4b4db30eaf5fac}{UNDERVOLTAGE}}\ =\ (1\ <<\ 5),\ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bae7673bfcc50aec9aa2274b01f108abc0}{CONTROL\_FAULT}}\ =\ (1\ <<\ 6),\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba984de77c680eaff141ec910e25568a81}{WARNING}}\ =\ (1\ <<\ 7),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac99cf71d30dfbd37162d35a71e12747e}{OVERTEMPERATURE\_MOT}}\ =\ (1\ <<\ 8),\ \ \ }
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba2d1e872b42fce9166b755ea5d9c34b1c}{FEEDBACK\_FAULT}}\ =\ (1\ <<\ 9)\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00037\ \}\ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{InverterError}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{/*\ Define\ fault\ thresholds\ */}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ OVERTEMPERATURE\_INVERTER\_TH\ 60.0f\ }}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ OVERVOLTAGE\_TH\ 600.0f\ }}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ OVERCURRENT\_TH\ 100.0f\ }}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ OVERSPEED\_TH\ 20000.0f\ }}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ UNDERVOLTAGE\_TH\ 10.0f\ }}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ OVERTEMPERATURE\_MOTOR\_TH\ 90.0f\ }}
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a0f0f6f855e7f3762d23ee2f3d448911e}{set\_error}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{void}\ *data,\ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{InverterError}}\ error);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a2639be61abcbef4da48c0b288ce97c74}{clear\_error}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{void}\ *data,\ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{InverterError}}\ error);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{_e_r_r_o_r_s_8h_af90e3c051a6055e2508f0a3aaea80695}{is\_error\_set}}(\textcolor{keyword}{volatile}\ \textcolor{keywordtype}{void}\ *data,\ \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{InverterError}}\ error);}
+
+\end{DoxyCode}

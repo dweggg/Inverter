@@ -6,8 +6,8 @@ Header file for handling measurements.
 
 
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
-Include dependency graph for MEASUREMENTS.\+h\+:
-\nopagebreak
+{\ttfamily \#include "{}ERRORS.\+h"{}}\newline
+Include dependency graph for MEASUREMENTS.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -34,7 +34,7 @@ struct \mbox{\hyperlink{struct_feedback}{Feedback}}
 \doxysubsubsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a2150fcc444ac69220b2a1d990e4df5c7}{CURRENT\+\_\+\+SLOPE}}~54.\+4217687f
+\#define \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a2150fcc444ac69220b2a1d990e4df5c7}{CURRENT\+\_\+\+SLOPE}}~117.\+57704f
 \item 
 \#define \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_aa4c5585f0614881f8b9a56ce287ed2f7}{CURRENT\+\_\+\+OFFSET}}~1.\+70068027211f
 \item 
@@ -45,14 +45,16 @@ struct \mbox{\hyperlink{struct_feedback}{Feedback}}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-uint8\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_acb612a58453d95f2d3ae5d9ce1ebaf6f}{get\+\_\+currents\+\_\+voltage}} (volatile uint32\+\_\+t ADC\+\_\+raw\mbox{[}$\,$\mbox{]}, volatile \mbox{\hyperlink{struct_analog}{Analog}} \texorpdfstring{$\ast$}{*}analog, volatile \mbox{\hyperlink{struct_feedback}{Feedback}} \texorpdfstring{$\ast$}{*}feedback, float sin\+Theta\+\_\+e, float cos\+Theta\+\_\+e)
+uint8\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1e0c627576d5f8855c1b66bbbe597e9e}{get\+\_\+currents\+\_\+voltage}} (volatile uint16\+\_\+t ADC\+\_\+raw\mbox{[}$\,$\mbox{]}, volatile \mbox{\hyperlink{struct_analog}{Analog}} \texorpdfstring{$\ast$}{*}analog, volatile \mbox{\hyperlink{struct_feedback}{Feedback}} \texorpdfstring{$\ast$}{*}feedback, volatile \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} \texorpdfstring{$\ast$}{*}errors, float sin\+Theta\+\_\+e, float cos\+Theta\+\_\+e)
 \begin{DoxyCompactList}\small\item\em Get electrical ADC measurements. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a35344a31c9b0c99423ee9e3f5287a5b2}{get\+\_\+linear}} (uint32\+\_\+t bits, float slope, float offset)
 \begin{DoxyCompactList}\small\item\em Convert ADC reading to physical measurement with linear response. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_af5e40ee9d1ed5e3661139df852b9fba8}{get\+\_\+idiq}} (float ia, float ib, float ic, float sin\+Theta\+\_\+e, float cos\+Theta\+\_\+e, float \texorpdfstring{$\ast$}{*}id\+Meas, float \texorpdfstring{$\ast$}{*}iq\+Meas)
 \begin{DoxyCompactList}\small\item\em Computes d-\/q currents from current measurements and electrical angle. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a2ca7064e54ee37e91151caeeeb31e129}{get\+\_\+temperature}} (uint32\+\_\+t bits, const float temp\+LUT\mbox{[}$\,$\mbox{]})
-\begin{DoxyCompactList}\small\item\em Retrieves temperature from a lookup table based on ADC bits. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Retrieves temperature from a lookup table based on ADC bits. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a0b5411fd73aa9225ea6261ea0233f920}{calibrate\+\_\+offsets}} (volatile uint16\+\_\+t raw\+ADC\mbox{[}$\,$\mbox{]}, volatile float current\+Offsets\mbox{[}$\,$\mbox{]}, uint32\+\_\+t num\+Samples)
+\begin{DoxyCompactList}\small\item\em Calibrate the current sensor offsets. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,11 +62,11 @@ const float \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a4dfa6fc576123af2c78a1f
 \item 
 const float \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_afb617dfdbeab0dab534ac143440501fb}{temp\+Motor\+LUT}} \mbox{[}$\,$\mbox{]}
 \item 
-volatile uint32\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a77106815c0fcbe0eba3efdf7afc74141}{raw\+ADC\+\_\+left}} \mbox{[}4\mbox{]}
+volatile uint16\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1125c65f0dc3d61557308fed4dc5b0dc}{raw\+ADC\+\_\+left}} \mbox{[}4\mbox{]}
 \begin{DoxyCompactList}\small\item\em Raw ADC data for the left inverter. \end{DoxyCompactList}\item 
-volatile uint32\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a470ce3152b4d75fad3e25910c8a2ea34}{raw\+ADC\+\_\+right}} \mbox{[}4\mbox{]}
+volatile uint16\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a42783afa976b4525dbbe48f07ec0c3ce}{raw\+ADC\+\_\+right}} \mbox{[}4\mbox{]}
 \begin{DoxyCompactList}\small\item\em Raw ADC data for the right inverter. \end{DoxyCompactList}\item 
-volatile uint32\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a67959fa70231e3281e6af1d01c67ef40}{raw\+ADC\+\_\+temp}} \mbox{[}4\mbox{]}
+volatile uint16\+\_\+t \mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h_afcbf1abf5943597f0a4e4cfb69e940c6}{raw\+ADC\+\_\+temp}} \mbox{[}4\mbox{]}
 \begin{DoxyCompactList}\small\item\em Raw ADC data for the temperatures. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -85,13 +87,13 @@ This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+A
 \doxysubsubsection{\texorpdfstring{CURRENT\_OFFSET}{CURRENT\_OFFSET}}
 {\footnotesize\ttfamily \#define CURRENT\+\_\+\+OFFSET~1.\+70068027211f}
 
-\mbox{[}V\mbox{]} (10/(4.\+7+10))\texorpdfstring{$\ast$}{*} 2.\+5 V \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a2150fcc444ac69220b2a1d990e4df5c7}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a2150fcc444ac69220b2a1d990e4df5c7} 
+\mbox{[}V\mbox{]} (10/(4.\+7+10))\texorpdfstring{$\ast$}{*} 2.\+5 V (not actually used, self calibration at start) \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a2150fcc444ac69220b2a1d990e4df5c7}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a2150fcc444ac69220b2a1d990e4df5c7} 
 \index{MEASUREMENTS.h@{MEASUREMENTS.h}!CURRENT\_SLOPE@{CURRENT\_SLOPE}}
 \index{CURRENT\_SLOPE@{CURRENT\_SLOPE}!MEASUREMENTS.h@{MEASUREMENTS.h}}
 \doxysubsubsection{\texorpdfstring{CURRENT\_SLOPE}{CURRENT\_SLOPE}}
-{\footnotesize\ttfamily \#define CURRENT\+\_\+\+SLOPE~54.\+4217687f}
+{\footnotesize\ttfamily \#define CURRENT\+\_\+\+SLOPE~117.\+57704f}
 
-\mbox{[}A/V\mbox{]} (10/(4.\+7+10)) \texorpdfstring{$\ast$}{*} ( 1 / (12.\+5 mV / A)) \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a0e190e318cba64e487ce9f09fca3963f}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a0e190e318cba64e487ce9f09fca3963f} 
+\mbox{[}A/V\mbox{]} ((4.\+7+10)/10) \texorpdfstring{$\ast$}{*} (1 / (12.\+5 mV / A)) \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a0e190e318cba64e487ce9f09fca3963f}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a0e190e318cba64e487ce9f09fca3963f} 
 \index{MEASUREMENTS.h@{MEASUREMENTS.h}!VOLTAGE\_OFFSET@{VOLTAGE\_OFFSET}}
 \index{VOLTAGE\_OFFSET@{VOLTAGE\_OFFSET}!MEASUREMENTS.h@{MEASUREMENTS.h}}
 \doxysubsubsection{\texorpdfstring{VOLTAGE\_OFFSET}{VOLTAGE\_OFFSET}}
@@ -106,11 +108,39 @@ This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+A
 \mbox{[}V/V\mbox{]} 1/(1/3 \texorpdfstring{$\ast$}{*} 0.\+011388) V 
 
 \doxysubsection{Function Documentation}
-\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_acb612a58453d95f2d3ae5d9ce1ebaf6f}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_acb612a58453d95f2d3ae5d9ce1ebaf6f} 
+\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a0b5411fd73aa9225ea6261ea0233f920}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a0b5411fd73aa9225ea6261ea0233f920} 
+\index{MEASUREMENTS.h@{MEASUREMENTS.h}!calibrate\_offsets@{calibrate\_offsets}}
+\index{calibrate\_offsets@{calibrate\_offsets}!MEASUREMENTS.h@{MEASUREMENTS.h}}
+\doxysubsubsection{\texorpdfstring{calibrate\_offsets()}{calibrate\_offsets()}}
+{\footnotesize\ttfamily void calibrate\+\_\+offsets (\begin{DoxyParamCaption}\item[{volatile uint16\+\_\+t}]{raw\+ADC\mbox{[}$\,$\mbox{]},  }\item[{volatile float}]{current\+Offsets\mbox{[}$\,$\mbox{]},  }\item[{uint32\+\_\+t}]{num\+Samples }\end{DoxyParamCaption})}
+
+
+
+Calibrate the current sensor offsets. 
+
+This function calculates the average offset for each current sensor channel by reading the ADC values when no current is flowing. The calculated offsets are used to correct the sensor readings.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em raw\+ADC} & Buffer containing the raw ADC values for the channels. \\
+\hline
+\mbox{\texttt{ out}}  & {\em current\+Offsets} & Array to store the calculated offsets for each current channel. \\
+\hline
+\mbox{\texttt{ in}}  & {\em num\+Samples} & Number of samples to average for the offset calculation. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a0b5411fd73aa9225ea6261ea0233f920_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1e0c627576d5f8855c1b66bbbe597e9e}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1e0c627576d5f8855c1b66bbbe597e9e} 
 \index{MEASUREMENTS.h@{MEASUREMENTS.h}!get\_currents\_voltage@{get\_currents\_voltage}}
 \index{get\_currents\_voltage@{get\_currents\_voltage}!MEASUREMENTS.h@{MEASUREMENTS.h}}
 \doxysubsubsection{\texorpdfstring{get\_currents\_voltage()}{get\_currents\_voltage()}}
-{\footnotesize\ttfamily uint8\+\_\+t get\+\_\+currents\+\_\+voltage (\begin{DoxyParamCaption}\item[{volatile uint32\+\_\+t}]{ADC\+\_\+raw\mbox{[}$\,$\mbox{]},  }\item[{volatile \mbox{\hyperlink{struct_analog}{Analog}} \texorpdfstring{$\ast$}{*}}]{analog,  }\item[{volatile \mbox{\hyperlink{struct_feedback}{Feedback}} \texorpdfstring{$\ast$}{*}}]{feedback,  }\item[{float}]{sin\+Theta\+\_\+e,  }\item[{float}]{cos\+Theta\+\_\+e }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily uint8\+\_\+t get\+\_\+currents\+\_\+voltage (\begin{DoxyParamCaption}\item[{volatile uint16\+\_\+t}]{ADC\+\_\+raw\mbox{[}$\,$\mbox{]},  }\item[{volatile \mbox{\hyperlink{struct_analog}{Analog}} \texorpdfstring{$\ast$}{*}}]{analog,  }\item[{volatile \mbox{\hyperlink{struct_feedback}{Feedback}} \texorpdfstring{$\ast$}{*}}]{feedback,  }\item[{volatile \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} \texorpdfstring{$\ast$}{*}}]{errors,  }\item[{float}]{sin\+Theta\+\_\+e,  }\item[{float}]{cos\+Theta\+\_\+e }\end{DoxyParamCaption})}
 
 
 
@@ -134,20 +164,18 @@ Get electrical ADC measurements.
 {\em OK} & 0 if an error occurred, 1 if successful. \\
 \hline
 \end{DoxyRetVals}
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=279pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8h_acb612a58453d95f2d3ae5d9ce1ebaf6f_cgraph}
+\includegraphics[width=283pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1e0c627576d5f8855c1b66bbbe597e9e_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8h_acb612a58453d95f2d3ae5d9ce1ebaf6f_icgraph}
+\includegraphics[width=350pt]{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1e0c627576d5f8855c1b66bbbe597e9e_icgraph}
 \end{center}
 \end{figure}
 \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_af5e40ee9d1ed5e3661139df852b9fba8}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_af5e40ee9d1ed5e3661139df852b9fba8} 
@@ -179,8 +207,7 @@ This function computes the d-\/q currents from phase currents (ABC), theta\+\_\+
 \mbox{\texttt{ out}}  & {\em iq\+Meas} & Pointer to store the Q-\/axis current. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -225,8 +252,7 @@ Convert ADC reading to physical measurement with linear response.
 {\em measurement} & The physical measurement. \\
 \hline
 \end{DoxyRetVals}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -255,8 +281,7 @@ This function retrieves temperature from a lookup table based on the ADC bits. T
 \begin{DoxyReturn}{Returns}
 Temperature corresponding to the provided ADC bits. 
 \end{DoxyReturn}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -266,11 +291,11 @@ Here is the caller graph for this function\+:
 
 
 \doxysubsection{Variable Documentation}
-\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a77106815c0fcbe0eba3efdf7afc74141}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a77106815c0fcbe0eba3efdf7afc74141} 
+\Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1125c65f0dc3d61557308fed4dc5b0dc}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a1125c65f0dc3d61557308fed4dc5b0dc} 
 \index{MEASUREMENTS.h@{MEASUREMENTS.h}!rawADC\_left@{rawADC\_left}}
 \index{rawADC\_left@{rawADC\_left}!MEASUREMENTS.h@{MEASUREMENTS.h}}
 \doxysubsubsection{\texorpdfstring{rawADC\_left}{rawADC\_left}}
-{\footnotesize\ttfamily volatile uint32\+\_\+t raw\+ADC\+\_\+left\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily volatile uint16\+\_\+t raw\+ADC\+\_\+left\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 
 
 
@@ -278,11 +303,11 @@ Raw ADC data for the left inverter.
 
 External declaration of raw ADC data for the left inverter
 
-External declaration of raw ADC data for the left inverter. \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a470ce3152b4d75fad3e25910c8a2ea34}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a470ce3152b4d75fad3e25910c8a2ea34} 
+External declaration of raw ADC data for the left inverter. \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a42783afa976b4525dbbe48f07ec0c3ce}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a42783afa976b4525dbbe48f07ec0c3ce} 
 \index{MEASUREMENTS.h@{MEASUREMENTS.h}!rawADC\_right@{rawADC\_right}}
 \index{rawADC\_right@{rawADC\_right}!MEASUREMENTS.h@{MEASUREMENTS.h}}
 \doxysubsubsection{\texorpdfstring{rawADC\_right}{rawADC\_right}}
-{\footnotesize\ttfamily volatile uint32\+\_\+t raw\+ADC\+\_\+right\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily volatile uint16\+\_\+t raw\+ADC\+\_\+right\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 
 
 
@@ -290,11 +315,11 @@ Raw ADC data for the right inverter.
 
 External declaration of raw ADC data for the right inverter
 
-External declaration of raw ADC data for the right inverter. \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a67959fa70231e3281e6af1d01c67ef40}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_a67959fa70231e3281e6af1d01c67ef40} 
+External declaration of raw ADC data for the right inverter. \Hypertarget{_m_e_a_s_u_r_e_m_e_n_t_s_8h_afcbf1abf5943597f0a4e4cfb69e940c6}\label{_m_e_a_s_u_r_e_m_e_n_t_s_8h_afcbf1abf5943597f0a4e4cfb69e940c6} 
 \index{MEASUREMENTS.h@{MEASUREMENTS.h}!rawADC\_temp@{rawADC\_temp}}
 \index{rawADC\_temp@{rawADC\_temp}!MEASUREMENTS.h@{MEASUREMENTS.h}}
 \doxysubsubsection{\texorpdfstring{rawADC\_temp}{rawADC\_temp}}
-{\footnotesize\ttfamily volatile uint32\+\_\+t raw\+ADC\+\_\+temp\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+{\footnotesize\ttfamily volatile uint16\+\_\+t raw\+ADC\+\_\+temp\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
 
 
 

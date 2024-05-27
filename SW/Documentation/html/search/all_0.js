@@ -7,5 +7,5 @@ var searchData=
   ['a_5fr_5fpin_4',['A_R_Pin',['../main_8h.html#ad88c6592a60215545d35bcd7a6cf3b92',1,'main.h']]],
   ['analog_5',['Analog',['../struct_analog.html',1,'']]],
   ['analog_6',['analog',['../struct_inverter_struct.html#a9723ebcdadc80d0da627ff27716ae5a5',1,'InverterStruct']]],
-  ['angle_5fleft_7',['angle_left',['../_t_a_s_k_s__20us_8c.html#a33748c6dd95f9c76db83760d8719fc26',1,'TASKS_20us.c']]]
+  ['angle_5fleft_7',['angle_left',['../_t_a_s_k_s___c_r_i_t_i_c_a_l_8c.html#a33748c6dd95f9c76db83760d8719fc26',1,'TASKS_CRITICAL.c']]]
 ];

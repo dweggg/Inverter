@@ -10,24 +10,39 @@
 \DoxyCodeLine{00022\ }
 \DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}PergaMOD.h"{}}\ \textcolor{comment}{//\ ramp,\ pi\ struct}}
 \DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_o_t_o_r_8h}{MOTOR.h}}"{}}\ \textcolor{comment}{//\ motor\ struct}}
-\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00030\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_reference_a5896cad66e973075ed4fb7f0ad07965c}{idRef}};\ \ \ \ \ \ }
-\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_reference_ada1dbfeb5f056dc31bd0f044f5129754}{iqRef}};\ \ \ \ \ \ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_reference_a0ec2edb27428865626d5581b8af17d9e}{torqueRef}};\ \ }
-\DoxyCodeLine{00034\ \}\ \mbox{\hyperlink{struct_reference}{Reference}};}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00050\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a1988c289dd46fd505e0f9de30044fed0}{handle\_torqueRef}}(\textcolor{keywordtype}{float}\ torqueRefIn,\ int8\_t\ direction,\ \textcolor{keywordtype}{float}\ torqueMax,\ \textcolor{keywordtype}{float}\ speedMaxRPM,\ \textcolor{keywordtype}{float}\ speedMeas,\ \textcolor{keyword}{volatile}\ pi\_struct\ *loopSpeed);}
-\DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00064\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ada50e1c9a8c6b63f1af050122397719a}{set\_torque\_direction}}(\textcolor{keywordtype}{float}\ torqueRef,\ int8\_t\ direction);}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_m_e_a_s_u_r_e_m_e_n_t_s_8h}{MEASUREMENTS.h}}"{}}\ \textcolor{comment}{//\ overtemperature\ defines}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Define\ temperature\ derating\ tresholds}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ TEMP\_MOTOR\_DERATING\ (OVERTEMPERATURE\_MOTOR\_TH\ -\/\ 20.0F)\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ TEMP\_INVERTER\_DERATING\ (OVERTEMPERATURE\_INVERTER\_TH\ -\/\ 20.0F)\ \ }}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ TEMP\_MOTOR\_MAX\ (OVERTEMPERATURE\_MOTOR\_TH\ +\ 10.0F)\ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ TEMP\_INVERTER\_MAX\ (OVERTEMPERATURE\_INVERTER\_TH\ +\ 10.0F)\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ These\ variables\ should\ be\ updated\ via\ CAN}}
+\DoxyCodeLine{00037\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a4497f9492ddec5b5db380c2528b2cb74}{torqueRefIn\_left}};}
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ad5e47b5d0477a6ed28fb07be19874289}{torqueRefIn\_right}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_reference_a5896cad66e973075ed4fb7f0ad07965c}{idRef}};\ \ \ \ \ \ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_reference_ada1dbfeb5f056dc31bd0f044f5129754}{iqRef}};\ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_reference_a24c38f80d43bd782ccecb349a6ffa197}{isMaxRef}};\ \ \ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_reference_a0ec2edb27428865626d5581b8af17d9e}{torqueRef}};\ \ }
+\DoxyCodeLine{00048\ \}\ \mbox{\hyperlink{struct_reference}{Reference}};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a1988c289dd46fd505e0f9de30044fed0}{handle\_torqueRef}}(\textcolor{keywordtype}{float}\ torqueRefIn,\ int8\_t\ direction,\ \textcolor{keywordtype}{float}\ torqueMax,\ \textcolor{keywordtype}{float}\ speedMaxRPM,\ \textcolor{keywordtype}{float}\ speedMeas,\ \textcolor{keyword}{volatile}\ pi\_struct\ *loopSpeed);}
 \DoxyCodeLine{00065\ }
-\DoxyCodeLine{00077\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a0f5d51160e9eb91ad3ffba1c5905eed6}{saturate\_symmetric}}(\textcolor{keywordtype}{float}\ ref,\ \textcolor{keywordtype}{float}\ max);}
-\DoxyCodeLine{00078\ }
-\DoxyCodeLine{00087\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ae99c985c51ea3f09df6b9283e20b4375}{limit\_torque\_to\_prevent\_overspeed}}(\textcolor{keywordtype}{float}\ speedMax,\ \textcolor{keywordtype}{float}\ speedMeas,\ \textcolor{keywordtype}{float}\ torqueRefIn,\ \textcolor{keyword}{volatile}\ pi\_struct\ *loopSpeed);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ REFERENCE\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ada50e1c9a8c6b63f1af050122397719a}{set\_torque\_direction}}(\textcolor{keywordtype}{float}\ torqueRef,\ int8\_t\ direction);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_a0f5d51160e9eb91ad3ffba1c5905eed6}{saturate\_symmetric}}(\textcolor{keywordtype}{float}\ ref,\ \textcolor{keywordtype}{float}\ max);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ae99c985c51ea3f09df6b9283e20b4375}{limit\_torque\_to\_prevent\_overspeed}}(\textcolor{keywordtype}{float}\ speedMax,\ \textcolor{keywordtype}{float}\ speedMeas,\ \textcolor{keywordtype}{float}\ torqueRefIn,\ \textcolor{keyword}{volatile}\ pi\_struct\ *loopSpeed);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ab28157c98105fc7d3bbb3dc65e7d5eda}{calculate\_derated\_current}}(\textcolor{keywordtype}{float}\ temperature,\ \textcolor{keywordtype}{float}\ tempStart,\ \textcolor{keywordtype}{float}\ tempMax,\ \textcolor{keywordtype}{float}\ iMax);}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_r_e_f_e_r_e_n_c_e_8h_ad1767fbcd06a25a3c5d6db9c033c2a0f}{derate\_current\_reference}}(\textcolor{keywordtype}{float}\ tempMotor,\ \textcolor{keywordtype}{float}\ tempInverter,\ \textcolor{keywordtype}{float}\ iMax);}
+\DoxyCodeLine{00127\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ REFERENCE\_H\ */}\textcolor{preprocessor}{}}
 
 \end{DoxyCode}

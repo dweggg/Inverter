@@ -6,8 +6,7 @@ Header file for motor parameters.
 
 
 {\ttfamily \#include $<$stdint.\+h$>$}\newline
-Include dependency graph for MOTOR.\+h\+:
-\nopagebreak
+Include dependency graph for MOTOR.\+h\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -25,11 +24,15 @@ This graph shows which files directly or indirectly include this file\+:
 \doxysubsubsection*{Data Structures}
 \begin{DoxyCompactItemize}
 \item 
+struct \mbox{\hyperlink{struct_motor_constants}{Motor\+Constants}}
+\begin{DoxyCompactList}\small\item\em Structure to hold precomputed motor constants. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}}
 \begin{DoxyCompactList}\small\item\em Structure to hold motor parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \mbox{\hyperlink{_m_o_t_o_r_8h_a36a9b4ae42496f3d3030e25e8763d0ff}{precalculate\+\_\+motor\+\_\+constants}} (\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor)
+\begin{DoxyCompactList}\small\item\em Precomputes the constants for a motor and updates the \doxylink{struct_motor_parameters}{Motor\+Parameters} structure. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1}{check\+\_\+motor\+\_\+parameters}} (\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor, float Ts)
 \begin{DoxyCompactList}\small\item\em Perform a parameter check and correct possible errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
@@ -72,12 +75,33 @@ Perform a parameter check and correct possible errors.
 {\em OK} & 0 if an error occurred, 1 if successful. \\
 \hline
 \end{DoxyRetVals}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{_m_o_t_o_r_8h_aac2006b5fcd23b70efa190f9239e50a1_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_m_o_t_o_r_8h_a36a9b4ae42496f3d3030e25e8763d0ff}\label{_m_o_t_o_r_8h_a36a9b4ae42496f3d3030e25e8763d0ff} 
+\index{MOTOR.h@{MOTOR.h}!precalculate\_motor\_constants@{precalculate\_motor\_constants}}
+\index{precalculate\_motor\_constants@{precalculate\_motor\_constants}!MOTOR.h@{MOTOR.h}}
+\doxysubsubsection{\texorpdfstring{precalculate\_motor\_constants()}{precalculate\_motor\_constants()}}
+{\footnotesize\ttfamily void precalculate\+\_\+motor\+\_\+constants (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}}]{motor }\end{DoxyParamCaption})}
+
+
+
+Precomputes the constants for a motor and updates the \doxylink{struct_motor_parameters}{Motor\+Parameters} structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em motor} & \mbox{[}in, out\mbox{]} Pointer to the motor parameters structure \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_m_o_t_o_r_8h_a36a9b4ae42496f3d3030e25e8763d0ff_icgraph}
 \end{center}
 \end{figure}
 

@@ -8,8 +8,10 @@ Interrupt Service Routines.
 {\ttfamily \#include "{}main.\+h"{}}\newline
 {\ttfamily \#include "{}stm32f7xx\+\_\+it.\+h"{}}\newline
 {\ttfamily \#include "{}TASKS\+\_\+1ms.\+h"{}}\newline
-{\ttfamily \#include "{}TASKS\+\_\+20us.\+h"{}}\newline
+{\ttfamily \#include "{}TASKS\+\_\+\+CRITICAL.\+h"{}}\newline
 {\ttfamily \#include "{}CAN\+\_\+e-\/\+Tech.\+h"{}}\newline
+{\ttfamily \#include "{}adc.\+h"{}}\newline
+{\ttfamily \#include "{}MEASUREMENTS.\+h"{}}\newline
 Include dependency graph for stm32f7xx\+\_\+it.\+c\+:
 \nopagebreak
 \begin{figure}[H]
@@ -101,8 +103,7 @@ This function handles Pre-\/fetch fault, memory access fault.
 
 This function handles CAN1 RX0 interrupts. 
 
-Here is the call graph for this function\+:
-\nopagebreak
+Here is the call graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -129,6 +130,13 @@ This function handles Debug monitor.
 
 This function handles DMA2 stream0 global interrupt. 
 
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm32f7xx__it_8c_aaf6ce196dde98712e1223b99766e06c0_cgraph}
+\end{center}
+\end{figure}
 \Hypertarget{stm32f7xx__it_8c_adab6f3e22e90bd5b1ceebb98022abdf2}\label{stm32f7xx__it_8c_adab6f3e22e90bd5b1ceebb98022abdf2} 
 \index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!DMA2\_Stream1\_IRQHandler@{DMA2\_Stream1\_IRQHandler}}
 \index{DMA2\_Stream1\_IRQHandler@{DMA2\_Stream1\_IRQHandler}!stm32f7xx\_it.c@{stm32f7xx\_it.c}}
@@ -149,6 +157,14 @@ This function handles DMA2 stream1 global interrupt.
 
 This function handles DMA2 stream2 global interrupt. 
 
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{stm32f7xx__it_8c_a7e367d7c7b74485c4c75cdef30ad01e1_cgraph}
+\end{center}
+\end{figure}
 \Hypertarget{stm32f7xx__it_8c_a2bffc10d5bd4106753b7c30e86903bea}\label{stm32f7xx__it_8c_a2bffc10d5bd4106753b7c30e86903bea} 
 \index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!HardFault\_Handler@{HardFault\_Handler}}
 \index{HardFault\_Handler@{HardFault\_Handler}!stm32f7xx\_it.c@{stm32f7xx\_it.c}}
@@ -219,14 +235,6 @@ This function handles System tick timer.
 
 This function handles TIM1 update interrupt and TIM10 global interrupt. 
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{stm32f7xx__it_8c_ad1fd361bc5ad89facee67c76d1ff8dc0_cgraph}
-\end{center}
-\end{figure}
 \Hypertarget{stm32f7xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d}\label{stm32f7xx__it_8c_a0839a45f331c4c067939b9c4533bbf4d} 
 \index{stm32f7xx\_it.c@{stm32f7xx\_it.c}!TIM6\_DAC\_IRQHandler@{TIM6\_DAC\_IRQHandler}}
 \index{TIM6\_DAC\_IRQHandler@{TIM6\_DAC\_IRQHandler}!stm32f7xx\_it.c@{stm32f7xx\_it.c}}

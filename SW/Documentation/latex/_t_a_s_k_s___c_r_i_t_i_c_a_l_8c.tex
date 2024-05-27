@@ -1,0 +1,134 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Src/\+TASKS\+\_\+\+CRITICAL.c File Reference}
+\hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c}{}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS\_CRITICAL.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/TASKS\_CRITICAL.c}}
+
+
+This file contains functions executed in each PWM timer interruption.  
+
+
+{\ttfamily \#include "{}CONTROL.\+h"{}}\newline
+{\ttfamily \#include "{}INVERTER.\+h"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for TASKS\+\_\+\+CRITICAL.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a820aabb67a3cec7696f8acee5735247f}{tasks\+\_\+critical\+\_\+left}} (void)
+\begin{DoxyCompactList}\small\item\em Function to be executed every TS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_aa06fe71a25d3883d77165c8a409b541d}{tasks\+\_\+critical\+\_\+right}} (void)
+\begin{DoxyCompactList}\small\item\em Function to be executed every TS. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_adb83807c9a27c654eb3a3b18e37971c2}{start\+\_\+ticks}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a554682ec22cc0a84efbdac9fcaa3cd6f}{elapsed\+\_\+ticks}} = 0
+\item 
+angle\+\_\+struct \mbox{\hyperlink{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a33748c6dd95f9c76db83760d8719fc26}{angle\+\_\+left}}
+\item 
+rampa\+\_\+struct \mbox{\hyperlink{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a5a5a78126ab31a6fc4e9307abd055a5c}{freq\+Ramp\+\_\+left}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains functions executed in each PWM timer interruption. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg in Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a820aabb67a3cec7696f8acee5735247f}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a820aabb67a3cec7696f8acee5735247f} 
+\index{TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}!tasks\_critical\_left@{tasks\_critical\_left}}
+\index{tasks\_critical\_left@{tasks\_critical\_left}!TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}}
+\doxysubsubsection{\texorpdfstring{tasks\_critical\_left()}{tasks\_critical\_left()}}
+{\footnotesize\ttfamily void tasks\+\_\+critical\+\_\+left (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to be executed every TS. 
+
+This function is called by the TIM1 trigger handler every TS. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a820aabb67a3cec7696f8acee5735247f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a820aabb67a3cec7696f8acee5735247f_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_aa06fe71a25d3883d77165c8a409b541d}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_aa06fe71a25d3883d77165c8a409b541d} 
+\index{TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}!tasks\_critical\_right@{tasks\_critical\_right}}
+\index{tasks\_critical\_right@{tasks\_critical\_right}!TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}}
+\doxysubsubsection{\texorpdfstring{tasks\_critical\_right()}{tasks\_critical\_right()}}
+{\footnotesize\ttfamily void tasks\+\_\+critical\+\_\+right (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Function to be executed every TS. 
+
+This function is called by the TIM8 trigger handler every TS. Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_aa06fe71a25d3883d77165c8a409b541d_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a33748c6dd95f9c76db83760d8719fc26}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a33748c6dd95f9c76db83760d8719fc26} 
+\index{TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}!angle\_left@{angle\_left}}
+\index{angle\_left@{angle\_left}!TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}}
+\doxysubsubsection{\texorpdfstring{angle\_left}{angle\_left}}
+{\footnotesize\ttfamily angle\+\_\+struct angle\+\_\+left}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ .freq\ =\ 0.0F,}
+\DoxyCodeLine{\ \ \ \ .Ts\ =\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaade3232ef08cf18b4f3a20a0a2c6fb6}{TS}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a554682ec22cc0a84efbdac9fcaa3cd6f}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a554682ec22cc0a84efbdac9fcaa3cd6f} 
+\index{TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}!elapsed\_ticks@{elapsed\_ticks}}
+\index{elapsed\_ticks@{elapsed\_ticks}!TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}}
+\doxysubsubsection{\texorpdfstring{elapsed\_ticks}{elapsed\_ticks}}
+{\footnotesize\ttfamily uint32\+\_\+t elapsed\+\_\+ticks = 0}
+
+\Hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a5a5a78126ab31a6fc4e9307abd055a5c}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_a5a5a78126ab31a6fc4e9307abd055a5c} 
+\index{TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}!freqRamp\_left@{freqRamp\_left}}
+\index{freqRamp\_left@{freqRamp\_left}!TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}}
+\doxysubsubsection{\texorpdfstring{freqRamp\_left}{freqRamp\_left}}
+{\footnotesize\ttfamily rampa\+\_\+struct freq\+Ramp\+\_\+left}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .in\ =\ 5.0F,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ .Incr\ =\ \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8h_aaade3232ef08cf18b4f3a20a0a2c6fb6}{TS}}*1000,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_adb83807c9a27c654eb3a3b18e37971c2}\label{_t_a_s_k_s___c_r_i_t_i_c_a_l_8c_adb83807c9a27c654eb3a3b18e37971c2} 
+\index{TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}!start\_ticks@{start\_ticks}}
+\index{start\_ticks@{start\_ticks}!TASKS\_CRITICAL.c@{TASKS\_CRITICAL.c}}
+\doxysubsubsection{\texorpdfstring{start\_ticks}{start\_ticks}}
+{\footnotesize\ttfamily uint32\+\_\+t start\+\_\+ticks = 0}
+

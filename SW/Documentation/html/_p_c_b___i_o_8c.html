@@ -93,14 +93,17 @@ Include dependency graph for PCB_IO.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="_p_c_b___i_o_8c__incl.png" border="0" usemap="#a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_p_c_b___i_o_8c" alt=""/></div>
 <map name="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_p_c_b___i_o_8c" id="a_c_1_2_users_2dwegg_2_desktop_2_inverter_2_s_w_2_inverter_2_core_2_src_2_p_c_b___i_o_8c">
-<area shape="rect" title="This file provides functions for handling GPIOs." alt="" coords="9,5,174,64"/>
-<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="5,112,85,139"/>
-<area shape="poly" title=" " alt="" coords="79,66,61,99,56,97,74,63"/>
-<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="108,112,169,139"/>
-<area shape="poly" title=" " alt="" coords="109,63,127,97,122,99,104,66"/>
-<area shape="rect" title=" " alt="" coords="34,187,150,213"/>
-<area shape="poly" title=" " alt="" coords="55,138,78,172,73,175,51,141"/>
-<area shape="poly" title=" " alt="" coords="132,141,110,175,106,172,128,138"/>
+<area shape="rect" title="This file provides functions for handling GPIOs." alt="" coords="21,5,186,64"/>
+<area shape="rect" href="_p_c_b___i_o_8h.html" title="Header file for handling GPIOs." alt="" coords="25,112,104,139"/>
+<area shape="poly" title=" " alt="" coords="93,65,79,99,74,96,88,63"/>
+<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="120,187,180,213"/>
+<area shape="poly" title=" " alt="" coords="114,64,145,171,140,173,109,65"/>
+<area shape="rect" title=" " alt="" coords="8,261,124,288"/>
+<area shape="poly" title=" " alt="" coords="48,141,32,156,18,173,9,192,11,213,23,232,38,249,35,253,18,235,6,214,4,192,13,170,29,152,45,137"/>
+<area shape="poly" title=" " alt="" coords="81,137,126,175,122,179,78,141"/>
+<area shape="rect" title=" " alt="" coords="21,187,95,213"/>
+<area shape="poly" title=" " alt="" coords="66,139,63,171,58,171,61,139"/>
+<area shape="poly" title=" " alt="" coords="137,216,94,253,90,249,133,212"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -112,6 +115,9 @@ Functions</h2></td></tr>
 <tr class="memitem:afec13170cd54a3dc4f50bae3cb8f386e" id="r_afec13170cd54a3dc4f50bae3cb8f386e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afec13170cd54a3dc4f50bae3cb8f386e">handle_direction</a> (volatile int8_t *dir_left, volatile int8_t *dir_right)</td></tr>
 <tr class="memdesc:afec13170cd54a3dc4f50bae3cb8f386e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the direction of the motors.  <br /></td></tr>
 <tr class="separator:afec13170cd54a3dc4f50bae3cb8f386e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01c2ef603c5fdbf3e7dd8693c7acbf95" id="r_a01c2ef603c5fdbf3e7dd8693c7acbf95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01c2ef603c5fdbf3e7dd8693c7acbf95">enable_inverters</a> (volatile bool enableSW_left, volatile bool enableSW_right, volatile bool *enable_left, volatile bool *enable_right)</td></tr>
+<tr class="memdesc:a01c2ef603c5fdbf3e7dd8693c7acbf95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the direction of the motors and enables/disables the inverters.  <br /></td></tr>
+<tr class="separator:a01c2ef603c5fdbf3e7dd8693c7acbf95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -128,6 +134,61 @@ Variables</h2></td></tr>
 <p>Copyright (c) 2024 David Redondo (@dweggg in GitHub). All rights reserved.</p>
 <p>This software is licensed under the Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) license. For more information, see: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode</a> </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a01c2ef603c5fdbf3e7dd8693c7acbf95" name="a01c2ef603c5fdbf3e7dd8693c7acbf95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c2ef603c5fdbf3e7dd8693c7acbf95">&#9670;&#160;</a></span>enable_inverters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void enable_inverters </td>
+          <td>(</td>
+          <td class="paramtype">volatile bool</td>          <td class="paramname"><span class="paramname"><em>enableSW_left</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile bool</td>          <td class="paramname"><span class="paramname"><em>enableSW_right</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile bool *</td>          <td class="paramname"><span class="paramname"><em>enable_left</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">volatile bool *</td>          <td class="paramname"><span class="paramname"><em>enable_right</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handles the direction of the motors and enables/disables the inverters. </p>
+<p>This function reads the state of the shutdown chain (SC or SDC) and enables/disables the inverters based on that and an external software enable bool.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">enableSW_left</td><td>The software enable state for the left inverter. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enableSW_right</td><td>The software enable state for the right inverter. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">enable_left</td><td>Output parameter for the left inverter's enable state. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">enable_right</td><td>Output parameter for the right inverter's enable state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_p_c_b___i_o_8c_a01c2ef603c5fdbf3e7dd8693c7acbf95_icgraph.png" border="0" usemap="#a_p_c_b___i_o_8c_a01c2ef603c5fdbf3e7dd8693c7acbf95_icgraph" alt=""/></div>
+<map name="a_p_c_b___i_o_8c_a01c2ef603c5fdbf3e7dd8693c7acbf95_icgraph" id="a_p_c_b___i_o_8c_a01c2ef603c5fdbf3e7dd8693c7acbf95_icgraph">
+<area shape="rect" title="Handles the direction of the motors and enables/disables the inverters." alt="" coords="343,5,457,32"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,5,295,32"/>
+<area shape="poly" title=" " alt="" coords="328,21,295,21,295,16,328,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#a0839a45f331c4c067939b9c4533bbf4d" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,5,162,32"/>
+<area shape="poly" title=" " alt="" coords="194,21,162,21,162,16,194,16"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="afec13170cd54a3dc4f50bae3cb8f386e" name="afec13170cd54a3dc4f50bae3cb8f386e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afec13170cd54a3dc4f50bae3cb8f386e">&#9670;&#160;</a></span>handle_direction()</h2>
 

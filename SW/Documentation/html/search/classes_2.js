@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['encoder_0',['Encoder',['../struct_encoder.html',1,'']]]
+  ['duties_0',['Duties',['../struct_duties.html',1,'']]]
 ];

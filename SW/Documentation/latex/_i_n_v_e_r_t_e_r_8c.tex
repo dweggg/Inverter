@@ -6,6 +6,7 @@ This file provides code for the inverter struct.
 
 
 {\ttfamily \#include "{}INVERTER.\+h"{}}\newline
+{\ttfamily \#include "{}stm32f7xx\+\_\+hal.\+h"{}}\newline
 {\ttfamily \#include $<$math.\+h$>$}\newline
 Include dependency graph for INVERTER.\+c\+:
 \nopagebreak
@@ -18,7 +19,7 @@ Include dependency graph for INVERTER.\+c\+:
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_a49edd9d49792ef1249641249d3259f87}{initialize\+\_\+inverter}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}enable\+\_\+port, uint16\+\_\+t enable\+\_\+pin, TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hadc, \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor)
+void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_ac0938302bc5b498825f02779e027da1b}{initialize\+\_\+inverter}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}led, GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}enable\+\_\+port, uint16\+\_\+t enable\+\_\+pin, TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}htim, ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}hadc, \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor, volatile uint16\+\_\+t \texorpdfstring{$\ast$}{*}raw\+ADC)
 \begin{DoxyCompactList}\small\item\em Initialize the inverter. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_i_n_v_e_r_t_e_r_8c_aaf9fa53152a16edd10ae319f35703a1a}{init\+\_\+control\+\_\+loops}} (volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}inv, \mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}motor)
 \begin{DoxyCompactList}\small\item\em Initializes the PI controllers. \end{DoxyCompactList}\item 
@@ -93,19 +94,18 @@ Initializes the id-\/iq current control PI controllers.
 {\em inv} & Pointer to the inverter structure. \\
 \hline
 \end{DoxyParams}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{_i_n_v_e_r_t_e_r_8c_aaf9fa53152a16edd10ae319f35703a1a_icgraph}
 \end{center}
 \end{figure}
-\Hypertarget{_i_n_v_e_r_t_e_r_8c_a49edd9d49792ef1249641249d3259f87}\label{_i_n_v_e_r_t_e_r_8c_a49edd9d49792ef1249641249d3259f87} 
+\Hypertarget{_i_n_v_e_r_t_e_r_8c_ac0938302bc5b498825f02779e027da1b}\label{_i_n_v_e_r_t_e_r_8c_ac0938302bc5b498825f02779e027da1b} 
 \index{INVERTER.c@{INVERTER.c}!initialize\_inverter@{initialize\_inverter}}
 \index{initialize\_inverter@{initialize\_inverter}!INVERTER.c@{INVERTER.c}}
 \doxysubsubsection{\texorpdfstring{initialize\_inverter()}{initialize\_inverter()}}
-{\footnotesize\ttfamily void initialize\+\_\+inverter (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv,  }\item[{\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{enable\+\_\+port,  }\item[{uint16\+\_\+t}]{enable\+\_\+pin,  }\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim,  }\item[{ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hadc,  }\item[{\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}}]{motor }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void initialize\+\_\+inverter (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{struct_inverter_struct}{Inverter\+Struct}} \texorpdfstring{$\ast$}{*}}]{inv,  }\item[{\mbox{\hyperlink{struct_l_e_d}{LED}} \texorpdfstring{$\ast$}{*}}]{led,  }\item[{GPIO\+\_\+\+Type\+Def \texorpdfstring{$\ast$}{*}}]{enable\+\_\+port,  }\item[{uint16\+\_\+t}]{enable\+\_\+pin,  }\item[{TIM\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{htim,  }\item[{ADC\+\_\+\+Handle\+Type\+Def \texorpdfstring{$\ast$}{*}}]{hadc,  }\item[{\mbox{\hyperlink{struct_motor_parameters}{Motor\+Parameters}} \texorpdfstring{$\ast$}{*}}]{motor,  }\item[{volatile uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{raw\+ADC }\end{DoxyParamCaption})}
 
 
 
@@ -135,15 +135,14 @@ Here is the call graph for this function\+:
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=330pt]{_i_n_v_e_r_t_e_r_8c_a49edd9d49792ef1249641249d3259f87_cgraph}
+\includegraphics[width=330pt]{_i_n_v_e_r_t_e_r_8c_ac0938302bc5b498825f02779e027da1b_cgraph}
 \end{center}
 \end{figure}
-Here is the caller graph for this function\+:
-\nopagebreak
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=240pt]{_i_n_v_e_r_t_e_r_8c_a49edd9d49792ef1249641249d3259f87_icgraph}
+\includegraphics[width=240pt]{_i_n_v_e_r_t_e_r_8c_ac0938302bc5b498825f02779e027da1b_icgraph}
 \end{center}
 \end{figure}
 

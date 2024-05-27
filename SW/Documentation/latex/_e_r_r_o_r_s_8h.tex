@@ -1,0 +1,237 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\+ERRORS.h File Reference}
+\hypertarget{_e_r_r_o_r_s_8h}{}\label{_e_r_r_o_r_s_8h}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/ERRORS.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/ERRORS.h}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for ERRORS.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{_e_r_r_o_r_s_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_e_r_r_o_r_s_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_e_r_r_o_r_s_8h_a09287912d32713acb7095f96ea233314}{OVERTEMPERATURE\+\_\+\+INVERTER\+\_\+\+TH}}~60.\+0f
+\item 
+\#define \mbox{\hyperlink{_e_r_r_o_r_s_8h_a7cc124c9664b14d794121e5d3a5b52a2}{OVERVOLTAGE\+\_\+\+TH}}~600.\+0f
+\item 
+\#define \mbox{\hyperlink{_e_r_r_o_r_s_8h_ab362b95c171386c1ca4b2c0116e2db1e}{OVERCURRENT\+\_\+\+TH}}~100.\+0f
+\item 
+\#define \mbox{\hyperlink{_e_r_r_o_r_s_8h_a303e6ee8ff7b89ed0ac9f091acacd83c}{OVERSPEED\+\_\+\+TH}}~20000.\+0f
+\item 
+\#define \mbox{\hyperlink{_e_r_r_o_r_s_8h_ab6b9840a509c887f5752016ad5f51a12}{UNDERVOLTAGE\+\_\+\+TH}}~10.\+0f
+\item 
+\#define \mbox{\hyperlink{_e_r_r_o_r_s_8h_a2c9df5ba7e741a241ac6bc46e4f7ad1c}{OVERTEMPERATURE\+\_\+\+MOTOR\+\_\+\+TH}}~90.\+0f
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} \{ \newline
+\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac157bdf0b85a40d2619cbc8bc1ae5fe2}{NONE}} = 0
+, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bab9c7efeaf975d92508814de65ddeba59}{POWER\+\_\+\+FAULT}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba0d872f638247750099f114a97a893482}{OVERTEMPERATURE\+\_\+\+INV}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba6c80a02737f7d62e91b164b2cda009f0}{OVERVOLTAGE}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2)
+, \newline
+\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba6c8601cf997fdac12c0b173d3ae9fe49}{OVERCURRENT}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3)
+, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34baa661f8452078d21bf9bad522ad73fd5b}{OVERSPEED}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4)
+, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac794a3057ab13508cd4b4db30eaf5fac}{UNDERVOLTAGE}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 5)
+, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bae7673bfcc50aec9aa2274b01f108abc0}{CONTROL\+\_\+\+FAULT}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 6)
+, \newline
+\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba984de77c680eaff141ec910e25568a81}{WARNING}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 7)
+, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac99cf71d30dfbd37162d35a71e12747e}{OVERTEMPERATURE\+\_\+\+MOT}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 8)
+, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba2d1e872b42fce9166b755ea5d9c34b1c}{FEEDBACK\+\_\+\+FAULT}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 9)
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration of inverter error states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_e_r_r_o_r_s_8h_a0f0f6f855e7f3762d23ee2f3d448911e}{set\+\_\+error}} (volatile void \texorpdfstring{$\ast$}{*}data, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} error)
+\begin{DoxyCompactList}\small\item\em Sets an error in the error field of a data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_e_r_r_o_r_s_8h_a2639be61abcbef4da48c0b288ce97c74}{clear\+\_\+error}} (volatile void \texorpdfstring{$\ast$}{*}data, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} error)
+\begin{DoxyCompactList}\small\item\em Clears an error in the error field of a data structure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_e_r_r_o_r_s_8h_af90e3c051a6055e2508f0a3aaea80695}{is\+\_\+error\+\_\+set}} (volatile void \texorpdfstring{$\ast$}{*}data, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} error)
+\begin{DoxyCompactList}\small\item\em Checks if an error is set in the error field of a data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_e_r_r_o_r_s_8h_ab362b95c171386c1ca4b2c0116e2db1e}\label{_e_r_r_o_r_s_8h_ab362b95c171386c1ca4b2c0116e2db1e} 
+\index{ERRORS.h@{ERRORS.h}!OVERCURRENT\_TH@{OVERCURRENT\_TH}}
+\index{OVERCURRENT\_TH@{OVERCURRENT\_TH}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{OVERCURRENT\_TH}{OVERCURRENT\_TH}}
+{\footnotesize\ttfamily \#define OVERCURRENT\+\_\+\+TH~100.\+0f}
+
+\mbox{[}A\mbox{]} Threshold for instantaneous overcurrent fault \Hypertarget{_e_r_r_o_r_s_8h_a303e6ee8ff7b89ed0ac9f091acacd83c}\label{_e_r_r_o_r_s_8h_a303e6ee8ff7b89ed0ac9f091acacd83c} 
+\index{ERRORS.h@{ERRORS.h}!OVERSPEED\_TH@{OVERSPEED\_TH}}
+\index{OVERSPEED\_TH@{OVERSPEED\_TH}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{OVERSPEED\_TH}{OVERSPEED\_TH}}
+{\footnotesize\ttfamily \#define OVERSPEED\+\_\+\+TH~20000.\+0f}
+
+\mbox{[}RPM\mbox{]} Threshold for motor overspeed fault \Hypertarget{_e_r_r_o_r_s_8h_a09287912d32713acb7095f96ea233314}\label{_e_r_r_o_r_s_8h_a09287912d32713acb7095f96ea233314} 
+\index{ERRORS.h@{ERRORS.h}!OVERTEMPERATURE\_INVERTER\_TH@{OVERTEMPERATURE\_INVERTER\_TH}}
+\index{OVERTEMPERATURE\_INVERTER\_TH@{OVERTEMPERATURE\_INVERTER\_TH}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{OVERTEMPERATURE\_INVERTER\_TH}{OVERTEMPERATURE\_INVERTER\_TH}}
+{\footnotesize\ttfamily \#define OVERTEMPERATURE\+\_\+\+INVERTER\+\_\+\+TH~60.\+0f}
+
+\mbox{[}degC\mbox{]} Threshold for inverter overtemperature fault \Hypertarget{_e_r_r_o_r_s_8h_a2c9df5ba7e741a241ac6bc46e4f7ad1c}\label{_e_r_r_o_r_s_8h_a2c9df5ba7e741a241ac6bc46e4f7ad1c} 
+\index{ERRORS.h@{ERRORS.h}!OVERTEMPERATURE\_MOTOR\_TH@{OVERTEMPERATURE\_MOTOR\_TH}}
+\index{OVERTEMPERATURE\_MOTOR\_TH@{OVERTEMPERATURE\_MOTOR\_TH}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{OVERTEMPERATURE\_MOTOR\_TH}{OVERTEMPERATURE\_MOTOR\_TH}}
+{\footnotesize\ttfamily \#define OVERTEMPERATURE\+\_\+\+MOTOR\+\_\+\+TH~90.\+0f}
+
+\mbox{[}degC\mbox{]} Threshold for motor overtemperature fault \Hypertarget{_e_r_r_o_r_s_8h_a7cc124c9664b14d794121e5d3a5b52a2}\label{_e_r_r_o_r_s_8h_a7cc124c9664b14d794121e5d3a5b52a2} 
+\index{ERRORS.h@{ERRORS.h}!OVERVOLTAGE\_TH@{OVERVOLTAGE\_TH}}
+\index{OVERVOLTAGE\_TH@{OVERVOLTAGE\_TH}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{OVERVOLTAGE\_TH}{OVERVOLTAGE\_TH}}
+{\footnotesize\ttfamily \#define OVERVOLTAGE\+\_\+\+TH~600.\+0f}
+
+\mbox{[}V\mbox{]} Threshold for overvoltage fault \Hypertarget{_e_r_r_o_r_s_8h_ab6b9840a509c887f5752016ad5f51a12}\label{_e_r_r_o_r_s_8h_ab6b9840a509c887f5752016ad5f51a12} 
+\index{ERRORS.h@{ERRORS.h}!UNDERVOLTAGE\_TH@{UNDERVOLTAGE\_TH}}
+\index{UNDERVOLTAGE\_TH@{UNDERVOLTAGE\_TH}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{UNDERVOLTAGE\_TH}{UNDERVOLTAGE\_TH}}
+{\footnotesize\ttfamily \#define UNDERVOLTAGE\+\_\+\+TH~10.\+0f}
+
+\mbox{[}V\mbox{]} Threshold for undervoltage fault 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b} 
+\index{ERRORS.h@{ERRORS.h}!InverterError@{InverterError}}
+\index{InverterError@{InverterError}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{InverterError}{InverterError}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}}}
+
+
+
+Enumeration of inverter error states. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NONE@{NONE}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!NONE@{NONE}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac157bdf0b85a40d2619cbc8bc1ae5fe2}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac157bdf0b85a40d2619cbc8bc1ae5fe2} 
+NONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{POWER\_FAULT@{POWER\_FAULT}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!POWER\_FAULT@{POWER\_FAULT}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bab9c7efeaf975d92508814de65ddeba59}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bab9c7efeaf975d92508814de65ddeba59} 
+POWER\+\_\+\+FAULT&Power fault error bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OVERTEMPERATURE\_INV@{OVERTEMPERATURE\_INV}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!OVERTEMPERATURE\_INV@{OVERTEMPERATURE\_INV}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba0d872f638247750099f114a97a893482}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba0d872f638247750099f114a97a893482} 
+OVERTEMPERATURE\+\_\+\+INV&Inverter overtemperature error bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OVERVOLTAGE@{OVERVOLTAGE}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!OVERVOLTAGE@{OVERVOLTAGE}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba6c80a02737f7d62e91b164b2cda009f0}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba6c80a02737f7d62e91b164b2cda009f0} 
+OVERVOLTAGE&Overvoltage error bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OVERCURRENT@{OVERCURRENT}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!OVERCURRENT@{OVERCURRENT}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba6c8601cf997fdac12c0b173d3ae9fe49}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba6c8601cf997fdac12c0b173d3ae9fe49} 
+OVERCURRENT&Overcurrent error bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OVERSPEED@{OVERSPEED}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!OVERSPEED@{OVERSPEED}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34baa661f8452078d21bf9bad522ad73fd5b}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34baa661f8452078d21bf9bad522ad73fd5b} 
+OVERSPEED&Overspeed error bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNDERVOLTAGE@{UNDERVOLTAGE}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!UNDERVOLTAGE@{UNDERVOLTAGE}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac794a3057ab13508cd4b4db30eaf5fac}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac794a3057ab13508cd4b4db30eaf5fac} 
+UNDERVOLTAGE&Undervoltage error bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONTROL\_FAULT@{CONTROL\_FAULT}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!CONTROL\_FAULT@{CONTROL\_FAULT}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bae7673bfcc50aec9aa2274b01f108abc0}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bae7673bfcc50aec9aa2274b01f108abc0} 
+CONTROL\+\_\+\+FAULT&Control fault error bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WARNING@{WARNING}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!WARNING@{WARNING}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba984de77c680eaff141ec910e25568a81}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba984de77c680eaff141ec910e25568a81} 
+WARNING&Warning error bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OVERTEMPERATURE\_MOT@{OVERTEMPERATURE\_MOT}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!OVERTEMPERATURE\_MOT@{OVERTEMPERATURE\_MOT}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac99cf71d30dfbd37162d35a71e12747e}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34bac99cf71d30dfbd37162d35a71e12747e} 
+OVERTEMPERATURE\+\_\+\+MOT&Motor overtemperature error bit \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FEEDBACK\_FAULT@{FEEDBACK\_FAULT}!ERRORS.h@{ERRORS.h}}\index{ERRORS.h@{ERRORS.h}!FEEDBACK\_FAULT@{FEEDBACK\_FAULT}}}\Hypertarget{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba2d1e872b42fce9166b755ea5d9c34b1c}\label{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34ba2d1e872b42fce9166b755ea5d9c34b1c} 
+FEEDBACK\+\_\+\+FAULT&\doxylink{struct_feedback}{Feedback} fault error bit \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_e_r_r_o_r_s_8h_a2639be61abcbef4da48c0b288ce97c74}\label{_e_r_r_o_r_s_8h_a2639be61abcbef4da48c0b288ce97c74} 
+\index{ERRORS.h@{ERRORS.h}!clear\_error@{clear\_error}}
+\index{clear\_error@{clear\_error}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{clear\_error()}{clear\_error()}}
+{\footnotesize\ttfamily void clear\+\_\+error (\begin{DoxyParamCaption}\item[{volatile void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}}}]{error }\end{DoxyParamCaption})}
+
+
+
+Clears an error in the error field of a data structure. 
+
+This function clears the specified error bit in the error field of a data structure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em data} & Pointer to the data structure containing the error field. \\
+\hline
+\mbox{\texttt{ in}}  & {\em error} & The error to be cleared. This should be one of the values from the Inverter\+Error enumeration. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_e_r_r_o_r_s_8h_a2639be61abcbef4da48c0b288ce97c74_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_e_r_r_o_r_s_8h_af90e3c051a6055e2508f0a3aaea80695}\label{_e_r_r_o_r_s_8h_af90e3c051a6055e2508f0a3aaea80695} 
+\index{ERRORS.h@{ERRORS.h}!is\_error\_set@{is\_error\_set}}
+\index{is\_error\_set@{is\_error\_set}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{is\_error\_set()}{is\_error\_set()}}
+{\footnotesize\ttfamily bool is\+\_\+error\+\_\+set (\begin{DoxyParamCaption}\item[{volatile void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}}}]{error }\end{DoxyParamCaption})}
+
+
+
+Checks if an error is set in the error field of a data structure. 
+
+This function checks if the specified error bit is set in the error field of a data structure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & Pointer to the data structure containing the error field. \\
+\hline
+\mbox{\texttt{ in}}  & {\em error} & The error to be checked. This should be one of the values from the Inverter\+Error enumeration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the specified error is set, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_e_r_r_o_r_s_8h_a0f0f6f855e7f3762d23ee2f3d448911e}\label{_e_r_r_o_r_s_8h_a0f0f6f855e7f3762d23ee2f3d448911e} 
+\index{ERRORS.h@{ERRORS.h}!set\_error@{set\_error}}
+\index{set\_error@{set\_error}!ERRORS.h@{ERRORS.h}}
+\doxysubsubsection{\texorpdfstring{set\_error()}{set\_error()}}
+{\footnotesize\ttfamily void set\+\_\+error (\begin{DoxyParamCaption}\item[{volatile void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}}}]{error }\end{DoxyParamCaption})}
+
+
+
+Sets an error in the error field of a data structure. 
+
+This function sets the specified error bit in the error field of a data structure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em data} & Pointer to the data structure containing the error field. \\
+\hline
+\mbox{\texttt{ in}}  & {\em error} & The error to be set. This should be one of the values from the Inverter\+Error enumeration. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_e_r_r_o_r_s_8h_a0f0f6f855e7f3762d23ee2f3d448911e_icgraph}
+\end{center}
+\end{figure}

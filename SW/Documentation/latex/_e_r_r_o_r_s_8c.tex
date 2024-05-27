@@ -1,0 +1,113 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Src/\+ERRORS.c File Reference}
+\hypertarget{_e_r_r_o_r_s_8c}{}\label{_e_r_r_o_r_s_8c}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/ERRORS.c@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Src/ERRORS.c}}
+
+
+Header file for the necessary components to set, read and clear ERRORS.  
+
+
+{\ttfamily \#include "{}ERRORS.\+h"{}}\newline
+Include dependency graph for ERRORS.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{_e_r_r_o_r_s_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_e_r_r_o_r_s_8c_a0f0f6f855e7f3762d23ee2f3d448911e}{set\+\_\+error}} (volatile void \texorpdfstring{$\ast$}{*}data, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} error)
+\begin{DoxyCompactList}\small\item\em Sets an error in the error field of a data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_e_r_r_o_r_s_8c_a2639be61abcbef4da48c0b288ce97c74}{clear\+\_\+error}} (volatile void \texorpdfstring{$\ast$}{*}data, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} error)
+\begin{DoxyCompactList}\small\item\em Clears an error in the error field of a data structure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_e_r_r_o_r_s_8c_af90e3c051a6055e2508f0a3aaea80695}{is\+\_\+error\+\_\+set}} (volatile void \texorpdfstring{$\ast$}{*}data, \mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}} error)
+\begin{DoxyCompactList}\small\item\em Checks if an error is set in the error field of a data structure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Header file for the necessary components to set, read and clear ERRORS. 
+
+This file contains the necessary components to set, read and clear ERRORS.
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2024 David Redondo (@dweggg on Git\+Hub). All rights reserved.
+
+This software is licensed under the Attribution-\/\+Non\+Commercial-\/\+Share\+Alike 4.\+0 International (CC BY-\/\+NC-\/\+SA 4.\+0) license. For more information, see\+: \href{https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode}{\texttt{ https\+://creativecommons.\+org/licenses/by-\/nc-\/sa/4.\+0/legalcode}} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_e_r_r_o_r_s_8c_a2639be61abcbef4da48c0b288ce97c74}\label{_e_r_r_o_r_s_8c_a2639be61abcbef4da48c0b288ce97c74} 
+\index{ERRORS.c@{ERRORS.c}!clear\_error@{clear\_error}}
+\index{clear\_error@{clear\_error}!ERRORS.c@{ERRORS.c}}
+\doxysubsubsection{\texorpdfstring{clear\_error()}{clear\_error()}}
+{\footnotesize\ttfamily void clear\+\_\+error (\begin{DoxyParamCaption}\item[{volatile void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}}}]{error }\end{DoxyParamCaption})}
+
+
+
+Clears an error in the error field of a data structure. 
+
+This function clears the specified error bit in the error field of a data structure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em data} & Pointer to the data structure containing the error field. \\
+\hline
+\mbox{\texttt{ in}}  & {\em error} & The error to be cleared. This should be one of the values from the Inverter\+Error enumeration. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_e_r_r_o_r_s_8c_a2639be61abcbef4da48c0b288ce97c74_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{_e_r_r_o_r_s_8c_af90e3c051a6055e2508f0a3aaea80695}\label{_e_r_r_o_r_s_8c_af90e3c051a6055e2508f0a3aaea80695} 
+\index{ERRORS.c@{ERRORS.c}!is\_error\_set@{is\_error\_set}}
+\index{is\_error\_set@{is\_error\_set}!ERRORS.c@{ERRORS.c}}
+\doxysubsubsection{\texorpdfstring{is\_error\_set()}{is\_error\_set()}}
+{\footnotesize\ttfamily bool is\+\_\+error\+\_\+set (\begin{DoxyParamCaption}\item[{volatile void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}}}]{error }\end{DoxyParamCaption})}
+
+
+
+Checks if an error is set in the error field of a data structure. 
+
+This function checks if the specified error bit is set in the error field of a data structure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & Pointer to the data structure containing the error field. \\
+\hline
+\mbox{\texttt{ in}}  & {\em error} & The error to be checked. This should be one of the values from the Inverter\+Error enumeration. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the specified error is set, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{_e_r_r_o_r_s_8c_a0f0f6f855e7f3762d23ee2f3d448911e}\label{_e_r_r_o_r_s_8c_a0f0f6f855e7f3762d23ee2f3d448911e} 
+\index{ERRORS.c@{ERRORS.c}!set\_error@{set\_error}}
+\index{set\_error@{set\_error}!ERRORS.c@{ERRORS.c}}
+\doxysubsubsection{\texorpdfstring{set\_error()}{set\_error()}}
+{\footnotesize\ttfamily void set\+\_\+error (\begin{DoxyParamCaption}\item[{volatile void \texorpdfstring{$\ast$}{*}}]{data,  }\item[{\mbox{\hyperlink{_e_r_r_o_r_s_8h_a80b6c47d91158dcc3f5fd7de4f3ca34b}{Inverter\+Error}}}]{error }\end{DoxyParamCaption})}
+
+
+
+Sets an error in the error field of a data structure. 
+
+This function sets the specified error bit in the error field of a data structure.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em data} & Pointer to the data structure containing the error field. \\
+\hline
+\mbox{\texttt{ in}}  & {\em error} & The error to be set. This should be one of the values from the Inverter\+Error enumeration. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_e_r_r_o_r_s_8c_a0f0f6f855e7f3762d23ee2f3d448911e_icgraph}
+\end{center}
+\end{figure}

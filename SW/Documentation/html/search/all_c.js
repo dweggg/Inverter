@@ -12,5 +12,6 @@ var searchData=
   ['motor_2eh_9',['MOTOR.h',['../_m_o_t_o_r_8h.html',1,'']]],
   ['motor_5fleft_10',['motor_left',['../_m_o_t_o_r_8h.html#ac1fb3830c20e54f8980f91b3b8b19a48',1,'motor_left:&#160;MOTOR.c'],['../_m_o_t_o_r_8c.html#ac1fb3830c20e54f8980f91b3b8b19a48',1,'motor_left:&#160;MOTOR.c']]],
   ['motor_5fright_11',['motor_right',['../_m_o_t_o_r_8h.html#aa30800b62b841d0b0b3cac4df1841afa',1,'motor_right:&#160;MOTOR.c'],['../_m_o_t_o_r_8c.html#aa30800b62b841d0b0b3cac4df1841afa',1,'motor_right:&#160;MOTOR.c']]],
-  ['motorparameters_12',['MotorParameters',['../struct_motor_parameters.html',1,'']]]
+  ['motorconstants_12',['MotorConstants',['../struct_motor_constants.html',1,'']]],
+  ['motorparameters_13',['MotorParameters',['../struct_motor_parameters.html',1,'']]]
 ];

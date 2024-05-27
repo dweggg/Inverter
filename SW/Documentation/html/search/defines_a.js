@@ -1,9 +1,20 @@
 var searchData=
 [
-  ['vdc_5fl_5fgpio_5fport_0',['VDC_L_GPIO_Port',['../main_8h.html#add9bc19066200ae2e4fff8d0f67b596b',1,'main.h']]],
-  ['vdc_5fl_5fpin_1',['VDC_L_Pin',['../main_8h.html#a4ccf619d3e97dbf201e6a935248c5452',1,'main.h']]],
-  ['vdc_5fr_5fgpio_5fport_2',['VDC_R_GPIO_Port',['../main_8h.html#a1a9cfdd192288e88bfd5763a34384106',1,'main.h']]],
-  ['vdc_5fr_5fpin_3',['VDC_R_Pin',['../main_8h.html#aa4650af4b193620fcbd5eeee27afe0cb',1,'main.h']]],
-  ['voltage_5foffset_4',['VOLTAGE_OFFSET',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#a0e190e318cba64e487ce9f09fca3963f',1,'MEASUREMENTS.h']]],
-  ['voltage_5fslope_5',['VOLTAGE_SLOPE',['../_m_e_a_s_u_r_e_m_e_n_t_s_8h.html#aec92a06aa87b2439d7af214a35dff20a',1,'MEASUREMENTS.h']]]
+  ['temp_5finverter_5fderating_0',['TEMP_INVERTER_DERATING',['../_r_e_f_e_r_e_n_c_e_8h.html#a7f34a23b9537adb1944bee0afdf5fbd0',1,'REFERENCE.h']]],
+  ['temp_5finverter_5fmax_1',['TEMP_INVERTER_MAX',['../_r_e_f_e_r_e_n_c_e_8h.html#a3e75fadd1878dc3fe8fa2390a32a049c',1,'REFERENCE.h']]],
+  ['temp_5fmotor_5fderating_2',['TEMP_MOTOR_DERATING',['../_r_e_f_e_r_e_n_c_e_8h.html#aec40e92600df1cbc4768a201c6f4dad1',1,'REFERENCE.h']]],
+  ['temp_5fmotor_5fmax_3',['TEMP_MOTOR_MAX',['../_r_e_f_e_r_e_n_c_e_8h.html#ac83fd86ac94d95e4d8dc6cfe93991e6f',1,'REFERENCE.h']]],
+  ['tinv_5fl_5fgpio_5fport_4',['Tinv_L_GPIO_Port',['../main_8h.html#a95bfd448c64cb89e1752cc04c3395abc',1,'main.h']]],
+  ['tinv_5fl_5fpin_5',['Tinv_L_Pin',['../main_8h.html#aa7acd4183c0eae46ad7e26f80cbd23ff',1,'main.h']]],
+  ['tinv_5fr_5fgpio_5fport_6',['Tinv_R_GPIO_Port',['../main_8h.html#ac048dafef79af4c0834989a73159bbe8',1,'main.h']]],
+  ['tinv_5fr_5fpin_7',['Tinv_R_Pin',['../main_8h.html#adc3b6233f1e1837022a3b4071811d6b9',1,'main.h']]],
+  ['tmot_5fl_5fgpio_5fport_8',['Tmot_L_GPIO_Port',['../main_8h.html#a3f271f14c0db1a6d097df00858fe0a75',1,'main.h']]],
+  ['tmot_5fl_5fpin_9',['Tmot_L_Pin',['../main_8h.html#af1b91bde8f6f7e5169a778c829df879e',1,'main.h']]],
+  ['tmot_5fr_5fgpio_5fport_10',['Tmot_R_GPIO_Port',['../main_8h.html#ac09bc5920246f467176c2b229553aeac',1,'main.h']]],
+  ['tmot_5fr_5fpin_11',['Tmot_R_Pin',['../main_8h.html#a5e3b346277558b451091a57e6579a44f',1,'main.h']]],
+  ['trip_5fl_5fgpio_5fport_12',['TRIP_L_GPIO_Port',['../main_8h.html#a6e8eb9fa55d49e123886fa67b0e65dff',1,'main.h']]],
+  ['trip_5fl_5fpin_13',['TRIP_L_Pin',['../main_8h.html#a8ce5825f1cdb397130b6835daa116a99',1,'main.h']]],
+  ['trip_5fr_5fgpio_5fport_14',['TRIP_R_GPIO_Port',['../main_8h.html#a641570b8ef7952050c60b28dc7ac90df',1,'main.h']]],
+  ['trip_5fr_5fpin_15',['TRIP_R_Pin',['../main_8h.html#a9a019e3f23f1fdea93048af8c390b1b9',1,'main.h']]],
+  ['ts_16',['TS',['../_i_n_v_e_r_t_e_r_8h.html#aaade3232ef08cf18b4f3a20a0a2c6fb6',1,'INVERTER.h']]]
 ];

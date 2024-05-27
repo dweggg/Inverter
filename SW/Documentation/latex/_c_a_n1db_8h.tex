@@ -1,0 +1,2041 @@
+\doxysection{C\+:/\+Users/dwegg/\+Desktop/\+Inverter/\+SW/\+Inverter/\+Core/\+Inc/\+CAN1db.h File Reference}
+\hypertarget{_c_a_n1db_8h}{}\label{_c_a_n1db_8h}\index{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN1db.h@{C:/Users/dwegg/Desktop/Inverter/SW/Inverter/Core/Inc/CAN1db.h}}
+{\ttfamily \#include "{}stdint.\+h"{}}\newline
+Include dependency graph for CAN1db.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{_c_a_n1db_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=346pt]{_c_a_n1db_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsignal}{signal}}
+\item 
+struct \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+VECTOR\+\_\+\+\_\+\+INDEPENDENT\+\_\+\+SIG\+\_\+\+MSG}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+MEAS\+\_\+\+Inv\+Rear\+\_\+\+Currents\+Meas}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+MEAS\+\_\+\+Inv\+Rear\+\_\+\+Currents\+Ref}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+Inv\+Rear\+\_\+\+Electrical}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+NM\+\_\+\+Inv\+Rear\+\_\+\+Keep\+\_\+\+Alive}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+Inv\+Rear\+\_\+\+Mechanical}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+Inv\+Rear\+\_\+\+Temperatures}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+Inv\+Rear\+\_\+\+Error}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+ETAS\+\_\+\+Torques}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+ETAS\+\_\+\+Enable\+Inv}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+BMS\+\_\+\+SDC}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+Current\+Sensor}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+BMS\+\_\+\+Voltages}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+BMS\+\_\+\+Charger\+Parameters}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+BMS\+\_\+\+Temperatures}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+DASH\+\_\+\+Mode}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+NM\+\_\+\+BMS\+\_\+\+Keep\+\_\+\+Alive}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+BMS\+\_\+\+AIRs\+\_\+\+State}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+NM\+\_\+\+DASH\+\_\+\+Keep\+\_\+\+Alive}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+DASH\+\_\+\+Precharge\+Request}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+DASH\+\_\+\+Enable\+Drive}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+ETAS\+\_\+\+Dash\+Data}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+ETAS\+\_\+\+VDCParams}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+ETAS\+\_\+\+Car\+State}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+ETAS\+\_\+\+AIRs\+Request}
+\item 
+struct {\bfseries DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+AP\+\_\+\+ETAS\+\_\+\+Synchronism}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}{CAN\+\_\+\+ID\+\_\+\+STD}}~((uint32\+\_\+t)0x00000000U)
+\item 
+\#define \mbox{\hyperlink{_c_a_n1db_8h_a5f6fdd1dc3d312af1ac30e2eee15d6f0}{CAN\+\_\+\+ID\+\_\+\+EXT}}~((uint32\+\_\+t)0x00000004U)
+\item 
+\#define \mbox{\hyperlink{_c_a_n1db_8h_a5e1826dc2a9b04f9a83ae17e561badd3}{DBC\+\_\+link\+Msg\+Converter}}(dbc,  arr)~(dbc).\mbox{\hyperlink{_c_a_n1db_8h_a85c73c9162b493a7239dd7f9ff033824}{get\+Sig\+Val}} = (typeof((dbc).\mbox{\hyperlink{_c_a_n1db_8h_a85c73c9162b493a7239dd7f9ff033824}{get\+Sig\+Val}})) \&(arr)
+\item 
+\#define \mbox{\hyperlink{_c_a_n1db_8h_a3d79c1ae53c7c9de7c44cfaf8035420c}{DBC\+\_\+setup}}(dbc,  MSG)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118}{dbc\+\_\+value\+Type}} \mbox{\hyperlink{_c_a_n1db_8h_a5b7a3927c38f476ff93ed3c234db89ae}{dbc\+\_\+value\+Type}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK}} \mbox{\hyperlink{_c_a_n1db_8h_a1451c162fc6ea5f1865de8e6b26dca59}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0de}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD}} \mbox{\hyperlink{_c_a_n1db_8h_aa1fe3564d389bb98eb4baae1b9ccc562}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS}} \mbox{\hyperlink{_c_a_n1db_8h_a0ef86520193d1173721f97ed5bf3c166}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4e}{DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR}} \mbox{\hyperlink{_c_a_n1db_8h_af109f7545106d332530c096f4fe68e37}{DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT}} \mbox{\hyperlink{_c_a_n1db_8h_aca20304fafce51616ccf6c15af01f48d}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY}} \mbox{\hyperlink{_c_a_n1db_8h_a5c17cf48dfdb2da5aacd3c61b3af4e0a}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT}} \mbox{\hyperlink{_c_a_n1db_8h_ac0db65c78570fbfbc4687ee0f0aa59b5}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING}} \mbox{\hyperlink{_c_a_n1db_8h_a8b36da1cf839b1ebb0301e6d16a65f23}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS}} \mbox{\hyperlink{_c_a_n1db_8h_a87b21e6703fb82da3a3e72127603ed29}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS}} \mbox{\hyperlink{_c_a_n1db_8h_a8d3ef39053741612ee6356a608d32ece}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS}} \mbox{\hyperlink{_c_a_n1db_8h_ad94e01b5f7a0277d8ef15e0cc4419309}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_abcb41a669d42d59cb9307c61554e0281}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE}} \mbox{\hyperlink{_c_a_n1db_8h_af0e2a6b8293f1db43c058187520d7ea9}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE}} \mbox{\hyperlink{_c_a_n1db_8h_aad381f6d7fa47f2c10ddc6bb0f67b1ec}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE}} \mbox{\hyperlink{_c_a_n1db_8h_a716c9980c8a15047440d04422deb3943}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ce}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE}} \mbox{\hyperlink{_c_a_n1db_8h_af47fd3b39f5f03f21d0c1620cf4d6f23}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_a4fc5aa8d7761f9facdef28789c40f3e6}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_a0a9c7916f936586f682617115cc62827}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER}} \mbox{\hyperlink{_c_a_n1db_8h_a5a497d7012ca43b692079646e7f4216f}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE}} \mbox{\hyperlink{_c_a_n1db_8h_a36096284fe78a2c98be14f0466f52d9f}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6af}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE}} \mbox{\hyperlink{_c_a_n1db_8h_aa95f5712faeb93d4a1590bcf1c460b88}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060}{DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON}} \mbox{\hyperlink{_c_a_n1db_8h_aadeea44f9f790ce0adcb096f0b05b453}{DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25}{DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER}} \mbox{\hyperlink{_c_a_n1db_8h_a74605f45a2e518c47abec9430a643851}{DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST}} \mbox{\hyperlink{_c_a_n1db_8h_a01242998de0fd42ca6b933b560288429}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7}{DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_a6f316e5383e3802957aac57bcedeeefc}{DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854b}{DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG}} \mbox{\hyperlink{_c_a_n1db_8h_a1e79361f8bee4d958b8e519ea2968d31}{DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_af0a9281f9f535329ca24349af5645d4a}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_a8d390c6c0266b11f648ea4e6e451c1ac}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecf}{DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY}} \mbox{\hyperlink{_c_a_n1db_8h_acdaa5fe297e266c255bf9e4e64d909aa}{DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT}} \mbox{\hyperlink{_c_a_n1db_8h_a419ce92f00be247fde939120d0598b96}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE}} \mbox{\hyperlink{_c_a_n1db_8h_a103156dd6eee3f02f691b885a9ffd956}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD}} \mbox{\hyperlink{_c_a_n1db_8h_aaab65e1b238d6e891ffc5bff7bf1eb44}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25ae}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS}} \mbox{\hyperlink{_c_a_n1db_8h_a053a708675b8339064c948f1467fdeee}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT}} \mbox{\hyperlink{_c_a_n1db_8h_af15008affd122b21f60214040a5b04a4}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR}} \mbox{\hyperlink{_c_a_n1db_8h_ab0d5240e805c33df7956b558722011ae}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907a}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR}} \mbox{\hyperlink{_c_a_n1db_8h_afcad2001173bcfc0c76f07579a0a7e95}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+R}} \mbox{\hyperlink{_c_a_n1db_8h_ae3befcc893cd5941f6a05ff9575703aa}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+R}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258f}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+L}} \mbox{\hyperlink{_c_a_n1db_8h_a417053561604e78b14784b8445c7fa8d}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+L}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37c}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+R}} \mbox{\hyperlink{_c_a_n1db_8h_af0a1314d2e9a2aead5b17194ac72d212}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+R}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+L}} \mbox{\hyperlink{_c_a_n1db_8h_ace72f123243a023bfeb5aab73b0cf259}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+L}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL}} \mbox{\hyperlink{_c_a_n1db_8h_a7ca9035d68d9d42faf73509ebf49ff57}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2}} \mbox{\hyperlink{_c_a_n1db_8h_af58a05d2bc98e080ec3798901b931487}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1}} \mbox{\hyperlink{_c_a_n1db_8h_a4e13dd271081787652010876cf6b499e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1}}
+\item 
+typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE}} \mbox{\hyperlink{_c_a_n1db_8h_a66fd554971d7f53c39fd4d4e6c6c73fb}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE}}
+\item 
+typedef struct signal \mbox{\hyperlink{_c_a_n1db_8h_abb233df5f61527380c12ce0ced398c46}{signal}}
+\item 
+typedef struct signal\+\_\+positioned \mbox{\hyperlink{_c_a_n1db_8h_a8f216c36633c7ff47dfb4231aaa6d2a4}{signal\+\_\+positioned}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118}{dbc\+\_\+value\+Type}} \{ \newline
+\mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}{dbc\+\_\+value\+Type\+\_\+unsigned}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118aea3e783830512c1a6d51e33d0dff0a7f}{dbc\+\_\+value\+Type\+\_\+signed}}
+, \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118aba1df2a06d67d6869100866a347dccfe}{dbc\+\_\+value\+Type\+\_\+float}}
+, \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a7b18a260836f2b7f96d4b0fa2baf0d10}{dbc\+\_\+value\+Type\+\_\+double}}
+, \newline
+\mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a33940a992707baf70fd6c753cf341361}{dbc\+\_\+value\+Type\+\_\+void}}
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK}} \{ \mbox{\hyperlink{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36af91183ad03814e5b2a9e56862d07eadf}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK\+\_\+\+OPENED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36a30419b33837836dd00bf002b4d54aae0}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK\+\_\+\+OK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0de}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD}} \{ \mbox{\hyperlink{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0dea24445c62a6d6ba1ef3e2df2d8a12dcd0}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD\+\_\+\+OPENED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0deae61e3ff7485591cfe88be2f5bad06748}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD\+\_\+\+OPEN}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003afd9e8d5b9484608dbbb2bd525121fce0}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS\+\_\+\+OPENED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003ae216b1bf52b69bb374e6d284350a2317}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS\+\_\+\+OK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4e}{DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4eafd2c3586cc99c9b428fcd193198a4d15}{DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR\+\_\+\+OK}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4eaf934409c302b63eb9570c60848c0ec1c}{DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR\+\_\+\+ERROR}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4ab362eefa04e52e37aea53d2497b3a2f9}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4a78eda6ce48bb51327cbf9760c600df8a}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT\+\_\+\+OK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY}} \{ \mbox{\hyperlink{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222ad5988c75cb9ccfc2fb19be6f91210468}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY\+\_\+\+OPENED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222a49e867bc0a06490b0e95b5329418b809}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY\+\_\+\+CLOSED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7a9f363a0265320e312aa8f1543d212c14}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT\+\_\+\+OFF}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7ac4caac15cb6ff8ad84cf59d5cf6e9be6}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT\+\_\+\+ON}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING}} \{ \mbox{\hyperlink{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896faa10ad8f508102fe86029145cd2917dee}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING\+\_\+\+OFF}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896fad743bd2348f317285ef05d288d42980c}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING\+\_\+\+ON}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS}} \{ \mbox{\hyperlink{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2af3b511f3e03a9d13512e071e2874f5d8}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS\+\_\+\+OPENED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2ab8e88d185958c9f1e0dec91edb78512b}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS\+\_\+\+CLOSED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS}} \{ \mbox{\hyperlink{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75fa30dbdac1d0b14d0dd24d0e50b1ed11c4}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS\+\_\+\+OPENED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75fa2ad7de93175fcf6b56cab6371ce2e617}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS\+\_\+\+CLOSED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33a0421d0f39a2b8694bf520b1ef25a63d3}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS\+\_\+\+OFF}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33acde1ebc9aec4093af44767b8e624fa5b}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS\+\_\+\+ON}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005a04798e227dd10039a1e719f509216c91}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005a1e2e68ab283083f6b353cae92496b749}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION\+\_\+\+OK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8a94d97f4235a516aa1f88649cacb6463a}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8a294de4c8491b7d15203ce50cc8966871}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE\+\_\+\+OK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281a55a865d66b209a8d6fdb132768931bd4}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281af1d9b026f98b19abc82131171e502a51}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE\+\_\+\+OK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749a708d28f773ee7e8c3f86e6d4e43f75ce}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749ae4bd577cf793f889c1ff539dc61d3af9}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE\+\_\+\+OK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ce}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993cea59f63d7a3d477a91723d3be7512d3e05}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ceaef1e0e03f0abdf4c45e66bb347bdbf75}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE\+\_\+\+OK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8a6f80232e94f41bd2e86ae157f06ec7e5}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8a2722adbd86eea32d69dade3b4895f671}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION\+\_\+\+ON}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38a301486d5e52d52a7463b9bb9fdfab5f8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION\+\_\+\+ERROR}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38a5fc58c99690d1b7c4cb673fe6b382abe}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION\+\_\+\+OK}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER}} \{ \newline
+\mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a486161c69e1d879aae773dc5b9c80ad0}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+SKF\+\_\+\+Initial}} = 1
+, \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a1c52bffe0bd8977af9fa5c5d61b53884}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+CKF\+\_\+\+Initial}} = 2
+, \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385aa7f542243b43cfb9c772e64226ac57c5}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+Cte\+\_\+\+SKF}} = 3
+, \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a393b78b70151c6ba4947d5682f98efc4}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+Cte\+\_\+\+CKF}} = 4
+, \newline
+\mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385aae279bd36b7ccf9c0a47f805d9d30d23}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+APPS\+\_\+\+Sat\+\_\+\+Down}} = 5
+, \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a2b14796cf6cdeb854ef65cf9f2888bfa}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+APPS\+\_\+\+Sat\+\_\+\+Up}} = 6
+, \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a7ed73e8660d5ae06c346354bea694076}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+Max\+\_\+\+Regenerative\+\_\+\+Torque}} = 7
+, \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a5e9d3f77dd86cfbb5f9402c7c0b0e0e9}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+Power\+\_\+\+Limit}} = 8
+, \newline
+\mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385afc1409cb4310e29f9239cdf710458545}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+K\+\_\+\+Reduction\+\_\+P}} = 9
+, \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a193a6700aa5550cd216e82fae1af629f}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+K\+\_\+\+Reduction\+\_\+\+Temperature}} = 10
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE}} \{ \newline
+\mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a4a353bf9c37ed5739fab3068f91a58cc}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Work\+Shop\+\_\+\+Test}} = 1
+, \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aad6c7f1b30f91b13213bf5e1559e38ad}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Custom\+\_\+\+Dash}} = 11
+, \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aa4a0396ab24ca12763bb95c896291af0}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Custom\+\_\+\+Experiment\+\_\+\+Enviroment}} = 12
+, \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aa7bb62e7764eb149a6cd6899e777447a}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Acceleration\+\_\+\+RUN1}} = 21
+, \newline
+\mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a3be5103e9a43c6203c9dbc276807e348}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Acceleration\+\_\+\+RUN2}} = 22
+, \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a89832e3779e9e4bb5e0603b43601e979}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Skidpad\+\_\+\+RUN1}} = 31
+, \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a1c623fa5cfaec9f1ddf71eb36fc934d2}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Skidpad\+\_\+\+RUN2}} = 32
+, \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a5dc3a86ccb2e4d4fc746d62253665dd5}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Auto\+X\+\_\+\+RUN1}} = 41
+, \newline
+\mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aa8263c4916a0ba063d17eb1ea53cd2cd}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Auto\+X\+\_\+\+RUN2}} = 42
+, \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a010cf705203062dcd0169662bbb89aec}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Endurance\+\_\+\+RUN1}} = 51
+, \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a1eec2943d9e6a823f057cdae4d6f77de}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Endurance\+\_\+\+RUN2}} = 52
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6af}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afadf32ee04050d0040b69f0f2fd55789e3}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE\+\_\+\+OPEN}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afa5016b990b9cede9cc19009f88df89c47}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE\+\_\+\+CLOSE}} = 3
+, \mbox{\hyperlink{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afaf82ed80791391019a865226d1cfbc773}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE\+\_\+\+Precharge}} = 6
+, \mbox{\hyperlink{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afac412972adad0746a69d5e0cc6c1ee21e}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE\+\_\+\+Charger}} = 9
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060}{DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060ae562e2cf44117657f6ba072f02a83010}{DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON\+\_\+\+UNLOCKED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060aca115949055539a387a1166aac7389ad}{DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON\+\_\+\+LOCKED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25}{DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25a394dd2887054ecca658b5c17f63b6cec}{DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER\+\_\+\+OFF}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25a78b638eb75e347330de812e61b1850ef}{DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER\+\_\+\+ON}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3a7b9e66c7175d2d893fdee98905936b8d}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST\+\_\+\+OPEN}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3ad4b01e965797f046a952d4a09f809f86}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST\+\_\+\+CLOSE}} = 3
+, \mbox{\hyperlink{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3a773f1f36a57f1d07ac73721e4cfaad83}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST\+\_\+\+PRECHARGE}} = 6
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7}{DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7af0ed0a0b0ecde5d050ad9b8ad380fe6d}{DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION\+\_\+\+OK}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7a77c4c8b540b51608bd274377b3840748}{DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION\+\_\+\+ERROR}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854b}{DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854ba7ff0ff51c8ce4d0284ec5a9075229e40}{DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG\+\_\+\+CONNECTED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854baf2de6aac8b02d6cd5d7adce3ab5cc26f}{DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG\+\_\+\+DISCONNECTED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION}} \{ \mbox{\hyperlink{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6a2f53a2b8366fb94066ee781d398ce68e}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION\+\_\+\+OK}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6ab3985d26e741b847178e2da7e9249304}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION\+\_\+\+ERROR}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION}} \{ \mbox{\hyperlink{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60a1415381b6555c30626167cd87da86c40}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION\+\_\+\+OK}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60ad94e1ac0a2b368af4ff1fb6568aaf891}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION\+\_\+\+ERROR}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecf}{DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecfa882af46562cc3b1383cda89ebf92bae7}{DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY\+\_\+\+OK}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecfa0650de3eb8a7433234ca252a3b09696e}{DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY\+\_\+\+ERROR}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362a8e084f37021c89cd5ee2d4e66b668326}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT\+\_\+\+CONNECTION}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362abfd150ce94dd5a3981d62cfd64e619c8}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT\+\_\+\+DISCONNECTION}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE}} \{ \mbox{\hyperlink{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2eadda3cacba0b43ad278dacd143c455cdd}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE\+\_\+\+CONNECTION}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2ea46bcc7afeeb03dbfdc4af73f9a3a1c58}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE\+\_\+\+DISCONNECTION}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97a325fac06cda287e3d05e3aad457a7310}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD\+\_\+\+CONNECTED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97a2ce7a1d5c9e68c9e863f27179fceb756}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD\+\_\+\+DISCONNECTED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25ae}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS}} \{ \mbox{\hyperlink{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25aea27ffa511b2bb337f4edbc381625b7aa3}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS\+\_\+\+CONNECTED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25aea6bf868041fd168c4fb5c2d07edcd5889}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS\+\_\+\+DISCONNECTED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52a9086757d4954f537bffdf5e5e06bad4d}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT\+\_\+\+CONNECTED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52a56f97530019622ac9d6fed03e7949857}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT\+\_\+\+DISCONNECTED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR}} \{ \mbox{\hyperlink{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4ea081ad657b39bb0ca81b8b6120a636196}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR\+\_\+\+CONNECTED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4eaea00a85fbda49aff88bc85a101dd5014}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR\+\_\+\+DISCONNECTED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907a}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907aa23d4ef67771f84528b9db65b998e0244}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR\+\_\+\+CONNECTED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907aa2f4d88f7dbce8d84a31068f8cc5e17fd}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR\+\_\+\+DISCONNECTED}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+R}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8a96d42c7096951bc6c63b8af277cab133}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+\+R\+\_\+\+CONNECTION}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8a6f0f0cde851e1e4b8254b95517a9d308}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+\+R\+\_\+\+DISCONNECTION}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258f}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+L}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258fa9dfd925f085a257c04858696d4566abc}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+\+L\+\_\+\+CONNECTION}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258faa4487d9f7b8a74b47c90337275fbbd47}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+\+L\+\_\+\+DISCONNECTION}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37c}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+R}} \{ \mbox{\hyperlink{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37ca04b60b42b81c912f44b21f1bc3d13034}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+\+R\+\_\+\+CONNECTION}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37ca8f5358217245f5eb8900b98accd67ab9}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+\+R\+\_\+\+DISCONNECTION}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+L}} \{ \mbox{\hyperlink{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6aac3a046342ec060f74b05bd7c9e25628}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+\+L\+\_\+\+CONNECTION}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6aa61160e8f857f951f026a4e485c9751c}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+\+L\+\_\+\+DISCONNECTION}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22ac79a83d3f7ab7836cee435fa3299ff58}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL\+\_\+\+CONNECTION}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22a533099d2846649d42de900810b99e8bf}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL\+\_\+\+DISCONNECTION}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125a83dbaa37797da7353f0e2c2c1c18ea68}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2\+\_\+\+CONNECTION}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125a784a2f7949ba8a2c971b8d6f18c28e21}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2\+\_\+\+DISCONNECTION}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1}} \{ \mbox{\hyperlink{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2ae6be37f3f6c9ffd30d542d9228b2a284}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1\+\_\+\+CONNECTION}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2a2fcaa95061aabf6151405c400a479622}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1\+\_\+\+DISCONNECTION}} = 1
+ \}
+\item 
+enum \mbox{\hyperlink{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE}} \{ \mbox{\hyperlink{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187a1303e897ec265f08875032bf33e45cfb}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE\+\_\+\+CONNECTED}} = 0
+, \mbox{\hyperlink{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187a24451f8b3c99eb7580d831c6cd057c58}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE\+\_\+\+DISCONNECTED}} = 1
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{_c_a_n1db_8h_aefcb29f32a759926e43b662fa31ba932}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((packed)) DBC\+\_\+\+CAN1\+DB\+\_\+\+MSG\+\_\+\+VECTOR\+\_\+\+\_\+\+INDEPENDENT\+\_\+\+SIG\+\_\+\+MSG\+\_\+get\+Sig\+Val
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \mbox{\hyperlink{_c_a_n1db_8h_a0364849925d3c762ce722e963712b123}{ID}}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{_c_a_n1db_8h_a374853775ad7fb1713c183fecf6aa487}{IDE}}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{_c_a_n1db_8h_a4727282c7bbfbfe8dddae8e965a5e41f}{DLC}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{structsignal__positioned}{signal\_positioned}} \mbox{\hyperlink{_c_a_n1db_8h_a54997a1e0ee592e337bd00dbbd5cfead}{InvRear\_PowerError}}\\
+\} \mbox{\hyperlink{_c_a_n1db_8h_aeb25e3ab4d360effbd6f2c124014df6d}{getSig}}\\
+
+\end{tabbing}\item 
+\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{_c_a_n1db_8h_a85c73c9162b493a7239dd7f9ff033824}{get\+Sig\+Val}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{_c_a_n1db_8h_a5f6fdd1dc3d312af1ac30e2eee15d6f0}\label{_c_a_n1db_8h_a5f6fdd1dc3d312af1ac30e2eee15d6f0} 
+\index{CAN1db.h@{CAN1db.h}!CAN\_ID\_EXT@{CAN\_ID\_EXT}}
+\index{CAN\_ID\_EXT@{CAN\_ID\_EXT}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_ID\_EXT}{CAN\_ID\_EXT}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+ID\+\_\+\+EXT~((uint32\+\_\+t)0x00000004U)}
+
+Extended Id as per STM32 HAL \Hypertarget{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833}\label{_c_a_n1db_8h_a284ca16658deb9d0c21f4ddc6db14833} 
+\index{CAN1db.h@{CAN1db.h}!CAN\_ID\_STD@{CAN\_ID\_STD}}
+\index{CAN\_ID\_STD@{CAN\_ID\_STD}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{CAN\_ID\_STD}{CAN\_ID\_STD}}
+{\footnotesize\ttfamily \#define CAN\+\_\+\+ID\+\_\+\+STD~((uint32\+\_\+t)0x00000000U)}
+
+Standard Id \Hypertarget{_c_a_n1db_8h_a5e1826dc2a9b04f9a83ae17e561badd3}\label{_c_a_n1db_8h_a5e1826dc2a9b04f9a83ae17e561badd3} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_linkMsgConverter@{DBC\_linkMsgConverter}}
+\index{DBC\_linkMsgConverter@{DBC\_linkMsgConverter}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_linkMsgConverter}{DBC\_linkMsgConverter}}
+{\footnotesize\ttfamily \#define DBC\+\_\+link\+Msg\+Converter(\begin{DoxyParamCaption}\item[{}]{dbc,  }\item[{}]{arr }\end{DoxyParamCaption})~(dbc).\mbox{\hyperlink{_c_a_n1db_8h_a85c73c9162b493a7239dd7f9ff033824}{get\+Sig\+Val}} = (typeof((dbc).\mbox{\hyperlink{_c_a_n1db_8h_a85c73c9162b493a7239dd7f9ff033824}{get\+Sig\+Val}})) \&(arr)}
+
+\Hypertarget{_c_a_n1db_8h_a3d79c1ae53c7c9de7c44cfaf8035420c}\label{_c_a_n1db_8h_a3d79c1ae53c7c9de7c44cfaf8035420c} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_setup@{DBC\_setup}}
+\index{DBC\_setup@{DBC\_setup}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_setup}{DBC\_setup}}
+{\footnotesize\ttfamily \#define DBC\+\_\+setup(\begin{DoxyParamCaption}\item[{}]{dbc,  }\item[{}]{MSG }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordflow}{do}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ (MSG).\mbox{\hyperlink{_c_a_n1db_8h_a4727282c7bbfbfe8dddae8e965a5e41f}{DLC}}\ =\ (dbc).DLC;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ (MSG).\mbox{\hyperlink{_c_a_n1db_8h_a374853775ad7fb1713c183fecf6aa487}{IDE}}\ =\ (dbc).IDE;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ (MSG).RTR\ =\ 0;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ (MSG).ExtId\ =\ (MSG).IDE\ >\ 0\ ?\ (dbc).\mbox{\hyperlink{_c_a_n1db_8h_a0364849925d3c762ce722e963712b123}{ID}}\ :\ 0;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ (MSG).StdId\ =\ (MSG).IDE\ >\ 0\ ?\ 0\ :\ (dbc).\mbox{\hyperlink{_c_a_n1db_8h_a0364849925d3c762ce722e963712b123}{ID}};\ \(\backslash\)}
+\DoxyCodeLine{\}\ \textcolor{keywordflow}{while}\ (0)}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{_c_a_n1db_8h_a5b7a3927c38f476ff93ed3c234db89ae}\label{_c_a_n1db_8h_a5b7a3927c38f476ff93ed3c234db89ae} 
+\index{CAN1db.h@{CAN1db.h}!dbc\_valueType@{dbc\_valueType}}
+\index{dbc\_valueType@{dbc\_valueType}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{dbc\_valueType}{dbc\_valueType}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118}{dbc\+\_\+value\+Type}} \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118}{dbc\+\_\+value\+Type}}}
+
+Data value types are defined here. Same list as is available in Vector CANdb++ for signal data types. \Hypertarget{_c_a_n1db_8h_a01242998de0fd42ca6b933b560288429}\label{_c_a_n1db_8h_a01242998de0fd42ca6b933b560288429} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_REQUEST@{DBC\_VT\_AIRS\_REQUEST}}
+\index{DBC\_VT\_AIRS\_REQUEST@{DBC\_VT\_AIRS\_REQUEST}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_AIRS\_REQUEST}{DBC\_VT\_AIRS\_REQUEST}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST}} \mbox{\hyperlink{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST}}}
+
+\Hypertarget{_c_a_n1db_8h_aa95f5712faeb93d4a1590bcf1c460b88}\label{_c_a_n1db_8h_aa95f5712faeb93d4a1590bcf1c460b88} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_STATE@{DBC\_VT\_AIRS\_STATE}}
+\index{DBC\_VT\_AIRS\_STATE@{DBC\_VT\_AIRS\_STATE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_AIRS\_STATE}{DBC\_VT\_AIRS\_STATE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6af}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE}} \mbox{\hyperlink{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6af}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE}}}
+
+\Hypertarget{_c_a_n1db_8h_acdaa5fe297e266c255bf9e4e64d909aa}\label{_c_a_n1db_8h_acdaa5fe297e266c255bf9e4e64d909aa} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_APPS\_IMPLAUSIBILITY@{DBC\_VT\_APPS\_IMPLAUSIBILITY}}
+\index{DBC\_VT\_APPS\_IMPLAUSIBILITY@{DBC\_VT\_APPS\_IMPLAUSIBILITY}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_APPS\_IMPLAUSIBILITY}{DBC\_VT\_APPS\_IMPLAUSIBILITY}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecf}{DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY}} \mbox{\hyperlink{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecf}{DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY}}}
+
+\Hypertarget{_c_a_n1db_8h_a4fc5aa8d7761f9facdef28789c40f3e6}\label{_c_a_n1db_8h_a4fc5aa8d7761f9facdef28789c40f3e6} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_NTCDISCONNECTION@{DBC\_VT\_BMSERROR\_NTCDISCONNECTION}}
+\index{DBC\_VT\_BMSERROR\_NTCDISCONNECTION@{DBC\_VT\_BMSERROR\_NTCDISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_NTCDISCONNECTION}{DBC\_VT\_BMSERROR\_NTCDISCONNECTION}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION}}}
+
+\Hypertarget{_c_a_n1db_8h_aca20304fafce51616ccf6c15af01f48d}\label{_c_a_n1db_8h_aca20304fafce51616ccf6c15af01f48d} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERCURRENT@{DBC\_VT\_BMSERROR\_OVERCURRENT}}
+\index{DBC\_VT\_BMSERROR\_OVERCURRENT@{DBC\_VT\_BMSERROR\_OVERCURRENT}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_OVERCURRENT}{DBC\_VT\_BMSERROR\_OVERCURRENT}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT}} \mbox{\hyperlink{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT}}}
+
+\Hypertarget{_c_a_n1db_8h_af47fd3b39f5f03f21d0c1620cf4d6f23}\label{_c_a_n1db_8h_af47fd3b39f5f03f21d0c1620cf4d6f23} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERTEMPERATURE@{DBC\_VT\_BMSERROR\_OVERTEMPERATURE}}
+\index{DBC\_VT\_BMSERROR\_OVERTEMPERATURE@{DBC\_VT\_BMSERROR\_OVERTEMPERATURE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_OVERTEMPERATURE}{DBC\_VT\_BMSERROR\_OVERTEMPERATURE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ce}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE}} \mbox{\hyperlink{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ce}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE}}}
+
+\Hypertarget{_c_a_n1db_8h_a716c9980c8a15047440d04422deb3943}\label{_c_a_n1db_8h_a716c9980c8a15047440d04422deb3943} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERVOLTAGE@{DBC\_VT\_BMSERROR\_OVERVOLTAGE}}
+\index{DBC\_VT\_BMSERROR\_OVERVOLTAGE@{DBC\_VT\_BMSERROR\_OVERVOLTAGE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_OVERVOLTAGE}{DBC\_VT\_BMSERROR\_OVERVOLTAGE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE}} \mbox{\hyperlink{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE}}}
+
+\Hypertarget{_c_a_n1db_8h_a0a9c7916f936586f682617115cc62827}\label{_c_a_n1db_8h_a0a9c7916f936586f682617115cc62827} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION@{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION}}
+\index{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION@{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION}{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION}}}
+
+\Hypertarget{_c_a_n1db_8h_aad381f6d7fa47f2c10ddc6bb0f67b1ec}\label{_c_a_n1db_8h_aad381f6d7fa47f2c10ddc6bb0f67b1ec} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_UNDERTEMPERATURE@{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE}}
+\index{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE@{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE}{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE}} \mbox{\hyperlink{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE}}}
+
+\Hypertarget{_c_a_n1db_8h_af0e2a6b8293f1db43c058187520d7ea9}\label{_c_a_n1db_8h_af0e2a6b8293f1db43c058187520d7ea9} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_UNDERVOLTAGE@{DBC\_VT\_BMSERROR\_UNDERVOLTAGE}}
+\index{DBC\_VT\_BMSERROR\_UNDERVOLTAGE@{DBC\_VT\_BMSERROR\_UNDERVOLTAGE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_UNDERVOLTAGE}{DBC\_VT\_BMSERROR\_UNDERVOLTAGE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE}} \mbox{\hyperlink{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE}}}
+
+\Hypertarget{_c_a_n1db_8h_abcb41a669d42d59cb9307c61554e0281}\label{_c_a_n1db_8h_abcb41a669d42d59cb9307c61554e0281} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION@{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION}}
+\index{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION@{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION}{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION}}}
+
+\Hypertarget{_c_a_n1db_8h_a8d390c6c0266b11f648ea4e6e451c1ac}\label{_c_a_n1db_8h_a8d390c6c0266b11f648ea4e6e451c1ac} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION@{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION}}
+\index{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION@{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION}{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION}}}
+
+\Hypertarget{_c_a_n1db_8h_af0a9281f9f535329ca24349af5645d4a}\label{_c_a_n1db_8h_af0a9281f9f535329ca24349af5645d4a} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION@{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION}}
+\index{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION@{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION}{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION}}}
+
+\Hypertarget{_c_a_n1db_8h_a6f316e5383e3802957aac57bcedeeefc}\label{_c_a_n1db_8h_a6f316e5383e3802957aac57bcedeeefc} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICALDISCONNECTION@{DBC\_VT\_CRITICALDISCONNECTION}}
+\index{DBC\_VT\_CRITICALDISCONNECTION@{DBC\_VT\_CRITICALDISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CRITICALDISCONNECTION}{DBC\_VT\_CRITICALDISCONNECTION}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7}{DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION}} \mbox{\hyperlink{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7}{DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION}}}
+
+\Hypertarget{_c_a_n1db_8h_a1e79361f8bee4d958b8e519ea2968d31}\label{_c_a_n1db_8h_a1e79361f8bee4d958b8e519ea2968d31} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG@{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG}}
+\index{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG@{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG}{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854b}{DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG}} \mbox{\hyperlink{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854b}{DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG}}}
+
+\Hypertarget{_c_a_n1db_8h_af109f7545106d332530c096f4fe68e37}\label{_c_a_n1db_8h_af109f7545106d332530c096f4fe68e37} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CURRENTSENSOR\_ERROR@{DBC\_VT\_CURRENTSENSOR\_ERROR}}
+\index{DBC\_VT\_CURRENTSENSOR\_ERROR@{DBC\_VT\_CURRENTSENSOR\_ERROR}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CURRENTSENSOR\_ERROR}{DBC\_VT\_CURRENTSENSOR\_ERROR}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4e}{DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR}} \mbox{\hyperlink{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4e}{DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR}}}
+
+\Hypertarget{_c_a_n1db_8h_a5a497d7012ca43b692079646e7f4216f}\label{_c_a_n1db_8h_a5a497d7012ca43b692079646e7f4216f} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER}}
+\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CUSTOMMODE\_IDENTIFIER}{DBC\_VT\_CUSTOMMODE\_IDENTIFIER}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER}} \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER}}}
+
+\Hypertarget{_c_a_n1db_8h_a4e13dd271081787652010876cf6b499e}\label{_c_a_n1db_8h_a4e13dd271081787652010876cf6b499e} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_APPS1@{DBC\_VT\_DISCONNECTION\_APPS1}}
+\index{DBC\_VT\_DISCONNECTION\_APPS1@{DBC\_VT\_DISCONNECTION\_APPS1}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_APPS1}{DBC\_VT\_DISCONNECTION\_APPS1}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1}} \mbox{\hyperlink{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1}}}
+
+\Hypertarget{_c_a_n1db_8h_af58a05d2bc98e080ec3798901b931487}\label{_c_a_n1db_8h_af58a05d2bc98e080ec3798901b931487} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_APPS2@{DBC\_VT\_DISCONNECTION\_APPS2}}
+\index{DBC\_VT\_DISCONNECTION\_APPS2@{DBC\_VT\_DISCONNECTION\_APPS2}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_APPS2}{DBC\_VT\_DISCONNECTION\_APPS2}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2}} \mbox{\hyperlink{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2}}}
+
+\Hypertarget{_c_a_n1db_8h_a053a708675b8339064c948f1467fdeee}\label{_c_a_n1db_8h_a053a708675b8339064c948f1467fdeee} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BMS@{DBC\_VT\_DISCONNECTION\_BMS}}
+\index{DBC\_VT\_DISCONNECTION\_BMS@{DBC\_VT\_DISCONNECTION\_BMS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_BMS}{DBC\_VT\_DISCONNECTION\_BMS}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25ae}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS}} \mbox{\hyperlink{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25ae}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS}}}
+
+\Hypertarget{_c_a_n1db_8h_a7ca9035d68d9d42faf73509ebf49ff57}\label{_c_a_n1db_8h_a7ca9035d68d9d42faf73509ebf49ff57} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BRAKEPEDAL@{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL}}
+\index{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL@{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL}{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL}} \mbox{\hyperlink{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL}}}
+
+\Hypertarget{_c_a_n1db_8h_a103156dd6eee3f02f691b885a9ffd956}\label{_c_a_n1db_8h_a103156dd6eee3f02f691b885a9ffd956} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE@{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE}}
+\index{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE@{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE}{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE}} \mbox{\hyperlink{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE}}}
+
+\Hypertarget{_c_a_n1db_8h_aaab65e1b238d6e891ffc5bff7bf1eb44}\label{_c_a_n1db_8h_aaab65e1b238d6e891ffc5bff7bf1eb44} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_DASHBOARD@{DBC\_VT\_DISCONNECTION\_DASHBOARD}}
+\index{DBC\_VT\_DISCONNECTION\_DASHBOARD@{DBC\_VT\_DISCONNECTION\_DASHBOARD}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_DASHBOARD}{DBC\_VT\_DISCONNECTION\_DASHBOARD}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD}} \mbox{\hyperlink{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD}}}
+
+\Hypertarget{_c_a_n1db_8h_a66fd554971d7f53c39fd4d4e6c6c73fb}\label{_c_a_n1db_8h_a66fd554971d7f53c39fd4d4e6c6c73fb} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_ELLIPSE@{DBC\_VT\_DISCONNECTION\_ELLIPSE}}
+\index{DBC\_VT\_DISCONNECTION\_ELLIPSE@{DBC\_VT\_DISCONNECTION\_ELLIPSE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_ELLIPSE}{DBC\_VT\_DISCONNECTION\_ELLIPSE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE}} \mbox{\hyperlink{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE}}}
+
+\Hypertarget{_c_a_n1db_8h_af15008affd122b21f60214040a5b04a4}\label{_c_a_n1db_8h_af15008affd122b21f60214040a5b04a4} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_FRONT@{DBC\_VT\_DISCONNECTION\_FRONT}}
+\index{DBC\_VT\_DISCONNECTION\_FRONT@{DBC\_VT\_DISCONNECTION\_FRONT}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_FRONT}{DBC\_VT\_DISCONNECTION\_FRONT}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT}} \mbox{\hyperlink{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT}}}
+
+\Hypertarget{_c_a_n1db_8h_a419ce92f00be247fde939120d0598b96}\label{_c_a_n1db_8h_a419ce92f00be247fde939120d0598b96} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_PITOT@{DBC\_VT\_DISCONNECTION\_PITOT}}
+\index{DBC\_VT\_DISCONNECTION\_PITOT@{DBC\_VT\_DISCONNECTION\_PITOT}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_PITOT}{DBC\_VT\_DISCONNECTION\_PITOT}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT}} \mbox{\hyperlink{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT}}}
+
+\Hypertarget{_c_a_n1db_8h_ab0d5240e805c33df7956b558722011ae}\label{_c_a_n1db_8h_ab0d5240e805c33df7956b558722011ae} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_REAR@{DBC\_VT\_DISCONNECTION\_REAR}}
+\index{DBC\_VT\_DISCONNECTION\_REAR@{DBC\_VT\_DISCONNECTION\_REAR}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_REAR}{DBC\_VT\_DISCONNECTION\_REAR}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR}} \mbox{\hyperlink{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR}}}
+
+\Hypertarget{_c_a_n1db_8h_afcad2001173bcfc0c76f07579a0a7e95}\label{_c_a_n1db_8h_afcad2001173bcfc0c76f07579a0a7e95} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_STEERINGSENSOR@{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR}}
+\index{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR@{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR}{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907a}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR}} \mbox{\hyperlink{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907a}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR}}}
+
+\Hypertarget{_c_a_n1db_8h_ace72f123243a023bfeb5aab73b0cf259}\label{_c_a_n1db_8h_ace72f123243a023bfeb5aab73b0cf259} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_F\_L@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L}}
+\index{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L}{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+L}} \mbox{\hyperlink{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+L}}}
+
+\Hypertarget{_c_a_n1db_8h_af0a1314d2e9a2aead5b17194ac72d212}\label{_c_a_n1db_8h_af0a1314d2e9a2aead5b17194ac72d212} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_F\_R@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R}}
+\index{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R}{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37c}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+R}} \mbox{\hyperlink{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37c}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+R}}}
+
+\Hypertarget{_c_a_n1db_8h_a417053561604e78b14784b8445c7fa8d}\label{_c_a_n1db_8h_a417053561604e78b14784b8445c7fa8d} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_R\_L@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L}}
+\index{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L}{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258f}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+L}} \mbox{\hyperlink{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258f}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+L}}}
+
+\Hypertarget{_c_a_n1db_8h_ae3befcc893cd5941f6a05ff9575703aa}\label{_c_a_n1db_8h_ae3befcc893cd5941f6a05ff9575703aa} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_R\_R@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R}}
+\index{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R}{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+R}} \mbox{\hyperlink{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+R}}}
+
+\Hypertarget{_c_a_n1db_8h_a74605f45a2e518c47abec9430a643851}\label{_c_a_n1db_8h_a74605f45a2e518c47abec9430a643851} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_ENABLEDRIVE\_ORDER@{DBC\_VT\_ENABLEDRIVE\_ORDER}}
+\index{DBC\_VT\_ENABLEDRIVE\_ORDER@{DBC\_VT\_ENABLEDRIVE\_ORDER}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_ENABLEDRIVE\_ORDER}{DBC\_VT\_ENABLEDRIVE\_ORDER}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25}{DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER}} \mbox{\hyperlink{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25}{DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER}}}
+
+\Hypertarget{_c_a_n1db_8h_a36096284fe78a2c98be14f0466f52d9f}\label{_c_a_n1db_8h_a36096284fe78a2c98be14f0466f52d9f} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE@{DBC\_VT\_RACINGMODE}}
+\index{DBC\_VT\_RACINGMODE@{DBC\_VT\_RACINGMODE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_RACINGMODE}{DBC\_VT\_RACINGMODE}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE}} \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE}}}
+
+\Hypertarget{_c_a_n1db_8h_a0ef86520193d1173721f97ed5bf3c166}\label{_c_a_n1db_8h_a0ef86520193d1173721f97ed5bf3c166} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_BMS@{DBC\_VT\_SHUTDOWN\_BMS}}
+\index{DBC\_VT\_SHUTDOWN\_BMS@{DBC\_VT\_SHUTDOWN\_BMS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_SHUTDOWN\_BMS}{DBC\_VT\_SHUTDOWN\_BMS}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS}} \mbox{\hyperlink{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS}}}
+
+\Hypertarget{_c_a_n1db_8h_aa1fe3564d389bb98eb4baae1b9ccc562}\label{_c_a_n1db_8h_aa1fe3564d389bb98eb4baae1b9ccc562} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_IMD@{DBC\_VT\_SHUTDOWN\_IMD}}
+\index{DBC\_VT\_SHUTDOWN\_IMD@{DBC\_VT\_SHUTDOWN\_IMD}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_SHUTDOWN\_IMD}{DBC\_VT\_SHUTDOWN\_IMD}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0de}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD}} \mbox{\hyperlink{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0de}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD}}}
+
+\Hypertarget{_c_a_n1db_8h_a1451c162fc6ea5f1865de8e6b26dca59}\label{_c_a_n1db_8h_a1451c162fc6ea5f1865de8e6b26dca59} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_PACKAGEINTCK@{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK}}
+\index{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK@{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK}{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK}} \mbox{\hyperlink{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK}}}
+
+\Hypertarget{_c_a_n1db_8h_ad94e01b5f7a0277d8ef15e0cc4419309}\label{_c_a_n1db_8h_ad94e01b5f7a0277d8ef15e0cc4419309} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_ACCUMULATORFANS@{DBC\_VT\_STATE\_ACCUMULATORFANS}}
+\index{DBC\_VT\_STATE\_ACCUMULATORFANS@{DBC\_VT\_STATE\_ACCUMULATORFANS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_ACCUMULATORFANS}{DBC\_VT\_STATE\_ACCUMULATORFANS}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS}} \mbox{\hyperlink{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS}}}
+
+\Hypertarget{_c_a_n1db_8h_a8d3ef39053741612ee6356a608d32ece}\label{_c_a_n1db_8h_a8d3ef39053741612ee6356a608d32ece} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_AIR\_MINUS@{DBC\_VT\_STATE\_AIR\_MINUS}}
+\index{DBC\_VT\_STATE\_AIR\_MINUS@{DBC\_VT\_STATE\_AIR\_MINUS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_AIR\_MINUS}{DBC\_VT\_STATE\_AIR\_MINUS}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS}} \mbox{\hyperlink{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS}}}
+
+\Hypertarget{_c_a_n1db_8h_a87b21e6703fb82da3a3e72127603ed29}\label{_c_a_n1db_8h_a87b21e6703fb82da3a3e72127603ed29} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_AIR\_PLUS@{DBC\_VT\_STATE\_AIR\_PLUS}}
+\index{DBC\_VT\_STATE\_AIR\_PLUS@{DBC\_VT\_STATE\_AIR\_PLUS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_AIR\_PLUS}{DBC\_VT\_STATE\_AIR\_PLUS}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS}} \mbox{\hyperlink{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS}}}
+
+\Hypertarget{_c_a_n1db_8h_a8b36da1cf839b1ebb0301e6d16a65f23}\label{_c_a_n1db_8h_a8b36da1cf839b1ebb0301e6d16a65f23} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_BALANCING@{DBC\_VT\_STATE\_BALANCING}}
+\index{DBC\_VT\_STATE\_BALANCING@{DBC\_VT\_STATE\_BALANCING}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_BALANCING}{DBC\_VT\_STATE\_BALANCING}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING}} \mbox{\hyperlink{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING}}}
+
+\Hypertarget{_c_a_n1db_8h_ac0db65c78570fbfbc4687ee0f0aa59b5}\label{_c_a_n1db_8h_ac0db65c78570fbfbc4687ee0f0aa59b5} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_DIVIDECURRENT@{DBC\_VT\_STATE\_DIVIDECURRENT}}
+\index{DBC\_VT\_STATE\_DIVIDECURRENT@{DBC\_VT\_STATE\_DIVIDECURRENT}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_DIVIDECURRENT}{DBC\_VT\_STATE\_DIVIDECURRENT}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT}} \mbox{\hyperlink{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT}}}
+
+\Hypertarget{_c_a_n1db_8h_a5c17cf48dfdb2da5aacd3c61b3af4e0a}\label{_c_a_n1db_8h_a5c17cf48dfdb2da5aacd3c61b3af4e0a} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_PRECHARGERELAY@{DBC\_VT\_STATE\_PRECHARGERELAY}}
+\index{DBC\_VT\_STATE\_PRECHARGERELAY@{DBC\_VT\_STATE\_PRECHARGERELAY}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_PRECHARGERELAY}{DBC\_VT\_STATE\_PRECHARGERELAY}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY}} \mbox{\hyperlink{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY}}}
+
+\Hypertarget{_c_a_n1db_8h_aadeea44f9f790ce0adcb096f0b05b453}\label{_c_a_n1db_8h_aadeea44f9f790ce0adcb096f0b05b453} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_TORQUE\_LOCKON@{DBC\_VT\_TORQUE\_LOCKON}}
+\index{DBC\_VT\_TORQUE\_LOCKON@{DBC\_VT\_TORQUE\_LOCKON}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_TORQUE\_LOCKON}{DBC\_VT\_TORQUE\_LOCKON}}
+{\footnotesize\ttfamily typedef enum \mbox{\hyperlink{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060}{DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON}} \mbox{\hyperlink{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060}{DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON}}}
+
+\Hypertarget{_c_a_n1db_8h_abb233df5f61527380c12ce0ced398c46}\label{_c_a_n1db_8h_abb233df5f61527380c12ce0ced398c46} 
+\index{CAN1db.h@{CAN1db.h}!signal@{signal}}
+\index{signal@{signal}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{signal}{signal}}
+{\footnotesize\ttfamily typedef struct signal signal}
+
+Signals map CAN data to physical signals and provide units, conversion factors and data types. The same as used in CANdb++. \Hypertarget{_c_a_n1db_8h_a8f216c36633c7ff47dfb4231aaa6d2a4}\label{_c_a_n1db_8h_a8f216c36633c7ff47dfb4231aaa6d2a4} 
+\index{CAN1db.h@{CAN1db.h}!signal\_positioned@{signal\_positioned}}
+\index{signal\_positioned@{signal\_positioned}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{signal\_positioned}{signal\_positioned}}
+{\footnotesize\ttfamily typedef struct signal\+\_\+positioned signal\+\_\+positioned}
+
+Each message contains a struct of type \doxylink{structsignal__positioned}{signal\+\_\+positioned} to indicate the signal\textquotesingle{}s position in the can frame and to allow access of the signals properties using a pointer. 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118}\label{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118} 
+\index{CAN1db.h@{CAN1db.h}!dbc\_valueType@{dbc\_valueType}}
+\index{dbc\_valueType@{dbc\_valueType}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{dbc\_valueType}{dbc\_valueType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118}{dbc\+\_\+value\+Type}}}
+
+Data value types are defined here. Same list as is available in Vector CANdb++ for signal data types. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{dbc\_valueType\_unsigned@{dbc\_valueType\_unsigned}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!dbc\_valueType\_unsigned@{dbc\_valueType\_unsigned}}}\Hypertarget{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a}\label{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a0d725e04c763bf5155766e9a6370bb4a} 
+dbc\+\_\+value\+Type\+\_\+unsigned&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{dbc\_valueType\_signed@{dbc\_valueType\_signed}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!dbc\_valueType\_signed@{dbc\_valueType\_signed}}}\Hypertarget{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118aea3e783830512c1a6d51e33d0dff0a7f}\label{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118aea3e783830512c1a6d51e33d0dff0a7f} 
+dbc\+\_\+value\+Type\+\_\+signed&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{dbc\_valueType\_float@{dbc\_valueType\_float}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!dbc\_valueType\_float@{dbc\_valueType\_float}}}\Hypertarget{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118aba1df2a06d67d6869100866a347dccfe}\label{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118aba1df2a06d67d6869100866a347dccfe} 
+dbc\+\_\+value\+Type\+\_\+float&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{dbc\_valueType\_double@{dbc\_valueType\_double}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!dbc\_valueType\_double@{dbc\_valueType\_double}}}\Hypertarget{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a7b18a260836f2b7f96d4b0fa2baf0d10}\label{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a7b18a260836f2b7f96d4b0fa2baf0d10} 
+dbc\+\_\+value\+Type\+\_\+double&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{dbc\_valueType\_void@{dbc\_valueType\_void}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!dbc\_valueType\_void@{dbc\_valueType\_void}}}\Hypertarget{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a33940a992707baf70fd6c753cf341361}\label{_c_a_n1db_8h_a9217d9301ba522a9867ded8fe6161118a33940a992707baf70fd6c753cf341361} 
+dbc\+\_\+value\+Type\+\_\+void&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3}\label{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_REQUEST@{DBC\_VT\_AIRS\_REQUEST}}
+\index{DBC\_VT\_AIRS\_REQUEST@{DBC\_VT\_AIRS\_REQUEST}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_AIRS\_REQUEST}{DBC\_VT\_AIRS\_REQUEST}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_AIRS\_REQUEST\_OPEN@{DBC\_VT\_AIRS\_REQUEST\_OPEN}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_REQUEST\_OPEN@{DBC\_VT\_AIRS\_REQUEST\_OPEN}}}\Hypertarget{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3a7b9e66c7175d2d893fdee98905936b8d}\label{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3a7b9e66c7175d2d893fdee98905936b8d} 
+DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST\+\_\+\+OPEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_AIRS\_REQUEST\_CLOSE@{DBC\_VT\_AIRS\_REQUEST\_CLOSE}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_REQUEST\_CLOSE@{DBC\_VT\_AIRS\_REQUEST\_CLOSE}}}\Hypertarget{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3ad4b01e965797f046a952d4a09f809f86}\label{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3ad4b01e965797f046a952d4a09f809f86} 
+DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST\+\_\+\+CLOSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_AIRS\_REQUEST\_PRECHARGE@{DBC\_VT\_AIRS\_REQUEST\_PRECHARGE}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_REQUEST\_PRECHARGE@{DBC\_VT\_AIRS\_REQUEST\_PRECHARGE}}}\Hypertarget{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3a773f1f36a57f1d07ac73721e4cfaad83}\label{_c_a_n1db_8h_a6b1af151a497db567b3decbdef1c81e3a773f1f36a57f1d07ac73721e4cfaad83} 
+DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+REQUEST\+\_\+\+PRECHARGE&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6af}\label{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6af} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_STATE@{DBC\_VT\_AIRS\_STATE}}
+\index{DBC\_VT\_AIRS\_STATE@{DBC\_VT\_AIRS\_STATE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_AIRS\_STATE}{DBC\_VT\_AIRS\_STATE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6af}{DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_AIRS\_STATE\_OPEN@{DBC\_VT\_AIRS\_STATE\_OPEN}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_STATE\_OPEN@{DBC\_VT\_AIRS\_STATE\_OPEN}}}\Hypertarget{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afadf32ee04050d0040b69f0f2fd55789e3}\label{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afadf32ee04050d0040b69f0f2fd55789e3} 
+DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE\+\_\+\+OPEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_AIRS\_STATE\_CLOSE@{DBC\_VT\_AIRS\_STATE\_CLOSE}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_STATE\_CLOSE@{DBC\_VT\_AIRS\_STATE\_CLOSE}}}\Hypertarget{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afa5016b990b9cede9cc19009f88df89c47}\label{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afa5016b990b9cede9cc19009f88df89c47} 
+DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE\+\_\+\+CLOSE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_AIRS\_STATE\_Precharge@{DBC\_VT\_AIRS\_STATE\_Precharge}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_STATE\_Precharge@{DBC\_VT\_AIRS\_STATE\_Precharge}}}\Hypertarget{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afaf82ed80791391019a865226d1cfbc773}\label{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afaf82ed80791391019a865226d1cfbc773} 
+DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE\+\_\+\+Precharge&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_AIRS\_STATE\_Charger@{DBC\_VT\_AIRS\_STATE\_Charger}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_AIRS\_STATE\_Charger@{DBC\_VT\_AIRS\_STATE\_Charger}}}\Hypertarget{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afac412972adad0746a69d5e0cc6c1ee21e}\label{_c_a_n1db_8h_a89658077ee98f5ce7cf4a4b2b3c0b6afac412972adad0746a69d5e0cc6c1ee21e} 
+DBC\+\_\+\+VT\+\_\+\+AIRS\+\_\+\+STATE\+\_\+\+Charger&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecf}\label{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecf} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_APPS\_IMPLAUSIBILITY@{DBC\_VT\_APPS\_IMPLAUSIBILITY}}
+\index{DBC\_VT\_APPS\_IMPLAUSIBILITY@{DBC\_VT\_APPS\_IMPLAUSIBILITY}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_APPS\_IMPLAUSIBILITY}{DBC\_VT\_APPS\_IMPLAUSIBILITY}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecf}{DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_APPS\_IMPLAUSIBILITY\_OK@{DBC\_VT\_APPS\_IMPLAUSIBILITY\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_APPS\_IMPLAUSIBILITY\_OK@{DBC\_VT\_APPS\_IMPLAUSIBILITY\_OK}}}\Hypertarget{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecfa882af46562cc3b1383cda89ebf92bae7}\label{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecfa882af46562cc3b1383cda89ebf92bae7} 
+DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY\+\_\+\+OK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_APPS\_IMPLAUSIBILITY\_ERROR@{DBC\_VT\_APPS\_IMPLAUSIBILITY\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_APPS\_IMPLAUSIBILITY\_ERROR@{DBC\_VT\_APPS\_IMPLAUSIBILITY\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecfa0650de3eb8a7433234ca252a3b09696e}\label{_c_a_n1db_8h_a4e37453e1d30abfc1f79aaeaffcccecfa0650de3eb8a7433234ca252a3b09696e} 
+DBC\+\_\+\+VT\+\_\+\+APPS\+\_\+\+IMPLAUSIBILITY\+\_\+\+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8}\label{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_NTCDISCONNECTION@{DBC\_VT\_BMSERROR\_NTCDISCONNECTION}}
+\index{DBC\_VT\_BMSERROR\_NTCDISCONNECTION@{DBC\_VT\_BMSERROR\_NTCDISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_NTCDISCONNECTION}{DBC\_VT\_BMSERROR\_NTCDISCONNECTION}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_NTCDISCONNECTION\_ERROR@{DBC\_VT\_BMSERROR\_NTCDISCONNECTION\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_NTCDISCONNECTION\_ERROR@{DBC\_VT\_BMSERROR\_NTCDISCONNECTION\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8a6f80232e94f41bd2e86ae157f06ec7e5}\label{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8a6f80232e94f41bd2e86ae157f06ec7e5} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_NTCDISCONNECTION\_ON@{DBC\_VT\_BMSERROR\_NTCDISCONNECTION\_ON}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_NTCDISCONNECTION\_ON@{DBC\_VT\_BMSERROR\_NTCDISCONNECTION\_ON}}}\Hypertarget{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8a2722adbd86eea32d69dade3b4895f671}\label{_c_a_n1db_8h_a99f879ac45c2d853c901cd1f14862ba8a2722adbd86eea32d69dade3b4895f671} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+NTCDISCONNECTION\+\_\+\+ON&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4}\label{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERCURRENT@{DBC\_VT\_BMSERROR\_OVERCURRENT}}
+\index{DBC\_VT\_BMSERROR\_OVERCURRENT@{DBC\_VT\_BMSERROR\_OVERCURRENT}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_OVERCURRENT}{DBC\_VT\_BMSERROR\_OVERCURRENT}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_OVERCURRENT\_ERROR@{DBC\_VT\_BMSERROR\_OVERCURRENT\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERCURRENT\_ERROR@{DBC\_VT\_BMSERROR\_OVERCURRENT\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4ab362eefa04e52e37aea53d2497b3a2f9}\label{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4ab362eefa04e52e37aea53d2497b3a2f9} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_OVERCURRENT\_OK@{DBC\_VT\_BMSERROR\_OVERCURRENT\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERCURRENT\_OK@{DBC\_VT\_BMSERROR\_OVERCURRENT\_OK}}}\Hypertarget{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4a78eda6ce48bb51327cbf9760c600df8a}\label{_c_a_n1db_8h_a5f9b1944605bbda704fd13a6642233b4a78eda6ce48bb51327cbf9760c600df8a} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERCURRENT\+\_\+\+OK&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ce}\label{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ce} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERTEMPERATURE@{DBC\_VT\_BMSERROR\_OVERTEMPERATURE}}
+\index{DBC\_VT\_BMSERROR\_OVERTEMPERATURE@{DBC\_VT\_BMSERROR\_OVERTEMPERATURE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_OVERTEMPERATURE}{DBC\_VT\_BMSERROR\_OVERTEMPERATURE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ce}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_OVERTEMPERATURE\_ERROR@{DBC\_VT\_BMSERROR\_OVERTEMPERATURE\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERTEMPERATURE\_ERROR@{DBC\_VT\_BMSERROR\_OVERTEMPERATURE\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993cea59f63d7a3d477a91723d3be7512d3e05}\label{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993cea59f63d7a3d477a91723d3be7512d3e05} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_OVERTEMPERATURE\_OK@{DBC\_VT\_BMSERROR\_OVERTEMPERATURE\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERTEMPERATURE\_OK@{DBC\_VT\_BMSERROR\_OVERTEMPERATURE\_OK}}}\Hypertarget{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ceaef1e0e03f0abdf4c45e66bb347bdbf75}\label{_c_a_n1db_8h_a1e12de1cab2256f56e543180d77993ceaef1e0e03f0abdf4c45e66bb347bdbf75} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERTEMPERATURE\+\_\+\+OK&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749}\label{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERVOLTAGE@{DBC\_VT\_BMSERROR\_OVERVOLTAGE}}
+\index{DBC\_VT\_BMSERROR\_OVERVOLTAGE@{DBC\_VT\_BMSERROR\_OVERVOLTAGE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_OVERVOLTAGE}{DBC\_VT\_BMSERROR\_OVERVOLTAGE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_OVERVOLTAGE\_ERROR@{DBC\_VT\_BMSERROR\_OVERVOLTAGE\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERVOLTAGE\_ERROR@{DBC\_VT\_BMSERROR\_OVERVOLTAGE\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749a708d28f773ee7e8c3f86e6d4e43f75ce}\label{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749a708d28f773ee7e8c3f86e6d4e43f75ce} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_OVERVOLTAGE\_OK@{DBC\_VT\_BMSERROR\_OVERVOLTAGE\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_OVERVOLTAGE\_OK@{DBC\_VT\_BMSERROR\_OVERVOLTAGE\_OK}}}\Hypertarget{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749ae4bd577cf793f889c1ff539dc61d3af9}\label{_c_a_n1db_8h_a75a2d10c157be3dba832e2b308309749ae4bd577cf793f889c1ff539dc61d3af9} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+OVERVOLTAGE\+\_\+\+OK&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38}\label{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION@{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION}}
+\index{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION@{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION}{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION\_ERROR@{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION\_ERROR@{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38a301486d5e52d52a7463b9bb9fdfab5f8}\label{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38a301486d5e52d52a7463b9bb9fdfab5f8} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION\_OK@{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION\_OK@{DBC\_VT\_BMSERROR\_SLAVEDISCONNECTION\_OK}}}\Hypertarget{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38a5fc58c99690d1b7c4cb673fe6b382abe}\label{_c_a_n1db_8h_a1d2a0f65e2346b4d0cae4ba307565d38a5fc58c99690d1b7c4cb673fe6b382abe} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+SLAVEDISCONNECTION\+\_\+\+OK&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281}\label{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_UNDERTEMPERATURE@{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE}}
+\index{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE@{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE}{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE\_ERROR@{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_UNDERTEMPERATURE\_ERROR@{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281a55a865d66b209a8d6fdb132768931bd4}\label{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281a55a865d66b209a8d6fdb132768931bd4} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE\_OK@{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_UNDERTEMPERATURE\_OK@{DBC\_VT\_BMSERROR\_UNDERTEMPERATURE\_OK}}}\Hypertarget{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281af1d9b026f98b19abc82131171e502a51}\label{_c_a_n1db_8h_a3417fe9e478bb93294cfe2528fb96281af1d9b026f98b19abc82131171e502a51} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERTEMPERATURE\+\_\+\+OK&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8}\label{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_UNDERVOLTAGE@{DBC\_VT\_BMSERROR\_UNDERVOLTAGE}}
+\index{DBC\_VT\_BMSERROR\_UNDERVOLTAGE@{DBC\_VT\_BMSERROR\_UNDERVOLTAGE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_UNDERVOLTAGE}{DBC\_VT\_BMSERROR\_UNDERVOLTAGE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_UNDERVOLTAGE\_ERROR@{DBC\_VT\_BMSERROR\_UNDERVOLTAGE\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_UNDERVOLTAGE\_ERROR@{DBC\_VT\_BMSERROR\_UNDERVOLTAGE\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8a94d97f4235a516aa1f88649cacb6463a}\label{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8a94d97f4235a516aa1f88649cacb6463a} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_UNDERVOLTAGE\_OK@{DBC\_VT\_BMSERROR\_UNDERVOLTAGE\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_UNDERVOLTAGE\_OK@{DBC\_VT\_BMSERROR\_UNDERVOLTAGE\_OK}}}\Hypertarget{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8a294de4c8491b7d15203ce50cc8966871}\label{_c_a_n1db_8h_a4d04bdd49c7a278f4e433ecfdacd88d8a294de4c8491b7d15203ce50cc8966871} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+UNDERVOLTAGE\+\_\+\+OK&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005}\label{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION@{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION}}
+\index{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION@{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION}{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005}{DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION\_ERROR@{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION\_ERROR@{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005a04798e227dd10039a1e719f509216c91}\label{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005a04798e227dd10039a1e719f509216c91} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION\_OK@{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION\_OK@{DBC\_VT\_BMSERROR\_VOLTAGEDISCONNECTION\_OK}}}\Hypertarget{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005a1e2e68ab283083f6b353cae92496b749}\label{_c_a_n1db_8h_a065a828820aaf82b3dac892edbc1d005a1e2e68ab283083f6b353cae92496b749} 
+DBC\+\_\+\+VT\+\_\+\+BMSERROR\+\_\+\+VOLTAGEDISCONNECTION\+\_\+\+OK&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60}\label{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION@{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION}}
+\index{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION@{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION}{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION\_OK@{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION\_OK@{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION\_OK}}}\Hypertarget{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60a1415381b6555c30626167cd87da86c40}\label{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60a1415381b6555c30626167cd87da86c40} 
+DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION\+\_\+\+OK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION\_ERROR@{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION\_ERROR@{DBC\_VT\_CRITICAL\_CAN\_DISCONNECTION\_ERROR}}}\Hypertarget{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60ad94e1ac0a2b368af4ff1fb6568aaf891}\label{_c_a_n1db_8h_ae962bb08a5d2531ca8235f2747778d60ad94e1ac0a2b368af4ff1fb6568aaf891} 
+DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+CAN\+\_\+\+DISCONNECTION\+\_\+\+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6}\label{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION@{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION}}
+\index{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION@{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION}{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6}{DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION\_OK@{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION\_OK@{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION\_OK}}}\Hypertarget{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6a2f53a2b8366fb94066ee781d398ce68e}\label{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6a2f53a2b8366fb94066ee781d398ce68e} 
+DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION\+\_\+\+OK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION\_ERROR@{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION\_ERROR@{DBC\_VT\_CRITICAL\_SIGNAL\_DISCONNECTION\_ERROR}}}\Hypertarget{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6ab3985d26e741b847178e2da7e9249304}\label{_c_a_n1db_8h_af0f8602f8660caa3ae3f55722f1694c6ab3985d26e741b847178e2da7e9249304} 
+DBC\+\_\+\+VT\+\_\+\+CRITICAL\+\_\+\+SIGNAL\+\_\+\+DISCONNECTION\+\_\+\+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7}\label{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICALDISCONNECTION@{DBC\_VT\_CRITICALDISCONNECTION}}
+\index{DBC\_VT\_CRITICALDISCONNECTION@{DBC\_VT\_CRITICALDISCONNECTION}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CRITICALDISCONNECTION}{DBC\_VT\_CRITICALDISCONNECTION}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7}{DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CRITICALDISCONNECTION\_OK@{DBC\_VT\_CRITICALDISCONNECTION\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICALDISCONNECTION\_OK@{DBC\_VT\_CRITICALDISCONNECTION\_OK}}}\Hypertarget{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7af0ed0a0b0ecde5d050ad9b8ad380fe6d}\label{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7af0ed0a0b0ecde5d050ad9b8ad380fe6d} 
+DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION\+\_\+\+OK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CRITICALDISCONNECTION\_ERROR@{DBC\_VT\_CRITICALDISCONNECTION\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CRITICALDISCONNECTION\_ERROR@{DBC\_VT\_CRITICALDISCONNECTION\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7a77c4c8b540b51608bd274377b3840748}\label{_c_a_n1db_8h_a8d2c35caee343aef0bda70f045263ce7a77c4c8b540b51608bd274377b3840748} 
+DBC\+\_\+\+VT\+\_\+\+CRITICALDISCONNECTION\+\_\+\+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854b}\label{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854b} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG@{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG}}
+\index{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG@{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG}{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854b}{DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG\_CONNECTED@{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG\_CONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG\_CONNECTED@{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG\_CONNECTED}}}\Hypertarget{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854ba7ff0ff51c8ce4d0284ec5a9075229e40}\label{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854ba7ff0ff51c8ce4d0284ec5a9075229e40} 
+DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG\+\_\+\+CONNECTED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG\_DISCONNECTED@{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG\_DISCONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG\_DISCONNECTED@{DBC\_VT\_CURRENTPATHDISCONNECTIONFLAG\_DISCONNECTED}}}\Hypertarget{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854baf2de6aac8b02d6cd5d7adce3ab5cc26f}\label{_c_a_n1db_8h_a3b468d879ecf11124109f9303e52854baf2de6aac8b02d6cd5d7adce3ab5cc26f} 
+DBC\+\_\+\+VT\+\_\+\+CURRENTPATHDISCONNECTIONFLAG\+\_\+\+DISCONNECTED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4e}\label{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4e} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CURRENTSENSOR\_ERROR@{DBC\_VT\_CURRENTSENSOR\_ERROR}}
+\index{DBC\_VT\_CURRENTSENSOR\_ERROR@{DBC\_VT\_CURRENTSENSOR\_ERROR}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CURRENTSENSOR\_ERROR}{DBC\_VT\_CURRENTSENSOR\_ERROR}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4e}{DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CURRENTSENSOR\_ERROR\_OK@{DBC\_VT\_CURRENTSENSOR\_ERROR\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CURRENTSENSOR\_ERROR\_OK@{DBC\_VT\_CURRENTSENSOR\_ERROR\_OK}}}\Hypertarget{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4eafd2c3586cc99c9b428fcd193198a4d15}\label{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4eafd2c3586cc99c9b428fcd193198a4d15} 
+DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR\+\_\+\+OK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CURRENTSENSOR\_ERROR\_ERROR@{DBC\_VT\_CURRENTSENSOR\_ERROR\_ERROR}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CURRENTSENSOR\_ERROR\_ERROR@{DBC\_VT\_CURRENTSENSOR\_ERROR\_ERROR}}}\Hypertarget{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4eaf934409c302b63eb9570c60848c0ec1c}\label{_c_a_n1db_8h_a3db3f5f4cad6f1d0a2f197221b7a4f4eaf934409c302b63eb9570c60848c0ec1c} 
+DBC\+\_\+\+VT\+\_\+\+CURRENTSENSOR\+\_\+\+ERROR\+\_\+\+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER}}
+\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_CUSTOMMODE\_IDENTIFIER}{DBC\_VT\_CUSTOMMODE\_IDENTIFIER}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385}{DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_SKF\_Initial@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_SKF\_Initial}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_SKF\_Initial@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_SKF\_Initial}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a486161c69e1d879aae773dc5b9c80ad0}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a486161c69e1d879aae773dc5b9c80ad0} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+SKF\+\_\+\+Initial&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_CKF\_Initial@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_CKF\_Initial}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_CKF\_Initial@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_CKF\_Initial}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a1c52bffe0bd8977af9fa5c5d61b53884}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a1c52bffe0bd8977af9fa5c5d61b53884} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+CKF\+\_\+\+Initial&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Cte\_SKF@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Cte\_SKF}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Cte\_SKF@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Cte\_SKF}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385aa7f542243b43cfb9c772e64226ac57c5}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385aa7f542243b43cfb9c772e64226ac57c5} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+Cte\+\_\+\+SKF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Cte\_CKF@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Cte\_CKF}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Cte\_CKF@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Cte\_CKF}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a393b78b70151c6ba4947d5682f98efc4}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a393b78b70151c6ba4947d5682f98efc4} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+Cte\+\_\+\+CKF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_APPS\_Sat\_Down@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_APPS\_Sat\_Down}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_APPS\_Sat\_Down@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_APPS\_Sat\_Down}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385aae279bd36b7ccf9c0a47f805d9d30d23}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385aae279bd36b7ccf9c0a47f805d9d30d23} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+APPS\+\_\+\+Sat\+\_\+\+Down&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_APPS\_Sat\_Up@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_APPS\_Sat\_Up}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_APPS\_Sat\_Up@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_APPS\_Sat\_Up}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a2b14796cf6cdeb854ef65cf9f2888bfa}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a2b14796cf6cdeb854ef65cf9f2888bfa} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+APPS\+\_\+\+Sat\+\_\+\+Up&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Max\_Regenerative\_Torque@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Max\_Regenerative\_Torque}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Max\_Regenerative\_Torque@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Max\_Regenerative\_Torque}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a7ed73e8660d5ae06c346354bea694076}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a7ed73e8660d5ae06c346354bea694076} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+Max\+\_\+\+Regenerative\+\_\+\+Torque&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Power\_Limit@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Power\_Limit}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Power\_Limit@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_Power\_Limit}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a5e9d3f77dd86cfbb5f9402c7c0b0e0e9}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a5e9d3f77dd86cfbb5f9402c7c0b0e0e9} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+Power\+\_\+\+Limit&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_K\_Reduction\_P@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_K\_Reduction\_P}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_K\_Reduction\_P@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_K\_Reduction\_P}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385afc1409cb4310e29f9239cdf710458545}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385afc1409cb4310e29f9239cdf710458545} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+K\+\_\+\+Reduction\+\_\+P&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_K\_Reduction\_Temperature@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_K\_Reduction\_Temperature}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_K\_Reduction\_Temperature@{DBC\_VT\_CUSTOMMODE\_IDENTIFIER\_K\_Reduction\_Temperature}}}\Hypertarget{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a193a6700aa5550cd216e82fae1af629f}\label{_c_a_n1db_8h_a92c49930b2fbcee42a5041c86c01b385a193a6700aa5550cd216e82fae1af629f} 
+DBC\+\_\+\+VT\+\_\+\+CUSTOMMODE\+\_\+\+IDENTIFIER\+\_\+\+K\+\_\+\+Reduction\+\_\+\+Temperature&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2}\label{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_APPS1@{DBC\_VT\_DISCONNECTION\_APPS1}}
+\index{DBC\_VT\_DISCONNECTION\_APPS1@{DBC\_VT\_DISCONNECTION\_APPS1}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_APPS1}{DBC\_VT\_DISCONNECTION\_APPS1}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_APPS1\_CONNECTION@{DBC\_VT\_DISCONNECTION\_APPS1\_CONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_APPS1\_CONNECTION@{DBC\_VT\_DISCONNECTION\_APPS1\_CONNECTION}}}\Hypertarget{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2ae6be37f3f6c9ffd30d542d9228b2a284}\label{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2ae6be37f3f6c9ffd30d542d9228b2a284} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1\+\_\+\+CONNECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_APPS1\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_APPS1\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_APPS1\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_APPS1\_DISCONNECTION}}}\Hypertarget{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2a2fcaa95061aabf6151405c400a479622}\label{_c_a_n1db_8h_a39ae3772dfa373023b6f4bda8bb268f2a2fcaa95061aabf6151405c400a479622} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS1\+\_\+\+DISCONNECTION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125}\label{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_APPS2@{DBC\_VT\_DISCONNECTION\_APPS2}}
+\index{DBC\_VT\_DISCONNECTION\_APPS2@{DBC\_VT\_DISCONNECTION\_APPS2}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_APPS2}{DBC\_VT\_DISCONNECTION\_APPS2}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_APPS2\_CONNECTION@{DBC\_VT\_DISCONNECTION\_APPS2\_CONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_APPS2\_CONNECTION@{DBC\_VT\_DISCONNECTION\_APPS2\_CONNECTION}}}\Hypertarget{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125a83dbaa37797da7353f0e2c2c1c18ea68}\label{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125a83dbaa37797da7353f0e2c2c1c18ea68} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2\+\_\+\+CONNECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_APPS2\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_APPS2\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_APPS2\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_APPS2\_DISCONNECTION}}}\Hypertarget{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125a784a2f7949ba8a2c971b8d6f18c28e21}\label{_c_a_n1db_8h_a67237603ba78d2a80c9c1c0d120c4125a784a2f7949ba8a2c971b8d6f18c28e21} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+APPS2\+\_\+\+DISCONNECTION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25ae}\label{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25ae} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BMS@{DBC\_VT\_DISCONNECTION\_BMS}}
+\index{DBC\_VT\_DISCONNECTION\_BMS@{DBC\_VT\_DISCONNECTION\_BMS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_BMS}{DBC\_VT\_DISCONNECTION\_BMS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25ae}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_BMS\_CONNECTED@{DBC\_VT\_DISCONNECTION\_BMS\_CONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BMS\_CONNECTED@{DBC\_VT\_DISCONNECTION\_BMS\_CONNECTED}}}\Hypertarget{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25aea27ffa511b2bb337f4edbc381625b7aa3}\label{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25aea27ffa511b2bb337f4edbc381625b7aa3} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS\+\_\+\+CONNECTED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_BMS\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_BMS\_DISCONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BMS\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_BMS\_DISCONNECTED}}}\Hypertarget{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25aea6bf868041fd168c4fb5c2d07edcd5889}\label{_c_a_n1db_8h_af6ee900f8f8af88e246cdc23cdda25aea6bf868041fd168c4fb5c2d07edcd5889} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BMS\+\_\+\+DISCONNECTED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22}\label{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BRAKEPEDAL@{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL}}
+\index{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL@{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL}{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL\_CONNECTION@{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL\_CONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BRAKEPEDAL\_CONNECTION@{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL\_CONNECTION}}}\Hypertarget{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22ac79a83d3f7ab7836cee435fa3299ff58}\label{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22ac79a83d3f7ab7836cee435fa3299ff58} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL\+\_\+\+CONNECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BRAKEPEDAL\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_BRAKEPEDAL\_DISCONNECTION}}}\Hypertarget{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22a533099d2846649d42de900810b99e8bf}\label{_c_a_n1db_8h_a53d928eff12a33cde866694167a99c22a533099d2846649d42de900810b99e8bf} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPEDAL\+\_\+\+DISCONNECTION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2e}\label{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2e} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE@{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE}}
+\index{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE@{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE}{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE\_CONNECTION@{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE\_CONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE\_CONNECTION@{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE\_CONNECTION}}}\Hypertarget{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2eadda3cacba0b43ad278dacd143c455cdd}\label{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2eadda3cacba0b43ad278dacd143c455cdd} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE\+\_\+\+CONNECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_BRAKEPRESSURE\_DISCONNECTION}}}\Hypertarget{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2ea46bcc7afeeb03dbfdc4af73f9a3a1c58}\label{_c_a_n1db_8h_adc60058bf8810a85178c275af46ecf2ea46bcc7afeeb03dbfdc4af73f9a3a1c58} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+BRAKEPRESSURE\+\_\+\+DISCONNECTION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97}\label{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_DASHBOARD@{DBC\_VT\_DISCONNECTION\_DASHBOARD}}
+\index{DBC\_VT\_DISCONNECTION\_DASHBOARD@{DBC\_VT\_DISCONNECTION\_DASHBOARD}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_DASHBOARD}{DBC\_VT\_DISCONNECTION\_DASHBOARD}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_DASHBOARD\_CONNECTED@{DBC\_VT\_DISCONNECTION\_DASHBOARD\_CONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_DASHBOARD\_CONNECTED@{DBC\_VT\_DISCONNECTION\_DASHBOARD\_CONNECTED}}}\Hypertarget{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97a325fac06cda287e3d05e3aad457a7310}\label{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97a325fac06cda287e3d05e3aad457a7310} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD\+\_\+\+CONNECTED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_DASHBOARD\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_DASHBOARD\_DISCONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_DASHBOARD\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_DASHBOARD\_DISCONNECTED}}}\Hypertarget{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97a2ce7a1d5c9e68c9e863f27179fceb756}\label{_c_a_n1db_8h_a0333bc1f5b0825f913b1db29c52a3a97a2ce7a1d5c9e68c9e863f27179fceb756} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+DASHBOARD\+\_\+\+DISCONNECTED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187}\label{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_ELLIPSE@{DBC\_VT\_DISCONNECTION\_ELLIPSE}}
+\index{DBC\_VT\_DISCONNECTION\_ELLIPSE@{DBC\_VT\_DISCONNECTION\_ELLIPSE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_ELLIPSE}{DBC\_VT\_DISCONNECTION\_ELLIPSE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_ELLIPSE\_CONNECTED@{DBC\_VT\_DISCONNECTION\_ELLIPSE\_CONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_ELLIPSE\_CONNECTED@{DBC\_VT\_DISCONNECTION\_ELLIPSE\_CONNECTED}}}\Hypertarget{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187a1303e897ec265f08875032bf33e45cfb}\label{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187a1303e897ec265f08875032bf33e45cfb} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE\+\_\+\+CONNECTED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_ELLIPSE\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_ELLIPSE\_DISCONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_ELLIPSE\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_ELLIPSE\_DISCONNECTED}}}\Hypertarget{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187a24451f8b3c99eb7580d831c6cd057c58}\label{_c_a_n1db_8h_ab36d1d8d4545aa5de680e8a776996187a24451f8b3c99eb7580d831c6cd057c58} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+ELLIPSE\+\_\+\+DISCONNECTED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52}\label{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_FRONT@{DBC\_VT\_DISCONNECTION\_FRONT}}
+\index{DBC\_VT\_DISCONNECTION\_FRONT@{DBC\_VT\_DISCONNECTION\_FRONT}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_FRONT}{DBC\_VT\_DISCONNECTION\_FRONT}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_FRONT\_CONNECTED@{DBC\_VT\_DISCONNECTION\_FRONT\_CONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_FRONT\_CONNECTED@{DBC\_VT\_DISCONNECTION\_FRONT\_CONNECTED}}}\Hypertarget{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52a9086757d4954f537bffdf5e5e06bad4d}\label{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52a9086757d4954f537bffdf5e5e06bad4d} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT\+\_\+\+CONNECTED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_FRONT\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_FRONT\_DISCONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_FRONT\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_FRONT\_DISCONNECTED}}}\Hypertarget{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52a56f97530019622ac9d6fed03e7949857}\label{_c_a_n1db_8h_a16524f74ab795d852b88faf38cb98b52a56f97530019622ac9d6fed03e7949857} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+FRONT\+\_\+\+DISCONNECTED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362}\label{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_PITOT@{DBC\_VT\_DISCONNECTION\_PITOT}}
+\index{DBC\_VT\_DISCONNECTION\_PITOT@{DBC\_VT\_DISCONNECTION\_PITOT}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_PITOT}{DBC\_VT\_DISCONNECTION\_PITOT}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_PITOT\_CONNECTION@{DBC\_VT\_DISCONNECTION\_PITOT\_CONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_PITOT\_CONNECTION@{DBC\_VT\_DISCONNECTION\_PITOT\_CONNECTION}}}\Hypertarget{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362a8e084f37021c89cd5ee2d4e66b668326}\label{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362a8e084f37021c89cd5ee2d4e66b668326} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT\+\_\+\+CONNECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_PITOT\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_PITOT\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_PITOT\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_PITOT\_DISCONNECTION}}}\Hypertarget{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362abfd150ce94dd5a3981d62cfd64e619c8}\label{_c_a_n1db_8h_a65dc4270ec91cff9eec988e64a3df362abfd150ce94dd5a3981d62cfd64e619c8} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+PITOT\+\_\+\+DISCONNECTION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4e}\label{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4e} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_REAR@{DBC\_VT\_DISCONNECTION\_REAR}}
+\index{DBC\_VT\_DISCONNECTION\_REAR@{DBC\_VT\_DISCONNECTION\_REAR}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_REAR}{DBC\_VT\_DISCONNECTION\_REAR}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4e}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_REAR\_CONNECTED@{DBC\_VT\_DISCONNECTION\_REAR\_CONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_REAR\_CONNECTED@{DBC\_VT\_DISCONNECTION\_REAR\_CONNECTED}}}\Hypertarget{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4ea081ad657b39bb0ca81b8b6120a636196}\label{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4ea081ad657b39bb0ca81b8b6120a636196} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR\+\_\+\+CONNECTED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_REAR\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_REAR\_DISCONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_REAR\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_REAR\_DISCONNECTED}}}\Hypertarget{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4eaea00a85fbda49aff88bc85a101dd5014}\label{_c_a_n1db_8h_aa2680bd6e340d3d81790716f0d5c3a4eaea00a85fbda49aff88bc85a101dd5014} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+REAR\+\_\+\+DISCONNECTED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907a}\label{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907a} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_STEERINGSENSOR@{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR}}
+\index{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR@{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR}{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907a}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR\_CONNECTED@{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR\_CONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_STEERINGSENSOR\_CONNECTED@{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR\_CONNECTED}}}\Hypertarget{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907aa23d4ef67771f84528b9db65b998e0244}\label{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907aa23d4ef67771f84528b9db65b998e0244} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR\+\_\+\+CONNECTED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR\_DISCONNECTED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_STEERINGSENSOR\_DISCONNECTED@{DBC\_VT\_DISCONNECTION\_STEERINGSENSOR\_DISCONNECTED}}}\Hypertarget{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907aa2f4d88f7dbce8d84a31068f8cc5e17fd}\label{_c_a_n1db_8h_a35b7bf0148bc4c6915e2b3a53a7d907aa2f4d88f7dbce8d84a31068f8cc5e17fd} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+STEERINGSENSOR\+\_\+\+DISCONNECTED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6}\label{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_F\_L@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L}}
+\index{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L}{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+L}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L\_CONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L\_CONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_F\_L\_CONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L\_CONNECTION}}}\Hypertarget{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6aac3a046342ec060f74b05bd7c9e25628}\label{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6aac3a046342ec060f74b05bd7c9e25628} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+\+L\+\_\+\+CONNECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_F\_L\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_L\_DISCONNECTION}}}\Hypertarget{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6aa61160e8f857f951f026a4e485c9751c}\label{_c_a_n1db_8h_ae3a8b6b7a2f399e00a5d7a593352aca6aa61160e8f857f951f026a4e485c9751c} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+\+L\+\_\+\+DISCONNECTION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37c}\label{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37c} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_F\_R@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R}}
+\index{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R}{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37c}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+R}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R\_CONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R\_CONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_F\_R\_CONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R\_CONNECTION}}}\Hypertarget{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37ca04b60b42b81c912f44b21f1bc3d13034}\label{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37ca04b60b42b81c912f44b21f1bc3d13034} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+\+R\+\_\+\+CONNECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_F\_R\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_F\_R\_DISCONNECTION}}}\Hypertarget{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37ca8f5358217245f5eb8900b98accd67ab9}\label{_c_a_n1db_8h_af0afe49774f53b58d192589cf2a5c37ca8f5358217245f5eb8900b98accd67ab9} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+F\+\_\+\+R\+\_\+\+DISCONNECTION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258f}\label{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258f} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_R\_L@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L}}
+\index{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L}{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258f}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+L}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L\_CONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L\_CONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_R\_L\_CONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L\_CONNECTION}}}\Hypertarget{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258fa9dfd925f085a257c04858696d4566abc}\label{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258fa9dfd925f085a257c04858696d4566abc} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+\+L\+\_\+\+CONNECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_R\_L\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_L\_DISCONNECTION}}}\Hypertarget{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258faa4487d9f7b8a74b47c90337275fbbd47}\label{_c_a_n1db_8h_a2703fd5b05112cd78fb246bfe8e6258faa4487d9f7b8a74b47c90337275fbbd47} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+\+L\+\_\+\+DISCONNECTION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8}\label{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_R\_R@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R}}
+\index{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R}{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8}{DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+R}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R\_CONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R\_CONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_R\_R\_CONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R\_CONNECTION}}}\Hypertarget{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8a96d42c7096951bc6c63b8af277cab133}\label{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8a96d42c7096951bc6c63b8af277cab133} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+\+R\+\_\+\+CONNECTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R\_DISCONNECTION}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_DISCONNECTION\_SUSP\_R\_R\_DISCONNECTION@{DBC\_VT\_DISCONNECTION\_SUSP\_R\_R\_DISCONNECTION}}}\Hypertarget{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8a6f0f0cde851e1e4b8254b95517a9d308}\label{_c_a_n1db_8h_a532e0045ab83bf61c22fdf3d1cdfe4b8a6f0f0cde851e1e4b8254b95517a9d308} 
+DBC\+\_\+\+VT\+\_\+\+DISCONNECTION\+\_\+\+SUSP\+\_\+\+R\+\_\+\+R\+\_\+\+DISCONNECTION&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25}\label{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_ENABLEDRIVE\_ORDER@{DBC\_VT\_ENABLEDRIVE\_ORDER}}
+\index{DBC\_VT\_ENABLEDRIVE\_ORDER@{DBC\_VT\_ENABLEDRIVE\_ORDER}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_ENABLEDRIVE\_ORDER}{DBC\_VT\_ENABLEDRIVE\_ORDER}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25}{DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_ENABLEDRIVE\_ORDER\_OFF@{DBC\_VT\_ENABLEDRIVE\_ORDER\_OFF}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_ENABLEDRIVE\_ORDER\_OFF@{DBC\_VT\_ENABLEDRIVE\_ORDER\_OFF}}}\Hypertarget{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25a394dd2887054ecca658b5c17f63b6cec}\label{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25a394dd2887054ecca658b5c17f63b6cec} 
+DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER\+\_\+\+OFF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_ENABLEDRIVE\_ORDER\_ON@{DBC\_VT\_ENABLEDRIVE\_ORDER\_ON}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_ENABLEDRIVE\_ORDER\_ON@{DBC\_VT\_ENABLEDRIVE\_ORDER\_ON}}}\Hypertarget{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25a78b638eb75e347330de812e61b1850ef}\label{_c_a_n1db_8h_a6433ce95350d139b069a1b8edc4d2b25a78b638eb75e347330de812e61b1850ef} 
+DBC\+\_\+\+VT\+\_\+\+ENABLEDRIVE\+\_\+\+ORDER\+\_\+\+ON&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE@{DBC\_VT\_RACINGMODE}}
+\index{DBC\_VT\_RACINGMODE@{DBC\_VT\_RACINGMODE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_RACINGMODE}{DBC\_VT\_RACINGMODE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465}{DBC\+\_\+\+VT\+\_\+\+RACINGMODE}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_WorkShop\_Test@{DBC\_VT\_RACINGMODE\_WorkShop\_Test}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_WorkShop\_Test@{DBC\_VT\_RACINGMODE\_WorkShop\_Test}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a4a353bf9c37ed5739fab3068f91a58cc}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a4a353bf9c37ed5739fab3068f91a58cc} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Work\+Shop\+\_\+\+Test&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_Custom\_Dash@{DBC\_VT\_RACINGMODE\_Custom\_Dash}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_Custom\_Dash@{DBC\_VT\_RACINGMODE\_Custom\_Dash}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aad6c7f1b30f91b13213bf5e1559e38ad}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aad6c7f1b30f91b13213bf5e1559e38ad} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Custom\+\_\+\+Dash&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_Custom\_Experiment\_Enviroment@{DBC\_VT\_RACINGMODE\_Custom\_Experiment\_Enviroment}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_Custom\_Experiment\_Enviroment@{DBC\_VT\_RACINGMODE\_Custom\_Experiment\_Enviroment}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aa4a0396ab24ca12763bb95c896291af0}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aa4a0396ab24ca12763bb95c896291af0} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Custom\+\_\+\+Experiment\+\_\+\+Enviroment&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_Acceleration\_RUN1@{DBC\_VT\_RACINGMODE\_Acceleration\_RUN1}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_Acceleration\_RUN1@{DBC\_VT\_RACINGMODE\_Acceleration\_RUN1}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aa7bb62e7764eb149a6cd6899e777447a}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aa7bb62e7764eb149a6cd6899e777447a} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Acceleration\+\_\+\+RUN1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_Acceleration\_RUN2@{DBC\_VT\_RACINGMODE\_Acceleration\_RUN2}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_Acceleration\_RUN2@{DBC\_VT\_RACINGMODE\_Acceleration\_RUN2}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a3be5103e9a43c6203c9dbc276807e348}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a3be5103e9a43c6203c9dbc276807e348} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Acceleration\+\_\+\+RUN2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_Skidpad\_RUN1@{DBC\_VT\_RACINGMODE\_Skidpad\_RUN1}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_Skidpad\_RUN1@{DBC\_VT\_RACINGMODE\_Skidpad\_RUN1}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a89832e3779e9e4bb5e0603b43601e979}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a89832e3779e9e4bb5e0603b43601e979} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Skidpad\+\_\+\+RUN1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_Skidpad\_RUN2@{DBC\_VT\_RACINGMODE\_Skidpad\_RUN2}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_Skidpad\_RUN2@{DBC\_VT\_RACINGMODE\_Skidpad\_RUN2}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a1c623fa5cfaec9f1ddf71eb36fc934d2}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a1c623fa5cfaec9f1ddf71eb36fc934d2} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Skidpad\+\_\+\+RUN2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_AutoX\_RUN1@{DBC\_VT\_RACINGMODE\_AutoX\_RUN1}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_AutoX\_RUN1@{DBC\_VT\_RACINGMODE\_AutoX\_RUN1}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a5dc3a86ccb2e4d4fc746d62253665dd5}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a5dc3a86ccb2e4d4fc746d62253665dd5} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Auto\+X\+\_\+\+RUN1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_AutoX\_RUN2@{DBC\_VT\_RACINGMODE\_AutoX\_RUN2}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_AutoX\_RUN2@{DBC\_VT\_RACINGMODE\_AutoX\_RUN2}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aa8263c4916a0ba063d17eb1ea53cd2cd}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465aa8263c4916a0ba063d17eb1ea53cd2cd} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Auto\+X\+\_\+\+RUN2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_Endurance\_RUN1@{DBC\_VT\_RACINGMODE\_Endurance\_RUN1}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_Endurance\_RUN1@{DBC\_VT\_RACINGMODE\_Endurance\_RUN1}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a010cf705203062dcd0169662bbb89aec}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a010cf705203062dcd0169662bbb89aec} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Endurance\+\_\+\+RUN1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_RACINGMODE\_Endurance\_RUN2@{DBC\_VT\_RACINGMODE\_Endurance\_RUN2}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_RACINGMODE\_Endurance\_RUN2@{DBC\_VT\_RACINGMODE\_Endurance\_RUN2}}}\Hypertarget{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a1eec2943d9e6a823f057cdae4d6f77de}\label{_c_a_n1db_8h_a6d805b6b0e2956adf83a0974790b6465a1eec2943d9e6a823f057cdae4d6f77de} 
+DBC\+\_\+\+VT\+\_\+\+RACINGMODE\+\_\+\+Endurance\+\_\+\+RUN2&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003}\label{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_BMS@{DBC\_VT\_SHUTDOWN\_BMS}}
+\index{DBC\_VT\_SHUTDOWN\_BMS@{DBC\_VT\_SHUTDOWN\_BMS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_SHUTDOWN\_BMS}{DBC\_VT\_SHUTDOWN\_BMS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_SHUTDOWN\_BMS\_OPENED@{DBC\_VT\_SHUTDOWN\_BMS\_OPENED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_BMS\_OPENED@{DBC\_VT\_SHUTDOWN\_BMS\_OPENED}}}\Hypertarget{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003afd9e8d5b9484608dbbb2bd525121fce0}\label{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003afd9e8d5b9484608dbbb2bd525121fce0} 
+DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS\+\_\+\+OPENED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_SHUTDOWN\_BMS\_OK@{DBC\_VT\_SHUTDOWN\_BMS\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_BMS\_OK@{DBC\_VT\_SHUTDOWN\_BMS\_OK}}}\Hypertarget{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003ae216b1bf52b69bb374e6d284350a2317}\label{_c_a_n1db_8h_a1fc2e1d6ec1f7993eb299511d1d8e003ae216b1bf52b69bb374e6d284350a2317} 
+DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+BMS\+\_\+\+OK&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0de}\label{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0de} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_IMD@{DBC\_VT\_SHUTDOWN\_IMD}}
+\index{DBC\_VT\_SHUTDOWN\_IMD@{DBC\_VT\_SHUTDOWN\_IMD}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_SHUTDOWN\_IMD}{DBC\_VT\_SHUTDOWN\_IMD}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0de}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_SHUTDOWN\_IMD\_OPENED@{DBC\_VT\_SHUTDOWN\_IMD\_OPENED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_IMD\_OPENED@{DBC\_VT\_SHUTDOWN\_IMD\_OPENED}}}\Hypertarget{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0dea24445c62a6d6ba1ef3e2df2d8a12dcd0}\label{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0dea24445c62a6d6ba1ef3e2df2d8a12dcd0} 
+DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD\+\_\+\+OPENED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_SHUTDOWN\_IMD\_OPEN@{DBC\_VT\_SHUTDOWN\_IMD\_OPEN}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_IMD\_OPEN@{DBC\_VT\_SHUTDOWN\_IMD\_OPEN}}}\Hypertarget{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0deae61e3ff7485591cfe88be2f5bad06748}\label{_c_a_n1db_8h_adbde3cae1596b866d1d9afcc011ea0deae61e3ff7485591cfe88be2f5bad06748} 
+DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+IMD\+\_\+\+OPEN&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36}\label{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_PACKAGEINTCK@{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK}}
+\index{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK@{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK}{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36}{DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK\_OPENED@{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK\_OPENED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_PACKAGEINTCK\_OPENED@{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK\_OPENED}}}\Hypertarget{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36af91183ad03814e5b2a9e56862d07eadf}\label{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36af91183ad03814e5b2a9e56862d07eadf} 
+DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK\+\_\+\+OPENED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK\_OK@{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK\_OK}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_SHUTDOWN\_PACKAGEINTCK\_OK@{DBC\_VT\_SHUTDOWN\_PACKAGEINTCK\_OK}}}\Hypertarget{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36a30419b33837836dd00bf002b4d54aae0}\label{_c_a_n1db_8h_af349873de460f1867e3f62d3750ccd36a30419b33837836dd00bf002b4d54aae0} 
+DBC\+\_\+\+VT\+\_\+\+SHUTDOWN\+\_\+\+PACKAGEINTCK\+\_\+\+OK&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33}\label{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_ACCUMULATORFANS@{DBC\_VT\_STATE\_ACCUMULATORFANS}}
+\index{DBC\_VT\_STATE\_ACCUMULATORFANS@{DBC\_VT\_STATE\_ACCUMULATORFANS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_ACCUMULATORFANS}{DBC\_VT\_STATE\_ACCUMULATORFANS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_ACCUMULATORFANS\_OFF@{DBC\_VT\_STATE\_ACCUMULATORFANS\_OFF}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_ACCUMULATORFANS\_OFF@{DBC\_VT\_STATE\_ACCUMULATORFANS\_OFF}}}\Hypertarget{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33a0421d0f39a2b8694bf520b1ef25a63d3}\label{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33a0421d0f39a2b8694bf520b1ef25a63d3} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS\+\_\+\+OFF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_ACCUMULATORFANS\_ON@{DBC\_VT\_STATE\_ACCUMULATORFANS\_ON}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_ACCUMULATORFANS\_ON@{DBC\_VT\_STATE\_ACCUMULATORFANS\_ON}}}\Hypertarget{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33acde1ebc9aec4093af44767b8e624fa5b}\label{_c_a_n1db_8h_a8858c17dddde1fe121ffc178b15ebe33acde1ebc9aec4093af44767b8e624fa5b} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+ACCUMULATORFANS\+\_\+\+ON&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75f}\label{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75f} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_AIR\_MINUS@{DBC\_VT\_STATE\_AIR\_MINUS}}
+\index{DBC\_VT\_STATE\_AIR\_MINUS@{DBC\_VT\_STATE\_AIR\_MINUS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_AIR\_MINUS}{DBC\_VT\_STATE\_AIR\_MINUS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_AIR\_MINUS\_OPENED@{DBC\_VT\_STATE\_AIR\_MINUS\_OPENED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_AIR\_MINUS\_OPENED@{DBC\_VT\_STATE\_AIR\_MINUS\_OPENED}}}\Hypertarget{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75fa30dbdac1d0b14d0dd24d0e50b1ed11c4}\label{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75fa30dbdac1d0b14d0dd24d0e50b1ed11c4} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS\+\_\+\+OPENED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_AIR\_MINUS\_CLOSED@{DBC\_VT\_STATE\_AIR\_MINUS\_CLOSED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_AIR\_MINUS\_CLOSED@{DBC\_VT\_STATE\_AIR\_MINUS\_CLOSED}}}\Hypertarget{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75fa2ad7de93175fcf6b56cab6371ce2e617}\label{_c_a_n1db_8h_aa7ab01e5dd24caceb572cb9e0109b75fa2ad7de93175fcf6b56cab6371ce2e617} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+MINUS\+\_\+\+CLOSED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2}\label{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_AIR\_PLUS@{DBC\_VT\_STATE\_AIR\_PLUS}}
+\index{DBC\_VT\_STATE\_AIR\_PLUS@{DBC\_VT\_STATE\_AIR\_PLUS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_AIR\_PLUS}{DBC\_VT\_STATE\_AIR\_PLUS}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_AIR\_PLUS\_OPENED@{DBC\_VT\_STATE\_AIR\_PLUS\_OPENED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_AIR\_PLUS\_OPENED@{DBC\_VT\_STATE\_AIR\_PLUS\_OPENED}}}\Hypertarget{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2af3b511f3e03a9d13512e071e2874f5d8}\label{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2af3b511f3e03a9d13512e071e2874f5d8} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS\+\_\+\+OPENED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_AIR\_PLUS\_CLOSED@{DBC\_VT\_STATE\_AIR\_PLUS\_CLOSED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_AIR\_PLUS\_CLOSED@{DBC\_VT\_STATE\_AIR\_PLUS\_CLOSED}}}\Hypertarget{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2ab8e88d185958c9f1e0dec91edb78512b}\label{_c_a_n1db_8h_ac102c4086c5e77e3a59b6d1a6d84bdf2ab8e88d185958c9f1e0dec91edb78512b} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+AIR\+\_\+\+PLUS\+\_\+\+CLOSED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896f}\label{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896f} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_BALANCING@{DBC\_VT\_STATE\_BALANCING}}
+\index{DBC\_VT\_STATE\_BALANCING@{DBC\_VT\_STATE\_BALANCING}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_BALANCING}{DBC\_VT\_STATE\_BALANCING}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896f}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_BALANCING\_OFF@{DBC\_VT\_STATE\_BALANCING\_OFF}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_BALANCING\_OFF@{DBC\_VT\_STATE\_BALANCING\_OFF}}}\Hypertarget{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896faa10ad8f508102fe86029145cd2917dee}\label{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896faa10ad8f508102fe86029145cd2917dee} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING\+\_\+\+OFF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_BALANCING\_ON@{DBC\_VT\_STATE\_BALANCING\_ON}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_BALANCING\_ON@{DBC\_VT\_STATE\_BALANCING\_ON}}}\Hypertarget{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896fad743bd2348f317285ef05d288d42980c}\label{_c_a_n1db_8h_af606c54b0a104ab28d52da20348c896fad743bd2348f317285ef05d288d42980c} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+BALANCING\+\_\+\+ON&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7}\label{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_DIVIDECURRENT@{DBC\_VT\_STATE\_DIVIDECURRENT}}
+\index{DBC\_VT\_STATE\_DIVIDECURRENT@{DBC\_VT\_STATE\_DIVIDECURRENT}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_DIVIDECURRENT}{DBC\_VT\_STATE\_DIVIDECURRENT}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_DIVIDECURRENT\_OFF@{DBC\_VT\_STATE\_DIVIDECURRENT\_OFF}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_DIVIDECURRENT\_OFF@{DBC\_VT\_STATE\_DIVIDECURRENT\_OFF}}}\Hypertarget{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7a9f363a0265320e312aa8f1543d212c14}\label{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7a9f363a0265320e312aa8f1543d212c14} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT\+\_\+\+OFF&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_DIVIDECURRENT\_ON@{DBC\_VT\_STATE\_DIVIDECURRENT\_ON}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_DIVIDECURRENT\_ON@{DBC\_VT\_STATE\_DIVIDECURRENT\_ON}}}\Hypertarget{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7ac4caac15cb6ff8ad84cf59d5cf6e9be6}\label{_c_a_n1db_8h_a00b12c47e11c03200ac65a687737eff7ac4caac15cb6ff8ad84cf59d5cf6e9be6} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+DIVIDECURRENT\+\_\+\+ON&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222}\label{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_PRECHARGERELAY@{DBC\_VT\_STATE\_PRECHARGERELAY}}
+\index{DBC\_VT\_STATE\_PRECHARGERELAY@{DBC\_VT\_STATE\_PRECHARGERELAY}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_STATE\_PRECHARGERELAY}{DBC\_VT\_STATE\_PRECHARGERELAY}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222}{DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_PRECHARGERELAY\_OPENED@{DBC\_VT\_STATE\_PRECHARGERELAY\_OPENED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_PRECHARGERELAY\_OPENED@{DBC\_VT\_STATE\_PRECHARGERELAY\_OPENED}}}\Hypertarget{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222ad5988c75cb9ccfc2fb19be6f91210468}\label{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222ad5988c75cb9ccfc2fb19be6f91210468} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY\+\_\+\+OPENED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_STATE\_PRECHARGERELAY\_CLOSED@{DBC\_VT\_STATE\_PRECHARGERELAY\_CLOSED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_STATE\_PRECHARGERELAY\_CLOSED@{DBC\_VT\_STATE\_PRECHARGERELAY\_CLOSED}}}\Hypertarget{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222a49e867bc0a06490b0e95b5329418b809}\label{_c_a_n1db_8h_ae1a3e850492550ea82972846549f2222a49e867bc0a06490b0e95b5329418b809} 
+DBC\+\_\+\+VT\+\_\+\+STATE\+\_\+\+PRECHARGERELAY\+\_\+\+CLOSED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060}\label{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060} 
+\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_TORQUE\_LOCKON@{DBC\_VT\_TORQUE\_LOCKON}}
+\index{DBC\_VT\_TORQUE\_LOCKON@{DBC\_VT\_TORQUE\_LOCKON}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DBC\_VT\_TORQUE\_LOCKON}{DBC\_VT\_TORQUE\_LOCKON}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060}{DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_TORQUE\_LOCKON\_UNLOCKED@{DBC\_VT\_TORQUE\_LOCKON\_UNLOCKED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_TORQUE\_LOCKON\_UNLOCKED@{DBC\_VT\_TORQUE\_LOCKON\_UNLOCKED}}}\Hypertarget{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060ae562e2cf44117657f6ba072f02a83010}\label{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060ae562e2cf44117657f6ba072f02a83010} 
+DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON\+\_\+\+UNLOCKED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DBC\_VT\_TORQUE\_LOCKON\_LOCKED@{DBC\_VT\_TORQUE\_LOCKON\_LOCKED}!CAN1db.h@{CAN1db.h}}\index{CAN1db.h@{CAN1db.h}!DBC\_VT\_TORQUE\_LOCKON\_LOCKED@{DBC\_VT\_TORQUE\_LOCKON\_LOCKED}}}\Hypertarget{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060aca115949055539a387a1166aac7389ad}\label{_c_a_n1db_8h_a90f435d9ab4db8dd2da37c97543b7060aca115949055539a387a1166aac7389ad} 
+DBC\+\_\+\+VT\+\_\+\+TORQUE\+\_\+\+LOCKON\+\_\+\+LOCKED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_c_a_n1db_8h_aefcb29f32a759926e43b662fa31ba932}\label{_c_a_n1db_8h_aefcb29f32a759926e43b662fa31ba932} 
+\index{CAN1db.h@{CAN1db.h}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily struct \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(packed)}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_c_a_n1db_8h_ae0b1f27c1f4387c62316aaeeedcef1be}\label{_c_a_n1db_8h_ae0b1f27c1f4387c62316aaeeedcef1be} 
+\index{CAN1db.h@{CAN1db.h}!Accumulator\_Current@{Accumulator\_Current}}
+\index{Accumulator\_Current@{Accumulator\_Current}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Accumulator\_Current}{Accumulator\_Current}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Accumulator\+\_\+\+Current}
+
+\Hypertarget{_c_a_n1db_8h_adce447975c5a314405497fc70125c165}\label{_c_a_n1db_8h_adce447975c5a314405497fc70125c165} 
+\index{CAN1db.h@{CAN1db.h}!Accumulator\_Voltage@{Accumulator\_Voltage}}
+\index{Accumulator\_Voltage@{Accumulator\_Voltage}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Accumulator\_Voltage}{Accumulator\_Voltage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Accumulator\+\_\+\+Voltage}
+
+\Hypertarget{_c_a_n1db_8h_a82eb60318c9a3ddf55039864e83a7aba}\label{_c_a_n1db_8h_a82eb60318c9a3ddf55039864e83a7aba} 
+\index{CAN1db.h@{CAN1db.h}!AIRs\_Request@{AIRs\_Request}}
+\index{AIRs\_Request@{AIRs\_Request}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{AIRs\_Request}{AIRs\_Request}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} AIRs\+\_\+\+Request}
+
+\Hypertarget{_c_a_n1db_8h_abb533336ca6aa579d5846d0e23d0c659}\label{_c_a_n1db_8h_abb533336ca6aa579d5846d0e23d0c659} 
+\index{CAN1db.h@{CAN1db.h}!AIRs\_State@{AIRs\_State}}
+\index{AIRs\_State@{AIRs\_State}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{AIRs\_State}{AIRs\_State}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} AIRs\+\_\+\+State}
+
+\Hypertarget{_c_a_n1db_8h_aee9ac3fe821a8d0170d40bac6fb31fc9}\label{_c_a_n1db_8h_aee9ac3fe821a8d0170d40bac6fb31fc9} 
+\index{CAN1db.h@{CAN1db.h}!Average\_CellTemp@{Average\_CellTemp}}
+\index{Average\_CellTemp@{Average\_CellTemp}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Average\_CellTemp}{Average\_CellTemp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Average\+\_\+\+Cell\+Temp}
+
+\Hypertarget{_c_a_n1db_8h_ad3ccf4e4e8f2114074f78ffbd5708a4f}\label{_c_a_n1db_8h_ad3ccf4e4e8f2114074f78ffbd5708a4f} 
+\index{CAN1db.h@{CAN1db.h}!BMS\_Alive@{BMS\_Alive}}
+\index{BMS\_Alive@{BMS\_Alive}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{BMS\_Alive}{BMS\_Alive}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} BMS\+\_\+\+Alive}
+
+\Hypertarget{_c_a_n1db_8h_a2a450ca33b898a62611d1d99065f5e7e}\label{_c_a_n1db_8h_a2a450ca33b898a62611d1d99065f5e7e} 
+\index{CAN1db.h@{CAN1db.h}!Car\_State@{Car\_State}}
+\index{Car\_State@{Car\_State}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Car\_State}{Car\_State}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Car\+\_\+\+State}
+
+\Hypertarget{_c_a_n1db_8h_a8872fda2077147e555b71b5153b5c96f}\label{_c_a_n1db_8h_a8872fda2077147e555b71b5153b5c96f} 
+\index{CAN1db.h@{CAN1db.h}!Charger\_MaxCurrent@{Charger\_MaxCurrent}}
+\index{Charger\_MaxCurrent@{Charger\_MaxCurrent}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Charger\_MaxCurrent}{Charger\_MaxCurrent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Charger\+\_\+\+Max\+Current}
+
+\Hypertarget{_c_a_n1db_8h_a8be4fa2532c845601de879e16b4bda0d}\label{_c_a_n1db_8h_a8be4fa2532c845601de879e16b4bda0d} 
+\index{CAN1db.h@{CAN1db.h}!Charger\_MaxVoltage@{Charger\_MaxVoltage}}
+\index{Charger\_MaxVoltage@{Charger\_MaxVoltage}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Charger\_MaxVoltage}{Charger\_MaxVoltage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Charger\+\_\+\+Max\+Voltage}
+
+\Hypertarget{_c_a_n1db_8h_ae65690893230cc077be52b55043be4d1}\label{_c_a_n1db_8h_ae65690893230cc077be52b55043be4d1} 
+\index{CAN1db.h@{CAN1db.h}!Dash\_Alive@{Dash\_Alive}}
+\index{Dash\_Alive@{Dash\_Alive}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Dash\_Alive}{Dash\_Alive}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Dash\+\_\+\+Alive}
+
+\Hypertarget{_c_a_n1db_8h_a4727282c7bbfbfe8dddae8e965a5e41f}\label{_c_a_n1db_8h_a4727282c7bbfbfe8dddae8e965a5e41f} 
+\index{CAN1db.h@{CAN1db.h}!DLC@{DLC}}
+\index{DLC@{DLC}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{DLC}{DLC}}
+{\footnotesize\ttfamily const uint8\+\_\+t DLC}
+
+\Hypertarget{_c_a_n1db_8h_a45123abd24f5a919348c64290decb542}\label{_c_a_n1db_8h_a45123abd24f5a919348c64290decb542} 
+\index{CAN1db.h@{CAN1db.h}!EnableDrive\_Order@{EnableDrive\_Order}}
+\index{EnableDrive\_Order@{EnableDrive\_Order}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{EnableDrive\_Order}{EnableDrive\_Order}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Enable\+Drive\+\_\+\+Order}
+
+\Hypertarget{_c_a_n1db_8h_adf6f0db4bc869dd84230efc59a976baf}\label{_c_a_n1db_8h_adf6f0db4bc869dd84230efc59a976baf} 
+\index{CAN1db.h@{CAN1db.h}!ERROR@{ERROR}}
+\index{ERROR@{ERROR}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{ERROR}{ERROR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} ERROR}
+
+\Hypertarget{_c_a_n1db_8h_aeb25e3ab4d360effbd6f2c124014df6d}\label{_c_a_n1db_8h_aeb25e3ab4d360effbd6f2c124014df6d} 
+\index{CAN1db.h@{CAN1db.h}!getSig@{getSig}}
+\index{getSig@{getSig}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{[struct]}{[struct]}}
+{\footnotesize\ttfamily const struct  \{ ... \}  get\+Sig}
+
+\Hypertarget{_c_a_n1db_8h_a85c73c9162b493a7239dd7f9ff033824}\label{_c_a_n1db_8h_a85c73c9162b493a7239dd7f9ff033824} 
+\index{CAN1db.h@{CAN1db.h}!getSigVal@{getSigVal}}
+\index{getSigVal@{getSigVal}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{getSigVal}{getSigVal}}
+{\footnotesize\ttfamily \texorpdfstring{$\ast$}{*} get\+Sig\+Val}
+
+\Hypertarget{_c_a_n1db_8h_aa30e9e7d11bf6a128ac99d983317acdd}\label{_c_a_n1db_8h_aa30e9e7d11bf6a128ac99d983317acdd} 
+\index{CAN1db.h@{CAN1db.h}!Highest\_CellTemp@{Highest\_CellTemp}}
+\index{Highest\_CellTemp@{Highest\_CellTemp}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Highest\_CellTemp}{Highest\_CellTemp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Highest\+\_\+\+Cell\+Temp}
+
+\Hypertarget{_c_a_n1db_8h_adfbeca4c7a2be75e9deb9f00a8a7887c}\label{_c_a_n1db_8h_adfbeca4c7a2be75e9deb9f00a8a7887c} 
+\index{CAN1db.h@{CAN1db.h}!Highest\_CellVoltage@{Highest\_CellVoltage}}
+\index{Highest\_CellVoltage@{Highest\_CellVoltage}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Highest\_CellVoltage}{Highest\_CellVoltage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Highest\+\_\+\+Cell\+Voltage}
+
+\Hypertarget{_c_a_n1db_8h_a0364849925d3c762ce722e963712b123}\label{_c_a_n1db_8h_a0364849925d3c762ce722e963712b123} 
+\index{CAN1db.h@{CAN1db.h}!ID@{ID}}
+\index{ID@{ID}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily const uint32\+\_\+t ID}
+
+\Hypertarget{_c_a_n1db_8h_a374853775ad7fb1713c183fecf6aa487}\label{_c_a_n1db_8h_a374853775ad7fb1713c183fecf6aa487} 
+\index{CAN1db.h@{CAN1db.h}!IDE@{IDE}}
+\index{IDE@{IDE}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{IDE}{IDE}}
+{\footnotesize\ttfamily const uint8\+\_\+t IDE}
+
+\Hypertarget{_c_a_n1db_8h_afafe4e5cc34c3dfc3baaecb980fe1412}\label{_c_a_n1db_8h_afafe4e5cc34c3dfc3baaecb980fe1412} 
+\index{CAN1db.h@{CAN1db.h}!InvRear\_Alive@{InvRear\_Alive}}
+\index{InvRear\_Alive@{InvRear\_Alive}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRear\_Alive}{InvRear\_Alive}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+Rear\+\_\+\+Alive}
+
+\Hypertarget{_c_a_n1db_8h_a54997a1e0ee592e337bd00dbbd5cfead}\label{_c_a_n1db_8h_a54997a1e0ee592e337bd00dbbd5cfead} 
+\index{CAN1db.h@{CAN1db.h}!InvRear\_PowerError@{InvRear\_PowerError}}
+\index{InvRear\_PowerError@{InvRear\_PowerError}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRear\_PowerError}{InvRear\_PowerError}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+Rear\+\_\+\+Power\+Error}
+
+\Hypertarget{_c_a_n1db_8h_ad24f431e84b67d54697c0a7f142740a4}\label{_c_a_n1db_8h_ad24f431e84b67d54697c0a7f142740a4} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_Control\_Error@{InvRL\_Control\_Error}}
+\index{InvRL\_Control\_Error@{InvRL\_Control\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_Control\_Error}{InvRL\_Control\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+Control\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a9b5bb0be0697193959b64ef714004bba}\label{_c_a_n1db_8h_a9b5bb0be0697193959b64ef714004bba} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_DCBus@{InvRL\_DCBus}}
+\index{InvRL\_DCBus@{InvRL\_DCBus}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_DCBus}{InvRL\_DCBus}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+DCBus}
+
+\Hypertarget{_c_a_n1db_8h_a5d99bcb0b9cce313a2ce64e6afdc9d86}\label{_c_a_n1db_8h_a5d99bcb0b9cce313a2ce64e6afdc9d86} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_Enable@{InvRL\_Enable}}
+\index{InvRL\_Enable@{InvRL\_Enable}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_Enable}{InvRL\_Enable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+Enable}
+
+\Hypertarget{_c_a_n1db_8h_a916a6103652fae6fc88c19519cdae8ee}\label{_c_a_n1db_8h_a916a6103652fae6fc88c19519cdae8ee} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_HW\_Warning@{InvRL\_HW\_Warning}}
+\index{InvRL\_HW\_Warning@{InvRL\_HW\_Warning}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_HW\_Warning}{InvRL\_HW\_Warning}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+HW\+\_\+\+Warning}
+
+\Hypertarget{_c_a_n1db_8h_aa9f3ad629873d7a2fa4299d45f4ce965}\label{_c_a_n1db_8h_aa9f3ad629873d7a2fa4299d45f4ce965} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_idMeas@{InvRL\_idMeas}}
+\index{InvRL\_idMeas@{InvRL\_idMeas}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_idMeas}{InvRL\_idMeas}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+id\+Meas}
+
+\Hypertarget{_c_a_n1db_8h_ae5d529b1b5ad916131ff2a28832dad37}\label{_c_a_n1db_8h_ae5d529b1b5ad916131ff2a28832dad37} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_idRef@{InvRL\_idRef}}
+\index{InvRL\_idRef@{InvRL\_idRef}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_idRef}{InvRL\_idRef}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+id\+Ref}
+
+\Hypertarget{_c_a_n1db_8h_ae382095653535d9784b8ce436921e7e6}\label{_c_a_n1db_8h_ae382095653535d9784b8ce436921e7e6} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_iqMeas@{InvRL\_iqMeas}}
+\index{InvRL\_iqMeas@{InvRL\_iqMeas}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_iqMeas}{InvRL\_iqMeas}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+iq\+Meas}
+
+\Hypertarget{_c_a_n1db_8h_a11b52842dbec009d1de220d11db90950}\label{_c_a_n1db_8h_a11b52842dbec009d1de220d11db90950} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_iqRef@{InvRL\_iqRef}}
+\index{InvRL\_iqRef@{InvRL\_iqRef}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_iqRef}{InvRL\_iqRef}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+iq\+Ref}
+
+\Hypertarget{_c_a_n1db_8h_a5d58cca4caf838f920dac29063fb3bfc}\label{_c_a_n1db_8h_a5d58cca4caf838f920dac29063fb3bfc} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_OverCurrent\_Error@{InvRL\_OverCurrent\_Error}}
+\index{InvRL\_OverCurrent\_Error@{InvRL\_OverCurrent\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_OverCurrent\_Error}{InvRL\_OverCurrent\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+Over\+Current\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_acaab437bc895da15efe436d9640dc90e}\label{_c_a_n1db_8h_acaab437bc895da15efe436d9640dc90e} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_OverSpeed\_Error@{InvRL\_OverSpeed\_Error}}
+\index{InvRL\_OverSpeed\_Error@{InvRL\_OverSpeed\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_OverSpeed\_Error}{InvRL\_OverSpeed\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+Over\+Speed\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a0be23d847a71d8493325b4911e2902f7}\label{_c_a_n1db_8h_a0be23d847a71d8493325b4911e2902f7} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_OverTemp\_Error@{InvRL\_OverTemp\_Error}}
+\index{InvRL\_OverTemp\_Error@{InvRL\_OverTemp\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_OverTemp\_Error}{InvRL\_OverTemp\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+Over\+Temp\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a4e837656198f3d96a10fdb85a14941bb}\label{_c_a_n1db_8h_a4e837656198f3d96a10fdb85a14941bb} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_OverVoltage\_Error@{InvRL\_OverVoltage\_Error}}
+\index{InvRL\_OverVoltage\_Error@{InvRL\_OverVoltage\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_OverVoltage\_Error}{InvRL\_OverVoltage\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+Over\+Voltage\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_ae64bfeddacc4e229d1318fefa97ace62}\label{_c_a_n1db_8h_ae64bfeddacc4e229d1318fefa97ace62} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_PowerError@{InvRL\_PowerError}}
+\index{InvRL\_PowerError@{InvRL\_PowerError}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_PowerError}{InvRL\_PowerError}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+Power\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a353afa8bc938cf023ffddeb51d41f9df}\label{_c_a_n1db_8h_a353afa8bc938cf023ffddeb51d41f9df} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_Temp@{InvRL\_Temp}}
+\index{InvRL\_Temp@{InvRL\_Temp}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_Temp}{InvRL\_Temp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+Temp}
+
+\Hypertarget{_c_a_n1db_8h_a586a67e720fbdc6ccb991d38c21cb692}\label{_c_a_n1db_8h_a586a67e720fbdc6ccb991d38c21cb692} 
+\index{CAN1db.h@{CAN1db.h}!InvRL\_UnderVoltage\_Error@{InvRL\_UnderVoltage\_Error}}
+\index{InvRL\_UnderVoltage\_Error@{InvRL\_UnderVoltage\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRL\_UnderVoltage\_Error}{InvRL\_UnderVoltage\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RL\+\_\+\+Under\+Voltage\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_aad9c189866b5581a3b9b6469f6fe30aa}\label{_c_a_n1db_8h_aad9c189866b5581a3b9b6469f6fe30aa} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_Control\_Error@{InvRR\_Control\_Error}}
+\index{InvRR\_Control\_Error@{InvRR\_Control\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_Control\_Error}{InvRR\_Control\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+Control\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a44ea04c395e2695a847bc12ce0bbd56f}\label{_c_a_n1db_8h_a44ea04c395e2695a847bc12ce0bbd56f} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_DCBus@{InvRR\_DCBus}}
+\index{InvRR\_DCBus@{InvRR\_DCBus}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_DCBus}{InvRR\_DCBus}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+DCBus}
+
+\Hypertarget{_c_a_n1db_8h_a90fcfea0ec3e93c0604805bd84e8aae8}\label{_c_a_n1db_8h_a90fcfea0ec3e93c0604805bd84e8aae8} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_Enable@{InvRR\_Enable}}
+\index{InvRR\_Enable@{InvRR\_Enable}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_Enable}{InvRR\_Enable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+Enable}
+
+\Hypertarget{_c_a_n1db_8h_a15f41843eac2533f7cd4d08b3134a24e}\label{_c_a_n1db_8h_a15f41843eac2533f7cd4d08b3134a24e} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_HW\_Warning@{InvRR\_HW\_Warning}}
+\index{InvRR\_HW\_Warning@{InvRR\_HW\_Warning}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_HW\_Warning}{InvRR\_HW\_Warning}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+HW\+\_\+\+Warning}
+
+\Hypertarget{_c_a_n1db_8h_ac348ff66ab6daf44aa2f1c4495d364cf}\label{_c_a_n1db_8h_ac348ff66ab6daf44aa2f1c4495d364cf} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_idMeas@{InvRR\_idMeas}}
+\index{InvRR\_idMeas@{InvRR\_idMeas}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_idMeas}{InvRR\_idMeas}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+id\+Meas}
+
+\Hypertarget{_c_a_n1db_8h_aa3c94ae82d2601d417ff14bf642474d2}\label{_c_a_n1db_8h_aa3c94ae82d2601d417ff14bf642474d2} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_idRef@{InvRR\_idRef}}
+\index{InvRR\_idRef@{InvRR\_idRef}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_idRef}{InvRR\_idRef}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+id\+Ref}
+
+\Hypertarget{_c_a_n1db_8h_a1b3a92fc2341a46b1d6804d147922a5a}\label{_c_a_n1db_8h_a1b3a92fc2341a46b1d6804d147922a5a} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_iqMeas@{InvRR\_iqMeas}}
+\index{InvRR\_iqMeas@{InvRR\_iqMeas}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_iqMeas}{InvRR\_iqMeas}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+iq\+Meas}
+
+\Hypertarget{_c_a_n1db_8h_a61ea99d8c1885a3fe671d8ec777cee7d}\label{_c_a_n1db_8h_a61ea99d8c1885a3fe671d8ec777cee7d} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_iqRef@{InvRR\_iqRef}}
+\index{InvRR\_iqRef@{InvRR\_iqRef}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_iqRef}{InvRR\_iqRef}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+iq\+Ref}
+
+\Hypertarget{_c_a_n1db_8h_ad11d742eb11d36ebb7bc8406732e993f}\label{_c_a_n1db_8h_ad11d742eb11d36ebb7bc8406732e993f} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_OverCurrent\_Error@{InvRR\_OverCurrent\_Error}}
+\index{InvRR\_OverCurrent\_Error@{InvRR\_OverCurrent\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_OverCurrent\_Error}{InvRR\_OverCurrent\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+Over\+Current\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a2c0ddf148123d4275be67b7fea3c40b9}\label{_c_a_n1db_8h_a2c0ddf148123d4275be67b7fea3c40b9} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_OverSpeed\_Error@{InvRR\_OverSpeed\_Error}}
+\index{InvRR\_OverSpeed\_Error@{InvRR\_OverSpeed\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_OverSpeed\_Error}{InvRR\_OverSpeed\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+Over\+Speed\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_ab1aa9ee86ad775b79b95975b06cbec25}\label{_c_a_n1db_8h_ab1aa9ee86ad775b79b95975b06cbec25} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_OverTemp\_Error@{InvRR\_OverTemp\_Error}}
+\index{InvRR\_OverTemp\_Error@{InvRR\_OverTemp\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_OverTemp\_Error}{InvRR\_OverTemp\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+Over\+Temp\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_aa501ed56367ea84526823065b7408d06}\label{_c_a_n1db_8h_aa501ed56367ea84526823065b7408d06} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_OverVoltage\_Error@{InvRR\_OverVoltage\_Error}}
+\index{InvRR\_OverVoltage\_Error@{InvRR\_OverVoltage\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_OverVoltage\_Error}{InvRR\_OverVoltage\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+Over\+Voltage\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a9b5846b69e7820cd9c9c3cb345a3631d}\label{_c_a_n1db_8h_a9b5846b69e7820cd9c9c3cb345a3631d} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_PowerError@{InvRR\_PowerError}}
+\index{InvRR\_PowerError@{InvRR\_PowerError}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_PowerError}{InvRR\_PowerError}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+Power\+Error}
+
+\Hypertarget{_c_a_n1db_8h_aa66aed62b03502f7f15ef5a590d201b6}\label{_c_a_n1db_8h_aa66aed62b03502f7f15ef5a590d201b6} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_Temp@{InvRR\_Temp}}
+\index{InvRR\_Temp@{InvRR\_Temp}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_Temp}{InvRR\_Temp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+Temp}
+
+\Hypertarget{_c_a_n1db_8h_a26387db730a337d66a007c2c974ddab9}\label{_c_a_n1db_8h_a26387db730a337d66a007c2c974ddab9} 
+\index{CAN1db.h@{CAN1db.h}!InvRR\_UnderVoltage\_Error@{InvRR\_UnderVoltage\_Error}}
+\index{InvRR\_UnderVoltage\_Error@{InvRR\_UnderVoltage\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{InvRR\_UnderVoltage\_Error}{InvRR\_UnderVoltage\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Inv\+RR\+\_\+\+Under\+Voltage\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_acbbd7f9478c9bf95ae20dfcf28aa081d}\label{_c_a_n1db_8h_acbbd7f9478c9bf95ae20dfcf28aa081d} 
+\index{CAN1db.h@{CAN1db.h}!Lowest\_CellTemp@{Lowest\_CellTemp}}
+\index{Lowest\_CellTemp@{Lowest\_CellTemp}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Lowest\_CellTemp}{Lowest\_CellTemp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Lowest\+\_\+\+Cell\+Temp}
+
+\Hypertarget{_c_a_n1db_8h_ab75a9344bff2aeea4403e3248d667c3d}\label{_c_a_n1db_8h_ab75a9344bff2aeea4403e3248d667c3d} 
+\index{CAN1db.h@{CAN1db.h}!Lowest\_CellVoltage@{Lowest\_CellVoltage}}
+\index{Lowest\_CellVoltage@{Lowest\_CellVoltage}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Lowest\_CellVoltage}{Lowest\_CellVoltage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Lowest\+\_\+\+Cell\+Voltage}
+
+\Hypertarget{_c_a_n1db_8h_ab84297f00e0701230ca944b11fd3a717}\label{_c_a_n1db_8h_ab84297f00e0701230ca944b11fd3a717} 
+\index{CAN1db.h@{CAN1db.h}!MotRL\_Encoder\_Error@{MotRL\_Encoder\_Error}}
+\index{MotRL\_Encoder\_Error@{MotRL\_Encoder\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRL\_Encoder\_Error}{MotRL\_Encoder\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RL\+\_\+\+Encoder\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a45d21994ac153a5bdac0c9fe48b36c81}\label{_c_a_n1db_8h_a45d21994ac153a5bdac0c9fe48b36c81} 
+\index{CAN1db.h@{CAN1db.h}!MotRL\_OverTemp\_Error@{MotRL\_OverTemp\_Error}}
+\index{MotRL\_OverTemp\_Error@{MotRL\_OverTemp\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRL\_OverTemp\_Error}{MotRL\_OverTemp\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RL\+\_\+\+Over\+Temp\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a1eb7664ec73322f6fda46c9ebe8c6458}\label{_c_a_n1db_8h_a1eb7664ec73322f6fda46c9ebe8c6458} 
+\index{CAN1db.h@{CAN1db.h}!MotRL\_Power@{MotRL\_Power}}
+\index{MotRL\_Power@{MotRL\_Power}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRL\_Power}{MotRL\_Power}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RL\+\_\+\+Power}
+
+\Hypertarget{_c_a_n1db_8h_a48baa2acb96c21fe91da5b8dd5d53e60}\label{_c_a_n1db_8h_a48baa2acb96c21fe91da5b8dd5d53e60} 
+\index{CAN1db.h@{CAN1db.h}!MotRL\_Speed@{MotRL\_Speed}}
+\index{MotRL\_Speed@{MotRL\_Speed}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRL\_Speed}{MotRL\_Speed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RL\+\_\+\+Speed}
+
+\Hypertarget{_c_a_n1db_8h_aab29717e1d6206127c95926e048c862f}\label{_c_a_n1db_8h_aab29717e1d6206127c95926e048c862f} 
+\index{CAN1db.h@{CAN1db.h}!MotRL\_Temp@{MotRL\_Temp}}
+\index{MotRL\_Temp@{MotRL\_Temp}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRL\_Temp}{MotRL\_Temp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RL\+\_\+\+Temp}
+
+\Hypertarget{_c_a_n1db_8h_ae187aa0149fff1733ce1058c0203d80e}\label{_c_a_n1db_8h_ae187aa0149fff1733ce1058c0203d80e} 
+\index{CAN1db.h@{CAN1db.h}!MotRL\_TorqueCalc@{MotRL\_TorqueCalc}}
+\index{MotRL\_TorqueCalc@{MotRL\_TorqueCalc}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRL\_TorqueCalc}{MotRL\_TorqueCalc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RL\+\_\+\+Torque\+Calc}
+
+\Hypertarget{_c_a_n1db_8h_a1c45d23ac0cc9999c296a87accab586f}\label{_c_a_n1db_8h_a1c45d23ac0cc9999c296a87accab586f} 
+\index{CAN1db.h@{CAN1db.h}!MotRR\_Encoder\_Error@{MotRR\_Encoder\_Error}}
+\index{MotRR\_Encoder\_Error@{MotRR\_Encoder\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRR\_Encoder\_Error}{MotRR\_Encoder\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RR\+\_\+\+Encoder\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_ac972f5ef7835331f157612e4c200bd93}\label{_c_a_n1db_8h_ac972f5ef7835331f157612e4c200bd93} 
+\index{CAN1db.h@{CAN1db.h}!MotRR\_OverTemp\_Error@{MotRR\_OverTemp\_Error}}
+\index{MotRR\_OverTemp\_Error@{MotRR\_OverTemp\_Error}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRR\_OverTemp\_Error}{MotRR\_OverTemp\_Error}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RR\+\_\+\+Over\+Temp\+\_\+\+Error}
+
+\Hypertarget{_c_a_n1db_8h_a44334a49e56d0eff4bb3bd0ecab888e0}\label{_c_a_n1db_8h_a44334a49e56d0eff4bb3bd0ecab888e0} 
+\index{CAN1db.h@{CAN1db.h}!MotRR\_Power@{MotRR\_Power}}
+\index{MotRR\_Power@{MotRR\_Power}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRR\_Power}{MotRR\_Power}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RR\+\_\+\+Power}
+
+\Hypertarget{_c_a_n1db_8h_a983918a551f98646e159beac54f688ab}\label{_c_a_n1db_8h_a983918a551f98646e159beac54f688ab} 
+\index{CAN1db.h@{CAN1db.h}!MotRR\_Speed@{MotRR\_Speed}}
+\index{MotRR\_Speed@{MotRR\_Speed}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRR\_Speed}{MotRR\_Speed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RR\+\_\+\+Speed}
+
+\Hypertarget{_c_a_n1db_8h_ad4cfaa75808b8fd2750743d1075b4b3b}\label{_c_a_n1db_8h_ad4cfaa75808b8fd2750743d1075b4b3b} 
+\index{CAN1db.h@{CAN1db.h}!MotRR\_Temp@{MotRR\_Temp}}
+\index{MotRR\_Temp@{MotRR\_Temp}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRR\_Temp}{MotRR\_Temp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RR\+\_\+\+Temp}
+
+\Hypertarget{_c_a_n1db_8h_ad48a4999991dccd32486bc3f19dd1d5a}\label{_c_a_n1db_8h_ad48a4999991dccd32486bc3f19dd1d5a} 
+\index{CAN1db.h@{CAN1db.h}!MotRR\_TorqueCalc@{MotRR\_TorqueCalc}}
+\index{MotRR\_TorqueCalc@{MotRR\_TorqueCalc}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{MotRR\_TorqueCalc}{MotRR\_TorqueCalc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Mot\+RR\+\_\+\+Torque\+Calc}
+
+\Hypertarget{_c_a_n1db_8h_a551ab3ca321d79e1e2f92d019e93e233}\label{_c_a_n1db_8h_a551ab3ca321d79e1e2f92d019e93e233} 
+\index{CAN1db.h@{CAN1db.h}!Precharge\_Percentage@{Precharge\_Percentage}}
+\index{Precharge\_Percentage@{Precharge\_Percentage}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Precharge\_Percentage}{Precharge\_Percentage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Precharge\+\_\+\+Percentage}
+
+\Hypertarget{_c_a_n1db_8h_afd8a91894e4c57f230f84871717ef07c}\label{_c_a_n1db_8h_afd8a91894e4c57f230f84871717ef07c} 
+\index{CAN1db.h@{CAN1db.h}!Precharge\_Voltage@{Precharge\_Voltage}}
+\index{Precharge\_Voltage@{Precharge\_Voltage}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Precharge\_Voltage}{Precharge\_Voltage}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Precharge\+\_\+\+Voltage}
+
+\Hypertarget{_c_a_n1db_8h_a8f04144759bbe443bd2dac25a373ba28}\label{_c_a_n1db_8h_a8f04144759bbe443bd2dac25a373ba28} 
+\index{CAN1db.h@{CAN1db.h}!PrechargeRequest@{PrechargeRequest}}
+\index{PrechargeRequest@{PrechargeRequest}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{PrechargeRequest}{PrechargeRequest}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Precharge\+Request}
+
+\Hypertarget{_c_a_n1db_8h_add521b6d6b7a32f1ce2f0b5bb4fa0c8e}\label{_c_a_n1db_8h_add521b6d6b7a32f1ce2f0b5bb4fa0c8e} 
+\index{CAN1db.h@{CAN1db.h}!RacingMode@{RacingMode}}
+\index{RacingMode@{RacingMode}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{RacingMode}{RacingMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Racing\+Mode}
+
+\Hypertarget{_c_a_n1db_8h_ac7e357e4cd028116eb2ace9bc1fcdd7e}\label{_c_a_n1db_8h_ac7e357e4cd028116eb2ace9bc1fcdd7e} 
+\index{CAN1db.h@{CAN1db.h}!Shutdown\_BMS@{Shutdown\_BMS}}
+\index{Shutdown\_BMS@{Shutdown\_BMS}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Shutdown\_BMS}{Shutdown\_BMS}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Shutdown\+\_\+\+BMS}
+
+\Hypertarget{_c_a_n1db_8h_a7db3f7e01fa8c125f15932847ad2ad20}\label{_c_a_n1db_8h_a7db3f7e01fa8c125f15932847ad2ad20} 
+\index{CAN1db.h@{CAN1db.h}!Shutdown\_IMD@{Shutdown\_IMD}}
+\index{Shutdown\_IMD@{Shutdown\_IMD}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Shutdown\_IMD}{Shutdown\_IMD}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Shutdown\+\_\+\+IMD}
+
+\Hypertarget{_c_a_n1db_8h_a397cc72afb5eedcf21d6b72599dfa49f}\label{_c_a_n1db_8h_a397cc72afb5eedcf21d6b72599dfa49f} 
+\index{CAN1db.h@{CAN1db.h}!Shutdown\_PackageIntck@{Shutdown\_PackageIntck}}
+\index{Shutdown\_PackageIntck@{Shutdown\_PackageIntck}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Shutdown\_PackageIntck}{Shutdown\_PackageIntck}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Shutdown\+\_\+\+Package\+Intck}
+
+\Hypertarget{_c_a_n1db_8h_a0ca2995ed22e6f0c584ad16e816327e2}\label{_c_a_n1db_8h_a0ca2995ed22e6f0c584ad16e816327e2} 
+\index{CAN1db.h@{CAN1db.h}!SoC\_Avg@{SoC\_Avg}}
+\index{SoC\_Avg@{SoC\_Avg}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{SoC\_Avg}{SoC\_Avg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} So\+C\+\_\+\+Avg}
+
+\Hypertarget{_c_a_n1db_8h_a9d23ec2631697d7f3d4a03ea966e6107}\label{_c_a_n1db_8h_a9d23ec2631697d7f3d4a03ea966e6107} 
+\index{CAN1db.h@{CAN1db.h}!Speed@{Speed}}
+\index{Speed@{Speed}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Speed}{Speed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Speed}
+
+\Hypertarget{_c_a_n1db_8h_a3ef571ab6974918b313ab7d2be89db36}\label{_c_a_n1db_8h_a3ef571ab6974918b313ab7d2be89db36} 
+\index{CAN1db.h@{CAN1db.h}!Sync\_CAN1@{Sync\_CAN1}}
+\index{Sync\_CAN1@{Sync\_CAN1}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Sync\_CAN1}{Sync\_CAN1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Sync\+\_\+\+CAN1}
+
+\Hypertarget{_c_a_n1db_8h_af9e6cd7f6ca623e323c2af14b69120d8}\label{_c_a_n1db_8h_af9e6cd7f6ca623e323c2af14b69120d8} 
+\index{CAN1db.h@{CAN1db.h}!Torque\_Ref\_RL@{Torque\_Ref\_RL}}
+\index{Torque\_Ref\_RL@{Torque\_Ref\_RL}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Torque\_Ref\_RL}{Torque\_Ref\_RL}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Torque\+\_\+\+Ref\+\_\+\+RL}
+
+\Hypertarget{_c_a_n1db_8h_afb7558d4b941653dbded36d65b561ba7}\label{_c_a_n1db_8h_afb7558d4b941653dbded36d65b561ba7} 
+\index{CAN1db.h@{CAN1db.h}!Torque\_Ref\_RR@{Torque\_Ref\_RR}}
+\index{Torque\_Ref\_RR@{Torque\_Ref\_RR}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{Torque\_Ref\_RR}{Torque\_Ref\_RR}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} Torque\+\_\+\+Ref\+\_\+\+RR}
+
+\Hypertarget{_c_a_n1db_8h_a85eedacfaef535ff4d6655977469fe04}\label{_c_a_n1db_8h_a85eedacfaef535ff4d6655977469fe04} 
+\index{CAN1db.h@{CAN1db.h}!VDC\_Max\_Tyre\_Slip@{VDC\_Max\_Tyre\_Slip}}
+\index{VDC\_Max\_Tyre\_Slip@{VDC\_Max\_Tyre\_Slip}!CAN1db.h@{CAN1db.h}}
+\doxysubsubsection{\texorpdfstring{VDC\_Max\_Tyre\_Slip}{VDC\_Max\_Tyre\_Slip}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsignal__positioned}{signal\+\_\+positioned}} VDC\+\_\+\+Max\+\_\+\+Tyre\+\_\+\+Slip}
+
