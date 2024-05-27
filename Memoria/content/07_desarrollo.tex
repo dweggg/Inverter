@@ -680,7 +680,7 @@ Hay PMSM cuyos imanes están montados dentro del rotor (IPM) y otros cuyos imane
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/motor-types}
-	\caption{Tipos de PMSMs según la disposición de los imanes. a) SPM, b) IPM radial, c) IPM tangencial.}
+	\caption{Tipos de PMSMs según la disposición de los imanes. a) SPM, b) IPM radial, c) IPM tangencial. \cite{Sieklucki2022}}
 \end{figure}
 
 
@@ -1445,25 +1445,26 @@ Ki_{iq} = \omega_n^2 \cdot L_q \quad
 
 Para las simulaciones se han implementado los siguientes parámetros de motor, ya que aunque a fecha de redacción de este documento no está fabricado, se han estimado usando un pequeño \textit{script} de MATLAB de manera que se cumplan los requisitos del motor.
 
-
-\begin{tabular}{|p{2cm}||r|p{1.5cm}|p{8cm}|}
-	\hline
-	\multicolumn{4}{|c|}{Parámetros del motor} \\
-	\hline
-	Parámetro & Valor & Unidades & Descripción \\
-	\hline
-	pp & 3 & ad & Número de pares de polos \\
-	$\lambda_m$ & 52.615 & mWb & Flujo magnético de los imanes permanentes \\
-	$L_d$ & 188.7 & \unit{\micro\henry} & Inductancia en el eje d \\
-	$L_q$ & 283.1 & \unit{\micro\henry} & Inductancia en el eje q \\
-	$R_s$ & 150 & m$\Omega$ & Resistencia de fase del estator \\
-	$\omega_{\text{m,máx}}$ & 20000 & RPM & Velocidad angular máxima del motor \\
-	$T_{\text{em,máx}}$ & 26 & N·m & Par máximo del motor \\
-	$V_{\text{bat}}$ & 540 & V & Voltaje de la batería DC \\
-	$I_{\text{s,máx}}$ & 108 & A & Corriente máxima en los ejes d-q \\
-	\hline
-\end{tabular}
-
+\begin{table}[H]
+	\begin{tabular}{|p{2cm}||r|p{1.5cm}|p{8cm}|}
+		\hline
+		\multicolumn{4}{|c|}{Parámetros del motor} \\
+		\hline
+		Parámetro & Valor & Unidades & Descripción \\
+		\hline
+		pp & 3 & ad & Número de pares de polos \\
+		$\lambda_m$ & 52.615 & mWb & Flujo magnético de los imanes permanentes \\
+		$L_d$ & 188.7 & \unit{\micro\henry} & Inductancia en el eje d \\
+		$L_q$ & 283.1 & \unit{\micro\henry} & Inductancia en el eje q \\
+		$R_s$ & 150 & m$\Omega$ & Resistencia de fase del estator \\
+		$\omega_{\text{m,máx}}$ & 20000 & RPM & Velocidad angular máxima del motor \\
+		$T_{\text{em,máx}}$ & 26 & N·m & Par máximo del motor \\
+		$V_{\text{bat}}$ & 540 & V & Voltaje de la batería DC \\
+		$I_{\text{s,máx}}$ & 108 & A & Corriente máxima en los ejes d-q \\
+		\hline
+	\end{tabular}
+	\caption{Parámetros del motor simulado.}
+\end{table}
 Como se puede ver, el motor presenta $I_{\text{sc}} = \frac{\lambda_m}{L_d} =  \frac{52.615 \text{ mWb}}{188.7 \text{ }\text{\unit{\micro\henry}}} = 278.82 \text{ A} > I_{s,\text{máx}}$, y por tanto, no se aplica la trayectoria MTPV.
 
 \begin{figure}[H]
@@ -2064,7 +2065,6 @@ El DFS05HF12EYR1 ofrece especificaciones muy buenas en su datasheet, aunque Leap
 
 Según sus respectivos datasheets, ambos modelos permiten alcanzar sin mucho esfuerzo una frecuencia de conmutación de 40 kHz, lo que contribuye significativamente a la reducción del tamaño del bus de continua y optimiza el empaquetado del inversor. La placa de potencia se diseñará para permitir la prueba de ambos modelos, ya que comparten \textit{footprint}, facilitando la adaptabilidad y la evaluación comparativa.
 
-A continuación se muestra una tabla comparativa con los detalles de cada semiconductor:
 \begin{table}[H]
 	\centering
 	\begin{tabular}{|l|l|l|}
@@ -2174,7 +2174,7 @@ donde \(I_{\text{Q,env}}(t)\) es la corriente de conmutación en cada instante d
 		\includegraphics[width=\linewidth]{fig/eoneoffwolfspeed}
 		\caption{Wolfspeed}
 	\end{subfigure}
-	\caption{Energías de encendido y apagado en función de la corriente para Leapers y Wolfspeed.}
+	\caption{Energías de encendido y apagado en función de la corriente para Leapers \cite{DFS05HF12EYR1} y Wolfspeed \cite{CAB016M12FM3}.}
 \end{figure}
 
 Si la corriente es continua,
@@ -2204,7 +2204,7 @@ Para obtener los valores de $E_{\text{on}}$ y $E_{\text{off}}$ se pueden usar lo
 		\includegraphics[width=\linewidth]{fig/eoneoffwolfspeed_RG}
 		\caption{Wolfspeed}
 	\end{subfigure}
-	\caption{Energías de encendido y apagado en función de la resistencia de puerta externa para Leapers y Wolfspeed.}
+	\caption{Energías de encendido y apagado en función de la resistencia de puerta externa para Leapers \cite{DFS05HF12EYR1} y Wolfspeed \cite{CAB016M12FM3}.}
 \end{figure}
 
 Se escogerán los valores más grandes de resistencia de puerta para hacer este cálculo, pues un valor más grande produce menos sobrepico de tensión en la conmutación, pero aumenta las pérdidas. Sustituyendo por los valores del convertidor en diseño,
@@ -2268,7 +2268,7 @@ El siguiente gráfico presenta una comparación detallada de las pérdidas de co
 			\legend{Conducción, Conmutación}
 		\end{axis}
 	\end{tikzpicture}
-	\caption{Comparación de pérdidas de conducción y conmutación}
+	\caption{Comparación de pérdidas de conducción y conmutación.}
 	\label{fig:loss_comparison}
 \end{figure}
 
@@ -2283,7 +2283,7 @@ El siguiente gráfico presenta una comparación detallada de las pérdidas de co
 		Wolfspeed & 450 & 583 & 1033 \\
 		\hline
 	\end{tabular}
-	\caption{Comparación de pérdidas entre semiconductores}
+	\caption{Comparación de pérdidas entre semiconductores.}
 \end{table}
 
 Se observa que en el caso de Leapers, las pérdidas de conducción exhiben una significativa disminución en comparación con las de Wolfspeed, mientras que las pérdidas de conmutación muestran un incremento dramático para Leapers en relación con Wolfspeed. Este fenómeno sugiere que, en líneas generales, los dispositivos desarrollados por Leapers podrían ofrecer un camino de corriente más favorable en el semiconductor, y los dispositivos de Wolfspeed son capaces de conmutar más rápido debido a que su carga $Q_{\text{G}}$ es mucho menor, reduciendo así $E_{\text{on}}$ y $E_{\text{off}}$. Para el uso de los semiconductores de Leapers se recomienda bajar la frecuencia de conmutación, prestando atención a las afectaciones que pudiera tener en el bus de continua. El desarrollo práctico del trabajo se enfocará en los semiconductores de Wolfspeed por parecer una opción más equilibrada para la aplicación.
@@ -2305,7 +2305,7 @@ A continuación se presenta una comparación entre las opciones comunes para ref
 		\textit{Coldplate} de agua & Excelente capacidad de disipación, buen control de temperatura & Coste, mantenimiento, posible riesgo de fugas, instalación complicada \\ \hline
 		\textit{Coldplate} de aceite & Buena capacidad de disipación, no corrosivo, alto rango de temperaturas &  coste, mantenimiento, posible riesgo de fugas, instalación complicada \\ \hline
 	\end{tabular}
-	\caption{Comparación de opciones de refrigeración}
+	\caption{Comparación de opciones de refrigeración.}
 \end{table}
 
 
@@ -2381,7 +2381,7 @@ A continuación se presenta una comparativa entre varios modelos de \textit{gate
 		CMTI & 100 V/ns & 150 V/ns & 100 V/ns \\
 		\hline
 	\end{tabular}
-	\caption{Comparación de \textit{gate drivers}}
+	\caption{Comparación de \textit{gate drivers}.}
 \end{table}
 
 Considerando los criterios de selección, se observa que el UCC21710 se presenta como una opción intermedia adecuada. En primer lugar, la corriente de salida que ofrece es de hasta 10 A, lo que lo hace adecuado para cargar y descargar rápidamente las capacidades de compuerta de los MOSFETs, cumpliendo así con uno de los requisitos fundamentales. Además, integra protecciones contra sobrecorriente y desaturación, así como la funcionalidad de \textit{Miller Clamp}. Además, la inclusión de un sensor analógico aislado proporciona la capacidad de monitorear la temperatura de los semiconductores con sus sensores integrados sin ningún componente adicional.
@@ -2393,7 +2393,7 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/UCC21710-block}
-	\caption{Diagrama de bloques funcional del \textit{gate driver} seleccionado.}
+	\caption{Diagrama de bloques funcional del \textit{gate driver} seleccionado \cite{UCC21710}.}
 \end{figure}
 
 
@@ -2538,7 +2538,7 @@ Se ha optado por un diseño con 10 condensadores del modelo FHA85Y106KS de la se
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/FHA85Y106KS}
-	\caption{Apariencia del condensador seleccionado.}
+	\caption{Apariencia del condensador seleccionado \cite{MurataFH}.}
 \end{figure}
 
 
@@ -2546,7 +2546,7 @@ Se evalúa el comportamiento térmico utilizando la hoja de datos:
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/dc-link-temp}
-	\caption{Calentamiento propio del condensador en función de la corriente.}
+	\caption{Calentamiento propio del condensador en función de la corriente \cite{MurataFH}.}
 \end{figure}
 
 Dado que hay 10 condensadores, la corriente máxima de cada uno es de $\frac{52 \text{ A,RMS}}{10} = 5.2 \text{ A,RMS}$. Por tanto, el incremento de temperatura es de 10 °C como máximo. No será necesaria ninguna consideración térmica ni de refrigeración para estos condensadores.
@@ -2562,7 +2562,7 @@ La tecnología \textit{press-fit} utilizada en estos conectores REDCUBE de Würt
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.35\linewidth]{fig/pressfit}
-	\caption{Conector REDCUBE PRESS-FIT - Modelo 7461063.}
+	\caption{Conector REDCUBE PRESS-FIT - Modelo 7461063 \cite{WurthRedCubeGuide}.}
 \end{figure}
 
 Estos conectores permiten una flexibilidad de integración muy grande, puesto que la conexión a ellos se realiza mediante una unión roscada, un tornillo, lo cual permite conectar cables con terminales de anilla, pletinas y otros elementos conductores. Gracias a esto es muy sencillo implementar mecanismos de bloqueo positivo para evitar la desconexión por vibraciones.
@@ -2625,6 +2625,8 @@ Este tipo de sensor generalmente consta de tres canales: A, B y Z. Los canales A
 
 Para estimar la velocidad, dirección y posición del motor a partir del \textit{encoder} incremental, se utilizan los pulsos de los canales A y B. La dirección del movimiento se determina mirando si A está avanzada respecto a B (sentido antihorario) o viceversa (sentido horario). La velocidad se calcula midiendo el intervalo entre pulsos y la posición se determina contando (integrando) el número de pulsos desde una posición de referencia conocida.
 
+Sin embargo, este tipo de sensor, al igual que otros, presenta un desafío: hasta que no se obtiene la señal de índice, la posición es desconocida. Una solución efectiva podría ser implementar un lazo abierto de tensión hasta obtener el pulso que marca el origen, ya que no requiere una lectura de posición previa ya que el ángulo se impone externamente. En el contexto de la tracción eléctrica, no es viable girar el motor libremente al iniciar el convertidor, ya que esto implicaría un desplazamiento involuntario del vehículo. El lazo abierto de tensión sería una solución adecuada para la aplicación específica de la Formula Student, dado que los motores están acoplados a las ruedas mediante una reductora de velocidad, con una relación de transmisión típica de alrededor de 10. Esto implica que, en el peor escenario, el motor deberá dar una vuelta mecánica completa antes de obtener un pulso de índice, lo que resulta en que la rueda gire aproximadamente una décima parte de una revolución mediante el control de lazo abierto. Tras obtener el pulso de índice, se puede operar en lazo cerrado sin mucha dificultad.
+
 El \textit{hardware} necesario para leer la señal del \textit{encoder} incremental puede consistir únicamente en el uso de tres comparadores analógicos. Estos comparadores se encargan de convertir las señales comúnmente diferenciales de los canales A, B y Z en señales digitales que pueden ser procesadas por el MCU del inversor. Esta interfaz también sería compatible con sensores de posición Hall, lo que brinda flexibilidad en la elección del sensor de posición para el inversor.
 
 
@@ -2633,7 +2635,7 @@ El \textit{hardware} necesario para leer la señal del \textit{encoder} incremen
 La unidad de procesamiento del convertidor es una de las piezas clave, pues será la encargada de gestionar lecturas analógicas, alarmas, comunicaciones, y por supuesto, ejecutar el control. Por ello su selección debe ser meticulosamente estudiada. En primer lugar se seleccionan unos requisitos:
 
 \begin{itemize}
-	\item \textbf{Velocidad de reloj mayor a 200 MHz}: En base a la experiencia del autor con otros inversores, el cálculo de todos los PIs, filtros, transformadas y trayectorias de control puede tomar hasta 2500 ciclos de reloj. Por lo tanto, dado que hay que ejecutar dos lazos de control para los dos motores, $\frac{2000 \cdot 2}{200 \text{ MHz}} = 25 \text{ }\text{\unit{\micro\second}} \leftrightarrow 40 \text{ kHz}$, 200 MHz es la mínima velocidad para poder conmutar a 40 kHz.
+	\item \textbf{Velocidad de reloj mayor a 200 MHz}: En base a la experiencia del autor con otros inversores, el cálculo de todos los PIs, filtros, transformadas y trayectorias de control puede tomar hasta 2500 ciclos de reloj. Por lo tanto, dado que hay que ejecutar dos lazos de control para los dos motores, $\frac{2500 \cdot 2}{200 \text{ MHz}} = 25 \text{ }\text{\unit{\micro\second}} \leftrightarrow 40 \text{ kHz}$, 200 MHz es la mínima velocidad para poder conmutar a 40 kHz.
 	\item \textbf{Unidad de punto flotante}: Para evitar trabajar en coma fija, lo cual puede causar muchos problemas de integración y añade una capa de complejidad innecesaria, se pone como requisito que el MCU soporte el uso de \textit{float} de forma nativa.
 	\item \textbf{Dos \textit{timers} avanzados}: Son necesarios dos \textit{timers}, uno para cada inversor, con características como la salida PWM bipolar con varios canales, configuración sencilla del tiempo muerto, etc.
 	\item \textbf{Lecturas analógicas}: Se necesitan al menos un par de ADCs de 12 bits suficientemente rápidos con múltiples canales cada uno, con tal de poder capturar las corrientes de fase y las tensiones de bus adecuadamente.
@@ -2735,13 +2737,13 @@ El resultado es de 10 mm, lo cual es exagerado, pero sin embargo, solamente se e
 
 \begin{figure}[H]
 	\centering
-	\begin{subfigure}{0.4\linewidth}
+	\begin{subfigure}{0.35\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{fig/ts+bot}
 		\caption{Vista del enrutado de baja corriente (azul), la conexión positiva del bus de continua (naranja) y de la fase A (rosado).}
 	\end{subfigure}
 	\hfill
-	\begin{subfigure}{0.4\linewidth}
+	\begin{subfigure}{0.35\linewidth}
 		\centering
 		\includegraphics[width=\linewidth]{fig/layout2}
 		\caption{Detalle de una sección más estrecha.}
@@ -2757,12 +2759,12 @@ Además, se ha especificado el acabado y el espesor de cobre en las vías para a
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/pressfit-wolfspeed-instructions}
-	\caption{Requisitos para la PCB según Wolfspeed.}
+	\caption{Requisitos para la PCB según Wolfspeed \cite{WolfspeedMountingGuide}.}
 \end{figure}
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/pressfit-wurth-instructions}
-	\caption{Requisitos para la PCB según Würth Elektronik.}
+	\caption{Requisitos para la PCB según Würth Elektronik \cite{WurthRedCubeGuide}.}
 \end{figure}
 
 Ambos documentos apuntan que un acabado de estaño químico es lo ideal para realizar esta conexión, sin embargo, no se pudo conseguir un fabricante que lo pudiera realizar a un precio razonable. El grosor de cobre que se marcó como requisito al fabricante fue de 25 \unit{\micro\meter} a 50 \unit{\micro\meter}, por ser el más restrictivo de ambos.
@@ -2927,9 +2929,10 @@ Dado que el sensor tiene un rango de medida de $\pm$150 A y está alimentado a 5
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{fig/cksr50}
-	\caption{Sensor de corriente LEM CKSR 50-NP}
+	\caption{Sensor de corriente LEM CKSR 50-NP \cite{LEMDatasheet}.}
 \end{figure}
 
+Cabe destacar que la serie CKSR-NP de LEM es compatible en especificaciones y \textit{footprint} con la serie LKSR-NP, con lo que se pueden usar indistintamente. Para el proyecto se han conseguido muestras de LKSR-NP y se compraron CKSR-NP.
 
 \textbf{Medida de tensión}
 
@@ -3399,25 +3402,29 @@ Para mantener un código claro y coherente, se seguirán las siguientes convenci
 		\item Se evitará añadir más extensiones con guión bajo.
 		\item Las constantes se nombrarán en MAYÚSCULAS.
 	\end{itemize}
+	
+
 	\textbf{Ejemplo:}
 	\begin{itemize}
 		\item Para el \textit{offset} y el \textit{slope} del ADC:
-		{\small\begin{verbatim}
-				#define CURRENT_SLOPE  54.4217687f /**< [A/V] (10/(4.7+10)) * ( 1 / (12.5 mV / A)) */
-				#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
-		\end{verbatim}}
+		\begin{lstlisting}[language=C, basicstyle=\small\ttfamily, frame=none]
+#define CURRENT_SLOPE  117.57704f  /**< [A/V] ((4.7+10)/10) * (1 / (12.5 mV / A)) */
+#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
+
+		\end{lstlisting}
 		\item Para la referencia de par:
-		\begin{verbatim}
-			torqueRef_left
-			torqueRef_right
-		\end{verbatim}
+		\begin{lstlisting}[language=C, basicstyle=\small\ttfamily, frame=none]
+torqueRef_left
+torqueRef_right
+		\end{lstlisting}
 		\item Para la definición y declaración de la estructura \texttt{Encoder}:
-		\begin{verbatim}
-			typedef struct {} Encoder; // Definición de la estructura Encoder
-			Encoder encoder_left; // Declaración de una estructura Encoder
-		\end{verbatim}
-		
+		\begin{lstlisting}[language=C, basicstyle=\small\ttfamily, frame=none]
+typedef struct {} Encoder; // Encoder struct definition
+Encoder encoder_left; // Declaration of encoder_left
+		\end{lstlisting}
 	\end{itemize}
+
+
 	\item \textbf{Convenciones de nomenclatura para funciones:}
 	\begin{itemize}
 		\item Se utilizará \texttt{snake\_case} para los nombres de funciones.
@@ -3456,22 +3463,28 @@ Para mantener un código claro y coherente, se seguirán las siguientes convenci
 		\item Cada archivo y función debe ir precedido por un comentario estilo Doxygen que explique claramente su propósito.
 	\end{itemize}
 	\textbf{Ejemplo:}
-	{\small\begin{verbatim}		
-			/**
-			* @brief Computes d-q currents from current measurements and electrical angle.
-			*
-			* This function computes the d-q currents from phase currents (ABC), theta_e, and stores
-			* the results in the provided pointers.
-			*
-			* @param[in] ia Phase A current in A.
-			* @param[in] ib Phase B current in A.
-			* @param[in] ic Phase C current in A.
-			* @param[in] theta_e Electrical rotor position in radians.
-			* @param[out] idMeas Pointer to store the D-axis current.
-			* @param[out] iqMeas Pointer to store the Q-axis current.
-			*/
-			void get_idiq(float ia, float ib, float ic, float theta_e, float *idMeas, float *iqMeas);
-	\end{verbatim}}
+	
+	\begin{adjustbox}{max width=\textwidth}
+	\begin{lstlisting}[language=C, basicstyle=\ttfamily\small, breaklines=true, frame=single]
+				
+/**
+* @brief Computes d-q currents from current measurements and electrical angle.
+*
+* This function computes the d-q currents from phase currents (ABC), theta_e, and stores
+* the results in the provided pointers.
+*
+* @param[in] ia Phase A current in A.
+* @param[in] ib Phase B current in A.
+* @param[in] ic Phase C current in A.
+* @param[in] sinTheta_e Electrical angle sine (-1..1)
+* @param[in] cosTheta_e Electrical angle cosine (-1..1)
+* @param[out] idMeas Pointer to store the D-axis current.
+* @param[out] iqMeas Pointer to store the Q-axis current.
+*/
+void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *idMeas, float *iqMeas);
+
+	\end{lstlisting}
+\end{adjustbox}
 \end{enumerate}
 
 
@@ -3484,7 +3497,7 @@ Para abordar fácilmente el manejo de los dos inversores de forma independiente,
 
 El archivo \texttt{INVERTER.c} y su correspondiente encabezado \texttt{INVERTER.h} constituyen la implementación y la interfaz de la estructura de datos y las funciones asociadas a un inversor.
 
-La principal funcionalidad de estos archivos es proporcionar una interfaz cohesiva y modular para la gestión de los inversores. La estructura \texttt{InverterStruct} definida en \texttt{INVERTER.h} encapsula todos los elementos necesarios para el funcionamiento del inversor, incluyendo periféricos, estados de operación, estructuras de datos para mediciones y referencias, lazos de control, entre otros. Esta encapsulación permite una gestión eficiente y organizada de la complejidad asociada al control de los inversores.
+La principal funcionalidad de estos archivos es proporcionar una interfaz cohesiva y modular para la gestión de los inversores. La estructura \texttt{InverterStruct} definida en \texttt{INVERTER.h} encapsula todos los elementos necesarios para el funcionamiento del inversor, incluyendo periféricos, estados de operación, estructuras de datos para mediciones y referencias y lazos de control, entre otros. Esta encapsulación permite una gestión eficiente y organizada de la complejidad asociada al control de los inversores. Si el código estuviera escrito en un lenguaje de programación orientada a objetos se podría crear una clase en vez de una estructura, pero al estar programado en C solamente se han podido mantener las buenas prácticas de la programación orientada a objetos.
 
 Un aspecto destacado de la implementación es la escritura de código modular y reutilizable, por ejemplo, las funciones se implementan de manera independiente de la configuración específica del \textit{hardware} del inversor. Se generan dos estructuras globales \texttt{InverterStruct} independientes, \texttt{inverter\_left} e \texttt{inverter\_right}, para controlar cada uno de los inversores de forma independiente. Esta estrategia permite un control simultáneo de ambos inversores sin repetir ni una línea de código.
 
@@ -3539,6 +3552,39 @@ En cada estado, se describen las acciones realizadas y las condiciones que puede
 	\caption{Diagrama de estados de la FSM para el control de un inversor.}
 \end{figure}
 
+\subsubsection{\texttt{ERRORS.c/.h}}
+
+Los archivos \texttt{ERRORS.c} y su correspondiente encabezado \texttt{ERRORS.h} proporcionan las funciones necesarias para establecer, leer y eliminar errores del sistema.
+
+En este archivo, se define una enumeración llamada \texttt{InverterError} que representa los diferentes estados de error del inversor. Cada error se representa como un bit en un número entero sin signo de 32 bits (\texttt{uint32\_t}).
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|p{2cm}|*{10}{p{0.5cm}|}}
+		\hline
+		Posición & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+		\hline
+		Código & \rotatebox{90}{POWER\_FAULT} & \rotatebox{90}{OVERTEMPERATURE\_INV} & \rotatebox{90}{OVERVOLTAGE} & \rotatebox{90}{OVERCURRENT} & \rotatebox{90}{OVERSPEED} & \rotatebox{90}{UNDERVOLTAGE} & \rotatebox{90}{CONTROL\_FAULT} & \rotatebox{90}{WARNING} & \rotatebox{90}{OVERTEMPERATURE\_MOT } & \rotatebox{90}{FEEDBACK\_FAULT} \\
+		\hline
+		Ejemplo & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 1 \\
+		\hline
+	\end{tabular}
+	\caption{Mapa de errores.}
+\end{table}
+
+Por ejemplo, si los bits 0 y 3 están establecidos (valor binario 00 0000 1001 o valor decimal 9), significa que se ha producido un error en la etapa de potencia y otro de sobrecorriente.
+
+
+En \texttt{ERRORS.c}, se implementan las siguientes funciones:
+
+\begin{itemize}
+	\item \texttt{set\_error}: Esta función establece un error específico en el campo de errores de una estructura de datos. Toma como argumentos un puntero a la estructura de datos y el error a establecer.
+	\item \texttt{clear\_error}: Esta función elimina un error específico del campo de errores de una estructura de datos. Toma como argumentos un puntero a la estructura de datos y el error a eliminar.
+	\item \texttt{is\_error\_set}: Esta función verifica si un error específico está establecido en el campo de errores de una estructura de datos. Toma como argumentos un puntero a la estructura de datos y el error a verificar.
+\end{itemize}
+
+Estas funciones proporcionan una interfaz para manejar los errores del sistema de manera eficiente y modular. Al representar los errores como bits en un entero sin signo, se optimiza el uso de memoria y se facilita la manipulación y el análisis de los errores individuales.
 
 
 \subsubsection{\texttt{MEASUREMENTS.c/.h}}
@@ -3567,10 +3613,43 @@ Las funciones principales implementadas en \texttt{REFERENCE.c} son:
 	\item \texttt{set\_torque\_direction}: Esta función ajusta la dirección del par en función de la dirección deseada del motor.
 	\item \texttt{saturate\_symmetric}: Esta función satura simétricamente un valor de referencia en función del valor máximo permitido.
 	\item \texttt{limit\_torque\_to\_prevent\_overspeed}: Esta función actúa como una saturación de par, reduciendo el par para limitar la velocidad máxima del motor.
-	
 	\item \texttt{handle\_torqueRef}: Esta función llama a las anteriores y las encadena para gestionar adecuadamente la consigna de par.
-	
 \end{itemize}
+
+Además, se crea un \textit{derating} lineal para la corriente, que limita el valor máximo de la consigna:
+
+\begin{itemize}
+	\item \texttt{calculate\_derated\_current}: Calcula la corriente máxima basada en umbrales de temperatura.
+	\item \texttt{derate\_current\_reference}: Limita la referencia de corriente basándose en las temperaturas del motor y del inversor.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			axis lines=middle,
+			width=10cm,
+			height=8cm,
+			x label style={at={(axis description cs:0.5,-0.1)},anchor=north},
+			y label style={at={(axis description cs:-0.1,0.5)},rotate=90,anchor=south},
+			xlabel={Temperatura},
+			ylabel={Corriente (\% de la máxima)},
+			xmin=0, xmax=120,
+			ymin=0, ymax=120,
+			xtick={50, 100},
+			xticklabels={$T_1$, $T_2$},
+			ytick={0, 25, 50, 75, 100},
+			grid=both,
+			legend pos=north west,
+			legend style={font=\small},
+			]
+			\addplot[red, domain=0:50, samples=100, thick] {100};
+			\addplot[red, domain=50:100, samples=100, thick] {200-2*x};
+			
+		\end{axis}
+	\end{tikzpicture}
+	\caption{\textit{Derating} lineal de corriente en función de la temperatura, que entra en funcionamiento a partir de $T_1$ y si se llega a $T_2$, no se entrega corriente.}
+\end{figure}
 
 \subsubsection{\texttt{PCB\_IO.c/.h}}
 
@@ -3618,7 +3697,107 @@ Los archivos \texttt{CAN\_e-Tech.c} y su encabezado correspondiente \texttt{CAN\
 \subsection{Implementación del \textit{firmware}}
 
 \subsubsection{Configuración del MCU}
+Como ya se ha mencionado, se usará CubeMX para configurar los periféricos del microcontrolador. Las configuraciones más importantes se detallan a continuación.
+
+\textbf{Reloj}
+
+Es crucial configurar adecuadamente el reloj del microcontrolador para que este pueda medir tiempos de forma precisa. En este caso se usa un cristal de cuarzo externo de 20 MHz como referencia, y se trata internamente para lograr llegar a los 216 MHz máximos del microcontrolador.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cubeMXclock}
+	\caption{Configuración del reloj del sistema.}
+\end{figure}
+
+
+\textbf{GPIOs}
+
+Se configuran como entradas / salidas los pines individuales de cada señal, asignándoles un nombre descriptivo acorde con el esquemático de la placa de control.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cubeMXGPIOs}
+	\caption{Configuración de GPIOs.}
+\end{figure}
+
+\textbf{ADCs}
+
+En el control del convertidor es importante que las lecturas analógicas sean capturadas en una ventana de tiempo específica, generalmente sincrónica con la frecuencia de conmutación. En este caso, se han configurado dos ADCs (uno por cada inversor) con la adquisición disparada con el desbordamiento de su respectivo \textit{timer}. Se capturan cuatro canales por inversor, los tres primeros se corresponden con las corrientes de fase, y el último, con la tensión del bus DC. Un punto importante es que el ADC usa un \textit{stream} de DMA para volcar la información directamente en la memoria en un \textit{buffer}, aliviando algo de carga al MCU. Cuando se necesitan las medidas, se leen directamente del \textit{buffer}, que estará preparado con las últimas medidas tomadas.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cubeMXADC}
+	\caption{Configuración del ADC 2 por DMA, correspondiente al inversor izquierdo.}
+\end{figure}
+
+Dado que la temperatura tiene una dinámica muy lenta, no es necesario tomar medidas a la frecuencia de control. Por ello se enrutan las medidas de temperatura a un ADC separado y se leen de forma más lenta.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cubeMXADC3}
+	\caption{Configuración del ADC para la adquisición de temperaturas.}
+\end{figure}
+
+\textbf{\textit{Timers}}
+
+Los periféricos más importantes son los \textit{timers}, ya que el control es síncrono. Las salidas PWM se controlan directamente con un \textit{timer}, que a su vez, dispara la lectura del ADC. Se ajustan las constantes del correspondientes al periodo y al tiempo muerto utilizando \texttt{\#define TS} y \texttt{\#define DT}, de manera que se puede modificar la frecuencia de conmutación muy fácilmente. Se configuran los \textit{timers} en modo \textit{up and down}, simulando una señal portadora triangular, de la misma manera que está configurada la conmutación en la simulación de PLECS. Si contara solamente hacia arriba o hacia abajo, la portadora sería una señal diente de sierra.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=0.8]
+		% Ejes y etiquetas
+		\draw[-stealth] (0,-7) -- (10,-7) node[right] {$t$};
+		\draw[-stealth] (0,-7) -- (0,3) node[above]{$ $};
+		
+		% Señales
+		\draw[dashed] (2,-7) -- (2,3);
+		\draw[dashed] (4,-7) -- (4,3);
+		\draw[dashed] (6,-7) -- (6,3);
+		\draw[dashed] (8,-7) -- (8,3);
+		
+		% Señal triangular
+		\draw[thick] (0,0) -- (2,2) -- (4,0) -- (6,2) -- (8,0);
+		
+		% Señal de sierra
+		\draw[thick] (0,-3) -- (2,-1) -- (2,-3) -- (4,-1) -- (4,-3) -- (6,-1) -- (6,-3) -- (8,-1);
+		
+		% Señal de sierra invertida
+		\draw[thick] (0,-4) -- (2,-6) -- (2,-4) -- (4,-6) -- (4,-4) -- (6,-6) -- (6,-4) -- (8,-6) -- (8,-4);
+		
+	\end{tikzpicture}
+	\caption{Comparación de las señales portadoras equivalentes. De arriba a abajo, triangular, diente de sierra y diente de sierra invertida.}
+	\label{fig:portadoras}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cubeMXtimer1}
+	\caption{Configuración del \textit{timer} 1, correspondiente al inversor izquierdo.}
+\end{figure}
+
+\textbf{CAN}
+
+Para poder comunicarse externamente se usa el protocolo CAN. Por suerte, la configuración es muy sencilla. Se deben ajustar los parámetros para que la frecuencia de transmisión de datos (\textit{baud rate}) sea de 500 kB/s exactamente, ya que el resto de ECUs en el monoplaza tienen el CAN configurado a esta frecuencia.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/cubeMXCAN}
+	\caption{Configuración del periférico CAN.}
+\end{figure}
+
 \subsubsection{Manejo de interrupciones}
+
+En un convertidor se debe tener control absoluto sobre \textit{cuándo} se ejecuta \textit{qué}. Esto quiere decir que el lazo de control debe seguir un orden de ejecución perfectamente definido. El orden se basa en las simulaciones realizadas en PLECS, que como ya se explicó, tienen una relación muy estrecha con la implementación del \textit{firmware}. Estudiando \cite{Buso2006} y \cite{carlos2023}, se decide seguir el siguiente orden en las interrupciones de control:
+\begin{enumerate}
+	\item Se inicia la conversión de las lecturas analógicas de las corrientes y la tensión.
+	\item Cuando acaba la conversión, se evalúan los valores obtenidos para hacer saltar errores si estuvieran fuera de los límites. Se establece la tensión máxima sintetizable en el periodo.
+	\item Se calcula la consigna de corriente.
+	\item Se ejecutan los lazos de corriente.
+	\item Se satura la tensión de salida.
+	\item Se calculan los ciclos de trabajo y se actualiza el registro del \textit{timer} de la salida PWM.
+\end{enumerate}
+
 \subsubsection{Algoritmos de control}
 
 

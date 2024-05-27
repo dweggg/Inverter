@@ -116,9 +116,9 @@ A continuación se presenta un resumen de los costes totales del proyecto, inclu
 
 
 \newpage
-\section{Cumplimiento de los objetivos y trabajo futuro}
+\section{Conclusiones}
 
-En esta sección se rescatan los objetivos propuestos al inicio del trabajo y se comenta en qué medida se han logrado alcanzar. Además, se plantean los siguientes pasos en el desarrollo e implementación de este inversor para un vehículo de Formula Student.
+En esta sección se rescatan los objetivos propuestos al inicio del trabajo y se comenta en qué medida se han logrado alcanzar. Además, se plantean los siguientes pasos en el desarrollo e implementación de este inversor para un vehículo de Formula Student. Estas partes concluyen el trabajo realizado.
 
 \subsection{Cumplimiento de los objetivos}
 
@@ -227,6 +227,7 @@ Como se ha mencionado anteriormente, se es consciente de que el algoritmo propue
 	\item Integrar el control con debilitamiento de campo (lazo de tensión) junto con una buena gestión de la frenada regenerativa en debilitamiento de campo.
 	\item Verificar la lectura del \textit{encoder} incremental.
 	\item Verificar el control simultáneo de dos motores.
+	\item Implementar un sistema operativo en tiempo real (RTOS) que gestione todas las tareas no síncronas con el control, es decir, comunicaciones, LEDs, y otros procesos poco prioritarios.
 	\item Externalizar los parámetros constantes (los umbrales de error, los parámetros del motor, etc.) para evitar tener que cargar un binario nuevo cada vez que se modifican.
 	\item Integrar los parámetros y otras configuraciones estáticas en una memoria EEPROM para tener que cargarlos solamente una vez.
 	\item Crear una interfaz por USB para poder cargar parámetros y hacer ensayos externamente, registrando datos a una velocidad adecuada para su análisis.
