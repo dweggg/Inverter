@@ -18,14 +18,18 @@
 /* USER CODE END Header */
 
 #include "CONTROL.h"
-#include "CONTROL.h"
 
 #include <math.h> // sin/cos, M_PI
 #include <PergaMOD.h> // control functions
 
 /**
- * @brief Calculates the current references based on electrical speed, torque reference, voltage reference,
- *        motor parameters, and updates the d-axis and q-axis current references.
+ * @brief Calculates the current references using a FOC algorithm. It computes the
+ * current vector for the MTPA trajectory and limits the current reference to 
+ * isMaxRef (calculated by derating, starting from the motor's maximum current).
+ * The MTPV trajectory is not implemented to save some computation time due to the
+ * nature of the motors expected. In order to implement field weakening, an external
+ * voltage loop modifying gammaRef is needed and should be called inside here. 
+ * 
  * 
  * @param[in] motor         Pointer to the motor parameters structure.
  * @param[in,out] reference Pointer to the reference struct.
@@ -49,7 +53,7 @@ void calc_current_reference(MotorParameters * motor, volatile Reference * refere
 	reference->torqueRef = fabs(reference->torqueRef);
 
 
-    // CTC
+    // CTC - please check equations and constant definitions thoroughly!!
     if (gammaRef == M_PI_2 || reference->torqueRef == 0.0F || motor->Ld == motor->Lq) {
         isRefCTC = 2.0F * reference->torqueRef * motor->constants.invThreePpLambda;
     } else {
@@ -62,13 +66,15 @@ void calc_current_reference(MotorParameters * motor, volatile Reference * refere
     // isRef saturation
     isRef = (isRefCTC < reference->isMaxRef) ? isRefCTC : reference->isMaxRef;
 
-    // MTPA
+    // MTPA - please check equations and constant definitions thoroughly!!
     if (isRef == 0.0F || motor->Ld == motor->Lq) {
         gammaRefMTPA = M_PI_2;
     } else {
         gammaRefMTPA = M_PI_2 + asinf((motor->lambda - sqrtf(motor->constants.eightTimesOneMinusXiSquared * isRef * isRef + motor->lambda * motor->lambda)) / (motor->constants.fourTimesOneMinusXi * isRef));
     }
 
+
+    // Voltage loop calculation could be here, and gammaRef calculation should be updated accordingly.
     gammaRef = gammaRefMTPA*signTorqueRef;
 
     // Polar to Cartesian

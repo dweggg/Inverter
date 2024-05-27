@@ -24,8 +24,12 @@
 #include "INVERTER.h" // TS & Inverter struct
 
 /**
- * @brief Calculates the current references based on electrical speed, torque reference, voltage reference,
- *        motor parameters, and updates the d-axis and q-axis current references.
+ * @brief Calculates the current references using a FOC algorithm. It computes the
+ * current vector for the MTPA trajectory and limits the current reference to 
+ * isMaxRef (calculated by derating, starting from the motor's maximum current).
+ * The MTPV trajectory is not implemented to save some computation time due to the
+ * nature of the motors expected.
+ * 
  * 
  * @param[in] motor         Pointer to the motor parameters structure.
  * @param[in,out] reference Pointer to the reference struct.
