@@ -49,15 +49,6 @@
 
 % END UNCOMMENT
 
-% Apéndices
-% UNCOMMENT
-
-\input{content/10_portada_apendices}
-\appendix
-\input{content/11_apendices}
-
-% END UNCOMMENT
-
 % Bibliografía
 % UNCOMMENT
 
@@ -66,6 +57,21 @@
 
 % END UNCOMMENT
 
+% Apéndices
+% UNCOMMENT
+
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+
+\input{content/10_portada_apendices}
+\appendix
+\input{content/11_apendices}
+
+% END UNCOMMENT
+
+
+
 
 
 \end{document}
+
