@@ -235,8 +235,6 @@ void TIM1_UP_TIM10_IRQHandler(void)
   HAL_TIM_IRQHandler(&htim1);
   /* USER CODE BEGIN TIM1_UP_TIM10_IRQn 1 */
 
-  tasks_critical_left();
-
   /* USER CODE END TIM1_UP_TIM10_IRQn 1 */
 }
 
@@ -265,6 +263,7 @@ void DMA2_Stream0_IRQHandler(void)
   /* USER CODE END DMA2_Stream0_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_adc1);
   /* USER CODE BEGIN DMA2_Stream0_IRQn 1 */
+  tasks_critical_right();
 
   /* USER CODE END DMA2_Stream0_IRQn 1 */
 }
@@ -293,6 +292,7 @@ void DMA2_Stream2_IRQHandler(void)
   /* USER CODE END DMA2_Stream2_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_adc2);
   /* USER CODE BEGIN DMA2_Stream2_IRQn 1 */
+  tasks_critical_left();
 
   /* USER CODE END DMA2_Stream2_IRQn 1 */
 }
