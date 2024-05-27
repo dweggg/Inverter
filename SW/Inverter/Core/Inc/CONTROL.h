@@ -25,16 +25,12 @@
 
 /**
  * @brief Calculates the current references based on electrical speed, torque reference, voltage reference,
- *        motor parameters, and updates the d-axis and q-axis current references. Just MTPA for now.
- *
- * @param[in] we         Electrical speed in radians per second.
- * @param[in] torqueRef  Torque reference.
- * @param[in] vsRef      Voltage reference.
- * @param[in] motor      Pointer to the motor parameters structure.
- * @param[out] idRef     Pointer to the d-axis current reference.
- * @param[out] iqRef     Pointer to the q-axis current reference.
+ *        motor parameters, and updates the d-axis and q-axis current references.
+ * 
+ * @param[in] motor         Pointer to the motor parameters structure.
+ * @param[in,out] reference Pointer to the reference struct.
  */
-void calc_current_reference(float we, float torqueRef, float vsRef, MotorParameters *motor, volatile float * idRef, volatile float * iqRef);
+void calc_current_reference(MotorParameters * motor, volatile Reference * reference);
 
 /**
  * @brief Calculates the id-iq loops.

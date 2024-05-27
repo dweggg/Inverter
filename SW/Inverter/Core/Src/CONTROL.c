@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 
 #include "CONTROL.h"
+#include "CONTROL.h"
 
 #include <math.h> // sin/cos, M_PI
 #include <PergaMOD.h> // control functions
@@ -26,14 +27,10 @@
  * @brief Calculates the current references based on electrical speed, torque reference, voltage reference,
  *        motor parameters, and updates the d-axis and q-axis current references.
  * 
- * @param we         [in] Electrical speed in radians per second.
- * @param torqueRef  [in] Torque reference.
- * @param vsRef      [in] Voltage reference.
- * @param motor      [in] Pointer to the motor parameters structure.
- * @param idRef      [out] Pointer to the d-axis current reference.
- * @param iqRef      [out] Pointer to the q-axis current reference.
+ * @param[in] motor         Pointer to the motor parameters structure.
+ * @param[in,out] reference Pointer to the reference struct.
  */
-void calc_current_reference(float we, float torqueRef, float vsRef, MotorParameters * motor, volatile float * idRef, volatile float * iqRef){
+void calc_current_reference(MotorParameters * motor, volatile Reference * reference){
 
     static float gammaRef = M_PI_2;
     static float isRef = 0.0F;
@@ -43,27 +40,27 @@ void calc_current_reference(float we, float torqueRef, float vsRef, MotorParamet
     float isRefCTC;
     float gammaRefMTPA;
 
-	if (torqueRef >= 0){
+	if (reference->torqueRef >= 0){
 		signTorqueRef = 1;
 	} else {
 		signTorqueRef = -1;
 	}
 
-	torqueRef = fabs(torqueRef);
+	reference->torqueRef = fabs(reference->torqueRef);
 
 
     // CTC
-    if (gammaRef == M_PI_2 || torqueRef == 0.0F || motor->Ld == motor->Lq) {
-        isRefCTC = 2.0F * torqueRef * motor->constants.invThreePpLambda;
+    if (gammaRef == M_PI_2 || reference->torqueRef == 0.0F || motor->Ld == motor->Lq) {
+        isRefCTC = 2.0F * reference->torqueRef * motor->constants.invThreePpLambda;
     } else {
         float sinGammaRef = sinf(gammaRef);
         float sin2GammaRef = sinf(2.0F * gammaRef);
-        float temp = motor->constants.fourTimesOneMinusXi * torqueRef * motor->constants.invTorqueBase;
-        isRefCTC = motor->constants.isc * (sqrtf(sinGammaRef * sinGammaRef + sin2GammaRef * temp) - sinGammaRef) / (sin2GammaRef * motor->constants.oneMinusXi);
+        float torqueTerm = motor->constants.fourTimesOneMinusXi * reference->torqueRef * motor->constants.invTorqueBase;
+        isRefCTC = motor->constants.isc * (sqrtf(sinGammaRef * sinGammaRef + sin2GammaRef * torqueTerm) - sinGammaRef) / (sin2GammaRef * motor->constants.oneMinusXi);
     }
 
-    // isRef = min(isRefCTC .... iMax)
-    isRef = (isRefCTC < motor->iMax) ? isRefCTC : motor->iMax;
+    // isRef saturation
+    isRef = (isRefCTC < reference->isMaxRef) ? isRefCTC : reference->isMaxRef;
 
     // MTPA
     if (isRef == 0.0F || motor->Ld == motor->Lq) {
@@ -75,8 +72,8 @@ void calc_current_reference(float we, float torqueRef, float vsRef, MotorParamet
     gammaRef = gammaRefMTPA*signTorqueRef;
 
     // Polar to Cartesian
-    *idRef = isRef * cosf(gammaRef);
-    *iqRef = isRef * sinf(gammaRef);
+    reference->idRef = isRef * cosf(gammaRef);
+    reference->iqRef = isRef * sinf(gammaRef);
 }
 
 
