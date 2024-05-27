@@ -58,18 +58,20 @@ volatile uint16_t rawADC_temp[4] = {0};
   * @param[in] cosTheta_e Electrical angle cosine (-1..1)
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float sinTheta_e, float cosTheta_e){
-
+uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e) {
     // Calculate currents and voltage
     float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, analog->currentOffsets[0]);
     float ib = get_linear(ADC_raw[1], CURRENT_SLOPE, analog->currentOffsets[1]);
     float ic = get_linear(ADC_raw[2], CURRENT_SLOPE, analog->currentOffsets[2]);
-//	float vDC = get_linear(ADC_raw[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
+    float vDC = get_linear(ADC_raw[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
 
     // Store the measurements
     analog->ia = ia;
     analog->ib = ib;
     analog->ic = ic;
+    analog->vDC = vDC;
+
+    //TODO: Fix voltage acquisition (hardware issue)
     analog->vDC = 20.0F;
 
     // Define variables to store DQ currents
@@ -82,6 +84,23 @@ uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analo
     feedback->idMeas = idMeas;
     feedback->iqMeas = iqMeas;
 
+
+    // Check for overcurrent/overvoltage/undervoltage faults
+    if (fabs(ia) > OVERCURRENT_TH || fabs(ib) > OVERCURRENT_TH || fabs(ic) > OVERCURRENT_TH) {
+        set_error(errors, OVERCURRENT);
+    } else {
+        clear_error(errors, OVERCURRENT);
+    }
+    if (vDC > OVERVOLTAGE_TH) {
+		set_error(errors, OVERVOLTAGE);
+	} else {
+		clear_error(errors, OVERVOLTAGE);
+	}
+    if (vDC < UNDERVOLTAGE_TH) {
+		set_error(errors, UNDERVOLTAGE);
+	} else {
+		clear_error(errors, UNDERVOLTAGE);
+	}
     return 1; // Success
 }
 

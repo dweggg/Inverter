@@ -21,6 +21,7 @@
 #define MEASUREMENTS_H
 
 #include <stdint.h>
+#include "ERRORS.h"
 
 /* Define current and voltage gains/offsets */
 #define CURRENT_SLOPE  117.57704f  /**< [A/V] ((4.7+10)/10) * (1 / (12.5 mV / A)) */
@@ -28,15 +29,6 @@
 
 #define VOLTAGE_SLOPE  263.435f  /**< [V/V] 1/(1/3 * 0.011388) V */
 #define VOLTAGE_OFFSET 0.02083f /**< [V] (100/(4700+100) * 5 V */
-
-
-/* Define fault thresholds */
-#define OVERTEMPERATURE_INVERTER_TH 60.0f /**< [degC] Threshold for inverter overtemperature fault */
-#define OVERVOLTAGE_TH 600.0f /**< [V] Threshold for overvoltage fault */
-#define OVERCURRENT_TH 100.0f /**< [A] Threshold for instantaneous overcurrent fault */
-#define OVERSPEED_TH 20000.0f /**< [RPM] Threshold for motor overspeed fault */
-#define UNDERVOLTAGE_TH 10.0f /**< [V] Threshold for undervoltage fault */
-#define OVERTEMPERATURE_MOTOR_TH 90.0f /**< [degC] Threshold for motor overtemperature fault */
 
 extern const float tempInverterLUT[];
 extern const float tempMotorLUT[];
@@ -84,6 +76,7 @@ typedef struct {
 } Feedback;
 
 
+
 /**
   * @brief  Get electrical ADC measurements.
   * @param[in]  ADC_raw Pointer to the raw ADC values array.
@@ -93,7 +86,7 @@ typedef struct {
   * @param[in] cosTheta_e Electrical angle cosine (-1..1)
   * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, float sinTheta_e, float cosTheta_e);
+uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e);
 
 /**
   * @brief  Convert ADC reading to physical measurement with linear response.

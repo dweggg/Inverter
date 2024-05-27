@@ -20,7 +20,6 @@
 #ifndef INVERTER_H
 #define INVERTER_H
 
-#include "ERRORS.h" // Errors enum
 #include "PCB_IO.h" // peripheral types
 #include "MEASUREMENTS.h" // a few structs
 #include "REFERENCE.h" // reference struct
@@ -30,8 +29,6 @@
 
 #define TS 0.000025      /**< Switching time in seconds (25 us), inverse of the switching frequency of 40 kHz */
 #define DT 0.00000015   /**< Dead time in seconds (150 ns), time in which both top and bottom transistors are open */
-
-
 
 
 /**

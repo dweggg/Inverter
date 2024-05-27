@@ -33,8 +33,8 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
  ../Core/Inc/stm32f7xx_it.h ../Core/Inc/TASKS_1ms.h \
- ../Core/Inc/INVERTER.h ../Core/Inc/ERRORS.h ../Core/Inc/PCB_IO.h \
- ../Core/Inc/main.h ../Core/Inc/MEASUREMENTS.h ../Core/Inc/REFERENCE.h \
+ ../Core/Inc/INVERTER.h ../Core/Inc/PCB_IO.h ../Core/Inc/main.h \
+ ../Core/Inc/MEASUREMENTS.h ../Core/Inc/ERRORS.h ../Core/Inc/REFERENCE.h \
  ../Core/Inc/PergaMOD.h ../Core/Inc/MOTOR.h ../Core/Inc/PWM.h \
  ../Core/Inc/TASKS_CRITICAL.h ../Core/Inc/CAN_e-Tech.h \
  ../Core/Inc/CAN1db.h ../Core/Inc/adc.h ../Core/Inc/MEASUREMENTS.h
@@ -75,10 +75,10 @@ Core/Src/stm32f7xx_it.o: ../Core/Src/stm32f7xx_it.c ../Core/Inc/main.h \
 ../Core/Inc/stm32f7xx_it.h:
 ../Core/Inc/TASKS_1ms.h:
 ../Core/Inc/INVERTER.h:
-../Core/Inc/ERRORS.h:
 ../Core/Inc/PCB_IO.h:
 ../Core/Inc/main.h:
 ../Core/Inc/MEASUREMENTS.h:
+../Core/Inc/ERRORS.h:
 ../Core/Inc/REFERENCE.h:
 ../Core/Inc/PergaMOD.h:
 ../Core/Inc/MOTOR.h:

@@ -1,5 +1,5 @@
 Core/Src/FSM.o: ../Core/Src/FSM.c ../Core/Inc/FSM.h \
- ../Core/Inc/INVERTER.h ../Core/Inc/ERRORS.h ../Core/Inc/PCB_IO.h \
+ ../Core/Inc/INVERTER.h ../Core/Inc/PCB_IO.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -33,11 +33,11 @@ Core/Src/FSM.o: ../Core/Src/FSM.c ../Core/Inc/FSM.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
- ../Core/Inc/main.h ../Core/Inc/MEASUREMENTS.h ../Core/Inc/REFERENCE.h \
- ../Core/Inc/PergaMOD.h ../Core/Inc/MOTOR.h ../Core/Inc/PWM.h
+ ../Core/Inc/main.h ../Core/Inc/MEASUREMENTS.h ../Core/Inc/ERRORS.h \
+ ../Core/Inc/REFERENCE.h ../Core/Inc/PergaMOD.h ../Core/Inc/MOTOR.h \
+ ../Core/Inc/PWM.h
 ../Core/Inc/FSM.h:
 ../Core/Inc/INVERTER.h:
-../Core/Inc/ERRORS.h:
 ../Core/Inc/PCB_IO.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:
@@ -74,6 +74,7 @@ Core/Src/FSM.o: ../Core/Src/FSM.c ../Core/Inc/FSM.h \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h:
 ../Core/Inc/main.h:
 ../Core/Inc/MEASUREMENTS.h:
+../Core/Inc/ERRORS.h:
 ../Core/Inc/REFERENCE.h:
 ../Core/Inc/PergaMOD.h:
 ../Core/Inc/MOTOR.h:

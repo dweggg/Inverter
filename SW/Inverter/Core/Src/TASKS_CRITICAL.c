@@ -57,7 +57,7 @@ void tasks_critical_left(void){
   // Actual control loop
 
   // ADC
-  get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
+  get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, &inverter_left.errors, inverter_right.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
   inverter_left.vsMax = 0.9F * inverter_left.analog.vDC * ISQ3; // Calculate max Vs voltage, 90% of DC/sqrt3
   
   // FOC
