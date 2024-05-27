@@ -51,19 +51,25 @@ volatile uint16_t rawADC_temp[4] = {0};
 
 /**
   * @brief  Get electrical ADC measurements.
-  * @param[in]  ADC_raw Pointer to the raw ADC values array.
-  * @param[out]  analog Pointer to the ADC struct to store the results.
+  * @param[in] rawADC Pointer to the raw ADC values array.
+  * @param[out] analog Pointer to the ADC struct to store the results.
   * @param[out] feedback Pointer to the Feedback struct to store id and iq.
   * @param[in] sinTheta_e Electrical angle sine (-1..1)
   * @param[in] cosTheta_e Electrical angle cosine (-1..1)
-  * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e) {
-    // Calculate currents and voltage
-    float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, analog->currentOffsets[0]);
-    float ib = get_linear(ADC_raw[1], CURRENT_SLOPE, analog->currentOffsets[1]);
-    float ic = get_linear(ADC_raw[2], CURRENT_SLOPE, analog->currentOffsets[2]);
-    float vDC = get_linear(ADC_raw[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
+void get_currents_voltage(volatile uint16_t rawADC[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e) {
+
+	// Calculate currents and voltage
+//    float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, CURRENT_OFFSET);
+//    float ib = get_linear(ADC_raw[1], CURRENT_SLOPE, CURRENT_OFFSET);
+//    float ic = get_linear(ADC_raw[2], CURRENT_SLOPE, CURRENT_OFFSET);
+
+    float ia = get_linear(rawADC[0], CURRENT_SLOPE, analog->currentOffsets[0]);
+    float ib = get_linear(rawADC[1], CURRENT_SLOPE, analog->currentOffsets[1]);
+    float ic = get_linear(rawADC[2], CURRENT_SLOPE, analog->currentOffsets[2]);
+
+
+    float vDC = get_linear(rawADC[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
 
     // Store the measurements
     analog->ia = ia;
@@ -101,7 +107,6 @@ uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analo
 	} else {
 		clear_error(errors, UNDERVOLTAGE);
 	}
-    return 1; // Success
 }
 
 /**

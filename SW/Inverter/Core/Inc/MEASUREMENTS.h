@@ -79,14 +79,13 @@ typedef struct {
 
 /**
   * @brief  Get electrical ADC measurements.
-  * @param[in]  ADC_raw Pointer to the raw ADC values array.
+  * @param[in]  rawADC Pointer to the raw ADC values array.
   * @param[out]  analog Pointer to the ADC struct to store the results.
   * @param[out] feedback Pointer to the Feedback struct to store id and iq.
   * @param[in] sinTheta_e Electrical angle sine (-1..1)
   * @param[in] cosTheta_e Electrical angle cosine (-1..1)
-  * @retval OK 0 if an error occurred, 1 if successful.
   */
-uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e);
+void get_currents_voltage(volatile uint16_t rawADC[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e);
 
 /**
   * @brief  Convert ADC reading to physical measurement with linear response.

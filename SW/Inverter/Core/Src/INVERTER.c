@@ -70,7 +70,7 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
 
     HAL_Delay(1);
 
-    calibrate_offsets(rawADC, inv->analog.currentOffsets, 500000);
+    calibrate_offsets(rawADC, inv->analog.currentOffsets, 50000);
 
 
     if(check_motor_parameters(motor, TS)){

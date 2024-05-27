@@ -29,11 +29,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  12 .ARM.attributes 0000002e  00000000  00000000  000101c4  2**0
                   CONTENTS, READONLY
- 13 .debug_info   0002c6e2  00000000  00000000  000101f2  2**0
+ 13 .debug_info   0002c6bf  00000000  00000000  000101f2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00005cba  00000000  00000000  0003c8d4  2**0
+ 14 .debug_abbrev 00005cb2  00000000  00000000  0003c8b1  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_loclists 0000ffae  00000000  00000000  0004258e  2**0
+ 15 .debug_loclists 0000ffd8  00000000  00000000  00042563  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_aranges 00001468  00000000  00000000  00052540  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
@@ -41,15 +41,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  18 .debug_macro  0002c7a3  00000000  00000000  000559c9  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   0002c3ca  00000000  00000000  0008216c  2**0
+ 19 .debug_line   0002c3c6  00000000  00000000  0008216c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    00105d7c  00000000  00000000  000ae536  2**0
+ 20 .debug_str    00105d74  00000000  00000000  000ae532  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .comment      00000043  00000000  00000000  001b42b2  2**0
+ 21 .comment      00000043  00000000  00000000  001b42a6  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  00003d44  00000000  00000000  001b42f8  2**2
+ 22 .debug_frame  00003d58  00000000  00000000  001b42ec  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_line_str 0000005a  00000000  00000000  001b803c  2**0
+ 23 .debug_line_str 0000005a  00000000  00000000  001b8044  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1401,11 +1401,11 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
  8000d5a:	60e3      	str	r3, [r4, #12]
     HAL_Delay(1);
 
-    calibrate_offsets(rawADC, inv->analog.currentOffsets, 500000);
+    calibrate_offsets(rawADC, inv->analog.currentOffsets, 50000);
 
 
     if(check_motor_parameters(motor, TS)){
- 8000d5c:	ed9f 8a39 	vldr	s16, [pc, #228]	@ 8000e44 <initialize_inverter+0x108>
+ 8000d5c:	ed9f 8a3a 	vldr	s16, [pc, #232]	@ 8000e48 <initialize_inverter+0x10c>
 void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *enable_port, uint16_t enable_pin, TIM_HandleTypeDef *htim, ADC_HandleTypeDef *hadc, MotorParameters *motor, volatile uint16_t *rawADC){
  8000d60:	e9dd 050b 	ldrd	r0, r5, [sp, #44]	@ 0x2c
     inv->hadc = hadc;
@@ -1426,124 +1426,124 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     HAL_Delay(1);
  8000d80:	4638      	mov	r0, r7
  8000d82:	f001 ff4b 	bl	8002c1c <HAL_Delay>
-    calibrate_offsets(rawADC, inv->analog.currentOffsets, 500000);
+    calibrate_offsets(rawADC, inv->analog.currentOffsets, 50000);
  8000d86:	4630      	mov	r0, r6
- 8000d88:	4a2f      	ldr	r2, [pc, #188]	@ (8000e48 <initialize_inverter+0x10c>)
- 8000d8a:	f104 0128 	add.w	r1, r4, #40	@ 0x28
- 8000d8e:	f000 f921 	bl	8000fd4 <calibrate_offsets>
+ 8000d88:	f24c 3250 	movw	r2, #50000	@ 0xc350
+ 8000d8c:	f104 0128 	add.w	r1, r4, #40	@ 0x28
+ 8000d90:	f000 f920 	bl	8000fd4 <calibrate_offsets>
     if(check_motor_parameters(motor, TS)){
- 8000d92:	eeb0 0a48 	vmov.f32	s0, s16
- 8000d96:	4628      	mov	r0, r5
- 8000d98:	f000 f9f2 	bl	8001180 <check_motor_parameters>
- 8000d9c:	b920      	cbnz	r0, 8000da8 <initialize_inverter+0x6c>
+ 8000d94:	eeb0 0a48 	vmov.f32	s0, s16
+ 8000d98:	4628      	mov	r0, r5
+ 8000d9a:	f000 f9f1 	bl	8001180 <check_motor_parameters>
+ 8000d9e:	b920      	cbnz	r0, 8000daa <initialize_inverter+0x6e>
         precalculate_motor_constants(motor);
     	init_control_loops(inv, motor);
         inv->state = INV_STATE_IDLE;
 
     } else{
         inv->state = INV_STATE_FAULT;
- 8000d9e:	2303      	movs	r3, #3
- 8000da0:	7523      	strb	r3, [r4, #20]
+ 8000da0:	2303      	movs	r3, #3
+ 8000da2:	7523      	strb	r3, [r4, #20]
     }
 }
- 8000da2:	ecbd 8b04 	vpop	{d8-d9}
- 8000da6:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 8000da4:	ecbd 8b04 	vpop	{d8-d9}
+ 8000da8:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
         precalculate_motor_constants(motor);
- 8000da8:	4628      	mov	r0, r5
+ 8000daa:	4628      	mov	r0, r5
 
     // Calculate natural frequency (omega_n)
     float omega_n = 3.0F / (xi * set_time); // set_time in seconds
 
     // Calculate proportional and integral gains for id controller
     inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
- 8000daa:	ed9f 9a28 	vldr	s18, [pc, #160]	@ 8000e4c <initialize_inverter+0x110>
+ 8000dac:	ed9f 9a27 	vldr	s18, [pc, #156]	@ 8000e4c <initialize_inverter+0x110>
         precalculate_motor_constants(motor);
- 8000dae:	f000 f965 	bl	800107c <precalculate_motor_constants>
+ 8000db0:	f000 f964 	bl	800107c <precalculate_motor_constants>
     inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
- 8000db2:	edd5 7a00 	vldr	s15, [r5]
- 8000db6:	ed95 7a02 	vldr	s14, [r5, #8]
+ 8000db4:	edd5 7a00 	vldr	s15, [r5]
+ 8000db8:	ed95 7a02 	vldr	s14, [r5, #8]
     inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
     pi_init(&(inv->idLoop)); // Initialize id PI controller (calculate K0, K1)
- 8000dba:	f104 008c 	add.w	r0, r4, #140	@ 0x8c
+ 8000dbc:	f104 008c 	add.w	r0, r4, #140	@ 0x8c
     inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
- 8000dbe:	eddf 8a24 	vldr	s17, [pc, #144]	@ 8000e50 <initialize_inverter+0x114>
+ 8000dc0:	eddf 8a23 	vldr	s17, [pc, #140]	@ 8000e50 <initialize_inverter+0x114>
     inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
- 8000dc2:	ee97 7a89 	vfnms.f32	s14, s15, s18
+ 8000dc4:	ee97 7a89 	vfnms.f32	s14, s15, s18
     inv->idLoop.Ts = TS;
- 8000dc6:	ed84 8a24 	vstr	s16, [r4, #144]	@ 0x90
+ 8000dc8:	ed84 8a24 	vstr	s16, [r4, #144]	@ 0x90
     inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
- 8000dca:	ee67 7aa8 	vmul.f32	s15, s15, s17
+ 8000dcc:	ee67 7aa8 	vmul.f32	s15, s15, s17
     inv->iqLoop.Ts = TS;
- 8000dce:	ed84 8a35 	vstr	s16, [r4, #212]	@ 0xd4
+ 8000dd0:	ed84 8a35 	vstr	s16, [r4, #212]	@ 0xd4
     inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
- 8000dd2:	ed84 7a25 	vstr	s14, [r4, #148]	@ 0x94
+ 8000dd4:	ed84 7a25 	vstr	s14, [r4, #148]	@ 0x94
     inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
- 8000dd6:	edc4 7a26 	vstr	s15, [r4, #152]	@ 0x98
+ 8000dd8:	edc4 7a26 	vstr	s15, [r4, #152]	@ 0x98
     pi_init(&(inv->idLoop)); // Initialize id PI controller (calculate K0, K1)
- 8000dda:	f005 fa7f 	bl	80062dc <pi_init>
+ 8000ddc:	f005 fa7e 	bl	80062dc <pi_init>
 
     // Calculate proportional and integral gains for iq controller
     inv->iqLoop.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
- 8000dde:	ed95 7a01 	vldr	s14, [r5, #4]
- 8000de2:	edd5 7a02 	vldr	s15, [r5, #8]
+ 8000de0:	ed95 7a01 	vldr	s14, [r5, #4]
+ 8000de4:	edd5 7a02 	vldr	s15, [r5, #8]
     inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
     pi_init(&(inv->iqLoop)); // Initialize iq PI controller (calculate K0, K1)
- 8000de6:	f104 00d0 	add.w	r0, r4, #208	@ 0xd0
+ 8000de8:	f104 00d0 	add.w	r0, r4, #208	@ 0xd0
     inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
- 8000dea:	ee67 8a28 	vmul.f32	s17, s14, s17
+ 8000dec:	ee67 8a28 	vmul.f32	s17, s14, s17
     inv->iqLoop.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
- 8000dee:	eed7 7a09 	vfnms.f32	s15, s14, s18
- 8000df2:	edc4 7a36 	vstr	s15, [r4, #216]	@ 0xd8
+ 8000df0:	eed7 7a09 	vfnms.f32	s15, s14, s18
+ 8000df4:	edc4 7a36 	vstr	s15, [r4, #216]	@ 0xd8
     inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
- 8000df6:	edc4 8a37 	vstr	s17, [r4, #220]	@ 0xdc
+ 8000df8:	edc4 8a37 	vstr	s17, [r4, #220]	@ 0xdc
     pi_init(&(inv->iqLoop)); // Initialize iq PI controller (calculate K0, K1)
- 8000dfa:	f005 fa6f 	bl	80062dc <pi_init>
+ 8000dfc:	f005 fa6e 	bl	80062dc <pi_init>
 
 	float xi_speed = sqrtf(powf(logf(Mp_speed), 2) / (powf(PI, 2) + powf(logf(Mp_speed), 2))); // Mp is unitless
     // Calculate natural frequency (omega_n)
     float omega_n_speed = 3.0F / (xi_speed * set_time_speed); // set_time in seconds
 
     inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
- 8000dfe:	edd5 7a05 	vldr	s15, [r5, #20]
- 8000e02:	ed95 7a06 	vldr	s14, [r5, #24]
+ 8000e00:	edd5 7a05 	vldr	s15, [r5, #20]
+ 8000e04:	ed95 7a06 	vldr	s14, [r5, #24]
     inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
 
     pi_init(&(inv->speedLoop)); // Initialize iq PI controller (calculate K0, K1)
- 8000e06:	f504 7090 	add.w	r0, r4, #288	@ 0x120
+ 8000e08:	f504 7090 	add.w	r0, r4, #288	@ 0x120
     inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
- 8000e0a:	ed9f 6a12 	vldr	s12, [pc, #72]	@ 8000e54 <initialize_inverter+0x118>
+ 8000e0c:	ed9f 6a11 	vldr	s12, [pc, #68]	@ 8000e54 <initialize_inverter+0x118>
     inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
- 8000e0e:	eddf 6a12 	vldr	s13, [pc, #72]	@ 8000e58 <initialize_inverter+0x11c>
+ 8000e10:	eddf 6a11 	vldr	s13, [pc, #68]	@ 8000e58 <initialize_inverter+0x11c>
     inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
- 8000e12:	ee97 7a86 	vfnms.f32	s14, s15, s12
+ 8000e14:	ee97 7a86 	vfnms.f32	s14, s15, s12
     inv->speedLoop.Ts = TS;
- 8000e16:	ed84 8a49 	vstr	s16, [r4, #292]	@ 0x124
+ 8000e18:	ed84 8a49 	vstr	s16, [r4, #292]	@ 0x124
     inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
- 8000e1a:	ee67 7aa6 	vmul.f32	s15, s15, s13
+ 8000e1c:	ee67 7aa6 	vmul.f32	s15, s15, s13
     inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
- 8000e1e:	ed84 7a4a 	vstr	s14, [r4, #296]	@ 0x128
+ 8000e20:	ed84 7a4a 	vstr	s14, [r4, #296]	@ 0x128
     inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
- 8000e22:	edc4 7a4b 	vstr	s15, [r4, #300]	@ 0x12c
+ 8000e24:	edc4 7a4b 	vstr	s15, [r4, #300]	@ 0x12c
     pi_init(&(inv->speedLoop)); // Initialize iq PI controller (calculate K0, K1)
- 8000e26:	f005 fa59 	bl	80062dc <pi_init>
+ 8000e28:	f005 fa58 	bl	80062dc <pi_init>
 
     inv->speedLoop.pi_out_max = motor->torqueMax;
- 8000e2a:	edd5 7a07 	vldr	s15, [r5, #28]
+ 8000e2c:	edd5 7a07 	vldr	s15, [r5, #28]
         inv->state = INV_STATE_IDLE;
- 8000e2e:	2300      	movs	r3, #0
+ 8000e30:	2300      	movs	r3, #0
     inv->speedLoop.pi_out_min = -(motor->torqueMax);
- 8000e30:	eeb1 7a67 	vneg.f32	s14, s15
+ 8000e32:	eeb1 7a67 	vneg.f32	s14, s15
     inv->speedLoop.pi_out_max = motor->torqueMax;
- 8000e34:	edc4 7a52 	vstr	s15, [r4, #328]	@ 0x148
+ 8000e36:	edc4 7a52 	vstr	s15, [r4, #328]	@ 0x148
     inv->speedLoop.pi_out_min = -(motor->torqueMax);
- 8000e38:	ed84 7a53 	vstr	s14, [r4, #332]	@ 0x14c
+ 8000e3a:	ed84 7a53 	vstr	s14, [r4, #332]	@ 0x14c
         inv->state = INV_STATE_IDLE;
- 8000e3c:	7523      	strb	r3, [r4, #20]
+ 8000e3e:	7523      	strb	r3, [r4, #20]
 }
- 8000e3e:	ecbd 8b04 	vpop	{d8-d9}
- 8000e42:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
- 8000e44:	37d1b717 	.word	0x37d1b717
- 8000e48:	0007a120 	.word	0x0007a120
+ 8000e40:	ecbd 8b04 	vpop	{d8-d9}
+ 8000e44:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 8000e46:	bf00      	nop
+ 8000e48:	37d1b717 	.word	0x37d1b717
  8000e4c:	44160000 	.word	0x44160000
  8000e50:	4800cb10 	.word	0x4800cb10
  8000e54:	40400001 	.word	0x40400001
@@ -1582,12 +1582,12 @@ void disable_control_loops(volatile InverterStruct *inv){
  8000e7a:	4770      	bx	lr
 
 08000e7c <get_currents_voltage>:
-  * @param[in] cosTheta_e Electrical angle cosine (-1..1)
-  * @retval OK 0 if an error occurred, 1 if successful.
-  */
-uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e) {
-    // Calculate currents and voltage
-    float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, analog->currentOffsets[0]);
+	// Calculate currents and voltage
+//    float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, CURRENT_OFFSET);
+//    float ib = get_linear(ADC_raw[1], CURRENT_SLOPE, CURRENT_OFFSET);
+//    float ic = get_linear(ADC_raw[2], CURRENT_SLOPE, CURRENT_OFFSET);
+
+    float ia = get_linear(rawADC[0], CURRENT_SLOPE, analog->currentOffsets[0]);
  8000e7c:	f8b0 c000 	ldrh.w	ip, [r0]
  */
 void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *idMeas, float *iqMeas) {
@@ -1596,7 +1596,7 @@ void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, 
     float alpha = ia;
     float beta = (ia - 2.0F*(ia+ic)) * ISQ3;
  8000e80:	eeb0 3a00 	vmov.f32	s6, #0	@ 0x40000000  2.0
-    float ia = get_linear(ADC_raw[0], CURRENT_SLOPE, analog->currentOffsets[0]);
+    float ia = get_linear(rawADC[0], CURRENT_SLOPE, analog->currentOffsets[0]);
  8000e84:	edd1 7a04 	vldr	s15, [r1, #16]
  8000e88:	fa1f fc8c 	uxth.w	ip, ip
     float measurement = (voltage - offset) * slope;
@@ -1604,13 +1604,13 @@ void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, 
  8000e90:	ed9f 6a47 	vldr	s12, [pc, #284]	@ 8000fb0 <get_currents_voltage+0x134>
     float voltage = (float) bits * 0.0008058608f; // Assuming 12-bit ADC and 3.3V reference (bits * (3.3 V / 4095.0 bits))
  8000e94:	ee07 ca10 	vmov	s14, ip
-    float ib = get_linear(ADC_raw[1], CURRENT_SLOPE, analog->currentOffsets[1]);
+    float ib = get_linear(rawADC[1], CURRENT_SLOPE, analog->currentOffsets[1]);
  8000e98:	f8b0 c002 	ldrh.w	ip, [r0, #2]
     float measurement = (voltage - offset) * slope;
  8000e9c:	eddf 4a45 	vldr	s9, [pc, #276]	@ 8000fb4 <get_currents_voltage+0x138>
     float voltage = (float) bits * 0.0008058608f; // Assuming 12-bit ADC and 3.3V reference (bits * (3.3 V / 4095.0 bits))
  8000ea0:	eef8 6a47 	vcvt.f32.u32	s13, s14
-    float ib = get_linear(ADC_raw[1], CURRENT_SLOPE, analog->currentOffsets[1]);
+    float ib = get_linear(rawADC[1], CURRENT_SLOPE, analog->currentOffsets[1]);
  8000ea4:	fa1f fc8c 	uxth.w	ip, ip
  8000ea8:	ed91 7a05 	vldr	s14, [r1, #20]
     float measurement = (voltage - offset) * slope;
@@ -1618,18 +1618,18 @@ void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, 
  8000eb0:	eed6 7a85 	vfnms.f32	s15, s13, s10
     float voltage = (float) bits * 0.0008058608f; // Assuming 12-bit ADC and 3.3V reference (bits * (3.3 V / 4095.0 bits))
  8000eb4:	ee06 ca90 	vmov	s13, ip
-    float ic = get_linear(ADC_raw[2], CURRENT_SLOPE, analog->currentOffsets[2]);
+    float ic = get_linear(rawADC[2], CURRENT_SLOPE, analog->currentOffsets[2]);
  8000eb8:	f8b0 c004 	ldrh.w	ip, [r0, #4]
     float voltage = (float) bits * 0.0008058608f; // Assuming 12-bit ADC and 3.3V reference (bits * (3.3 V / 4095.0 bits))
  8000ebc:	eef8 5a66 	vcvt.f32.u32	s11, s13
-    float ic = get_linear(ADC_raw[2], CURRENT_SLOPE, analog->currentOffsets[2]);
+    float ic = get_linear(rawADC[2], CURRENT_SLOPE, analog->currentOffsets[2]);
  8000ec0:	edd1 6a06 	vldr	s13, [r1, #24]
  8000ec4:	fa1f fc8c 	uxth.w	ip, ip
     float beta = (ia - 2.0F*(ia+ic)) * ISQ3;
  8000ec8:	eddf 3a3c 	vldr	s7, [pc, #240]	@ 8000fbc <get_currents_voltage+0x140>
-uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e) {
+void get_currents_voltage(volatile uint16_t rawADC[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e) {
  8000ecc:	b538      	push	{r3, r4, r5, lr}
-    float vDC = get_linear(ADC_raw[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
+    float vDC = get_linear(rawADC[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
  8000ece:	88c5      	ldrh	r5, [r0, #6]
     float measurement = (voltage - offset) * slope;
  8000ed0:	ee95 7a85 	vfnms.f32	s14, s11, s10
@@ -1637,13 +1637,13 @@ uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analo
  8000ed4:	ee05 ca90 	vmov	s11, ip
     float measurement = (voltage - offset) * slope;
  8000ed8:	ee67 7aa4 	vmul.f32	s15, s15, s9
-    float vDC = get_linear(ADC_raw[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
+    float vDC = get_linear(rawADC[3], VOLTAGE_SLOPE, VOLTAGE_OFFSET);
  8000edc:	b2ad      	uxth	r5, r5
     analog->vDC = 20.0F;
  8000ede:	4838      	ldr	r0, [pc, #224]	@ (8000fc0 <get_currents_voltage+0x144>)
     float voltage = (float) bits * 0.0008058608f; // Assuming 12-bit ADC and 3.3V reference (bits * (3.3 V / 4095.0 bits))
  8000ee0:	eef8 5a65 	vcvt.f32.u32	s11, s11
-uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e) {
+void get_currents_voltage(volatile uint16_t rawADC[], volatile Analog* analog, volatile Feedback* feedback, volatile InverterError *errors, float sinTheta_e, float cosTheta_e) {
  8000ee4:	461c      	mov	r4, r3
     float voltage = (float) bits * 0.0008058608f; // Assuming 12-bit ADC and 3.3V reference (bits * (3.3 V / 4095.0 bits))
  8000ee6:	ee04 5a10 	vmov	s8, r5
@@ -1721,10 +1721,10 @@ uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analo
 		clear_error(errors, UNDERVOLTAGE);
  8000f74:	4620      	mov	r0, r4
  8000f76:	2120      	movs	r1, #32
- 8000f78:	f7ff fe68 	bl	8000c4c <clear_error>
 }
- 8000f7c:	2001      	movs	r0, #1
- 8000f7e:	bd38      	pop	{r3, r4, r5, pc}
+ 8000f78:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
+		clear_error(errors, UNDERVOLTAGE);
+ 8000f7c:	f7ff be66 	b.w	8000c4c <clear_error>
 		clear_error(errors, OVERVOLTAGE);
  8000f80:	f7ff fe64 	bl	8000c4c <clear_error>
     if (vDC < UNDERVOLTAGE_TH) {
@@ -1733,10 +1733,10 @@ uint8_t get_currents_voltage(volatile uint16_t ADC_raw[], volatile Analog* analo
 		set_error(errors, UNDERVOLTAGE);
  8000f88:	4620      	mov	r0, r4
  8000f8a:	2120      	movs	r1, #32
- 8000f8c:	f7ff fe5a 	bl	8000c44 <set_error>
 }
- 8000f90:	2001      	movs	r0, #1
- 8000f92:	bd38      	pop	{r3, r4, r5, pc}
+ 8000f8c:	e8bd 4038 	ldmia.w	sp!, {r3, r4, r5, lr}
+		set_error(errors, UNDERVOLTAGE);
+ 8000f90:	f7ff be58 	b.w	8000c44 <set_error>
     if (fabs(ia) > OVERCURRENT_TH || fabs(ib) > OVERCURRENT_TH || fabs(ic) > OVERCURRENT_TH) {
  8000f94:	eef0 6ae6 	vabs.f32	s13, s13
  8000f98:	eef4 6ac4 	vcmpe.f32	s13, s8
