@@ -23,33 +23,33 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   9 .data         000001c4  20000000  0800e6e8  00010000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
- 10 .bss          00000868  200001c8  0800e8ac  000101c8  2**3
+ 10 .bss          00000870  200001c8  0800e8ac  000101c8  2**3
                   ALLOC
- 11 ._user_heap_stack 00000600  20000a30  0800e8ac  00010a30  2**0
+ 11 ._user_heap_stack 00000600  20000a38  0800e8ac  00010a38  2**0
                   ALLOC
  12 .ARM.attributes 0000002e  00000000  00000000  000101c4  2**0
                   CONTENTS, READONLY
- 13 .debug_info   0002bfc2  00000000  00000000  000101f2  2**0
+ 13 .debug_info   0002c19a  00000000  00000000  000101f2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00005a99  00000000  00000000  0003c1b4  2**0
+ 14 .debug_abbrev 00005ab6  00000000  00000000  0003c38c  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_loclists 0000fbd8  00000000  00000000  00041c4d  2**0
+ 15 .debug_loclists 0000fde2  00000000  00000000  00041e42  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_aranges 00001430  00000000  00000000  00051828  2**3
+ 16 .debug_aranges 00001440  00000000  00000000  00051c28  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_rnglists 00001f67  00000000  00000000  00052c58  2**0
+ 17 .debug_rnglists 00001f8c  00000000  00000000  00053068  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_macro  0002c5cc  00000000  00000000  00054bbf  2**0
+ 18 .debug_macro  0002c61e  00000000  00000000  00054ff4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_line   0002bba3  00000000  00000000  0008118b  2**0
+ 19 .debug_line   0002bc7b  00000000  00000000  00081612  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_str    00105bec  00000000  00000000  000acd2e  2**0
+ 20 .debug_str    00105d4a  00000000  00000000  000ad28d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .comment      00000043  00000000  00000000  001b291a  2**0
+ 21 .comment      00000043  00000000  00000000  001b2fd7  2**0
                   CONTENTS, READONLY
- 22 .debug_frame  00003c98  00000000  00000000  001b2960  2**2
+ 22 .debug_frame  00003cb8  00000000  00000000  001b301c  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 23 .debug_line_str 0000005a  00000000  00000000  001b65f8  2**0
+ 23 .debug_line_str 0000005a  00000000  00000000  001b6cd4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -798,43 +798,43 @@ void handle_CAN(CAN_HandleTypeDef *hcan) {
  800097e:	b00f      	add	sp, #60	@ 0x3c
  8000980:	bd30      	pop	{r4, r5, pc}
     	keepAlive++;
- 8000982:	4d0c      	ldr	r5, [pc, #48]	@ (80009b4 <handle_CAN+0x4c>)
+ 8000982:	4d0d      	ldr	r5, [pc, #52]	@ (80009b8 <handle_CAN+0x50>)
         send_CAN_message(hcan, &DBC_CAN1DB_MSG_AP_InvRear_Temperatures, temperatures);
  8000984:	4620      	mov	r0, r4
         float temperatures[] = {inverter_left.tempInverter, inverter_right.tempInverter, inverter_left.tempMotor, inverter_right.tempMotor};
- 8000986:	490c      	ldr	r1, [pc, #48]	@ (80009b8 <handle_CAN+0x50>)
+ 8000986:	490d      	ldr	r1, [pc, #52]	@ (80009bc <handle_CAN+0x54>)
     	keepAlive++;
  8000988:	782b      	ldrb	r3, [r5, #0]
         float temperatures[] = {inverter_left.tempInverter, inverter_right.tempInverter, inverter_left.tempMotor, inverter_right.tempMotor};
- 800098a:	4a0c      	ldr	r2, [pc, #48]	@ (80009bc <handle_CAN+0x54>)
+ 800098a:	4a0d      	ldr	r2, [pc, #52]	@ (80009c0 <handle_CAN+0x58>)
     	keepAlive++;
  800098c:	3301      	adds	r3, #1
         float temperatures[] = {inverter_left.tempInverter, inverter_right.tempInverter, inverter_left.tempMotor, inverter_right.tempMotor};
- 800098e:	f8d1 c07c 	ldr.w	ip, [r1, #124]	@ 0x7c
+ 800098e:	f8d1 c080 	ldr.w	ip, [r1, #128]	@ 0x80
     	keepAlive++;
  8000992:	702b      	strb	r3, [r5, #0]
         float temperatures[] = {inverter_left.tempInverter, inverter_right.tempInverter, inverter_left.tempMotor, inverter_right.tempMotor};
- 8000994:	6fd5      	ldr	r5, [r2, #124]	@ 0x7c
- 8000996:	f8d1 4080 	ldr.w	r4, [r1, #128]	@ 0x80
- 800099a:	f8d2 3080 	ldr.w	r3, [r2, #128]	@ 0x80
+ 8000994:	f8d2 5080 	ldr.w	r5, [r2, #128]	@ 0x80
+ 8000998:	f8d1 4084 	ldr.w	r4, [r1, #132]	@ 0x84
+ 800099c:	f8d2 3084 	ldr.w	r3, [r2, #132]	@ 0x84
         send_CAN_message(hcan, &DBC_CAN1DB_MSG_AP_InvRear_Temperatures, temperatures);
- 800099e:	aa03      	add	r2, sp, #12
- 80009a0:	4907      	ldr	r1, [pc, #28]	@ (80009c0 <handle_CAN+0x58>)
+ 80009a0:	aa03      	add	r2, sp, #12
+ 80009a2:	4908      	ldr	r1, [pc, #32]	@ (80009c4 <handle_CAN+0x5c>)
         float temperatures[] = {inverter_left.tempInverter, inverter_right.tempInverter, inverter_left.tempMotor, inverter_right.tempMotor};
- 80009a2:	f8cd c00c 	str.w	ip, [sp, #12]
- 80009a6:	9504      	str	r5, [sp, #16]
- 80009a8:	9405      	str	r4, [sp, #20]
- 80009aa:	9306      	str	r3, [sp, #24]
+ 80009a4:	f8cd c00c 	str.w	ip, [sp, #12]
+ 80009a8:	9504      	str	r5, [sp, #16]
+ 80009aa:	9405      	str	r4, [sp, #20]
+ 80009ac:	9306      	str	r3, [sp, #24]
         send_CAN_message(hcan, &DBC_CAN1DB_MSG_AP_InvRear_Temperatures, temperatures);
- 80009ac:	f7ff ff78 	bl	80008a0 <send_CAN_message>
+ 80009ae:	f7ff ff77 	bl	80008a0 <send_CAN_message>
 }
- 80009b0:	b00f      	add	sp, #60	@ 0x3c
- 80009b2:	bd30      	pop	{r4, r5, pc}
- 80009b4:	200001e4 	.word	0x200001e4
- 80009b8:	2000034c 	.word	0x2000034c
- 80009bc:	200001e8 	.word	0x200001e8
- 80009c0:	20000000 	.word	0x20000000
- 80009c4:	00000000 	.word	0x00000000
+ 80009b2:	b00f      	add	sp, #60	@ 0x3c
+ 80009b4:	bd30      	pop	{r4, r5, pc}
+ 80009b6:	bf00      	nop
+ 80009b8:	200001e4 	.word	0x200001e4
+ 80009bc:	20000350 	.word	0x20000350
+ 80009c0:	200001e8 	.word	0x200001e8
+ 80009c4:	20000000 	.word	0x20000000
 
 080009c8 <calc_current_reference>:
     static int8_t signTorqueRef = 1;
@@ -1011,7 +1011,7 @@ void calc_current_reference(float we, float torqueRef, float vsRef, MotorParamet
 void calc_current_loop(volatile InverterStruct *inv){
 
     inv->idLoop.pi_out_max = inv->vsMax;
- 8000b44:	f8d0 3110 	ldr.w	r3, [r0, #272]	@ 0x110
+ 8000b44:	f8d0 3114 	ldr.w	r3, [r0, #276]	@ 0x114
 void calc_current_loop(volatile InverterStruct *inv){
  8000b48:	b510      	push	{r4, lr}
  8000b4a:	4604      	mov	r4, r0
@@ -1021,45 +1021,45 @@ void calc_current_loop(volatile InverterStruct *inv){
     inv->idLoop.pi_fdb = inv->feedback.idMeas;         // Feedback
 
     pi_calc(&(inv->idLoop));                            // Calculate id PI controller output
- 8000b4c:	3088      	adds	r0, #136	@ 0x88
+ 8000b4c:	308c      	adds	r0, #140	@ 0x8c
     inv->idLoop.pi_out_max = inv->vsMax;
- 8000b4e:	f8c4 30b0 	str.w	r3, [r4, #176]	@ 0xb0
+ 8000b4e:	f8c4 30b4 	str.w	r3, [r4, #180]	@ 0xb4
     inv->idLoop.pi_out_min = -(inv->vsMax);
- 8000b52:	edd4 7a44 	vldr	s15, [r4, #272]	@ 0x110
+ 8000b52:	edd4 7a45 	vldr	s15, [r4, #276]	@ 0x114
  8000b56:	eef1 7a67 	vneg.f32	s15, s15
- 8000b5a:	edc4 7a2d 	vstr	s15, [r4, #180]	@ 0xb4
+ 8000b5a:	edc4 7a2e 	vstr	s15, [r4, #184]	@ 0xb8
     inv->idLoop.pi_consig = inv->reference.idRef;  	   // Setpoint
  8000b5e:	6e23      	ldr	r3, [r4, #96]	@ 0x60
- 8000b60:	f8c4 30a8 	str.w	r3, [r4, #168]	@ 0xa8
+ 8000b60:	f8c4 30ac 	str.w	r3, [r4, #172]	@ 0xac
     inv->idLoop.pi_fdb = inv->feedback.idMeas;         // Feedback
  8000b64:	6d23      	ldr	r3, [r4, #80]	@ 0x50
- 8000b66:	f8c4 30ac 	str.w	r3, [r4, #172]	@ 0xac
+ 8000b66:	f8c4 30b0 	str.w	r3, [r4, #176]	@ 0xb0
     pi_calc(&(inv->idLoop));                            // Calculate id PI controller output
  8000b6a:	f005 fab3 	bl	80060d4 <pi_calc>
 
 
 
     inv->iqLoop.pi_out_max = inv->vsMax;
- 8000b6e:	f8d4 3110 	ldr.w	r3, [r4, #272]	@ 0x110
+ 8000b6e:	f8d4 3114 	ldr.w	r3, [r4, #276]	@ 0x114
 
     // inv->iqLoop.pi_ffw[0] =  (inv->feedback.idMeas * inv->motor->Ld + inv->motor->lambda) * inv->encoder.we; // Feedforward
     inv->iqLoop.pi_consig = inv->reference.iqRef;  	   // Setpoint
     inv->iqLoop.pi_fdb = inv->feedback.iqMeas;         // Feedback
 
     pi_calc(&(inv->iqLoop));   // Calculate iq PI controller output
- 8000b72:	f104 00cc 	add.w	r0, r4, #204	@ 0xcc
+ 8000b72:	f104 00d0 	add.w	r0, r4, #208	@ 0xd0
     inv->iqLoop.pi_out_max = inv->vsMax;
- 8000b76:	f8c4 30f4 	str.w	r3, [r4, #244]	@ 0xf4
+ 8000b76:	f8c4 30f8 	str.w	r3, [r4, #248]	@ 0xf8
     inv->iqLoop.pi_out_min = -(inv->vsMax);
- 8000b7a:	edd4 7a44 	vldr	s15, [r4, #272]	@ 0x110
+ 8000b7a:	edd4 7a45 	vldr	s15, [r4, #276]	@ 0x114
  8000b7e:	eef1 7a67 	vneg.f32	s15, s15
- 8000b82:	edc4 7a3e 	vstr	s15, [r4, #248]	@ 0xf8
+ 8000b82:	edc4 7a3f 	vstr	s15, [r4, #252]	@ 0xfc
     inv->iqLoop.pi_consig = inv->reference.iqRef;  	   // Setpoint
  8000b86:	6e63      	ldr	r3, [r4, #100]	@ 0x64
- 8000b88:	f8c4 30ec 	str.w	r3, [r4, #236]	@ 0xec
+ 8000b88:	f8c4 30f0 	str.w	r3, [r4, #240]	@ 0xf0
     inv->iqLoop.pi_fdb = inv->feedback.iqMeas;         // Feedback
  8000b8c:	6d63      	ldr	r3, [r4, #84]	@ 0x54
- 8000b8e:	f8c4 30f0 	str.w	r3, [r4, #240]	@ 0xf0
+ 8000b8e:	f8c4 30f4 	str.w	r3, [r4, #244]	@ 0xf4
 
 
 }
@@ -1075,20 +1075,20 @@ void calc_current_loop(volatile InverterStruct *inv){
 void saturate_voltage(volatile InverterStruct *inv){
 
 	inv->vd = inv->idLoop.pi_out;
- 8000b9c:	f8d0 30b8 	ldr.w	r3, [r0, #184]	@ 0xb8
- 8000ba0:	f8c0 3114 	str.w	r3, [r0, #276]	@ 0x114
+ 8000b9c:	f8d0 30bc 	ldr.w	r3, [r0, #188]	@ 0xbc
+ 8000ba0:	f8c0 3118 	str.w	r3, [r0, #280]	@ 0x118
 	inv->vq = inv->iqLoop.pi_out;
- 8000ba4:	f8d0 30fc 	ldr.w	r3, [r0, #252]	@ 0xfc
- 8000ba8:	f8c0 3118 	str.w	r3, [r0, #280]	@ 0x118
+ 8000ba4:	f8d0 3100 	ldr.w	r3, [r0, #256]	@ 0x100
+ 8000ba8:	f8c0 311c 	str.w	r3, [r0, #284]	@ 0x11c
 
 	float vsRef = sqrtf(inv->vd*inv->vd + inv->vq*inv->vq);
- 8000bac:	ed90 6a45 	vldr	s12, [r0, #276]	@ 0x114
- 8000bb0:	ed90 7a45 	vldr	s14, [r0, #276]	@ 0x114
- 8000bb4:	edd0 7a46 	vldr	s15, [r0, #280]	@ 0x118
- 8000bb8:	edd0 5a46 	vldr	s11, [r0, #280]	@ 0x118
+ 8000bac:	ed90 6a46 	vldr	s12, [r0, #280]	@ 0x118
+ 8000bb0:	ed90 7a46 	vldr	s14, [r0, #280]	@ 0x118
+ 8000bb4:	edd0 7a47 	vldr	s15, [r0, #284]	@ 0x11c
+ 8000bb8:	edd0 5a47 	vldr	s11, [r0, #284]	@ 0x11c
 	float invVsRef = 1.0F/vsRef;
 	if (vsRef > inv->vsMax){
- 8000bbc:	edd0 6a44 	vldr	s13, [r0, #272]	@ 0x110
+ 8000bbc:	edd0 6a45 	vldr	s13, [r0, #276]	@ 0x114
 	float vsRef = sqrtf(inv->vd*inv->vd + inv->vq*inv->vq);
  8000bc0:	ee67 7aa5 	vmul.f32	s15, s15, s11
  8000bc4:	eee6 7a07 	vfma.f32	s15, s12, s14
@@ -1100,20 +1100,20 @@ void saturate_voltage(volatile InverterStruct *inv){
 	float invVsRef = 1.0F/vsRef;
  8000bd6:	eef7 5a00 	vmov.f32	s11, #112	@ 0x3f800000  1.0
 		inv->vq = inv->vq*inv->vsMax*invVsRef;
- 8000bda:	edd0 7a46 	vldr	s15, [r0, #280]	@ 0x118
- 8000bde:	ed90 6a44 	vldr	s12, [r0, #272]	@ 0x110
+ 8000bda:	edd0 7a47 	vldr	s15, [r0, #284]	@ 0x11c
+ 8000bde:	ed90 6a45 	vldr	s12, [r0, #276]	@ 0x114
 	float invVsRef = 1.0F/vsRef;
  8000be2:	eec5 6a87 	vdiv.f32	s13, s11, s14
 		inv->vq = inv->vq*inv->vsMax*invVsRef;
  8000be6:	ee67 7a86 	vmul.f32	s15, s15, s12
  8000bea:	ee67 7aa6 	vmul.f32	s15, s15, s13
- 8000bee:	edc0 7a46 	vstr	s15, [r0, #280]	@ 0x118
+ 8000bee:	edc0 7a47 	vstr	s15, [r0, #284]	@ 0x11c
 		inv->vd = inv->vd*inv->vsMax*invVsRef;
- 8000bf2:	edd0 7a45 	vldr	s15, [r0, #276]	@ 0x114
- 8000bf6:	ed90 7a44 	vldr	s14, [r0, #272]	@ 0x110
+ 8000bf2:	edd0 7a46 	vldr	s15, [r0, #280]	@ 0x118
+ 8000bf6:	ed90 7a45 	vldr	s14, [r0, #276]	@ 0x114
  8000bfa:	ee67 7a87 	vmul.f32	s15, s15, s14
  8000bfe:	ee67 7aa6 	vmul.f32	s15, s15, s13
- 8000c02:	edc0 7a45 	vstr	s15, [r0, #276]	@ 0x114
+ 8000c02:	edc0 7a46 	vstr	s15, [r0, #280]	@ 0x118
 	}
 
 }
@@ -1215,7 +1215,7 @@ void handle_startup(volatile InverterStruct *inv) {
  8000c70:	f000 f8f2 	bl	8000e58 <disable_control_loops>
 
     if (inv->errors != NONE) {
- 8000c74:	f8b4 3160 	ldrh.w	r3, [r4, #352]	@ 0x160
+ 8000c74:	f8b4 3164 	ldrh.w	r3, [r4, #356]	@ 0x164
  8000c78:	b29b      	uxth	r3, r3
  8000c7a:	2b00      	cmp	r3, #0
  8000c7c:	d14f      	bne.n	8000d1e <eval_inv_FSM+0xda>
@@ -1253,11 +1253,11 @@ void handle_startup(volatile InverterStruct *inv) {
  8000c9e:	f000 f8db 	bl	8000e58 <disable_control_loops>
 
     if (inv->errors == NONE && inv->enable == 0) {
- 8000ca2:	f8b4 3160 	ldrh.w	r3, [r4, #352]	@ 0x160
+ 8000ca2:	f8b4 3164 	ldrh.w	r3, [r4, #356]	@ 0x164
  8000ca6:	b29b      	uxth	r3, r3
  8000ca8:	2b00      	cmp	r3, #0
  8000caa:	d1ea      	bne.n	8000c82 <eval_inv_FSM+0x3e>
- 8000cac:	f894 3162 	ldrb.w	r3, [r4, #354]	@ 0x162
+ 8000cac:	f894 3166 	ldrb.w	r3, [r4, #358]	@ 0x166
  8000cb0:	f003 02ff 	and.w	r2, r3, #255	@ 0xff
  8000cb4:	2b00      	cmp	r3, #0
  8000cb6:	d1e4      	bne.n	8000c82 <eval_inv_FSM+0x3e>
@@ -1284,7 +1284,7 @@ void handle_startup(volatile InverterStruct *inv) {
  8000cd4:	4620      	mov	r0, r4
  8000cd6:	f000 f8b7 	bl	8000e48 <enable_control_loops>
     if (inv->errors != NONE) {
- 8000cda:	f8b4 3160 	ldrh.w	r3, [r4, #352]	@ 0x160
+ 8000cda:	f8b4 3164 	ldrh.w	r3, [r4, #356]	@ 0x164
  8000cde:	b29b      	uxth	r3, r3
  8000ce0:	2b00      	cmp	r3, #0
  8000ce2:	d0e3      	beq.n	8000cac <eval_inv_FSM+0x68>
@@ -1309,12 +1309,12 @@ void handle_startup(volatile InverterStruct *inv) {
  8000d00:	4620      	mov	r0, r4
  8000d02:	f000 f8a9 	bl	8000e58 <disable_control_loops>
     if (inv->errors != NONE) {
- 8000d06:	f8b4 3160 	ldrh.w	r3, [r4, #352]	@ 0x160
+ 8000d06:	f8b4 3164 	ldrh.w	r3, [r4, #356]	@ 0x164
  8000d0a:	b29b      	uxth	r3, r3
  8000d0c:	2b00      	cmp	r3, #0
  8000d0e:	d1e9      	bne.n	8000ce4 <eval_inv_FSM+0xa0>
     } else if (inv->enable) {
- 8000d10:	f894 3162 	ldrb.w	r3, [r4, #354]	@ 0x162
+ 8000d10:	f894 3166 	ldrb.w	r3, [r4, #358]	@ 0x166
  8000d14:	2b00      	cmp	r3, #0
  8000d16:	d0b4      	beq.n	8000c82 <eval_inv_FSM+0x3e>
         inv->state = INV_STATE_RUNNING;
@@ -1385,13 +1385,13 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     inv->hadc = hadc;
  8000d50:	6120      	str	r0, [r4, #16]
     inv->duties.Da = 0.5;
- 8000d52:	f8c4 c06c 	str.w	ip, [r4, #108]	@ 0x6c
+ 8000d52:	f8c4 c070 	str.w	ip, [r4, #112]	@ 0x70
     inv->duties.Db = 0.5;
- 8000d56:	f8c4 c070 	str.w	ip, [r4, #112]	@ 0x70
+ 8000d56:	f8c4 c074 	str.w	ip, [r4, #116]	@ 0x74
     inv->duties.Dc = 0.5;
- 8000d5a:	f8c4 c074 	str.w	ip, [r4, #116]	@ 0x74
+ 8000d5a:	f8c4 c078 	str.w	ip, [r4, #120]	@ 0x78
     inv->motor = motor;
- 8000d5e:	f8c4 5084 	str.w	r5, [r4, #132]	@ 0x84
+ 8000d5e:	f8c4 5088 	str.w	r5, [r4, #136]	@ 0x88
     HAL_ADC_Start_DMA(hadc, (uint32_t *) rawADC, 4);
  8000d62:	f001 fefb 	bl	8002b5c <HAL_ADC_Start_DMA>
     HAL_TIM_Base_Start_IT(inv->htim);
@@ -1438,21 +1438,21 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
  8000da2:	ed95 7a02 	vldr	s14, [r5, #8]
     inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
     pi_init(&(inv->idLoop)); // Initialize id PI controller (calculate K0, K1)
- 8000da6:	f104 0088 	add.w	r0, r4, #136	@ 0x88
+ 8000da6:	f104 008c 	add.w	r0, r4, #140	@ 0x8c
     inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
  8000daa:	eddf 8a24 	vldr	s17, [pc, #144]	@ 8000e3c <initialize_inverter+0x114>
     inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
  8000dae:	ee97 7a89 	vfnms.f32	s14, s15, s18
     inv->idLoop.Ts = TS;
- 8000db2:	ed84 8a23 	vstr	s16, [r4, #140]	@ 0x8c
+ 8000db2:	ed84 8a24 	vstr	s16, [r4, #144]	@ 0x90
     inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
  8000db6:	ee67 7aa8 	vmul.f32	s15, s15, s17
     inv->iqLoop.Ts = TS;
- 8000dba:	ed84 8a34 	vstr	s16, [r4, #208]	@ 0xd0
+ 8000dba:	ed84 8a35 	vstr	s16, [r4, #212]	@ 0xd4
     inv->idLoop.Kp = 2.0F * xi * omega_n * motor->Ld - motor->Rs;
- 8000dbe:	ed84 7a24 	vstr	s14, [r4, #144]	@ 0x90
+ 8000dbe:	ed84 7a25 	vstr	s14, [r4, #148]	@ 0x94
     inv->idLoop.Ki = powf(omega_n, 2) * motor->Ld;
- 8000dc2:	edc4 7a25 	vstr	s15, [r4, #148]	@ 0x94
+ 8000dc2:	edc4 7a26 	vstr	s15, [r4, #152]	@ 0x98
     pi_init(&(inv->idLoop)); // Initialize id PI controller (calculate K0, K1)
  8000dc6:	f005 f969 	bl	800609c <pi_init>
 
@@ -1462,14 +1462,14 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
  8000dce:	edd5 7a02 	vldr	s15, [r5, #8]
     inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
     pi_init(&(inv->iqLoop)); // Initialize iq PI controller (calculate K0, K1)
- 8000dd2:	f104 00cc 	add.w	r0, r4, #204	@ 0xcc
+ 8000dd2:	f104 00d0 	add.w	r0, r4, #208	@ 0xd0
     inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
  8000dd6:	ee67 8a28 	vmul.f32	s17, s14, s17
     inv->iqLoop.Kp = 2.0F * xi * omega_n * motor->Lq - motor->Rs;
  8000dda:	eed7 7a09 	vfnms.f32	s15, s14, s18
- 8000dde:	edc4 7a35 	vstr	s15, [r4, #212]	@ 0xd4
+ 8000dde:	edc4 7a36 	vstr	s15, [r4, #216]	@ 0xd8
     inv->iqLoop.Ki = powf(omega_n, 2) * motor->Lq;
- 8000de2:	edc4 8a36 	vstr	s17, [r4, #216]	@ 0xd8
+ 8000de2:	edc4 8a37 	vstr	s17, [r4, #220]	@ 0xdc
     pi_init(&(inv->iqLoop)); // Initialize iq PI controller (calculate K0, K1)
  8000de6:	f005 f959 	bl	800609c <pi_init>
 
@@ -1483,7 +1483,7 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
 
     pi_init(&(inv->speedLoop)); // Initialize iq PI controller (calculate K0, K1)
- 8000df2:	f504 708e 	add.w	r0, r4, #284	@ 0x11c
+ 8000df2:	f504 7090 	add.w	r0, r4, #288	@ 0x120
     inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
  8000df6:	ed9f 6a12 	vldr	s12, [pc, #72]	@ 8000e40 <initialize_inverter+0x118>
     inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
@@ -1491,13 +1491,13 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
  8000dfe:	ee97 7a86 	vfnms.f32	s14, s15, s12
     inv->speedLoop.Ts = TS;
- 8000e02:	ed84 8a48 	vstr	s16, [r4, #288]	@ 0x120
+ 8000e02:	ed84 8a49 	vstr	s16, [r4, #292]	@ 0x124
     inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
  8000e06:	ee67 7aa6 	vmul.f32	s15, s15, s13
     inv->speedLoop.Kp = 2.0F * xi_speed * omega_n_speed * motor->J - motor->b;
- 8000e0a:	ed84 7a49 	vstr	s14, [r4, #292]	@ 0x124
+ 8000e0a:	ed84 7a4a 	vstr	s14, [r4, #296]	@ 0x128
     inv->speedLoop.Ki = powf(omega_n_speed, 2) * motor->J;
- 8000e0e:	edc4 7a4a 	vstr	s15, [r4, #296]	@ 0x128
+ 8000e0e:	edc4 7a4b 	vstr	s15, [r4, #300]	@ 0x12c
     pi_init(&(inv->speedLoop)); // Initialize iq PI controller (calculate K0, K1)
  8000e12:	f005 f943 	bl	800609c <pi_init>
 
@@ -1508,9 +1508,9 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
     inv->speedLoop.pi_out_min = -(motor->torqueMax);
  8000e1c:	eeb1 7a67 	vneg.f32	s14, s15
     inv->speedLoop.pi_out_max = motor->torqueMax;
- 8000e20:	edc4 7a51 	vstr	s15, [r4, #324]	@ 0x144
+ 8000e20:	edc4 7a52 	vstr	s15, [r4, #328]	@ 0x148
     inv->speedLoop.pi_out_min = -(motor->torqueMax);
- 8000e24:	ed84 7a52 	vstr	s14, [r4, #328]	@ 0x148
+ 8000e24:	ed84 7a53 	vstr	s14, [r4, #332]	@ 0x14c
         inv->state = INV_STATE_IDLE;
  8000e28:	7523      	strb	r3, [r4, #20]
 }
@@ -1531,11 +1531,11 @@ void initialize_inverter(volatile InverterStruct *inv, LED *led, GPIO_TypeDef *e
 void enable_control_loops(volatile InverterStruct *inv){
 	inv->idLoop.enable = 1;
  8000e48:	2301      	movs	r3, #1
- 8000e4a:	f8a0 3088 	strh.w	r3, [r0, #136]	@ 0x88
+ 8000e4a:	f8a0 308c 	strh.w	r3, [r0, #140]	@ 0x8c
 	inv->iqLoop.enable = 1;
- 8000e4e:	f8a0 30cc 	strh.w	r3, [r0, #204]	@ 0xcc
+ 8000e4e:	f8a0 30d0 	strh.w	r3, [r0, #208]	@ 0xd0
 	inv->speedLoop.enable = 1;
- 8000e52:	f8a0 311c 	strh.w	r3, [r0, #284]	@ 0x11c
+ 8000e52:	f8a0 3120 	strh.w	r3, [r0, #288]	@ 0x120
 }
  8000e56:	4770      	bx	lr
 
@@ -1547,11 +1547,11 @@ void enable_control_loops(volatile InverterStruct *inv){
 void disable_control_loops(volatile InverterStruct *inv){
 	inv->idLoop.enable = 0;
  8000e58:	2300      	movs	r3, #0
- 8000e5a:	f8a0 3088 	strh.w	r3, [r0, #136]	@ 0x88
+ 8000e5a:	f8a0 308c 	strh.w	r3, [r0, #140]	@ 0x8c
 	inv->iqLoop.enable = 0;
- 8000e5e:	f8a0 30cc 	strh.w	r3, [r0, #204]	@ 0xcc
+ 8000e5e:	f8a0 30d0 	strh.w	r3, [r0, #208]	@ 0xd0
 	inv->speedLoop.enable = 0;
- 8000e62:	f8a0 311c 	strh.w	r3, [r0, #284]	@ 0x11c
+ 8000e62:	f8a0 3120 	strh.w	r3, [r0, #288]	@ 0x120
 }
  8000e66:	4770      	bx	lr
 
@@ -2586,7 +2586,7 @@ void tasks_1ms(void) {
 
 
     enable_inverters(inverter_left.enableSW, inverter_right.enableSW, &inverter_left.enable, &inverter_right.enable);
- 8001562:	f1a7 0678 	sub.w	r6, r7, #120	@ 0x78
+ 8001562:	f1a7 067c 	sub.w	r6, r7, #124	@ 0x7c
     ms_counter++;
  8001566:	6021      	str	r1, [r4, #0]
     handle_LED(&led_left, ms_counter);
@@ -2619,7 +2619,7 @@ void tasks_1ms(void) {
  800159e:	4639      	mov	r1, r7
  80015a0:	b280      	uxth	r0, r0
  80015a2:	f7ff fcbb 	bl	8000f1c <get_temperature>
- 80015a6:	ed86 0a1f 	vstr	s0, [r6, #124]	@ 0x7c
+ 80015a6:	ed86 0a20 	vstr	s0, [r6, #128]	@ 0x80
     inverter_right.tempInverter = get_temperature(rawADC_temp[1], tempInverterLUT);
  80015aa:	8860      	ldrh	r0, [r4, #2]
  80015ac:	4639      	mov	r1, r7
@@ -2634,7 +2634,7 @@ void tasks_1ms(void) {
  80015bc:	4639      	mov	r1, r7
  80015be:	b280      	uxth	r0, r0
  80015c0:	f7ff fcac 	bl	8000f1c <get_temperature>
- 80015c4:	ed86 0a20 	vstr	s0, [r6, #128]	@ 0x80
+ 80015c4:	ed86 0a21 	vstr	s0, [r6, #132]	@ 0x84
     inverter_right.tempMotor = get_temperature(rawADC_temp[3], tempMotorLUT);
  80015c8:	88e0      	ldrh	r0, [r4, #6]
  80015ca:	4639      	mov	r1, r7
@@ -2645,15 +2645,15 @@ void tasks_1ms(void) {
 }
  80015d6:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
  80015da:	bf00      	nop
- 80015dc:	200004c8 	.word	0x200004c8
+ 80015dc:	200004d0 	.word	0x200004d0
  80015e0:	2000013c 	.word	0x2000013c
- 80015e4:	200003c4 	.word	0x200003c4
+ 80015e4:	200003cc 	.word	0x200003cc
  80015e8:	20000134 	.word	0x20000134
  80015ec:	2000012c 	.word	0x2000012c
- 80015f0:	200004b0 	.word	0x200004b0
+ 80015f0:	200004b8 	.word	0x200004b8
  80015f4:	0800a57c 	.word	0x0800a57c
  80015f8:	0800657c 	.word	0x0800657c
- 80015fc:	20000260 	.word	0x20000260
+ 80015fc:	20000264 	.word	0x20000264
 
 08001600 <tasks_critical_left>:
 /**
@@ -2724,16 +2724,16 @@ void tasks_critical_left(void){
   
   // Reference generation
   inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torqueMax, inverter_left.motor->speedMax_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
- 8001668:	f504 718e 	add.w	r1, r4, #284	@ 0x11c
+ 8001668:	f504 7190 	add.w	r1, r4, #288	@ 0x120
   inverter_left.vsMax = 0.9F * inverter_left.analog.vDC * ISQ3; // Calculate max Vs voltage, 90% of DC/sqrt3
  800166c:	ee67 7a87 	vmul.f32	s15, s15, s14
- 8001670:	edc4 7a44 	vstr	s15, [r4, #272]	@ 0x110
+ 8001670:	edc4 7a45 	vstr	s15, [r4, #276]	@ 0x114
   inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torqueMax, inverter_left.motor->speedMax_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
- 8001674:	f894 0078 	ldrb.w	r0, [r4, #120]	@ 0x78
- 8001678:	f8d4 3084 	ldr.w	r3, [r4, #132]	@ 0x84
+ 8001674:	f894 007c 	ldrb.w	r0, [r4, #124]	@ 0x7c
+ 8001678:	f8d4 3088 	ldr.w	r3, [r4, #136]	@ 0x88
  800167c:	b240      	sxtb	r0, r0
  800167e:	edd3 0a07 	vldr	s1, [r3, #28]
- 8001682:	f8d4 3084 	ldr.w	r3, [r4, #132]	@ 0x84
+ 8001682:	f8d4 3088 	ldr.w	r3, [r4, #136]	@ 0x88
  8001686:	edd4 1a17 	vldr	s3, [r4, #92]	@ 0x5c
  800168a:	ed93 1a09 	vldr	s2, [r3, #36]	@ 0x24
  800168e:	4b23      	ldr	r3, [pc, #140]	@ (800171c <tasks_critical_left+0x11c>)
@@ -2745,12 +2745,12 @@ void tasks_critical_left(void){
  8001698:	f104 0264 	add.w	r2, r4, #100	@ 0x64
  800169c:	f104 0160 	add.w	r1, r4, #96	@ 0x60
   inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torqueMax, inverter_left.motor->speedMax_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
- 80016a0:	ed84 0a1a 	vstr	s0, [r4, #104]	@ 0x68
+ 80016a0:	ed84 0a1b 	vstr	s0, [r4, #108]	@ 0x6c
   calc_current_reference(inverter_left.encoder.we, inverter_left.reference.torqueRef, inverter_left.vsMax, inverter_left.motor, &inverter_left.reference.idRef, &inverter_left.reference.iqRef);
  80016a4:	ed94 0a0f 	vldr	s0, [r4, #60]	@ 0x3c
- 80016a8:	edd4 0a1a 	vldr	s1, [r4, #104]	@ 0x68
- 80016ac:	ed94 1a44 	vldr	s2, [r4, #272]	@ 0x110
- 80016b0:	f8d4 0084 	ldr.w	r0, [r4, #132]	@ 0x84
+ 80016a8:	edd4 0a1b 	vldr	s1, [r4, #108]	@ 0x6c
+ 80016ac:	ed94 1a45 	vldr	s2, [r4, #276]	@ 0x114
+ 80016b0:	f8d4 0088 	ldr.w	r0, [r4, #136]	@ 0x88
  80016b4:	f7ff f988 	bl	80009c8 <calc_current_reference>
 
   // PIs and duty calc
@@ -2761,9 +2761,9 @@ void tasks_critical_left(void){
  80016be:	4620      	mov	r0, r4
  80016c0:	f7ff fa6c 	bl	8000b9c <saturate_voltage>
   calc_duties(inverter_left.vd, inverter_left.vq, inverter_left.analog.vDC, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e, &inverter_left.duties);
- 80016c4:	ed94 0a45 	vldr	s0, [r4, #276]	@ 0x114
- 80016c8:	f104 006c 	add.w	r0, r4, #108	@ 0x6c
- 80016cc:	edd4 0a46 	vldr	s1, [r4, #280]	@ 0x118
+ 80016c4:	ed94 0a46 	vldr	s0, [r4, #280]	@ 0x118
+ 80016c8:	f104 0070 	add.w	r0, r4, #112	@ 0x70
+ 80016cc:	edd4 0a47 	vldr	s1, [r4, #284]	@ 0x11c
  80016d0:	ed94 1a09 	vldr	s2, [r4, #36]	@ 0x24
  80016d4:	edd4 1a11 	vldr	s3, [r4, #68]	@ 0x44
  80016d8:	ed94 2a12 	vldr	s4, [r4, #72]	@ 0x48
@@ -2771,9 +2771,9 @@ void tasks_critical_left(void){
 
   update_PWM(inverter_left.htim, inverter_left.duties);
  80016e0:	68e0      	ldr	r0, [r4, #12]
- 80016e2:	ed94 0a1b 	vldr	s0, [r4, #108]	@ 0x6c
- 80016e6:	edd4 0a1c 	vldr	s1, [r4, #112]	@ 0x70
- 80016ea:	ed94 1a1d 	vldr	s2, [r4, #116]	@ 0x74
+ 80016e2:	ed94 0a1c 	vldr	s0, [r4, #112]	@ 0x70
+ 80016e6:	edd4 0a1d 	vldr	s1, [r4, #116]	@ 0x74
+ 80016ea:	ed94 1a1e 	vldr	s2, [r4, #120]	@ 0x78
  80016ee:	f7ff fed3 	bl	8001498 <update_PWM>
 
 
@@ -2788,14 +2788,14 @@ void tasks_critical_left(void){
  80016fc:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  80016fe:	bf00      	nop
  8001700:	20000144 	.word	0x20000144
- 8001704:	200004d0 	.word	0x200004d0
+ 8001704:	200004d8 	.word	0x200004d8
  8001708:	20000158 	.word	0x20000158
  800170c:	40490fdb 	.word	0x40490fdb
- 8001710:	2000034c 	.word	0x2000034c
- 8001714:	200004c0 	.word	0x200004c0
+ 8001710:	20000350 	.word	0x20000350
+ 8001714:	200004c8 	.word	0x200004c8
  8001718:	3f050581 	.word	0x3f050581
- 800171c:	200004d4 	.word	0x200004d4
- 8001720:	200004cc 	.word	0x200004cc
+ 800171c:	200004dc 	.word	0x200004dc
+ 8001720:	200004d4 	.word	0x200004d4
  8001724:	00000000 	.word	0x00000000
 
 08001728 <MX_ADC1_Init>:
@@ -2952,7 +2952,7 @@ void tasks_critical_left(void){
  80017dc:	10000000 	.word	0x10000000
  80017e0:	00000000 	.word	0x00000000
  80017e4:	00000001 	.word	0x00000001
- 80017e8:	20000688 	.word	0x20000688
+ 80017e8:	20000690 	.word	0x20000690
  80017ec:	40012000 	.word	0x40012000
 
 080017f0 <MX_ADC2_Init>:
@@ -3109,7 +3109,7 @@ void tasks_critical_left(void){
  80018a4:	10000000 	.word	0x10000000
  80018a8:	00000006 	.word	0x00000006
  80018ac:	00000001 	.word	0x00000001
- 80018b0:	20000640 	.word	0x20000640
+ 80018b0:	20000648 	.word	0x20000648
  80018b4:	40012100 	.word	0x40012100
 
 080018b8 <MX_ADC3_Init>:
@@ -3266,7 +3266,7 @@ void tasks_critical_left(void){
  800196c:	10000000 	.word	0x10000000
  8001970:	0000000a 	.word	0x0000000a
  8001974:	00000001 	.word	0x00000001
- 8001978:	200005f8 	.word	0x200005f8
+ 8001978:	20000600 	.word	0x20000600
  800197c:	40012200 	.word	0x40012200
 
 08001980 <HAL_ADC_MspInit>:
@@ -3548,13 +3548,13 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* adcHandle)
  8001b14:	40012100 	.word	0x40012100
  8001b18:	40012200 	.word	0x40012200
  8001b1c:	40023800 	.word	0x40023800
- 8001b20:	20000598 	.word	0x20000598
+ 8001b20:	200005a0 	.word	0x200005a0
  8001b24:	40020000 	.word	0x40020000
  8001b28:	40026410 	.word	0x40026410
- 8001b2c:	20000538 	.word	0x20000538
+ 8001b2c:	20000540 	.word	0x20000540
  8001b30:	40020400 	.word	0x40020400
  8001b34:	40026440 	.word	0x40026440
- 8001b38:	200004d8 	.word	0x200004d8
+ 8001b38:	200004e0 	.word	0x200004e0
  8001b3c:	40020800 	.word	0x40020800
  8001b40:	40026428 	.word	0x40026428
 
@@ -3613,7 +3613,7 @@ void MX_CAN1_Init(void)
     Error_Handler();
  8001b6e:	f000 bb11 	b.w	8002194 <Error_Handler>
  8001b72:	bf00      	nop
- 8001b74:	200006d0 	.word	0x200006d0
+ 8001b74:	200006d8 	.word	0x200006d8
  8001b78:	40006400 	.word	0x40006400
  8001b7c:	00000000 	.word	0x00000000
 
@@ -3766,7 +3766,7 @@ void MX_DAC_Init(void)
  8001c42:	b003      	add	sp, #12
  8001c44:	f85d fb04 	ldr.w	pc, [sp], #4
 	...
- 8001c50:	200006f8 	.word	0x200006f8
+ 8001c50:	20000700 	.word	0x20000700
  8001c54:	40007400 	.word	0x40007400
 
 08001c58 <HAL_DAC_MspInit>:
@@ -4294,7 +4294,7 @@ void MX_I2C1_Init(void)
     Error_Handler();
  8001f4e:	f000 b921 	b.w	8002194 <Error_Handler>
  8001f52:	bf00      	nop
- 8001f54:	20000710 	.word	0x20000710
+ 8001f54:	20000718 	.word	0x20000718
  8001f58:	40005400 	.word	0x40005400
  8001f5c:	20404768 	.word	0x20404768
 
@@ -4614,24 +4614,24 @@ void Error_Handler(void)
  8002146:	f7fe fd7d 	bl	8000c44 <eval_inv_FSM>
   while (1)
  800214a:	e7f8      	b.n	800213e <main+0x9e>
- 800214c:	2000034c 	.word	0x2000034c
+ 800214c:	20000350 	.word	0x20000350
  8002150:	200001e8 	.word	0x200001e8
- 8002154:	200004b0 	.word	0x200004b0
- 8002158:	200005f8 	.word	0x200005f8
- 800215c:	200004c0 	.word	0x200004c0
+ 8002154:	200004b8 	.word	0x200004b8
+ 8002158:	20000600 	.word	0x20000600
+ 800215c:	200004c8 	.word	0x200004c8
  8002160:	200000b0 	.word	0x200000b0
- 8002164:	20000640 	.word	0x20000640
- 8002168:	200008a8 	.word	0x200008a8
+ 8002164:	20000648 	.word	0x20000648
+ 8002168:	200008b0 	.word	0x200008b0
  800216c:	40021000 	.word	0x40021000
  8002170:	2000013c 	.word	0x2000013c
- 8002174:	200004b8 	.word	0x200004b8
+ 8002174:	200004c0 	.word	0x200004c0
  8002178:	20000034 	.word	0x20000034
- 800217c:	20000688 	.word	0x20000688
- 8002180:	20000768 	.word	0x20000768
+ 800217c:	20000690 	.word	0x20000690
+ 8002180:	20000770 	.word	0x20000770
  8002184:	20000134 	.word	0x20000134
  8002188:	40020400 	.word	0x40020400
- 800218c:	200007b8 	.word	0x200007b8
- 8002190:	200006d0 	.word	0x200006d0
+ 800218c:	200007c0 	.word	0x200007c0
+ 8002190:	200006d8 	.word	0x200006d8
 
 08002194 <Error_Handler>:
  8002194:	b672      	cpsid	i
@@ -4785,7 +4785,7 @@ void CAN1_RX0_IRQHandler(void)
  80021f8:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
   handle_CAN(&hcan1);
  80021fc:	f7fe bbb4 	b.w	8000968 <handle_CAN>
- 8002200:	200006d0 	.word	0x200006d0
+ 8002200:	200006d8 	.word	0x200006d8
 
 08002204 <TIM1_UP_TIM10_IRQHandler>:
 
@@ -4810,7 +4810,7 @@ void TIM1_UP_TIM10_IRQHandler(void)
  800220c:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
   tasks_critical_left();
  8002210:	f7ff b9f6 	b.w	8001600 <tasks_critical_left>
- 8002214:	200008a8 	.word	0x200008a8
+ 8002214:	200008b0 	.word	0x200008b0
 
 08002218 <TIM6_DAC_IRQHandler>:
 
@@ -4837,8 +4837,8 @@ void TIM6_DAC_IRQHandler(void)
   tasks_1ms();
  800222a:	f7ff b991 	b.w	8001550 <tasks_1ms>
  800222e:	bf00      	nop
- 8002230:	200006f8 	.word	0x200006f8
- 8002234:	200007b8 	.word	0x200007b8
+ 8002230:	20000700 	.word	0x20000700
+ 8002234:	200007c0 	.word	0x200007c0
 
 08002238 <DMA2_Stream0_IRQHandler>:
 void DMA2_Stream0_IRQHandler(void)
@@ -4850,7 +4850,7 @@ void DMA2_Stream0_IRQHandler(void)
  8002238:	4801      	ldr	r0, [pc, #4]	@ (8002240 <DMA2_Stream0_IRQHandler+0x8>)
  800223a:	f001 bb0d 	b.w	8003858 <HAL_DMA_IRQHandler>
  800223e:	bf00      	nop
- 8002240:	20000598 	.word	0x20000598
+ 8002240:	200005a0 	.word	0x200005a0
 
 08002244 <DMA2_Stream1_IRQHandler>:
 void DMA2_Stream1_IRQHandler(void)
@@ -4862,7 +4862,7 @@ void DMA2_Stream1_IRQHandler(void)
  8002244:	4801      	ldr	r0, [pc, #4]	@ (800224c <DMA2_Stream1_IRQHandler+0x8>)
  8002246:	f001 bb07 	b.w	8003858 <HAL_DMA_IRQHandler>
  800224a:	bf00      	nop
- 800224c:	200004d8 	.word	0x200004d8
+ 800224c:	200004e0 	.word	0x200004e0
 
 08002250 <DMA2_Stream2_IRQHandler>:
 void DMA2_Stream2_IRQHandler(void)
@@ -4874,7 +4874,7 @@ void DMA2_Stream2_IRQHandler(void)
  8002250:	4801      	ldr	r0, [pc, #4]	@ (8002258 <DMA2_Stream2_IRQHandler+0x8>)
  8002252:	f001 bb01 	b.w	8003858 <HAL_DMA_IRQHandler>
  8002256:	bf00      	nop
- 8002258:	20000538 	.word	0x20000538
+ 8002258:	20000540 	.word	0x20000540
 
 0800225c <SystemInit>:
   */
@@ -5013,7 +5013,7 @@ void MX_TIM2_Init(void)
     Error_Handler();
  80022f2:	f7ff ff4f 	bl	8002194 <Error_Handler>
  80022f6:	e7db      	b.n	80022b0 <MX_TIM2_Init+0x40>
- 80022f8:	20000858 	.word	0x20000858
+ 80022f8:	20000860 	.word	0x20000860
 
 080022fc <MX_TIM4_Init>:
 /* TIM4 init function */
@@ -5131,7 +5131,7 @@ void MX_TIM4_Init(void)
  800237c:	f7ff ff0a 	bl	8002194 <Error_Handler>
  8002380:	e7db      	b.n	800233a <MX_TIM4_Init+0x3e>
  8002382:	bf00      	nop
- 8002384:	20000808 	.word	0x20000808
+ 8002384:	20000810 	.word	0x20000810
  8002388:	40000800 	.word	0x40000800
 
 0800238c <MX_TIM6_Init>:
@@ -5205,7 +5205,7 @@ void MX_TIM6_Init(void)
 }
  80023d4:	b004      	add	sp, #16
  80023d6:	bd10      	pop	{r4, pc}
- 80023d8:	200007b8 	.word	0x200007b8
+ 80023d8:	200007c0 	.word	0x200007c0
  80023dc:	40001000 	.word	0x40001000
 
 080023e0 <HAL_TIM_Base_MspInit>:
@@ -5816,7 +5816,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
  80027a4:	f3af 8000 	nop.w
  80027a8:	02000000 	.word	0x02000000
  80027ac:	00000000 	.word	0x00000000
- 80027b0:	200008a8 	.word	0x200008a8
+ 80027b0:	200008b0 	.word	0x200008b0
  80027b4:	40010000 	.word	0x40010000
 
 080027b8 <MX_TIM8_Init>:
@@ -6004,7 +6004,7 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle)
  80028ee:	e791      	b.n	8002814 <MX_TIM8_Init+0x5c>
  80028f0:	02000000 	.word	0x02000000
  80028f4:	00000000 	.word	0x00000000
- 80028f8:	20000768 	.word	0x20000768
+ 80028f8:	20000770 	.word	0x20000770
  80028fc:	40010400 	.word	0x40010400
 
 08002900 <MX_USB_OTG_FS_USB_Init>:
@@ -6106,7 +6106,7 @@ LoopFillZerobss:
   ldr r2, =_sbss
  800294c:	200001c8 	.word	0x200001c8
   ldr r4, =_ebss
- 8002950:	20000a30 	.word	0x20000a30
+ 8002950:	20000a38 	.word	0x20000a38
 
 08002954 <ADC_IRQHandler>:
  * @retval None       
@@ -6205,7 +6205,7 @@ __weak void HAL_IncTick(void)
 }
  80029c4:	4770      	bx	lr
  80029c6:	bf00      	nop
- 80029c8:	200008f4 	.word	0x200008f4
+ 80029c8:	200008fc 	.word	0x200008fc
  80029cc:	2000016c 	.word	0x2000016c
 
 080029d0 <HAL_GetTick>:
@@ -6220,7 +6220,7 @@ __weak uint32_t HAL_GetTick(void)
 }
  80029d4:	4770      	bx	lr
  80029d6:	bf00      	nop
- 80029d8:	200008f4 	.word	0x200008f4
+ 80029d8:	200008fc 	.word	0x200008fc
 
 080029dc <HAL_Delay>:
   *       implementations in user file.

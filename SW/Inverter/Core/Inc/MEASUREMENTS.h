@@ -29,12 +29,12 @@
 
 
 /* Define fault thresholds */
-#define OVERTEMPERATURE_INV_TH 60.0f /**< [degC] Threshold for inverter overtemperature fault */
+#define OVERTEMPERATURE_INVERTER_TH 60.0f /**< [degC] Threshold for inverter overtemperature fault */
 #define OVERVOLTAGE_TH 600.0f /**< [V] Threshold for overvoltage fault */
 #define OVERCURRENT_TH 100.0f /**< [A] Threshold for instantaneous overcurrent fault */
 #define OVERSPEED_TH 20000.0f /**< [RPM] Threshold for motor overspeed fault */
 #define UNDERVOLTAGE_TH 10.0f /**< [V] Threshold for undervoltage fault */
-#define OVERTEMPERATURE_MOT_TH 90.0f /**< [degC] Threshold for motor overtemperature fault */
+#define OVERTEMPERATURE_MOTOR_TH 90.0f /**< [degC] Threshold for motor overtemperature fault */
 
 #include <stdint.h>
 

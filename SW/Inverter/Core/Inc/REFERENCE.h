@@ -22,14 +22,22 @@
 
 #include "PergaMOD.h" // ramp, pi struct
 #include "MOTOR.h" // motor struct
+#include "MEASUREMENTS.h" // overtemperature defines
 #include <stdint.h>
 
+// Define temperature derating tresholds
+#define TEMP_MOTOR_DERATING (OVERTEMPERATURE_MOTOR_TH - 20.0F)        /**< Temperature at which linear derating starts for the motor (20 degC before the fault) */
+#define TEMP_INVERTER_DERATING (OVERTEMPERATURE_INVERTER_TH - 20.0F)  /**< Temperature at which linear derating starts for the inverter (20 degC before the fault) */
+
+#define TEMP_MOTOR_MAX (OVERTEMPERATURE_MOTOR_TH + 10.0F)             /**< Temperature at which derating is 0 for the motor (10 degC more than the fault) */
+#define TEMP_INVERTER_MAX (OVERTEMPERATURE_INVERTER_TH + 10.0F)       /**< Temperature at which derating is 0 for the inverter (10 degC more than the fault) */
 /**
  * @brief Structure for reference values.
  */
 typedef struct {
     float idRef;      /**< Reference d-axis current in A*/
     float iqRef;      /**< Reference q-axis current in A*/
+    float isMaxRef;   /**< Maximum reference current in A*/
     float torqueRef;  /**< Reference torque in N·m*/
 } Reference;
 
@@ -86,4 +94,28 @@ float saturate_symmetric(float ref, float max);
  */
 float limit_torque_to_prevent_overspeed(float speedMax, float speedMeas, float torqueRefIn, volatile pi_struct *loopSpeed);
 
+
+/**
+ * @brief Calculate derated current based on temperature thresholds. It implements a simple
+ * linear derating from tempStart to tempMax.
+ *
+ * @param[in] temperature The current temperature.
+ * @param[in] tempStart The temperature at which derating starts.
+ * @param[in] tempMax The temperature at which the current is fully derated to 0.
+ * @param[in] iMax The maximum current.
+ *
+ * @return The derated current.
+ */
+float calculate_derated_current(float temperature, float tempStart, float tempMax, float iMax);
+
+/**
+ * @brief Derate the current reference based on both motor and inverter temperatures.
+ *
+ * @param[in] tempMotor The motor temperature.
+ * @param[in] tempInverter The inverter temperature.
+ * @param[in] iMax The maximum current.
+ *
+ * @return The derated current reference.
+ */
+float derate_current_reference(float tempMotor, float tempInverter, float iMax);
 #endif /* REFERENCE_H */

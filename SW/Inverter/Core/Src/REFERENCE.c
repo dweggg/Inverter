@@ -127,3 +127,44 @@ float limit_torque_to_prevent_overspeed(float speedMaxRPM, float speedMeas, floa
 }
 
 
+/**
+ * @brief Calculate derated current based on temperature thresholds. It implements a simple
+ * linear derating from tempStart to tempMax.
+ *
+ * @param[in] temperature The current temperature.
+ * @param[in] tempStart The temperature at which derating starts.
+ * @param[in] tempMax The temperature at which the current is fully derated to 0.
+ * @param[in] iMax The maximum current.
+ *
+ * @return The derated current.
+ */
+float calculate_derated_current(float temperature, float tempStart, float tempMax, float iMax) {
+    if (temperature <= tempStart) {
+        return iMax;
+    } else if (temperature >= tempMax) {
+        return 0.0F;
+    } else {
+        // Linear interpolation between tempStart and tempMax
+        return iMax * (tempMax - temperature) / (tempMax - tempStart);
+    }
+}
+
+/**
+ * @brief Derate the current reference based on both motor and inverter temperatures.
+ *
+ * @param[in] tempMotor The motor temperature.
+ * @param[in] tempInverter The inverter temperature.
+ * @param[in] iMax The maximum current.
+ *
+ * @return The derated current reference.
+ */
+float derate_current_reference(float tempMotor, float tempInverter, float iMax) {
+    // Derate based on motor temperature
+    float deratedCurrentMotor = calculate_derated_current(tempMotor, TEMP_MOTOR_DERATING, TEMP_MOTOR_MAX, iMax);
+    
+    // Derate based on inverter temperature
+    float deratedCurrentInverter = calculate_derated_current(tempInverter, TEMP_INVERTER_DERATING, TEMP_INVERTER_MAX, iMax);
+    
+    // Return the lower of the two derated currents
+    return (deratedCurrentMotor < deratedCurrentInverter) ? deratedCurrentMotor : deratedCurrentInverter;
+}
