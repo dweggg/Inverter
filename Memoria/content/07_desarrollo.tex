@@ -3330,15 +3330,6 @@ Tras montar todos los componentes de todas las placas se procedió a ensamblarla
 \subsection{Desarrollo del \textit{firmware}}
 El \textit{firmware} de un proyecto como este no se puede desarrollar al estilo \textit{maker} de manera informal o improvisada. Requiere un enfoque metodológico y estructurado para garantizar la estabilidad, la eficiencia y la fiabilidad del sistema en su conjunto. Es fundamental seguir prácticas de desarrollo de \textit{software} bien establecidas, como el diseño modular, la documentación detallada del código y la gestión adecuada de versiones. Además, el cumplimiento de estándares de codificación y la realización de análisis estáticos son pasos críticos para garantizar la calidad y la seguridad del \textit{firmware}. Este enfoque profesional y riguroso es esencial para crear una base de código ampliable, portable y eficiente.
 
-\subsubsection{Objetivos del \textit{firmware}}
-El desarrollo del \textit{firmware} para el inversor tiene como objetivo principal garantizar un control preciso y eficiente de los motores PMSM en el contexto de la Formula Student. Los objetivos específicos del \textit{firmware} son los siguientes:
-
-\begin{itemize}
-	\item Integrar correctamente el \textit{firmware} con el \textit{hardware} del inversor, asegurando una interacción fluida y eficaz entre los diferentes componentes del sistema.
-	\item Implementar un control vectorial (FOC) que permita el control independiente de los dos motores conectados al inversor.
-	\item Implementar funciones de protección y seguridad que garanticen el funcionamiento seguro del sistema y prevengan posibles fallos o daños.
-\end{itemize}
-
 \subsubsection{Herramientas utilizadas}
 
 \textbf{Análisis estático: Cppcheck}
@@ -3365,7 +3356,7 @@ Doxygen es una herramienta de generación de documentación que se utiliza para 
 \subsubsection{Plataforma de desarrollo}
 Para el desarrollo del \textit{firmware}, se emplea STM32CubeIDE de STMicroelectronics, una plataforma de desarrollo integrado (IDE) basada en Eclipse y diseñada específicamente para trabajar con microcontroladores STM32. CubeIDE proporciona un entorno de desarrollo completo que incluye un editor de código, un compilador, un depurador y otras herramientas útiles para la programación de microcontroladores STM32. Además, integra STM32CubeMX, que facilita la configuración de periféricos y la generación de código inicial mediante una interfaz gráfica intuitiva.
 
-\begin{figure}
+\begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/cubeide_code}
 	\caption{STM32CubeIDE en la perspectiva de código.}
@@ -3383,6 +3374,8 @@ El lenguaje de programación seleccionado para desarrollar el \textit{firmware} 
 En primer lugar, el lenguaje C es ampliamente compatible y soportado por la mayoría de los microcontroladores, incluidos los STM32. La vasta cantidad de recursos, bibliotecas y herramientas disponibles para el desarrollo en C facilita la implementación de funcionalidades complejas y la integración con el \textit{hardware} específico del microcontrolador.
 
 Además, el lenguaje C es altamente eficiente en términos de uso de recursos de memoria y velocidad de ejecución, lo cual es crucial en aplicaciones embebidas donde se deben cumplir estrictas restricciones de recursos.
+
+Se reconoce que usar C++ podría tener beneficios en la legibilidad y la modularidad por tratarse de un lenguaje orientado a objetos. Sin embargo, las ventajas de usar C son demasiadas como para considerar escribir el código en C++.
 
 \subsubsection{Estilo de programación}
 
@@ -3478,8 +3471,8 @@ Encoder encoder_left; // Declaration of encoder_left
 * @param[in] ic Phase C current in A.
 * @param[in] sinTheta_e Electrical angle sine (-1..1)
 * @param[in] cosTheta_e Electrical angle cosine (-1..1)
-* @param[out] idMeas Pointer to store the D-axis current.
-* @param[out] iqMeas Pointer to store the Q-axis current.
+* @param[out] idMeas Pointer to store the d-axis current.
+* @param[out] iqMeas Pointer to store the q-axis current.
 */
 void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *idMeas, float *iqMeas);
 
@@ -3798,9 +3791,70 @@ En un convertidor se debe tener control absoluto sobre \textit{cuándo} se ejecu
 	\item Se calculan los ciclos de trabajo y se actualiza el registro del \textit{timer} de la salida PWM.
 \end{enumerate}
 
+La conversión del ADC se inicia periódicamente con el \textit{timer} correspondiente. El resto de tareas se implementan en una función vacía.
+
+\begin{adjustbox}{max width=3\textwidth}
+\begin{lstlisting}[language=C, breaklines=true, frame=single]
+
+/**
+* @brief Function to be executed every TS.
+*
+* This function is called by the ADC2 DMA handler every TS (ADC is triggered with TIM1).
+*/
+void tasks_critical_left(void){
+	start_ticks = SysTick->VAL;
+	
+	// ADC
+	get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, &inverter_left.errors, inverter_right.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
+	inverter_left.vsMax = 0.9F * inverter_left.analog.vDC * ISQ3; // Calculate max Vs voltage with a safety margin
+	
+	// FOC
+	calc_current_reference(inverter_left.motor, &inverter_left.reference);
+	
+	// PIs and duty calc
+	calc_current_loop(&inverter_left);
+	saturate_voltage(&inverter_left);
+	calc_duties(inverter_left.vd, inverter_left.vq, inverter_left.analog.vDC, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e, &inverter_left.duties);
+	
+	update_PWM(inverter_left.htim, inverter_left.duties);
+	
+	
+	elapsed_ticks = start_ticks - SysTick->VAL;
+	
+}	
+\end{lstlisting}
+\end{adjustbox}
+
+Esta función vacía se llama dentro de la interrupción del ADC, que salta cuando el DMA llena el \textit{buffer} de datos, indicando que se ha completado la conversión.
+
+
+\begin{adjustbox}{max width=\textwidth}
+\begin{lstlisting}[language=C, breaklines=true, frame=single]
+/**
+* @brief This function handles DMA2 stream2 global interrupt.
+*/
+void DMA2_Stream2_IRQHandler(void)
+{
+	/* USER CODE BEGIN DMA2_Stream2_IRQn 0 */
+	
+	/* USER CODE END DMA2_Stream2_IRQn 0 */
+	HAL_DMA_IRQHandler(&hdma_adc2);
+	/* USER CODE BEGIN DMA2_Stream2_IRQn 1 */
+	tasks_critical_left();
+	
+	/* USER CODE END DMA2_Stream2_IRQn 1 */
+}
+\end{lstlisting}
+\end{adjustbox}
+
 \subsubsection{Algoritmos de control}
 
+El algoritmo \texttt{calc\_current\_reference} calcula las referencias de corriente a partir de la consigna de par. Este algoritmo se encarga de calcular el vector de corriente para la trayectoria MTPA y limita la consigna de corriente a \texttt{isMaxRef}, que se limita usando el \textit{derating} implementado anteriormente. La trayectoria MTPV no está implementada para optimizar el tiempo de cálculo debido a las características esperadas de los motores que se controlarán.
 
+También se deja un espacio para la implementación de debilitamiento de campo. Para implementarlo, se debe añadir el lazo de tensión para modificar \texttt{gammaRef} y debería llamarse dentro de la propia función \texttt{calc\_current\_reference}. Además se debería implementar una selección de trayectorias adecuada que permita trabajar en todos los puntos de operación.
 
+El algoritmo comienza calculando la consigna de corriente en modo CTC. Luego, se lleva a cabo la saturación de \texttt{isRef}, asegurándose de que no supere el valor de \texttt{isMaxRef}. Después, se calcula el ángulo de la trayectoria MTPA. En cada caso se evalúan detenidamente los casos límite como divisiones por 0, y se manejan con las ecuaciones simplificadas, que no presentan estos problemas.
+
+Finalmente, se convierten las coordenadas polares de las referencias de corriente (\texttt{isRef} y \texttt{gammaRef}) a coordenadas cartesianas  (\texttt{idRef} e \texttt{iqRef}).
 
 

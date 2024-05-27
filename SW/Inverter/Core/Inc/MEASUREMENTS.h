@@ -108,8 +108,8 @@ float get_linear(uint32_t bits, float slope, float offset);
  * @param[in] ic Phase C current in A.
  * @param[in] sinTheta_e Electrical angle sine (-1..1)
  * @param[in] cosTheta_e Electrical angle cosine (-1..1)
- * @param[out] idMeas Pointer to store the D-axis current.
- * @param[out] iqMeas Pointer to store the Q-axis current.
+ * @param[out] idMeas Pointer to store the d-axis current.
+ * @param[out] iqMeas Pointer to store the q-axis current.
  */
 void get_idiq(float ia, float ib, float ic, float sinTheta_e, float cosTheta_e, float *idMeas, float *iqMeas);
 
