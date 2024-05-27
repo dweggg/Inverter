@@ -21,6 +21,9 @@
 #include <math.h>
 
 
+// These variables should be updated via CAN
+float torqueRefIn_left = 0.0F;
+float torqueRefIn_right = 0.0F;
 /**
  * @brief Handles torque control based on the reference torque, direction, maximum torque, maximum speed, measured speed,
  *        maximum torque rate of change, speed control loop parameters, and sampling time.

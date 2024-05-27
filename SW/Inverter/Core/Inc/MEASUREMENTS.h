@@ -20,6 +20,8 @@
 #ifndef MEASUREMENTS_H
 #define MEASUREMENTS_H
 
+#include <stdint.h>
+
 /* Define current and voltage gains/offsets */
 #define CURRENT_SLOPE  117.57704f  /**< [A/V] ((4.7+10)/10) * (1 / (12.5 mV / A)) */
 #define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V (not actually used, self calibration at start)*/
@@ -35,8 +37,6 @@
 #define OVERSPEED_TH 20000.0f /**< [RPM] Threshold for motor overspeed fault */
 #define UNDERVOLTAGE_TH 10.0f /**< [V] Threshold for undervoltage fault */
 #define OVERTEMPERATURE_MOTOR_TH 90.0f /**< [degC] Threshold for motor overtemperature fault */
-
-#include <stdint.h>
 
 extern const float tempInverterLUT[];
 extern const float tempMotorLUT[];

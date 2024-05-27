@@ -31,6 +31,12 @@
 
 #define TEMP_MOTOR_MAX (OVERTEMPERATURE_MOTOR_TH + 10.0F)             /**< Temperature at which derating is 0 for the motor (10 degC more than the fault) */
 #define TEMP_INVERTER_MAX (OVERTEMPERATURE_INVERTER_TH + 10.0F)       /**< Temperature at which derating is 0 for the inverter (10 degC more than the fault) */
+
+
+// These variables should be updated via CAN
+extern float torqueRefIn_left;
+extern float torqueRefIn_right;
+
 /**
  * @brief Structure for reference values.
  */
