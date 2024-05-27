@@ -28,7 +28,10 @@
  * isMaxRef (calculated by derating, starting from the motor's maximum current).
  * The MTPV trajectory is not implemented to save some computation time due to the
  * nature of the motors expected. In order to implement field weakening, an external
- * voltage loop modifying gammaRef is needed and should be called inside here. 
+ * voltage loop modifying gammaRef is needed and should be called inside here. When
+ * implementing field weakening, special attention must be put to the torque reference 
+ * being near 0 or differing from the speed sign (regeneration). A minimum id current
+ * must be set for speeds higher than Vs/lambda. Study thoroughly, simulate first.
  * 
  * 
  * @param[in] motor         Pointer to the motor parameters structure.
@@ -62,6 +65,9 @@ void calc_current_reference(MotorParameters * motor, volatile Reference * refere
         float torqueTerm = motor->constants.fourTimesOneMinusXi * reference->torqueRef * motor->constants.invTorqueBase;
         isRefCTC = motor->constants.isc * (sqrtf(sinGammaRef * sinGammaRef + sin2GammaRef * torqueTerm) - sinGammaRef) / (sin2GammaRef * motor->constants.oneMinusXi);
     }
+
+
+    // TODO: Implement VLE (and maybe MTPV), and a good trajectory selection strategy. Difficult stuff though.
 
     // isRef saturation
     isRef = (isRefCTC < reference->isMaxRef) ? isRefCTC : reference->isMaxRef;

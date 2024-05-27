@@ -28,7 +28,11 @@
  * current vector for the MTPA trajectory and limits the current reference to 
  * isMaxRef (calculated by derating, starting from the motor's maximum current).
  * The MTPV trajectory is not implemented to save some computation time due to the
- * nature of the motors expected.
+ * nature of the motors expected. In order to implement field weakening, an external
+ * voltage loop modifying gammaRef is needed and should be called inside here. When
+ * implementing field weakening, special attention must be put to the torque reference 
+ * being near 0 or differing from the speed sign (regeneration). A minimum id current
+ * must be set for speeds higher than Vs/lambda. Study thoroughly, simulate first.
  * 
  * 
  * @param[in] motor         Pointer to the motor parameters structure.
