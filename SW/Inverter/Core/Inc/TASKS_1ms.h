@@ -21,6 +21,8 @@
 #ifndef TASKS_1MS_H
 #define TASKS_1MS_H
 
+#include "INVERTER.h" // needs invLeft/invRight
+
 
 /**
  * @brief Function to be executed every 1ms.
@@ -28,5 +30,17 @@
  * This function is called by the TIM6 IRQ handler every millisecond.
  */
 void tasks_1ms(void);
+
+/**
+ * @brief Function to read temperatures and handle overtemperature faults.
+ */
+void read_temperatures(void);
+
+/**
+ * @brief Function to handle overtemperature faults.
+ * 
+ * @param[in, out] inv Pointer to the InverterStruct structure.
+ */
+void handle_overtemperature_faults(volatile InverterStruct *inv);
 
 #endif /* TASKS_1MS_H */

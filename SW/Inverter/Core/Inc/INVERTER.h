@@ -141,7 +141,7 @@ void disable_control_loops(volatile InverterStruct *inv);
  * @param[out] inv Pointer to the InverterStruct structure.
  * @param[in] error The error to be set. This should be one of the values from the InverterError enumeration.
  */
-void set_error(InverterStruct *inv, InverterError error);
+void set_error(volatile InverterStruct *inv, InverterError error);
 
 /**
  * @brief Clears an error in the inverter's error field.
@@ -151,7 +151,7 @@ void set_error(InverterStruct *inv, InverterError error);
  * @param[out] inv Pointer to the InverterStruct structure.
  * @param[in] error The error to be cleared. This should be one of the values from the InverterError enumeration.
  */
-void clear_error(InverterStruct *inv, InverterError error);
+void clear_error(volatile InverterStruct *inv, InverterError error);
 
 /**
  * @brief Checks if an error is set in the inverter's error field.
@@ -162,6 +162,6 @@ void clear_error(InverterStruct *inv, InverterError error);
  * @param[in] error The error to be checked. This should be one of the values from the InverterError enumeration.
  * @return true if the specified error is set, false otherwise.
  */
-bool is_error_set(InverterStruct *inv, InverterError error);
+bool is_error_set(volatile InverterStruct *inv, InverterError error);
 
 #endif /* INVERTER_H */

@@ -19,14 +19,12 @@
 
 #include "TASKS_1ms.h"
 #include "PCB_IO.h"		// needs handle functions
-#include "INVERTER.h" // needs invLeft/invRight
 #include "MEASUREMENTS.h" // needs get_temperature
 #include "REFERENCE.h" // torqueRef and current derating gets calculated in here
 
 
 // Define the ms_counter variable
 static uint32_t ms_counter = 0;
-
 
 /**
  * @brief Function to be executed every 1ms.
@@ -49,18 +47,7 @@ void tasks_1ms(void) {
     // Get enableSW via CAN and enableHW from shutdown circuit GPIO reading
     enable_inverters(inverter_left.enableSW, inverter_right.enableSW, &inverter_left.enable, &inverter_right.enable);
 
-    // Acquire temperatures
-    inverter_left.tempInverter = get_temperature(rawADC_temp[0], tempInverterLUT);
-    inverter_right.tempInverter = get_temperature(rawADC_temp[1], tempInverterLUT);
-
-    inverter_left.tempMotor = get_temperature(rawADC_temp[2], tempMotorLUT);
-    inverter_right.tempMotor = get_temperature(rawADC_temp[3], tempMotorLUT);
-    
-    //TODO: Motor did not have temperature sensor while testing, please delete these lines
-    inverter_left.tempMotor = 25.0F;
-    inverter_right.tempMotor = 25.0F;
-
-
+    read_temperatures();
 
     // Torque reference handling, without ramp
     inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torqueMax, inverter_left.motor->speedMax_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
@@ -70,4 +57,39 @@ void tasks_1ms(void) {
     // Current reference derating
     inverter_left.reference.isMaxRef = derate_current_reference(inverter_left.tempMotor, inverter_left.tempInverter, inverter_left.motor->iMax);
     inverter_right.reference.isMaxRef = derate_current_reference(inverter_right.tempMotor, inverter_right.tempInverter, inverter_right.motor->iMax);
+}
+
+/**
+ * @brief Function to read temperatures and handle overtemperature faults.
+ */
+void read_temperatures(void) {
+    // Acquire temperatures
+    inverter_left.tempInverter = get_temperature(rawADC_temp[0], tempInverterLUT);
+    inverter_right.tempInverter = get_temperature(rawADC_temp[1], tempInverterLUT);
+
+    inverter_left.tempMotor = get_temperature(rawADC_temp[2], tempMotorLUT);
+    inverter_right.tempMotor = get_temperature(rawADC_temp[3], tempMotorLUT);
+    
+    // Check for overtemperature faults
+    handle_overtemperature_faults(&inverter_left);
+    handle_overtemperature_faults(&inverter_right);
+}
+
+/**
+ * @brief Function to handle overtemperature faults.
+ * 
+ * @param[in, out] inv Pointer to the InverterStruct structure.
+ */
+void handle_overtemperature_faults(volatile InverterStruct *inv) {
+    if (inv->tempInverter > OVERTEMPERATURE_INVERTER_TH) {
+        set_error(inv, OVERTEMPERATURE_INV);
+    } else {
+        clear_error(inv, OVERTEMPERATURE_INV);
+    }
+
+    if (inv->tempMotor > OVERTEMPERATURE_MOTOR_TH) {
+        set_error(inv, OVERTEMPERATURE_MOT);
+    } else {
+        clear_error(inv, OVERTEMPERATURE_MOT);
+    }
 }
