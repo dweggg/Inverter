@@ -82,14 +82,14 @@ void read_temperatures(void) {
  */
 void handle_overtemperature_faults(volatile InverterStruct *inv) {
     if (inv->tempInverter > OVERTEMPERATURE_INVERTER_TH) {
-        set_error(inv, OVERTEMPERATURE_INV);
+        set_error(&inv->errors, OVERTEMPERATURE_INV);
     } else {
-        clear_error(inv, OVERTEMPERATURE_INV);
+        clear_error(&inv->errors, OVERTEMPERATURE_INV);
     }
 
     if (inv->tempMotor > OVERTEMPERATURE_MOTOR_TH) {
-        set_error(inv, OVERTEMPERATURE_MOT);
+        set_error(&inv->errors, OVERTEMPERATURE_MOT);
     } else {
-        clear_error(inv, OVERTEMPERATURE_MOT);
+        clear_error(&inv->errors, OVERTEMPERATURE_MOT);
     }
 }

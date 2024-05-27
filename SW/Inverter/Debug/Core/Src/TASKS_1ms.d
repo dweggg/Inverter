@@ -1,5 +1,5 @@
 Core/Src/TASKS_1ms.o: ../Core/Src/TASKS_1ms.c ../Core/Inc/TASKS_1ms.h \
- ../Core/Inc/INVERTER.h ../Core/Inc/PCB_IO.h \
+ ../Core/Inc/INVERTER.h ../Core/Inc/ERRORS.h ../Core/Inc/PCB_IO.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
@@ -38,6 +38,7 @@ Core/Src/TASKS_1ms.o: ../Core/Src/TASKS_1ms.c ../Core/Inc/TASKS_1ms.h \
  ../Core/Inc/PCB_IO.h ../Core/Inc/MEASUREMENTS.h ../Core/Inc/REFERENCE.h
 ../Core/Inc/TASKS_1ms.h:
 ../Core/Inc/INVERTER.h:
+../Core/Inc/ERRORS.h:
 ../Core/Inc/PCB_IO.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
 ../Core/Inc/stm32f7xx_hal_conf.h:

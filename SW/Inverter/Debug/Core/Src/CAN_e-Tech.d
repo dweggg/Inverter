@@ -32,9 +32,10 @@ Core/Src/CAN_e-Tech.o: ../Core/Src/CAN_e-Tech.c ../Core/Inc/can.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
- ../Core/Inc/INVERTER.h ../Core/Inc/PCB_IO.h ../Core/Inc/MEASUREMENTS.h \
- ../Core/Inc/REFERENCE.h ../Core/Inc/PergaMOD.h ../Core/Inc/MOTOR.h \
- ../Core/Inc/PWM.h ../Core/Inc/CAN_e-Tech.h ../Core/Inc/CAN1db.h
+ ../Core/Inc/INVERTER.h ../Core/Inc/ERRORS.h ../Core/Inc/PCB_IO.h \
+ ../Core/Inc/MEASUREMENTS.h ../Core/Inc/REFERENCE.h \
+ ../Core/Inc/PergaMOD.h ../Core/Inc/MOTOR.h ../Core/Inc/PWM.h \
+ ../Core/Inc/CAN_e-Tech.h ../Core/Inc/CAN1db.h
 ../Core/Inc/can.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -71,6 +72,7 @@ Core/Src/CAN_e-Tech.o: ../Core/Src/CAN_e-Tech.c ../Core/Inc/can.h \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h:
 ../Core/Inc/INVERTER.h:
+../Core/Inc/ERRORS.h:
 ../Core/Inc/PCB_IO.h:
 ../Core/Inc/MEASUREMENTS.h:
 ../Core/Inc/REFERENCE.h:
