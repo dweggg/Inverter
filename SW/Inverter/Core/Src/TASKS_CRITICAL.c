@@ -21,11 +21,6 @@
 #include "INVERTER.h"
 #include <math.h>
 
-float idRef_left = 0.0F;
-float iqRef_left = 0.0F;
-
-float torqueRefIn_left = 0.0F;
-
 uint32_t start_ticks = 0;
 uint32_t elapsed_ticks = 0;
 
@@ -65,9 +60,6 @@ void tasks_critical_left(void){
   get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, inverter_left.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
   inverter_left.vsMax = 0.9F * inverter_left.analog.vDC * ISQ3; // Calculate max Vs voltage, 90% of DC/sqrt3
   
-  // Reference generation
-  inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torqueMax, inverter_left.motor->speedMax_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
-
   // FOC
   calc_current_reference(inverter_left.motor, &inverter_left.reference);
 

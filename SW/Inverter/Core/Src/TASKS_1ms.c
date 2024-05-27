@@ -21,10 +21,14 @@
 #include "PCB_IO.h"		// needs handle functions
 #include "INVERTER.h" // needs invLeft/invRight
 #include "MEASUREMENTS.h" // needs get_temperature
+#include "REFERENCE.h" // torqueRef gets calculated in here
 
 
 // Define the ms_counter variable
 static uint32_t ms_counter = 0;
+
+float torqueRefIn_left = 0.0F;
+float torqueRefIn_right = 0.0F;
 
 /**
  * @brief Function to be executed every 1ms.
@@ -52,5 +56,9 @@ void tasks_1ms(void) {
     inverter_right.tempInverter = get_temperature(rawADC_temp[1], tempInverterLUT);
     inverter_left.tempMotor = get_temperature(rawADC_temp[2], tempMotorLUT);
     inverter_right.tempMotor = get_temperature(rawADC_temp[3], tempMotorLUT);
+
+    // Reference generation
+    inverter_left.reference.torqueRef = handle_torqueRef(torqueRefIn_left, inverter_left.direction, inverter_left.motor->torqueMax, inverter_left.motor->speedMax_RPM, inverter_left.feedback.speedMeas, &inverter_left.speedLoop);
+    inverter_right.reference.torqueRef = handle_torqueRef(torqueRefIn_right, inverter_right.direction, inverter_right.motor->torqueMax, inverter_right.motor->speedMax_RPM, inverter_right.feedback.speedMeas, &inverter_right.speedLoop);
 
 }
