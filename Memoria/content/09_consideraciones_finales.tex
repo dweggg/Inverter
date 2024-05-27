@@ -2,7 +2,7 @@
 
 \section{Impacto ambiental}
 
-El presente proyecto tiene un impacto ambiental que se concentra principalmente en la fabricación del \textit{hardware}. A pesar de que el control y \textit{firmware} del inversor tienen un impacto ambiental prácticamente nulo, la producción y ensamblaje de los componentes electrónicos son aspectos críticos a considerar.
+El presente proyecto tiene un impacto ambiental que se concentra principalmente en la fabricación del \textit{hardware}. El control y \textit{firmware} del inversor tienen un impacto ambiental prácticamente nulo, la producción y ensamblaje de los componentes electrónicos son aspectos críticos a considerar.
 
 \subsection{Fabricación de PCBs}
 
@@ -122,38 +122,69 @@ En esta sección se rescatan los objetivos propuestos al inicio del trabajo y se
 
 \subsection{Cumplimiento de los objetivos}
 
-\subsubsection{Adquirir conocimiento sobre control de motores eléctricos y diseño de convertidores de potencia} 
+\subsubsection*{Objetivo 1}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		Adquirir \textbf{conocimiento} sobre control de motores eléctricos y diseño de convertidores de potencia.%
+	}%
+}
 
-En el desarrollo de este trabajo se ha abordado con rigurosidad el modelo matemático del PMSM, describiendo analíticamente sus comportamiento y diseñando un control analítico en base a estas ecuaciones. Se han tomado referencias de alta calidad para diseñar el control vectorial y se considera que el algoritmo implementado está a la orden del día. Es cierto que este algoritmo tiene algunas dificultades, como por ejemplo, la regeneración en debilitamiento de campo. Sin embargo, estos problemas no están resueltos de forma analítica por la comunidad científico-técnica, y los inversores de tracción que implementan controles más avanzados lo hacen mediante puntos de operación tabulados, en vez de analíticamente. Otro punto que es necesario remarcar es que se han obviado algunos razonamientos matemáticos y se han elidido formalismos para no sobrecomplicar el análisis. Se ha decidido hacer así para no congestionar la comprensión de lo que realmente es útil para el control de máquinas eléctricas.
+En el desarrollo de este trabajo se ha abordado rigurosamente el modelo matemático del PMSM, describiendo analíticamente su comportamiento y diseñando un control analítico basado en estas ecuaciones. Se han tomado referencias de alta calidad para diseñar el control vectorial y se considera que el algoritmo implementado está a la orden del día. Cabe destacar que se han obviado algunos razonamientos matemáticos y formalismos para no sobrecomplicar el análisis, permitiendo una mejor comprensión de lo realmente útil para el control de máquinas eléctricas.
 
-En cuanto al diseño de convertidores de potencia, se ha profundizado considerablemente en los aspectos tanto de \textit{hardware} como de la implementación del control en tiempo real. Se ha adquirido un conocimiento amplio y detallado sobre la selección y dimensionamiento de componentes electrónicos en convertidores, así como sobre las técnicas de diseño de PCB y la integración de los diferentes módulos de un accionamiento eléctrico. Además, se ha estudiado exhaustivamente la programación de MCUs para el control en tiempo real, logrando una buena implementación de lo previamente simulado. Sin embargo, hay que tener en cuenta que no se han abordado muchos aspectos del análisis de convertidores como por ejemplo los ensayos de doble pulso, o la descomposición espectral de frecuencias o el análisis de impacto de EMIs debido a la extensión limitada del trabajo.
+En cuanto al diseño de la electrónica de potencia, se ha profundizado considerablemente en los aspectos tanto de \textit{hardware} como de la implementación del control en tiempo real. Se ha adquirido un conocimiento amplio y detallado sobre la selección y dimensionamiento de componentes electrónicos en convertidores de potencia, así como sobre las técnicas de diseño de PCBs y la integración de los diferentes módulos que conforman un accionamiento eléctrico. Sin embargo, no se han abordado aspectos importantes como los ensayos de doble pulso, la descomposición espectral de frecuencias o el análisis de impacto de EMIs debido a la extensión limitada del trabajo.
 
-Se puede afirmar pues, que este objetivo queda cumplido prácticamente en su totalidad.
+Se puede afirmar que este objetivo ha sido cumplido prácticamente en su totalidad.
 
-\subsubsection{Definir unos requisitos para el inversor de tracción ideal para el equipo e-Tech Racing de la UPC-EEBE}
+\subsubsection*{Objetivo 2}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		Definir unos \textbf{requisitos} para el \textit{hardware} del inversor de tracción ideal para el equipo e-Tech Racing de la UPC-EEBE.%
+	}%
+}
 
-Atendiendo al apartado que los define, se consideran definidos los requisitos del inversor de tracción ideal para e-Tech Racing. Se tomaron en cuenta todos los aspectos relevantes tanto por la normativa como internos del equipo, y se fusionaron en una lista de requisitos. Cumplir este objetivo no es solamente útil para dimensionar el convertidor de este trabajo, si no que también sirve como metodología de análisis para otros aspectos del tren de potencia del monoplaza. Por tanto, se considera más que cumplido este objetivo.
+Atendiendo al apartado que define los requisitos, se consideran establecidos los requisitos del \textit{hardware} del inversor de tracción ideal para e-Tech Racing. Se tomaron en cuenta todos los aspectos relevantes tanto por la normativa como internos del equipo, y se fusionaron en una lista de requisitos. Cumplir este objetivo no solo es útil para dimensionar el convertidor de este trabajo, sino que también sirve como metodología de análisis para otros aspectos del tren de potencia del monoplaza. 
 
-\subsubsection{Diseñar un inversor de tracción en base a esos requisitos}
+Se considera más que cumplido este objetivo.
 
-El diseño del inversor está completado, y se ha verificado en gran medida mediante simulaciones y pruebas de laboratorio. Se ha considerado cada uno de los requisitos establecidos, y se ha procedido con la selección de componentes adecuados, la creación de esquemas eléctricos y el diseño de las PCBs. Se han realizado dos iteraciones de las placas para corregir los errores iniciales. En resumen, este objetivo se ha alcanzado de manera satisfactoria.
+\subsubsection*{Objetivo 3}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		\textbf{Diseñar} el \textit{hardware} del inversor basado en esos requisitos.%
+	}%
+}
 
-\subsubsection{Implementar un control vectorial que permita el control independiente de dos motores con un solo microcontrolador}
+El diseño del \textit{hardware} del inversor está completado y se ha verificado en gran medida mediante simulaciones y pruebas de laboratorio. Se han considerado cada uno de los requisitos establecidos, y se ha procedido con la selección de componentes adecuados, la creación de esquemas eléctricos y el diseño de las PCBs. Se han realizado dos iteraciones de las placas para corregir los errores iniciales. 
 
-AAAAAAAAAAAAAAAAAAAAAAAAAAA
+Este objetivo se ha alcanzado de manera satisfactoria.
 
+\subsubsection*{Objetivo 4}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		Evaluar y \textbf{validar} el \textit{hardware} del inversor.%
+	}%
+}
 
-\subsubsection{Evaluar y validar el rendimiento del inversor}
+Se ha realizado una evaluación exhaustiva de cada parte del \textit{hardware} del inversor para asegurar su funcionalidad y cumplimiento de los requisitos. Las pruebas realizadas han verificado que el diseño cumple con las especificaciones y que el \textit{hardware} funciona correctamente en las condiciones esperadas. Sin embargo, debido a que no se ha dispuesto de una batería de 600 V ni un motor adecuado, el convertidor no se pudo probar en sus máximas especificaciones. Para algún parámetro crítico se han hecho predicciones matemáticas en base a algunos ensayos a menos potencia, pero esto no es suficiente.
 
-El rendimiento del inversor ha sido evaluado y validado mediante una serie de pruebas en condiciones controladas. Se han realizado varios ensayos para verificar las partes más críticas del convertidor, obteniendo resultados coherentes y relacionados con los cálculos o simulaciones previas. No se ha podido probar el inversor en sus máximas especificaciones eléctricas, ya que no se dispuso de una fuente de alimentación capaz de soportar la potencia completa. De todas formas, los datos recopilados hasta la fecha de entrega del trabajo confirman que el inversor estaría listo para ser probado a sus máximas especificaciones y posteriormente ser integrado en un monoplaza de e-Tech Racing. Por consiguiente, se puede concluir que este objetivo ha sido parcialmente alcanzado.
+Este objetivo ha sido cumplido parcialmente, y sería necesaria una validación más extensa a potencias más elevadas.
+
+\subsubsection*{Objetivo 5}
+\colorbox{lightgray}{%
+	\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule}{%
+		Implementar un \textbf{control vectorial} que permita el control independiente de \textbf{dos motores} con un solo microcontrolador.%
+	}%
+}
+
+Se ha procedido a la implementación del \textit{firmware} que controlará el \textit{hardware} del inversor, integrando gran parte del control diseñado previamente. La naturaleza modular del código escrito permite, sin mucho esfuerzo, controlar dos motores de forma independiente, ya que se han integrado todos los periféricos necesarios. El lazo de control con debilitamiento de campo no se ha podido verificar por falta de tiempo y equipamiento, pero se considera sencillo implementarlo cogiendo como base las simulaciones realizadas si se tiene un motor adecuado con el que probar. De la misma manera, no se ha podido verificar el control dual, aunque en todo momento del desarrollo se han estado ejecutando ambos lazos de control simultáneamente.
+
+Se ha cumplido en gran medida este objetivo, aunque no se han validado algunos aspectos.
+
 
 \subsection{Futuras líneas de trabajo}
 
-A continuación, se destacan las partes específicas del trabajo que el autor considera que necesitan una revisión o mejora.
-
 \subsubsection{Control vectorial}
 
-Como se ha mencionado anteriormente, se es consciente de que el algoritmo propuesto no es capaz de controlar la corriente en algunas situaciones como por ejemplo la regeneración en debilitamiento de campo. Se propone esperar una solución por parte de la comunidad científico-técnica y hasta entonces, limitar la frenada regenerativa a la zona de baja fuerza contraelectromotriz. Otra estrategia sería explorar el control tabulado, con los puntos de operación pre-calculados.
+Como se ha mencionado anteriormente, se es consciente de que el algoritmo propuesto no es capaz de controlar la corriente en algunas situaciones como por ejemplo la regeneración en debilitamiento de campo. Se propone esperar una solución por parte de la comunidad científico-técnica, y hasta entonces, limitar la frenada regenerativa a la zona de baja BEMF. Otra estrategia sería explorar el control tabulado, con los puntos de operación pre-calculados.
 
 \subsubsection{\textit{Hardware}}
 
@@ -161,10 +192,10 @@ Como se ha mencionado anteriormente, se es consciente de que el algoritmo propue
 \begin{itemize}
 	\item Diseñar e integrar una \textit{coldplate}.
 	\item Integrar el convertidor en una caja con conectores adecuados para el monoplaza.
-	\item Tratar de aumentar la densidad de potencia volumétrica.
+	\item Evaluar la compatibilidad electromagnética con el resto de sistemas eléctricos del monoplaza.
 \end{itemize}
-\paragraph{Placa de potencia}
 
+\paragraph{Placa de potencia}
 \begin{itemize}
 	\item D1 tiene una especificación de corriente por debajo del valor medido. Debe ser reemplazado por una protección basada en PMOS o por otro \textit{schottky} más adecuado.
 	\item Rdis prácticamente no tiene efecto en comparación con R504...R510 y podría eliminarse.
@@ -174,21 +205,30 @@ Como se ha mencionado anteriormente, se es consciente de que el algoritmo propue
 	\item D501 falló una vez, aunque la causa sigue siendo desconocida.
 	\item R501 debería tener un valor más grande.
 	\item R511 y R512 deben tener una tolerancia pequeña, y esto debe especificarse en el esquemático.
-	\item Los condensadores de 10 $\mu$F 50 V 0805 son caros y deberían reemplazarse por 10 $\mu$F 50 V 1206 o 10 $\mu$F 50 V 1210.
+	\item Los condensadores de 10 \unit{\micro\farad} 50 V 0805 son caros y deberían reemplazarse por 10 \unit{\micro\farad} 50 V 1206 o 10 \unit{\micro\farad} 50 V 1210.
 	\item Implementar la protección de desaturación aprovechando que el \textit{gate driver} escogido está habilitado para ello.
+	\item Tratar de fabricar las placas con estaño químico para asegurar una mejor conexión de los componentes \textit{press-fit}.	
 \end{itemize}
 
 \paragraph{Placa de control}
-
 \begin{itemize}
 	\item DCDC101 no se ha probado todavía.
-	\item L101 tiene una especificación de corriente muy baja. Debería aguantar al menos 3A.
+	\item L101 tiene una especificación de corriente muy baja. Debería aguantar al menos 3 A.
 	\item Q101 y el USB en general no se han probado aún.
 	\item El punto del MCU en la serigrafía podría ser confuso. Verificar la orientación con el montaje, e indicar mejor en la serigrafía.
-	\item Se debería añadir protección contra sobrevoltaje de 3.3 V a todos los pines del MCU que no sean tolerantes a 5 V.
+	\item Se debería añadir protección contra sobrevoltaje de 3,3 V a todos los pines del MCU que no sean tolerantes a 5 V.
 	\item La mayoría, si no todas, las resitencias de 15 $\Omega$ podrían ser de 0 $\Omega$ o incluso puentes de soldadura.
-	\item Los condensadores de 10 $\mu$F 50 V 0805 son caros y deberían reemplazarse por 10 $\mu$F 50 V 1206 o 10 $\mu$F 50 V 1210.
+	\item Los condensadores de 10 \unit{\micro\farad} 50 V 0805 son caros y deberían reemplazarse por 10 \unit{\micro\farad} 50 V 1206 o 10 \unit{\micro\farad} 50 V 1210.
 \end{itemize}
 
 \subsubsection{\textit{Firmware}}
-AAAAAAAAAAAAAAAAAAAAAAA
+
+\begin{itemize}
+	\item Integrar el control con debilitamiento de campo (lazo de tensión) junto con una buena gestión de la frenada regenerativa en debilitamiento de campo.
+	\item Verificar la lectura del \textit{encoder} incremental.
+	\item Verificar el control simultáneo de dos motores.
+	\item Externalizar los parámetros constantes (los umbrales de error, los parámetros del motor, etc.) para evitar tener que cargar un binario nuevo cada vez que se modifican.
+	\item Integrar los parámetros y otras configuraciones estáticas en una memoria EEPROM para tener que cargarlos solamente una vez.
+	\item Crear una interfaz por USB para poder cargar parámetros y hacer ensayos externamente, registrando datos a una velocidad adecuada para su análisis.
+	\item Crear un algoritmo que identifique los parámetros del motor automáticamente.
+\end{itemize}

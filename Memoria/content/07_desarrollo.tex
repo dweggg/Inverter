@@ -690,14 +690,14 @@ La potencia eléctrica se define como
 p_e = \frac{3}{2}\cdot(v_d i_d + v_q i_q) \text{.}
 \end{equation}
 
-Si se supone que la máquina es perfectamente eficiente, se puede decir que la potencia mecánica es igual a la potencia eléctrica, \(p_e = p_m\). Sabiendo que \(p_m = \omega_m T_{em}\), donde \(T_{em}\) es el par electromagnético producido, se puede derivar que
+Si se supone que la máquina es perfectamente eficiente, se puede decir que la potencia mecánica es igual a la potencia eléctrica, \(p_e = p_m\). Sabiendo que \(p_m = \omega_m T_{\text{em}}\), donde \(T_{\text{em}}\) es el par electromagnético producido, se puede derivar que
 
 \begin{equation}
-T_{em} = \frac{3}{2\cdot \omega_m}\cdot(v_d i_d + v_q i_q) = \frac{3}{2\cdot \omega_e}\frac{n}{2}\cdot(v_d i_d + v_q i_q)
+T_{\text{em}} = \frac{3}{2\cdot \omega_m}\cdot(v_d i_d + v_q i_q) = \frac{3}{2\cdot \omega_e}\frac{n}{2}\cdot(v_d i_d + v_q i_q)
 \end{equation}
 
 \begin{equation}
-T_{em} = \frac{3}{2}\frac{n}{2}\cdot((L_d - L_q) i_q i_d + \lambda_m i_q) \text{.}
+T_{\text{em}} = \frac{3}{2}\frac{n}{2}\cdot((L_d - L_q) i_q i_d + \lambda_m i_q) \text{.}
 \label{eq_tq_dq} 
 \end{equation}
 
@@ -894,10 +894,10 @@ En la figura \ref{i_polar} se observa como resulta ser un círculo, lo cual tien
 
 \subsubsection{TH (Hipérbolas de Par)}
 
-Si se estudia la ecuación del par \ref{eq_tq_dq}, es evidente que \(T_{em}\) es una función de \((i_d, i_q)\). El resto de parámetros son constantes, por lo que se puede establecer un valor fijo de par y deslizar alrededor de \((i_d, i_q)\) para generar una curva. La forma de la curva resultante es una hipérbola, que en su forma polar se expresa
+Si se estudia la ecuación del par \ref{eq_tq_dq}, es evidente que \(T_{\text{em}}\) es una función de \((i_d, i_q)\). El resto de parámetros son constantes, por lo que se puede establecer un valor fijo de par y deslizar alrededor de \((i_d, i_q)\) para generar una curva. La forma de la curva resultante es una hipérbola, que en su forma polar se expresa
 
 \begin{equation}
-T_{em} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot i_s\cdot \sin(\gamma) .)
+T_{\text{em}} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot i_s\cdot \sin(\gamma)) \text{ .}
 \label{eq_tq_pol}
 \end{equation}
 
@@ -944,7 +944,7 @@ T_{em} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos(\gamma
 \end{figure}
 
 
-El gráfico se limita a los cuadrantes 2 y 3 por un motivo ilustrado con estas hipérbolas: solo los valores negativos de \(i_d\) contribuyen a la generación de par. Cuando \(i_d>0\), se necesita más corriente para generar la misma cantidad de par. Cuanto más alejada está la hipérbole del eje \(i_d\), más par representa en valor absoluto. Aquellas hipérbolas que quedan por encima del eje \(i_d\), es decir, \(i_q > 0\) son par positivo, mientras que si \(i_q < 0\), el par es de sentido opuesto.
+El gráfico se limita a los cuadrantes 2 y 3 por un motivo ilustrado con estas hipérbolas: solo los valores negativos de \(i_d\) contribuyen a la generación de par en un PMSM con imanes radiales. Cuando \(i_d>0\), se necesita más corriente para generar la misma cantidad de par. Cuanto más alejada está la hipérbola del eje \(i_d\), más par representa en valor absoluto. Aquellas hipérbolas que quedan por encima del eje \(i_d\), es decir, \(i_q > 0\) son par positivo, mientras que si \(i_q < 0\), el par es de sentido opuesto.
 
 \subsubsection{VLE (Elipses de Límite de Voltaje)}
 
@@ -988,13 +988,13 @@ Tomando la ecuación de voltaje \ref{eq_vle_dq}, se puede demostrar que es una e
 
     \end{axis}
     \end{tikzpicture}
-  \caption{Elipses de límite de voltaje con $I_{sc} > I_{s,\text{máx}}$.}
+  \caption{Elipses de límite de voltaje con $I_{\text{sc}} > I_{s,\text{máx}}$.}
 \end{figure}
 
 
 Al representar estas elipses, normalmente se anotan los valores de velocidad en RPM mecánicas, ya que es mucho más fácil hacerse una idea de los límites del motor junto al resto de curvas (\(\omega_m [\text{RPM}] = \frac{1}{pp} \omega_e \text{ }\left[\frac{\text{rad}}{s}\right] \cdot \frac{60}{2\pi}\)).
 
-Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses está ubicado exactamente en \((i_d, i_q)=(-I_{sc}, 0) = \left(-\frac{\lambda_m}{L_d},0\right)\). En el gráfico anterior, el foco está fuera del círculo de límite de corriente, pero no siempre es el caso. Si \(I_{\text{sc}} \leq I_{s,\text{máx}}\), teóricamente el motor puede alcanzar una velocidad infinita, ya que las elipses colapsan en un solo punto. 
+Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses está ubicado exactamente en \((i_d, i_q)=(-I_{\text{sc}}, 0) = \left(-\frac{\lambda_m}{L_d},0\right)\). En el gráfico anterior, el foco está fuera del círculo de límite de corriente, pero no siempre es el caso. Si \(I_{\text{sc}} \leq I_{s,\text{máx}}\), teóricamente el motor puede alcanzar una velocidad infinita, ya que las elipses colapsan en un solo punto. 
 
 
 
@@ -1029,15 +1029,15 @@ Las elipses se reducen a medida que la velocidad aumenta. El foco de las elipses
 
     \end{axis}
     \end{tikzpicture}
-  \caption{Elipses de límite de voltaje con $I_{sc} \leq I_{s,\text{máx}}$.}
+  \caption{Elipses de límite de voltaje con $I_{\text{sc}} \leq I_{s,\text{máx}}$.}
 \end{figure}
 
 
 
 
 %% HASTA AQUI TRACUCCION POCHA DE LA WIKI
-
-\section{Control del PMSM en el espacio d-q}
+\newpage
+\section{Control del PMSM en el espacio $d-q$}
 \subsection{Trayectorias de control}
 
 Después de conocer los límites de la máquina, se pueden establecer criterios para decidir cuánto \(i_d\) y \(i_q\) (o \(i_s\) y \(\gamma\)) se deben aplicar al PMSM para que se comporte mecánicamente como se desee. El conjunto de puntos de trabajo que definen un comportamiento se llama trayectoria y existen una multitud de ellas. Por ejemplo, se puede desear que el motor produzca la mayor cantidad de par posible con la mínima corriente. Pero también se podría querer que tenga un cierto factor de potencia o que mantenga el par constante subiendo la velocidad, etc.
@@ -1046,32 +1046,32 @@ En un monoplaza de Formula Student, se desea que la salida de par esté perfecta
 
 \subsubsection{MTPA (Máximo Par Por Amperio)}
 
-La trayectoria de control más utilizada es el MTPA, o Máximo Par por Amperio. Como su nombre indica, minimiza la corriente para entregar un par determinado. La condición que se debe cumplir es
+La trayectoria de control más utilizada es el MTPA, o Máximo Par Por Amperio. Como su nombre indica, minimiza la corriente para entregar un par determinado. La condición que se debe cumplir es
 
 \begin{equation}
-	\frac{\partial T_{em}}{\partial \gamma} = 0 \text{.}
+	\frac{\partial T_{\text{em}}}{\partial \gamma} = 0 \text{.}
 \end{equation}
 
 
 La expresión analítica se desarrolla partiendo de la ecuación de par en forma polar \ref{eq_tq_pol},
 
 \begin{equation*}
-	T_{em} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot i_s\cdot \sin(\gamma))
+	T_{\text{em}} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot i_s\cdot \sin(\gamma))
 \end{equation*}
 
 
 \begin{equation}
-\frac{\partial T_{em}}{\partial \gamma} = \frac{\partial}{\partial \gamma} \frac{3}{2}pp\cdot(i_s^2 \cos(\gamma)\sin(\gamma)\cdot((L_d - L_q) + \lambda_m i_s \sin(\gamma)) = 0
+\frac{\partial T_{\text{em}}}{\partial \gamma} = \frac{\partial}{\partial \gamma} \frac{3}{2}pp\cdot(i_s^2 \cos(\gamma)\sin(\gamma)\cdot((L_d - L_q) + \lambda_m i_s \sin(\gamma)) = 0
 \end{equation}
 
 \begin{equation}
 i_{s,\text{MTPA}} = -\frac{\lambda_m \cos(\gamma)}{(2\cdot\cos(\gamma)^2 - 1)\cdot(L_d-L_q)} \text{.}
 \end{equation}
 
-Para la aplicación de esta trayectoria en el control se busca el ángulo como función de la corriente, y para ello se debe despejar \(\gamma_{MTPA}\) de la expresión.
+Para la aplicación de esta trayectoria en el control se busca el ángulo como función de la corriente, y para ello se debe despejar \(\gamma_{\text{MTPA}}\) de la expresión.
 
 \begin{equation}
-\gamma_{\text{MTPA}} = \frac{\pi}{2} + \arcsin(\frac{\lambda_m - \sqrt{8(L_d-L_q)^2 \cdot i_s^2 + \lambda_m^2}}{4\cdot i_s(L_d-L_q)})
+\gamma_{\text{MTPA}} = \frac{\pi}{2} + \arcsin\left( \frac{\lambda_m - \sqrt{8(L_d-L_q)^2 \cdot i_s^2 + \lambda_m^2}}{4\cdot i_s(L_d-L_q)}\right) 
 \end{equation}
 
 El resultado de graficar esta expresión sobre el plano \((i_d, i_q)\) deja a la vista que el módulo de corriente es mínimo para cada hipérbola de par.
@@ -1122,11 +1122,11 @@ El resultado de graficar esta expresión sobre el plano \((i_d, i_q)\) deja a la
 
 Como se puede observar, las hipérbolas de par definen una trayectoria la cual permite mantener un par constante. Recordando las elipses de tensión, para un mismo valor de $V_s$ las elipses se contraen hacia el foco a medida que la velocidad aumenta. Esto significa que siguiendo la curva de par constante de derecha a izquierda se puede mantener el par aumentando la velocidad. Usando la expresión \ref{eq_tq_pol} se puede obtener directamente 
 \begin{equation*}
-	T_{em} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot i_s\cdot \sin(\gamma))
+	T_{\text{em}} = \frac{3}{2}pp\cdot((L_d - L_q)\cdot i_s^2 \cdot \sin(\gamma)\cos(\gamma) + \lambda_m\cdot i_s\cdot \sin(\gamma))
 \end{equation*}
 
 \begin{equation}
-i_{s,\text{CTC}} = \frac{\lambda_m}{L_d} \cdot \frac{\sqrt{\sin(\gamma)^2+\frac{2\cdot\frac{L_d-L_q}{L_d}\cdot\sin(2\gamma)\cdot T_{em}\cdot2 L_d}{3\cdot pp \cdot \lambda_m^2}}-\sin(\gamma)}{\sin(2\gamma)\cdot(\frac{L_d-L_q}{L_d})} \text{.}
+i_{s,\text{CTC}} = \frac{\lambda_m}{L_d} \cdot \frac{\sqrt{\sin(\gamma)^2+\frac{4\cdot\frac{L_d-L_q}{L_d}\cdot\sin(2\gamma)\cdot T_{\text{em}}\cdot L_d}{3\cdot pp \cdot \lambda_m^2}}-\sin(\gamma)}{\sin(2\gamma)\cdot(\frac{L_d-L_q}{L_d})} \text{ .}
 \end{equation}
 
 
@@ -1173,13 +1173,13 @@ i_{s,\text{CTC}} = \frac{\lambda_m}{L_d} \cdot \frac{\sqrt{\sin(\gamma)^2+\frac{
 Existe una trayectoria que permite maximizar el par entregado por el motor en rangos de velocidad muy altos donde el límite es la tensión que puede sintetizar la controladora. La condición que se debe cumplir es que
 
 \begin{equation}
-\frac{\partial T_{em}}{\partial \delta} = 0 \text{.}
+\frac{\partial T_{\text{em}}}{\partial \delta} = 0 \text{.}
 \end{equation}
 
 Donde $\delta$ es el ángulo del vector de tensión $V_s$, de la misma manera que $\gamma$ es el ángulo del vector de corriente $I_s$. La expresión analítica se desarrolla a partir de la expresión de par en coordenadas cartesianas (\ref{eq_tq_dq}), de manera que
 
 \begin{equation*}
-T_{em} = \frac{3}{2}pp\cdot((L_d - L_q) i_q i_d + \lambda_m i_q) \text{.}
+T_{\text{em}} = \frac{3}{2}pp\cdot((L_d - L_q) i_q i_d + \lambda_m i_q) \text{ .}
 \end{equation*}
 
 Se aíslan $i_d$ e $i_q$ de \ref{eq_vd} y \ref{eq_vq}, negligiendo la caída de tensión resistiva del estátor, 
@@ -1188,20 +1188,20 @@ i_d = \frac{v_q}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d}; i_q = -\frac{v_d}{
 \end{equation}
 
 \begin{equation}
-T_{em} = \frac{3}{2}pp\cdot\left((L_d - L_q) (-\frac{v_d}{\omega_e \cdot L_q}) (\frac{v_q}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d}) + \lambda_m (-\frac{v_d}{\omega_e \cdot L_q})\right)
+T_{\text{em}} = \frac{3}{2}pp\cdot\left((L_d - L_q) (-\frac{v_d}{\omega_e \cdot L_q}) (\frac{v_q}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d}) + \lambda_m (-\frac{v_d}{\omega_e \cdot L_q})\right)
 \end{equation}
 
 \begin{equation}
-T_{em} = \frac{3}{2}pp\cdot\left((L_d - L_q) (-\frac{V_s \cdot \cos(\delta)}{\omega_e \cdot L_q}) (\frac{V_s \cdot \sin(\delta)}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d}) + \lambda_m (-\frac{V_s \cdot \cos(\delta)}{\omega_e \cdot L_q})\right)
+T_{\text{em}} = \frac{3}{2}pp\cdot\left((L_d - L_q) (-\frac{V_s \cdot \cos(\delta)}{\omega_e \cdot L_q}) (\frac{V_s \cdot \sin(\delta)}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d}) + \lambda_m (-\frac{V_s \cdot \cos(\delta)}{\omega_e \cdot L_q})\right)
 \end{equation}
 
 \begin{equation}
 \begin{split}
-\frac{\partial T_{em}}{\partial \delta} = \frac{3}{2}pp\cdot (
+\frac{\partial T_{\text{em}}}{\partial \delta} = \frac{3}{2}pp\cdot (
 (L_d - L_q) \cdot (\frac{V_s \cdot \sin(\delta)}{\omega_e \cdot L_q}) \cdot (\frac{V_s \cdot \sin(\delta)}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d})\\
 -\left(\frac{V_s \cdot \cos(\delta)}{\omega_e}\right)^2 \cdot \frac{L_d - L_q}{L_d\cdot L_q}\\ 
--\frac{\lambda_m \cdot V_s \cdot \sin(\delta)}{L_q \cdot \omega_e} ) = 0
-\end{split} \text{.}
+-\frac{\lambda_m \cdot V_s \cdot \sin(\delta)}{L_q \cdot \omega_e} ) = 0  \text{ .}
+\end{split}
 \end{equation}
 
 Definiendo la saliencia  
@@ -1212,15 +1212,15 @@ Definiendo la saliencia
 y aislando, se obtiene
 \begin{equation}
 \begin{split}
-i_{s,MTPV} = \frac{\lambda_m}{L_d} ( \frac{-(2 - \xi) \cos(\gamma)}{2(1 - \xi)(1 + (\xi)^2) \cos(\gamma)^2 - 2(1 - \xi) (\xi)^2}\\
--\frac{\sqrt{(2 - \xi)^2 \cos(\gamma)^2 - 4(1 - \xi)(1 + (\xi)^2) \cos(\gamma)^2 - 4(1 - \xi) (\xi)^2}}{2(1 - \xi)(1 + (\xi)^2) \cos(\gamma)^2 - 2(1 - \xi) (\xi)^2} )
+i_{s,\text{MTPV}} = \frac{\lambda_m}{L_d} ( \frac{-(2 - \xi) \cos(\gamma)}{2(1 - \xi)(1 + (\xi)^2) \cos(\gamma)^2 - 2(1 - \xi) (\xi)^2}\\
+-\frac{\sqrt{(2 - \xi)^2 \cos(\gamma)^2 - 4(1 - \xi)(1 + (\xi)^2) \cos(\gamma)^2 - 4(1 - \xi) (\xi)^2}}{2(1 - \xi)(1 + (\xi)^2) \cos(\gamma)^2 - 2(1 - \xi) (\xi)^2} )  \text{ .}
 \end{split}
 \end{equation}
 
 
 
 
-Cabe destacar que esta trayectoria solamente se puede ejecutar si se cumple la condición de que $I_{sc} \leq I_{s,\text{máx}}$.
+Cabe destacar que esta trayectoria solamente se puede ejecutar si se cumple la condición de que $I_{\text{sc}} \leq I_{s,\text{máx}}$.
 
 
 \begin{figure}[H]
@@ -1443,19 +1443,19 @@ Ki_{iq} = \omega_n^2 \cdot L_q \quad
     \caption{Bloque de los lazos de corriente.}
 \end{figure}
 
-Para las simulaciones se han implementado los siguientes parámetros de motor, ya que aunque a fecha de redacción de este documento no está fabricado, se han estimado de manera que se cumplan los requisitos del motor.
+Para las simulaciones se han implementado los siguientes parámetros de motor, ya que aunque a fecha de redacción de este documento no está fabricado, se han estimado usando un pequeño \textit{script} de MATLAB de manera que se cumplan los requisitos del motor.
 
 
 \begin{tabular}{|p{2cm}||r|p{1.5cm}|p{8cm}|}
 	\hline
-	\multicolumn{4}{|c|}{Parámetros del Motor} \\
+	\multicolumn{4}{|c|}{Parámetros del motor} \\
 	\hline
 	Parámetro & Valor & Unidades & Descripción \\
 	\hline
 	pp & 3 & ad & Número de pares de polos \\
 	$\lambda_m$ & 52.615 & mWb & Flujo magnético de los imanes permanentes \\
-	$L_d$ & 188.7 & $\mu$H & Inductancia en el eje d \\
-	$L_q$ & 283.1 & $\mu$H & Inductancia en el eje q \\
+	$L_d$ & 188.7 & \unit{\micro\henry} & Inductancia en el eje d \\
+	$L_q$ & 283.1 & \unit{\micro\henry} & Inductancia en el eje q \\
 	$R_s$ & 150 & m$\Omega$ & Resistencia de fase del estator \\
 	$\omega_{\text{m,máx}}$ & 20000 & RPM & Velocidad angular máxima del motor \\
 	$T_{\text{em,máx}}$ & 26 & N·m & Par máximo del motor \\
@@ -1464,7 +1464,7 @@ Para las simulaciones se han implementado los siguientes parámetros de motor, y
 	\hline
 \end{tabular}
 
-
+Como se puede ver, el motor presenta $I_{\text{sc}} = \frac{\lambda_m}{L_d} =  \frac{52.615 \text{ mWb}}{188.7 \text{ }\text{\unit{\micro\henry}}} = 278.82 \text{ A} > I_{s,\text{máx}}$, y por tanto, no se aplica la trayectoria MTPV.
 
 \begin{figure}[H]
     \centering
@@ -1500,7 +1500,7 @@ Tras obtener las consignas de tensión, se modela el inversor VSI con SVPWM con 
 
 Con lo anteriormente desarrollado solamente se pueden consignar las corrientes $i_d$ e $i_q$ manualmente, pero el objetivo es consignar el par y que el propio control sea capaz de gestionar el debilitamiento de campo. Por ello, se implementan las ecuaciones presentadas en el apartado anterior en bloques de código. El control se ha basado en la propuesta de \cite{carlos2023}.
 
-La estrategia es la siguiente: Se implementan las ecuaciones de las trayectorias cuya salida es una corriente (CLC, CTC, MTPV y VLE) y se selecciona la mínima, o en caso de estar en zona de debilitamiento de campo, la óptima, que no necesariamente es la mínima. En paralelo, se calcula el ángulo que correspondería a la trayectoria del MTPA, y se añade un control integral que aumenta el valor del ángulo controlando la tensión para poder entrar en el resto de trayectorias. Este integrador sería justamente el controlador de debilitamiento de campo y se encarga de que la consigna de ángulo no haga sobrepasar el límite de tensión establecido por el bus DC con un cierto factor de seguridad. Se trabaja con módulos de corriente siempre positivos, y ángulos comprendidos entre $\gamma \in [\frac{\pi}{2}, \pi]$. Para obtener par negativo, simplemente se multiplica el ángulo $\gamma$ por el signo de la consigna de par, atendiendo específicamente al caso de par igual a cero.
+La estrategia es la siguiente: Se implementan las ecuaciones de las trayectorias cuya salida es una corriente (CLC, CTC y MTPV) y se selecciona la mínima. En paralelo, se calcula el ángulo que correspondería a la trayectoria del MTPA, y se añade un control integral que aumenta el valor del ángulo controlando la tensión para poder entrar en el resto de trayectorias. Este integrador sería justamente el controlador de debilitamiento de campo y se encarga de que la consigna de ángulo no haga sobrepasar el límite de tensión establecido por el bus DC con un cierto factor de seguridad. Se trabaja con módulos de corriente siempre positivos, y ángulos comprendidos entre $\gamma \in [\frac{\pi}{2}, \pi]$. Para obtener par negativo (regeneración), simplemente se multiplica el ángulo $\gamma$ por el signo de la consigna de par, atendiendo específicamente al caso de par igual a cero.
 
 
 \begin{figure}[H]
@@ -1510,13 +1510,14 @@ La estrategia es la siguiente: Se implementan las ecuaciones de las trayectorias
     
 \end{figure}
 \newpage
+
 Para comprobar el funcionamiento y la estabilidad del control, se realiza una simulación en la que la consigna de par está extraída de un perfil de conducción real.
 
 \begin{figure}[!htb]
     \centering
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/Tem_plot.png}
-        \caption{Par electromagnético generado por el motor ($T_{em}$).}
+        \caption{Par electromagnético generado por el motor ($T_{\text{em}}$).}
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/idiq_plot.png}
@@ -1528,7 +1529,7 @@ Para comprobar el funcionamiento y la estabilidad del control, se realiza una si
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/wm_Tem_plot.png}
-        \caption{Velocidad mecánica ($\omega_{m}$) vs Par electromagnético ($T_{em}$).}
+        \caption{Velocidad mecánica ($\omega_{m}$) vs Par electromagnético ($T_{\text{em}}$).}
     \end{subfigure}
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/wm_plot.png}
@@ -1542,7 +1543,7 @@ Para comprobar el funcionamiento y la estabilidad del control, se realiza una si
     
 \end{figure}
 
-Se puede observar que en esta simulación se ha limitado el comportamiento de la frenada regenerativa a la trayectoria del MTPA. Además, se pueden observar ciertos problemas en la implementación del lazo de tensión. Más adelante se realiza una simulación más enfocada en el control que en la aplicación, y en ella se revisan estas situaciones.
+Se puede observar que en esta simulación se ha limitado el comportamiento de la frenada regenerativa a la trayectoria del MTPA. Además, se pueden observar ciertos problemas en la implementación del lazo de tensión. Resulta que el control propuesto por \cite{carlos2023} no considera la regeneración, ni mucho menos en debilitamiento de campo. Más adelante se realiza una simulación más enfocada en el control que en la aplicación, y en ella se revisan estas situaciones.
 
 \subsubsection{Modelo conmutado}
 
@@ -1614,7 +1615,7 @@ Utilizando el modelo EMR generado en Simulink se ha implementado la conmutación
 \end{figure}
 
 
-Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control, el inversor con MOSFETs, la planta mecánica simplificada, y a la cual se le discretiza la adquisición y el control, de manera que es una aproximación muy realista de la posterior implementación en un microcontrolador. Además se incorporan cálculos térmicos de pérdidas y eficiencia.
+Por ello se desarrolla un modelo en PLECS que incorpora el lazo de control mejorado, el inversor con MOSFETs, la planta mecánica simplificada, y a la cual se le discretiza la adquisición y el control, de manera que es una aproximación muy realista de la posterior implementación en un microcontrolador. Además se incorporan cálculos térmicos de pérdidas y eficiencia.
 
 \begin{figure}[H]
 	\centering
@@ -1674,6 +1675,10 @@ A continuación se presentan los diferentes bloques que forman el modelo.
 	\includegraphics[width=0.7\linewidth]{fig/PLECS_currentref1}
 	\caption{Detalle del bloque de cálculo de corriente, donde se implementan las trayectorias de control del PMSM como ecuaciones analíticas resueltas.}
 \end{figure}
+
+En esta simulación se ha optado por una estrategia un tanto diferente a la de \cite{carlos2023}. En vez de consignar la corriente mínima de entre todas las trayectorias, se ha implementado una selección más compleja que incorpora la trayectoria VLE y depende de la velocidad eléctrica del motor. Usando esta estrategia más elaborada se consigue un control de la frenada regenerativa más preciso, aunque todavía está en etapa de desarrollo. Hay ciertas situaciones (dependientes de la planta mecánica principalmente) en las que el lazo de tensión no es capaz de ajustar bien el ángulo de corriente y eso lleva a descontroles momentáneos.
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{fig/PLECS_tqspeed}
@@ -1695,7 +1700,7 @@ A continuación se presentan los diferentes bloques que forman el modelo.
 
     \begin{subfigure}{0.4\textwidth}
         \includegraphics[width=\linewidth]{fig/PLECS_Tem.png}
-        \caption{Par electromagnético ($T_{em}$) y velocidad mecánica ($\omega_{m}$).}
+        \caption{Par electromagnético ($T_{\text{em}}$) y velocidad mecánica ($\omega_{m}$).}
     \end{subfigure}
     %
     \begin{subfigure}{0.4\textwidth}
@@ -1728,7 +1733,7 @@ A continuación se presentan los diferentes bloques que forman el modelo.
 
 Como se puede observar, se ha optado por consignar un escalón de par del 90\% del par máximo hasta llegar a la velocidad máxima, donde el mismo control es capaz de limitarla. Posteriormente, se consigna un escalón de par igual pero de signo opuesto, para generar una situación extrema y verificar la robustez del control. De esta manera, se evalúa el comportamiento del control vectorial en las circunstancias más adversas, así como el rendimiento teórico del inversor a potencia máxima en los cuatro cuadrantes de operación del motor eléctrico.
 
-Destaca la claridad con la que esta simulación permite apreciar las trayectorias de control en la figura (c), que muestra la consigna y el valor medido de $i_d$ e $i_q$.
+Destaca la claridad con la que esta simulación permite apreciar las trayectorias de control en la figura (c), que muestra la consigna y el valor medido de $i_d$ e $i_q$. Como ya se ha comentado, la simulación no refleja un perfil de conducción realista, ya que la frenada regenerativa en debilitamiento de campo no está del todo solucionada para algunas situaciones de carga mecánica.
 
 
 \newpage
@@ -1746,7 +1751,7 @@ La prueba donde se espera utilizar esta potencia máxima es la \textit{Accelerat
 \(P_{\text{out, máx, tot}} = 80 \text{ kW} (2 \cdot 40 \text{ kW}) \text{(10 s máx.)}\)
 
 
-Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a máximos de 80 kW:
+Por otro lado, el requisito de potencia media es distinto. Sería un error dimensionar la potencia media del inversor como el valor máximo, ya que esto conduciría a un sobredimensionamiento excesivo de la refrigeración, los conductores, los conectores y los dispositivos de potencia. En cambio, se opta por determinar el valor medio de potencia requerido durante la prueba más exigente, la \textit{Endurance}. En esta prueba, el vehículo debe recorrer aproximadamente 22 km, lo que equivale a alrededor de media hora de uso continuo. En la \textit{Endurance}, considerar la frenada regenerativa es esencial, ya que aumenta el valor medio de la potencia total, sumándose a la potencia de tracción. Se ha calculado el valor medio de potencia a partir de una simulación de la \textit{Endurance} que llega a máximos de 80 kW.
 
 \begin{figure}[H]
 	\centering
@@ -1780,9 +1785,9 @@ A continuación se muestra el cálculo del valor RMS de la potencia requerida, b
 \end{verbatim}
 
 
-Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo, en concreto un \(\frac{23.2 \text{kW}}{80 \text{kW}} = 29\%\). Por lo tanto, se dimensiona el inversor considerando una potencia media de 35 kW, es decir, 17.5 kW por motor. Esta cifra proporciona un margen de seguridad de 11.8 kW respecto a la simulación, lo que permite algo de juego en el reparto de potencia entre ambos motores. De esta manera, la potencia constante queda como:
+Esto demuestra que el valor medio de potencia requerido es considerablemente menor que el pico máximo, en concreto un \(\frac{23.2 \text{ kW}}{80 \text{ kW}} = 29\%\). Por lo tanto, se dimensiona el inversor considerando una potencia media de 35 kW, es decir, 17,5 kW por motor. Esta cifra proporciona un margen de seguridad de 11,8 kW respecto a la simulación, lo que permite algo de juego en el reparto de potencia entre ambos motores. De esta manera, la potencia constante queda como:
 
-\(P_{\text{out, const, tot}} = 35 \text{kW} (2 \cdot 17.5 \text{kW})\)
+\(P_{\text{out, const, tot}} = 35 \text{ kW} (2 \cdot 17.5 \text{ kW})\)
 
 Cabe destacar que se está calculando la potencia aparente del convertidor, ya que la potencia activa y la reactiva se reparten en función del factor de potencia, que no es constante y depende de la planta mecánica y la situación del motor. La potencia activa es la que usa el motor para acelerar o frenar, y la reactiva la consume o suministra el bus de condensadores. Otra nota es que la simulación es poco realista puesto que utiliza picos de potencia máxima, cuando en realidad, en la prueba de la \textit{Endurance} se suele limitar el valor de estos picos con tal de extender la autonomía.
 
@@ -1832,13 +1837,13 @@ Dejando un poco de margen para la compatibilidad con motores de más polos, se e
 
 \(f_{\text{conm}} > 30\cdot f_{\text{e,máx}} = 30\cdot1200 \text{ Hz} = 36 \text{ kHz} \rightarrow f_{\text{conm}} = 40 \text{ kHz}\)
 
-Se debe considerar también que con una frecuencia de conmutación mayor, las pérdidas de conmutación serán más grandes, pero el tamaño del bus de condensadores será más pequeño. Además, el lazo de control debe ir a 40 kHz, con lo que el microcontrolador que lo implemente debe ser capaz de ejecutar todos los cálculos en menos de $\frac{1}{40 \text{ kHz}} = 25 \text{ }\mu\text{s}$.
+Se debe considerar también que con una frecuencia de conmutación mayor, las pérdidas de conmutación serán más grandes, pero el tamaño del bus de condensadores será más pequeño. Además, el lazo de control debe ir a 40 kHz, con lo que el microcontrolador que lo implemente debe ser capaz de ejecutar todos los cálculos en menos de $\frac{1}{40 \text{ kHz}} = 25 \text{ }\text{\unit{\micro\second}}$.
 
 Es importante que el control sea mucho más rápido que la planta eléctrica, cuya constante de tiempo es de
 
-\(\text{min}(\frac{L_d}{R_s},\frac{L_q}{R_s}) = \text{min}(\frac{188.7 \text{ }\mu H}{0.15 \text{ }\Omega},\frac{283.1 \text{ }\mu H}{0.15 \text{ }\Omega}) = \text{min}(1.258 \text{ ms}, 1.887 \text{ ms}) = 1.258 \text{ ms}\)
+\(\text{min}(\frac{L_d}{R_s},\frac{L_q}{R_s}) = \text{min}(\frac{188.7 \text{ }\text{\unit{\micro\henry}}}{0.15 \text{ }\Omega},\frac{283.1 \text{ }\text{\unit{\micro\henry}}}{0.15 \text{ }\Omega}) = \text{min}(1.258 \text{ ms}, 1.887 \text{ ms}) = 1.258 \text{ ms}\)
 
-\(1.258 \text{ ms} >> 25 \text{ }\mu\text{s .}\)
+\(1.258 \text{ ms} >> 25 \text{ }\text{\unit{\micro\second} .}\)
 
 \subsubsection{Normativa}
 La normativa de la Formula Student no impone normativas muy restrictivas, ya que la mayoría están enfocadas a la seguridad. Estas son las normas que afectarán al diseño del inversor:
@@ -2065,17 +2070,17 @@ A continuación se muestra una tabla comparativa con los detalles de cada semico
 	\begin{tabular}{|l|l|l|}
 		\hline
 		\textbf{Parámetro} & \textbf{DFS05HF12EYR1} & \textbf{CAB016M12FM3} \\ \hline
-		\(V_{DS,\text{breakdown}}\) [V] & 1200 & 1200 \\ \hline
-		\(R_{on}\) [\(m \Omega\)] & 5.5 - 13 & 16.0 - 28.8 \\ \hline
-		\(V_{f,D}\) [V] & 3.3 - 4 & 4.9 - 5.5 \\ \hline
-		\(T_{rr}\) [ns] & 41.5 - 45 & 20.0 \\ \hline
-		\(Q_{rr}\) [\(\mu C\)] & 2.19 - 3.94 & 1.30 \\ \hline
-		\(R_{th,jc}\) [K/W] & 0.12 - 0.15 & 0.543 \\ \hline
-		\(Q_{G}\) [\(nC\)] & 520 & 236 \\ \hline
-		\(C_{in}\) [nF] & 14.5 & 6.6 \\ \hline
-		\(R_{G,\text{int}}\) [\(\Omega\)] & 1.9 & 2.4 \\ \hline
-		\(V_{GS,\text{th}}\) [V] & 2.8 - 4.8 & 1.8 - 3.6 \\ \hline
-		\(I_{DS,\text{max}}\) [A] & 150 & 89 \\ \hline
+		\(V_{\text{DS,breakdown}}\) [V] & 1200 & 1200 \\ \hline
+		\(R_{\text{on}}\) [\(\text{m} \Omega\)] & 5.5 - 13 & 16.0 - 28.8 \\ \hline
+		\(V_{\text{f,D}}\) [V] & 3.3 - 4 & 4.9 - 5.5 \\ \hline
+		\(T_{\text{rr}}\) [ns] & 41.5 - 45 & 20.0 \\ \hline
+		\(Q_{\text{rr}}\) [\unit{\micro\coulomb}] & 2.19 - 3.94 & 1.30 \\ \hline
+		\(R_{\text{th,jc}}\) [K/W] & 0.12 - 0.15 & 0.543 \\ \hline
+		\(Q_{\text{G}}\) [\(n\text{C}\)] & 520 & 236 \\ \hline
+		\(C_{\text{in}}\) [nF] & 14.5 & 6.6 \\ \hline
+		\(R_{\text{G,int}}\) [\(\Omega\)] & 1.9 & 2.4 \\ \hline
+		\(V_{\text{GS,th}}\) [V] & 2.8 - 4.8 & 1.8 - 3.6 \\ \hline
+		\(I_{\text{DS,máx}}\) [A] & 150 & 89 \\ \hline
 		& \includegraphics[width=0.2\textwidth]{fig/DFS05.png} & \includegraphics[width=0.2\textwidth]{fig/CAB016.png} \\
 		\hline
 	\end{tabular}
@@ -2196,7 +2201,7 @@ Para obtener los valores de $E_{\text{on}}$ y $E_{\text{off}}$ se pueden usar lo
 	\hfill
 	\begin{subfigure}[b]{0.55\linewidth}
 		\centering
-		\includegraphics[width=0.7\linewidth]{fig/eoneoffwolfspeed_RG}
+		\includegraphics[width=\linewidth]{fig/eoneoffwolfspeed_RG}
 		\caption{Wolfspeed}
 	\end{subfigure}
 	\caption{Energías de encendido y apagado en función de la resistencia de puerta externa para Leapers y Wolfspeed.}
@@ -2281,7 +2286,7 @@ El siguiente gráfico presenta una comparación detallada de las pérdidas de co
 	\caption{Comparación de pérdidas entre semiconductores}
 \end{table}
 
-Se observa que en el caso de Leapers, las pérdidas de conducción exhiben una significativa disminución en comparación con las de Wolfspeed, mientras que las pérdidas de conmutación muestran un incremento dramático para Leapers en relación con Wolfspeed. Este fenómeno sugiere que, en líneas generales, los dispositivos desarrollados por Leapers podrían ofrecer un camino de corriente más favorable en el semiconductor, y los dispositivos de Wolfspeed son capaces de conmutar más rápido debido a que su carga $Q_{\text{G}}$ es mucho menor, reduciendo así $E_{\text{on}}$ y $E_{\text{off}}$.
+Se observa que en el caso de Leapers, las pérdidas de conducción exhiben una significativa disminución en comparación con las de Wolfspeed, mientras que las pérdidas de conmutación muestran un incremento dramático para Leapers en relación con Wolfspeed. Este fenómeno sugiere que, en líneas generales, los dispositivos desarrollados por Leapers podrían ofrecer un camino de corriente más favorable en el semiconductor, y los dispositivos de Wolfspeed son capaces de conmutar más rápido debido a que su carga $Q_{\text{G}}$ es mucho menor, reduciendo así $E_{\text{on}}$ y $E_{\text{off}}$. Para el uso de los semiconductores de Leapers se recomienda bajar la frecuencia de conmutación, prestando atención a las afectaciones que pudiera tener en el bus de continua. El desarrollo práctico del trabajo se enfocará en los semiconductores de Wolfspeed por parecer una opción más equilibrada para la aplicación.
 
 La suma total de las pérdidas de ambos inversores, independientemente del semiconductor, es como máximo de 1300 W, valor con el cual se puede diseñar el sistema de refrigeración.
 
@@ -2363,7 +2368,7 @@ A continuación se presenta una comparativa entre varios modelos de \textit{gate
 		\hline
 		Voltaje de Operación & -15 V hasta 30 V & –17,5 V hasta 36 V & -12 V hasta 25V \\
 		\hline
-		Corriente de Salida & 4.61 A & 10 A & 15 A \\
+		Corriente de Salida & 4,61 A & 10 A & 15 A \\
 		\hline
 		Protecciones & Desaturación, UVLO & Sobrecorriente, Desaturación, \textit{Miller Clamp} & Desaturación, Sobrecorriente, Apagado suave \\
 		\hline
@@ -2441,7 +2446,7 @@ Es importante destacar que este inversor se encuentra en una fase inicial de pro
 		\item Caracterización de CMTI mayor a 200 V/ns, lo que garantiza una respuesta rápida y efectiva ante transitorios de alta velocidad.
 	\end{itemize}
 	
-	\item \textbf{Valores de resistencias de puerta (\(R_{\text{G}_{\text{on/off}}}\)):} Reducir el valor de las resistencias de puerta conlleva la disminución de las pérdidas de conmutación, ya que los MOSFETs cambiarán más rápido de estado y, por lo tanto, pasarán menos tiempo en la etapa de conmutación. Esta rapidez en el cambio implica un mayor dV/dt, lo que puede ser responsable del aumento de la interferencia electromagnética (EMI) y de sobrepico de tensión entre el \textit{drain} y el \textit{source} del propio MOSFET. El valor de estas resistencias se estimará mejor con pruebas empíricas, pero se parte del valor más alto considerado de 10 $\Omega$.
+	\item \textbf{Valores de resistencias de puerta (\(R_{\text{G,on}}\), \(R_{\text{G,off}}\)):} Reducir el valor de las resistencias de puerta conlleva la disminución de las pérdidas de conmutación, ya que los MOSFETs cambiarán más rápido de estado y, por lo tanto, pasarán menos tiempo en la etapa de conmutación. Esta rapidez en el cambio implica un mayor dV/dt, lo que puede ser responsable del aumento de la interferencia electromagnética (EMI) y de sobrepico de tensión entre el \textit{drain} y el \textit{source} del propio MOSFET. El valor de estas resistencias se estimará mejor con pruebas empíricas, pero se parte del valor más alto considerado de 12 $\Omega$ para Wolfspeed, y 10 $\Omega$ para Leapers.
 	
 \end{itemize}
 
@@ -2460,10 +2465,10 @@ En un inversor de fuente de voltaje (VSI), el bus de condensadores tiene dos fun
 	El rizado de tensión se calcula como:
 	
 	\begin{equation}
-	V_{\text{ripple}} = \frac{I_{\text{C,RMS}}}{C \cdot f_{\text{conm}}}
+	V_{\text{ripple}} = \frac{I_{\text{C,RMS}}}{C \cdot f_{\text{conm}}} \text{ ,}
 	\end{equation}
 	
-	Donde:\\
+	donde:\\
 	- \( V_{\text{ripple}} \) es el rizado de tensión producido,\\
 	- \( I_{\text{C,RMS}} \) es la corriente alterna del bus de condensadores,\\
 	- \( C \) es la capacitancia del bus de condensadores, y\\
@@ -2504,12 +2509,12 @@ Es fácil ver como reducir la frecuencia de conmutación aumentará proporcional
 Ahora, aplicando estas consideraciones a los valores del diseño:
 
 \begin{itemize}
-	\item \( V_C > 1.1 \cdot V_{\text{max}} = 1.1 \cdot 600 \text{ V} = 660 \text{ V} \rightarrow 850 \text{ V} \) \\
+	\item $ V_C > 1.1 \cdot V_{\text{max}} = 1.1 \cdot 600 \text{ V} = 660 \text{ V} \rightarrow 850 \text{ V} $ \\
 		Escoger condensadores con un límite de tensión más grande es más seguro para transitorios y el régimen de trabajo en debilitamiento de campo.
-	\item \( I_{C,\text{RMS}} \approx 0.65 \cdot I_{\text{fase,RMS}} = 0.65 \cdot 80 \text{ A,RMS} = 52 \text{ A,RMS}\) \\
+	\item $ I_{C,\text{RMS}} \approx 0.65 \cdot I_{\text{fase,RMS}} = 0.65 \cdot 80 \text{ A,RMS} = 52 \text{ A,RMS}$ \\
 		Se debe asegurar que el condensador puede soportar esta corriente, idealmente sin refrigeración. En caso de usar múltiples condensadores para formar el bus, la corriente se reparte de forma proporcional entre cada uno de ellos.
-	\item \( C > \frac{I_{C,\text{RMS}}}{V_{\text{ripple}} \cdot f_{\text{conm}}} = \frac{52 \text{ A,RMS}}{15 \text{ V} \cdot 40 \text{ kHz}} \approx 87 \text{ }\mu\text{F} \rightarrow 100 \text{ }\mu\text{F} \)\\
-		Conviene sobredimensionar la capacitancia tanto como sea posible atendiendo a límites mecánicos y de ensamblaje. Para el valor de $V_{\text{ripple}}$ se suele considerar un 5\% de la tensión mínima de funcionamiento, que en este caso es de entorno a los 350 V ($\frac{15 \text{V}}{350 \text{V}} = 4.3\text{ }\%$).
+	\item $ C > \frac{I_{C,\text{RMS}}}{V_{\text{ripple}} \cdot f_{\text{conm}}} = \frac{52 \text{ A,RMS}}{15 \text{ V} \cdot 40 \text{ kHz}} \approx 87 \text{ }\text{\unit{\micro\farad}} \rightarrow 100 \text{ }\text{\unit{\micro\farad}} $ \\
+		Conviene sobredimensionar la capacitancia tanto como sea posible atendiendo a límites mecánicos y de ensamblaje. Para el valor de $V_{\text{ripple}}$ se suele considerar un 5\% de la tensión mínima de funcionamiento, que en este caso es de entorno a los 350 V ($\frac{15 \text{ V}}{350 \text{ V}} = 4.3\text{ }\%$). Además, se puede jugar con el margen proporcionado para probar frecuencias de conmutación más bajas, dado que los inversores comerciales analizados muestran relaciones de capacitancia - frecuencia mucho más altas.
 \end{itemize}
 
 \subsubsection{Selección de condensadores}
@@ -2519,13 +2524,13 @@ Se ha optado por un diseño con 10 condensadores del modelo FHA85Y106KS de la se
 \begin{itemize}
 	\item \textbf{Material:} La serie FH de Murata tiene condensadores de película, cuya resistencia interna es muy inferior a la de un condensador electrolítico, lo cual es crucial para minimizar las pérdidas en el condensador.
 	
-	\item \textbf{Densidad de capacitancia:} Esta serie de condensadores presenta una alta densidad de capacitancia de entorno a $0.6\text{ }\frac{\mu text{F}}{text{cm}^3}$. Esto va a permitir compactificar el diseño bastante.
+	\item \textbf{Densidad de capacitancia:} Esta serie de condensadores presenta una alta densidad de capacitancia de entorno a $0.6\text{ }\frac{\text{\unit{\micro\farad}}}{\text{cm}^3}$. Esto va a permitir compactificar el diseño bastante.
 	
 	\item \textbf{Tensión máxima:} Con una gama de 500 V y otra 850 V, estos últimos están dentro del rango necesario para operar de manera segura, incluso en debilitamiento de campo, donde en caso de error, la tensión de bus podría ser superior a 600 V.
 	
-	\item \textbf{Temperatura de Operación:} Tienen un rango de temperatura de operación amplio, que va desde -40 °C hasta +125 °C. Dado que se prefiere evitar su refrigeración, el hecho de que aguanten altas temperaturas permite tener más confiabilidad en la corriente que pueden soportar y el calentamiento que esta va a provocar.
+	\item \textbf{Temperatura de operación:} Tienen un rango de temperatura de operación amplio, que va desde -40 °C hasta +125 °C. Dado que se prefiere evitar su refrigeración, el hecho de que aguanten altas temperaturas permite tener más confiabilidad en la corriente que pueden soportar y el calentamiento que esta va a provocar.
 	
-	\item \textbf{Frecuencia de Operación:} Los condensadores FHA85Y106KS están diseñados para operar en frecuencias de hasta 200 kHz, cuatro veces superior a la frecuencia de conmutación escogida.
+	\item \textbf{Frecuencia de operación:} Los condensadores FHA85Y106KS están diseñados para operar en frecuencias de hasta 200 kHz, cuatro veces superior a la frecuencia de conmutación escogida.
 	
 	
 \end{itemize}
@@ -2552,7 +2557,7 @@ Para asegurar una conexión segura y eficiente del bus de continua con la bater�
 
 Un modelo que destaca en esta aplicación es el 7461063 de Würth Elektronik, diseñado para conexiones de hasta 160 A. Está fabricado en latón con una superficie estañada, y su montaje \textit{press-fit} asegura una conexión mecánica y eléctrica sólida.
 
-La tecnología \textit{press-fit} utilizada en estos conectores REDCUBE de Würth Elektronik proporciona una serie de ventajas significativas. Al presionar los pines en la PCB, se genera una soldadura fría homogénea entre el pin y el orificio metalizado, asegurando una resistencia de contacto inferior a 200 $\mu\Omega$.
+La tecnología \textit{press-fit} utilizada en estos conectores REDCUBE de Würth Elektronik proporciona una serie de ventajas significativas. Al presionar los pines en la PCB, se genera una soldadura fría homogénea entre el pin y el orificio metalizado, asegurando una resistencia de contacto inferior a 200 $\text{\unit{\micro\ohm}}$.
 
 \begin{figure}[H]
 	\centering
@@ -2572,6 +2577,55 @@ Estos conectores permiten una flexibilidad de integración muy grande, puesto qu
 
 \subsection{Sensor de posición}
 
+A fecha de redacción, el sensor de posición específico a utilizar en el inversor aún no ha sido determinado. Sin embargo, se diseñará el \textit{hardware} para permitir el uso del \textit{encoder} incremental, ya que ha sido utilizado hasta ahora en el proyecto.
+
+El \textit{encoder} incremental es un dispositivo que genera pulsos eléctricos a medida que un actuador magnético gira. Este actuador se sitúa en el eje del cual se desea conocer la posición.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.6\linewidth]{fig/encoder1}
+	\caption{Actuador magnético situado en el eje de un motor.}
+\end{figure}
+
+Este tipo de sensor generalmente consta de tres canales: A, B y Z. Los canales A y B son señales cuadradas desfasadas 90 grados, mientras que el canal Z proporciona una referencia de posición conocida como pulso de índice. El \textit{encoder} incremental genera un número determinado de pulsos por cada rotación del ángulo medido, lo que se conoce como pulsos por revolución o PPR.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[x=0.5cm,y=1cm]
+		
+		% Ejes y etiquetas
+		\draw[-] (-1,-3) -- (24,-3) node[right] {Ángulo};
+		\draw[-] (0,-3) -- (0,5) node[above] {Señales};
+		
+		% Señales
+		\draw[dotted,gray] (0,0) node[left] {$Z$} -- (24,0);
+		\draw[dotted,gray] (0,1.5) node[left] {$B$} -- (24,1.5);
+		\draw[dotted,gray] (0,3) node[left] {$A$} -- (24,3);
+		\draw[dotted,gray] (0,-2) node[left] {$\theta$} -- (24,-2);
+		
+		% Pulsos A
+		\draw[thick,red] (0,4) -- (1,4) -- (1,3) -- (3,3) -- (3,4) -- (5,4) -- (5,3) -- (7,3) -- (7,4) -- (9,4) -- (9,3) -- (11,3) -- (11,4) -- (13,4) -- (13,3) -- (15,3) -- (15,4) -- (17,4) -- (17,3) -- (19,3) -- (19,4) -- (21,4) -- (21,3) -- (23,3) -- (23,4) -- (24,4);
+		
+		% Pulsos B
+		\draw[thick,blue] (0,1.5) -- (2,1.5) -- (2,2.5) -- (4,2.5) -- (4,1.5) -- (6,1.5) -- (6,2.5) -- (8,2.5) -- (8,1.5) -- (10,1.5) -- (10,2.5) -- (12,2.5) -- (12,1.5) -- (14,1.5) -- (14,2.5) -- (16,2.5) -- (16,1.5) -- (18,1.5) -- (18,2.5) -- (20,2.5) -- (20,1.5) -- (22,1.5) -- (22,2.5) -- (24,2.5) -- (24,1.5);
+		
+		% Pulsos Z
+		\draw[thick,green] (0,0) -- (3,0) -- (3,1) -- (4,1) -- (4,0) -- (19,0) -- (19,1) -- (20,1) -- (20,0) -- (24,0);
+		
+		% Diente de sierra
+		\draw[thick,black] (0,-1.2) -- (3,-1) -- (3,-2) -- (19,-1) -- (19,-2) -- (24,-1.6);
+		
+	\end{tikzpicture}
+	
+	
+	\caption{Señales de un \textit{encoder} incremental de 4 PPR junto al ángulo real ($\theta$) girando en sentido antihorario.}
+	\label{fig:encoder_incremental}
+\end{figure}
+
+
+Para estimar la velocidad, dirección y posición del motor a partir del \textit{encoder} incremental, se utilizan los pulsos de los canales A y B. La dirección del movimiento se determina mirando si A está avanzada respecto a B (sentido antihorario) o viceversa (sentido horario). La velocidad se calcula midiendo el intervalo entre pulsos y la posición se determina contando (integrando) el número de pulsos desde una posición de referencia conocida.
+
+El \textit{hardware} necesario para leer la señal del \textit{encoder} incremental puede consistir únicamente en el uso de tres comparadores analógicos. Estos comparadores se encargan de convertir las señales comúnmente diferenciales de los canales A, B y Z en señales digitales que pueden ser procesadas por el MCU del inversor. Esta interfaz también sería compatible con sensores de posición Hall, lo que brinda flexibilidad en la elección del sensor de posición para el inversor.
 
 
 \subsection{Microcontrolador}
@@ -2579,7 +2633,7 @@ Estos conectores permiten una flexibilidad de integración muy grande, puesto qu
 La unidad de procesamiento del convertidor es una de las piezas clave, pues será la encargada de gestionar lecturas analógicas, alarmas, comunicaciones, y por supuesto, ejecutar el control. Por ello su selección debe ser meticulosamente estudiada. En primer lugar se seleccionan unos requisitos:
 
 \begin{itemize}
-	\item \textbf{Velocidad de reloj mayor a 200 MHz}: En base a la experiencia del autor con otros inversores, el cálculo de todos los PIs, filtros, transformadas y trayectorias de control puede tomar hasta 2500 ciclos de reloj. Por lo tanto, dado que hay que ejecutar dos lazos de control para los dos motores, $\frac{2000 \cdot 2}{200 \text{ MHz}} = 25 \text{ }\mu\text{s} \leftrightarrow 40 \text{ kHz}$, 200 MHz es la mínima velocidad para poder conmutar a 40 kHz.
+	\item \textbf{Velocidad de reloj mayor a 200 MHz}: En base a la experiencia del autor con otros inversores, el cálculo de todos los PIs, filtros, transformadas y trayectorias de control puede tomar hasta 2500 ciclos de reloj. Por lo tanto, dado que hay que ejecutar dos lazos de control para los dos motores, $\frac{2000 \cdot 2}{200 \text{ MHz}} = 25 \text{ }\text{\unit{\micro\second}} \leftrightarrow 40 \text{ kHz}$, 200 MHz es la mínima velocidad para poder conmutar a 40 kHz.
 	\item \textbf{Unidad de punto flotante}: Para evitar trabajar en coma fija, lo cual puede causar muchos problemas de integración y añade una capa de complejidad innecesaria, se pone como requisito que el MCU soporte el uso de \textit{float} de forma nativa.
 	\item \textbf{Dos \textit{timers} avanzados}: Son necesarios dos \textit{timers}, uno para cada inversor, con características como la salida PWM bipolar con varios canales, configuración sencilla del tiempo muerto, etc.
 	\item \textbf{Lecturas analógicas}: Se necesitan al menos un par de ADCs de 12 bits suficientemente rápidos con múltiples canales cada uno, con tal de poder capturar las corrientes de fase y las tensiones de bus adecuadamente.
@@ -2695,7 +2749,7 @@ El resultado es de 10 mm, lo cual es exagerado, pero sin embargo, solamente se e
 	\caption{Ejemplo de enrutado de la conexión DC positiva del medio puente de la fase A.}
 \end{figure}
 
-Como se puede apreciar, el espaciado que hay que dejar por aislamiento compite por espacio con el ancho de las conexiones. En la mayoría de casos se ha podido respetar el ancho mínimo de 5 mm, sin embargo, en algunas situaciones esto no es posible. Por ejemplo, lo ilustrado en la subfigura (b) muestra una estrechez de 1,5 mm, pero como esa conexión está repetida en dos capas, el ancho total es de 3 mm. Además, la conexión positiva en el semiconductor se realiza a través de dos grupos de pines, y como antes de realizar esa estrechez ya se ha conectado un grupo de pines, se puede asumir que la corriente que circula por ese trozo de cobre es la mitad que la corriente continua entera que va a recibir ese módulo, que a su vez, es aproximadamente un tercio de la corriente continua total ($\frac{1}{3}\frac{17.5 \text{ kW}}{450 \text{ V}} = 13 \text{ A}$), pasado por la calculadora, tan solo son necesarios 2.8 mm de cobre para esa corriente, lejos de los 10 mm que se han intentado mantener.
+Como se puede apreciar, el espaciado que hay que dejar por aislamiento compite por espacio con el ancho de las conexiones. En la mayoría de casos se ha podido respetar el ancho mínimo de 5 mm, sin embargo, en algunas situaciones esto no es posible. Por ejemplo, lo ilustrado en la subfigura (b) muestra una estrechez de 1,5 mm, pero como esa conexión está repetida en dos capas, el ancho total es de 3 mm. Además, la conexión positiva en el semiconductor se realiza a través de dos grupos de pines, y como antes de realizar esa estrechez ya se ha conectado un grupo de pines, se puede asumir que la corriente que circula por ese trozo de cobre es la mitad que la corriente continua entera que va a recibir ese módulo, que a su vez, es aproximadamente un tercio de la corriente continua total ($\frac{1}{3}\frac{17.5 \text{ kW}}{450 \text{ V}} = 13 \text{ A}$), pasado por la calculadora, tan solo son necesarios 2,8 mm de cobre para esa corriente, lejos de los 10 mm que se han intentado mantener.
 
 Esto es tan solo un ejemplo del análisis que se ha realizado con cualquier mínima sospecha de falta de cobre en todo el enrutado de potencia. Un camino de corriente muy estrecho podría presentar sobrecalentamiento y en casos extremos, levantamiento de la pista o plano.
 
@@ -2711,7 +2765,7 @@ Además, se ha especificado el acabado y el espesor de cobre en las vías para a
 	\caption{Requisitos para la PCB según Würth Elektronik.}
 \end{figure}
 
-Ambos documentos apuntan que un acabado de estaño químico es lo ideal para realizar esta conexión, sin embargo, no se pudo conseguir un fabricante que lo pudiera realizar a un precio razonable. El grosor de cobre que se marcó como requisito al fabricante fue de 25 $\mu$m a 50 $\mu$m, por ser el más restrictivo de ambos.
+Ambos documentos apuntan que un acabado de estaño químico es lo ideal para realizar esta conexión, sin embargo, no se pudo conseguir un fabricante que lo pudiera realizar a un precio razonable. El grosor de cobre que se marcó como requisito al fabricante fue de 25 \unit{\micro\meter} a 50 \unit{\micro\meter}, por ser el más restrictivo de ambos.
 
 \subsubsection{Bloques funcionales}
 
@@ -2791,22 +2845,22 @@ Este proceso permite ajustar de forma precisa los voltajes negativos necesarios 
 
 Uno de los componentes más importantes de todo el diseño tiene una de las implementaciones más sencillas, ya que la hoja de datos del UCC21710 proporciona mucha información útil para la aplicación final.
 
-El \textit{gate driver} UCC21710 se implementa con varias características que lo hacen adecuado para su uso en aplicaciones de potencia. Las señales \textit{TRIP} y \textit{OK} están configuradas en \textit{open drain}, lo que permite que se paralelicen con los otros \textit{gate drivers} para facilitar su integración. La entrada \textit{IN-} no se utiliza y está conectada a tierra. El pin \textit{ENABLE} se controla desde el MCU, y cuando se fuerza un estado bajo durante más de 1 $\mu$s, se resetea la señal \textit{TRIP}. La señal \textit{TRIP} se lee como una interrupción externa desde el MCU, y sirve para detectar un error en los \textit{gate drivers} y actuar rápidamente.
+El \textit{gate driver} UCC21710 se implementa con varias características que lo hacen adecuado para su uso en aplicaciones de potencia. Las señales \textit{TRIP} y \textit{OK} están configuradas en \textit{open drain}, lo que permite que se paralelicen con los otros \textit{gate drivers} para facilitar su integración. La entrada \textit{IN-} no se utiliza y está conectada a tierra. El pin \textit{ENABLE} se controla desde el MCU, y cuando se fuerza un estado bajo durante más de 1 \unit{\micro\second}, se resetea la señal \textit{TRIP}. La señal \textit{TRIP} se lee como una interrupción externa desde el MCU, y sirve para detectar un error en los \textit{gate drivers} y actuar rápidamente.
 
-Para la medición de temperatura, se utilizan los \textit{drivers} de los MOSFETS del \textit{low-side}. Estos proporcionan una corriente de salida de 200 $\mu$A en su salida, a través de la cual se puede interpretar la medida. Esta señal se convierte a PWM y luego a analógica mediante un filtro RC para ser recibida directamente por el ADC del MCU. 
+Para la medición de temperatura, se utilizan los \textit{drivers} de los MOSFETS del \textit{low-side}. Estos proporcionan una corriente de salida de 200 \unit{\micro\ampere} en su salida, a través de la cual se puede interpretar la medida. Esta señal se convierte a PWM y luego a analógica mediante un filtro RC para ser recibida directamente por el ADC del MCU. 
 
 El circuito de medición de temperatura utiliza el sensor NTC del semiconductor para obtener una lectura de tensión, la cual se convierte en una lectura de bits mediante el ADC del MCU. La relación entre la resistencia del NTC y la temperatura se modela utilizando la fórmula de Steinhart-Hart, que toma en cuenta el valor $\beta$ del NTC, la resistencia a una temperatura de referencia, y la temperatura ambiente. La fórmula utilizada es
 
 \[
-NTC = R_0 \cdot e^{\left[-\beta \cdot \left(\frac{1}{T_0} - \frac{1}{\text{T}}\right)\right]} \text{.}
+NTC = R_0 \cdot e^{\left[-\beta \cdot \left(\frac{1}{T_0} - \frac{1}{\text{T}}\right)\right]} \text{ .}
 \]
 
 El voltaje leído por el ADC se calcula
 \[
-V_{\text{read}} = V_{\text{CC,GD}} \cdot \left(\frac{-20 \cdot I_{\text{AIN}} \cdot (R_{\text{filt}} + NTC)}{100}\right) = 5 \text{ V} \cdot \left(\frac{-20 \cdot 200 \text{ }\mu\text{A} \cdot (10 \text{ k}\Omega + NTC)}{100}\right) \text{.}
+V_{\text{ADC}} = V_{\text{CC,GD}} \cdot \left(\frac{-20 \cdot I_{\text{AIN}} \cdot (R_{\text{filt}} + NTC)}{100}\right) = 5 \text{ V} \cdot \left(\frac{-20 \cdot 200 \text{ }\text{\unit{\micro\ampere}} \cdot (10 \text{ k}\Omega + NTC)}{100}\right) \text{.}
 \]
 
-El circuito también incluye protección de \textit{Miller clamp} para evitar activaciones accidentales de los MOSFETs. Aunque los \textit{gate drivers} tienen un \textit{pull-down} activo, se ha implementado un \textit{pull-down} externo con $R_{\textit{GS,HS}}$ y $R_{\textit{GS,LS}}$. Sin embargo, la detección de sobrecorriente no está implementada en este diseño por los motivos mencionados en un apartado anterior.
+El circuito también incluye protección de \textit{Miller clamp} para evitar activaciones accidentales de los MOSFETs. Aunque los \textit{gate drivers} tienen un \textit{pull-down} activo, se ha implementado un \textit{pull-down} externo con $R_{\text{GS,HS}}$ y $R_{\text{GS,LS}}$. Sin embargo, la detección de sobrecorriente no está implementada en este diseño por los motivos mencionados en un apartado anterior.
 
 Adicionalmente, se incluyen unos \textit{snubbers} consistentes en un RC entre drenador y fuente, un condensador entre puerta y drenador y un condensador entre puerta y fuente. En caso de encontrar problemas excesivos con la conmutación, pueden ayudar a amortiguar transitorios.
 
@@ -2843,7 +2897,7 @@ La selección de la resistencia se ha basado en minimizar el tamaño de la misma
 \end{equation}
 
 \[
-t_{\text{dis}} = R_{\text{dis}} \cdot C \cdot \ln\left(\frac{V_{\text{inicial}}}{V_{\text{final}}}\right) = \left(\frac{470 \text{ k}\Omega}{24}\right) \cdot (100\text{ }\mu\text{F}) \cdot \ln\left(\frac{600 \text{ V}}{60 \text{ V}}\right) = 4.509 \text{ s}
+t_{\text{dis}} = R_{\text{dis}} \cdot C \cdot \ln\left(\frac{V_{\text{inicial}}}{V_{\text{final}}}\right) = \left(\frac{470 \text{ k}\Omega}{24}\right) \cdot (100\text{ }\text{\unit{\micro\farad}}) \cdot \ln\left(\frac{600 \text{ V}}{60 \text{ V}}\right) = 4.509 \text{ s}
 \] 
 
 La potencia disipada en cada resistencia de descarga se calcula como
@@ -3037,7 +3091,7 @@ Finalmente, se logra que el esquemático y el programa CubeMX muestren la misma 
 
 \textbf{Alimentación}
 
-Ya que se propone alimentar la placa directamente desde el sistema de baja tensión del vehículo, se debe implementar un tratamiento de esta alimentación. Se incluye protección contra descargas electrostáticas, polaridad inversa y sobrecorriente. Se implementa un DC-DC de Recom de 15 W para generar el bus principal de 5 V, sin embargo, dado a problemas de disponibilidad y ensamblaje no se ha podido probar. Además, se incluye alimentación del conector USB, y ambos buses de 5 V se pasan por un filtro Pi con frecuencia de corte $f_c = \frac{1}{2 \pi \sqrt{C \cdot L}} = \frac{1}{2 \pi \sqrt{10\text{ }\mu\text{F} \cdot 47\text{ }\mu\text{H}}} = 7.34 \text{ kHz}$ para evitar acoples de ruido en la alimentación. También se puede observar un regulador lineal fijo de 3.3 V para proporcionar una tensión estable al MCU, y un pequeño LED indicativo de que la alimentación está activa.
+Ya que se propone alimentar la placa directamente desde el sistema de baja tensión del vehículo, se debe implementar un tratamiento de esta alimentación. Se incluye protección contra descargas electrostáticas, polaridad inversa y sobrecorriente. Se implementa un DC-DC de Recom de 15 W para generar el bus principal de 5 V, sin embargo, dado a problemas de disponibilidad y ensamblaje no se ha podido probar. Además, se incluye alimentación del conector USB, y ambos buses de 5 V se pasan por un filtro Pi con frecuencia de corte $f_c = \frac{1}{2 \pi \sqrt{C \cdot L}} = \frac{1}{2 \pi \sqrt{10\text{ }\text{\unit{\micro\farad}} \cdot 47\text{ }\text{\unit{\micro\henry}}}} = 7.34 \text{ kHz}$ para evitar acoples de ruido en la alimentación. También se puede observar un regulador lineal fijo de 3.3 V para proporcionar una tensión estable al MCU, y un pequeño LED indicativo de que la alimentación está activa.
 
 \begin{figure}[H]
 	\centering
@@ -3069,7 +3123,7 @@ Para implementar comunicación CAN es necesario incorporar un \textit{transceive
 
 Este bloque se implementa por duplicado, un bloque por cada motor que se controla. Contiene los componentes necesarios para leer su posición y temperatura.
 
-Ya que se requiere de leer la posición con un \textit{encoder} incremental, se equipan los componentes necesarios para ello. En primer lugar, se sabe que el modelo de \textit{encoder} en concreto tiene tres canales diferenciales, con lo que se usa el LM339, un comparador cuádruple con salida HiZ/GND para obtener la lectura desde una interrupción externa en el MCU. Cabe destacar que esta configuración de \textit{hardware} hace compatible este inversor con sensores de efecto \textit{Hall} para la lectura de posición, aunque no se desarrollará el código que los interprete.
+Ya que se requiere de leer la posición con un \textit{encoder} incremental, se equipan los componentes necesarios para ello. Se usa el LM339, un comparador cuádruple con salida HiZ/GND para obtener la lectura desde una interrupción externa en el MCU. Cabe destacar que esta configuración de \textit{hardware} hace compatible este inversor con sensores de efecto Hall para la lectura de posición, aunque no se desarrollará el código que los interprete.
 
 \begin{figure}[H]
 	\centering
@@ -3128,10 +3182,10 @@ Puesto que el modelo escogido presentaría una pequeña zona muerta, se debe añ
 No existen referencias de tensión de tan poco nivel, así que se usa un divisor resistivo de valores bajos, a sabiendas de que esta decisión causa error en la medida. 
 
 El \textit{offset} de la medida de tensión se calcula
-\[ \text{\textit{offset}}_V = V_{ref} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 129 \text{ bits,} \]
+\[ \text{\textit{offset}}_v = V_{ref} \cdot \frac{2^{12} \text{ bits}}{3.3\text{ V}} = 129 \text{ bits,} \]
 
 y la ganancia de la medida de tensión en voltios por bit se calcula
-\[ \text{\textit{gain}}_V = \frac{1}{\left(\frac{1}{3} \cdot 0.011388 \text{ V/V} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)\right)} = 0.212240269 \text{ V/bit.} \]
+\[ \text{\textit{gain}}_v = \frac{1}{\left(\frac{1}{3} \cdot 0.011388 \text{ V/V} \cdot \left(\frac{2^{12} \text{ bits}}{3.3\text{ V}}\right)\right)} = 0.212240269 \text{ V/bit.} \]
 
 La tensión máxima que se puede medir es
 \[ 0.212240269 \text{ V/bit} \cdot 2^{12} \text{ bits} = 869.34 \text{ V} \]
@@ -3224,7 +3278,11 @@ El caso de los conectores de potencia fue sencillo puesto que no son muchos pine
 	\caption{Placa lista para el montaje de un componente \textit{press-fit} con un utillaje personalizado.}
 \end{figure}
 
-!!!!!! TORNILLO DE BANCO
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/tornilloBanco}
+	\caption{Prensado del componente usando un tornillo de banco.}
+\end{figure}
 
 \begin{figure}[H]
 	\centering
@@ -3345,8 +3403,8 @@ Para mantener un código claro y coherente, se seguirán las siguientes convenci
 	\begin{itemize}
 		\item Para el \textit{offset} y el \textit{slope} del ADC:
 		{\small\begin{verbatim}
-			#define CURRENT_SLOPE  54.4217687f /**< [A/V] (10/(4.7+10)) * ( 1 / (12.5 mV / A)) */
-			#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
+				#define CURRENT_SLOPE  54.4217687f /**< [A/V] (10/(4.7+10)) * ( 1 / (12.5 mV / A)) */
+				#define CURRENT_OFFSET 1.70068027211f /**< [V] (10/(4.7+10))* 2.5 V */
 		\end{verbatim}}
 		\item Para la referencia de par:
 		\begin{verbatim}
@@ -3399,20 +3457,20 @@ Para mantener un código claro y coherente, se seguirán las siguientes convenci
 	\end{itemize}
 	\textbf{Ejemplo:}
 	{\small\begin{verbatim}		
-/**
-* @brief Computes d-q currents from current measurements and electrical angle.
-*
-* This function computes the d-q currents from phase currents (ABC), theta_e, and stores
-* the results in the provided pointers.
-*
-* @param[in] ia Phase A current in A.
-* @param[in] ib Phase B current in A.
-* @param[in] ic Phase C current in A.
-* @param[in] theta_e Electrical rotor position in radians.
-* @param[out] idMeas Pointer to store the D-axis current.
-* @param[out] iqMeas Pointer to store the Q-axis current.
-*/
-void get_idiq(float ia, float ib, float ic, float theta_e, float *idMeas, float *iqMeas);
+			/**
+			* @brief Computes d-q currents from current measurements and electrical angle.
+			*
+			* This function computes the d-q currents from phase currents (ABC), theta_e, and stores
+			* the results in the provided pointers.
+			*
+			* @param[in] ia Phase A current in A.
+			* @param[in] ib Phase B current in A.
+			* @param[in] ic Phase C current in A.
+			* @param[in] theta_e Electrical rotor position in radians.
+			* @param[out] idMeas Pointer to store the D-axis current.
+			* @param[out] iqMeas Pointer to store the Q-axis current.
+			*/
+			void get_idiq(float ia, float ib, float ic, float theta_e, float *idMeas, float *iqMeas);
 	\end{verbatim}}
 \end{enumerate}
 
@@ -3420,13 +3478,142 @@ void get_idiq(float ia, float ib, float ic, float theta_e, float *idMeas, float 
 
 \subsection{Arquitectura del \textit{firmware}}
 
-\subsubsection{Estructura del \textit{firmware}}
-\subsubsection{Módulo A}
-\subsubsection{Módulo B}
-\subsubsection{Módulo C}
-\subsubsection{Módulo D}
-\subsubsection{Módulo E}
+Para abordar fácilmente el manejo de los dos inversores de forma independiente, se han escrito varios módulos de código que se van reutilizando para evitar repetir código.
 
+\subsubsection{\texttt{INVERTER.c/.h}}
+
+El archivo \texttt{INVERTER.c} y su correspondiente encabezado \texttt{INVERTER.h} constituyen la implementación y la interfaz de la estructura de datos y las funciones asociadas a un inversor.
+
+La principal funcionalidad de estos archivos es proporcionar una interfaz cohesiva y modular para la gestión de los inversores. La estructura \texttt{InverterStruct} definida en \texttt{INVERTER.h} encapsula todos los elementos necesarios para el funcionamiento del inversor, incluyendo periféricos, estados de operación, estructuras de datos para mediciones y referencias, lazos de control, entre otros. Esta encapsulación permite una gestión eficiente y organizada de la complejidad asociada al control de los inversores.
+
+Un aspecto destacado de la implementación es la escritura de código modular y reutilizable, por ejemplo, las funciones se implementan de manera independiente de la configuración específica del \textit{hardware} del inversor. Se generan dos estructuras globales \texttt{InverterStruct} independientes, \texttt{inverter\_left} e \texttt{inverter\_right}, para controlar cada uno de los inversores de forma independiente. Esta estrategia permite un control simultáneo de ambos inversores sin repetir ni una línea de código.
+
+\subsubsection{\texttt{MOTOR.c/.h}}
+
+El archivo \texttt{MOTOR.c} y su correspondiente encabezado \texttt{MOTOR.h} constituyen la implementación y la interfaz de las funciones y estructuras asociadas a los parámetros y constantes del motor.
+
+La funcionalidad principal de estos archivos es proporcionar una interfaz modular para la gestión de los parámetros del motor. La estructura \texttt{MotorParameters}, definida en \texttt{MOTOR.h}, encapsula todos los parámetros de un motor eléctrico.
+
+Un aspecto importante de la implementación es la inclusión de una estructura adicional, \texttt{MotorConstants}, dentro de \texttt{MotorParameters}, que almacena las constantes precalculadas relacionadas con el motor. Estas constantes se calculan en la función \texttt{precalculate\_motor\_constants()} y se utilizan en el cálculo de trayectorias para ahorrar algo de tiempo de ejecución.
+
+Además, se proporciona una función de verificación de parámetros, \texttt{check\_motor\_parameters()}, que evalúa los valores de los parámetros del motor y realiza ajustes si se detectan errores o valores fuera de los límites especificados. Esta función garantiza que los parámetros del motor estén dentro de rangos seguros.
+
+\subsubsection{\texttt{FSM.c/.h}}
+
+El archivo \texttt{FSM.c} y su encabezado correspondiente \texttt{FSM.h} contienen la implementación y la interfaz de la Máquina de Estados Finitos (FSM) para controlar el inversor. La FSM gestiona el funcionamiento de un inversor a través de la ejecución de diferentes estados. Cada estado representa una etapa específica en el ciclo de funcionamiento del inversor y está asociado con un conjunto definido de acciones y condiciones de transición. El archivo \texttt{FSM.c} implementa funciones para gestionar cada estado. 
+
+Los cuatro estados implementados son:
+
+\begin{itemize}
+	\item \textbf{Inicio (\texttt{Startup})}: En este estado, se realizan las acciones de inicialización del inversor, como la configuración de periféricos y la detección de errores durante el arranque.
+	\item \textbf{Reposo (\texttt{Idle})}: El inversor está inactivo y espera órdenes para iniciar o detecta condiciones de error.
+	\item \textbf{Funcionamiento (\texttt{Running})}: El inversor está en pleno funcionamiento y se ejecuta el bucle de control principal.
+	\item \textbf{Error (\texttt{Fault})}: Se gestionan las acciones para detener el inversor y manejar las condiciones de error.
+\end{itemize}
+
+En cada estado, se describen las acciones realizadas y las condiciones que pueden provocar una transición a otro estado, como la detección de errores o cambios en las condiciones de funcionamiento del inversor.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[node distance=4cm,every node/.append style={fill=white}]
+		% Define the states
+		\node[state, initial] (startup) {$Startup$};
+		\node[state, right=of startup] (idle) {$Idle$};
+		\node[state, below right=2cm and 5cm of idle] (running) {$Running$};
+		\node[state, below=of startup, draw=red, text=red] (fault) {$Fault$};
+		% Draw the transitions
+		\draw[-Stealth] (startup) edge[bend left] node[pos=0.25] {1} (idle)
+		(idle) edge[loop above] node[pos=0.5, above] {Idle} (idle)
+		(idle) edge[bend left] node[pos=0.25] {enable == 1} (running)
+		(running) edge[loop below] node[pos=0.5, below] {Running} (running)
+		(running) edge[bend left] node[pos=0.25] {enable == 0} (idle)
+		(fault) edge[bend left] node[align=center, pos=0.25] {error == 0 AND\\enable == 0} (idle);
+
+		
+		% Redefine the transitions to "Fault" state in red
+		\draw[-Stealth, red] (idle) edge[bend left] node[pos=0.25, text=red] {error != 0} (fault)
+		(running) edge[bend left] node[pos=0.25, text=red] {error != 0} (fault)
+		(fault) edge[loop below] node[align=center, pos=0.5, below, text=red] {error != 0 OR\\enable == 1} (fault)
+		(startup) edge[bend right] node[pos=0.25, text=red] {error != 0} (fault);
+	\end{tikzpicture}
+	\caption{Diagrama de estados de la FSM para el control de un inversor.}
+\end{figure}
+
+
+
+\subsubsection{\texttt{MEASUREMENTS.c/.h}}
+
+Los archivos \texttt{MEASUREMENTS.c} y su encabezado correspondiente \texttt{MEASUREMENTS.h} contienen la implementación y la interfaz para manejar las mediciones en el sistema.
+
+En \texttt{MEASUREMENTS.h}, se definen algunas constantes relacionadas con ganancias y desplazamientos para corriente y voltaje, así como umbrales de falla para diversas condiciones del sistema. Además, se declaran las estructuras de datos necesarias para almacenar las mediciones de los sensores y los valores de retroalimentación.
+
+Las estructuras definidas son:
+
+\begin{itemize}
+	\item \texttt{Encoder}: Estructura para la lectura del \textit{encoder}, que almacena los valores de los canales A, B y Z, así como la velocidad angular eléctrica y la posición del rotor eléctrico.
+	\item \texttt{Analog}: Estructura para las mediciones de los sensores analógicos de cada inversor, es decir, las corrientes de fase y la tensión del bus DC.
+	\item \texttt{Feedback}: Estructura para los valores de retroalimentación, que contiene corrientes $d-q$, par calculado y velocidad medida.
+\end{itemize}
+
+En \texttt{MEASUREMENTS.c}, se implementan las funciones para manejar las mediciones, como la conversión de lecturas de ADC a medidas físicas, el cálculo de corrientes $d-q$ a partir de las mediciones de corriente de fase y el ángulo eléctrico, y la calibración de los \textit{offsets} de los sensores de corriente.
+
+\subsubsection{\texttt{REFERENCE.c/.h}}
+
+Los archivos \texttt{REFERENCE.c} y su encabezado correspondiente \texttt{REFERENCE.h} proporcionan funciones para manejar la consigna de par de cada motor. En \texttt{REFERENCE.h}, se define una estructura de datos llamada \texttt{Reference}, que contiene los valores de consigna para las corrientes $d-q$ y el par. 
+
+Las funciones principales implementadas en \texttt{REFERENCE.c} son:
+
+\begin{itemize}
+	\item \texttt{set\_torque\_direction}: Esta función ajusta la dirección del par en función de la dirección deseada del motor.
+	\item \texttt{saturate\_symmetric}: Esta función satura simétricamente un valor de referencia en función del valor máximo permitido.
+	\item \texttt{limit\_torque\_to\_prevent\_overspeed}: Esta función actúa como una saturación de par, reduciendo el par para limitar la velocidad máxima del motor.
+	
+	\item \texttt{handle\_torqueRef}: Esta función llama a las anteriores y las encadena para gestionar adecuadamente la consigna de par.
+	
+\end{itemize}
+
+\subsubsection{\texttt{PCB\_IO.c/.h}}
+
+Los archivos \texttt{PCB\_IO.c} y su encabezado correspondiente \texttt{PCB\_IO.h} actúan como capa de abstracción del \textit{hardware}. En \texttt{PCB\_IO.h}, se definen macros para leer y controlar algunos GPIOs, así como enumeraciones y estructuras para manejar LEDs y direcciones de motores.
+
+Las funciones principales implementadas en \texttt{PCB\_IO.c} son:
+
+\begin{itemize}
+	\item \texttt{handle\_LED}: Esta función maneja los modos de parpadeo de los LEDs basándose en el modo actual del LED y un contador de milisegundos.
+	\item \texttt{handle\_direction}: Esta función lee el estado del interruptor de dirección (\texttt{DIR}) y actualiza las direcciones de los motores izquierdo y derecho en función de este estado.
+	\item \texttt{enable\_inverters}: Esta función lee el estado de la cadena de \textit{shutdown} del vehículo y habilita o deshabilita los inversores en función de este estado y de una habilitación externa por \textit{software}.
+\end{itemize}
+
+\subsubsection{\texttt{CONTROL.c/.h}}
+
+Los archivos \texttt{CONTROL.c} y su encabezado correspondiente \texttt{CONTROL.h} proporcionan funciones para el lazo de control de cada inversor. Las funciones principales implementadas en \texttt{CONTROL.c} son:
+
+\begin{itemize}
+	\item \texttt{calc\_current\_reference}: Esta función calcula las consignas de corriente $d - q$ de la misma manera que en las simulaciones de control. Se implementan las trayectorias utilizando las ecuaciones analíticas de las mismas.
+	\item \texttt{calc\_current\_loop}: Esta función calcula los lazos de corriente para los ejes $d$ y $q$.
+	\item \texttt{saturate\_voltage}: Esta función satura la salida de los lazos de corriente para no exceder el voltaje máximo sintetizable.
+	\item \texttt{calc\_duties}: Esta función calcula la transformada inversa de Park y los ciclos de trabajo utilizando SVPWM.
+\end{itemize}
+
+\subsubsection{\texttt{PWM.c/.h}}
+
+Los archivos \texttt{PWM.c} y su encabezado correspondiente \texttt{PWM.h} proporcionan funciones para controlar la salida PWM. Las funciones principales implementadas en \texttt{PWM.c} son:
+
+\begin{itemize}
+	\item \texttt{enable\_PWM}: Esta función habilita la salida PWM para el \textit{timer} especificado.
+	\item \texttt{disable\_PWM}: Esta función deshabilita la salida PWM para el \textit{timer} especificado.
+	\item \texttt{update\_PWM}: Esta función actualiza los ciclos de trabajo para los canales PWM.
+\end{itemize}
+
+
+\subsubsection{\texttt{CAN\_e-Tech.c/.h}}
+
+Los archivos \texttt{CAN\_e-Tech.c} y su encabezado correspondiente \texttt{CAN\_e-Tech.h} proporcionan funciones para manejar la comunicación CAN con el vehículo. Las funciones principales implementadas en \texttt{CAN\_e-Tech.c} son:
+
+\begin{itemize}
+	\item \texttt{handle\_CAN}: Esta función implementa la lógica para manejar mensajes CAN recibidos.
+	\item \texttt{send\_CAN\_message}: Esta función prepara y envía un mensaje CAN utilizando información de \texttt{CAN1db.h}, que recoge la estructura de todos los mensajes del bus de CAN al cual estará conectado el inversor.
+\end{itemize}
 
 \subsection{Implementación del \textit{firmware}}
 
