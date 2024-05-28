@@ -92,17 +92,17 @@ void get_currents_voltage(volatile uint16_t rawADC[], volatile Analog* analog, v
 
 
     // Check for overcurrent/overvoltage/undervoltage faults
-    if (fabs(ia) > OVERCURRENT_TH || fabs(ib) > OVERCURRENT_TH || fabs(ic) > OVERCURRENT_TH) {
+    if (fabs(analog->ia) > OVERCURRENT_TH || fabs(analog->ib) > OVERCURRENT_TH || fabs(analog->ic) > OVERCURRENT_TH) {
         set_error(errors, OVERCURRENT);
     } else {
         clear_error(errors, OVERCURRENT);
     }
-    if (vDC > OVERVOLTAGE_TH) {
+    if (analog->vDC > OVERVOLTAGE_TH) {
 		set_error(errors, OVERVOLTAGE);
 	} else {
 		clear_error(errors, OVERVOLTAGE);
 	}
-    if (vDC < UNDERVOLTAGE_TH) {
+    if (analog->vDC < UNDERVOLTAGE_TH) {
 		set_error(errors, UNDERVOLTAGE);
 	} else {
 		clear_error(errors, UNDERVOLTAGE);
