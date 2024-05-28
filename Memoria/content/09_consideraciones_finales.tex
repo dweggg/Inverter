@@ -175,7 +175,7 @@ Este objetivo ha sido cumplido parcialmente, y sería necesaria una validación 
 	}%
 }
 
-Se ha procedido a la implementación del \textit{firmware} que controlará el \textit{hardware} del inversor, integrando gran parte del control diseñado previamente. La naturaleza modular del código escrito permite, sin mucho esfuerzo, controlar dos motores de forma independiente, ya que se han integrado todos los periféricos necesarios. El lazo de control con debilitamiento de campo no se ha podido verificar por falta de tiempo y equipamiento, pero se considera sencillo implementarlo cogiendo como base las simulaciones realizadas si se tiene un motor adecuado con el que probar. De la misma manera, no se ha podido verificar el control dual, aunque en todo momento del desarrollo se han estado ejecutando ambos lazos de control simultáneamente.
+Se ha procedido a la implementación del \textit{firmware} que controlará el \textit{hardware} del inversor, integrando gran parte del control diseñado previamente. Sin embargo, no se ha podido implementar la lectura del sensor de posición, motivo por el cual no se ha podido verificar el lazo de corriente con un motor, pero sí con una carga estática. Se han integrado las trayectorias que permiten un control de par de la misma manera que se ha hecho en las simulaciones. Por la misma razón, no se ha podido verificar el control dual, aunque en todo momento del desarrollo se han estado ejecutando ambos lazos de control simultáneamente, con lo que no debería ser un problema. El lazo de control con debilitamiento de campo no se ha integrado, pero se considera sencillo implementarlo cogiendo como base las simulaciones realizadas. 
 
 Se ha cumplido en gran medida este objetivo, aunque no se han validado algunos aspectos.
 
@@ -224,9 +224,11 @@ Como se ha mencionado anteriormente, se es consciente de que el algoritmo propue
 \subsubsection{\textit{Firmware}}
 
 \begin{itemize}
-	\item Integrar el control con debilitamiento de campo (lazo de tensión) junto con una buena gestión de la frenada regenerativa en debilitamiento de campo.
-	\item Verificar la lectura del \textit{encoder} incremental.
+	\item Integrar la lectura del \textit{encoder} incremental.
+	\item Verificar el lazo de corriente con un motor.
+	\item Optimizar el lazo de control para ocupar menos tiempo de ejecución.
 	\item Verificar el control simultáneo de dos motores.
+	\item Integrar el control con debilitamiento de campo (lazo de tensión) junto con una buena gestión de la frenada regenerativa en debilitamiento de campo.
 	\item Implementar un sistema operativo en tiempo real (RTOS) que gestione todas las tareas no síncronas con el control, es decir, comunicaciones, LEDs, y otros procesos poco prioritarios.
 	\item Externalizar los parámetros constantes (los umbrales de error, los parámetros del motor, etc.) para evitar tener que cargar un binario nuevo cada vez que se modifican.
 	\item Integrar los parámetros y otras configuraciones estáticas en una memoria EEPROM para tener que cargarlos solamente una vez.

@@ -1,16 +1,17 @@
 \chapter{Resultados y validación}
 
 \section{Introducción}
-La validación del sistema es una etapa crítica en el proceso de desarrollo de cualquier proyecto, especialmente en un proyecto de la magnitud y complejidad del convertidor diseñado. La validación se encarga de verificar que todos los componentes y subsistemas del convertidor funcionen correctamente y cumplan con los requisitos y especificaciones establecidos previamente.
+La validación es una etapa crítica en el proceso de desarrollo de cualquier proyecto, especialmente en un proyecto de la magnitud y complejidad del convertidor diseñado. La validación se encarga de verificar que todos los componentes y subsistemas del convertidor funcionen correctamente y cumplan con los requisitos y especificaciones establecidos previamente.
 
 Dada la naturaleza multifacética del convertidor, que abarca desde aspectos eléctricos y electrónicos hasta aspectos de control y \textit{firmware}, es esencial planificar una estrategia de validación exhaustiva y efectiva. En este sentido, se ha adoptado un enfoque metodológico basado en el modelo en V, que permite validar los subsistemas desde los más específicos hasta los más generales, siguiendo un flujo lógico y sistemático. 
 
-En este capítulo se desarrolla la parte derecha de la 'V', diseñando y ejecutando las pruebas a varios niveles. La estrategia de validación se divide en tres grandes bloques: validación de \textit{hardware}, validación de \textit{firmware} e integración. Cada bloque tiene sus propios desafíos y requisitos específicos, pero todos contribuyen al objetivo final de asegurar el funcionamiento correcto y robusto del convertidor.
+En este capítulo se desarrolla la parte derecha de la 'V', diseñando y ejecutando las pruebas a varios niveles. La estrategia de validación comenzará validando el \textit{hardware}, desde los componentes individuales hasta las placas enteras, y continuará con una etapa de integración en la que se desarrolla el \textit{firmware}. Cada bloque tiene sus propios desafíos y requisitos específicos, pero todos contribuyen al objetivo final de asegurar el funcionamiento correcto y robusto del convertidor. Las diferentes partes de la validación que se han encarado de formas también diferentes, atendiendo a las circunstancias y priorizando las buenas prácticas y la identificación de problemas a los resultados exitosos.
 
 \section{Validación de \textit{hardware}}
+
 La parte más crítica en la validación del convertidor es la de \textit{hardware} puesto que cada iteración cuesta tiempo y dinero. Por ello, son las pruebas de \textit{hardware} las que se diseñan y ejecutan más meticulosamente. En particular, se prestó especial atención a la placa de potencia, puesto que es el diseño más complicado de los dos.
 
-Inicialmente, se elaboraron hojas de cálculo detalladas para cada uno de los tests, abarcando desde la inspección visual y pruebas de subcircuitos, hasta la evaluación de sistemas algo más complejos. Sin embargo, a medida que avanzaba el proceso de validación y se integraban los subcircuitos unos con otros, se hizo evidente que un enfoque más dinámico y adaptativo era necesario. Esto se debió a que los problemas encontrados y las soluciones implementadas requerían una validación continua y menos estructurada, lo que permitía realizar ajustes y mejoras en menos tiempo.
+Inicialmente, se elaboraron hojas de cálculo detalladas para cada uno de los ensayos, abarcando desde la inspección visual y pruebas de subcircuitos, hasta la evaluación de sistemas algo más complejos. Sin embargo, a medida que avanzaba el proceso de validación y se integraban los subcircuitos unos con otros, se hizo evidente que era necesario un enfoque más dinámico y adaptativo. Esto se debió a que los problemas encontrados y las soluciones implementadas requerían una validación continua y menos estructurada, lo que permitía realizar ajustes y mejoras tiempo real. Sin embargo, no por ello se dejaron de documentar los ensayos, si no que se registraron de formas menos profesionales.
 
 
 \subsection{Pre-inspección de la placa de potencia}
@@ -295,11 +296,11 @@ Dado que este \textit{overshoot} es aproximadamente lineal con la corriente de s
 		\hline
 		{$V_{\text{DC,in}}$} & $I_{\text{out}}$ & \textit{Overshoot} medido & Predicción de \textit{overshoot}\\
 		\hline
-		{$10$ V} & $0$ A & $15$ Vp & $15$ Vp\\
-		{$20$ V} & $0$ A & $30$ Vp & $30$ Vp\\
-		{$10$ V} & $0.75$ A & $20$ Vp & $20$ Vp \\
+		{$10$ V} & $0$ A & $15$ $\text{V}_p$ & $15$ $\text{V}_p$\\
+		{$20$ V} & $0$ A & $30$ $\text{V}_p$ & $30$ $\text{V}_p$\\
+		{$10$ V} & $0.75$ A & $20$ $\text{V}_p$ & $20$ $\text{V}_p$ \\
 		\hline
-		\multicolumn{4}{|c|}{Predicción de \textit{overshoot} a $600$ V y $80$ A: {\color{red}\textbf{$1433$ Vp}}} \\
+		\multicolumn{4}{|c|}{Predicción de \textit{overshoot} a $600$ V y $80$ A: {\color{red}\textbf{$1433$ $\text{V}_p$}}} \\
 		\hline
 	\end{tabular}
 	\caption{Resumen de resultados del modelo de \textit{overshoot}.}
@@ -313,7 +314,7 @@ Dado que este \textit{overshoot} es aproximadamente lineal con la corriente de s
 	\caption{Modelo lineal (plano) junto a los datos tomados (puntos azules).}
 \end{figure}
 
-La predicción de 1433 Vp es muy preocupante, ya que en primer lugar, los semiconductores serían los primeros en dañarse, y además, tensiones tan altas podrían provocar rupturas dieléctricas. Por tanto, es necesario reducir este \textit{overshoot}. La solución consiste en incorporar desacoplos de la conmutación entre los terminales positivo y negativo, lo más cerca posible de cada módulo \textit{half-bridge}. Interesa tener el máximo de capacidad con una resistencia serie equivalente muy baja, con lo que se descartan los condensadores electrolíticos. Se escogieron condensadores cerámicos puesto que tienen una densidad de capacidad bastante grande, mucho más alta que los condensadores de película. Sin embargo, los cerámicos tienen una pérdida de capacidad por \textit{DC bias} muy agresiva, es decir, la capacidad real es mucho baja  cuando se sube la tensión a la que se somete el condensador. Por suerte, existen gamas de condensadores pensados para estas aplicaciones que ofrecen un \textit{derating} por \textit{DC bias} bastante bajo. En este caso se escogieron los 2220Y1K00104KZT de la gama Hiteca de Knowles Syfer.
+La predicción de 1433 $\text{V}_p$ es muy preocupante, ya que en primer lugar, los semiconductores serían los primeros en dañarse ya que solo aguantan 1200 V, y además, tensiones tan altas podrían provocar rupturas dieléctricas. Por tanto, es necesario reducir este \textit{overshoot}. La solución consiste en incorporar desacoplos de la conmutación entre los terminales positivo y negativo, lo más cerca posible de cada módulo \textit{half-bridge}. Interesa tener el máximo de capacidad con una resistencia serie equivalente muy baja, con lo que se descartan los condensadores electrolíticos. Se escogieron condensadores cerámicos puesto que tienen una densidad de capacidad bastante grande, mucho más alta que los condensadores de película. Sin embargo, los cerámicos tienen una pérdida de capacidad por \textit{DC bias} muy agresiva, es decir, la capacidad real es mucho baja  cuando se sube la tensión a la que se somete el condensador. Por suerte, existen gamas de condensadores pensados para estas aplicaciones que ofrecen un \textit{derating} por \textit{DC bias} bastante bajo. En este caso se escogieron los 2220Y1K00104KZT de la gama Hiteca de Knowles Syfer.
 
 \begin{figure}[H]
 	\centering
@@ -368,23 +369,23 @@ Se creó un nuevo modelo lineal para realizar la predicción de \textit{overshoo
 		\hline
 		$V_{\text{DC,in}}$ & $I_{\text{out}}$ & \textit{Overshoot} medido & Predicción de \textit{overshoot} \\
 		\hline
-		$10$ V & $0$ A & $10.8$ Vp & $10.1626$ Vp \\
-		$10$ V & $0.75$ A & $11.1$ Vp & $10.4843$ Vp \\
-		$20$ V & $0$ A & $21.3$ Vp & $21.6254$ Vp \\
-		$20$ V & $1.5$ A & $21.5$ Vp & $22.2687$ Vp \\
-		$30$ V & $0$ A & $31.7$ Vp & $33.0882$ Vp \\
-		$30$ V & $2.25$ A & $32.3$ Vp & $34.0531$ Vp \\
-		$40$ V & $0$ A & $45.9$ Vp & $44.551$ Vp \\
-		$40$ V & $3$ A & $46.9$ Vp & $45.8375$ Vp \\
-		$80$ V & $5.5$ A & $92.6$ Vp & $92.7608$ Vp \\
-		$90$ V & $0$ A & $102.5$ Vp & $101.8648$ Vp \\
-		$90$ V & $6.2$ A & $104.9$ Vp & $104.5238$ Vp \\
-		$120$ V & $0$ A & $135.6$ Vp & $136.2532$ Vp \\
-		$150$ V & $0$ A & $172$ Vp & $170.6415$ Vp \\
-		$180$ V & $0$ A & $205$ Vp & $205.0298$ Vp \\
-		$200$ V & $0$ A & $227$ Vp & $227.9553$ Vp \\
+		$10$ V & $0$ A & $10.8$ $\text{V}_p$ & $10.1626$ $\text{V}_p$ \\
+		$10$ V & $0.75$ A & $11.1$ $\text{V}_p$ & $10.4843$ $\text{V}_p$ \\
+		$20$ V & $0$ A & $21.3$ $\text{V}_p$ & $21.6254$ $\text{V}_p$ \\
+		$20$ V & $1.5$ A & $21.5$ $\text{V}_p$ & $22.2687$ $\text{V}_p$ \\
+		$30$ V & $0$ A & $31.7$ $\text{V}_p$ & $33.0882$ $\text{V}_p$ \\
+		$30$ V & $2.25$ A & $32.3$ $\text{V}_p$ & $34.0531$ $\text{V}_p$ \\
+		$40$ V & $0$ A & $45.9$ $\text{V}_p$ & $44.551$ $\text{V}_p$ \\
+		$40$ V & $3$ A & $46.9$ $\text{V}_p$ & $45.8375$ $\text{V}_p$ \\
+		$80$ V & $5.5$ A & $92.6$ $\text{V}_p$ & $92.7608$ $\text{V}_p$ \\
+		$90$ V & $0$ A & $102.5$ $\text{V}_p$ & $101.8648$ $\text{V}_p$ \\
+		$90$ V & $6.2$ A & $104.9$ $\text{V}_p$ & $104.5238$ $\text{V}_p$ \\
+		$120$ V & $0$ A & $135.6$ $\text{V}_p$ & $136.2532$ $\text{V}_p$ \\
+		$150$ V & $0$ A & $172$ $\text{V}_p$ & $170.6415$ $\text{V}_p$ \\
+		$180$ V & $0$ A & $205$ $\text{V}_p$ & $205.0298$ $\text{V}_p$ \\
+		$200$ V & $0$ A & $227$ $\text{V}_p$ & $227.9553$ $\text{V}_p$ \\
 		\hline
-		\multicolumn{4}{|c|}{Predicción de \textit{overshoot} a $600$ V y $80$ A: {\color{red}\textbf{$720.775$ Vp}}} \\
+		\multicolumn{4}{|c|}{Predicción de \textit{overshoot} a $600$ V y $80$ A: {\color{red}\textbf{$720.775$ $\text{V}_p$}}} \\
 		\hline
 	\end{tabular}
 	\caption{Resumen de resultados del modelo de \textit{overshoot}.}
@@ -397,6 +398,9 @@ Se creó un nuevo modelo lineal para realizar la predicción de \textit{overshoo
 	\includegraphics[width=0.7\linewidth]{fig/overshootFinal3}
 	\caption{Modelo lineal (plano) junto a los datos tomados (puntos azules).}
 \end{figure}
+
+Los resultados fueron muy positivos porque el \textit{overshoot} de $720.775 \text{ V}_p$ es totalmente asumible. A estas alturas no se pudo pedir otra iteración de la PCB puesto que hubiese sido muy costoso, pero igualmente se actualizaron los esqemáticos con los desacoplos en los terminales de los semiconductores.
+
 
 
 \subsection{Pruebas térmicas y de alta tensión}
@@ -443,7 +447,7 @@ A continuación se muestra el ensayo más exigente, una descarga a 600 V.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/dischargeGuapisimo}
-	\caption{Captura de la cámara térmica tras alcanzar el estado estacionario a 600 V.}
+	\caption{Captura de la cámara térmica tras alcanzar el estado estacionario térmico a 600 V.}
 \end{figure}
 
 
@@ -463,13 +467,3 @@ Se puede observar un pico de temperatura de 100 $^{\circ}$C, y la temperatura am
 \subsection{Lazo abierto de tensión con un motor}
 
 \subsection{Lazo cerrado de corriente con carga R-L}
-
-\subsection{Adquisición de la posición del motor}
-
-\subsection{Lazo cerrado de corriente con un motor}
-
-\subsection{Trayectorias de control}
-
-\subsection{Control dual}
-
-\section{Integración}

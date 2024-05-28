@@ -544,9 +544,9 @@ Se puede ver que la transformada es simplemente una rotación a lo largo de uno 
 
 \subsection{Marco de referencia rotatorio}
 
-En esta sección, se convertirá el modelo trifásico inicial del PMSM en un modelo continuo en el marco de referencia $d - q$. Antes, se omitieron las ecuaciones del modelo trifásico, pero utilizando estas y aplicando las transformadas de Clarke y Park, se obtienen las ecuaciones que se derivarán en esta sección.
+En esta sección, se convertirá el modelo trifásico inicial del PMSM en un modelo continuo en el marco de referencia $d - q$. Antes, se omitieron las ecuaciones del modelo trifásico, que se pueden encontrar en \cite{MathworksPMSM}, pero utilizando estas y aplicando las transformadas de Clarke y Park, se obtienen las ecuaciones que se derivarán en esta sección.
 
-El enfoque general es utilizar la transformada de amplitud constante, lo que lleva a estas ecuaciones para las tensiones y corrientes del estátor 
+El enfoque general es utilizar la transformada de amplitud constante, por lo que para las tensiones y corrientes del estátor se utiliza
 
 \begin{equation}
 	\begin{bmatrix}
@@ -573,6 +573,8 @@ El enfoque general es utilizar la transformada de amplitud constante, lo que lle
 	\end{bmatrix}
 \end{equation}
 
+y
+
 \begin{equation}
 	\begin{bmatrix}
 		i_d \\
@@ -597,7 +599,6 @@ El enfoque general es utilizar la transformada de amplitud constante, lo que lle
 		i_c
 	\end{bmatrix} \text{.}
 \end{equation}
-
 
 El modelo de circuito equivalente se divide en los circuitos del eje $d$ y el eje $q$.
 
@@ -650,7 +651,7 @@ v_q = v_{R_s} - \omega_e \cdot L_d \cdot i_d + \omega_e \cdot \lambda_m + v_{L_q
 \end{equation}
 
 \begin{equation}
-v_q = R_s\cdot i_q - \omega_e \cdot L_d \cdot i_q + \omega_e \cdot \lambda_m + L_q\cdot\frac{d i_q}{d t}  \text{.}
+v_q = R_s\cdot i_q - \omega_e \cdot L_d \cdot i_d + \omega_e \cdot \lambda_m + L_q\cdot\frac{d i_q}{d t}  \text{.}
 \end{equation}
 
 En estado estacionario, es decir, sin cambios muy bruscos de la corriente, el término diferencial puede ser eliminado, de manera que
@@ -836,15 +837,15 @@ Además \(P_\text{m}\) aumentará linealmente con \(\omega_\text{m}\) hasta \(\o
 
 Es obvio que la corriente eléctrica suministrada al PMSM debe estar limitada. Por lo general, el fabricante del motor establecerá la corriente alterna máxima, lo cual se traduce en un límite para \(i_d\) y \(i_q\).
 
-A continuación, se presenta un gráfico muy útil para conocer los límites del motor. Se establecen los ejes como $i_d$ e $i_q$. Por ejemplo, si un motor está funcionando con $i_d = -1 \text{ A}$ e $i_q = 5 \text{ A}$, se dibuja un punto en $(-1,5)$. Como se puede apreciar, este es un sistema de coordenadas cartesianas. También puede convertirse en un sistema de coordenadas polares, que utiliza una magnitud y un ángulo. La magnitud del vector será entonces:
+A continuación, se presenta un gráfico muy útil para conocer los límites del motor. Se establecen los ejes como $i_d$ e $i_q$. Por ejemplo, si un motor está funcionando con $i_d = -1 \text{ A}$ e $i_q = 5 \text{ A}$, se dibuja un punto en $(-1,5)$. Como se puede apreciar, este es un sistema de coordenadas cartesianas. También puede convertirse en un sistema de coordenadas polares, que utiliza una magnitud y un ángulo. La magnitud del vector será
 \begin{equation}
-i_{s} = \sqrt{i_d^2+i_q^2}
+i_{s} = \sqrt{i_d^2+i_q^2} \text{ ,}
 \end{equation}
 
-Y el ángulo:
+y el ángulo,
 
 \begin{equation}
-\gamma = \arctan\left(\frac{i_q}{i_d}\right)
+\gamma = \arctan\left(\frac{i_q}{i_d}\right)  \text{ .}
 \end{equation}
 
 Se puede observar que la corriente máxima puede expresarse más fácilmente como $i_s$, independientemente del ángulo $\gamma$ (no debe confundirse con el $\gamma$ de la transformada de Clarke). Por lo tanto, se puede representar $i_s = I_{s,\text{máx}} , \forall \gamma \in [0,2\pi]$.
@@ -1393,6 +1394,40 @@ También se modela la planta mecánica del motor, así como la transmisión de l
     \caption{Planta mecánica.}
 \end{figure}
 
+\subsubsection{Parámetros y curvas del PMSM simulado}
+
+A fecha de redacción de este documento no se han obtenido los parámetros del motor utilizado por el equipo. Sin embargo, se han estimado usando un pequeño \textit{script} de MATLAB de manera que se cumplan los requisitos de potencia del motor.
+
+\begin{table}[H]
+	\begin{tabular}{|p{2cm}||r|p{1.5cm}|p{8cm}|}
+		\hline
+		\multicolumn{4}{|c|}{Parámetros del motor} \\
+		\hline
+		Parámetro & Valor & Unidades & Descripción \\
+		\hline
+		pp & 3 & ad & Número de pares de polos \\
+		$\lambda_m$ & 52.615 & mWb & Flujo magnético de los imanes permanentes \\
+		$L_d$ & 188.7 & \unit{\micro\henry} & Inductancia en el eje d \\
+		$L_q$ & 283.1 & \unit{\micro\henry} & Inductancia en el eje q \\
+		$R_s$ & 150 & m$\Omega$ & Resistencia de fase del estator \\
+		$\omega_{\text{m,máx}}$ & 20000 & RPM & Velocidad angular máxima del motor \\
+		$T_{\text{em,máx}}$ & 26 & N·m & Par máximo del motor \\
+		$V_{\text{bat}}$ & 540 & V & Voltaje de la batería DC \\
+		$I_{\text{s,máx}}$ & 108 & A & Corriente máxima en los ejes d-q \\
+		\hline
+	\end{tabular}
+	\caption{Parámetros del PMSM simulado.}
+\end{table}
+
+Como se puede ver, el motor presenta $I_{\text{sc}} = \frac{\lambda_m}{L_d} =  \frac{52.615 \text{ mWb}}{188.7 \text{ }\text{\unit{\micro\henry}}} = 278.82 \text{ A} > I_{s,\text{máx}}$, y por tanto, no se aplica la trayectoria MTPV. Esto se comprueba graficando las curvas del motor, mostradas en la figura \ref{curvasmotor}.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/curvasMotor}
+	\caption{Gráfico de las curvas características del PMSM simulado.}
+	\label{curvasmotor}
+\end{figure}
+
 \subsubsection{Lazos de corriente y modelo promediado del inversor}
 
 Como se ha visto hasta ahora, es práctico utilizar la corriente para controlar el motor. Por ello, se implementa un lazo de corriente utilizando controladores PI para el eje $d$ y para el eje $q$ por separado. Como el inversor se utiliza como fuente de tensión, la salida de estos PI es la consigna de tensión. Dado que el motor genera una fuerza contraelectromotriz, se añade como \textit{feed-forward} a los controladores. La salida del controlador no se satura directamente, sino que se implementa una saturación posterior la cual se realimenta al controlador para usar una técnica de \textit{anti-windup} propuesta en \cite{chandana2002}. Las constantes de los controladores se ajustan de la siguiente manera:
@@ -1442,30 +1477,6 @@ Ki_{iq} = \omega_n^2 \cdot L_q \quad
     \end{subfigure}
     \caption{Bloque de los lazos de corriente.}
 \end{figure}
-
-Para las simulaciones se han implementado los siguientes parámetros de motor, ya que aunque a fecha de redacción de este documento no está fabricado, se han estimado usando un pequeño \textit{script} de MATLAB de manera que se cumplan los requisitos del motor.
-
-\begin{table}[H]
-	\begin{tabular}{|p{2cm}||r|p{1.5cm}|p{8cm}|}
-		\hline
-		\multicolumn{4}{|c|}{Parámetros del motor} \\
-		\hline
-		Parámetro & Valor & Unidades & Descripción \\
-		\hline
-		pp & 3 & ad & Número de pares de polos \\
-		$\lambda_m$ & 52.615 & mWb & Flujo magnético de los imanes permanentes \\
-		$L_d$ & 188.7 & \unit{\micro\henry} & Inductancia en el eje d \\
-		$L_q$ & 283.1 & \unit{\micro\henry} & Inductancia en el eje q \\
-		$R_s$ & 150 & m$\Omega$ & Resistencia de fase del estator \\
-		$\omega_{\text{m,máx}}$ & 20000 & RPM & Velocidad angular máxima del motor \\
-		$T_{\text{em,máx}}$ & 26 & N·m & Par máximo del motor \\
-		$V_{\text{bat}}$ & 540 & V & Voltaje de la batería DC \\
-		$I_{\text{s,máx}}$ & 108 & A & Corriente máxima en los ejes d-q \\
-		\hline
-	\end{tabular}
-	\caption{Parámetros del motor simulado.}
-\end{table}
-Como se puede ver, el motor presenta $I_{\text{sc}} = \frac{\lambda_m}{L_d} =  \frac{52.615 \text{ mWb}}{188.7 \text{ }\text{\unit{\micro\henry}}} = 278.82 \text{ A} > I_{s,\text{máx}}$, y por tanto, no se aplica la trayectoria MTPV.
 
 \begin{figure}[H]
     \centering
@@ -1554,7 +1565,7 @@ Dado que el inversor realmente es una fuente conmutada, se debe modelar utilizan
 	u(t) = K_p \cdot e(t) + K_i \cdot \int_{0}^{t} e(\tau) d\tau \text{.}
 \end{equation}
 
-Cuando se discretiza esta expresión usando la transformada Z, se obtiene
+Cuando se discretiza esta expresión se obtiene
 
 \begin{equation}
 	u[k] = K_p \cdot e[k] + K_i \cdot I[k] \text{,}
@@ -3667,6 +3678,8 @@ Los archivos \texttt{CONTROL.c} y su encabezado correspondiente \texttt{CONTROL.
 	\item \texttt{calc\_duties}: Esta función calcula la transformada inversa de Park y los ciclos de trabajo utilizando SVPWM.
 \end{itemize}
 
+Cabe destacar que este archivo hace uso intensivo de la librería PERGAMON del CITCEA-UPC, relacionando las diferentes partes del código con la simulación realizada anteriormente. Los bloques usados en la simulación contienen el mismo código que está escrito en estas librerías, agilizando mucho la integración.
+
 \subsubsection{\texttt{PWM.c/.h}}
 
 Los archivos \texttt{PWM.c} y su encabezado correspondiente \texttt{PWM.h} proporcionan funciones para controlar la salida PWM. Las funciones principales implementadas en \texttt{PWM.c} son:
@@ -3733,7 +3746,7 @@ Dado que la temperatura tiene una dinámica muy lenta, no es necesario tomar med
 
 \textbf{\textit{Timers}}
 
-Los periféricos más importantes son los \textit{timers}, ya que el control es síncrono. Las salidas PWM se controlan directamente con un \textit{timer}, que a su vez, dispara la lectura del ADC. Se ajustan las constantes del correspondientes al periodo y al tiempo muerto utilizando \texttt{\#define TS} y \texttt{\#define DT}, de manera que se puede modificar la frecuencia de conmutación muy fácilmente. Se configuran los \textit{timers} en modo \textit{up and down}, simulando una señal portadora triangular, de la misma manera que está configurada la conmutación en la simulación de PLECS. Si contara solamente hacia arriba o hacia abajo, la portadora sería una señal diente de sierra.
+Los periféricos más importantes son los \textit{timers}, ya que el control es síncrono. Por ello se han configurado dos \textit{timers}, uno para cada inversor. Las salidas PWM se controlan directamente con los \textit{timers}, que a su vez, disparan la lectura de los ADCs. Se ajustan las constantes del correspondientes al periodo y al tiempo muerto utilizando \texttt{\#define TS} y \texttt{\#define DT}, de manera que se puede modificar la frecuencia de conmutación muy fácilmente. Se configuran los \textit{timers} en modo \textit{up and down}, simulando una señal portadora triangular, de la misma manera que está configurada la conmutación en la simulación de PLECS. Si contara solamente hacia arriba o hacia abajo, la portadora sería una señal diente de sierra.
 
 \begin{figure}[H]
 	\centering
@@ -3759,7 +3772,6 @@ Los periféricos más importantes son los \textit{timers}, ya que el control es 
 		
 	\end{tikzpicture}
 	\caption{Comparación de las señales portadoras equivalentes. De arriba a abajo, triangular, diente de sierra y diente de sierra invertida.}
-	\label{fig:portadoras}
 \end{figure}
 
 \begin{figure}[H]
@@ -3770,7 +3782,7 @@ Los periféricos más importantes son los \textit{timers}, ya que el control es 
 
 \textbf{CAN}
 
-Para poder comunicarse externamente se usa el protocolo CAN. Por suerte, la configuración es muy sencilla. Se deben ajustar los parámetros para que la frecuencia de transmisión de datos (\textit{baud rate}) sea de 500 kB/s exactamente, ya que el resto de ECUs en el monoplaza tienen el CAN configurado a esta frecuencia.
+Para poder comunicarse externamente se usa el protocolo CAN. Por suerte, la configuración es muy sencilla. Se deben ajustar los parámetros para que la frecuencia de transmisión de datos (\textit{baud rate}) sea de 500 kB/s exactamente, ya que el resto de ECUs en el monoplaza tienen el periférico configurado a esta frecuencia.
 
 
 \begin{figure}[H]
@@ -3791,7 +3803,41 @@ En un convertidor se debe tener control absoluto sobre \textit{cuándo} se ejecu
 	\item Se calculan los ciclos de trabajo y se actualiza el registro del \textit{timer} de la salida PWM.
 \end{enumerate}
 
-La conversión del ADC se inicia periódicamente con el \textit{timer} correspondiente. El resto de tareas se implementan en una función vacía.
+La conversión del ADC se inicia periódicamente con el \textit{timer} correspondiente. El resto de tareas se implementan en una función vacía. Lo que se desea lograr se muestra en la figura \ref{carrier}.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[scale=1]
+		% Parámetros
+		\def\n{2} % Número de periodos
+		
+		% Ejes y etiquetas
+		\draw[-stealth] (0,-1) -- (4*\n+5,-1) node[right] {$t$};
+		\draw[-stealth] (0,-1) -- (0,3.5) node[above]{$ $};
+		
+		% Líneas verticales y etiquetas
+		\foreach \i in {0,...,\n} {
+			\draw[dashed] (4*\i,-5) -- (4*\i,3);
+			\node at (4*\i-0.15,-1.2) [anchor=east, rotate=90] {Actualizar ciclos de trabajo};
+			\node at (4*\i+0.25,-1.2) [anchor=east, rotate=90] {Inicio de la conversión};
+			\draw[dashed] (4*\i+1.25,-5) -- (4*\i+1.25,3);
+			\node at (4*\i+1.4,-1.2) [anchor=east, rotate=90] {Fin de la conversión};
+            \node at (4*\i+1.5,0) [anchor=west] {Lazo de};
+			\node at (4*\i+1.5,-0.4) [anchor=west] {control};
+		}
+		
+		% Señal triangular
+		\foreach \i in {0,...,\n} {
+			\draw[thick] (4*\i,0) -- (4*\i+2,2.5) -- (4*\i+4,0);
+		}
+		
+	\end{tikzpicture}
+	\caption{Señal portadora (registro CNT del \textit{timer}) durante 3 periodos de conmutación y los eventos asociados.}
+	\label{carrier}
+\end{figure}
+
+
+La implementación de código se maneja con la interrupción generada al final de las conversiones analógicas.
 
 \begin{adjustbox}{max width=3\textwidth}
 \begin{lstlisting}[language=C, breaklines=true, frame=single]
@@ -3847,14 +3893,18 @@ void DMA2_Stream2_IRQHandler(void)
 \end{lstlisting}
 \end{adjustbox}
 
-\subsubsection{Algoritmos de control}
+\subsubsection{Lazo de control}
 
-El algoritmo \texttt{calc\_current\_reference} calcula las referencias de corriente a partir de la consigna de par. Este algoritmo se encarga de calcular el vector de corriente para la trayectoria MTPA y limita la consigna de corriente a \texttt{isMaxRef}, que se limita usando el \textit{derating} implementado anteriormente. La trayectoria MTPV no está implementada para optimizar el tiempo de cálculo debido a las características esperadas de los motores que se controlarán.
+El algoritmo \texttt{calc\_current\_reference} calcula las referencias de corriente a partir de la consigna de par. Este algoritmo se encarga de calcular la trayectoria MTPA y limita la consigna de corriente a \texttt{isMaxRef}, que se satura usando el \textit{derating} implementado anteriormente. La trayectoria MTPV no está implementada para optimizar el tiempo de cálculo debido a las características esperadas de los motores que se controlarán. Finalmente, se convierten las coordenadas polares de las referencias de corriente (\texttt{isRef} y \texttt{gammaRef}) a coordenadas cartesianas  (\texttt{idRef} e \texttt{iqRef}).
 
-También se deja un espacio para la implementación de debilitamiento de campo. Para implementarlo, se debe añadir el lazo de tensión para modificar \texttt{gammaRef} y debería llamarse dentro de la propia función \texttt{calc\_current\_reference}. Además se debería implementar una selección de trayectorias adecuada que permita trabajar en todos los puntos de operación.
+También se deja un espacio para la implementación de debilitamiento de campo. Para implementarlo, se debe añadir el lazo de tensión para modificar \texttt{gammaRef} y la trayectoria VLE. Además se debería implementar una selección de trayectorias adecuada que permita trabajar en todos los puntos de operación.
 
-El algoritmo comienza calculando la consigna de corriente en modo CTC. Luego, se lleva a cabo la saturación de \texttt{isRef}, asegurándose de que no supere el valor de \texttt{isMaxRef}. Después, se calcula el ángulo de la trayectoria MTPA. En cada caso se evalúan detenidamente los casos límite como divisiones por 0, y se manejan con las ecuaciones simplificadas, que no presentan estos problemas.
+Para conocer el tiempo de ejecución del algoritmo, y de cualquier parte del código, se puede utilizar el \textit{timer} interno \texttt{SysTick} para contar los ciclos de reloj entre dos puntos del código. Se observó que es necesario activar la optimización de velocidad en las opciones del compilador para que los cálculos entren dentro del tiempo de conmutación de 25 \unit{\micro\second}. Se estaban obteniendo valores de unos 3000 ciclos antes de activar la optimización, y de 1800 después de activarla. Aún así, sería buena idea dejar más margen mediante un estudio de optimización del propio código, evitando cálculos innecesarios o proponiendo nuevas maneras de calcular funciones trigonométricas, que son las que más tiempo llevan.
 
-Finalmente, se convierten las coordenadas polares de las referencias de corriente (\texttt{isRef} y \texttt{gammaRef}) a coordenadas cartesianas  (\texttt{idRef} e \texttt{iqRef}).
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/compilerOptimize}
+	\caption{Optimización de velocidad en el compilador.}
+\end{figure}
 
 
