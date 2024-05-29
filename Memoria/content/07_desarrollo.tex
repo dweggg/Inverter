@@ -698,7 +698,7 @@ T_{\text{em}} = \frac{3}{2\cdot \omega_m}\cdot(v_d i_d + v_q i_q) = \frac{3}{2\c
 \end{equation}
 
 \begin{equation}
-T_{\text{em}} = \frac{3}{2}\frac{n}{2}\cdot((L_d - L_q) i_q i_d + \lambda_m i_q) \text{.}
+ \therefore T_{\text{em}} = \frac{3}{2}\frac{n}{2}\cdot((L_d - L_q) i_q i_d + \lambda_m i_q) \text{.}
 \label{eq_tq_dq} 
 \end{equation}
 
@@ -708,7 +708,7 @@ También se puede establecer un límite de voltaje, porque el PMSM generalmente 
 V_s = \sqrt{v_d^2 + v_q^2} \leq \frac{V_{\text{DC}}}{\sqrt{3}}
 \end{equation}
 \begin{equation}
-	\sqrt{\left(R_s\cdot i_d - \omega_e \cdot L_q \cdot i_q\right)^2 + \left(R_s\cdot i_q - \omega_e \cdot L_d \cdot i_q + \omega_e \cdot \lambda_m\right)^2} \leq \frac{V_{\text{DC}}}{\sqrt{3}} \text{.}
+	 \therefore \sqrt{\left(R_s\cdot i_d - \omega_e \cdot L_q \cdot i_q\right)^2 + \left(R_s\cdot i_q - \omega_e \cdot L_d \cdot i_q + \omega_e \cdot \lambda_m\right)^2} \leq \frac{V_{\text{DC}}}{\sqrt{3}} \text{.}
 \end{equation}
 
 Despreciando los términos con \(R_s\),
@@ -1066,7 +1066,7 @@ La expresión analítica se desarrolla partiendo de la ecuación de par en forma
 \end{equation}
 
 \begin{equation}
-i_{s,\text{MTPA}} = -\frac{\lambda_m \cos(\gamma)}{(2\cdot\cos(\gamma)^2 - 1)\cdot(L_d-L_q)} \text{.}
+ \therefore i_{s,\text{MTPA}} = -\frac{\lambda_m \cos(\gamma)}{(2\cdot\cos(\gamma)^2 - 1)\cdot(L_d-L_q)} \text{.}
 \end{equation}
 
 Para la aplicación de esta trayectoria en el control se busca el ángulo como función de la corriente, y para ello se debe despejar \(\gamma_{\text{MTPA}}\) de la expresión.
@@ -1127,7 +1127,7 @@ Como se puede observar, las hipérbolas de par definen una trayectoria la cual p
 \end{equation*}
 
 \begin{equation}
-i_{s,\text{CTC}} = \frac{\lambda_m}{L_d} \cdot \frac{\sqrt{\sin(\gamma)^2+\frac{4\cdot\frac{L_d-L_q}{L_d}\cdot\sin(2\gamma)\cdot T_{\text{em}}\cdot L_d}{3\cdot pp \cdot \lambda_m^2}}-\sin(\gamma)}{\sin(2\gamma)\cdot(\frac{L_d-L_q}{L_d})} \text{ .}
+ \therefore i_{s,\text{CTC}} = \frac{\lambda_m}{L_d} \cdot \frac{\sqrt{\sin(\gamma)^2+\frac{4\cdot\frac{L_d-L_q}{L_d}\cdot\sin(2\gamma)\cdot T_{\text{em}}\cdot L_d}{3\cdot pp \cdot \lambda_m^2}}-\sin(\gamma)}{\sin(2\gamma)\cdot(\frac{L_d-L_q}{L_d})} \text{ .}
 \end{equation}
 
 
@@ -1193,12 +1193,12 @@ T_{\text{em}} = \frac{3}{2}pp\cdot\left((L_d - L_q) (-\frac{v_d}{\omega_e \cdot 
 \end{equation}
 
 \begin{equation}
-T_{\text{em}} = \frac{3}{2}pp\cdot\left((L_d - L_q) (-\frac{V_s \cdot \cos(\delta)}{\omega_e \cdot L_q}) (\frac{V_s \cdot \sin(\delta)}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d}) + \lambda_m (-\frac{V_s \cdot \cos(\delta)}{\omega_e \cdot L_q})\right)
+ T_{\text{em}} = \frac{3}{2}pp\cdot\left((L_d - L_q) (-\frac{V_s \cdot \cos(\delta)}{\omega_e \cdot L_q}) (\frac{V_s \cdot \sin(\delta)}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d}) + \lambda_m (-\frac{V_s \cdot \cos(\delta)}{\omega_e \cdot L_q})\right)
 \end{equation}
 
 \begin{equation}
 \begin{split}
-\frac{\partial T_{\text{em}}}{\partial \delta} = \frac{3}{2}pp\cdot (
+ \therefore \frac{\partial T_{\text{em}}}{\partial \delta} = \frac{3}{2}pp\cdot (
 (L_d - L_q) \cdot (\frac{V_s \cdot \sin(\delta)}{\omega_e \cdot L_q}) \cdot (\frac{V_s \cdot \sin(\delta)}{\omega_e \cdot L_d} - \frac{\lambda_m}{L_d})\\
 -\left(\frac{V_s \cdot \cos(\delta)}{\omega_e}\right)^2 \cdot \frac{L_d - L_q}{L_d\cdot L_q}\\ 
 -\frac{\lambda_m \cdot V_s \cdot \sin(\delta)}{L_q \cdot \omega_e} ) = 0  \text{ .}
@@ -1406,13 +1406,13 @@ A fecha de redacción de este documento no se han obtenido los parámetros del m
 		Parámetro & Valor & Unidades & Descripción \\
 		\hline
 		pp & 3 & ad & Número de pares de polos \\
-		$\lambda_m$ & 52.615 & mWb & Flujo magnético de los imanes permanentes \\
-		$L_d$ & 188.7 & \unit{\micro\henry} & Inductancia en el eje d \\
-		$L_q$ & 283.1 & \unit{\micro\henry} & Inductancia en el eje q \\
-		$R_s$ & 150 & m$\Omega$ & Resistencia de fase del estator \\
+		$\lambda_m$ & 52,615 & mWb & Flujo magnético de los imanes permanentes \\
+		$L_d$ & 188,7 & \unit{\micro\henry} & Inductancia en el eje d \\
+		$L_q$ & 283,1 & \unit{\micro\henry} & Inductancia en el eje q \\
+		$R_s$ & 150 & m$\Omega$ & Resistencia de fase del estátor \\
 		$\omega_{\text{m,máx}}$ & 20000 & RPM & Velocidad angular máxima del motor \\
 		$T_{\text{em,máx}}$ & 26 & N·m & Par máximo del motor \\
-		$V_{\text{bat}}$ & 540 & V & Voltaje de la batería DC \\
+		\(V_{\text{DC,máx}}\) & 600 & \unit{V} & Voltaje máximo DC \\
 		$I_{\text{s,máx}}$ & 108 & A & Corriente máxima en los ejes d-q \\
 		\hline
 	\end{tabular}
@@ -2889,7 +2889,7 @@ Debido a los parásitos que puede presentar el \textit{layout}, los MOSFETs pued
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.5\linewidth]{fig/LC-layout}
-	\caption{Circuito de parásitos en un medio puente, que cuando la corriente es positiva, actúa como un convertidor \textit{buck}.}
+	\caption{Circuito de parásitos en un convertidor \textit{buck} \cite{PowerElectronicCircuits2018}. Cada medio puente de un VSI actúa como un convertidor \textit{buck} cuando la corriente es positiva.}
 	\label{lc-layout}
 \end{figure}
 
@@ -3673,7 +3673,7 @@ Los archivos \texttt{CONTROL.c} y su encabezado correspondiente \texttt{CONTROL.
 
 \begin{itemize}
 	\item \texttt{calc\_current\_reference}: Esta función calcula las consignas de corriente $d - q$ de la misma manera que en las simulaciones de control. Se implementan las trayectorias utilizando las ecuaciones analíticas de las mismas.
-	\item \texttt{calc\_current\_loop}: Esta función calcula los lazos de corriente para los ejes $d$ y $q$.
+	\item \texttt{calc\_current\_loop}: Esta función ejecuta los lazos de corriente para los ejes $d$ y $q$.
 	\item \texttt{saturate\_voltage}: Esta función satura la salida de los lazos de corriente para no exceder el voltaje máximo sintetizable.
 	\item \texttt{calc\_duties}: Esta función calcula la transformada inversa de Park y los ciclos de trabajo utilizando SVPWM.
 \end{itemize}
@@ -3682,13 +3682,7 @@ Cabe destacar que este archivo hace uso intensivo de la librería PERGAMON del C
 
 \subsubsection{\texttt{PWM.c/.h}}
 
-Los archivos \texttt{PWM.c} y su encabezado correspondiente \texttt{PWM.h} proporcionan funciones para controlar la salida PWM. Las funciones principales implementadas en \texttt{PWM.c} son:
-
-\begin{itemize}
-	\item \texttt{enable\_PWM}: Esta función habilita la salida PWM para el \textit{timer} especificado.
-	\item \texttt{disable\_PWM}: Esta función deshabilita la salida PWM para el \textit{timer} especificado.
-	\item \texttt{update\_PWM}: Esta función actualiza los ciclos de trabajo para los canales PWM.
-\end{itemize}
+Los archivos \texttt{PWM.c} y su encabezado correspondiente \texttt{PWM.h} proporcionan funciones para controlar la salida PWM. Hace de capa de abstracción de los \textit{timers}, ya que contiene funciones para habilitar y deshabilitar la salida PWM y para actualizar los ciclos de trabajo.
 
 
 \subsubsection{\texttt{CAN\_e-Tech.c/.h}}
@@ -3722,7 +3716,7 @@ Se configuran como entradas / salidas los pines individuales de cada señal, asi
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{fig/cubeMXGPIOs}
+	\includegraphics[width=0.8\linewidth]{fig/cubeMXGPIOs}
 	\caption{Configuración de GPIOs.}
 \end{figure}
 
@@ -3746,7 +3740,9 @@ Dado que la temperatura tiene una dinámica muy lenta, no es necesario tomar med
 
 \textbf{\textit{Timers}}
 
-Los periféricos más importantes son los \textit{timers}, ya que el control es síncrono. Por ello se han configurado dos \textit{timers}, uno para cada inversor. Las salidas PWM se controlan directamente con los \textit{timers}, que a su vez, disparan la lectura de los ADCs. Se ajustan las constantes del correspondientes al periodo y al tiempo muerto utilizando \texttt{\#define TS} y \texttt{\#define DT}, de manera que se puede modificar la frecuencia de conmutación muy fácilmente. Se configuran los \textit{timers} en modo \textit{up and down}, simulando una señal portadora triangular, de la misma manera que está configurada la conmutación en la simulación de PLECS. Si contara solamente hacia arriba o hacia abajo, la portadora sería una señal diente de sierra.
+Los periféricos más importantes son los \textit{timers}, ya que el control es síncrono. Por ello se han configurado dos \textit{timers}, uno para cada inversor. Las salidas PWM se controlan directamente con los \textit{timers}, que a su vez, disparan la lectura de los ADCs. Una característica de los \textit{timers} 1 y 8 (los que llevan los lazos de control izquierdo y derecho, respectivamente) es que permiten la salida de tres canales duplicados, siendo 3 salidas con polaridad positiva y las otras 3 una copia con polaridad invertida de las tres originales. Además, estos periféricos facilitan la integración de características propias de una salida complementaria como la definición del tiempo muerto. La gestión se realiza de forma automática por parte del mismo \textit{timer}.
+
+Se ajustan las constantes del correspondientes al periodo y al tiempo muerto utilizando \texttt{\#define TS} y \texttt{\#define DT}, de manera que se puede modificar la frecuencia de conmutación muy fácilmente. Se configuran los \textit{timers} en modo \textit{up and down}, simulando una señal portadora triangular, de la misma manera que está configurada la conmutación en la simulación de PLECS. Si contara solamente hacia arriba o hacia abajo, la portadora sería una señal diente de sierra.
 
 \begin{figure}[H]
 	\centering
@@ -3821,7 +3817,7 @@ La conversión del ADC se inicia periódicamente con el \textit{timer} correspon
 			\node at (4*\i-0.15,-1.2) [anchor=east, rotate=90] {Actualizar ciclos de trabajo};
 			\node at (4*\i+0.25,-1.2) [anchor=east, rotate=90] {Inicio de la conversión};
 			\draw[dashed] (4*\i+1.25,-5) -- (4*\i+1.25,3);
-			\node at (4*\i+1.4,-1.2) [anchor=east, rotate=90] {Fin de la conversión};
+			\node at (4*\i+1.5,-1.2) [anchor=east, rotate=90] {Fin de la conversión};
             \node at (4*\i+1.5,0) [anchor=west] {Lazo de};
 			\node at (4*\i+1.5,-0.4) [anchor=west] {control};
 		}

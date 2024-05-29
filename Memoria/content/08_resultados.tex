@@ -399,8 +399,13 @@ Se creó un nuevo modelo lineal para realizar la predicción de \textit{overshoo
 	\caption{Modelo lineal (plano) junto a los datos tomados (puntos azules).}
 \end{figure}
 
-Los resultados fueron muy positivos porque el \textit{overshoot} de $720.775 \text{ V}_p$ es totalmente asumible. A estas alturas no se pudo pedir otra iteración de la PCB puesto que hubiese sido muy costoso, pero igualmente se actualizaron los esqemáticos con los desacoplos en los terminales de los semiconductores.
+Los resultados fueron muy positivos porque el \textit{overshoot} de $720.775 \text{ V}_p$ es totalmente asumible. A estas alturas no se pudo pedir otra iteración de la PCB puesto que hubiese sido muy costoso, pero igualmente se actualizaron los esquemáticos con los desacoplos en los terminales de los semiconductores.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/schPowerDecoupling}
+	\caption{Esquemático de la etapa de potencia actualizado.}
+\end{figure}
 
 
 \subsection{Pruebas térmicas y de alta tensión}
@@ -456,14 +461,160 @@ Se puede observar un pico de temperatura de 100 $^{\circ}$C, y la temperatura am
 
 \subsection{Validación de la placa de control}
 
+La validación de la placa de control se llevó a cabo tras la instalación inicial del \textit{hardware}, que incluyó el microcontrolador y los componentes esenciales para su funcionamiento básico. El \textit{hardware} de esta placa es relativamente sencillo en comparación con la placa de potencia, así que se destinó más tiempo a programar que a mirar detenidamente los subcircuitos de esta placa. Aunque el proceso de validación se realizó de manera preliminar y parcial, se abordaron varias áreas clave:
+
+\subsubsection{Alimentación}
+
+La placa se alimenta exclusivamente del sistema de baja tensión del monoplaza, con una tensión nominal entre 20 V y 30 V. Inicialmente, se tenía previsto implementar un convertidor para obtener un bus de 5 V, sin embargo, debido a la complejidad y dificultades de soldadura del convertidor, se optó por utilizar una fuente de alimentación externa de 5 V para realizar las pruebas iniciales. De todas maneras, el convertidor es de Recom, una marca con la que el equipo ha trabajado varios años y se confía en la calidad de sus convertidores. Sin embargo, se vio que la bobina del filtro Pi (L101) no tiene el \textit{rating} de corriente suficiente. Se deberá escoger una bobina que pueda soportar más corriente en una siguiente versión de la placa.
+
+\subsubsection{MCU}
+
+El MCU seleccionado fue el STM32F777VI, que se integra como el bloque central de la placa. La prioridad fue lograr programarlo por primera vez, que se logró con éxito no mucho después de montarlo. Por suerte, antes de montarlo por primera vez, se detectaron algunos errores en el diseño inicial de la PCB, con lo que se evitó soldarlo en esta primera versión. Estos errores son:
+\begin{itemize}
+	\item El pin \textit{BOOT0} (pin 94 del MCU) debe estar conectado a GND utilizando una resistencia de 10 k$\Omega$ o un valor similar.
+	\item Las pistas del bus I$^2$C de la EEPROM deben tener resistencias de \textit{pull-up} cuyo valor debe determinarse según la velocidad del bus.
+	\item El filtro de alimentación debería estar en el bus de 5 V en vez de en el de 20-30 V.
+	\item El pin \textit{Vbat} debe estar conectado a 3.3 V.
+\end{itemize}
+
+Para abordar estos errores, se realizaron las siguientes modificaciones en \textit{Inverter\_Control}:
+
+\begin{itemize}
+	\item Se agregaron resistencias de \textit{pull-up} y \textit{pull-down} para controlar \textit{BOOT0}.
+	\item Se añadieron resistencias de \textit{pull-up} para las líneas I$^2$C.
+	\item Se eliminó la conexión \textit{LV+\_sns} y se conectó \textit{Vbat} a 3.3 V.
+	\item Se realizaron cambios en el color y nombres de los LEDs para mayor claridad.
+	\item Se trasladó el filtro de alimentación al bus de 5 V.
+	\item Se realizaron ajustes en el serigrafiado.
+\end{itemize}
+
+Estas modificaciones corrigieron los errores detectados en \textit{Inverter\_Control} y permitieron un desarrollo adecuado.
+
+\subsubsection{CAN}
+
+El bloque CAN, que incluye un transceptor para la comunicación con el vehículo, ha sido probado con éxito. Tras configurar con éxito el periférico, se importó la base de datos de mensajes y señales y se programó la información a enviar y recibir.
+
+\subsubsection{Retroalimentación}
+
+Aunque se han integrado conexiones para el \textit{encoder} incremental y el \textit{front-end} analógico de la lectura de temperatura del motor, las pruebas se han limitado principalmente a las lecturas en el MCU. Esto se debe a que no se ha dispuesto del motor con el que se usará este inversor, pero por suerte los subcircuitos son muy simples y se ha podido verificar la lectura desde el MCU con señales externas.
+
+\subsubsection{\textit{Front-end} analógico de la placa de potencia}
+
+El \textit{front-end} analógico, que trata las señales de las placas de potencia para adaptarlas a los rangos de tensión admitidos por los ADCs del MCU, presenta algunos desafíos. Mientras que las lecturas de corriente y temperatura se han validado con éxito, la lectura de tensión mediante un amplificador diferencial no funcionó como se esperaba. La integración del circuito integrado no fue buena, y, aunque fue simulado mediante SPICE adecuadamente, los resultados no coincidieron con lo esperado. La solución implementada consistió en conectar directamente el negativo de la señal diferencial a GND y el positivo a la entrada del ADC. De todas formas, se insta a buscar una alternativa más elegante. Se están considerando otras posibilidades, como obtener la lectura de tensión a través del bus CAN, que podría ser proporcionada directamente por la batería del vehículo. Esto sería viable ya que realmente esta medida sirve como límite para evitar sobremodular, y la dinámica eléctrica de una batería es muy lenta.
+.
 
 \section{Validación de \textit{firmware}}
-\subsection{Verificación de los periféricos}
 
 \subsection{Conmutación de las tres ramas}
 
+Tras configurar correctamente los periféricos necesarios, el siguiente paso es la conmutación de las tres ramas simultáneamente, siendo el siguiente paso desde los ensayos como \textit{buck} síncrono con una sola rama. Realmente lo único necesario fue portar el \textit{firmware} de la placa de evaluación a la placa de control y activar la salida de los otros dos canales (y sus respectivos negados).
+
+% foto PWM 3 fases
+
 \subsection{Lazo abierto de tensión con carga R-L}
 
-\subsection{Lazo abierto de tensión con un motor}
+Posteriormente se implementó la modulación SVPWM y las transformadas inversas para poder consignar una tensión alterna. Usando una fuente de tensión limitada por corriente como bus de continua, se conectó una carga R-L trifásica estática a los terminales de las fases del convertidor. El valor de las inductancias utilizadas es de unos 500 \unit{\micro\henry}, y el de las resistencias de 0,5 $\Omega$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/3RL-load}
+	\caption{Carga R-L trifásica utilizada.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/3RL-setup}
+	\caption{\textit{Setup} del ensayo con carga R-L.}
+\end{figure}
+
+En primer lugar, y con una frecuencia de conmutación muy baja (5 kHz), se sintetizó una frecuencia de 500 Hz (relación de portadora a modulada de 10). Con esto se puede verificar el ensanchamiento y estrechamiento de los tres canales PWM reflejando las tres señales senoidales desfasadas 120 grados, generadas por la modulación SVPWM. Además, al ser una frecuencia de conmutación tan baja, se puede apreciar el rizado en la corriente de salida.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/3RL-PWM}
+	\caption{Lazo abierto de tensión. Señales PWM a la entrada del \textit{driver} y corriente de una fase.}
+\end{figure}
+
+Se puede validar si la tensión sintetizada es correcta según la corriente de la carga. Se cambió la frecuencia sintetizada a 100 Hz, se ajustó la fuente de tensión a 5 V y se consignó una en el eje $q$ de la mitad de la máxima disponible, es decir, $(v_d, v_q) = (0, \frac{V_{\text{DC}}}{2\sqrt{3}}) = (0, \frac{5 \text{ V,DC}}{2\sqrt{3}})$. Se midieron las corrientes de fase para verificar que se estaba modulando correctamente, y se volvió a subir la frecuencia de conmutación para evitar ver el rizado en la carga.
+
+Sabiendo que la tensión en la carga es
+\[
+v_{\text{fase-neutro, pico}} = i_{\text{fase, pico}}\cdot (R + L\cdot\omega)
+\]
+
+y que la tensión modulada es de 
+
+\[ (v_d, v_q) = (0, \frac{5 \text{ V,DC}}{2\sqrt{3}}) \text{ V}\]
+\[ \therefore v_s = v_q = v_{\text{fase-neutro, pico}} = \frac{5 \text{ V,DC}}{2\sqrt{3}} \text{ V ,}\]
+
+se puede calcular que la corriente esperada es de
+
+\[
+i_{\text{fase, pico}} = \frac{v_{\text{fase-neutro, pico}}}{(R + L\cdot\omega)} = \frac{\frac{5 \text{ V,DC}}{2\sqrt{3}} \text{ V}}{0.5 \text{ }\Omega + 500 \text{\unit{\micro\henry}} \cdot 2\pi100 \text{ Hz}} = 1.77 \text{ A ,}
+\]
+
+que encaja con el valor medido de aproximadamente 1,8 A.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/3RLcurrent}
+	\caption{Corrientes de las tres fases de la carga R-L. El canal CH3 muestra un escalado incorrecto, que debería ser igual al de los otros dos canales visibles.}
+\end{figure}
+
+\subsection{Lazo abierto de tensión con un PMSM}
+
+Con las tensiones trifásicas correctamente sintetizadas, se probó un lazo abierto de tensión con un PMSM.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/motorLab}
+	\caption{Motor utilizado en los ensayos \cite{mavilor2018}.}
+\end{figure}
+
+
+\begin{table}[H]
+	\begin{tabular}{|p{2cm}||r|p{1.5cm}|p{8cm}|}
+		\hline
+		\multicolumn{4}{|c|}{Parámetros del motor} \\
+		\hline
+		Parámetro & Valor & Unidades & Descripción \\
+		\hline
+		\(pp\) & 4 & ad & Número de pares de polos \\
+		\(\lambda_m\) & 0,13391 & mWb & Flujo magnético de los imanes permanentes \\
+		\(L_d\) & 2,91 & mH & Inductancia en el eje d \\
+		\(L_q\) & 2,91 & mH & Inductancia en el eje q \\
+		\(R_s\) & 1,95 & \unit{\ohm} & Resistencia de fase del estátor \\
+		\(\omega_{\text{m,máx}}\) & 8500 & RPM & Velocidad angular máxima del motor \\
+		\(T_{\text{em,máx}}\) & 10 & \unit{N \cdot m} & Par máximo del motor \\
+		\(V_{\text{DC,máx}}\) & 450 & \unit{V} & Voltaje máximo DC \\
+		\(I_{\text{s,máx}}\) & 60 & \unit{A} & Corriente máxima en los ejes d-q \\
+		\hline
+	\end{tabular}
+	\caption{Parámetros del motor utilizado en los ensayos.}
+\end{table}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/Mavilor-setup}
+	\caption{\textit{Setup} del ensayo con el motor.}
+\end{figure}
+
+Se procedió de manera muy similar al ensayo de la carga estática, aunque en este caso fue necesario implementar una rampa de frecuencia para lograr que el motor girara. El resto fue idéntico, y se tomó una captura de las corrientes de fase.
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{fig/mavilorCurrent}
+	\caption{Corrientes de fase del motor.}
+\end{figure}
+
+Como se puede observar, las formas de onda no son perfectamente senoidales, y este hecho se asocia a los armónicos que pueda presentar el bobinado del estátor. La frecuencia sintetizada fue de tan solo 5 Hz, atendiendo a un análisis de estabilidad \cite{Montesinos2008}.
+
 
 \subsection{Lazo cerrado de corriente con carga R-L}
+
+El siguiente paso, y último de este capítulo, fue cerrar el lazo de corriente con la carga estática usada anteriormente. Dado que no se tuvo un motor con el sensor de posición adecuado durante el desarrollo del trabajo, no se pudo implementar el lazo de corriente en un motor. Para ello, es necesario conocer con precisión la posición eléctrica del motor en todo momento. Este ensayo tiene el mismo \textit{setup} que el del lazo abierto, ya que lo que se pretende es habilitar los PIs de $i_d$ e $i_q$ y consignar un valor de corriente. Con esto, se verificará que la lectura de corriente es precisa y que se podrían implementar las trayectorias de control sin mucho miramiento, atendiendo a las simulaciones previas.
+
+
+

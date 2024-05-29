@@ -29,58 +29,183 @@ Al hablar de consumo energético en este apartado se hace referencia a la electr
 \section{Presupuesto}
 \subsection{Costes de ingeniería}
 
-Para estimar los costes de ingeniería, se consulta la tabla salarial \cite{BOE2024}, donde un graduado en ingeniería técnica debería cobrar al menos \textbf{8,8 \euro{}  la hora} por ser del tercer nivel salarial. El tiempo total invertido en ingeniería se puede estimar sabiendo que se trabajó una media de 30 horas a la semana desde septiembre hasta la fecha de entrega, lo que equivale a unas \textbf{1140 horas} de diseño, desarrollo y documentación.
+Para estimar los costes de ingeniería, se consulta la tabla salarial \cite{SEGSOC2024}, donde un graduado en ingeniería técnica debería cobrar al menos \textbf{9.58 \euro{}  la hora} por ser del segundo nivel salarial. El tiempo total invertido en ingeniería se puede estimar sabiendo que se trabajó una media de 30 horas a la semana desde septiembre hasta la fecha de entrega, lo que equivale a unas \textbf{1140 horas} de diseño, desarrollo y documentación.
 
 \subsubsection{Desarrollo del control}
-De todas las horas invertidas, se estima que un 25\% de las mismas fueron destinadas al estudio y diseño del control. Por lo tanto, se calculan 2508 \euro{} para los costes humanos en este aspecto. Además, se usaron MATLAB, Simulink y PLECS, cuyas licencias cuestan 119 \euro{} \cite{MathWorks2024}, 35 \euro{} \cite{MathWorks2024} y 1400 \euro{} \cite{Plexim2024} respectivamente. En total, los costes para desarrollar el control ascienden a (2508 + 119 + 35 + 1400) \euro{}  = \textbf{4062 \euro{}}.
+De todas las horas invertidas, se estima que un 25\% de las mismas fueron destinadas al estudio y diseño del control. Por lo tanto, se calculan 2730,3 \euro{} para los costes humanos en este aspecto. Además, se usaron MATLAB, Simulink y PLECS, cuyas licencias cuestan 119 \euro{} \cite{MathWorks2024}, 35 \euro{} \cite{MathWorks2024} y 1400 \euro{} \cite{Plexim2024} respectivamente. En total, los costes para desarrollar el control ascienden a (2730,3 + 119 + 35 + 1400) \euro{}  = \textbf{4284,3 \euro{}}.
 
 \subsubsection{Desarrollo del \textit{hardware}}
-Se estima que se invirtió un 40\% del tiempo total en el diseño, prototipado y validación del \textit{hardware}, lo que equivale a 4012,8 \euro{} . Para diseñar las PCBs se usó Altium Designer, y una licencia anual para el mismo está situada en los 4425 \euro{} \cite{Altium2024}. Se usó también Solidworks, cuya licencia cuesta unos 2600 \euro{} \cite{GoEngineer2024}. Los costes de desarrollo de \textit{hardware} suman \textbf{8437,8 \euro{}}.
+Se estima que se invirtió un 40\% del tiempo total en el diseño, prototipado y validación del \textit{hardware}, lo que equivale a 4368,48 \euro{} . Para diseñar las PCBs se usó Altium Designer, y una licencia anual para el mismo está situada en los 4425 \euro{} \cite{Altium2024}. Se usó también Solidworks, cuya licencia cuesta unos 2600 \euro{} \cite{GoEngineer2024}. Los costes de desarrollo de \textit{hardware} suman \textbf{11393,48 \euro{}}.
 
 \subsubsection{Desarrollo del \textit{firmware}}
-Para desarrollar el \textit{firmware} se dedicó un 20\% del tiempo aproximadamente, y eso se traduce a \textbf{2006,4 \euro{}}. No se usó ningún programa de pago por lo que es todo lo que costaría esta parte del desarrollo.
+Para desarrollar el \textit{firmware} se dedicó un 20\% del tiempo aproximadamente, y eso se traduce a \textbf{2184,24 \euro{}}. No se usó ningún programa de pago por lo que ese precio es todo lo que costaría esta parte del desarrollo.
 
 \subsubsection{Documentación}
-La redacción de este trabajo junto al resto de documentación generada llevó el 15\% de tiempo restante, es decir, \textbf{1504,8 \euro{}}. Se usaron Sublime Text y TeXstudio como editores de texto, y MiKTeX como compilador de \LaTeX, que son herramientas \textit{open source} y por tanto gratuitas.
+La redacción de este trabajo junto al resto de documentación generada llevó el 15\% de tiempo restante, es decir, \textbf{1638,18 \euro{}}. Se usaron Sublime Text y TeXstudio como editores de texto, y MiKTeX como compilador de \LaTeX, que son herramientas \textit{open source} y por tanto gratuitas.
 
-\subsection{Costes de fabricación}
+\subsection{Costes materiales}
 
 \subsubsection{Placas de circuito impreso}
 
 En el proceso de fabricación de las PCBs para el inversor, se realizaron dos pedidos separados con el proveedor JLCPCB.
 
-\textbf{Primer pedido:}
+\textbf{Primer pedido}
 \begin{itemize}
 	\item Fecha de pedido: 2024-02-15
 	\item Método de envío: FedEx International Packet
 	\item Coste total: 156,26 \euro{} (PCBs de potencia) + 39,98 \euro{} (PCBs de control) + 19,24 \euro{} (envío)
 	\item Cantidad: 10 unidades (5 unidades de la PCB de control y 5 unidades de la PCB de potencia)
-	\item Descuento: No se tuvo que pagar por la PCB de control gracias a un acuerdo de patrocinio entre JLCPCB y e-Tech Racing.
-	\item Coste final: \textbf{174,63 \euro{}}
+	\item Coste final: \textbf{215,48 \euro{}}
 
 \end{itemize}
 
 \hspace{1cm}
 
-\textbf{Segundo pedido:}
+\textbf{Segundo pedido}
 \begin{itemize}
 	\item Fecha de pedido: 2024-03-28
 	\item Método de envío: DHL Express Worldwide
 	\item Coste total: 119,99 \euro{} (PCBs de potencia) + 39,98 \euro{} (PCBs de control) + 26,58 \euro{} (envío)
-	\item Descuento: Se obtuvo un descuento de 140 \$ (129,21 \euro{}) en este pedido.
 	\item Cantidad: 10 unidades (5 unidades de la PCB de control y 5 unidades de la PCB de potencia)
-	\item Coste final: \textbf{57,32 \euro{}}
+	\item Coste final: \textbf{186,55 \euro{}}
 \end{itemize}
 
 \hspace{1cm}
 
-\textbf{Total:}
+\textbf{Total}
 \begin{itemize}
-	\item En total, se gastaron \textbf{231,95 \euro{}} en placas.
+	\item En total, se gastaron 215,48 + 186,55 = \textbf{402,03 \euro{}} en placas. Por suerte, se obtuvieron algunos descuentos por parte del fabricante que aliviaron la carga económica.
 \end{itemize}
 \subsubsection{Componentes electrónicos}
-Para obtener el precio de los componentes electrónicos se extraen las listas de materiales de los proyectos generados en Altium Designer.
+Para obtener el precio de los componentes electrónicos se extraen las listas de materiales de los proyectos generados en Altium Designer. El programa es capaz de consultar los distribuidores más conocidos y obtener el mejor precio de forma automática.
 
+\textbf{Placa de potencia}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|}
+		\hline
+		\textbf{Componente} & \textbf{Cantidad para una PCB} & \textbf{Precio para dos PCBs (\euro{})} \\
+		\hline
+		0437001.WRA & 1 & 2.8 \\
+		10uF 0805 & 12 & 4.08 \\
+		10uF 850V & 10 & Desconocido \\
+		150080GS75000 & 1 & 0.328 \\
+		1779205141 & 1 & 7.4 \\
+		2220Y1K00104KZT & 6 & 61.56 \\
+		4N35 & 2 & 0.924 \\
+		613026243121 & 1 & 4.68 \\
+		885012207098 & 15 & 1.98 \\
+		885012207103 & 9 & 4.302 \\
+		885012208058 & 1 & 0.33 \\
+		CR0805-FX-1000ELF & 3 & 0.023 \\
+		CR0805-JW-102ELF & 1 & 0.061 \\
+		CR0805-JW-103ELF & 12 & 0.79 \\
+		CR1206AFX-6802EAS & 6 & 0.12 \\
+		CR1206-FX-2201ELF & 2 & 0.37 \\
+		CR1206-JW-363ELF & 6 & 1.12 \\
+		CR1206-JW-563ELF & 6 & 1.12 \\
+		CRCW120610K0FKEA & 1 & 0.19 \\
+		CRCW120630K0FKEA & 1 & 0.06 \\
+		CRG1206F100R & 12 & 2.21 \\
+		CRS1206-FX-4701ELF & 2 & 1.14 \\
+		CAB016M12FM3 & 3 & 778.68 \\
+		ISO224 & 1 & 24.56 \\
+		LEM CKSR 50-NP & 3 & 94.8 \\
+		LM311DR2G & 1 & 0.82 \\
+		MBR0530 & 1 & 0.8 \\
+		MGJ6-series & 6 & 65.04 \\
+		R2M-2512FTK & 2 & 2.99 \\
+		RCV2512470KFKEG & 24 & 32.69 \\
+		SIHB150N60E-GE3 & 1 & 6.76 \\
+		TPS72301 & 6 & 44.64 \\
+		UCC21710 & 6 & 101.28 \\
+		\hline
+		\textbf{Total} & 175 & \textbf{1248.64} \\
+		\hline
+	\end{tabular}
+	\caption{Lista de materiales de \textit{Inverter\_Power}, variante Wolfspeed.}
+\end{table}
+
+
+\textbf{Placa de control}
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l|c|c|}
+		\hline
+		\textbf{Componente} & \textbf{Cantidad para una PCB} & \textbf{Precio para una PCB (\euro{})} \\
+		\hline
+		0437001.WRA & 2 & 2.8 \\
+		105310-1108 & 1 & 1.97 \\
+		1053101112 & 2 & 3.48 \\
+		10uF & 6 & 2.04 \\
+		150080GS75000 & 2 & 0.33 \\
+		150080RS75000 & 1 & 0.11 \\
+		150080YS75000 & 1 & 0.16 \\
+		20MHz & 1 & 0.32 \\
+		24AA024H-I/SN & 1 & 0.37 \\
+		450405020524 & 1 & 1.01 \\
+		47uH & 2 & 1.44 \\
+		61300611121 & 1 & 0.35 \\
+		61302621121 & 2 & 2.52 \\
+		629105136821 & 1 & 1.25 \\
+		744764147 & 1 & 0.63 \\
+		824501261 & 1 & 0.29 \\
+		885012007052 & 2 & 0.096 \\
+		885012107011 & 4 & 2.24 \\
+		885012107014 & 2 & 0.50 \\
+		885012207092 & 13 & 0.29 \\
+		885012207098 & 17 & 1.12 \\
+		885012207103 & 10 & 2.39 \\
+		AD8479ARZ-RL & 2 & 16.92 \\
+		CPF0805B15RE & 6 & 2.72 \\
+		CPH3455-TL-H & 3 & 1.38 \\
+		CR0805-FX-1000ELF & 9 & 0.03 \\
+		CR0805-JW-102ELF & 9 & 0.27 \\
+		CR0805-JW-103ELF & 19 & 0.63 \\
+		CR0805-JW-472ELF & 8 & 0.02 \\
+		Diode 4D & 1 & 0.48 \\
+		DLW32SH510XF2 & 1 & 1.37 \\
+		LM1117IMP-3.3/NOPB & 1 & 0.32 \\
+		LM339D & 2 & 1.88 \\
+		MCP2551-I/SN & 1 & 1.24 \\
+		RPMB5.0-3.0 & 1 & 8.1 \\
+		STM32F777VIT6 & 1 & 19.27 \\
+		USBLC6-2P6 & 1 & 0.48 \\
+		\hline
+		\textbf{Total} & 148 & \textbf{80.82} \\
+		\hline
+	\end{tabular}
+	\caption{Lista de materiales de \textit{Inverter\_Control}.}
+\end{table}
+
+\textbf{Total}
+
+En total, el precio de los componentes es de 80,82 + 1248,64 = \textbf{1329,46 \euro{}}. Afortunadamente, la mayoría de componentes se obtuvieron como muestras, preguntando a los fabricantes uno por uno, lo cual hizo viable el proyecto.
+
+\subsubsection{Herramientas}
+
+En este apartado se listan y se hace una valoración económica aproximada de todas las herramientas físicas utilizadas para el desarrollo del proyecto.
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|l|c|}
+		\hline
+		\textbf{Herramienta} & \textbf{Precio (\euro{})} \\
+		\hline
+		Ordenador portátil & 1200 \\
+		Soladador Pinecil v2 & 25 \\
+		Multímetro AN8009 & 25 \\
+		Osciloscopio Yokogawa & Cesión temporal \\
+		Fuente de alimentación & Cesión temporal \\
+		Herramientas manuales & 100 \\
+		\hline
+		\textbf{Total} & 1450 \\
+		\hline
+	\end{tabular}
+	\caption{Lista de herramientas utilizadas en el proyecto y su coste.}
+\end{table}
+
+El total de los costes asociados a las herramientas físicas asciende a \textbf{1450 \euro}.
 
 \subsection{Costes totales}
 
@@ -94,21 +219,22 @@ A continuación se presenta un resumen de los costes totales del proyecto, inclu
 		\hline
 		\multicolumn{2}{|c|}{Costes de ingeniería} \\
 		\hline
-		Desarrollo del control & 4062,00 \\
-		Desarrollo del \textit{hardware} & 8437,80 \\
-		Desarrollo del \textit{firmware} & 2006,40 \\
-		Documentación & 1504,80 \\
+		Desarrollo del control & 4284,3 \\
+		Desarrollo del \textit{hardware} & 11393,48 \\
+		Desarrollo del \textit{firmware} & 2184,24 \\
+		Documentación & 1638,18 \\
 		\hline
-		\textbf{Total costes de ingeniería} & \textbf{16011} \\
+		\textbf{Total costes de ingeniería} & \textbf{19500,2} \\
 		\hline
 		\multicolumn{2}{|c|}{Costes de fabricación} \\
 		\hline
-		Placas de circuito impreso & 231,95 \\
-		Componentes electrónicos & Por determinar \\
+		Placas de circuito impreso & 402,03 \\
+		Componentes electrónicos & 1329,46 \\
+		Herramientas & 1450 \\
 		\hline
-		\textbf{Total costes de fabricación} & \textbf{Por determinar} \\
+		\textbf{Total costes de fabricación} & \textbf{3181,49} \\
 		\hline
-		\textbf{Coste total del proyecto} & \textbf{Por determinar} \\
+		\textbf{Coste total del proyecto} & \textbf{22681,69} \\
 		\hline
 	\end{tabular}
 	\caption{Resumen de los costes totales del proyecto.}
@@ -164,7 +290,7 @@ Este objetivo se ha alcanzado de manera satisfactoria.
 	}%
 }
 
-Se ha realizado una evaluación exhaustiva de cada parte del \textit{hardware} del inversor para asegurar su funcionalidad y cumplimiento de los requisitos. Las pruebas realizadas han verificado que el diseño cumple con las especificaciones y que el \textit{hardware} funciona correctamente en las condiciones esperadas. Sin embargo, debido a que no se ha dispuesto de una batería de 600 V ni un motor adecuado, el convertidor no se pudo probar en sus máximas especificaciones. Para algún parámetro crítico se han hecho predicciones matemáticas en base a algunos ensayos a menos potencia, pero esto no es suficiente.
+Se ha realizado una evaluación exhaustiva de cada parte del \textit{hardware} del inversor para asegurar su funcionalidad y cumplimiento de los requisitos. Las pruebas realizadas han verificado que el diseño cumple con las especificaciones y que el \textit{hardware} funciona correctamente en las condiciones esperadas. Sin embargo, debido a que no se ha dispuesto de una batería de 600 V, ni un motor adecuado, ni de una refrigeración líquida, el convertidor no se pudo probar en sus máximas especificaciones. Para algún parámetro crítico se han hecho predicciones matemáticas en base a algunos ensayos a menos potencia, pero esto no es suficiente para cerciorarse de que el convertidor realmente alcanza empíricamente el valor de potenia con el que se ha diseñado.
 
 Este objetivo ha sido cumplido parcialmente, y sería necesaria una validación más extensa a potencias más elevadas.
 
@@ -175,10 +301,9 @@ Este objetivo ha sido cumplido parcialmente, y sería necesaria una validación 
 	}%
 }
 
-Se ha procedido a la implementación del \textit{firmware} que controlará el \textit{hardware} del inversor, integrando gran parte del control diseñado previamente. Sin embargo, no se ha podido implementar la lectura del sensor de posición, motivo por el cual no se ha podido verificar el lazo de corriente con un motor, pero sí con una carga estática. Se han integrado las trayectorias que permiten un control de par de la misma manera que se ha hecho en las simulaciones. Por la misma razón, no se ha podido verificar el control dual, aunque en todo momento del desarrollo se han estado ejecutando ambos lazos de control simultáneamente, con lo que no debería ser un problema. El lazo de control con debilitamiento de campo no se ha integrado, pero se considera sencillo implementarlo cogiendo como base las simulaciones realizadas. 
+Se ha procedido a la implementación del \textit{firmware} que controlará el \textit{hardware} del inversor, integrando gran parte del control diseñado previamente. Sin embargo, no se ha podido implementar la lectura del sensor de posición, motivo por el cual no se ha podido verificar el lazo de corriente con un motor, pero sí con una carga estática. Por esa misma razón, no se ha podido verificar el control dual, aunque en todo momento del desarrollo se han estado ejecutando ambos lazos de control simultáneamente, con lo que no debería ser un problema. Se han integrado las trayectorias que permiten un control de par de la misma manera que se ha hecho en las simulaciones. El lazo de control con debilitamiento de campo no se ha integrado, pero se considera sencillo implementarlo cogiendo como base las simulaciones realizadas. 
 
-Se ha cumplido en gran medida este objetivo, aunque no se han validado algunos aspectos.
-
+Se ha cumplido en gran medida este objetivo, aunque queda lejos de ser una parte finalizada, ya que no se han validado algunos aspectos.
 
 \subsection{Futuras líneas de trabajo}
 
@@ -212,12 +337,13 @@ Como se ha mencionado anteriormente, se es consciente de que el algoritmo propue
 
 \paragraph{Placa de control}
 \begin{itemize}
+	\item Revisar la lectura diferencial de la tensión.
 	\item DCDC101 no se ha probado todavía.
 	\item L101 tiene una especificación de corriente muy baja. Debería aguantar al menos 3 A.
 	\item Q101 y el USB en general no se han probado aún.
 	\item El punto del MCU en la serigrafía podría ser confuso. Verificar la orientación con el montaje, e indicar mejor en la serigrafía.
-	\item Se debería añadir protección contra sobrevoltaje de 3,3 V a todos los pines del MCU que no sean tolerantes a 5 V.
-	\item La mayoría, si no todas, las resitencias de 15 $\Omega$ podrían ser de 0 $\Omega$ o incluso puentes de soldadura.
+	\item Se debería añadir protección contra sobretensión de 3,3 V a todos los pines del MCU que no sean tolerantes a 5 V.
+	\item La mayoría, si no todas, las resistencias de 15 $\Omega$ podrían ser de 0 $\Omega$ o incluso puentes de soldadura.
 	\item Los condensadores de 10 \unit{\micro\farad} 50 V 0805 son caros y deberían reemplazarse por 10 \unit{\micro\farad} 50 V 1206 o 10 \unit{\micro\farad} 50 V 1210.
 \end{itemize}
 

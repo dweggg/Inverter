@@ -261,9 +261,11 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {4.75}{\ignorespaces Circuito de protección de alimentación.}}{105}{figure.caption.132}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.76}{\ignorespaces Alimentación bipolar aislada del \textit  {gate driver}.}}{105}{figure.caption.133}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.77}{\ignorespaces \textit  {Gate driver} con medida de temperatura y \textit  {snubbers}.}}{106}{figure.caption.134}\protected@file@percent }
+\citation{PowerElectronicCircuits2018}
+\citation{PowerElectronicCircuits2018}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.78}{\ignorespaces Enrutado en la capa superior de un \textit  {half-bridge}.}}{108}{figure.caption.135}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4.79}{\ignorespaces Circuito de parásitos en un medio puente, que cuando la corriente es positiva, actúa como un convertidor \textit  {buck}.}}{108}{figure.caption.136}\protected@file@percent }
-\newlabel{lc-layout}{{4.79}{108}{Circuito de parásitos en un medio puente, que cuando la corriente es positiva, actúa como un convertidor \textit {buck}}{figure.caption.136}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.79}{\ignorespaces Circuito de parásitos en un convertidor \textit  {buck} \cite  {PowerElectronicCircuits2018}. Cada medio puente de un VSI actúa como un convertidor \textit  {buck} cuando la corriente es positiva.}}{108}{figure.caption.136}\protected@file@percent }
+\newlabel{lc-layout}{{4.79}{108}{Circuito de parásitos en un convertidor \textit {buck} \cite {PowerElectronicCircuits2018}. Cada medio puente de un VSI actúa como un convertidor \textit {buck} cuando la corriente es positiva}{figure.caption.136}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.80}{\ignorespaces Circuito de descarga.}}{109}{figure.caption.137}\protected@file@percent }
 \citation{LEMDatasheet}
 \citation{LEMDatasheet}
@@ -332,8 +334,8 @@
 \@writefile{toc}{\contentsline {subsubsection}{\texttt  {CONTROL.c/.h}}{142}{subsubsection*.194}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\texttt  {PWM.c/.h}}{143}{subsubsection*.195}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsubsection}{\texttt  {CAN\_e-Tech.c/.h}}{143}{subsubsection*.196}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Implementación del \textit  {firmware}}{144}{subsection.4.4.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Configuración del MCU}{144}{subsubsection*.197}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.4.3}Implementación del \textit  {firmware}}{143}{subsection.4.4.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Configuración del MCU}{143}{subsubsection*.197}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.116}{\ignorespaces Configuración del reloj del sistema.}}{144}{figure.caption.198}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.117}{\ignorespaces Configuración de GPIOs.}}{144}{figure.caption.199}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {4.118}{\ignorespaces Configuración del ADC 2 por DMA, correspondiente al inversor izquierdo.}}{145}{figure.caption.200}\protected@file@percent }
@@ -395,58 +397,73 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5.24}{\ignorespaces \textit  {Overshoot} observado con 90 V de entrada y 6,2 A de salida (con la carga R-L).}}{170}{figure.caption.239}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces Resumen de resultados del modelo de \textit  {overshoot}.}}{170}{table.caption.240}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5.25}{\ignorespaces Modelo lineal (plano) junto a los datos tomados (puntos azules).}}{171}{figure.caption.241}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces Esquemático de la etapa de potencia actualizado.}}{171}{figure.caption.242}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Pruebas térmicas y de alta tensión}{171}{subsection.5.2.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.26}{\ignorespaces Vistas del \textit  {setup} para las pruebas de descarga.}}{172}{figure.caption.242}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {5.27}{\ignorespaces Descarga de 600 V a 60 V con 100 \unit {\micro \farad } de capacidad en el bus de continua, en un tiempo de 4,5 segundos.}}{172}{figure.caption.243}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.27}{\ignorespaces Vistas del \textit  {setup} para las pruebas de descarga.}}{172}{figure.caption.243}\protected@file@percent }
 \citation{vishay_application_note}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces Captura de la cámara térmica tras alcanzar el estado estacionario a 600 V.}}{173}{figure.caption.244}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.28}{\ignorespaces Descarga de 600 V a 60 V con 100 \unit {\micro \farad } de capacidad en el bus de continua, en un tiempo de 4,5 segundos.}}{173}{figure.caption.244}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.29}{\ignorespaces Captura de la cámara térmica tras alcanzar el estado estacionario térmico a 600 V.}}{173}{figure.caption.245}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2.5}Validación de la placa de control}{174}{subsection.5.2.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Validación de \textit  {firmware}}{174}{section.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Verificación de los periféricos}{174}{subsection.5.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Conmutación de las tres ramas}{174}{subsection.5.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Lazo abierto de tensión con carga R-L}{174}{subsection.5.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Lazo abierto de tensión con un motor}{174}{subsection.5.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.5}Lazo cerrado de corriente con carga R-L}{174}{subsection.5.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.6}Adquisición de la posición del motor}{174}{subsection.5.3.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.7}Lazo cerrado de corriente con un motor}{174}{subsection.5.3.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.8}Trayectorias de control}{174}{subsection.5.3.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.9}Control dual}{174}{subsection.5.3.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Integración}{174}{section.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Consideraciones finales}{175}{chapter.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Alimentación}{174}{subsubsection*.246}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{MCU}{174}{subsubsection*.247}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{CAN}{175}{subsubsection*.248}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Retroalimentación}{175}{subsubsection*.249}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\textit  {Front-end} analógico de la placa de potencia}{175}{subsubsection*.250}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Validación de \textit  {firmware}}{176}{section.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Conmutación de las tres ramas}{176}{subsection.5.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Lazo abierto de tensión con carga R-L}{176}{subsection.5.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.30}{\ignorespaces Carga R-L trifásica utilizada.}}{176}{figure.caption.251}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.31}{\ignorespaces \textit  {Setup} del ensayo con carga R-L.}}{177}{figure.caption.252}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.32}{\ignorespaces Lazo abierto de tensión. Señales PWM a la entrada del \textit  {driver} y corriente de una fase.}}{177}{figure.caption.253}\protected@file@percent }
+\citation{mavilor2018}
+\citation{mavilor2018}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.33}{\ignorespaces Corrientes de las tres fases de la carga R-L. El canal CH3 muestra un escalado incorrecto, que debería ser igual al de los otros dos canales visibles.}}{178}{figure.caption.254}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.3}Lazo abierto de tensión con un PMSM}{179}{subsection.5.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.34}{\ignorespaces Motor utilizado en los ensayos \cite  {mavilor2018}.}}{179}{figure.caption.255}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces Parámetros del motor utilizado en los ensayos.}}{179}{table.caption.256}\protected@file@percent }
+\citation{Montesinos2008}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.35}{\ignorespaces \textit  {Setup} del ensayo con el motor.}}{180}{figure.caption.257}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.36}{\ignorespaces Corrientes de fase del motor.}}{180}{figure.caption.258}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.4}Lazo cerrado de corriente con carga R-L}{181}{subsection.5.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Consideraciones finales}{182}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Impacto ambiental}{175}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Fabricación de PCBs}{175}{subsection.6.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Montaje y selección de materiales}{175}{subsection.6.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Gestión de residuos}{175}{subsection.6.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.4}Transporte}{176}{subsection.6.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.5}Consumo energético}{176}{subsection.6.1.5}\protected@file@percent }
-\citation{BOE2024}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Impacto ambiental}{182}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Fabricación de PCBs}{182}{subsection.6.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Montaje y selección de materiales}{182}{subsection.6.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Gestión de residuos}{182}{subsection.6.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.4}Transporte}{183}{subsection.6.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.5}Consumo energético}{183}{subsection.6.1.5}\protected@file@percent }
+\citation{SEGSOC2024}
 \citation{MathWorks2024}
 \citation{MathWorks2024}
 \citation{Plexim2024}
 \citation{Altium2024}
 \citation{GoEngineer2024}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Presupuesto}{177}{section.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Costes de ingeniería}{177}{subsection.6.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Desarrollo del control}{177}{subsubsection*.245}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Desarrollo del \textit  {hardware}}{177}{subsubsection*.246}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Desarrollo del \textit  {firmware}}{177}{subsubsection*.247}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Documentación}{177}{subsubsection*.248}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Costes de fabricación}{178}{subsection.6.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Placas de circuito impreso}{178}{subsubsection*.249}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Componentes electrónicos}{179}{subsubsection*.250}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Costes totales}{179}{subsection.6.2.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Resumen de los costes totales del proyecto.}}{179}{table.caption.251}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.3}Conclusiones}{180}{section.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Cumplimiento de los objetivos}{180}{subsection.6.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Futuras líneas de trabajo}{182}{subsection.6.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Control vectorial}{182}{subsubsection*.252}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\textit  {Hardware}}{182}{subsubsection*.253}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Líneas generales}{182}{paragraph*.254}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Placa de potencia}{182}{paragraph*.255}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Placa de control}{183}{paragraph*.256}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\textit  {Firmware}}{183}{subsubsection*.257}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Presupuesto}{184}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Costes de ingeniería}{184}{subsection.6.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Desarrollo del control}{184}{subsubsection*.259}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Desarrollo del \textit  {hardware}}{184}{subsubsection*.260}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Desarrollo del \textit  {firmware}}{184}{subsubsection*.261}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Documentación}{184}{subsubsection*.262}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Costes materiales}{185}{subsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Placas de circuito impreso}{185}{subsubsection*.263}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Componentes electrónicos}{185}{subsubsection*.264}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Lista de materiales de \textit  {Inverter\_Power}, variante Wolfspeed.}}{186}{table.caption.265}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.2}{\ignorespaces Lista de materiales de \textit  {Inverter\_Control}.}}{187}{table.caption.266}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Herramientas}{188}{subsubsection*.267}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.3}{\ignorespaces Lista de herramientas utilizadas en el proyecto y su coste.}}{188}{table.caption.268}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Costes totales}{188}{subsection.6.2.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.4}{\ignorespaces Resumen de los costes totales del proyecto.}}{188}{table.caption.269}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6.3}Conclusiones}{189}{section.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.1}Cumplimiento de los objetivos}{189}{subsection.6.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3.2}Futuras líneas de trabajo}{191}{subsection.6.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Control vectorial}{191}{subsubsection*.270}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\textit  {Hardware}}{191}{subsubsection*.271}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Líneas generales}{191}{paragraph*.272}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Placa de potencia}{191}{paragraph*.273}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Placa de control}{192}{paragraph*.274}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\textit  {Firmware}}{192}{subsubsection*.275}\protected@file@percent }
 \bibstyle{plainnat}
 \bibdata{bibliography.bib}
 \bibcite{CAB016M12FM3}{{1}{2023}{{CAB}}{{}}}
@@ -455,33 +472,36 @@
 \bibcite{UCC21710}{{4}{2023}{{UCC}}{{}}}
 \bibcite{MathworksPMSM}{{5}{2024}{{Mat}}{{}}}
 \bibcite{Altium2024}{{6}{2024}{{Altium}}{{}}}
-\bibcite{Costa2024}{{7}{2024}{{Costa}}{{}}}
-\bibcite{BOE2024}{{8}{2024}{{de~Trabajo}}{{}}}
-\bibcite{KISS}{{9}{}{{de~Wikipedia}}{{}}}
-\bibcite{FSG}{{10}{2024}{{FSG}}{{}}}
-\bibcite{GoEngineer2024}{{11}{2024}{{GoEngineer}}{{}}}
-\bibcite{bucherdrives_mobile_dcu}{{12}{2024}{{Hydraulics}}{{}}}
-\bibcite{unitek_produkte}{{13}{2024}{{Industrie-Elektronik}}{{}}}
+\bibcite{amk_tirol}{{7}{2017}{{Campus Tirol Motorsport}}{{}}}
+\bibcite{cascadiamotion_cm_inverter}{{8}{2024}{{Cascadia Motion}}{{}}}
+\bibcite{KISS}{{9}{}{{Contribuyentes de Wikipedia}}{{}}}
+\bibcite{Costa2024}{{10}{2024}{{Costa}}{{}}}
+\bibcite{PowerElectronicCircuits2018}{{11}{2018}{{Costine}}{{}}}
+\bibcite{FSG}{{12}{2024}{{FSG}}{{}}}
+\bibcite{GoEngineer2024}{{13}{2024}{{GoEngineer}}{{}}}
 \bibcite{KnowlesCapacitors}{{14}{2024}{{Knowles Capacitors}}{{}}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Bibliograf\'{\i }a}{185}{chapter.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Bibliograf\'{\i }a}{194}{chapter.7}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibcite{LEMDatasheet}{{15}{2024}{{LEM}}{{}}}
-\bibcite{MathWorks2024}{{16}{2024}{{Mathworks}}{{}}}
-\bibcite{carlos2023}{{17}{2023}{{Miguel-Espinar}}{{}}}
-\bibcite{cascadiamotion_cm_inverter}{{18}{2024}{{Motion}}{{}}}
-\bibcite{amk_tirol}{{19}{2017}{{Motorsport}}{{}}}
-\bibcite{MurataDCDC}{{20}{2024}{{Murata}}{{}}}
-\bibcite{chandana2002}{{21}{2002}{{Perera}}{{}}}
-\bibcite{Plexim2024}{{22}{2024}{{Plexim}}{{}}}
-\bibcite{InverterWiki}{{23}{2024}{{Redondo}}{{}}}
-\bibcite{GestionProyectos}{{24}{2021}{{Redondo}}{{}}}
-\bibcite{Sieklucki2022}{{25}{2022}{{Sieklucki and Kara}}{{}}}
+\bibcite{bucherdrives_mobile_dcu}{{16}{2024}{{Lenze Bucher Hydraulics}}{{}}}
+\bibcite{MathWorks2024}{{17}{2024}{{Mathworks}}{{}}}
+\bibcite{mavilor2018}{{18}{2018}{{Mavilor}}{{}}}
+\bibcite{carlos2023}{{19}{2023}{{Miguel-Espinar}}{{}}}
+\bibcite{Montesinos2008}{{20}{2008}{{Montesinos Miracle, Daniel}}{{}}}
+\bibcite{MurataDCDC}{{21}{2024}{{Murata}}{{}}}
+\bibcite{chandana2002}{{22}{2002}{{Perera}}{{}}}
+\bibcite{Plexim2024}{{23}{2024}{{Plexim}}{{}}}
+\bibcite{InverterWiki}{{24}{2024}{{Redondo}}{{}}}
+\bibcite{SEGSOC2024}{{25}{2024}{{Seguridad Social}}{{}}}
 \bibcite{Sylvestre_2020}{{26}{2020}{{Sylvestre}}{{}}}
-\bibcite{vishay_application_note}{{27}{2009}{{Vishay Sfernice}}{{}}}
-\bibcite{WolfspeedMountingGuide}{{28}{2023}{{Wolfspeed}}{{}}}
-\bibcite{WurthRedCubeGuide}{{29}{2023}{{Würth Elektronik}}{{}}}
-\bibcite{Buso2006}{{30}{2006}{{y~Paolo~Mattavelli}}{{}}}
+\bibcite{unitek_produkte}{{27}{2024}{{UNITEK Industrie-Elektronik}}{{}}}
+\bibcite{vishay_application_note}{{28}{2009}{{Vishay Sfernice}}{{}}}
+\bibcite{WolfspeedMountingGuide}{{29}{2023}{{Wolfspeed}}{{}}}
+\bibcite{WurthRedCubeGuide}{{30}{2023}{{Würth Elektronik}}{{}}}
+\bibcite{Sieklucki2022}{{31}{2022}{{y~Dawid~Kara}}{{}}}
+\bibcite{GestionProyectos}{{32}{2021}{{y~N.~Murguizur}}{{}}}
+\bibcite{Buso2006}{{33}{2006}{{y~Paolo~Mattavelli}}{{}}}
 \@writefile{toc}{\setcounter {tocdepth}{0}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {A}Documentación de control}{1}{appendix.Alph1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
@@ -499,4 +519,4 @@
 \@writefile{toc}{\contentsline {chapter}{\numberline {C}Documentación del \textit  {firmware}}{54}{appendix.Alph3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\gdef \@abspage@last{431}
+\gdef \@abspage@last{440}
