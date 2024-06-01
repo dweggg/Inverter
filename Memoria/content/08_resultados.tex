@@ -52,8 +52,8 @@ En primer lugar se pobló únicamente el propio LDO con los componentes necesari
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Valor esperado}: -4 V $\le$ V $\le$ -3.5 V
-	\item \textbf{Resultado}: -3.78 V
+	\item \textbf{Valor esperado}: -4 V $\le$ V $\le$ -3,5 V
+	\item \textbf{Resultado}: -3,78 V
 \end{itemize}
 
 
@@ -74,8 +74,8 @@ Después de verificar el funcionamiento del LDO se probaron los DC-DCs aislados.
 \end{figure}
 
 \begin{itemize}
-	\item \textbf{Valor esperado}: 15.5 V $\le$ VDD $\le$ 14.5 V ; -4 V $\le$ VEE $\le$ -3.5 V
-	\item \textbf{Resultado}: 15.94 V ; -3.78 V
+	\item \textbf{Valor esperado}: 15,5 V $\le$ VDD $\le$ 14,5 V ; -4 V $\le$ VEE $\le$ -3,5 V
+	\item \textbf{Resultado}: 15,94 V ; -3,78 V
 \end{itemize}
 
 \subsubsection{Funcionalidad del \textit{gate driver}}
@@ -84,7 +84,7 @@ Para validar la funcionalidad básica del \textit{gate driver}, se montó un mó
 \begin{itemize}
 	\item \textbf{\textit{OK} y \textit{TRIP}}: Se poblaron los componentes necesarios y se alimentó la placa desde el lado de \textit{LV}. Se midieron los nodos \textit{TRIP} y \textit{OK}. Ambas señales tenían un valor de 5 V, confirmando su correcto funcionamiento sin errores. Posteriormente se forzaron fallas en el lado del semiconductor y ambas bajaron a 0 V.
 	\item \textbf{MOSFETs apagados en reposo}: Se montaron las resistencias de puerta y se verificó el estado de ambos MOSFETs midiendo la resistencia entre \textit{drain} y \textit{source}. Ambos dispositivos se encontraban en estado \textit{OFF}, confirmando que no se encendían.
-	\item \textbf{\textit{ENABLE} no enciende los dispositivos}: Se introdujo una señal de 3.3 V el nodo \textit{ENABLE}, simulando la acción del microcontrolador. De nuevo, ambos dispositivos se encontraban en estado \textit{OFF}, lo cual es el resultado esperado, ya que ambas señales PWM estaban en estado bajo, es decir, consignando que los MOSFETs estuvieran abiertos.
+	\item \textbf{\textit{ENABLE} no enciende los dispositivos}: Se introdujo una señal de 3,3 V el nodo \textit{ENABLE}, simulando la acción del microcontrolador. De nuevo, ambos dispositivos se encontraban en estado \textit{OFF}, lo cual es el resultado esperado, ya que ambas señales PWM estaban en estado bajo, es decir, consignando que los MOSFETs estuvieran abiertos.
 	\item \textbf{Medición de temperatura}: Se verificó la capacidad del \textit{gate driver} de tomar una medida analógica, en concreto, de la NTC interna del semiconductor. Se contrastaron las medidas obtenidas con los cálculos previos, arrojando resultados satisfactorios.
 	
 	\begin{figure}[H]
@@ -100,9 +100,9 @@ Para validar la funcionalidad básica del \textit{gate driver}, se montó un mó
 Para validar el funcionamiento del sensado de corriente, se realizaron las siguientes pruebas:
 
 \begin{itemize}
-	\item \textbf{Standby}: Se esperaba una salida de 2.5V con un margen de error de $\pm$ 5 mV. La salida medida fue de 2.499 V, lo que se considera dentro del rango aceptable.
+	\item \textbf{Standby}: Se esperaba una salida de 2,5 V con un margen de error de $\pm$ 5 mV. La salida medida fue de 2,499 V, lo que se considera dentro del rango aceptable.
 	
-	\item \textbf{Operación básica}: Se esperaba una salida de 2.5625V para una corriente de +5A y 2.4375V para una corriente de -5 A, con un margen de error de $\pm$ 5 mV. Las mediciones obtenidas fueron de 2.557 V para +5 A y 2.436 V para -5 A, ambas dentro del rango esperado.
+	\item \textbf{Operación básica}: Se esperaba una salida de 2,5625V para una corriente de +5A y 2,4375V para una corriente de -5 A, con un margen de error de $\pm$ 5 mV. Las mediciones obtenidas fueron de 2.557 V para +5 A y 2,436 V para -5 A, ambas dentro del rango esperado.
 \end{itemize}	
 
 
@@ -111,7 +111,7 @@ Para validar el funcionamiento del sensado de corriente, se realizaron las sigui
 Para verificar la funcionalidad de la descarga, se realizaron las siguientes pruebas:
 
 \begin{itemize}
-	\item \textbf{Descarga pasiva}: Se precalculó una descarga de 24 V a 10 V en 35 segundos usando un 20\% de la capacidad del bus. La medición obtenida fue de 5.5 segundos, debido a que no se tuvo en cuenta el resto de conexiones entre los terminales positivo y negativo. La resistencia aparente entre estos terminales era más baja, principalmente por el divisor de tensión usado para tomar la medida de voltaje del bus. El divisor de voltaje para la adquisición ya es de $6 \cdot 68 \text{ k}\Omega + 4.7 \text{ k}\Omega = 412.7 \text{ k}\Omega$, y está en paralelo con la resistencia de $2 \text{ M}\Omega$, lo que resulta en una resistencia equivalente de 
+	\item \textbf{Descarga pasiva}: Se precalculó una descarga de 24 V a 10 V en 35 segundos usando un 20 \% de la capacidad del bus. La medición obtenida fue de 5,5 segundos, debido a que no se tuvo en cuenta el resto de conexiones entre los terminales positivo y negativo. La resistencia aparente entre estos terminales era más baja, principalmente por el divisor de tensión usado para tomar la medida de voltaje del bus. El divisor de voltaje para la adquisición ya es de $6 \cdot 68 \text{ k}\Omega + 4.7 \text{ k}\Omega = 412.7 \text{ k}\Omega$, y está en paralelo con la resistencia de $2 \text{ M}\Omega$, lo que resulta en una resistencia equivalente de 
 	$$
 	\frac{1}{\frac{1}{2 \text{ M}\Omega} + \frac{1}{412.7 \text{ k}\Omega}} = 342 \text{ k}\Omega,
 	$$
@@ -123,7 +123,7 @@ Para verificar la funcionalidad de la descarga, se realizaron las siguientes pru
 		\caption{Descarga pasiva a 24 V con 20 \unit{\micro\farad}.}
 	\end{figure}
 	
-	\item \textbf{Control de la descarga}: Se aplicó un voltaje de 20V en el nodo \textit{SC\_END} y se suministraron 24 V entre \textit{TS+} y \textit{TS-}. Se esperaba que la diferencia de potencial entre \textit{TS+} y \textit{TS-} fuera de 10 V 0.35 segundos después de retirar el voltaje, que coincidió perfectamente con el cálculo previo.
+	\item \textbf{Control de la descarga}: Se aplicó un voltaje de 20 V en el nodo \textit{SC\_END} y se suministraron 24 V entre \textit{TS+} y \textit{TS-}. Se esperaba que la diferencia de potencial entre \textit{TS+} y \textit{TS-} fuera de 10 V 0,35 segundos después de retirar el voltaje, que coincidió perfectamente con el cálculo previo.
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=0.7\linewidth]{fig/discharge2}
@@ -137,13 +137,13 @@ Para verificar la funcionalidad de la descarga, se realizaron las siguientes pru
 Para verificar el sensado de voltaje, se llevaron a cabo las siguientes pruebas:
 
 \begin{itemize}
-	\item \textbf{Divisor de voltaje}: Se aplicaron 24 V entre \textit{TS+} y \textit{TS-}. Se capturó el voltaje en el divisor de tensión. La tensión esperada era de $0.011388 \cdot 24\text{ V} = 0.2733 \text{ V}$ con un margen de error de $\pm$1 mV. La medición obtenida fue de 0.272 V, dentro del rango aceptable.
+	\item \textbf{Divisor de voltaje}: Se aplicaron 24 V entre \textit{TS+} y \textit{TS-}. Se capturó el voltaje en el divisor de tensión. La tensión esperada era de $0.011388 \cdot 24\text{ V} = 0.2733 \text{ V}$ con un margen de error de $\pm$1 mV. La medición obtenida fue de 0,272 V, dentro del rango aceptable.
 	
-	\item \textbf{Alimentación aislada}: Se montó el convertidor DCDC501 y se alimentó la placa desde el lado LV para medir el voltaje entre \textit{+5\_TS} y \textit{TS-}. Se esperaba una lectura de 5V con un margen de error de $\pm$0.5 V. Sin embargo, la medición fue de 5.5 V, indicando que se deberá ajustar el divisor de voltaje para el umbral de detección debido a la inexactitud.
+	\item \textbf{Alimentación aislada}: Se montó el convertidor DCDC501 y se alimentó la placa desde el lado LV para medir el voltaje entre \textit{+5\_TS} y \textit{TS-}. Se esperaba una lectura de 5V con un margen de error de $\pm$0,5 V. Sin embargo, la medición fue de 5,5 V, indicando que se deberá ajustar el divisor de voltaje para el umbral de detección debido a la inexactitud.
 	
 	\item \textbf{Detección de voltaje}: Se aplicaron 50 V entre \textit{TS+} y \textit{TS-}, y se midió \textit{TSAL\_ON}. Se repitió la prueba con 60 V. Se esperaba que \textit{V\_TSAL} fuera de 677 mV y que \textit{TSAL\_ON} fuera 5 V con 50 V de tensión de bus y 0 V con 60 V. Sin embargo, la medición fue incorrecta, ya que el umbral aproximado para la transición fue de 63 V. Se encontró que la causa podría estar la tolerancia del divisor de resistencia y el hecho de que la salida del convertidor DC-DC era medio voltio superior.
 
-	\item \textbf{Sensado de voltaje}: Se aplicaron 13V entre \textit{TS+} y \textit{TS-}. Se capturó el valor entre \textit{VDC\_sns+} y \textit{VDC\_sns-}. Se esperaba que la diferencia de potencial fuera de 0.0495 V. La medición obtenida fue de 0.05 V, dentro del rango aceptable.
+	\item \textbf{Sensado de voltaje}: Se aplicaron 13 V entre \textit{TS+} y \textit{TS-}. Se capturó el valor entre \textit{VDC\_sns+} y \textit{VDC\_sns-}. Se esperaba que la diferencia de potencial fuera de 0,0495 V. La medición obtenida fue de 0,05 V, dentro del rango aceptable.
 \end{itemize}
 
 \begin{figure}[H]
@@ -223,14 +223,14 @@ Con todos los subcircuitos validados, el siguiente paso fue analizar la conmutac
 \end{figure}
 
 
-Se conectó la placa de potencia con una placa de evaluación ya que en este punto todavía no se había fabricado la placa de control. De esta manera, se generó una pareja de señales PWM complementarias a 50 kHz y 50\% de ciclo de trabajo con 150 ns de tiempo muerto. 
+Se conectó la placa de potencia con una placa de evaluación ya que en este punto todavía no se había fabricado la placa de control. De esta manera, se generó una pareja de señales PWM complementarias a 50 kHz y 50 \% de ciclo de trabajo con 150 ns de tiempo muerto. 
 	
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\linewidth]{fig/nucleoHalfBridge}
 	\caption{Placa de evaluación Nucleo conectada a la placa de potencia.}
 \end{figure}
-Usando una fuente de tensión regulable, se pudo controlar la tensión de entrada, y dado que se fija el ciclo de trabajo al 50\%, y que la carga es fija, se pudo variar la tensión de salida modificando la tensión de entrada. Conectando y desconectando la carga, se pudo probar la conmutación tanto en vacío como con algo de corriente.
+Usando una fuente de tensión regulable, se pudo controlar la tensión de entrada, y dado que se fija el ciclo de trabajo al 50 \%, y que la carga es fija, se pudo variar la tensión de salida modificando la tensión de entrada. Conectando y desconectando la carga, se pudo probar la conmutación tanto en vacío como con algo de corriente.
 
 
 En primer lugar, sin tensión en el bus de continua, se verificó que tanto las señales PWM entrantes a los \textit{gate drivers} como las señales en la puerta de los transistores eran adecuadas en cuanto a niveles de tensión, frecuencia y polaridad.
@@ -513,7 +513,7 @@ Tras configurar correctamente los periféricos necesarios, el siguiente paso es 
 
 \subsection{Lazo abierto de tensión con carga R-L}
 
-Posteriormente se implementó la modulación SVPWM y las transformadas inversas para poder consignar una tensión alterna. Usando una fuente de tensión limitada por corriente como bus de continua, se conectó una carga R-L trifásica estática a los terminales de las fases del convertidor. El valor de las inductancias utilizadas es de unos 500 \unit{\micro\henry}, y el de las resistencias de 0,5 $\Omega$.
+Posteriormente se implementó la modulación SVPWM y las transformadas inversas para poder consignar una tensión alterna. Usando una fuente de tensión limitada por corriente como bus de continua, se conectó una carga R-L trifásica estática a los terminales de las fases del convertidor. El valor de las inductancias utilizadas es de unos 500 \unit{\micro\henry}, y el de las resistencias de 0,5 $\Omega$. El valor real de la carga resistiva, sin embargo, se sitúa entorno a los 0,8 $\Omega$ si se tienen en cuenta las resistencias de los cables y conexiones.
 
 \begin{figure}[H]
 	\centering
@@ -535,7 +535,7 @@ En primer lugar, y con una frecuencia de conmutación muy baja (5 kHz), se sinte
 	\caption{Lazo abierto de tensión. Señales PWM a la entrada del \textit{driver} y corriente de una fase.}
 \end{figure}
 
-Se puede validar si la tensión sintetizada es correcta según la corriente de la carga. Se cambió la frecuencia sintetizada a 100 Hz, se ajustó la fuente de tensión a 5 V y se consignó una en el eje $q$ de la mitad de la máxima disponible, es decir, $(v_d, v_q) = (0, \frac{V_{\text{DC}}}{2\sqrt{3}}) = (0, \frac{5 \text{ V,DC}}{2\sqrt{3}})$. Se midieron las corrientes de fase para verificar que se estaba modulando correctamente, y se volvió a subir la frecuencia de conmutación para evitar ver el rizado en la carga.
+Se puede validar si la tensión sintetizada es correcta según la corriente de la carga. Se cambió la frecuencia sintetizada a 100 Hz, se ajustó la fuente de tensión a 5 V y se consignó una en el eje $q$ de dos tercios de la máxima disponible, es decir, $(v_d, v_q) = (0, \frac{2}{3}\frac{V_{\text{DC}}}{\sqrt{3}}) = (0, \frac{2}{3}\frac{5 \text{ V,DC}}{\sqrt{3}})$. Se midieron las corrientes de fase para verificar que se estaba modulando correctamente, y se volvió a subir la frecuencia de conmutación para evitar ver el rizado en la carga.
 
 Sabiendo que la tensión en la carga es
 \[
@@ -544,16 +544,16 @@ v_{\text{fase-neutro, pico}} = i_{\text{fase, pico}}\cdot (R + L\cdot\omega)
 
 y que la tensión modulada es de 
 
-\[ (v_d, v_q) = (0, \frac{5 \text{ V,DC}}{2\sqrt{3}}) \text{ V}\]
-\[ \therefore v_s = v_q = v_{\text{fase-neutro, pico}} = \frac{5 \text{ V,DC}}{2\sqrt{3}} \text{ V ,}\]
+\[ (v_d, v_q) = (0, \frac{2}{3}\frac{5 \text{ V,DC}}{\sqrt{3}}) \text{ V}\]
+\[ \therefore v_s = v_q = v_{\text{fase-neutro, pico}} = \frac{2}{3}\frac{5 \text{ V,DC}}{\sqrt{3}} \text{ V ,}\]
 
 se puede calcular que la corriente esperada es de
 
 \[
-i_{\text{fase, pico}} = \frac{v_{\text{fase-neutro, pico}}}{(R + L\cdot\omega)} = \frac{\frac{5 \text{ V,DC}}{2\sqrt{3}} \text{ V}}{0.5 \text{ }\Omega + 500 \text{\unit{\micro\henry}} \cdot 2\pi100 \text{ Hz}} = 1.77 \text{ A ,}
+i_{\text{fase, pico}} = \frac{v_{\text{fase-neutro, pico}}}{(R + L\cdot\omega)} = \frac{\frac{2}{3}\frac{5 \text{ V,DC}}{\sqrt{3}} \text{ V}}{0.8 \text{ }\Omega + 500 \text{\unit{\micro\henry}} \cdot 2\pi100 \text{ Hz}} = 1.73 \text{ A ,}
 \]
 
-que encaja con el valor medido de aproximadamente 1,8 A.
+que encaja con el valor medido de aproximadamente 1,7 A.
 
 
 \begin{figure}[H]
@@ -610,11 +610,5 @@ Se procedió de manera muy similar al ensayo de la carga estática, aunque en es
 \end{figure}
 
 Como se puede observar, las formas de onda no son perfectamente senoidales, y este hecho se asocia a los armónicos que pueda presentar el bobinado del estátor. La frecuencia sintetizada fue de tan solo 5 Hz, atendiendo a un análisis de estabilidad \cite{Montesinos2008}.
-
-
-\subsection{Lazo cerrado de corriente con carga R-L}
-
-El siguiente paso, y último de este capítulo, fue cerrar el lazo de corriente con la carga estática usada anteriormente. Dado que no se tuvo un motor con el sensor de posición adecuado durante el desarrollo del trabajo, no se pudo implementar el lazo de corriente en un motor. Para ello, es necesario conocer con precisión la posición eléctrica del motor en todo momento. Este ensayo tiene el mismo \textit{setup} que el del lazo abierto, ya que lo que se pretende es habilitar los PIs de $i_d$ e $i_q$ y consignar un valor de corriente. Con esto, se verificará que la lectura de corriente es precisa y que se podrían implementar las trayectorias de control sin mucho miramiento, atendiendo a las simulaciones previas.
-
 
 

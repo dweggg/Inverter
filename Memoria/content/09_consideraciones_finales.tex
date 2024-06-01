@@ -1,51 +1,51 @@
 \chapter{Consideraciones finales}
 
-\section{Impacto ambiental}
+\section*{Impacto ambiental}
 
 El presente proyecto tiene un impacto ambiental que se concentra principalmente en la fabricación del \textit{hardware}. El control y \textit{firmware} del inversor tienen un impacto ambiental prácticamente nulo, la producción y ensamblaje de los componentes electrónicos son aspectos críticos a considerar.
 
-\subsection{Fabricación de PCBs}
+\subsection*{Fabricación de PCBs}
 
 La fabricación de placas de circuito impreso es un proceso que requiere el uso de materiales como fibra de vidrio, cobre y resinas, cuya extracción y procesamiento pueden generar impactos ambientales significativos, especialmente si no se gestionan de manera adecuada los residuos. La generación de desechos y la emisión de productos químicos durante la fabricación de PCBs pueden contribuir a la contaminación del suelo, agua y aire. En este caso, las PCBs presentaban apilados bastante convencionales, con lo que la producción está más optimizada que para apilados más complejos con mayor número de capas o un laminado de cobre más gordo.
 
-\subsection{Montaje y selección de materiales}
+\subsection*{Montaje y selección de materiales}
 
 El proceso de montaje de los componentes electrónicos en las PCBs implica operaciones como la soldadura, que utiliza materiales como el estaño. Los estaños que se han usado contenían plomo, puesto que ayuda a bajar la temperatura de fusión del estaño para facilitar la soldadura. Además, la selección de materiales para los componentes electrónicos también puede influir en el impacto ambiental del proyecto. Es importante considerar la procedencia de los materiales y su impacto ambiental durante su ciclo de vida. De todas maneras, el proyecto es un prototipo y no existe ninguna intención de comercialización, con lo que el impacto global es muy bajo. Si se tratara de industrializar el diseño para una producción en serie, deberían considerarse las normativas de allá donde se quisiera distribuir. Para comercializar un equipo electrónico en Europa, todos los componentes electrónicos que lo forman deben cumplir la directiva RoHS.
 
-\subsection{Gestión de residuos}
+\subsection*{Gestión de residuos}
 
 Si se tratara de escalar el proyecto a una producción, la disposición de los residuos generados durante el proceso de fabricación y ensamblaje de los inversores es un aspecto crucial a tener en cuenta para mitigar el impacto ambiental. La correcta gestión de residuos electrónicos es fundamental para prevenir la contaminación, así como para evitar la liberación de sustancias tóxicas en el medio ambiente. La implementación de sistemas de reciclaje y la adopción de prácticas de disposición adecuadas pueden ayudar a reducir el impacto ambiental de esta etapa, y esto se debería consultar con los fabricantes y ensambladores que se encarguen de la producción. A día de hoy, la mayoría de empresas del sector cumplen con estándares altos en cuanto a la gestión de los residuos, especialmente en Europa.
 
-\subsection{Transporte}
+\subsection*{Transporte}
 
 El transporte de los materiales y componentes utilizados en la fabricación y ensamblaje de los inversores también puede tener un impacto ambiental significativo. Las emisiones de gases de efecto invernadero generadas por los vehículos de transporte son quizás la mayor parte del impacto ambiental generado por este proyecto. Ya que la mayoría de componentes se han pedido a modo de muestras y se han realizado varios pedidos extras, el transporte de los componentes y las placas seguramente ha supuesto una cantidad de emisiones descomunal. Además, la mayoría de componentes y todas las placas vinieron de China, siendo una ruta muy larga que contribuye a la huella de carbono que este proyecto ha dejado.
 
-\subsection{Consumo energético}
+\subsection*{Consumo energético}
 
 Al hablar de consumo energético en este apartado se hace referencia a la electricidad consumida para el diseño y fabricación del prototipo. Es muy difícil cuantificar la energía utilizada ya que no solamente se tienen que tener en cuenta los equipos utilizados de primera mano, si no que sería necesario tener en cuenta el consumo de energía asociado con la fabricación de los componentes electrónicos, la operación de maquinaria y equipos, así como el uso de sistemas de climatización e iluminación en las instalaciones de producción. El proceso de diseño y desarrollo del prototipo también puede requerir el uso de herramientas y \textit{software} que consumen energía eléctrica, como ordenadores, estaciones de trabajo y equipos de prueba.
 
 
 \newpage
-\section{Presupuesto}
-\subsection{Costes de ingeniería}
+\section*{Presupuesto}
+\subsection*{Costes de ingeniería}
 
 Para estimar los costes de ingeniería, se consulta la tabla salarial \cite{SEGSOC2024}, donde un graduado en ingeniería técnica debería cobrar al menos \textbf{9.58 \euro{}  la hora} por ser del segundo nivel salarial. El tiempo total invertido en ingeniería se puede estimar sabiendo que se trabajó una media de 30 horas a la semana desde septiembre hasta la fecha de entrega, lo que equivale a unas \textbf{1140 horas} de diseño, desarrollo y documentación.
 
-\subsubsection{Desarrollo del control}
+\subsubsection*{Desarrollo del control}
 De todas las horas invertidas, se estima que un 25\% de las mismas fueron destinadas al estudio y diseño del control. Por lo tanto, se calculan 2730,3 \euro{} para los costes humanos en este aspecto. Además, se usaron MATLAB, Simulink y PLECS, cuyas licencias cuestan 119 \euro{} \cite{MathWorks2024}, 35 \euro{} \cite{MathWorks2024} y 1400 \euro{} \cite{Plexim2024} respectivamente. En total, los costes para desarrollar el control ascienden a (2730,3 + 119 + 35 + 1400) \euro{}  = \textbf{4284,3 \euro{}}.
 
-\subsubsection{Desarrollo del \textit{hardware}}
+\subsubsection*{Desarrollo del \textit{hardware}}
 Se estima que se invirtió un 40\% del tiempo total en el diseño, prototipado y validación del \textit{hardware}, lo que equivale a 4368,48 \euro{} . Para diseñar las PCBs se usó Altium Designer, y una licencia anual para el mismo está situada en los 4425 \euro{} \cite{Altium2024}. Se usó también Solidworks, cuya licencia cuesta unos 2600 \euro{} \cite{GoEngineer2024}. Los costes de desarrollo de \textit{hardware} suman \textbf{11393,48 \euro{}}.
 
-\subsubsection{Desarrollo del \textit{firmware}}
+\subsubsection*{Desarrollo del \textit{firmware}}
 Para desarrollar el \textit{firmware} se dedicó un 20\% del tiempo aproximadamente, y eso se traduce a \textbf{2184,24 \euro{}}. No se usó ningún programa de pago por lo que ese precio es todo lo que costaría esta parte del desarrollo.
 
-\subsubsection{Documentación}
+\subsubsection*{Documentación}
 La redacción de este trabajo junto al resto de documentación generada llevó el 15\% de tiempo restante, es decir, \textbf{1638,18 \euro{}}. Se usaron Sublime Text y TeXstudio como editores de texto, y MiKTeX como compilador de \LaTeX, que son herramientas \textit{open source} y por tanto gratuitas.
 
-\subsection{Costes materiales}
+\subsection*{Costes materiales}
 
-\subsubsection{Placas de circuito impreso}
+\subsubsection*{Placas de circuito impreso}
 
 En el proceso de fabricación de las PCBs para el inversor, se realizaron dos pedidos separados con el proveedor JLCPCB.
 
@@ -76,8 +76,9 @@ En el proceso de fabricación de las PCBs para el inversor, se realizaron dos pe
 \begin{itemize}
 	\item En total, se gastaron 215,48 + 186,55 = \textbf{402,03 \euro{}} en placas. Por suerte, se obtuvieron algunos descuentos por parte del fabricante que aliviaron la carga económica.
 \end{itemize}
-\subsubsection{Componentes electrónicos}
-Para obtener el precio de los componentes electrónicos se extraen las listas de materiales de los proyectos generados en Altium Designer. El programa es capaz de consultar los distribuidores más conocidos y obtener el mejor precio de forma automática.
+
+\subsubsection*{Componentes electrónicos}
+Para obtener el precio de los componentes electrónicos se extraen los BOMs de los proyectos generados en Altium Designer. El programa es capaz de consultar los distribuidores más conocidos y obtener automáticamente el mejor precio.
 
 \textbf{Placa de potencia}
 \begin{table}[H]
@@ -126,7 +127,7 @@ Para obtener el precio de los componentes electrónicos se extraen las listas de
 	\caption{Lista de materiales de \textit{Inverter\_Power}, variante Wolfspeed.}
 \end{table}
 
-
+\newpage
 \textbf{Placa de control}
 \begin{table}[H]
 	\centering
@@ -182,7 +183,7 @@ Para obtener el precio de los componentes electrónicos se extraen las listas de
 
 En total, el precio de los componentes es de 80,82 + 1248,64 = \textbf{1329,46 \euro{}}. Afortunadamente, la mayoría de componentes se obtuvieron como muestras, preguntando a los fabricantes uno por uno, lo cual hizo viable el proyecto.
 
-\subsubsection{Herramientas}
+\subsubsection*{Herramientas}
 
 En este apartado se listan y se hace una valoración económica aproximada de todas las herramientas físicas utilizadas para el desarrollo del proyecto.
 
@@ -207,7 +208,7 @@ En este apartado se listan y se hace una valoración económica aproximada de to
 
 El total de los costes asociados a las herramientas físicas asciende a \textbf{1450 \euro}.
 
-\subsection{Costes totales}
+\subsection*{Costes totales}
 
 A continuación se presenta un resumen de los costes totales del proyecto, incluyendo tanto los costes de ingeniería como los costes de fabricación.
 
@@ -242,11 +243,11 @@ A continuación se presenta un resumen de los costes totales del proyecto, inclu
 
 
 \newpage
-\section{Conclusiones}
+\section*{Conclusiones}
 
 En esta sección se rescatan los objetivos propuestos al inicio del trabajo y se comenta en qué medida se han logrado alcanzar. Además, se plantean los siguientes pasos en el desarrollo e implementación de este inversor para un vehículo de Formula Student. Estas partes concluyen el trabajo realizado.
 
-\subsection{Cumplimiento de los objetivos}
+\subsection*{Cumplimiento de los objetivos}
 
 \subsubsection*{Objetivo 1}
 \colorbox{lightgray}{%
@@ -301,26 +302,26 @@ Este objetivo ha sido cumplido parcialmente, y sería necesaria una validación 
 	}%
 }
 
-Se ha procedido a la implementación del \textit{firmware} que controlará el \textit{hardware} del inversor, integrando gran parte del control diseñado previamente. Sin embargo, no se ha podido implementar la lectura del sensor de posición, motivo por el cual no se ha podido verificar el lazo de corriente con un motor, pero sí con una carga estática. Por esa misma razón, no se ha podido verificar el control dual, aunque en todo momento del desarrollo se han estado ejecutando ambos lazos de control simultáneamente, con lo que no debería ser un problema. Se han integrado las trayectorias que permiten un control de par de la misma manera que se ha hecho en las simulaciones. El lazo de control con debilitamiento de campo no se ha integrado, pero se considera sencillo implementarlo cogiendo como base las simulaciones realizadas. 
+Se ha procedido a la implementación del \textit{firmware} que controlará el \textit{hardware} del inversor, integrando gran parte del control diseñado previamente. Sin embargo, no se ha podido implementar la lectura del sensor de posición, motivo por el cual no se ha podido verificar el lazo de corriente con un motor. Por esa misma razón, no se ha podido verificar el control dual, aunque en todo momento del desarrollo se han estado ejecutando ambos lazos de control simultáneamente, con lo que no debería ser un problema. Se han integrado las trayectorias que permiten un control de par de la misma manera que se ha hecho en las simulaciones. El lazo de control con debilitamiento de campo no se ha integrado, pero se considera sencillo implementarlo cogiendo como base las simulaciones realizadas. 
 
 Se ha cumplido en gran medida este objetivo, aunque queda lejos de ser una parte finalizada, ya que no se han validado algunos aspectos.
 
-\subsection{Futuras líneas de trabajo}
+\subsection*{Futuras líneas de trabajo}
 
-\subsubsection{Control vectorial}
+\subsubsection*{Control}
 
 Como se ha mencionado anteriormente, se es consciente de que el algoritmo propuesto no es capaz de controlar la corriente en algunas situaciones como por ejemplo la regeneración en debilitamiento de campo. Se propone esperar una solución por parte de la comunidad científico-técnica, y hasta entonces, limitar la frenada regenerativa a la zona de baja BEMF. Otra estrategia sería explorar el control tabulado, con los puntos de operación pre-calculados.
 
-\subsubsection{\textit{Hardware}}
+\subsubsection*{\textit{Hardware}}
 
-\paragraph{Líneas generales}
+\paragraph*{Líneas generales}
 \begin{itemize}
 	\item Diseñar e integrar una \textit{coldplate}.
 	\item Integrar el convertidor en una caja con conectores adecuados para el monoplaza.
 	\item Evaluar la compatibilidad electromagnética con el resto de sistemas eléctricos del monoplaza.
 \end{itemize}
 
-\paragraph{Placa de potencia}
+\paragraph*{Placa de potencia}
 \begin{itemize}
 	\item D1 tiene una especificación de corriente por debajo del valor medido. Debe ser reemplazado por una protección basada en PMOS o por otro \textit{schottky} más adecuado.
 	\item Rdis prácticamente no tiene efecto en comparación con R504...R510 y podría eliminarse.
@@ -335,7 +336,7 @@ Como se ha mencionado anteriormente, se es consciente de que el algoritmo propue
 	\item Tratar de fabricar las placas con estaño químico para asegurar una mejor conexión de los componentes \textit{press-fit}.	
 \end{itemize}
 
-\paragraph{Placa de control}
+\paragraph*{Placa de control}
 \begin{itemize}
 	\item Revisar la lectura diferencial de la tensión.
 	\item DCDC101 no se ha probado todavía.
@@ -347,17 +348,33 @@ Como se ha mencionado anteriormente, se es consciente de que el algoritmo propue
 	\item Los condensadores de 10 \unit{\micro\farad} 50 V 0805 son caros y deberían reemplazarse por 10 \unit{\micro\farad} 50 V 1206 o 10 \unit{\micro\farad} 50 V 1210.
 \end{itemize}
 
-\subsubsection{\textit{Firmware}}
+\subsubsection*{\textit{Firmware}}
 
 \begin{itemize}
 	\item Integrar la lectura del \textit{encoder} incremental.
-	\item Verificar el lazo de corriente con un motor.
+	\item Verificar el lazo de corriente.
 	\item Optimizar el lazo de control para ocupar menos tiempo de ejecución.
 	\item Verificar el control simultáneo de dos motores.
 	\item Integrar el control con debilitamiento de campo (lazo de tensión) junto con una buena gestión de la frenada regenerativa en debilitamiento de campo.
+	\item Verificar la comunicación CAN con el vehículo.
+	\item Dejar preparada la posibilidad de tener dos inversores duales en el vehículo (para cuando se integren cuatro motores), prestando especial atención a los IDs de la comunicación CAN.
 	\item Implementar un sistema operativo en tiempo real (RTOS) que gestione todas las tareas no síncronas con el control, es decir, comunicaciones, LEDs, y otros procesos poco prioritarios.
 	\item Externalizar los parámetros constantes (los umbrales de error, los parámetros del motor, etc.) para evitar tener que cargar un binario nuevo cada vez que se modifican.
 	\item Integrar los parámetros y otras configuraciones estáticas en una memoria EEPROM para tener que cargarlos solamente una vez.
 	\item Crear una interfaz por USB para poder cargar parámetros y hacer ensayos externamente, registrando datos a una velocidad adecuada para su análisis.
 	\item Crear un algoritmo que identifique los parámetros del motor automáticamente.
+	\item Diseñar e implementar un modo de pruebas que permita encarar dos motores para ensayarlos de forma controlada, uno actuando como motor y el otro como carga o generador.
 \end{itemize}
+
+
+\subsubsection*{Trabajos de Final de Estudios propuestos}
+
+Como manera de documentar detalladamente los avances en el diseño, se proponen tres trabajos a modo de continuación de este:
+
+\begin{enumerate}
+	
+	\item \textbf{Integración mecánica y gestión térmica de un inversor trifásico dual para tracción eléctrica}
+	\item \textbf{Optimización del diseño del \textit{hardware} de un inversor trifásico dual para tracción eléctrica}
+	\item \textbf{Desarrollo del \textit{firmware} de un inversor trifásico dual para tracción eléctrica}
+
+\end{enumerate}

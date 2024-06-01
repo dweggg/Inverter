@@ -1788,7 +1788,8 @@ A continuación se muestra el cálculo del valor RMS de la potencia requerida, b
 	% Calcular el promedio de los valores cuadrados
 	mean_power_squared = mean(power_squared);
 	
-	% Tomar la raíz cuadrada del promedio de los valores cuadrados para obtener el valor RMS
+	% Tomar la raíz cuadrada del promedio de los valores cuadrados para obtener 
+	% el valor RMS
 	power_rms = sqrt(mean_power_squared);
 	
 	power_rms =
@@ -1936,6 +1937,10 @@ La normativa de la Formula Student no impone normativas muy restrictivas, ya que
 
 Estas restricciones no solo definen los límites de diseño del inversor, sino que también influyen en la selección de componentes y la estrategia de control.
 
+\subsubsection{Interfaz de comunicación}
+
+Para que el vehículo pueda controlar los motores mediante consignas de par, el convertidor debe incorporar un protocolo adecuado para ello. El escogido es el bus CAN, puesto que es un estándar en la industria de la automoción y todas las otras unidades electrónicas del monoplaza integran este protocolo para intercomunicarse.
+
 \subsubsection{Resumen de requisitos de \textit{hardware}}
 
 Con toda la información que se ha recopilado se pueden listar los requisitos más importantes del convertidor:
@@ -1944,26 +1949,14 @@ Con toda la información que se ha recopilado se pueden listar los requisitos m�
 	\item \textbf{Potencia pico:} 80 kW ($2\cdot40$ kW).
 	\item \textbf{Potencia constante:} 35 kW ($2\cdot17.5$ kW).
 	\item \textbf{Tensión DC máxima:} 600 V.
-	\item \textbf{Tensión fase-neutro sintetizada máxima:} 245 V,RMS (SVPWM).
 	\item \textbf{Corriente de fase máxima:} 80 A,RMS.
 	\item \textbf{Aislamiento galvánico entre TS y LVS}.
 	\item \textbf{Detección de tensión}.
 	\item \textbf{Circuito de descarga integrado}.
 	\item \textbf{Interfaz por comunicación CAN}.
 	
-	
 \end{itemize}
 
-\subsubsection{Requisitos Adicionales}
-Además de las restricciones normativas, los requisitos del inversor también deben tener en cuenta las demandas específicas del sistema de tracción y del equipo para el cual se está diseñando. Entre estos requisitos se encuentran:
-
-\begin{itemize}
-	\item \textbf{Densidad de Potencia:} El inversor debe ser compacto para facilitar la integración en el vehículo.
-	\item \textbf{Eficiencia:} Se busca una eficiencia óptima para maximizar la autonomía del monoplaza y llevar el máximo de energía de la batería a los neumáticos.
-	\item \textbf{Fiabilidad:} Dado el entorno de competición, el inversor debe ser altamente confiable y capaz de operar en las condiciones de una competición, como temperaturas ambientales y humedades altas.
-	\item \textbf{Flexibilidad:} El diseño del inversor debe ser lo suficientemente flexible para adaptarse a posibles cambios en el sistema de tracción y comunicación con el vehículo.
-	\item \textbf{Facilidad de mantenimiento:} Consideraciones para facilitar el mantenimiento y la evolución del proyecto a largo plazo.
-\end{itemize}
 
 \subsubsection{Boceto del empaquetado}
 
@@ -2123,7 +2116,7 @@ y la definición de potencia
 P_{\text{cond},D} = I_{\text{SD}}\cdot V_\text{f}\text{.}
 \end{equation}
 
-Sin embargo, estas expresiones se corresponden con las pérdidas instantáneas y no son útiles a la hora de dimensionar el convertidor. Para ello son necesarias las pérdidas promediadas, pero tienen una expresión analítica muy compleja, ya que dependen de la estrategia de modulación, el índice de modulación instantáneo, el factor de potencia instantáneo, etc. Para el inversor se utiliza SVPWM, pero el cálculo de pérdidas tiene demasiados parámetros instantáneos. Muchas referencias asemejan las pérdidas en SVPWM a las de una modulación PWM sinusoidal (SPWM), con lo que las pérdidas se simplifican.
+Sin embargo, estas expresiones se corresponden con las pérdidas instantáneas y no son útiles a la hora de dimensionar el convertidor. Para ello son necesarias las pérdidas promediadas, pero tienen una expresión analítica muy compleja, ya que dependen de la estrategia de modulación, el índice de modulación instantáneo, el factor de potencia instantáneo, etc. Para el inversor se utiliza SVPWM, pero el cálculo de pérdidas tiene demasiados parámetros instantáneos. Muchas referencias asemejan las pérdidas en SVPWM a las de una modulación PWM sinusoidal (SPWM), con lo que las pérdidas se simplifican \cite{Gross2018}.
 
 \begin{equation}
 P_{\text{cond,MOSFET}} \approx I_{\text{RMS}} V_{\text{Q0}} \left(\frac{1}{\pi\sqrt{2}} + \frac{m\cdot cos(\phi)}{2\sqrt{8}}\right) + I_{\text{RMS}}^2 R_\text{Q} \left(\frac{1}{4} + \frac{2\cdot m}{3\pi\cdot cos(\phi)}\right)
@@ -2637,6 +2630,8 @@ Este tipo de sensor generalmente consta de tres canales: A, B y Z. Los canales A
 Para estimar la velocidad, dirección y posición del motor a partir del \textit{encoder} incremental, se utilizan los pulsos de los canales A y B. La dirección del movimiento se determina mirando si A está avanzada respecto a B (sentido antihorario) o viceversa (sentido horario). La velocidad se calcula midiendo el intervalo entre pulsos y la posición se determina contando (integrando) el número de pulsos desde una posición de referencia conocida.
 
 Sin embargo, este tipo de sensor, al igual que otros, presenta un desafío: hasta que no se obtiene la señal de índice, la posición es desconocida. Una solución efectiva podría ser implementar un lazo abierto de tensión hasta obtener el pulso que marca el origen, ya que no requiere una lectura de posición previa ya que el ángulo se impone externamente. En el contexto de la tracción eléctrica, no es viable girar el motor libremente al iniciar el convertidor, ya que esto implicaría un desplazamiento involuntario del vehículo. El lazo abierto de tensión sería una solución adecuada para la aplicación específica de la Formula Student, dado que los motores están acoplados a las ruedas mediante una reductora de velocidad, con una relación de transmisión típica de alrededor de 10. Esto implica que, en el peor escenario, el motor deberá dar una vuelta mecánica completa antes de obtener un pulso de índice, lo que resulta en que la rueda gire aproximadamente una décima parte de una revolución mediante el control de lazo abierto. Tras obtener el pulso de índice, se puede operar en lazo cerrado sin mucha dificultad.
+
+Otra posibilidad es inicializar la variable de la posición con un valor arbitrario hasta obtener el pulso de índice, aunque se desconoce si este método podría causar problemas más allá de la falta de rendimiento durante este periodo inicial.
 
 El \textit{hardware} necesario para leer la señal del \textit{encoder} incremental puede consistir únicamente en el uso de tres comparadores analógicos. Estos comparadores se encargan de convertir las señales comúnmente diferenciales de los canales A, B y Z en señales digitales que pueden ser procesadas por el MCU del inversor. Esta interfaz también sería compatible con sensores de posición Hall, lo que brinda flexibilidad en la elección del sensor de posición para el inversor.
 
