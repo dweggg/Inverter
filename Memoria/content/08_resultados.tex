@@ -11,7 +11,7 @@ En este capítulo se desarrolla la parte derecha de la 'V', diseñando y ejecuta
 
 La parte más crítica en la validación del convertidor es la de \textit{hardware} puesto que cada iteración cuesta tiempo y dinero. Por ello, son las pruebas de \textit{hardware} las que se diseñan y ejecutan más meticulosamente. En particular, se prestó especial atención a la placa de potencia, puesto que es el diseño más complicado de los dos.
 
-Inicialmente, se elaboraron hojas de cálculo detalladas para cada uno de los ensayos, abarcando desde la inspección visual y pruebas de subcircuitos, hasta la evaluación de sistemas algo más complejos. Sin embargo, a medida que avanzaba el proceso de validación y se integraban los subcircuitos unos con otros, se hizo evidente que era necesario un enfoque más dinámico y adaptativo. Esto se debió a que los problemas encontrados y las soluciones implementadas requerían una validación continua y menos estructurada, lo que permitía realizar ajustes y mejoras tiempo real. Sin embargo, no por ello se dejaron de documentar los ensayos, si no que se registraron de formas menos profesionales.
+Inicialmente, se elaboraron hojas de cálculo detalladas para cada uno de los ensayos, abarcando desde la inspección visual y pruebas de subcircuitos, hasta la evaluación de sistemas algo más complejos. Sin embargo, a medida que avanzaba el proceso de validación y se integraban los subcircuitos unos con otros, se hizo evidente que era necesario un enfoque más dinámico y adaptativo. Esto se debió a que los problemas encontrados y las soluciones implementadas requerían una validación continua y menos estructurada, lo que permitía realizar ajustes y mejoras tiempo real.
 
 
 \subsection{Pre-inspección de la placa de potencia}
@@ -102,7 +102,7 @@ Para validar el funcionamiento del sensado de corriente, se realizaron las sigui
 \begin{itemize}
 	\item \textbf{Standby}: Se esperaba una salida de 2,5 V con un margen de error de $\pm$ 5 mV. La salida medida fue de 2,499 V, lo que se considera dentro del rango aceptable.
 	
-	\item \textbf{Operación básica}: Se esperaba una salida de 2,5625V para una corriente de +5A y 2,4375V para una corriente de -5 A, con un margen de error de $\pm$ 5 mV. Las mediciones obtenidas fueron de 2.557 V para +5 A y 2,436 V para -5 A, ambas dentro del rango esperado.
+	\item \textbf{Operación básica}: Se esperaba una salida de 2,5625V para una corriente de +5A y 2,4375V para una corriente de -5 A, con un margen de error de $\pm$ 5 mV. Las mediciones obtenidas fueron de 2,557 V para +5 A y 2,436 V para -5 A, ambas dentro del rango esperado.
 \end{itemize}	
 
 
@@ -457,7 +457,7 @@ A continuación se muestra el ensayo más exigente, una descarga a 600 V.
 
 
 
-Se puede observar un pico de temperatura de 100 $^{\circ}$C, y la temperatura ambiente era de 25 $^{\circ}$C aproximadamente. Cada resistencia disipa $\frac{(600 \text{ V})^2}{470 \text{ k}\Omega} = 0.766 \text{ W}$, lo cual se correspondería con una resistencia térmica de aproximadamente $ \frac{100 \text{ }^{\circ}\text{C} - 25 \text{ }^{\circ}\text{C}}{0.766 \text{ W}} \approx 100 \text{ K/W}$. Este valor es muy razonable para una resistencia SMD sin \textit{pad} térmico ni mucha consideración en el \textit{layout}, de acuerdo con \cite{vishay_application_note}.
+Se puede observar un pico de temperatura de 100 $\si{\degreeCelsius}$, y la temperatura ambiente era de 25 $\si{\degreeCelsius}$ aproximadamente. Cada resistencia disipa $\frac{(600 \text{ V})^2}{470 \text{ k}\Omega} = 0.766 \text{ W}$, lo cual se correspondería con una resistencia térmica de aproximadamente $ \frac{100 \text{ }^{\circ}\text{C} - 25 \text{ }^{\circ}\text{C}}{0.766 \text{ W}} \approx 100 \text{ K/W}$. Este valor es muy razonable para una resistencia SMD sin \textit{pad} térmico ni mucha consideración en el \textit{layout}, de acuerdo con \cite{vishay_application_note}.
 
 \subsection{Validación de la placa de control}
 
@@ -490,18 +490,13 @@ Para abordar estos errores, se realizaron las siguientes modificaciones en \text
 
 Estas modificaciones corrigieron los errores detectados en \textit{Inverter\_Control} y permitieron un desarrollo adecuado.
 
-\subsubsection{CAN}
-
-El bloque CAN, que incluye un transceptor para la comunicación con el vehículo, ha sido probado con éxito. Tras configurar con éxito el periférico, se importó la base de datos de mensajes y señales y se programó la información a enviar y recibir.
-
 \subsubsection{Retroalimentación}
 
 Aunque se han integrado conexiones para el \textit{encoder} incremental y el \textit{front-end} analógico de la lectura de temperatura del motor, las pruebas se han limitado principalmente a las lecturas en el MCU. Esto se debe a que no se ha dispuesto del motor con el que se usará este inversor, pero por suerte los subcircuitos son muy simples y se ha podido verificar la lectura desde el MCU con señales externas.
 
 \subsubsection{\textit{Front-end} analógico de la placa de potencia}
 
-El \textit{front-end} analógico, que trata las señales de las placas de potencia para adaptarlas a los rangos de tensión admitidos por los ADCs del MCU, presenta algunos desafíos. Mientras que las lecturas de corriente y temperatura se han validado con éxito, la lectura de tensión mediante un amplificador diferencial no funcionó como se esperaba. La integración del circuito integrado no fue buena, y, aunque fue simulado mediante SPICE adecuadamente, los resultados no coincidieron con lo esperado. La solución implementada consistió en conectar directamente el negativo de la señal diferencial a GND y el positivo a la entrada del ADC. De todas formas, se insta a buscar una alternativa más elegante. Se están considerando otras posibilidades, como obtener la lectura de tensión a través del bus CAN, que podría ser proporcionada directamente por la batería del vehículo. Esto sería viable ya que realmente esta medida sirve como límite para evitar sobremodular, y la dinámica eléctrica de una batería es muy lenta.
-.
+El \textit{front-end} analógico, que trata las señales de las placas de potencia para adaptarlas a los rangos de tensión admitidos por los ADCs del MCU, presenta algunos desafíos. Mientras que las lecturas de corriente y temperatura se han validado con éxito, la lectura de tensión mediante un amplificador diferencial no funcionó como se esperaba. La integración del circuito integrado no fue buena, y, aunque fue simulado mediante SPICE adecuadamente, los resultados no coincidieron con lo esperado. Se están considerando otras posibilidades, como obtener la lectura de tensión a través del bus CAN, que podría ser proporcionada directamente por la batería del vehículo. Esto sería viable ya que realmente esta medida sirve como límite para evitar sobremodular, y la dinámica eléctrica de una batería es muy lenta. De todas maneras, se recomienda efusivamente revisar la implementación para futuras iteraciones del convertidor y aplicar las correcciones necesarias.
 
 \section{Validación de \textit{firmware}}
 

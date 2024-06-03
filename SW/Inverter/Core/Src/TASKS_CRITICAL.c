@@ -58,6 +58,9 @@ void tasks_critical_left(void){
 
   // ADC
   get_currents_voltage(rawADC_left, &inverter_left.analog, &inverter_left.feedback, &inverter_left.errors, inverter_right.encoder.sinTheta_e, inverter_left.encoder.cosTheta_e);
+  
+  // calculate torque based on measured currents
+  inverter_left.feedback.torqueCalc = 1.5F * ((float) inverter_left.motor->pp) * ((inverter_left.motor->Ld - inverter_left.motor->Lq)*inverter_left.feedback.idMeas*inverter_left.feedback.iqMeas + inverter_left.motor->lambda*inverter_left.feedback.iqMeas);
   inverter_left.vsMax = 0.9F * inverter_left.analog.vDC * ISQ3; // Calculate max Vs voltage, 90% of DC/sqrt3
   
   // FOC

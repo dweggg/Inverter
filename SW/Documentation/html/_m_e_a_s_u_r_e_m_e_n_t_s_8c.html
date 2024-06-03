@@ -113,9 +113,9 @@ Include dependency graph for MEASUREMENTS.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1e0c627576d5f8855c1b66bbbe597e9e" id="r_a1e0c627576d5f8855c1b66bbbe597e9e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e0c627576d5f8855c1b66bbbe597e9e">get_currents_voltage</a> (volatile uint16_t ADC_raw[], volatile <a class="el" href="struct_analog.html">Analog</a> *analog, volatile <a class="el" href="struct_feedback.html">Feedback</a> *feedback, volatile <a class="el" href="_e_r_r_o_r_s_8h.html#a80b6c47d91158dcc3f5fd7de4f3ca34b">InverterError</a> *errors, float sinTheta_e, float cosTheta_e)</td></tr>
-<tr class="memdesc:a1e0c627576d5f8855c1b66bbbe597e9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get electrical ADC measurements.  <br /></td></tr>
-<tr class="separator:a1e0c627576d5f8855c1b66bbbe597e9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac273ae6ed4760b073c4b3f7fd561e002" id="r_ac273ae6ed4760b073c4b3f7fd561e002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac273ae6ed4760b073c4b3f7fd561e002">get_currents_voltage</a> (volatile uint16_t rawADC[], volatile <a class="el" href="struct_analog.html">Analog</a> *analog, volatile <a class="el" href="struct_feedback.html">Feedback</a> *feedback, volatile <a class="el" href="_e_r_r_o_r_s_8h.html#a80b6c47d91158dcc3f5fd7de4f3ca34b">InverterError</a> *errors, float sinTheta_e, float cosTheta_e)</td></tr>
+<tr class="memdesc:ac273ae6ed4760b073c4b3f7fd561e002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get electrical ADC measurements.  <br /></td></tr>
+<tr class="separator:ac273ae6ed4760b073c4b3f7fd561e002"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35344a31c9b0c99423ee9e3f5287a5b2" id="r_a35344a31c9b0c99423ee9e3f5287a5b2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35344a31c9b0c99423ee9e3f5287a5b2">get_linear</a> (uint32_t bits, float slope, float offset)</td></tr>
 <tr class="memdesc:a35344a31c9b0c99423ee9e3f5287a5b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert ADC reading to physical measurement with linear response.  <br /></td></tr>
 <tr class="separator:a35344a31c9b0c99423ee9e3f5287a5b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -200,16 +200,16 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a1e0c627576d5f8855c1b66bbbe597e9e" name="a1e0c627576d5f8855c1b66bbbe597e9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e0c627576d5f8855c1b66bbbe597e9e">&#9670;&#160;</a></span>get_currents_voltage()</h2>
+<a id="ac273ae6ed4760b073c4b3f7fd561e002" name="ac273ae6ed4760b073c4b3f7fd561e002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac273ae6ed4760b073c4b3f7fd561e002">&#9670;&#160;</a></span>get_currents_voltage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t get_currents_voltage </td>
+          <td class="memname">void get_currents_voltage </td>
           <td>(</td>
-          <td class="paramtype">volatile uint16_t</td>          <td class="paramname"><span class="paramname"><em>ADC_raw</em>[], </span></td>
+          <td class="paramtype">volatile uint16_t</td>          <td class="paramname"><span class="paramname"><em>rawADC</em>[], </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -242,7 +242,7 @@ Here is the caller graph for this function:</div>
 <p>Get electrical ADC measurements. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ADC_raw</td><td>Pointer to the raw ADC values array. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rawADC</td><td>Pointer to the raw ADC values array. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">analog</td><td>Pointer to the ADC struct to store the results. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">feedback</td><td>Pointer to the <a class="el" href="struct_feedback.html" title="Structure for feedback values.">Feedback</a> struct to store id and iq. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">sinTheta_e</td><td>Electrical angle sine (-1..1) </td></tr>
@@ -250,17 +250,11 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">OK</td><td>0 if an error occurred, 1 if successful. </td></tr>
-  </table>
-  </dd>
-</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_m_e_a_s_u_r_e_m_e_n_t_s_8c_a1e0c627576d5f8855c1b66bbbe597e9e_cgraph.png" border="0" usemap="#a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a1e0c627576d5f8855c1b66bbbe597e9e_cgraph" alt=""/></div>
-<map name="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a1e0c627576d5f8855c1b66bbbe597e9e_cgraph" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a1e0c627576d5f8855c1b66bbbe597e9e_cgraph">
+<div class="center"><img src="_m_e_a_s_u_r_e_m_e_n_t_s_8c_ac273ae6ed4760b073c4b3f7fd561e002_cgraph.png" border="0" usemap="#a_m_e_a_s_u_r_e_m_e_n_t_s_8c_ac273ae6ed4760b073c4b3f7fd561e002_cgraph" alt=""/></div>
+<map name="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_ac273ae6ed4760b073c4b3f7fd561e002_cgraph" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_ac273ae6ed4760b073c4b3f7fd561e002_cgraph">
 <area shape="rect" title="Get electrical ADC measurements." alt="" coords="5,81,146,108"/>
 <area shape="rect" href="_e_r_r_o_r_s_8c.html#a2639be61abcbef4da48c0b288ce97c74" title="Clears an error in the error field of a data structure." alt="" coords="194,5,276,32"/>
 <area shape="poly" title=" " alt="" coords="104,78,190,37,192,42,107,83"/>
@@ -275,13 +269,13 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="_m_e_a_s_u_r_e_m_e_n_t_s_8c_a1e0c627576d5f8855c1b66bbbe597e9e_icgraph.png" border="0" usemap="#a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a1e0c627576d5f8855c1b66bbbe597e9e_icgraph" alt=""/></div>
-<map name="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a1e0c627576d5f8855c1b66bbbe597e9e_icgraph" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a1e0c627576d5f8855c1b66bbbe597e9e_icgraph">
-<area shape="rect" title="Get electrical ADC measurements." alt="" coords="410,5,550,32"/>
-<area shape="rect" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8c.html#a820aabb67a3cec7696f8acee5735247f" title="Function to be executed every TS." alt="" coords="240,5,362,32"/>
-<area shape="poly" title=" " alt="" coords="394,21,362,21,362,16,394,16"/>
-<area shape="rect" href="stm32f7xx__it_8c.html#a7e367d7c7b74485c4c75cdef30ad01e1" title="This function handles DMA2 stream2 global interrupt." alt="" coords="5,5,192,32"/>
-<area shape="poly" title=" " alt="" coords="224,21,192,21,192,16,224,16"/>
+<div class="center"><img src="_m_e_a_s_u_r_e_m_e_n_t_s_8c_ac273ae6ed4760b073c4b3f7fd561e002_icgraph.png" border="0" usemap="#a_m_e_a_s_u_r_e_m_e_n_t_s_8c_ac273ae6ed4760b073c4b3f7fd561e002_icgraph" alt=""/></div>
+<map name="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_ac273ae6ed4760b073c4b3f7fd561e002_icgraph" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_ac273ae6ed4760b073c4b3f7fd561e002_icgraph">
+<area shape="rect" title="Get electrical ADC measurements." alt="" coords="412,5,552,32"/>
+<area shape="rect" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8c.html#a820aabb67a3cec7696f8acee5735247f" title="Function to be executed every TS." alt="" coords="242,5,364,32"/>
+<area shape="poly" title=" " alt="" coords="396,21,364,21,364,16,396,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#af20a88180db1113be1e89266917d148b" title=" " alt="" coords="5,5,194,32"/>
+<area shape="poly" title=" " alt="" coords="226,21,194,21,194,16,226,16"/>
 </map>
 </div>
 
@@ -350,13 +344,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_m_e_a_s_u_r_e_m_e_n_t_s_8c_af5e40ee9d1ed5e3661139df852b9fba8_icgraph.png" border="0" usemap="#a_m_e_a_s_u_r_e_m_e_n_t_s_8c_af5e40ee9d1ed5e3661139df852b9fba8_icgraph" alt=""/></div>
 <map name="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_af5e40ee9d1ed5e3661139df852b9fba8_icgraph" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_af5e40ee9d1ed5e3661139df852b9fba8_icgraph">
-<area shape="rect" title="Computes d&#45;q currents from current measurements and electrical angle." alt="" coords="598,5,665,32"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a1e0c627576d5f8855c1b66bbbe597e9e" title="Get electrical ADC measurements." alt="" coords="410,5,550,32"/>
-<area shape="poly" title=" " alt="" coords="583,21,551,21,551,16,583,16"/>
-<area shape="rect" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8c.html#a820aabb67a3cec7696f8acee5735247f" title="Function to be executed every TS." alt="" coords="240,5,362,32"/>
-<area shape="poly" title=" " alt="" coords="394,21,362,21,362,16,394,16"/>
-<area shape="rect" href="stm32f7xx__it_8c.html#a7e367d7c7b74485c4c75cdef30ad01e1" title="This function handles DMA2 stream2 global interrupt." alt="" coords="5,5,192,32"/>
-<area shape="poly" title=" " alt="" coords="224,21,192,21,192,16,224,16"/>
+<area shape="rect" title="Computes d&#45;q currents from current measurements and electrical angle." alt="" coords="600,5,667,32"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#ac273ae6ed4760b073c4b3f7fd561e002" title="Get electrical ADC measurements." alt="" coords="412,5,552,32"/>
+<area shape="poly" title=" " alt="" coords="585,21,553,21,553,16,585,16"/>
+<area shape="rect" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8c.html#a820aabb67a3cec7696f8acee5735247f" title="Function to be executed every TS." alt="" coords="242,5,364,32"/>
+<area shape="poly" title=" " alt="" coords="396,21,364,21,364,16,396,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#af20a88180db1113be1e89266917d148b" title=" " alt="" coords="5,5,194,32"/>
+<area shape="poly" title=" " alt="" coords="226,21,194,21,194,16,226,16"/>
 </map>
 </div>
 
@@ -406,13 +400,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_m_e_a_s_u_r_e_m_e_n_t_s_8c_a35344a31c9b0c99423ee9e3f5287a5b2_icgraph.png" border="0" usemap="#a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a35344a31c9b0c99423ee9e3f5287a5b2_icgraph" alt=""/></div>
 <map name="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a35344a31c9b0c99423ee9e3f5287a5b2_icgraph" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a35344a31c9b0c99423ee9e3f5287a5b2_icgraph">
-<area shape="rect" title="Convert ADC reading to physical measurement with linear response." alt="" coords="598,5,676,32"/>
-<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#a1e0c627576d5f8855c1b66bbbe597e9e" title="Get electrical ADC measurements." alt="" coords="410,5,550,32"/>
-<area shape="poly" title=" " alt="" coords="583,21,551,21,551,16,583,16"/>
-<area shape="rect" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8c.html#a820aabb67a3cec7696f8acee5735247f" title="Function to be executed every TS." alt="" coords="240,5,362,32"/>
-<area shape="poly" title=" " alt="" coords="394,21,362,21,362,16,394,16"/>
-<area shape="rect" href="stm32f7xx__it_8c.html#a7e367d7c7b74485c4c75cdef30ad01e1" title="This function handles DMA2 stream2 global interrupt." alt="" coords="5,5,192,32"/>
-<area shape="poly" title=" " alt="" coords="224,21,192,21,192,16,224,16"/>
+<area shape="rect" title="Convert ADC reading to physical measurement with linear response." alt="" coords="600,5,678,32"/>
+<area shape="rect" href="_m_e_a_s_u_r_e_m_e_n_t_s_8c.html#ac273ae6ed4760b073c4b3f7fd561e002" title="Get electrical ADC measurements." alt="" coords="412,5,552,32"/>
+<area shape="poly" title=" " alt="" coords="585,21,553,21,553,16,585,16"/>
+<area shape="rect" href="_t_a_s_k_s___c_r_i_t_i_c_a_l_8c.html#a820aabb67a3cec7696f8acee5735247f" title="Function to be executed every TS." alt="" coords="242,5,364,32"/>
+<area shape="poly" title=" " alt="" coords="396,21,364,21,364,16,396,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#af20a88180db1113be1e89266917d148b" title=" " alt="" coords="5,5,194,32"/>
+<area shape="poly" title=" " alt="" coords="226,21,194,21,194,16,226,16"/>
 </map>
 </div>
 
@@ -452,13 +446,13 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_m_e_a_s_u_r_e_m_e_n_t_s_8c_a2ca7064e54ee37e91151caeeeb31e129_icgraph.png" border="0" usemap="#a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a2ca7064e54ee37e91151caeeeb31e129_icgraph" alt=""/></div>
 <map name="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a2ca7064e54ee37e91151caeeeb31e129_icgraph" id="a_m_e_a_s_u_r_e_m_e_n_t_s_8c_a2ca7064e54ee37e91151caeeeb31e129_icgraph">
-<area shape="rect" title="Retrieves temperature from a lookup table based on ADC bits." alt="" coords="520,5,636,32"/>
-<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#aa5fcd710eb07dd2c092bad70b7e2bab1" title="Function to read temperatures and handle overtemperature faults." alt="" coords="343,5,472,32"/>
-<area shape="poly" title=" " alt="" coords="505,21,473,21,473,16,505,16"/>
-<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="210,5,295,32"/>
-<area shape="poly" title=" " alt="" coords="327,21,296,21,296,16,327,16"/>
-<area shape="rect" href="stm32f7xx__it_8c.html#a0839a45f331c4c067939b9c4533bbf4d" title="This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts." alt="" coords="5,5,162,32"/>
-<area shape="poly" title=" " alt="" coords="194,21,162,21,162,16,194,16"/>
+<area shape="rect" title="Retrieves temperature from a lookup table based on ADC bits." alt="" coords="550,5,666,32"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#aa5fcd710eb07dd2c092bad70b7e2bab1" title="Function to read temperatures and handle overtemperature faults." alt="" coords="373,5,502,32"/>
+<area shape="poly" title=" " alt="" coords="535,21,503,21,503,16,535,16"/>
+<area shape="rect" href="_t_a_s_k_s__1ms_8c.html#afb9caded33eef2ec19467eff02dfaaac" title="Function to be executed every 1ms." alt="" coords="240,5,325,32"/>
+<area shape="poly" title=" " alt="" coords="357,21,326,21,326,16,357,16"/>
+<area shape="rect" href="stm32f7xx__it_8c.html#adab6f3e22e90bd5b1ceebb98022abdf2" title="This function handles DMA2 stream1 global interrupt." alt="" coords="5,5,192,32"/>
+<area shape="poly" title=" " alt="" coords="224,21,192,21,192,16,224,16"/>
 </map>
 </div>
 

@@ -2,11 +2,11 @@
 
 En este capítulo se detalla la metodología seguida para el desarrollo del proyecto. Se incluye una explicación detallada de los principios que han fundamentado el desarrollo, el listado de las etapas del proyecto, y la descripción del uso de un repositorio de Git para gestionar el proyecto.
 
-\section{Filosofía}
+\section{Principios de diseño}
 
 \subsection{Calidad sobre objetivos}
 
-En la ejecución de este proyecto, se ha adoptado una postura estratégica que privilegia la calidad y precisión en cada fase del desarrollo por encima del cumplimiento de todos los objetivos planteados inicialmente. Esta decisión se fundamenta en la conciencia de que el trabajo actual es la primera parte de un esfuerzo continuo, y por tanto, es imperativo establecer una base sólida y bien definida que facilite futuras continuaciones y expansiones, promoviendo la visión a largo plazo del proyecto.
+En la ejecución de este proyecto, se ha adoptado una postura estratégica que privilegia la calidad y precisión en cada fase del desarrollo por encima del cumplimiento de todos los objetivos planteados inicialmente. Esta decisión se fundamenta en la conciencia de que el trabajo actual es una parte de un esfuerzo continuo, y por tanto, es imperativo establecer una base sólida y bien definida que facilite futuras continuaciones y expansiones, promoviendo la visión a largo plazo del proyecto.
 
 El enfoque en la calidad se justifica por varios motivos clave:
 
@@ -24,11 +24,11 @@ El enfoque en la calidad se justifica por varios motivos clave:
 A continuación, se detallan las decisiones específicas que se han tomado para garantizar que el trabajo realizado no solo cumpla con los objetivos inmediatos, sino que también sea de la más alta calidad y preparado para futuras expansiones:
 
 \begin{itemize}
-	\item \textbf{Documentación exhaustiva:} Se ha invertido tiempo en crear una documentación detallada y clara, tanto para el \textit{hardware} (esquemáticos con notas explicativas), como para el \textit{firmware} (documentación autogenerada a partir de comentarios).
+	\item \textbf{Documentación exhaustiva:} Se ha invertido tiempo en crear una documentación detallada y clara, tanto para el \textit{hardware} (esquemáticos con notas explicativas), como para el \textit{firmware} (documentación autogenerada a partir de comentarios muy detallados).
 	
 	\item \textbf{Revisión y validación minuciosa:} Cada etapa del desarrollo ha sido sometida a rigurosas revisiones y procesos de validación. Esto incluye pruebas unitarias exhaustivas, revisiones de código con personas externas al proyecto y pruebas de integración para asegurar que todos los componentes funcionen correctamente en conjunto.
 	
-	\item \textbf{Diseño modular:} El diseño del sistema ha sido cuidadosamente modularizado para permitir una fácil modificación y expansión. Cada módulo ha sido diseñado para ser independiente y cohesivo, facilitando su mantenimiento y actualización sin afectar el resto del sistema.
+	\item \textbf{Diseño modular:} El diseño de cada parte ha sido cuidadosamente modularizado para permitir una fácil modificación y expansión. Cada módulo ha sido diseñado para ser independiente y cohesivo, facilitando su mantenimiento y actualización sin afectar al resto del proyecto.
 	
 	\item \textbf{Código limpio y legible:} Se ha priorizado la legibilidad y claridad del código por encima de la optimización extrema. Esto no solo facilita el entendimiento y la modificación del código por parte de nuevos desarrolladores, sino que también reduce la probabilidad de errores y simplifica la depuración.
 \end{itemize}
@@ -46,13 +46,11 @@ Las razones por la que se cree que es necesario simplificar tanto como sea posib
 El trabajo consta de muchas partes relacionadas entre sí y se debe facilitar esta interacción entre las diferentes etapas del proyecto. Las decisiones que se han tomado para seguir esta filosofía son los siguientes:
 
 \begin{itemize}
-	\item \textbf{Minimizar la complejidad del diseño:} Se ha buscado simplificar el diseño del inversor evitando soluciones excesivamente complicadas. Se han priorizado diseños limpios y directos que cumplan con los requisitos del proyecto, mitigando posibles errores derivados de la complejidad.
+	\item \textbf{Minimizar la complejidad del diseño:} Se ha buscado simplificar el diseño del \textit{hardware} y del \textit{firmware} evitando soluciones excesivamente complicadas. Se han priorizado diseños limpios y directos que cumplan con los requisitos del proyecto, mitigando posibles errores derivados de la complejidad.
 	
-	\item \textbf{Fomentar la modularidad:} Se ha promovido la modularidad en el diseño, dividiendo el sistema en componentes independientes y altamente cohesivos. En cuanto al \textit{hardware}, se separa el diseño en varias placas, permitiendo la evolución independiente de cada una. En cuanto al código, se separan las funcionalidades por archivos, conectándolos solamente si fuera necesario.
-		
-	\item \textbf{Priorizar la legibilidad:} En el desarrollo del \textit{firmware} se ha dado prioridad a la claridad y legibilidad del código sobre la eficiencia extrema o la optimización prematura. En cuanto al \textit{hardware}, se ha optado por crear esquemáticos detallados con notas explicativas en todos lados, y en el diseño de las placas se han añadido marcas y textos que ayudan a identificar rápidamente componentes y zonas durante el ensamblaje y desarrollo.
+	\item \textbf{Utilizar herramientas y técnicas conocidas:} Se ha optado por utilizar herramientas y técnicas ampliamente conocidas y documentadas, como por ejemplo, la estrategia de modulación SVPWM o la topología VSI.
 	
-	\item \textbf{Simplificar los procesos de validación:} Se han diseñado procedimientos de prueba y validación simples, efectivos y reproducibles. Interesa que esta etapa sea ágil, y que durante las pruebas se pueda mantener el foco en los problemas relacionados estrictamente con lo que se está ensayando.	
+	\item \textbf{Simplificar los procesos de validación:} Se han diseñado procedimientos de prueba simples, efectivos y reproducibles. Interesa que esta etapa sea ágil, y que durante las pruebas se pueda mantener el foco en los problemas relacionados estrictamente con lo que se está ensayando.
 	
 \end{itemize}
 
@@ -92,7 +90,7 @@ El modelo en V es un enfoque de desarrollo y validación que organiza las etapas
 	\caption{Modelo en V para el desarrollo y validación de sistemas.}
 \end{figure}
 
-En el modelo en V, las etapas de desarrollo se encuentran en el lado izquierdo de la 'V', comenzando desde los requisitos del sistema hasta la implementación y codificación. Por otro lado, las etapas de validación se encuentran en el lado derecho de la 'V', comenzando desde las pruebas unitarias y de integración hasta las pruebas de sistema y aceptación.
+En el modelo en V, las etapas de diseño se encuentran en el lado izquierdo de la 'V', comenzando desde los requisitos del sistema hasta la implementación y codificación. Por otro lado, las etapas de validación se encuentran en el lado derecho de la 'V', comenzando desde las pruebas unitarias y de integración hasta las pruebas de sistema y aceptación.
 
 El modelo en V proporciona una estructura clara y sistemática para el desarrollo y validación del convertidor, asegurando que cada etapa tenga su correspondiente prueba de validación y que los resultados sean coherentes con los objetivos del proyecto. Sin embargo, es necesario ser pragmático y eficaz con la validación, puesto que tiende a llevar más tiempo del necesario si se sigue una metodología de forma estricta. Por ello, a lo largo de todo el proceso de diseño y de verificación se ha tomado la libertad de usar el modelo en V para aquello para lo que es útil, y ser más ágil con aquellas partes que lo requieran.
 
@@ -100,11 +98,11 @@ A continuación se enumeran las etapas del proyecto, aplicando pragmáticamente 
 \begin{enumerate}
 \item \textbf{Definición de requisitos}
 
-La primera etapa del proyecto se centra en la definición de los requisitos del inversor trifásico y su control. Aquí se establecen los objetivos, las especificaciones técnicas y los criterios que guiarán todo el desarrollo. Además, se identifican las necesidades y expectativas del equipo de Formula Student, asegurando que el proyecto cumpla con sus requerimientos específicos. La duración de esta etapa es excepcionalmente larga, pues requiere de mucha familiaridad con el entorno de la Formula Student y conocimiento sobre las necesidades reales del equipo.
+La primera etapa del proyecto se centra en la definición de los requisitos del inversor trifásico y su control. Aquí se establecen los objetivos, las especificaciones técnicas y los criterios que guiarán todo el desarrollo. Además, se identifican las necesidades y expectativas del equipo de Formula Student, asegurando que el proyecto cumpla con sus requerimientos específicos. La duración de esta etapa es excepcionalmente larga, pues requiere de mucha familiaridad con el entorno de la Formula Student y conocimiento sobre las necesidades reales del equipo. Se ha realizado a lo largo de los años, observando los problemas asociados a un inversor comercial que un inversor personalizado podría solucionar.
 
 \item \textbf{Modelo continuo y simulación del control}
 
-La siguiente etapa es el diseño del modelo en continuo y el desarrollo del control en Simulink. Aquí, se crea un modelo matemático del inversor y del motor PMSM y se implementa el control vectorial (FOC). Este proceso implica una comprensión profunda de la teoría detrás de los motores eléctricos y el diseño del control. Se basará en la representación de la energía macroscópica (EMR) con el fin de ilustrar la aplicación final del motor. La duración estimada para esta fase es de aproximadamente 2 meses.
+La siguiente etapa es el diseño del modelo en continuo y el desarrollo del control en Simulink. Aquí, se crea un modelo matemático del inversor y del motor PMSM y se implementa el control vectorial (FOC). Este proceso implica una comprensión profunda de la teoría detrás de los motores eléctricos y el diseño del control. Se basará en la representación macroscópica de la energía (EMR) con el fin de ilustrar la aplicación final del motor. La duración estimada para esta fase es de aproximadamente 2 meses.
 
 \item \textbf{Discretización del modelo y simulación de la conmutación}
 
@@ -116,7 +114,7 @@ Con el diseño del control y la simulación de la conmutación como base, se pro
 
 \item \textbf{Diseño del \textit{firmware}}
 
-Simultáneamente con el diseño del \textit{hardware}, se trabaja en el desarrollo del \textit{firmware}. Esto incluye programar el microcontrolador que controlará el inversor y la implementación del algoritmo de control. Se utilizará una placa de evaluación antes de tener la placa de control propia con tal de acelerar el desarrollo. La duración estimada para esta fase es de aproximadamente 4 meses.
+Simultáneamente con el diseño del \textit{hardware}, se trabaja en el desarrollo del \textit{firmware}. Esto incluye programar el microcontrolador que controlará el inversor y la implementación del algoritmo de control. Se utilizará una placa de evaluación antes de tener la placa de control propia con tal de acelerar el desarrollo. La duración estimada para esta fase es de aproximadamente 4 meses y se puede solapar con otras etapas.
 
 \item \textbf{Validación del \textit{hardware}}
 
@@ -170,19 +168,18 @@ Es importante destacar que las etapas de diseño del \textit{hardware} y del \te
 
 \section{Gestión del proyecto con Git}
 \subsection{Introducción a Git}
-Git es un sistema de control de versiones distribuido, diseñado para rastrear cambios en archivos y coordinar el trabajo entre múltiples personas en proyectos de desarrollo de \textit{software}. Utiliza un enfoque descentralizado, lo que significa que cada desarrollador tiene una copia completa del historial de cambios del proyecto. Git facilita el trabajo colaborativo, la gestión de cambios y la integración continua en proyectos de cualquier tamaño.
+Git es un sistema de control de versiones distribuido, diseñado para rastrear cambios en archivos y coordinar el trabajo entre múltiples personas en proyectos de desarrollo de \textit{software}. Utiliza un enfoque descentralizado, lo que significa que cada desarrollador tiene una copia completa del historial de cambios del proyecto. Git facilita el trabajo colaborativo, la gestión de cambios y la integración continua en proyectos de cualquier tamaño. Existen otros sistemas de control de versiones como SVN, pero Git es el más popular.
 
 \subsection{Funcionamiento de Git}
-Git trabaja mediante la creación de instantáneas (\textit{commits}) de los archivos en un repositorio. Cada vez que se realiza un cambio significativo en los archivos del proyecto, se crea un nuevo \textit{commit} que contiene una instantánea del estado de esos archivos en ese momento. Estos \textit{commits} se organizan en ramas (\textit{branches}), que permiten trabajar en paralelo en diferentes características o correcciones de errores sin afectar al código principal. Las ramas se fusionan (\textit{merge}) cuando el trabajo está completo y se quiere incorporar al código principal. En este proyecto solo se ha usado una rama puesto que solo hay un desarrollador.
+Git trabaja mediante la creación de instantáneas (\textit{commits}) de los archivos en un repositorio. Cada vez que se realiza un cambio significativo en los archivos del proyecto, el desarrollador crea un nuevo \textit{commit} que contiene una instantánea del estado de esos archivos en ese momento. Estos \textit{commits} se organizan en ramas (\textit{branches}), que permiten trabajar en paralelo en diferentes partes sin afectarse mutuamente. Las ramas se fusionan (\textit{merge}) cuando el trabajo está completo y se quiere incorporar al código principal. En este proyecto solo se ha usado una rama puesto que solo hay un desarrollador.
 
 \subsection{Por qué utilizar un sistema de control de versiones}
 El uso de un sistema de control de versiones como Git proporciona numerosos beneficios para el desarrollo de proyectos de ingeniería \cite{GestionProyectos}, incluyendo:
 
 \begin{itemize}
 	\item \textbf{Historial de cambios:} Permite mantener un registro detallado de todas las modificaciones realizadas en el código y otros archivos del proyecto, lo que facilita la identificación de errores y el seguimiento del progreso del desarrollo.
-	\item \textbf{Colaboración:} Facilita el trabajo en equipo al permitir que múltiples desarrolladores trabajen simultáneamente en diferentes aspectos del proyecto, sin temor a sobrescribir los cambios de los demás.
 	\item \textbf{Seguridad:} Proporciona una copia de seguridad del código en caso de pérdida o corrupción de los archivos locales.
-	\item \textbf{Experimentación:} Permite probar nuevas ideas y características en ramas separadas sin afectar al código principal.
+	\item \textbf{Experimentación:} Permite probar nuevas ideas y características con la tranquilidad de que la versión anterior está guardada.
 \end{itemize}
 
 \subsection{Uso de Git en el proyecto}
