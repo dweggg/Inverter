@@ -4,7 +4,7 @@
 
 <div align="center" style="background-color:#1a1a1a;padding:20px;">
 
-[![Status](https://img.shields.io/badge/Status-Active-green)](https://github.com/dweggg/Inverter)
+[![Status](https://img.shields.io/badge/Status-Inactive-red)](https://github.com/dweggg/Inverter)
 [![Version](https://img.shields.io/badge/Version-v1.1-red)](https://github.com/dweggg/Inverter/releases)
 [![License](https://img.shields.io/badge/License-CC--BY--NC--SA--4.0-yellow)](https://github.com/dweggg/Inverter/blob/main/LICENSE.md)
 
