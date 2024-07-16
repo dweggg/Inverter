@@ -62,7 +62,7 @@
 - [ ] Verificar en lazo cerrado de corriente consignando iq positiva (giro antihorario) y negativa (giro horario)
 
 
-## Enero - Febrero 2024
+## Enero - Febrero 2025
 ### Objetivo 9: CAN + control [SW]
 - [ ] Verificar COBIDs / frames con el database
 - [ ] Implementar MTPA rápido para pasar de Torque a id-iq
@@ -78,7 +78,7 @@
 - [ ] Montar setup con dos motores y control por CAN
 - [ ] Consignar par a los dos motores por CAN y ver el tema de las direcciones/etc. Evaluar tiempo de ejecución
 
-## Marzo - Julio 2024
+## Marzo - Julio 2025
 ### Objetivo 12: Preparar para competis (si os sale a cuenta, si no tirais con el Bamocar) [HW/SW]
 - [ ] Montar hardware bueno y de recambio
 - [ ] Puebas de fiabilidad y térmicas con cooling y tal
