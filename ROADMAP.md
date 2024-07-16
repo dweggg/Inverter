@@ -15,10 +15,11 @@
 - [ ] Implementar trips / otros errores que me haya dejado
 
 ### 🎯Objetivo 3: Aprovisionamiento [HW]
-- [ ] Comparar pérdidas de los dos semiconductores (casi seguro que os quedaréis con los de Wolfspeed, pero haced la comparación bien hecha)
-- [ ] Conseguir semiconductores (hablad con Angelo Sgura de Wolfspeed)
+- [ ] Comparar pérdidas de los dos semiconductores (ensayo como DC-DC una sola rama, con el semiconductor al aire pruebas a conmutar sin carga a varias frecuencias (1kHz-5kHz-10kHz-20kHz-30kHz-50kHz) y con una medida de temperatura y la R térmica sacas las pérdidas de conmutación en estado estacionario. Luego con una frecuencia de conmutación muy baja le metes varias cargas para que saque 5-10-20-50-80 amperios y con el mismo método sacas las de conducción. Comprobando también haciendo Pin-Pout)
+- [ ] Conseguir semiconductores (hablad con Angelo Sgura si os quedáis con el de Wolfspeed, o con Alexey de Infineon que os dirá quién está en marketing/ventas de Leapers)
 - [ ] Conseguir más film caps de DC-link y fuentes de drivers (hablad con Mireia de Murata)
 - [ ] Conseguir drivers/LDOs (hablad con Marcos de Texas Instruments)
+- [ ] Pedir contactos a David R.
 - [ ] Conseguir micros (unos cuantos F7s para prevenir desastres y mirar otros micros como alternativa, idealmente más baratos y más rápidos)
 - [ ] Hablar fabricación y montaje de las placas con varios fabricantes a ver si os sale todo gratis
 
