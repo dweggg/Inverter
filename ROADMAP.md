@@ -12,6 +12,7 @@
 ### Objetivo 2: Puesta en marcha [HW/SW]
 - [ ] Repetir algún ensayo de los que aparecen en la memoria
 - [ ] Hacer un open loop (V/f) con los motores que tenéis o con los antiguos
+- [ ] Implementar trips / otros errores que me haya dejado
 
 ### Objetivo 3: Aprovisionamiento [HW]
 - [ ] Comparar pérdidas de los dos semiconductores (casi seguro que os quedaréis con los de Wolfspeed, pero haced la comparación bien hecha)
