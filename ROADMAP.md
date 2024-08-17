@@ -13,6 +13,7 @@
 - [ ] Repetir algún ensayo de los que aparecen en la memoria
 - [ ] Hacer un open loop (V/f) con los motores que tenéis o con los antiguos
 - [ ] Implementar trips / otros errores que me haya dejado
+- [ ] Lectura, comprensión y limpieza del código
 
 ### 🎯Objetivo 3: Aprovisionamiento [HW]
 - [ ] Comparar pérdidas de los dos semiconductores (ensayo como DC-DC una sola rama, con el semiconductor al aire pruebas a conmutar sin carga a varias frecuencias (1kHz-5kHz-10kHz-20kHz-30kHz-50kHz) y con una medida de temperatura y la R térmica sacas las pérdidas de conmutación en estado estacionario. Luego con una frecuencia de conmutación muy baja le metes varias cargas para que saque 5-10-20-50-80 amperios y con el mismo método sacas las de conducción. Comprobando también haciendo Pin-Pout)
